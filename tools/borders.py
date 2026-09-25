@@ -98,3 +98,59 @@ def load_centroids():
     OUT.mkdir(exist_ok=True)
     cache.write_text("".join(f"{n}\t{x:.1f}\t{y:.1f}\n" for n, (x, y) in cent.items()))
     return cent
+
+
+FIT_P95_MAX_PX = 60  # ~1.3 deg of longitude
+
+# location: (lat, lon) of the real place it is named after
+ANCHORS = {
+    "rome": (41.90, 12.50), "constantinople": (41.01, 28.98), "alexandria": (31.20, 29.92),
+    "london": (51.51, -0.13), "lisbon": (38.72, -9.14), "paris": (48.86, 2.35),
+    "cairo": (30.04, 31.24), "baghdad": (33.31, 44.36), "delhi": (28.61, 77.21),
+    "moscow": (55.76, 37.62), "tenochtitlan": (19.43, -99.13), "quito": (-0.18, -78.47),
+    "timbuktu": (16.77, -3.01), "dadu": (39.90, 116.40), "hangzhou": (30.27, 120.16),
+    "kyoto": (35.01, 135.77), "malacca": (2.19, 102.25), "mombasa": (-4.04, 39.67),
+    "sofala": (-20.15, 34.72), "hormuz": (27.10, 56.45), "samarkand": (39.65, 66.96),
+    "kashgar": (39.47, 75.99), "novgorod": (58.52, 31.27), "bergen": (60.39, 5.32),
+    "marrakesh": (31.63, -7.99), "fez": (34.03, -5.00), "goa": (15.49, 73.83),
+    "ternate": (0.79, 127.38),
+}
+HOLDOUT = {"tunis": (36.81, 10.18)}
+_LAT = np.linspace(-60, 80, 14001)  # land we assign; cubic stays monotonic here (tested)
+
+
+def fit_projection(cent, anchors=ANCHORS):
+    names = [n for n in anchors if n in cent]
+    lat = np.array([anchors[n][0] for n in names])
+    lon = np.array([anchors[n][1] for n in names])
+    ax = np.polyfit(lon, [cent[n][0] for n in names], 1)
+    ay = np.polyfit(lat, [cent[n][1] for n in names], 3)
+    return ax, ay
+
+
+def to_pixel(proj, lat, lon):
+    ax, ay = proj
+    return np.polyval(ax, lon), np.polyval(ay, lat)
+
+
+def to_lonlat(proj, x, y):
+    ax, ay = proj
+    lon = (np.asarray(x, dtype=float) - ax[1]) / ax[0]
+    lon = (lon + 180) % 360 - 180
+    ygrid = np.polyval(ay, _LAT)
+    order = np.argsort(ygrid)
+    return lon, np.interp(y, ygrid[order], _LAT[order])
+
+
+def fit_errors(proj, cent, anchors):
+    errs = {}
+    for n, (lat, lon) in anchors.items():
+        if n in cent:
+            px, py = to_pixel(proj, lat, lon)
+            errs[n] = float(np.hypot(px - cent[n][0], py - cent[n][1]))
+    return errs
+
+
+def error_stats(errs):
+    v = np.array(list(errs.values()))
+    return {"mean": v.mean(), "median": float(np.median(v)), "p95": float(np.percentile(v, 95)), "max": v.max()}

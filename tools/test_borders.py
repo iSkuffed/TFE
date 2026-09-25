@@ -43,3 +43,23 @@ def test_centroids_cover_the_map():
     assert len(cent) > 25000
     assert cent["constantinople"][0] > cent["rome"][0]   # east of Rome
     assert cent["cairo"][1] > cent["rome"][1]             # image y grows southward
+
+
+import numpy as np
+
+
+def test_projection_fit_is_accurate():
+    cent = b.load_centroids()
+    proj = b.fit_projection(cent)
+    st = b.error_stats(b.fit_errors(proj, cent, b.ANCHORS))
+    assert st["p95"] <= b.FIT_P95_MAX_PX, st
+    assert b.fit_errors(proj, cent, b.HOLDOUT)["tunis"] <= b.FIT_P95_MAX_PX
+
+
+def test_projection_roundtrip_and_monotonic():
+    proj = b.fit_projection(b.load_centroids())
+    x, y = b.to_pixel(proj, 41.9, 12.5)
+    lon, lat = b.to_lonlat(proj, x, y)
+    assert abs(lon - 12.5) < 0.01 and abs(lat - 41.9) < 0.01
+    d = np.diff(np.polyval(proj[1], b._LAT))
+    assert (d > 0).all() or (d < 0).all()
