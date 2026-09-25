@@ -30,7 +30,7 @@ relations, start date, mechanics, events. Vanilla 1337 pops/buildings/roads rema
 
 ## Approach: hybrid
 
-1. **Whole-world draft** from `historical-basemaps` `world_400.geojson` (aourednik, pinned copy):
+1. **Whole-world draft** (scaffolding only — curated overrides are authoritative) from `historical-basemaps` `world_400.geojson` (aourednik, pinned copy):
    location centroid → containing polygon → tag via `tag_map.txt`.
 2. **Hand-curated override batches** (Notitia Dignitatum diocese structure, Barrington Atlas
    frontiers) applied last; overrides always win. Batches: `west` first, then `east_med`, then
@@ -56,12 +56,15 @@ TFE/
 
 1. Parse `named_locations` (colour → name) and `definitions.txt` (name → province/area/region).
 2. Compute each location's pixel centroid from `locations.png` (numpy; run via `uv run --with numpy,pillow,shapely`).
-3. Fit pixel ↔ lon/lat from ~15 anchor cities with known coordinates; print residuals; **fail if mean error > threshold**.
+3. Fit pixel ↔ lon/lat from ~15 anchor cities spread across the globe; print mean/median/p95/max residuals; **fail if p95 error > threshold**.
 4. Point-in-polygon each centroid against the dataset → tag via `tag_map.txt`.
 5. Apply override files in order (area < province < location granularity resolved by file order; later wins).
 6. Emit `10_countries.txt` (all land as `own_control_core`).
-7. Checks: every override/tag_map key exists; every tag used is defined in `tfe_countries.txt`; no location owned twice; per-tag location counts printed.
+7. Checks: every override/tag_map key exists; every tag used is defined in `tfe_countries.txt`; no location owned twice; every land location has exactly one source (owner or explicit `none`, from a polygon or an override) — land locations falling in no polygon and no override are reported, and are errors inside curated batch areas; per-tag location counts printed.
 8. Render `tools/out/owners.png` (downscaled owner map) for review before launching.
+9. `borders.py explain <location>` prints: dataset polygon + mapped tag, every override that hit it (file:line), final tag.
+
+Override and tag_map files keep `#` comments; disputed or researched boundary choices carry a source note.
 
 Water, lakes and wasteland locations are never assigned.
 
@@ -91,7 +94,7 @@ New tags only (no vanilla tag reuse, to avoid 1337 flavour hooks).
 - **Unowned:** Venethi/early Slavic and Finnic lands; "Empire of Ghana" polygon (weak evidence
   for c. 400).
 
-Subject relationships are noted but deferred to the diplomacy pass.
+Landed foederati/clients are a gameplay abstraction, not a claim of full sovereignty (e.g. Alaric's Goths held Roman land under treaty). Subject relationships are deferred to the diplomacy pass.
 
 ## Rest of world (dataset draft + corrections)
 
@@ -121,4 +124,8 @@ institutions, religion manager kept vanilla unless they block loading.
 
 1. `borders.py` checks pass (fit threshold, names, uniqueness, tag definitions).
 2. `owners.png` reviewed against 395 reference maps.
-3. User launches EU5; `logs/error.log` read for mod-caused errors; user reviews map in-game.
+3. User launches EU5; user reviews map in-game.
+
+Acceptance: `borders.py` reports zero invalid names, undefined tags, duplicate owners, and
+unsourced land locations; `error.log` has no errors from generated ownership, TFE tag
+definitions, or dangling references to removed vanilla tags.
