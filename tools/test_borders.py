@@ -130,3 +130,23 @@ def test_dataset_owner_within_and_nearest():
     assert got["in"][0] == "AAA" and "(within)" in got["in"][1]
     assert got["near"][0] == "AAA" and "(nearest)" in got["near"][1]
     assert "far" not in got
+
+
+def test_emit_countries_lists_each_location_once():
+    tags = {"AAA": _tag(template="catholic_monarchy"), "BBB": _tag(template="eurasian_tribe")}
+    owned = {"AAA": ["l1", "l2"], "BBB": ["l3"]}
+    text = b.emit_countries(tags, owned, {"AAA": "l1", "BBB": "l3"})
+    body = re.findall(r"own_control_core = \{([^}]*)\}", text)
+    locs = [l for blk in body for l in blk.split()]
+    assert sorted(locs) == ["l1", "l2", "l3"]
+    assert text.count("{") == text.count("}")
+    assert 'include = "eurasian_tribe"' in text and "capital = l3" in text
+
+
+def test_emit_definitions_and_localization():
+    tags = {"AAA": _tag(name="Western Roman Empire", adj="Western Roman", culture="roman_culture", religion="catholic")}
+    d = b.emit_definitions(tags)
+    assert "AAA = {" in d and "culture_definition = roman_culture # PLACEHOLDER" in d
+    loc = b.emit_localization(tags)
+    assert loc.startswith("﻿l_english:\n")
+    assert ' AAA: "Western Roman Empire"' in loc and ' AAA_ADJ: "Western Roman"' in loc
