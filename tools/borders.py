@@ -154,3 +154,166 @@ def fit_errors(proj, cent, anchors):
 def error_stats(errs):
     v = np.array(list(errs.values()))
     return {"mean": v.mean(), "median": float(np.median(v)), "p95": float(np.percentile(v, 95)), "max": v.max()}
+
+
+NEAREST_MAX_DEG = 1.0  # coastal locations whose centroid falls just outside the coarse dataset coastline
+
+
+def parse_kv_file(path):
+    for no, raw in enumerate(Path(path).read_text(encoding="utf-8").splitlines(), 1):
+        line = raw.split("#", 1)[0].strip()
+        if not line:
+            continue
+        if line.startswith("!"):
+            yield no, "!", line[1:].split()
+            continue
+        k, sep, v = line.partition("=")
+        if not sep:
+            raise ValueError(f"{Path(path).name}:{no}: expected 'key = value'")
+        yield no, k.strip(), v.strip()
+
+
+def load_tags(path=TOOLS / "tags.txt"):
+    tags = {}
+    for no, raw in enumerate(Path(path).read_text(encoding="utf-8").splitlines(), 1):
+        line = raw.split("#", 1)[0].strip()
+        if not line:
+            continue
+        f = [c.strip() for c in line.split("|")]
+        if len(f) != 8:
+            raise ValueError(f"tags.txt:{no}: expected 8 '|' fields, got {len(f)}")
+        tag, name, adj, capital, template, culture, religion, rgb = f
+        if tag in tags:
+            raise ValueError(f"tags.txt:{no}: duplicate tag {tag}")
+        tags[tag] = dict(name=name, adj=adj, capital=capital, template=template, culture=culture,
+                         religion=religion, rgb=tuple(int(c) for c in rgb.split()), line=no)
+    return tags
+
+
+def load_tag_map(path=TOOLS / "tag_map.txt"):
+    return {k: v for _, k, v in parse_kv_file(path)}
+
+
+def load_overrides(files):
+    entries, scopes = [], set()
+    for f in files:
+        for no, k, v in parse_kv_file(f):
+            if k != "!":
+                entries.append((f"{Path(f).name}:{no}", k, v))
+            elif v[0] == "scope":
+                scopes.update(v[1:])
+            else:
+                raise ValueError(f"{Path(f).name}:{no}: unknown directive !{v[0]}")
+    return entries, scopes
+
+
+def load_dataset():
+    from shapely.geometry import shape
+    feats = json.loads((TOOLS / "world_400.geojson").read_text())["features"]
+    return [shape(f["geometry"]) for f in feats], [f["properties"].get("NAME") or "" for f in feats]
+
+
+def dataset_owner(lonlat, geoms, names, tag_map):
+    from shapely import STRtree, points
+    tree = STRtree(geoms)
+    locs = list(lonlat)
+    pts = points(np.array([lonlat[l] for l in locs], dtype=float))
+    hit = {}
+    for i, g in zip(*tree.query(pts, predicate="within")):
+        hit.setdefault(locs[i], (names[g], "within"))
+    miss = [i for i, l in enumerate(locs) if l not in hit]
+    if miss:
+        for i, g in zip(*tree.query_nearest(pts[miss], max_distance=NEAREST_MAX_DEG)):
+            hit.setdefault(locs[miss[i]], (names[g], "nearest"))
+    out = {}
+    for loc, (n, how) in hit.items():
+        val = tag_map.get(n, "none") if n else "none"
+        out[loc] = (val, f"dataset:{n or '(unnamed)'} ({how}) -> {val}")
+    return out
+
+
+def assign(land, anc, ds, entries):
+    owner, trail = {}, {l: [] for l in land}
+    for loc, (val, src) in ds.items():
+        if loc in land:
+            owner[loc] = val
+            trail[loc].append(src)
+    members = {}
+    for loc in land:
+        for name in (loc, *anc.get(loc, ())):
+            members.setdefault(name, []).append(loc)
+    known = set(anc) | {n for a in anc.values() for n in a}
+    errors = []
+    for src, key, val in entries:
+        if key not in known:
+            errors.append(f"{src}: unknown location/province/area/region '{key}'")
+            continue
+        for loc in members.get(key, ()):
+            owner[loc] = val
+            trail[loc].append(f"{src} {key} = {val}")
+    return owner, trail, errors
+
+
+def vanilla_keys(folder):
+    return {m for f in Path(folder).glob("*.txt")
+            for m in re.findall(r"^(\w+)\s*=\s*\{", f.read_text(encoding="utf-8-sig"), re.M)}
+
+
+def check_tags(tags, vanilla_tags, templates, cultures, religions, locations):
+    errors = []
+    for t, d in tags.items():
+        where = f"tags.txt:{d['line']} {t}"
+        if not TAG_RE.match(t):
+            errors.append(f"{where}: tag must match [A-Z][A-Z0-9]{{2}}")
+        if t in vanilla_tags:
+            errors.append(f"{where}: collides with a vanilla tag")
+        for what, pool in (("template", templates), ("culture", cultures), ("religion", religions)):
+            if d[what] not in pool:
+                errors.append(f"{where}: unknown {what} '{d[what]}'")
+        if d["capital"] != "-" and d["capital"] not in locations:
+            errors.append(f"{where}: unknown capital '{d['capital']}'")
+        if len(d["rgb"]) != 3:
+            errors.append(f"{where}: rgb needs 3 numbers")
+    return errors
+
+
+def check_tag_map(tag_map, dataset_names, tags):
+    errors = [f"dataset polity '{n}' has no tag_map entry" for n in sorted(dataset_names - set(tag_map)) if n]
+    errors += [f"tag_map: '{n}' is not in the dataset" for n in sorted(set(tag_map) - dataset_names)]
+    errors += [f"tag_map: '{n}' -> undefined tag '{v}'" for n, v in tag_map.items() if v != "none" and v not in tags]
+    return errors
+
+
+def check_values(entries, tags):
+    return [f"{src}: undefined tag '{v}'" for src, _, v in entries if v != "none" and v not in tags]
+
+
+def check_coverage(land, owner, anc, scopes):
+    missing = sorted(l for l in land if l not in owner)
+    inside = [l for l in missing if scopes & {l, *anc.get(l, ())}]
+    errors = [f"{len(inside)} unsourced land locations in curated scope: {' '.join(inside[:40])}"] if inside else []
+    rest = len(missing) - len(inside)
+    warnings = [f"{rest} unsourced land locations outside curated scope (left unowned)"] if rest else []
+    return errors, warnings
+
+
+def owned_by_tag(owner):
+    out = {}
+    for loc, val in owner.items():
+        if val != "none":
+            out.setdefault(val, []).append(loc)
+    return {t: sorted(v) for t, v in out.items()}
+
+
+def resolve_capitals(tags, owned):
+    caps, warnings, errors = {}, [], []
+    for t, locs in owned.items():
+        cap = tags[t]["capital"]
+        if cap == "-":
+            caps[t] = locs[0]
+            warnings.append(f"{t}: no capital set, using {locs[0]}")
+        elif cap in locs:
+            caps[t] = cap
+        else:
+            errors.append(f"{t}: capital '{cap}' is not owned by {t}")
+    return caps, warnings, errors

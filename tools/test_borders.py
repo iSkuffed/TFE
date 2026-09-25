@@ -63,3 +63,70 @@ def test_projection_roundtrip_and_monotonic():
     assert abs(lon - 12.5) < 0.01 and abs(lat - 41.9) < 0.01
     d = np.diff(np.polyval(proj[1], b._LAT))
     assert (d > 0).all() or (d < 0).all()
+
+
+def _anc(region, area, prov):
+    return ("cont", "sub", region, area, prov)
+
+
+def test_overrides_later_line_wins_and_unknown_key_errors(tmp_path):
+    f = tmp_path / "10_x.txt"
+    f.write_text("!scope reg\narea1 = AAA  # note\nloc2 = none\nbogus = AAA\n")
+    entries, scopes = b.load_overrides([f])
+    anc = {"loc1": _anc("reg", "area1", "prov1"), "loc2": _anc("reg", "area1", "prov1"),
+           "loc3": _anc("reg", "area2", "prov2")}
+    ds = {"loc3": ("BBB", "dataset:X (within) -> BBB")}
+    owner, trail, errors = b.assign(set(anc), anc, ds, entries)
+    assert owner == {"loc1": "AAA", "loc2": "none", "loc3": "BBB"}
+    assert scopes == {"reg"}
+    assert errors == ["10_x.txt:4: unknown location/province/area/region 'bogus'"]
+    assert trail["loc2"] == ["10_x.txt:2 area1 = AAA", "10_x.txt:3 loc2 = none"]
+
+
+def test_coverage_flags_unsourced_only_in_scope():
+    anc = {"a": _anc("reg", "ar", "p"), "c": _anc("other", "ar2", "p2")}
+    errors, warnings = b.check_coverage({"a", "c"}, {}, anc, {"reg"})
+    assert len(errors) == 1 and " a" in errors[0]
+    assert len(warnings) == 1
+
+
+def _tag(**kw):
+    d = dict(name="N", adj="A", capital="-", template="t1", culture="c1", religion="r1", rgb=(1, 2, 3), line=1)
+    d.update(kw)
+    return d
+
+
+def test_check_tags():
+    tags = {"AAA": _tag(), "BYZ": _tag(), "bad": _tag(), "CCC": _tag(template="x", culture="x", religion="x", capital="nowhere")}
+    errs = b.check_tags(tags, {"BYZ"}, {"t1"}, {"c1"}, {"r1"}, {"rome"})
+    joined = "\n".join(errs)
+    assert "AAA" not in joined
+    assert "BYZ" in joined and "collides" in joined
+    assert "bad" in joined
+    for what in ("template", "culture", "religion", "capital"):
+        assert f"CCC: unknown {what}" in joined
+
+
+def test_check_tag_map_and_values():
+    errs = b.check_tag_map({"Rome": "AAA", "Ghost": "none", "Persia": "ZZZ"}, {"Rome", "Persia", "Huns"}, {"AAA": _tag()})
+    joined = "\n".join(errs)
+    assert "'Huns' has no tag_map entry" in joined
+    assert "'Ghost' is not in the dataset" in joined
+    assert "ZZZ" in joined
+    assert b.check_values([("f:1", "k", "QQQ"), ("f:2", "k", "none")], {"AAA": _tag()}) == ["f:1: undefined tag 'QQQ'"]
+
+
+def test_resolve_capitals():
+    tags = {"AAA": _tag(capital="rome"), "BBB": _tag(capital="-"), "CCC": _tag(capital="milano")}
+    caps, warns, errs = b.resolve_capitals(tags, {"AAA": ["rome"], "BBB": ["x", "y"], "CCC": ["z"]})
+    assert caps == {"AAA": "rome", "BBB": "x"}
+    assert len(warns) == 1 and errs == ["CCC: capital 'milano' is not owned by CCC"]
+
+
+def test_dataset_owner_within_and_nearest():
+    from shapely.geometry import box
+    geoms, names = [box(0, 0, 10, 10)], ["Rome"]
+    got = b.dataset_owner({"in": (5, 5), "near": (10.5, 5), "far": (50, 50)}, geoms, names, {"Rome": "AAA"})
+    assert got["in"][0] == "AAA" and "(within)" in got["in"][1]
+    assert got["near"][0] == "AAA" and "(nearest)" in got["near"][1]
+    assert "far" not in got
