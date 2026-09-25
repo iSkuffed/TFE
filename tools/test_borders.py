@@ -8,12 +8,14 @@ STUBS = ["05_characters", "07_cities_and_buildings", "11_art", "12_diplomacy", "
          "25_area_preferences", "26_ai_personalities", "27_armies"]
 
 
-def test_stubs_have_no_tag_references():
+def test_stubs_only_reference_tfe_tags():
+    tfe = set(b.load_tags())
     for name in STUBS:
         text = (START / f"{name}.txt").read_text(encoding="utf-8-sig")
         code = re.sub(r"#[^\n]*", "", text)
         assert code.count("{") == code.count("}"), name
-        assert not re.search(r"\b(tag|country|first|second)\s*=\s*[A-Z][A-Z0-9]{2}\b", code), name
+        refs = set(re.findall(r"\b(?:tag|country|first|second)\s*=\s*([A-Z][A-Z0-9]{2})\b", code))
+        assert refs <= tfe, (name, refs - tfe)
 
 
 import sys
@@ -210,3 +212,26 @@ def test_emit_countries_writes_rank_and_discovery():
     assert text.index("include =") < text.index("country_rank = rank_empire")   # after template: overrides it
     assert re.search(r"discovered_regions = \{\s*r1 r2\s*\}", text)
     assert text.count("{") == text.count("}")
+
+
+def test_emit_countries_uses_government_lines():
+    govs = {"AAA": ["ruler = c_a", "heir = c_b"]}
+    text = b.emit_countries({"AAA": _tag(), "BBB": _tag()}, {"AAA": ["l1"], "BBB": ["l2"]}, {"AAA": "l1", "BBB": "l2"},
+                            governments=govs)
+    a, bb = text.split("BBB = {")
+    assert "ruler = c_a" in a and "heir = c_b" in a and "ruler = random" not in a
+    assert "ruler = random" in bb
+
+
+def test_load_governments_groups_lines_and_flags_unlanded(tmp_path):
+    f = tmp_path / "g.txt"
+    f.write_text("AAA = ruler = c_a  # note\nAAA = heir = c_b\nZZZ = ruler = c_z\n", encoding="utf-8")
+    govs, errs = b.load_governments(f, {"AAA": ["l1"]})
+    assert govs == {"AAA": ["ruler = c_a", "heir = c_b"]}
+    assert errs == ["g.txt:3: ZZZ owns no land"]
+
+
+def test_splice_dynasties_keeps_vanilla_and_adds_ours():
+    out = b.splice_dynasties("dynasty_manager = {\n\ta_dynasty = { }\n}\n", "\tb_dynasty = { }\n")
+    assert out.index("a_dynasty") < out.index("b_dynasty") < out.rindex("}")
+    assert out.count("{") == out.count("}")

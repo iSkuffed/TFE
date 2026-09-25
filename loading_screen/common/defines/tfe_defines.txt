@@ -1,0 +1,4 @@
+﻿# TFE: the campaign opens the day after Theodosius I died (17 Jan 395); character ages count from here
+NGame = {
+	START_DATE = "395.1.18"
+}

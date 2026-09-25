@@ -1,0 +1,208 @@
+﻿# TFE: late-Roman court fashion was clean-shaven (Theodosian coinage, the Stilicho diptych).
+# Same pattern as vanilla 01_historical_chr.txt.
+tfe_historical_characters = {
+	usage = game
+	selection_behavior = max
+	priority = 99
+
+	tfe_honorius = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = beards
+				template = no_beard
+				range = { 0 1 } # For the randomness to work correctly
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 500
+				exists = this
+				exists = character:tfe_honorius
+				this = character:tfe_honorius
+			}
+		}
+	}
+
+	tfe_arcadius = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = beards
+				template = no_beard
+				range = { 0 1 } # For the randomness to work correctly
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 500
+				exists = this
+				exists = character:tfe_arcadius
+				this = character:tfe_arcadius
+			}
+		}
+	}
+
+	tfe_stilicho = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = beards
+				template = no_beard
+				range = { 0 1 } # For the randomness to work correctly
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 500
+				exists = this
+				exists = character:tfe_stilicho
+				this = character:tfe_stilicho
+			}
+		}
+	}
+
+	tfe_eucherius = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = beards
+				template = no_beard
+				range = { 0 1 } # For the randomness to work correctly
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 500
+				exists = this
+				exists = character:tfe_eucherius
+				this = character:tfe_eucherius
+			}
+		}
+	}
+
+	tfe_rufinus = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = beards
+				template = no_beard
+				range = { 0 1 } # For the randomness to work correctly
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 500
+				exists = this
+				exists = character:tfe_rufinus
+				this = character:tfe_rufinus
+			}
+		}
+	}
+
+	tfe_eutropius = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = beards
+				template = no_beard
+				range = { 0 1 } # For the randomness to work correctly
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 500
+				exists = this
+				exists = character:tfe_eutropius
+				this = character:tfe_eutropius
+			}
+		}
+	}
+
+	tfe_symmachus = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = beards
+				template = no_beard
+				range = { 0 1 } # For the randomness to work correctly
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 500
+				exists = this
+				exists = character:tfe_symmachus
+				this = character:tfe_symmachus
+			}
+		}
+	}
+
+	tfe_constantius = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = beards
+				template = no_beard
+				range = { 0 1 } # For the randomness to work correctly
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 500
+				exists = this
+				exists = character:tfe_constantius
+				this = character:tfe_constantius
+			}
+		}
+	}
+
+	tfe_aetius = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = beards
+				template = no_beard
+				range = { 0 1 } # For the randomness to work correctly
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 500
+				exists = this
+				exists = character:tfe_aetius
+				this = character:tfe_aetius
+			}
+		}
+	}
+
+	tfe_gildo = {
+		dna_modifiers = {
+			accessory = {
+				mode = add
+				gene = beards
+				template = no_beard
+				range = { 0 1 } # For the randomness to work correctly
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 500
+				exists = this
+				exists = character:tfe_gildo
+				this = character:tfe_gildo
+			}
+		}
+	}
+
+}

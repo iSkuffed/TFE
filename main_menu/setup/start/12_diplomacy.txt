@@ -1,3 +1,5 @@
-# TFE stub: 1337 content removed
+# TFE 395: subject relations
 diplomacy_manager = {
+	# Alaric's Goths, foederati of the East under the foedus of 3 Oct 382
+	dependency = { first = EAR second = VIS subject_type = vassal start_date = 382.10.3 }
 }

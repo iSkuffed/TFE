@@ -1,0 +1,55 @@
+# TAG = <line inside the country's government block>; lines accumulate in order. Characters: main_menu/setup/start/05_characters.txt
+# regnal_numbers count the current ruler (vanilla FRA 1337: Philip VI -> name_philip = 6).
+
+# Honorius is 10: Stilicho rules as regent (claimed guardianship of both sons, Zosimus 5.4) until Honorius turns 16
+WRE = ruler = tfe_honorius
+WRE = regency = nobles_estate_regency
+WRE = active_regent = tfe_stilicho
+WRE = start_regency_date = 395.1.17
+WRE = end_regency_date = 400.9.9
+WRE = regnal_numbers = { name_valentinian = 2 }
+
+EAR = ruler = tfe_arcadius
+EAR = ruler_term = { character = tfe_theodosius_i start_date = 379.1.19 end_date = 395.1.17 regnal_number = 1 }
+
+VIS = ruler = tfe_alaric
+HAS = ruler = tfe_godigisel
+HAS = heir = tfe_gunderic
+BGD = ruler = tfe_gibica
+BGD = heir = tfe_gundahar
+FRK = ruler = tfe_marcomer
+QAD = ruler = tfe_fritigil
+HNS = ruler = tfe_uldin
+CQT = ruler = tfe_niall
+MUM = ruler = tfe_conall_corc
+VOT = ruler = tfe_cunedda
+
+SAS = ruler = tfe_bahram_iv
+SAS = heir = tfe_yazdegerd_i
+SAS = designated_heir_reason = sibling_of_ruler
+SAS = ruler_term = { character = tfe_shapur_iii start_date = 383.8.19 end_date = 388.8.1 regnal_number = 3 }
+SAS = regnal_numbers = { name_bahram = 4 name_shapur = 3 }
+HIM = ruler = tfe_malkikarib
+HIM = heir = tfe_abikarib
+HIM = designated_heir_reason = corruler
+
+GUP = ruler = tfe_chandragupta_ii
+GUP = consort = tfe_dhruvadevi
+GUP = heir = tfe_kumaragupta_i
+GUP = regnal_numbers = { name_chandragupta = 2 name_samudragupta = 1 }
+KDB = ruler = tfe_bhagiratha
+LKA = ruler = tfe_upatissa_i
+
+JIN = ruler = tfe_sima_yao
+JIN = heir = tfe_sima_dezong
+LYN = ruler = tfe_murong_chui
+LYN = heir = tfe_murong_bao
+LLI = ruler = tfe_lu_guang
+GOG = ruler = tfe_gwanggaeto
+GOG = heir = tfe_jangsu
+BAE = ruler = tfe_asin
+BAE = heir = tfe_jeonji
+SIL = ruler = tfe_naemul
+
+TTH = ruler = tfe_spearthrower_owl
+TKL = ruler = tfe_yax_nuun_ahiin

@@ -113,7 +113,8 @@ countries = {
 			include = "east_asia_monarchy"
 			country_rank = rank_kingdom
 			government = {
-				ruler = random
+				ruler = tfe_asin
+				heir = tfe_jeonji
 			}
 		}
 		BAQ = { # Baquates
@@ -150,7 +151,8 @@ countries = {
 			include = "eurasian_tribe"
 			country_rank = rank_duchy
 			government = {
-				ruler = random
+				ruler = tfe_gibica
+				heir = tfe_gundahar
 			}
 		}
 		BMY = { # Blemmyes
@@ -202,7 +204,7 @@ countries = {
 			include = "gaelic_tribe"
 			country_rank = rank_duchy
 			government = {
-				ruler = random
+				ruler = tfe_niall
 			}
 		}
 		DAX = { # Danes
@@ -242,71 +244,69 @@ countries = {
 				akhmim akkus aksaray aksehir akyazi al_bab al_bayda al_khuimat al_mima al_quwayrah
 				alaiye alasehir aleppo alexandria altinekin altintas amasra amasya amman amorgos
 				anamur anavarza andravida andritsaina andros angelokastron anhialo ankara antalya antioch
-				aqaba arac arak arapgir archar argos arguvan argyrokastro arsuz arta
-				artah ashmunayn aslanapa astros aswan asyut atalanti atfih athens atpazari
-				avlonya ayas ayasuluk aydincik ayntab aytos ayvacik azraq baalbek babadag
-				bafra bahariyya balat balikesir baliseyh ballsh balya banaz bandirma baniyas
-				bansko bar_cg barca baris bartin bayat bayburt bayramic bayramlu beden
-				beersheba beirut bekarlar belgrad benghazi beni_suef berat bergama besni beypazari
-				beysehir biga bigadic bilbeis bilecik birgi bitola bodonitsa bodrum bogazliyan
-				bolu bolvadin bor_tur boruy bosra boyabat bozan bozhenitsa bozok branicevo
-				brskovo brvenik budimlja bukelon burdur burgas burraq bursa butrint cairo
-				can canakkale candia candir candir_cil cankiri catalca caxud celtik cephalonia
-				cerkes cernavoda cesme chalandritsa chania cherven chios cine comana_cil constanta
-				constantia_bul constantinople corfu corinth corlu corum corycus cubuk cumra dabiq
-				dakahla damala damanhur damascus damietta dara darende dasmenda debar deir_qamar
-				deliktash demetrias demirci demotica derna develi devol devrekani dinar dinek_keskin
-				divrigi dluk dobrolak domanic dospat drama drastar dukagjini dupnitsa durres
-				dursunbey edessa edfu edirne edremit egin egirdir el_agheila el_alamein el_arish
-				el_bahnasa el_balyana el_burullus el_buwit el_jundi el_mahalla el_qoseir el_tor elassona elbasan
-				elbistan elhovo elmali elounda emet emirdag enez enguzud enisala eregli
-				eregli_kar eretreia ermenek ermioni eskil esna eynegol faiyum famagusta faqus
-				faran farsala finike florina foca fuwa gadegara gallipoli gaza gediz
-				gemerek gerede gerger gergeri gerze giannitsa gigen giresun giza gjakova
-				glubocica gokabat goksun golhisar gonen gordes gorele goynuk gradina gravia
-				grevena gumus gumushane gurun guzelhisar gynaikokastro hacibektas hafik hagios_pavlos hama
-				hargan harmancik harsova has haskovo hatera hatunsaray haymana hayrabolu hebron
-				hiambouli hiw homs honaz hotalich huseyinabad huwwarin idlib ikaria ilgin
-				ilic imbros inebolu inonu insuyu ioannina irbid isaccea iskenderun iskilip
-				isparta ispir istanoz ithriya izmit iznik jabbul jableh jaffa jagodina
-				jayrud jerusalem kafartab kafr_saqr kahta kalabsha kalamata kalavryta kalecik kaliakra
-				kapan karahisar_i_sahib karahisar_i_teke karak karakecili karapinar karditsa karpathos karpenisi kars_armenia
-				karvuna karystos karytaina kas kassandreia kastamonu kastoria kavaje kavala kaymaz
-				kayseri kaysun kelkit kemah kesan khanaser kharga kharibta khupati kibrus
-				kicevo kilis kilkis kirklareli kirsehir kiyikoy kizilca kladentsi kleisoura kleisoura_epirus
-				kocani kochisar kom_ombo koman komotini konitsa konrapa konya kos kostenets
-				koyulhisar kozelj kran kratovo kruje krupnik krusevac ktenia kucevo kula
-				kulu_turkey kumanovo kure_i_mamure kursunlu kutahya kutlovitsa kymi kyparissia kyrenia kythira
-				kythnos ladik ladik_pontus lapseki lardeja larende larissa larnaca latakia lazkiye
-				lemnos leukas leuktron lezha limassol livadeia loidoriki lom lovech luleburgaz
-				lyaskovets maan madaba majdal malatya malgara manavgat manbij manfalut manisa
-				mansoura manyas marash marmaris marrat maskanah masyaf matruh mechili medveda
-				megara megri melnik menemen mengen menouf merzifon mesudiye mihalic mihaliccik
-				milas milos minya mitilene mitrovica modon molevon molyvos monemvasia morphou
-				mount_athos msus mudurnu mugla mut mykonos mystras nabek nablus nafpaktos
-				nafplio nalli nawa naxos nazilli negroponte nekhel neopatras nevrokop nevsehir
-				nicosia_cyp nigde nikopol niksar nis novo_brdo nuweiba obruk ohrid oitylo
-				onogost oreos ormenio oryahovo ostrovo ovech pangalia paphos parga parkhali
-				patras peja perperek pirloganda pirot pleven plovdiv podgorica polatli polygyros
-				pontikokastro preveza prilep pristina prizren prokuplje prosek pyli qalyub qaminis
-				qaryatayn qasr_ibrim qastal qatya qena qus qusayr qutayfah ramsis ras_gharib
-				rashid ravno razgrad rentina rethymno rize rodos rodoscuk rudnik ruse
-				rusokastro sabanozu safaga safed safranbolu saint_anthony saint_katrine saint_paul_anchorite salamiyya salkhad
-				sallum salona samanoud samokov samos samsat samsun sandikli sariyahsi sarkikaraagac
-				sarkisla sebinkarahisar selinti serres servia seydisehir seyhli seyitgazi sharuna shkoder
-				shoubak shtip shumen siatista sidon silifke silivri silli simav sinop
-				siran sis siteia sivas sivrihisar siwa sjenica skopje sliven smederevo
-				smolyan smyrna sogut soma sonisa sorgun sozopol sporades sredets stalac
-				stanimaka stefani stipon stomio strelcha strumica suez sughar suhut sukhnah
-				sultanonu suluklu suluntah sulusaray sungurlu surmene susurluk suwayda svoge svrljig
-				tabqah tadmur tahna targoviste_BUL tarnovo tarrana tarsus tartus taskopru tavas
-				tavsanli taybah tercan terme tetovo thasos thebes thessaloniki tidah tinnis
-				tirana tire tmimi tobruk tokat tomarza tosya traianopolis trapessac trebizond
-				trgoviste_SER trikala tripoli_syria tripolitsa tryavna tsaribrod tsepina tulcea turgut tutrakan
-				tyrnavos ulnia uluborlu ulus unye urgup urla usak ushmum_tannah uskudar
-				ustra varna velbuzd veles veligosti veliki_preslav veria viannos vidin visesav
-				vize vonitsa vostitsa vranje vratsa wadi_el_natrun warrada xanthia xylokastro yahyali
-				yalvac yenicepazari yuksekkum zakynthos zara zardana zemlungrad zetounion zica zile
+				aqaba arac arak arapgir argos arguvan argyrokastro arsuz arta artah
+				ashmunayn aslanapa astros aswan asyut atalanti atfih athens atpazari avlonya
+				ayas ayasuluk aydincik ayntab aytos ayvacik azraq baalbek babadag bafra
+				bahariyya balat balikesir baliseyh ballsh balya banaz bandirma baniyas bansko
+				bar_cg barca baris bartin bayat bayburt bayramic bayramlu beden beersheba
+				beirut bekarlar belgrad benghazi beni_suef berat bergama besni beypazari beysehir
+				biga bigadic bilbeis bilecik birgi bitola bodonitsa bodrum bogazliyan bolu
+				bolvadin bor_tur boruy bosra boyabat bozan bozok branicevo brskovo brvenik
+				budimlja bukelon burdur burgas burraq bursa butrint cairo can canakkale
+				candia candir candir_cil cankiri catalca caxud celtik cephalonia cerkes cernavoda
+				cesme chalandritsa chania chios cine comana_cil constanta constantia_bul constantinople corfu
+				corinth corlu corum corycus cubuk cumra dabiq dakahla damala damanhur
+				damascus damietta dara darende dasmenda debar deir_qamar deliktash demetrias demirci
+				demotica derna develi devol devrekani dinar dinek_keskin divrigi dluk domanic
+				dospat drama drastar dukagjini dupnitsa durres dursunbey edessa edfu edirne
+				edremit egin egirdir el_agheila el_alamein el_arish el_bahnasa el_balyana el_burullus el_buwit
+				el_jundi el_mahalla el_qoseir el_tor elassona elbasan elbistan elhovo elmali elounda
+				emet emirdag enez enguzud enisala eregli eregli_kar eretreia ermenek ermioni
+				eskil esna eynegol faiyum famagusta faqus faran farsala finike florina
+				foca fuwa gadegara gallipoli gaza gediz gemerek gerede gerger gergeri
+				gerze giannitsa giresun giza gjakova glubocica gokabat goksun golhisar gonen
+				gordes gorele goynuk gradina gravia grevena gumus gumushane gurun guzelhisar
+				gynaikokastro hacibektas hafik hagios_pavlos hama hargan harmancik harsova has haskovo
+				hatera hatunsaray haymana hayrabolu hebron hiambouli hiw homs honaz huseyinabad
+				huwwarin idlib ikaria ilgin ilic imbros inebolu inonu insuyu ioannina
+				irbid isaccea iskenderun iskilip isparta ispir istanoz ithriya izmit iznik
+				jabbul jableh jaffa jagodina jayrud jerusalem kafartab kafr_saqr kahta kalabsha
+				kalamata kalavryta kalecik kaliakra kapan karahisar_i_sahib karahisar_i_teke karak karakecili karapinar
+				karditsa karpathos karpenisi kars_armenia karvuna karystos karytaina kas kassandreia kastamonu
+				kastoria kavaje kavala kaymaz kayseri kaysun kelkit kemah kesan khanaser
+				kharga kharibta khupati kibrus kicevo kilis kilkis kirklareli kirsehir kiyikoy
+				kizilca kladentsi kleisoura kleisoura_epirus kocani kochisar kom_ombo koman komotini konitsa
+				konrapa konya kos kostenets koyulhisar kran kratovo kruje krupnik krusevac
+				ktenia kucevo kula kulu_turkey kumanovo kure_i_mamure kursunlu kutahya kymi kyparissia
+				kyrenia kythira kythnos ladik ladik_pontus lapseki lardeja larende larissa larnaca
+				latakia lazkiye lemnos leukas leuktron lezha limassol livadeia loidoriki luleburgaz
+				maan madaba majdal malatya malgara manavgat manbij manfalut manisa mansoura
+				manyas marash marmaris marrat maskanah masyaf matruh mechili medveda megara
+				megri melnik menemen mengen menouf merzifon mesudiye mihalic mihaliccik milas
+				milos minya mitilene mitrovica modon molevon molyvos monemvasia morphou mount_athos
+				msus mudurnu mugla mut mykonos mystras nabek nablus nafpaktos nafplio
+				nalli nawa naxos nazilli negroponte nekhel neopatras nevrokop nevsehir nicosia_cyp
+				nigde niksar nis novo_brdo nuweiba obruk ohrid oitylo onogost oreos
+				ormenio ostrovo ovech pangalia paphos parga parkhali patras peja perperek
+				pirloganda pirot plovdiv podgorica polatli polygyros pontikokastro preveza prilep pristina
+				prizren prokuplje prosek pyli qalyub qaminis qaryatayn qasr_ibrim qastal qatya
+				qena qus qusayr qutayfah ramsis ras_gharib rashid ravno razgrad rentina
+				rethymno rize rodos rodoscuk rudnik rusokastro sabanozu safaga safed safranbolu
+				saint_anthony saint_katrine saint_paul_anchorite salamiyya salkhad sallum salona samanoud samokov samos
+				samsat samsun sandikli sariyahsi sarkikaraagac sarkisla sebinkarahisar selinti serres servia
+				seydisehir seyhli seyitgazi sharuna shkoder shoubak shtip shumen siatista sidon
+				silifke silivri silli simav sinop siran sis siteia sivas sivrihisar
+				siwa sjenica skopje sliven smederevo smolyan smyrna sogut soma sonisa
+				sorgun sozopol sporades sredets stalac stanimaka stefani stipon stomio strelcha
+				strumica suez sughar suhut sukhnah sultanonu suluklu suluntah sulusaray sungurlu
+				surmene susurluk suwayda svoge tabqah tadmur tahna targoviste_BUL tarrana tarsus
+				tartus taskopru tavas tavsanli taybah tercan terme tetovo thasos thebes
+				thessaloniki tidah tinnis tirana tire tmimi tobruk tokat tomarza tosya
+				traianopolis trapessac trebizond trgoviste_SER trikala tripoli_syria tripolitsa tsaribrod tsepina tulcea
+				turgut tutrakan tyrnavos ulnia uluborlu ulus unye urgup urla usak
+				ushmum_tannah uskudar ustra varna velbuzd veles veligosti veliki_preslav veria viannos
+				vize vonitsa vostitsa vranje wadi_el_natrun warrada xanthia xylokastro yahyali yalvac
+				yenicepazari yuksekkum zakynthos zara zardana zemlungrad zetounion zica zile
 			}
 			capital = constantinople
 			discovered_regions = {
@@ -317,7 +317,8 @@ countries = {
 			include = "eastern_european_monarchy"
 			country_rank = rank_empire
 			government = {
-				ruler = random
+				ruler = tfe_arcadius
+				ruler_term = { character = tfe_theodosius_i start_date = 379.1.19 end_date = 395.1.17 regnal_number = 1 }
 			}
 		}
 		FRK = { # Franks
@@ -337,7 +338,7 @@ countries = {
 			include = "eurasian_tribe"
 			country_rank = rank_duchy
 			government = {
-				ruler = random
+				ruler = tfe_marcomer
 			}
 		}
 		FRS = { # Frisians
@@ -422,7 +423,8 @@ countries = {
 			include = "east_asia_monarchy"
 			country_rank = rank_kingdom
 			government = {
-				ruler = random
+				ruler = tfe_gwanggaeto
+				heir = tfe_jangsu
 			}
 		}
 		GUP = { # Gupta Empire
@@ -508,7 +510,10 @@ countries = {
 			include = "indian_hindu_monarchy"
 			country_rank = rank_empire
 			government = {
-				ruler = random
+				ruler = tfe_chandragupta_ii
+				consort = tfe_dhruvadevi
+				heir = tfe_kumaragupta_i
+				regnal_numbers = { name_chandragupta = 2 name_samudragupta = 1 }
 			}
 		}
 		GYK = { # Gaya
@@ -539,7 +544,8 @@ countries = {
 			include = "eurasian_tribe"
 			country_rank = rank_duchy
 			government = {
-				ruler = random
+				ruler = tfe_godigisel
+				heir = tfe_gunderic
 			}
 		}
 		HIM = { # Himyar
@@ -565,7 +571,9 @@ countries = {
 			include = "eastern_european_monarchy"
 			country_rank = rank_kingdom
 			government = {
-				ruler = random
+				ruler = tfe_malkikarib
+				heir = tfe_abikarib
+				designated_heir_reason = corruler
 			}
 		}
 		HNS = { # Huns
@@ -621,7 +629,7 @@ countries = {
 			include = "eurasian_horde_no_muslim"
 			country_rank = rank_kingdom
 			government = {
-				ruler = random
+				ruler = tfe_uldin
 			}
 		}
 		IAZ = { # Iazyges
@@ -791,7 +799,8 @@ countries = {
 			include = "chinese_monarchy"
 			country_rank = rank_empire
 			government = {
-				ruler = random
+				ruler = tfe_sima_yao
+				heir = tfe_sima_dezong
 			}
 		}
 		JUT = { # Jutes
@@ -836,7 +845,7 @@ countries = {
 			include = "indian_hindu_monarchy"
 			country_rank = rank_kingdom
 			government = {
-				ruler = random
+				ruler = tfe_bhagiratha
 			}
 		}
 		LAI = { # Laigin
@@ -887,7 +896,7 @@ countries = {
 			include = "indian_hindu_monarchy"
 			country_rank = rank_kingdom
 			government = {
-				ruler = random
+				ruler = tfe_upatissa_i
 			}
 		}
 		LLI = { # Later Liang
@@ -902,7 +911,7 @@ countries = {
 			include = "chinese_monarchy"
 			country_rank = rank_kingdom
 			government = {
-				ruler = random
+				ruler = tfe_lu_guang
 			}
 		}
 		LYN = { # Later Yan
@@ -956,7 +965,8 @@ countries = {
 			include = "chinese_monarchy"
 			country_rank = rank_kingdom
 			government = {
-				ruler = random
+				ruler = tfe_murong_chui
+				heir = tfe_murong_bao
 			}
 		}
 		MOC = { # Moche
@@ -1006,7 +1016,7 @@ countries = {
 			include = "gaelic_tribe"
 			country_rank = rank_duchy
 			government = {
-				ruler = random
+				ruler = tfe_conall_corc
 			}
 		}
 		NAZ = { # Nazca
@@ -1140,7 +1150,7 @@ countries = {
 			include = "eurasian_tribe"
 			country_rank = rank_duchy
 			government = {
-				ruler = random
+				ruler = tfe_fritigil
 			}
 		}
 		RRN = { # Rouran
@@ -1291,7 +1301,11 @@ countries = {
 			include = "eastern_european_monarchy"
 			country_rank = rank_empire
 			government = {
-				ruler = random
+				ruler = tfe_bahram_iv
+				heir = tfe_yazdegerd_i
+				designated_heir_reason = sibling_of_ruler
+				ruler_term = { character = tfe_shapur_iii start_date = 383.8.19 end_date = 388.8.1 regnal_number = 3 }
+				regnal_numbers = { name_bahram = 4 name_shapur = 3 }
 			}
 		}
 		SAX = { # Saxons
@@ -1346,7 +1360,7 @@ countries = {
 			include = "east_asia_monarchy"
 			country_rank = rank_kingdom
 			government = {
-				ruler = random
+				ruler = tfe_naemul
 			}
 		}
 		SLF = { # Salian Franks
@@ -1454,7 +1468,7 @@ countries = {
 			include = "amerindian_advanced_monarchy_not_nahuatl"
 			country_rank = rank_kingdom
 			government = {
-				ruler = random
+				ruler = tfe_yax_nuun_ahiin
 			}
 		}
 		TTH = { # Teotihuacan
@@ -1470,7 +1484,7 @@ countries = {
 			include = "amerindian_advanced_monarchy_not_nahuatl"
 			country_rank = rank_kingdom
 			government = {
-				ruler = random
+				ruler = tfe_spearthrower_owl
 			}
 		}
 		ULD = { # Ulaid
@@ -1489,6 +1503,23 @@ countries = {
 				ruler = random
 			}
 		}
+		VIS = { # Visigoths
+			own_control_core = {
+				archar bozhenitsa cherven dobrolak gigen hotalich kozelj kutlovitsa lom lovech
+				lyaskovets nikopol oryahovo pleven ruse svrljig tarnovo tryavna vidin visesav
+				vratsa
+			}
+			capital = tarnovo
+			discovered_regions = {
+				anatolia_region balkan_region baltic_region carpathia_region crescent_region egypt_region italy_region maghreb_region
+				north_german_region ruthenia_region scandinavian_region south_german_region steppes_region
+			}
+			include = "eurasian_tribe"
+			country_rank = rank_duchy
+			government = {
+				ruler = tfe_alaric
+			}
+		}
 		VOT = { # Votadini
 			own_control_core = {
 				alnwick berwick dunbar duns edinburgh linlithgow morpeth
@@ -1500,7 +1531,7 @@ countries = {
 			include = "gaelic_tribe"
 			country_rank = rank_county
 			government = {
-				ruler = random
+				ruler = tfe_cunedda
 			}
 		}
 		WRE = { # Western Roman Empire
@@ -1704,7 +1735,12 @@ countries = {
 			include = "catholic_monarchy"
 			country_rank = rank_empire
 			government = {
-				ruler = random
+				ruler = tfe_honorius
+				regency = nobles_estate_regency
+				active_regent = tfe_stilicho
+				start_regency_date = 395.1.17
+				end_regency_date = 400.9.9
+				regnal_numbers = { name_valentinian = 2 }
 			}
 		}
 		YUB = { # Yueban

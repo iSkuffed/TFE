@@ -1,8 +1,8 @@
 # TAG | name | adjective | capital (- = auto) | template | culture | religion | r g b
 # culture/religion are PLACEHOLDERS for the later culture/religion pass
-WRE | Western Roman Empire | Western Roman | milano | catholic_monarchy | roman_culture | catholic | 128 36 140
-EAR | Eastern Roman Empire | Eastern Roman | constantinople | eastern_european_monarchy | greek_culture | orthodox | 150 20 50
-VIS | Visigoths | Visigothic | - | eurasian_tribe | gothic_culture | catholic | 200 120 60   # Arian
+WRE | Western Roman Empire | Western Roman | milano | catholic_monarchy | roman_culture | catholic | 150 20 50
+EAR | Eastern Roman Empire | Eastern Roman | constantinople | eastern_european_monarchy | greek_culture | orthodox | 128 36 140
+VIS | Visigoths | Visigothic | tarnovo | eurasian_tribe | gothic_culture | catholic | 200 120 60   # Arian
 HNS | Huns | Hunnic | - | eurasian_horde_no_muslim | bashkir | tengri | 150 110 60
 AKA | Akatziri | Akatziri | - | eurasian_tribe | bashkir | tengri | 175 150 95
 CAL | Alans | Alanic | - | eurasian_tribe | alan_culture | alan_paganism | 110 140 110

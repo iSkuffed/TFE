@@ -1,0 +1,44 @@
+	balthi_dynasty = {
+		name = { name = balthi_dynasty }
+		home = tulcea
+	}
+	hasding_dynasty = {
+		name = { name = hasding_dynasty }
+		home = abrahamtelke
+	}
+	sasanian_dynasty = {
+		name = { name = sasanian_dynasty }
+		home = istakhr
+	}
+	gupta_dynasty = {
+		name = { name = gupta_dynasty }
+		home = patna
+	}
+	lambakanna_dynasty = {
+		name = { name = lambakanna_dynasty }
+		home = anuradhapura
+	}
+	sima_dynasty = {
+		name = { name = sima_dynasty }
+		home = jiangning
+	}
+	murong_dynasty = {
+		name = { name = murong_dynasty }
+		home = zhending
+	}
+	lu_dynasty = {
+		name = { name = lu_dynasty }
+		home = wuwei
+	}
+	go_dynasty = {
+		name = { name = go_dynasty }
+		home = seogyeong
+	}
+	buyeo_dynasty = {
+		name = { name = buyeo_dynasty }
+		home = gwangju
+	}
+	silla_kim_dynasty = {
+		name = { name = silla_kim_dynasty }
+		home = gyeongju
+	}

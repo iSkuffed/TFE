@@ -1,0 +1,6 @@
+# Foederati settled on Roman soil by treaty. Loaded after 10_west.txt, so these win.
+# Alaric's Tervingi/Goths: settled south of the Danube in Moesia II and Dacia Ripensis
+# by the foedus of 3 Oct 382 (Themistius, Or. 16). The towns stayed Roman; this is an abstraction.
+vidin_province = VIS            # Bononia, Ratiaria (Dacia Ripensis)
+pleven_province = VIS           # Oescus (Dacia Ripensis)
+tarnovo_province = VIS          # Novae, Nicopolis ad Istrum, Sexaginta Prista (Moesia II)

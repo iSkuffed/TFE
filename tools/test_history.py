@@ -39,6 +39,9 @@ WEST = [
     ("tripoli", "WRE", "Oea, Tripolitania"),
     ("murzuk", "GMT", "Garamantes, Fezzan"),
     ("uppsala", "SVE", "Svear"),
+    ("nikopol", "VIS", "Alaric's Goths, foederati in Moesia II since 382"),
+    ("vidin", "VIS", "Bononia, Dacia Ripensis: Gothic settlement"),
+    ("varna", "EAR", "Odessus stayed under Roman administration"),
 ]
 
 
@@ -81,3 +84,10 @@ def test_empires_ranked_and_discovery_sane(state):
     assert state["ranks"]["WRE"] == state["ranks"]["EAR"] == "rank_empire"
     assert {"italy_region", "maghreb_region", "france_region"} <= set(state["discovered"]["WRE"])
     assert "italy_region" not in state["discovered"]["GUP"]
+
+
+def test_diplomacy_links_landed_tags(state):
+    text = re.sub(r"#[^\n]*", "", (b.MOD / "main_menu/setup/start/12_diplomacy.txt").read_text(encoding="utf-8"))
+    pairs = re.findall(r"first\s*=\s*(\w+)\s+second\s*=\s*(\w+)", text)
+    assert ("EAR", "VIS") in pairs
+    assert all(t in state["owned"] for p in pairs for t in p), pairs
