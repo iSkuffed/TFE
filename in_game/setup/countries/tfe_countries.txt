@@ -332,3 +332,246 @@ NAZ = { # Nazca
 	description_category = administrative
 	difficulty = 3
 }
+
+SLF = { # Salian Franks
+	color = rgb { 80 110 200 }
+	color2 = rgb { 40 55 100 }
+	culture_definition = lower_saxon # PLACEHOLDER
+	religion_definition = norse # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+PKT = { # Picts
+	color = rgb { 60 90 60 }
+	color2 = rgb { 30 45 30 }
+	culture_definition = scottish # PLACEHOLDER
+	religion_definition = norse # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+VOT = { # Votadini
+	color = rgb { 140 180 110 }
+	color2 = rgb { 70 90 55 }
+	culture_definition = welsh # PLACEHOLDER
+	religion_definition = norse # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+NVN = { # Novantae
+	color = rgb { 100 150 130 }
+	color2 = rgb { 50 75 65 }
+	culture_definition = welsh # PLACEHOLDER
+	religion_definition = norse # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+SLG = { # Selgovae
+	color = rgb { 160 190 150 }
+	color2 = rgb { 80 95 75 }
+	culture_definition = welsh # PLACEHOLDER
+	religion_definition = norse # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+CQT = { # Connachta
+	color = rgb { 40 130 70 }
+	color2 = rgb { 20 65 35 }
+	culture_definition = irish # PLACEHOLDER
+	religion_definition = norse # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+ULD = { # Ulaid
+	color = rgb { 90 170 60 }
+	color2 = rgb { 45 85 30 }
+	culture_definition = irish # PLACEHOLDER
+	religion_definition = norse # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+LAI = { # Laigin
+	color = rgb { 30 100 50 }
+	color2 = rgb { 15 50 25 }
+	culture_definition = irish # PLACEHOLDER
+	religion_definition = norse # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+MUM = { # Mumu
+	color = rgb { 120 190 90 }
+	color2 = rgb { 60 95 45 }
+	culture_definition = irish # PLACEHOLDER
+	religion_definition = norse # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+FRS = { # Frisians
+	color = rgb { 90 170 200 }
+	color2 = rgb { 45 85 100 }
+	culture_definition = frisian # PLACEHOLDER
+	religion_definition = norse # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+SAX = { # Saxons
+	color = rgb { 200 200 90 }
+	color2 = rgb { 100 100 45 }
+	culture_definition = saxon # PLACEHOLDER
+	religion_definition = norse # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+AGL = { # Angles
+	color = rgb { 210 170 70 }
+	color2 = rgb { 105 85 35 }
+	culture_definition = saxon # PLACEHOLDER
+	religion_definition = norse # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+JUT = { # Jutes
+	color = rgb { 190 110 110 }
+	color2 = rgb { 95 55 55 }
+	culture_definition = danish # PLACEHOLDER
+	religion_definition = norse # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+DAX = { # Danes
+	color = rgb { 180 50 50 }
+	color2 = rgb { 90 25 25 }
+	culture_definition = danish # PLACEHOLDER
+	religion_definition = norse # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+NRW = { # Norse Petty Kingdoms
+	color = rgb { 110 70 140 }
+	color2 = rgb { 55 35 70 }
+	culture_definition = norwegian # PLACEHOLDER
+	religion_definition = norse # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+TGI = { # Thuringians
+	color = rgb { 100 160 60 }
+	color2 = rgb { 50 80 30 }
+	culture_definition = saxon # PLACEHOLDER
+	religion_definition = norse # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+QAD = { # Marcomanni and Quadi
+	color = rgb { 130 80 40 }
+	color2 = rgb { 65 40 20 }
+	culture_definition = swabian # PLACEHOLDER
+	religion_definition = norse # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+HAS = { # Hasding Vandals
+	color = rgb { 210 130 30 }
+	color2 = rgb { 105 65 15 }
+	culture_definition = gothic_culture # PLACEHOLDER
+	religion_definition = catholic # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+SLX = { # Siling Vandals
+	color = rgb { 230 170 70 }
+	color2 = rgb { 115 85 35 }
+	culture_definition = gothic_culture # PLACEHOLDER
+	religion_definition = norse # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+LGB = { # Lombards
+	color = rgb { 90 120 90 }
+	color2 = rgb { 45 60 45 }
+	culture_definition = lower_saxon # PLACEHOLDER
+	religion_definition = norse # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+RUG = { # Rugii
+	color = rgb { 150 120 170 }
+	color2 = rgb { 75 60 85 }
+	culture_definition = eastern_pomeranian # PLACEHOLDER
+	religion_definition = norse # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+IAZ = { # Iazyges
+	color = rgb { 170 170 130 }
+	color2 = rgb { 85 85 65 }
+	culture_definition = alan_culture # PLACEHOLDER
+	religion_definition = alan_paganism # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+AES = { # Aesti
+	color = rgb { 110 110 60 }
+	color2 = rgb { 55 55 30 }
+	culture_definition = prussian # PLACEHOLDER
+	religion_definition = norse # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+MRX = { # Mauri
+	color = rgb { 190 150 110 }
+	color2 = rgb { 95 75 55 }
+	culture_definition = kabyle # PLACEHOLDER
+	religion_definition = hellenism_religion # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+BAQ = { # Baquates
+	color = rgb { 170 120 80 }
+	color2 = rgb { 85 60 40 }
+	culture_definition = masmuda # PLACEHOLDER
+	religion_definition = hellenism_religion # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+AUS = { # Austuriani
+	color = rgb { 200 170 120 }
+	color2 = rgb { 100 85 60 }
+	culture_definition = eastern_amazigh # PLACEHOLDER
+	religion_definition = hellenism_religion # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+GMT = { # Garamantes
+	color = rgb { 150 100 60 }
+	color2 = rgb { 75 50 30 }
+	culture_definition = tuareg # PLACEHOLDER
+	religion_definition = hellenism_religion # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}

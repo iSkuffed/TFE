@@ -3,6 +3,30 @@ current_age = age_1_traditions
 
 countries = {
 	countries = {
+		AES = { # Aesti
+			own_control_core = {
+				balga barten bialobork brandenburg_prussia brodnica chelmno czluchow dzierzgon elblag elk
+				fischhausen frombork gdansk gerdauen gniew grudziadz gumbinnen insterburg konigsberg koscierzyna
+				kwidzyn labiau lidzbark lubawa malbork memel mirochowo morag nibork nowe
+				olsztyn ostroda puck ragnit ryn_poland swiecie szczytno tczew tilsit torun
+				tuchola wegorzewo wehlau windenburg
+			}
+			capital = balga
+			include = "eurasian_tribe"
+			government = {
+				ruler = random
+			}
+		}
+		AGL = { # Angles
+			own_control_core = {
+				aabenraa amrum_island_wasteland eckernforde flensburg haderslev husum ribe slesvig tonder
+			}
+			capital = aabenraa
+			include = "eurasian_tribe"
+			government = {
+				ruler = random
+			}
+		}
 		AKA = { # Akatziri
 			own_control_core = {
 				bashtanka bereznehuvate oleshia tavan velyka_oleksandrivka vithold_hammami
@@ -15,12 +39,27 @@ countries = {
 		}
 		ALM = { # Alamanni
 			own_control_core = {
-				backnang baden balingen bruchsal calw durlach germersheim goppingen heilbronn helfenstein
-				horb nagold oberkirch oberndorf offenburg sinsheim speyer strasbourg stuttgart tubingen
-				urach vaihingen welzheim
+				baden balingen bensheim biberach bonndorf bruchsal buchen budingen calw darmstadt
+				diez dillenburg dinkelsbuhl durlach ellwangen erbach erbach_swabia frankfurt freiburg friedberg_hesse
+				furstenberg giessen goppingen hachberg hadamar hanau heidelberg heidenheim heilbronn helfenstein
+				hohenberg horb ingolstadt katzenelnbogen kelheim mosbach mullheim nagold nidda oberkirch
+				oberndorf oettingen offenbach offenburg ravensburg riedlingen saulgau schaffhausen sigmaringen sinsheim
+				stockach stuttgart tubingen uberlingen ulm urach usingen vaihingen villingen waldburg
+				waldsee waldshut welzheim wetzlar wiesbaden
 			}
-			capital = backnang
+			capital = baden
 			include = "eurasian_tribe"
+			government = {
+				ruler = random
+			}
+		}
+		AUS = { # Austuriani
+			own_control_core = {
+				al_jawf awjila connector_libya10 connector_libya11 connector_libya12 connector_libya13 connector_libya15 connector_libya3 connector_libya6 maradah
+				tazirbu zella
+			}
+			capital = al_jawf
+			include = "subsaharan_tribe"
 			government = {
 				ruler = random
 			}
@@ -46,12 +85,29 @@ countries = {
 				ruler = random
 			}
 		}
+		BAQ = { # Baquates
+			own_control_core = {
+				aghmat aguz ait_daoud ameskour anfa asfi azemmour azilal azrou baht
+				bejaad boulaouane bzou chichaoua debdou demnate echemmaia fez guercif hanimmei
+				kalaat_sraghna khenifra marrakesh mazaghan meknes miatbir midelt mogador mrirah naffis
+				namalata sefrou settat sidi_bennour tabarida tadla tafedna tamdegost taza tednest
+				tefelfelt tegeget terrest tezerghe thagia tinmel tit volubilis
+			}
+			capital = aghmat
+			include = "subsaharan_tribe"
+			government = {
+				ruler = random
+			}
+		}
 		BGD = { # Burgundians
 			own_control_core = {
-				altenkirchen coblenz darmstadt diez dillenburg frankfurt friedberg_hesse hadamar hanau katzenelnbogen
-				mainz nidda usingen wetzlar wied wiesbaden
+				ansbach aschach aschaffenburg backnang bamberg bayreuth beilngries bruckenau coburg crailsheim
+				eichstatt eschenbach forchheim hall hassfurt karlstadt kitzingen konigshofen kronach kulmbach
+				lichtenfels lohr mellrichstadt mergentheim miltenberg neumarkt neustadt nuremberg ohringen parsberg
+				pegnitz rothenburg schesslitz schwabach schweinfurt sulzbach tauberbischofsheim tirschenreuth uffenheim weissenburg
+				wunsiedel wurzburg
 			}
-			capital = altenkirchen
+			capital = ansbach
 			include = "eurasian_tribe"
 			government = {
 				ruler = random
@@ -85,11 +141,34 @@ countries = {
 				ruler = random
 			}
 		}
+		CQT = { # Connachta
+			own_control_core = {
+				athenry athlone ballaghaderreen burrishoole castlebar castlereagh cavan clifden dromahair erris
+				galway kilconnell killeshandra killycolly leitrim roscommon skreen sligo tuam
+			}
+			capital = athenry
+			include = "gaelic_tribe"
+			government = {
+				ruler = random
+			}
+		}
+		DAX = { # Danes
+			own_control_core = {
+				asbo assens bregne falster gladsax halmstad hammershus helsingborg helsingor kalundborg
+				kobenhavn kungsbacka laholm lund malmo navskov odense osby ringsted ronneby
+				roskilde slagelse solvesborg svendborg varberg vordingborg
+			}
+			capital = asbo
+			include = "eurasian_tribe"
+			government = {
+				ruler = random
+			}
+		}
 		DMN = { # Damnonii
 			own_control_core = {
-				bampton barnstaple bideford bodmin exeter launceston minehead okehampton plymouth truro
+				ayr dumbarton glasgow irvine lanark paisley stirling
 			}
-			capital = bampton
+			capital = ayr
 			include = "gaelic_tribe"
 			government = {
 				ruler = random
@@ -100,70 +179,74 @@ countries = {
 				acre adana adranos afrin afsin ahtopol ajdabiya akcasehir akdagmadeni akhisar
 				akhmim akkus aksaray aksehir akyazi al_bab al_bayda al_khuimat al_mima al_quwayrah
 				alaiye alasehir aleppo alexandria altinekin altintas amasra amasya amman amorgos
-				anamur anavarza andravida andritsaina andros anhialo ankara antalya antioch aqaba
-				arac arak arapgir archar argos arguvan arilje arsuz artah ashmunayn
-				aslanapa astros aswan asyut atalanti atfih athens atpazari ayas ayasuluk
-				aydincik ayntab aytos ayvacik azraq baalbek babadag bafra bahariyya balat
-				balikesir baliseyh balya banaz bandirma baniyas bansko barca baris bartin
-				bayat bayburt bayramic bayramlu beden beersheba beirut bekarlar benghazi beni_suef
-				bergama besni beypazari beysehir biga bigadic bilbeis bilecik birgi bitola
-				bodonitsa bodrum bogazliyan bolu bolvadin bor_tur boruy bosra boyabat bozan
-				bozhenitsa bozok branicevo brvenik bukelon burdur burgas burraq bursa cairo
-				can canakkale candia candir candir_cil cankiri catalca caxud celtik cerkes
-				cernavoda cesme chalandritsa chania cherven chios cine comana_cil connector_egypt1 connector_egypt10
-				connector_egypt11 connector_egypt12 connector_egypt14 connector_egypt15 connector_egypt16 connector_egypt17 connector_egypt4 connector_egypt6 connector_egypt8 connector_egypt9
-				connector_libya9 constanta constantia_bul constantinople corabia corinth corlu corum corycus cubuk
-				cumra dabiq dakahla damala damanhur damascus damietta dara darende dasmenda
-				debar deir_qamar deliktash demetrias demirci demotica derna develi devrekani dinar
-				dinek_keskin divrigi dluk dobrolak domanic dospat drama drastar dukagjini dupnitsa
-				dursunbey edessa edfu edirne edremit egin egirdir el_agheila el_alamein el_arish
-				el_bahnasa el_balyana el_burullus el_buwit el_jundi el_mahalla el_qoseir el_tor elassona elbistan
-				elhovo elmali elounda emet emirdag enez enguzud enisala eregli eregli_kar
-				eretreia ermenek ermioni eskil esna eynegol faiyum famagusta faqus faran
-				farsala finike florina foca fuwa gadegara gallipoli gaza gediz gemerek
-				gerede gerger gergeri gerze giannitsa gigen giresun giurgiu giza gjakova
-				glubocica gokabat goksun golhisar gonen gordes gorele goynuk gradac gravia
-				gumus gumushane gurun guzelhisar gynaikokastro hacibektas hafik hagios_pavlos hama hargan
-				harmancik harsova has haskovo hatera hatunsaray haymana hayrabolu hebron hiambouli
-				hiw homs honaz hotalich huseyinabad huwwarin idlib ikaria ilgin ilic
-				imbros inebolu inonu insuyu irbid isaccea iskenderun iskilip isparta ispir
-				istanoz ithriya izmit iznik jabbul jableh jaffa jagodina jayrud jerusalem
-				kafartab kafr_saqr kahta kalabsha kalamata kalavryta kalecik kaliakra kapan karahisar_i_sahib
-				karahisar_i_teke karak karakecili karapinar karpathos kars_armenia karvuna karystos karytaina kas
-				kassandreia kastamonu kavala kaymaz kayseri kaysun kelkit kemah kesan khanaser
-				kharga kharibta khupati kibrus kicevo kilis kilkis kirklareli kirsehir kiyikoy
-				kizilca kladentsi kleisoura kocani kochisar kom_ombo komotini konrapa konya kos
-				kostenets koyulhisar kozelj kran kratovo krupnik krusevac ktenia kucevo kula
-				kulu_turkey kumanovo kure_i_mamure kursunlu kutahya kutlovitsa kymi kyparissia kyrenia kythira
-				kythnos ladik ladik_pontus lapseki lardeja larende larissa larnaca latakia lazkiye
-				lemnos leuktron lezha lichiresti limassol livadeia lom lovech luleburgaz lyaskovets
-				maan madaba majdal malatya malgara manavgat manbij manfalut manisa mansoura
-				manyas marash marmaris marrat maskanah masyaf matruh mechili medveda megara
-				megri melnik menemen mengen menouf merzifon mesudiye mihalic mihaliccik milas
-				milos minya mitilene mitrovica modon molevon molyvos monemvasia morphou mount_athos
-				msus mudurnu mugla mut mykonos mystras nabek nablus nafplio nalli
-				nawa naxos nazilli negroponte nekhel nevrokop nevsehir nicosia_cyp nigde nikopol
-				niksar nis novo_brdo nuweiba obruk oitylo oreos ormenio oryahovo ostrovo
-				ovech pangalia paphos parkhali patras peja perperek pirloganda pirot plenita
-				pleven plovdiv polatli polygyros pontikokastro prilep pristina prizren prokuplje prosek
-				qalyub qaminis qaryatayn qasr_ibrim qastal qatya qena qus qusayr qutayfah
-				ramsis ras_gharib rashid ravno razgrad rentina rethymno rize rodos rodoscuk
-				rudnik ruse rusokastro sabanozu safaga safed safranbolu saint_anthony saint_katrine saint_paul_anchorite
-				salamiyya salkhad sallum salona samanoud samokov samos samsat samsun sandikli
-				sariyahsi sarkikaraagac sarkisla sebinkarahisar selinti serres servia seydisehir seyhli seyitgazi
-				sharuna shoubak shtip shumen sidon silifke silivri silli simav sinop
-				siran sis siteia sivas sivrihisar siwa sjenica skopje sliven smederevo
-				smolyan smyrna sogut soma sonisa sorgun sozopol sporades sredets stalac
-				stanimaka stefani stipon stomio strelcha strumica suez sughar suhut sukhnah
-				sultanonu suluklu suluntah sulusaray sungurlu surmene susurluk suwayda svoge svrljig
-				syrian_desert_corridor1 tabqah tadmur tahna targoviste_BUL tarnovo tarrana tarsus tartus taskopru
-				tavas tavsanli taybah tercan terme tetovo thasos thebes thessaloniki tidah
-				tinnis tire tmimi tobruk tokat tomarza tosya traianopolis trapessac trebizond
-				trgoviste_SER tripoli_syria tripolitsa tryavna tsaribrod tsepina tulcea turgut tutrakan tyrnavos
-				ulnia uluborlu ulus unye urgup urla usak ushmum_tannah uskudar ustra
-				varna velbuzd veles veligosti veliki_preslav veria viannos vidin visesav vize
-				viziru vostitsa vranje vratsa wadi_el_natrun warrada xanthia xylokastro yahyali yalvac
-				yenicepazari yuksekkum zakynthos zara zardana zemlungrad zetounion zica zile zimnicea
+				anamur anavarza andravida andritsaina andros angelokastron anhialo ankara antalya antioch
+				aqaba arac arak arapgir archar argos arguvan argyrokastro arsuz arta
+				artah ashmunayn aslanapa astros aswan asyut atalanti atfih athens atpazari
+				avlonya ayas ayasuluk aydincik ayntab aytos ayvacik azraq baalbek babadag
+				bafra bahariyya balat balikesir baliseyh ballsh balya banaz bandirma baniyas
+				bansko bar_cg barca baris bartin bayat bayburt bayramic bayramlu beden
+				beersheba beirut bekarlar belgrad benghazi beni_suef berat bergama besni beypazari
+				beysehir biga bigadic bilbeis bilecik birgi bitola bodonitsa bodrum bogazliyan
+				bolu bolvadin bor_tur boruy bosra boyabat bozan bozhenitsa bozok branicevo
+				brskovo brvenik budimlja bukelon burdur burgas burraq bursa butrint cairo
+				can canakkale candia candir candir_cil cankiri catalca caxud celtik cephalonia
+				cerkes cernavoda cesme chalandritsa chania cherven chios cine comana_cil connector_egypt1
+				connector_egypt10 connector_egypt11 connector_egypt12 connector_egypt14 connector_egypt15 connector_egypt16 connector_egypt17 connector_egypt4 connector_egypt6 connector_egypt8
+				connector_egypt9 connector_libya9 constanta constantia_bul constantinople corfu corinth corlu corum corycus
+				cubuk cumra dabiq dakahla damala damanhur damascus damietta dara darende
+				dasmenda debar deir_qamar deliktash demetrias demirci demotica derna develi devol
+				devrekani dinar dinek_keskin divrigi dluk dobrolak domanic dospat drama drastar
+				dukagjini dupnitsa durres dursunbey edessa edfu edirne edremit egin egirdir
+				el_agheila el_alamein el_arish el_bahnasa el_balyana el_burullus el_buwit el_jundi el_mahalla el_qoseir
+				el_tor elassona elbasan elbistan elhovo elmali elounda emet emirdag enez
+				enguzud enisala eregli eregli_kar eretreia ermenek ermioni eskil esna eynegol
+				faiyum famagusta faqus faran farsala finike florina foca fuwa gadegara
+				gallipoli gaza gediz gemerek gerede gerger gergeri gerze giannitsa gigen
+				giresun giza gjakova glubocica gokabat goksun golhisar gonen gordes gorele
+				goynuk gradina gravia grevena gumus gumushane gurun guzelhisar gynaikokastro hacibektas
+				hafik hagios_pavlos hama hargan harmancik harsova has haskovo hatera hatunsaray
+				haymana hayrabolu hebron hiambouli hiw homs honaz hotalich huseyinabad huwwarin
+				idlib ikaria ilgin ilic imbros inebolu inonu insuyu ioannina irbid
+				isaccea iskenderun iskilip isparta ispir istanoz ithriya izmit iznik jabbul
+				jableh jaffa jagodina jayrud jerusalem kafartab kafr_saqr kahta kalabsha kalamata
+				kalavryta kalecik kaliakra kapan karahisar_i_sahib karahisar_i_teke karak karakecili karapinar karditsa
+				karpathos karpenisi kars_armenia karvuna karystos karytaina kas kassandreia kastamonu kastoria
+				kavaje kavala kaymaz kayseri kaysun kelkit kemah kesan khanaser kharga
+				kharibta khupati kibrus kicevo kilis kilkis kirklareli kirsehir kiyikoy kizilca
+				kladentsi kleisoura kleisoura_epirus kocani kochisar kom_ombo koman komotini konitsa konrapa
+				konya kos kostenets koyulhisar kozelj kran kratovo kruje krupnik krusevac
+				ktenia kucevo kula kulu_turkey kumanovo kure_i_mamure kursunlu kutahya kutlovitsa kymi
+				kyparissia kyrenia kythira kythnos ladik ladik_pontus lapseki lardeja larende larissa
+				larnaca latakia lazkiye lemnos leukas leuktron lezha limassol livadeia loidoriki
+				lom lovech luleburgaz lyaskovets maan madaba majdal malatya malgara manavgat
+				manbij manfalut manisa mansoura manyas marash marmaris marrat maskanah masyaf
+				matruh mechili medveda megara megri melnik menemen mengen menouf merzifon
+				mesudiye mihalic mihaliccik milas milos minya mitilene mitrovica modon molevon
+				molyvos monemvasia morphou mount_athos msus mudurnu mugla mut mykonos mystras
+				nabek nablus nafpaktos nafplio nalli nawa naxos nazilli negroponte nekhel
+				neopatras nevrokop nevsehir nicosia_cyp nigde nikopol niksar nis novo_brdo nuweiba
+				obruk ohrid oitylo onogost oreos ormenio oryahovo ostrovo ovech pangalia
+				paphos parga parkhali patras peja perperek pirloganda pirot pleven plovdiv
+				podgorica polatli polygyros pontikokastro preveza prilep pristina prizren prokuplje prosek
+				pyli qalyub qaminis qaryatayn qasr_ibrim qastal qatya qena qus qusayr
+				qutayfah ramsis ras_gharib rashid ravno razgrad rentina rethymno rize rodos
+				rodoscuk rudnik ruse rusokastro sabanozu safaga safed safranbolu saint_anthony saint_katrine
+				saint_paul_anchorite salamiyya salkhad sallum salona samanoud samokov samos samsat samsun
+				sandikli sariyahsi sarkikaraagac sarkisla sebinkarahisar selinti serres servia seydisehir seyhli
+				seyitgazi sharuna shkoder shoubak shtip shumen siatista sidon silifke silivri
+				silli simav sinop siran sis siteia sivas sivrihisar siwa sjenica
+				skopje sliven smederevo smolyan smyrna sogut soma sonisa sorgun sozopol
+				sporades sredets stalac stanimaka stefani stipon stomio strelcha strumica suez
+				sughar suhut sukhnah sultanonu suluklu suluntah sulusaray sungurlu surmene susurluk
+				suwayda svoge svrljig syrian_desert_corridor1 tabqah tadmur tahna targoviste_BUL tarnovo tarrana
+				tarsus tartus taskopru tavas tavsanli taybah tercan terme tetovo thasos
+				thebes thessaloniki tidah tinnis tirana tire tmimi tobruk tokat tomarza
+				tosya traianopolis trapessac trebizond trgoviste_SER trikala tripoli_syria tripolitsa tryavna tsaribrod
+				tsepina tulcea turgut tutrakan tyrnavos ulnia uluborlu ulus unye urgup
+				urla usak ushmum_tannah uskudar ustra varna velbuzd veles veligosti veliki_preslav
+				veria viannos vidin visesav vize vonitsa vostitsa vranje vratsa wadi_el_natrun
+				warrada xanthia xylokastro yahyali yalvac yenicepazari yuksekkum zakynthos zara zardana
+				zemlungrad zetounion zica zile
 			}
 			capital = constantinople
 			include = "eastern_european_monarchy"
@@ -173,7 +256,12 @@ countries = {
 		}
 		FRK = { # Franks
 			own_control_core = {
-				ahaus bochum doetinchem dortmund dulmen dusseldorf essen recklinghausen zutphen
+				ahaus alsfeld altena altenkirchen apeldoorn arnhem arnsberg attendorn berleburg bochum
+				brilon buren detmold deventer doetinchem dortmund dulmen dusseldorf eschwege essen
+				frankenberg fulda gummersbach hamm harderwijk hersfeld horstmar hoxter hunfeld kampen
+				kassel korbach lauterbach lippstadt marburg melsungen meschede munster oldenzaal paderborn
+				recklinghausen remscheid rietberg rotenburg siegburg siegen soest solingen warburg warendorf
+				wesel wied ziegenhain zutphen zwolle
 			}
 			capital = ahaus
 			include = "eurasian_tribe"
@@ -181,12 +269,25 @@ countries = {
 				ruler = random
 			}
 		}
+		FRS = { # Frisians
+			own_control_core = {
+				alkmaar amersfoort amsterdam appingedam assen coevorden groningen harlingen hoorn leeuwarden
+				meppel sloten stavoren wedde wolvega
+			}
+			capital = alkmaar
+			include = "eurasian_tribe"
+			government = {
+				ruler = random
+			}
+		}
 		GEA = { # Geats
 			own_control_core = {
-				allingsas alvastra dalaborg ekholm falkoping hjo kinda konghalla kungsbacka lidkoping
-				linkoping lodose skara soderkoping tjust uddevalla utlandet vartofta
+				albo allingsas alvastra amal bogesund dalaborg ekholm falkoping handbord hjo
+				hoborg jonkoping kinda konga lidkoping linkoping ljungby lodose norrkoping oland
+				sevede skara skene slite soderkoping tiveden tjust trollaborg uppvidinge utlandet
+				vadstena vallsjo vartofta vaxjo vedbo vetlanda visby waestbo
 			}
-			capital = allingsas
+			capital = albo
 			include = "eurasian_tribe"
 			government = {
 				ruler = random
@@ -194,11 +295,25 @@ countries = {
 		}
 		GEP = { # Gepids
 			own_control_core = {
-				bereschany brody busk dubno kostopil kremenets ostroh peremyl peresopnytsya rivne
-				tykhomel zbarazh zhovkva
+				aiud alba_iulia baia_de_aries baita bereschany bistrita brasov brody busk cetatea_balta
+				chezdi_osorheiu cincu cluj covasna cristuru_secuiesc dabaca dej deva dubno fagaras
+				felvint gheorgheni gurghiu hateg huedin hunedoara kostopil kremenets medias miercurea_cluc
+				odorhei ostroh peremyl peresopnytsya reghin rivne sebes sfantu_gheorghe sibiu sic
+				sighisoara targu_mures turda tykhomel zbarazh zhovkva
 			}
-			capital = bereschany
+			capital = aiud
 			include = "eurasian_tribe"
+			government = {
+				ruler = random
+			}
+		}
+		GMT = { # Garamantes
+			own_control_core = {
+				brak coastal_libyan_desert1 connector_libya17 connector_libya2 connector_libya4 connector_libya5 ghat murzuk sabha sokna
+				ubari zawila
+			}
+			capital = brak
+			include = "subsaharan_tribe"
 			government = {
 				ruler = random
 			}
@@ -308,6 +423,18 @@ countries = {
 				ruler = random
 			}
 		}
+		HAS = { # Hasding Vandals
+			own_control_core = {
+				abrahamtelke baia_mare beius bekes bihar borsod carei cheresig crasna debrecen
+				eger hajduszoboszlo heves hodod jaszbereny karcag kecskemet miskolc nagyboszormeny nagyecsed
+				nagykallo oradea pest syvlyush szabolcs szarvas szatmar szolnok varda zalau
+			}
+			capital = abrahamtelke
+			include = "eurasian_tribe"
+			government = {
+				ruler = random
+			}
+		}
 		HIM = { # Himyar
 			own_control_core = {
 				abha abil abu_rakah adan adham ahwar al_abala al_arah al_bayda_yemen al_ghulayfiqah
@@ -331,43 +458,62 @@ countries = {
 		}
 		HNS = { # Huns
 			own_control_core = {
-				adalaga aksay alexeyevka alexeyevskaya ananiv anna_russia aqmecit aqmecit_prybuzhzhya argamakli_sarai arkadak
-				aslan_horod astrakhan atkarsk bakhmach bakhmut bakota balanda balashov balikley balti
-				bannoye barvinkove belaya_kalitva belgorod beljamen berdiansk berdychiv berestyn berezhnovka bershad
-				bielska_sloboda bila_tserkva bilovodsk boguchar bohorodchany bohuslav bokovskaya bol_shaya_martynovka bolekhiv bolkhuny
-				bolshaya_gribanovka borisoglebsk boryspil botkul bratslav buchach buryn buturlinovka buzhskyi bykovo
-				cahul cernauti cetatea_alba cetatea_tetina cherkasy chernyanka chernyye_zemli chertkovo chilia chisinau
-				chornukhy chortolisy chudniv chuhuiv chyhyryn chyorny_yar danilovka dardeling dashev ded_khulsun
-				desnyanskyi_horodok dolyna domakha donets_kharkiv dorohoi drahushiv drohobych dubovskoye dymer elton
-				enice fastiv glushkovo goly_karamysh gura_galbenei hadiach halych harbuzynka harlau hlukhiv
-				horodok horodyshche horoshino hotin hovtva hryshyne huliaipole iagorlic ichnia ikryanoye
+				adalaga adjud aksay alexeyevka alexeyevskaya ananiv anna_russia aqmecit aqmecit_prybuzhzhya argamakli_sarai
+				arges arkadak aslan_horod astrakhan atkarsk bacau bakhmach bakhmut bakota balanda
+				balashov balikley balti bannoye barlad barvinkove belaya_kalitva belgorod beljamen berdiansk
+				berdychiv berestyn berezhnovka bershad bielska_sloboda bila_tserkva bilovodsk boguchar bohorodchany bohuslav
+				bokovskaya bol_shaya_martynovka bolekhiv bolkhuny bolshaya_gribanovka borisoglebsk boryspil botkul braila bratslav
+				buchach bucharest bukov buryn buturlinovka buzau buzhskyi bykovo cahul calafat
+				campulung_moldovenesc campulung_muscel caracal cegani cernauti cetatea_alba cetatea_tetina cetateni cherkasy chernyanka
+				chernyye_zemli chertkovo chilia chisinau chornukhy chortolisy chudniv chuhuiv chyhyryn chyorny_yar
+				comana corabia cotnari cozia craiova cudalbi danilovka dardeling dashev ded_khulsun
+				desnyanskyi_horodok dolyna domakha donets_kharkiv dorohoi dragasani drahushiv drohobych dubovskoye dymer
+				elton enice fastiv focsani gaiseni galati giurgiu glavacioc glushkovo goly_karamysh
+				gratia gura_galbenei hadiach halych hangu_romania harbuzynka harlau hlukhiv horodok horodyshche
+				horoshino hotin hovtva hryshyne huliaipole husi iagorlic iasi ichnia ikryanoye
 				ilovlya ingul ismail iziaslav izium jurchi kaffa kaharlyk kalach kalay
 				kalmius kalnivka kamenskaya kamianets_podilskyi kamyshin kaniv karabul karlivka kashary kastornoye
 				kezlev khadjibey khmilnyk khorostkiv khosheutovo khotmyzh kichkas kirsanov kletskaya kodak
 				kolomak kolomyia konski_vody konstantinovka konstantinovsk korocha korostyshiv korsun kosozhichi kotelva
 				kotovo kozelets krasnopillia krasny_sulin krasny_yar kremenchuk kremenskaya kreminna kryvyi_rih kuchugur
-				kumylzhenskaya kupiansk kursk kuyanlik kyiv kyrylivka lebedyn letychiv lipnic liubar
-				lubny luhansk lusta lutava lypova_dolyna lysychansk lysye_gory machekha mala_vyska malodelskaya
-				malye_derbety manturovo_kursk mechet melitopol melnya mezhybozhe mikhaylovka mikhaylovka_pontic millerovo milyutinskaya
-				mityakinskaya mohyliv_podilskyi mordovo muzhech mychesk mykytyn_rih myrhorod myshuryn_rih nagavskaya nikolskoye_pontic
-				nizhny_chir nizhyn novaya_pokrovka novoaidar novoanninsky novonikolayevsky novopskov nyzhnia_duvanka oblivskaya oboyan
-				okhtyrka oleksandrivka olgov opalkova opishnya or_qapi ordu_bazar orhei oril oskol
-				oster ostrogozhsk palada pavlohrad pereiaslav petrove pohrebyshche pologoye_zaymishche polonne poltava
-				posad pryluky putyvl pyriatyn qalancaq qarasuvbazar qirq_yer rakitnoye rasskazovo rechnoye
-				reni rohat_kermen rohatyn romen rossosh rov rovenki rovenky rovnoye rozdory
-				rozkishna rtishchevo rudnya_pontic rylsk sadovoye sadovoye_kalmykia samarchyk samoylovka sapara sarai_al_jadid
-				sarata semidesyatnoye semikarakorsk serdobinskaya seyitler shakhty sherbiv shyrokyne skvyra sloviansk
-				smila sniatyn sofiivka sokilets soldaia solkhat soroca srednyaya_akhtuba stefanesti stepanevka
-				storozhynets stryi sudzha sumy taganrog tana targu_lapusnei tatsinskaya teligol teplyk
-				terbuny terebovlia ternivka ternopil theodoro tighina tokmak tomakivka tormosin troitskoye_na_shchigrakh
-				tsybuliv turka turki tuzara tysmenytsia uman umanske ungheni uryupin ushytsia
-				usivka usman ust_medveditskaya ust_tsimla uvarovo valuyki vasylivka veesky velyka_lepetykha velyka_novosilka
-				velyki_sorochyntsi verkhny_mamon viadineti vilshana vinnytsia voronezh voronizh_chernihiv vosporo vovchansk yahotyn
-				yaroslavka yekaterinovka yelan yelanets yenotayevka zalishchyky zamyany zdvizhen zemlyansk zenzevatka
-				zherdevka zhydachiv zhytomyr zimnyatsky zmiiv zolotari zolotonosha zvenyhorod zvenyhorodka
+				kumylzhenskaya kupiansk kursk kuyanlik kyiv kyrylivka lebedyn letychiv lichiresti lipnic
+				liubar lubny luhansk lusta lutava lypova_dolyna lysychansk lysye_gory machekha mala_vyska
+				malodelskaya malye_derbety manturovo_kursk mechet melitopol melnya meteleu mezhybozhe mikhaylovka mikhaylovka_pontic
+				millerovo milyutinskaya mityakinskaya mohyliv_podilskyi mordovo muzhech mychesk mykytyn_rih myrhorod myshuryn_rih
+				nagavskaya nikolskoye_pontic nizhny_chir nizhyn novaya_pokrovka novoaidar novoanninsky novonikolayevsky novopskov nyzhnia_duvanka
+				oancea oblivskaya oboyan okhtyrka oleksandrivka olgov opalkova opishnya or_qapi orasul_de_floci
+				ordu_bazar orhei oril oskol oster ostrogozhsk palada parscov pavlohrad pereiaslav
+				petrove piatra_lui_craciun pitesti plenita ploesti poenari pohrebyshche pologoye_zaymishche polonne poltava
+				posad pryluky putna putyvl pyriatyn qalancaq qarasuvbazar qirq_yer radovanu rakitnoye
+				ramnicu_sarat ramnicu_valcea rasskazovo rechnoye reni rohat_kermen rohatyn roman romen rossosh
+				rov rovenki rovenky rovnoye rozdory rozkishna rtishchevo rudnya_pontic rusii_de_vede rylsk
+				sadovoye sadovoye_kalmykia samarchyk samoylovka sapara sarai_al_jadid sarata semidesyatnoye semikarakorsk serdobinskaya
+				severin seyitler shakhty sherbiv shyrokyne siret skvyra slanic slatina slobozia
+				sloviansk smila sniatyn sofiivka sokilets soldaia solkhat soroca srednyaya_akhtuba stefanesti
+				stepanevka storozhynets stramba strehaia stryi suceava sudzha sumy taganrog tana
+				targoviste targu_bengai targu_jiu targu_lapusnei targu_neamt targu_trotus targul_saratii tatsinskaya tecuci teligol
+				teplyk terbuny terebovlia ternivka ternopil theodoro tighina tokmak tomakivka tormosin
+				troitskoye_na_shchigrakh tsybuliv tulnici turka turki turnu_magurele tutova tuzara tysmenytsia uman
+				umanske ungheni uryupin ushytsia usivka usman ust_medveditskaya ust_tsimla uvarovo valenii_de_munte
+				valuyki vaslui vasylivka vatra_dornei veesky velyka_lepetykha velyka_novosilka velyki_sorochyntsi verkhny_mamon viadineti
+				vilshana vinnytsia viziru voronezh voronizh_chernihiv vosporo vovchansk yahotyn yaroslavka yekaterinovka
+				yelan yelanets yenotayevka zalishchyky zamyany zdvizhen zemlyansk zenzevatka zherdevka zhydachiv
+				zhytomyr zimnicea zimnyatsky zmiiv zolotari zolotonosha zvenyhorod zvenyhorodka
 			}
 			capital = adalaga
 			include = "eurasian_horde_no_muslim"
+			government = {
+				ruler = random
+			}
+		}
+		IAZ = { # Iazyges
+			own_control_core = {
+				arad bacs baia_crisului baja_hungary bodrog caransebes carasova csanad felegyhaza halas
+				ineu kikinda kovin lipova lugoj mako mihalt modos pancevo recas
+				semlacu_mare szeged timisoara titel veliky_beckerek zarand zenta
+			}
+			capital = arad
+			include = "eurasian_tribe"
 			government = {
 				ruler = random
 			}
@@ -520,6 +666,17 @@ countries = {
 				ruler = random
 			}
 		}
+		JUT = { # Jutes
+			own_control_core = {
+				aalborg aarhus ars bolling grindsted hjorring holstebro_lundenes kalo kolding randers
+				ringkobing silkeborg skagen thisted varde viborg
+			}
+			capital = aalborg
+			include = "eurasian_tribe"
+			government = {
+				ruler = random
+			}
+		}
 		KDB = { # Kadamba
 			own_control_core = {
 				adilabad adlur adoni aheri ahobalam aimangala ajara amrabad anantapur anegandi
@@ -541,6 +698,31 @@ countries = {
 			}
 			capital = adilabad
 			include = "indian_hindu_monarchy"
+			government = {
+				ruler = random
+			}
+		}
+		LAI = { # Laigin
+			own_control_core = {
+				ardagh athy ballymore carlow cullahill daingean dublin dunamase ferns fingal
+				glendalough kells kildare kilkenny longford mullingar naas navan new_ross trim
+				tullamore wexford wicklow
+			}
+			capital = ardagh
+			include = "gaelic_tribe"
+			government = {
+				ruler = random
+			}
+		}
+		LGB = { # Lombards
+			own_control_core = {
+				angermunde beeskow belzig bitterfeld brandenburg calau chojna cottbus freienwalde gardelegen
+				gorzow guben haldensleben havelberg herzfelde juterbog lebus lubben luckau osterburg
+				potsdam prenzlau pritzwalk ruppin salzwedel santok schweinitz soltyn spremberg stendal
+				teltow templin torzym treuenbrietzen wittenberg wittenberge wittstock wolmirstedt zerbst zossen
+			}
+			capital = angermunde
+			include = "eurasian_tribe"
 			government = {
 				ruler = random
 			}
@@ -630,6 +812,31 @@ countries = {
 				ruler = random
 			}
 		}
+		MRX = { # Mauri
+			own_control_core = {
+				afso ain_madhi ain_sefra al_mazamma asir_ALG badis brezina charef djelfa el_abiodh_sidi_cheikh
+				el_bayadh ghassasa jarawah_abu_al_aysh jerada kuku laghouat medrissa melilla messaad moulouya_corridor1
+				moulouya_corridor2 moulouya_corridor3 naama oujda ouled_djellal qal_at_ibn_salama qutb ras_al_ain ras_kebdana taourirt
+				taunat temsamane tizgane zenina
+			}
+			capital = afso
+			include = "subsaharan_tribe"
+			government = {
+				ruler = random
+			}
+		}
+		MUM = { # Mumu
+			own_control_core = {
+				adare bunratty carbery carrickbeg cashel castleconnell clonmel cork dingle dungarvan
+				dunhallow ennis fermoy kilbrittain killarney killmallock kinsale limerick moyarta moycarn
+				muskerry nenagh roscrea tipperary tralee waterford youghal
+			}
+			capital = cashel
+			include = "gaelic_tribe"
+			government = {
+				ruler = random
+			}
+		}
 		NAZ = { # Nazca
 			own_control_core = {
 				acari cahuachi chinchay chullac chuqlluqucha ica incawasi puka_tampu pukiupukio
@@ -653,6 +860,46 @@ countries = {
 				ruler = random
 			}
 		}
+		NRW = { # Norse Petty Kingdoms
+			own_control_core = {
+				amli amot aurland bergen borg bragernes eid eidfjord eidsvoll elverum
+				fana flekkefjord flesberg glommadal grenland halden hallingdal hamar haugalandet hedmarksvidda
+				hornborg imsdalen jaeren konghalla kongsberg kongsvinger kvinnherad laerdal lillehammer lindesnes
+				moss moster nordhordland numedal oddernes oslo otredal otta oyestad ringerike
+				ryfylke sande sigdal sirudal ski skien sogndal sondeled stavanger stromstad
+				stryn suledal sunnfjord tonsberg trogstad trysil tynset uddevalla ullensvang valdres
+				vardal vik voss
+			}
+			capital = amli
+			include = "eurasian_tribe"
+			government = {
+				ruler = random
+			}
+		}
+		NVN = { # Novantae
+			own_control_core = {
+				kenmure kirkcudbright stranraer
+			}
+			capital = kenmure
+			include = "gaelic_tribe"
+			government = {
+				ruler = random
+			}
+		}
+		PKT = { # Picts
+			own_control_core = {
+				aberdeen aberfeldy arbroath ardtornish arran badenoch banff buchan clackmannan cowal
+				cupar dingwall dornoch dundee dunfermline durness elgin forfar gairloch harris
+				inverary inverurie islay kintyre lewis lochaber mann mar mull oban
+				perth scone skye st_andrews stonehaven strathearn thurso tongue uist ullapool
+				urquhart
+			}
+			capital = aberdeen
+			include = "gaelic_tribe"
+			government = {
+				ruler = random
+			}
+		}
 		PLV = { # Pallava
 			own_control_core = {
 				angadippuram arcot aruppukkottai bangalore batlagundu belur bhavani coimbatore denkanikottai devakottai
@@ -668,6 +915,27 @@ countries = {
 			}
 			capital = angadippuram
 			include = "indian_hindu_monarchy"
+			government = {
+				ruler = random
+			}
+		}
+		QAD = { # Marcomanni and Quadi
+			own_control_core = {
+				balassagyarmat banska_bystrica bardejov bechyne benesov beregovo beroun bitov bratislava brno
+				budejovice caslav cheb chrudim cuhea dacice decin domazlice freistadt frydlant
+				ganserndorf gemer gonc hlohovec hodonin holic hollabrunn hont horn hradec_kralove
+				hradiste humenne husinec j_hradec jachymov jicin jihlava khust klatovy klodzko
+				korneuburg kosice kourim kremnica krems krumlov krupina kutna_hora levoca liptovsky_mikulas
+				litomerice litomysl loket lubica mezhorje mistelbach mlada_boleslav most mukachevo nachod
+				nemecky_brod nitra nograd olomouc oravsky_podzamok perg pernstejn pisek plzen podebrady
+				podmuran povazska_bystrica prachen prague prerov presov pribor prievidza prostejov rakhiv
+				rakovnik rimavska_sobota rohrbach roznava salgotarjan samorin satoraljaujhely sighet slany stary_tekov
+				sumperk tachov tepla trebon trencin trnava turciansky_svaty_martin turna turnov usti_nad_labem
+				uzhorod velikyi_bereznyi vizovice vyskov waidhofen_an_der_thaya zabreh zatec zemplin zilina znojmo
+				zvolen zwettl
+			}
+			capital = balassagyarmat
+			include = "eurasian_tribe"
 			government = {
 				ruler = random
 			}
@@ -699,6 +967,19 @@ countries = {
 			}
 			capital = achit_nuur
 			include = "eurasian_horde_no_muslim"
+			government = {
+				ruler = random
+			}
+		}
+		RUG = { # Rugii
+			own_control_core = {
+				anklam bialogard bobolice bytow choszczno demmin drawsko goleniow grimmen gryfia_gora
+				gryfow kamien kolobrzeg koszalin lebork miastko nowogard nowoszczecin pyrzyce resko
+				ribnitz rugen slawno slupsk stettin stralsund swidwin swinousjcie szadzko ueckermunde
+				wolgast
+			}
+			capital = anklam
+			include = "eurasian_tribe"
 			government = {
 				ruler = random
 			}
@@ -795,6 +1076,25 @@ countries = {
 				ruler = random
 			}
 		}
+		SAX = { # Saxons
+			own_control_core = {
+				achim alfeld aschendorf aurich ballenstedt bentheim bernburg bersenbruck bielefeld blankenburg
+				bremen bremervorde brunswick buckeburg burg burgdorf calbe celle cloppenburg dannenberg
+				delmenhorst diepholz duderstadt ebstorf einbeck elsfleth emden eutin fallingbostel friesoythe
+				gandersheim gestenthorpe gifhorn goslar gottingen halberstadt hamburg hamelin hanover harburg
+				heide heiligenhafen helmstedt herzberg hildesheim hofgeismar holzminden hoya isenhagen jerichow
+				jever kiel lauenburg leer lingen lubeck luchow luneburg magdeburg meinersen
+				meppen minden muhlhausen neuhaus neustadt_am_rubenberge nienburg nordhausen oldenburg osnabruck osterholz
+				pinneberg plon quedlinburg ratzeburg rendsburg rheine ritzebuttel sangerhausen segeberg soltau
+				stade steinburg stormarn tecklenburg uelzen vechta verden wernigerode winsen winsen_aller
+				wolfenbuttel zeven
+			}
+			capital = achim
+			include = "eurasian_tribe"
+			government = {
+				ruler = random
+			}
+		}
 		SCR = { # Sciri
 			own_control_core = {
 				balta savran torhovytsia zavallia
@@ -817,12 +1117,62 @@ countries = {
 				ruler = random
 			}
 		}
+		SLF = { # Salian Franks
+			own_control_core = {
+				antwerp bergen_zoom breda cuijk eindhoven helmond hertogenbosch mechelen turnhout
+			}
+			capital = antwerp
+			include = "eurasian_tribe"
+			government = {
+				ruler = random
+			}
+		}
+		SLG = { # Selgovae
+			own_control_core = {
+				dumfries roxburgh selkirk
+			}
+			capital = dumfries
+			include = "gaelic_tribe"
+			government = {
+				ruler = random
+			}
+		}
+		SLX = { # Siling Vandals
+			own_control_core = {
+				bielsko boleslawiec brzeg bytom fryvaldov glogow glubczyce gora grodkow hlucin
+				jawor kamienna_gora kluczbork kozle kozuchow krnov krosno_odrzanskie legnica lubliniec milicz
+				namyslow niemcza niemodlin nysa olawa olesnica olesno opava opole prudnik
+				pszczyna raciborz rychbach siewierz sroda_slaska strzelce_opolskie sulechow swidnica sycow szprotawa
+				tesin toszek trzebnica wolow wroclaw zagan zary ziebice zielona_gora zlotoryja
+			}
+			capital = bielsko
+			include = "eurasian_tribe"
+			government = {
+				ruler = random
+			}
+		}
 		SVE = { # Svear
 			own_control_core = {
-				arboga avesta enkoping kolmarden nora norrtalje nykoping oppunda sala skinskatteberg
-				sodertalje stockholm strangnas uppsala vasteras
+				arboga avesta enkoping falun farnebo floda goksholm grange grythyttan hamrange
+				hedemora hedesunda idre josse kolmarden linde malung nas nora nordmark
+				norrtalje nykoping ockelbo oppunda orebro orsa riseberga sala skinskatteberg soderbarke
+				sodertalje stockholm strangnas tierp tingvalla uppsala varnum vasteras
 			}
 			capital = uppsala
+			include = "eurasian_tribe"
+			government = {
+				ruler = random
+			}
+		}
+		TGI = { # Thuringians
+			own_control_core = {
+				altenburg annaburg apolda arnstadt bautzen beichlingen chemnitz delitzsch dresden eisenach
+				eisenberg eisleben erfurt freiberg freyburg gera glauchau gorlitz gotha grimma
+				halle_an_der_saale hildburghausen hof hoyerswerda langensalza leipzig liebenwerda marienstern meiningen meissen
+				merseburg naumburg ohrdruf pirna plauen rochlitz rothenburg_oberlausitz saalfeld sayda schleiz
+				schleusingen schmalkalden sondershausen torgau weimar weissenfels wurzen zittau zwickau
+			}
+			capital = altenburg
 			include = "eurasian_tribe"
 			government = {
 				ruler = random
@@ -859,206 +1209,218 @@ countries = {
 				ruler = random
 			}
 		}
-		VIS = { # Visigoths
+		ULD = { # Ulaid
 			own_control_core = {
-				angelokastron argyrokastro arta avlonya ballsh berat butrint cephalonia corfu devol
-				durres elbasan grevena ioannina karditsa karpenisi kastoria kavaje kleisoura_epirus konitsa
-				kruje leukas loidoriki nafpaktos neopatras ohrid parga preveza pyli siatista
-				tirana trikala vonitsa
+				armagh ballycastle ballymena belcoo belfast carrickfergus carrickmacross clogher coleraine derry
+				donegal downpatrick drogheda dundalk dungannon dunluce enniskillen inishowen iveagh kilmacrennan
+				magherafelt monaghan newtownards oriel raphoe strabane
 			}
-			capital = angelokastron
-			include = "eurasian_tribe"
+			capital = armagh
+			include = "gaelic_tribe"
+			government = {
+				ruler = random
+			}
+		}
+		VOT = { # Votadini
+			own_control_core = {
+				alnwick berwick dunbar duns edinburgh linlithgow morpeth
+			}
+			capital = alnwick
+			include = "gaelic_tribe"
 			government = {
 				ruler = random
 			}
 		}
 		WRE = { # Western Roman Empire
 			own_control_core = {
-				aachen aalst aarau abbeville abingdon acerenza acqui adony adra adrada
-				afso agde agen agramunt agreda aguiar aguilar_de_campoo ahrweiler aignay ainsa
-				aire aix_en_provence aixe ajaccio ajim al_kadwa al_khadra_ALG al_khums al_mazamma alarcon
-				alba alba_de_aliste alba_de_tormes albacete albarracin albenga albi albuquerque alcacer_do_sal alcala_de_henares
-				alcanices alcaniz alcantara alcaraz alcazar_de_san_juan alcobaca alcoy alencon aleria ales
-				alessandria alfambra algeciras alghero algiers alhambra_location alicante allegre alluyes almaden
-				almanzora almazan almeria almodovar_del_campo almonaster_la_real almudevar almunecar altamura altdorf alvalade
-				alvito amboise amergo amersfoort amesbury amiens amstetten anagni anana ancona
-				andechs andorra_la_vella andria andujar anfa angers angouleme annaba annecy anso
-				antequera antwerp aosta apt aquila aquileia aracena aranda_de_duero arches arcos_de_la_frontera
-				ares_del_maestre arevalo arezzo argenta argentan ariano ariza arles arlon arnay
+				aachen aalst aarau abbeville aberystwyth abingdon acerenza acqui adony adra
+				adrada agde agen agramunt agreda aguiar aguilar_de_campoo ahrweiler aignay ainsa
+				aire aix_en_provence aixe ajaccio ajim al_kadwa al_khadra_ALG al_khums alarcon alba
+				alba_de_aliste alba_de_tormes albacete albarracin albenga albi albuquerque alcacer_do_sal alcala_de_henares alcanices
+				alcaniz alcantara alcaraz alcazar_de_san_juan alcobaca alcoy alencon aleria ales alessandria
+				alfambra algeciras alghero algiers alhambra_location alicante allegre alluyes almaden almanzora
+				almazan almeria almodovar_del_campo almonaster_la_real almudevar almunecar altamura altdorf alvalade alvito
+				amboise amdoukal amergo amesbury amiens amstetten anagni anana ancona andechs
+				andorra_la_vella andria andujar angers anglesey angouleme annaba annecy anso antequera
+				aosta appleby apt aquila aquileia aracena aranda_de_duero arches arcos_de_la_frontera ares_del_maestre
+				arevalo arezzo argenta argentan ariano arilje ariza arles arlon arnay
 				arnedo aroche arona arques arras arroyo arshgul arzew ascolipiceno asilah
-				asir_ALG asola aspet assisi asti astorga ath atri aubusson auch
-				augsburg aulnay aumale auneau aurillac austria_baden autun auxerre auxonne avallon
-				avellino avignon avila aviles avis avranches ayamonte aylesbury ayora azeffoun
-				azemmour azuaga bacs bad_ischl badajoz baden_im_aargau badis baena baeza bage
-				baghai baht balaguer banbury bani_walid bapaume bar_cg bar_le_duc bar_sur_aube bar_sur_seine
-				barbastro barcarrota barcelona barcelonnette barcelos barco_de_valdeorras bardi bari barjols barking
-				barletta basel basingstoke basra_al_hamra bassano bastia bastogne bath bauge baume
-				bayeux bayonne baza bazas bazer_sakhra beaugency beaujeu beaumont_au_maine beaune beaupreau
-				beauvais beauvoir bedford beja beja_TUN bejaia bejar belalcazar belchite belfort
-				belgrad belin bellac belleme belley bellinzona belluno belmonte benabarre benauges
-				benavente benevento benfeld berceto berchtesgaden berga bergamo bergen_zoom bergerac bergheim
-				berlanga bern bernay besalu besancon besteiros betanzos beteta bethune beziers
-				biberach biella bienne bihac bilbao birkenfeld birmingham bischofshofen bitburg bitche
-				bitti bivona bizerte bjelovar blain bled blois bludenz bobbio bojano
-				bologna bolzano bonifacio bonn bonndorf borac bordeaux bordj_bou_arreridj borgloon bormio
+				asola aspet assisi asti astorga ath atri aubusson auch augsburg
+				aulnay aumale auneau aurillac austria_baden autun auxerre auxonne avallon avellino
+				avignon avila aviles avis avranches ayamonte aylesbury ayora azeffoun azuaga
+				bad_ischl badajoz baden_im_aargau bades baena baeza bage baghai balaguer bampton
+				banbury bani_walid bapaume bar_le_duc bar_sur_aube bar_sur_seine barbastro barcarrota barcelona barcelonnette
+				barcelos barco_de_valdeorras bardi bari barjols barking barletta barnstaple basel basingstoke
+				basra_al_hamra bassano bastia bastogne bath bauge baume bayeux bayonne baza
+				bazas bazer_sakhra beaugency beaujeu beaumont_au_maine beaune beaupreau beauvais beauvoir bedale
+				bedford beja beja_TUN bejaia bejar belalcazar belchite belfort belin bellac
+				belleme belley bellinzona belluno belmonte benabarre benauges benavente benevento benfeld
+				berceto berchtesgaden berga bergamo bergerac bergheim berlanga bern bernay besalu
+				besancon besteiros betanzos beteta bethune beziers bideford biella bienne bihac
+				bilbao billingham bir_el_alter birkenfeld birmingham bischofshofen biskra bitburg bitche bitti
+				bivona bizerte bjelovar blackburn blain bled blois bludenz bobbio bodmin
+				bojano bologna bolzano bonifacio bonn borac bordeaux bordj_bou_arreridj borgloon bormio
 				bosa boston bosworth bou_hajla bou_saada bouillon bouira boulogne_sur_mer bourbon bourg_en_bresse
 				bourganeuf bourges boussac bovino brac bracciano braga braganca braine brashk
-				braunau breda bree bregenz breno brescia brest breteuil briancon brie_comte_robert
-				brienne brig brignoles brihuega brindisi brioude bristol briviesca brixen brosse
-				broyes brozas brskovo bruck_leitha bruges bruneck brussels buckingham budimlja buitrago_de_lozoya
-				bunol burgdorf_emmental burghausen burgo_de_osma burgos bury buzet caceres cadiz caen
-				cagliari cahors cairo_montenotte cakovec calahorra calais calatanazor calatayud calatrava caltagirone
-				caltanisetta calvi cambrai cambridge camerino campagna canete cangas canossa cantavieja
-				canterbury caravaca carcassonne cardona carhaix carinena carmagnola carmona carpio carrion_de_los_condes
-				cartagena casale casalmaggiore caserta caspe cassano cassel castelfranco castellane castellaun
-				castellon_ampurias castellon_de_la_plana castelnau_de_medoc castelnaudary castelo_branco castelsardo castres castrocalbon castrojeriz castropol
-				castrovillari catania catanzaro cavalese cazorla cefalu celano celje ceneda cercy
-				cervera cesena ceuta ceva chabanais chalancon chalon_sur_saone chalons_champagne chambery chambon
-				chao_de_couce charef charolles charroux chartres chateau_chinon chateau_du_loir chateau_gontier chateau_porcien chateau_thierry
-				chateaubriant chateaudun chateaulin chateauneuf_de_randon chateauroux chatelaudren chatellerault chatillon_sur_indre chatillon_sur_seine chatillonaos
-				chaumont chaumont_vexin chaves chebba cheffia chelmsford cheltenham chelva chenini cherbourg
-				cherchell chiavenna chichester chieri chieti chimay chinchilla chinchon chinon chioggia
-				chippenham chiusi chlef choiseul chur cieza cirencester cittacastello cittaducale ciudad_real
-				ciudad_rodrigo cividale civitavecchia clermont clermont_en_argonne clermont_en_beauvaisis cles clusone cobeta cochem
-				cognac coimbra colchester collo colmar colmenar cologne comacchio como condom
-				condorcet conegliano connector_libya13 constantina constantine_ALG consuegra corbeil corbie cordoba coria
-				coria_del_rio corleone corneto corte cortenuova cortona coruna cosenza cotrone coucy
-				coutances coventry covilha crato cremona crepy crikvenica csantangelo csurgo cuellar
-				cuenca cuijk cuneo darney daroca daun daventry davos dax debdou
-				debrc delemont denia derby die digne dijon dillingen dinant disentis
-				djelfa doboj dol dole domfront domodossola donzy dorchester dordrecht douai
-				dover draguignan dreux drijeva dubica dubrovnik dufanat dunkirk dunstable durango
-				duren ebersberg ecija eggenfelden eindhoven ejea_de_los_caballeros el_escorial el_fahs el_jem el_kala
-				el_kantara el_kef el_kseur el_ksour el_milia elche elizondo elvas ely enghien
-				ensisheim entraigues epernay epinal erbach_swabia erding escurial esgueira espiel este
-				estella estremoz esztergom etain etampes evian evora evreux ewyas fabriano
-				faenza fakenham falaise faro faucigny fecamp fehervar feira feldbach feldkirch
-				feldkirchen feltre fenouillet feriana fermo fermoselle ferrara ferrette ferrol feurs
-				fez ficarolo figeac figueira finalborgo finisterre fiorenzuola flix florac florence
-				foggia foix fontenay forcalquier fosdinovo fougeres fraga francavilla frassinoro frauenfeld
-				freiburg freising frejus french_ales fresnes fribourg friedberg friesach frutigen fuenteovejuna
-				fuentiduena furstenberg furstenfeld gabes gacko gaeta gafsa galisteo gallipoliita gandia
-				gap garmisch geertruidenberg geldern gemona geneve genoa gerace gergal gex
-				ghariyan ghassasa ghent gibraltar gien ginzo_de_limia girgenti girona gisors glamoc
-				glarus glaz gloucester gmunden goito gorizia gourdon gradina gradiski_brod granada
-				granadilla grancey grandpre grantham grasse gray graz grenoble griesbach grimsby
-				grosseto gruyere guadalajara guadalupe guadix guarda guastalla gubbio guelma guerande
-				guercif gueret guildford guimaraes guise gunzburg gyor hachberg haguenau hallein
-				hammamet harcourt harrow hasselt hastings hedingham heinsberg hellin helmond henley
-				hennebont hermagor herment herrera hertford hertogenbosch hesdin hirson hohenberg huelva
-				huesca huescar huete hulst huntingdon huriel hythe idanha ikjan ilanz
-				ilirska_bistrica illereichen illescas illora ilok immenstadt imola imst indersdorf ingolstadt
-				iniesta innsbruck interlaken ipswich isernia isili issoudun ivrea jaca jadu
-				jaen jajce jaligny jama_TUN jaraicejo jarawah_abu_al_aysh jativa jerada jerez_de_la_frontera jerez_de_los_caballeros
-				jersey jijel jodar joigny joinville jonzac jorquera josselin judenburg jumilla
-				kairouan kaiserslautern kalaa_of_ait_abbas kapfenberg kaposvar kapuvar karlovac kaseg kasserine kebili
-				kelheim kelibia kempten kesra kettering kidderminster kingston kirchdorf kitzbuhel klagenfurt
-				kleve kljuc knin kocevje koman komarom konjic konstanz koprivnica kormend
-				korneuburg kortriik kotor kozara kranj krems kreuznach krk krumbach krupanj
-				ksar_el_boukhari ksar_el_kaoua ksar_el_kebir ksar_ibn_senane kufstein kuku kutina kyburg la_mamora la_mothe_en_bassigny
-				la_mure la_roche la_roche_sur_foron la_roche_sur_yon la_rochelle la_teste_de_buch la_tour_du_pin labrit lagonegro lagos
-				laguardia laigle lalin lamego lanciano landau landau_rhineland landeck landsberg landshut
-				langres lanzo laon larache laredo larino las_navas lasko lastovo_island_wasteland laufen
-				lausanne lautrec lavagna laval lavaur lavenham le_faou le_lude le_mans le_puy
-				lecce lecco lectoure ledesma legnago legnano leibnitz leicester leiningen leiria
-				lens leoben leon lerma lesparre_medoc leuven lewes lezuza libourne lichtenberg
-				lichtenberg_veldenz liege lienz liezen lignieres ligny lilienfeld lille limbourg limeuil
-				limoges limoux linz lisbon lisieux lisle_jourdain livno livorno ljubljana llanes
-				lleida llerena lliria llucena locarno loches lodeve lodi logrono loja
-				lomello london longueville longwy lorca los_yebenes loudun loughborough louhans louth
-				louviers lowestoft lucca lucena lucera lucerne lugano lugo luneville lusignan
-				luxembourg luxeuil lymington lynn lyon maastricht macedo macerata machecoul macomer
-				macon madinat_alawiyyin madjul madrid magyarovar mahdia mahres makarska malaga malagon
-				mallersdorf malta manfredonia mangona manresa mansilla mansouria mantes mantova manzanares
-				maqqara maqueda marbella maribor marle marmande marsciano marseille martigny martinafr
-				martos mascara massa massamar matera mateur matilla_de_canos matmata maubeuge mauleon
-				mauleon_poitou mauriac mayen mayenne mazara mazouna meaux mechelen meda medea
-				medellin medenine medicina medina_de_rioseco medina_del_campo medina_sidonia medinaceli medjez_el_bab medrissa meisenheim
-				meknes melfi melgueil melilla melk mellid melun memmingen mende menehould
-				merano merida mertola merzig meskiana mesocco messina mestre metkovic metlika
-				metz mevouillon mieres miesbach mila milano miliana millau mimizan miranda_de_ebro
-				miranda_de_i_douro mirande mirandela mirandola mirecourt mirepoix misratah mistretta mittersill modena
+				braunau brecknock bree bregenz breno brescia brest breteuil briancon bridlington
+				brie_comte_robert brienne brig brignoles brihuega brindisi brioude bristol briviesca brixen
+				brosse broyes brozas bruck_leitha bruges bruneck brussels buckingham buda builth
+				buitrago_de_lozoya bunol burgdorf_emmental burghausen burgo_de_osma burgos bury buzet caceres cadiz
+				caen caerphilly cagliari cahors cairo_montenotte cakovec calahorra calais calatanazor calatayud
+				calatrava caltagirone caltanisetta calvi cambrai cambridge camerino campagna canete cangas
+				canossa cantavieja canterbury caravaca carcassonne cardiff cardigan cardona carhaix carinena
+				carlisle carmagnola carmarthen carmona carnarvon carpio carrion_de_los_condes cartagena casale casalmaggiore
+				caserta caspe cassano cassel castelfranco castellane castellaun castellon_ampurias castellon_de_la_plana castelnau_de_medoc
+				castelnaudary castelo_branco castelsardo castres castrocalbon castrojeriz castropol castrovillari catania catanzaro
+				cavalese cazorla cefalu celano celje ceneda cercy cervera cesena ceuta
+				ceva chabanais chalancon chalon_sur_saone chalons_champagne chambery chambon chao_de_couce charolles charroux
+				chartres chateau_chinon chateau_du_loir chateau_gontier chateau_porcien chateau_thierry chateaubriant chateaudun chateaulin chateauneuf_de_randon
+				chateauroux chatelaudren chatellerault chatillon_sur_indre chatillon_sur_seine chatillonaos chaumont chaumont_vexin chaves chebba
+				cheffia chelmsford cheltenham chelva chenini cherbourg cherchell chester chesterfield chiavenna
+				chichester chieri chieti chimay chinchilla chinchon chinon chioggia chippenham chiusi
+				chlef choiseul chur cieza cirencester cittacastello cittaducale ciudad_real ciudad_rodrigo ciudadela_de_menorca
+				cividale civitavecchia clermont clermont_en_argonne clermont_en_beauvaisis cles clusone cobeta coblenz cochem
+				cockermouth cognac coimbra colchester collo colmar colmenar cologne comacchio como
+				condom condorcet conegliano constantina constantine_ALG consuegra conwy corbeil corbie cordoba
+				coria coria_del_rio corleone corneto corte cortenuova cortona coruna cosenza cotrone
+				coucy coutances coventry covilha crato cremona crepy crikvenica csantangelo csurgo
+				cuellar cuenca cuneo darlington darney daroca daun daventry davos dax
+				debrc delemont denbigh denia derby die digne dijon dillingen dinant
+				disentis doboj dol dole domfront domodossola doncaster donzy dorchester dordrecht
+				douai douz dover draguignan dreux drijeva dubica dubrovnik dufanat dunkirk
+				dunstable durango duren durham ebersberg ecija eggenfelden egremont ejea_de_los_caballeros el_escorial
+				el_fahs el_jem el_kala el_kantara el_kef el_kseur el_ksour el_milia elche elizondo
+				elvas ely enghien ensisheim entraigues epernay epinal erding escurial esgueira
+				espiel este estella estremoz esztergom etain etampes evian evora evreux
+				ewyas exeter fabriano faenza fakenham falaise faro faucigny fecamp fehervar
+				feira feldbach feldkirch feldkirchen feltre fenouillet feriana fermo fermoselle ferrara
+				ferrette ferrol feurs ficarolo figeac figueira finalborgo finisterre fiorenzuola fishguard
+				flint flix florac florence foggia foix fontenay forcalquier fosdinovo fougeres
+				fraga francavilla frassinoro frauenfeld freising frejus french_ales fresnes fribourg friedberg
+				friesach frutigen fuenteovejuna fuentiduena furstenfeld gabes gacko gaeta gafsa galisteo
+				gallipoliita gandia gap garmisch geertruidenberg geldern gemona geneve genoa gerace
+				gergal germersheim gex ghariyan ghent gibraltar gien ginzo_de_limia girgenti girona
+				gisors glamoc glarus glaz glossop gloucester gmunden goito gorizia gourdon
+				gradac gradiski_brod granada granadilla grancey grandpre grantham grasse gray graz
+				grenoble griesbach grimsby grosseto gruyere guadalajara guadalupe guadix guarda guastalla
+				gubbio guelma guerande gueret guildford guimaraes guise gunzburg gyor haguenau
+				hallein hammamet harcourt harlech harrow hasselt hastings hedingham heinsberg hellin
+				henley hennebont hermagor herment herrera hertford hesdin hexham hirson huelva
+				huesca huescar huete hull hulst huntingdon huriel hythe ibiza idanha
+				ikjan ilanz ilirska_bistrica illereichen illescas illora ilok immenstadt imola imst
+				indersdorf iniesta innsbruck interlaken ipswich isernia isili issoudun ivrea jaca
+				jadu jaen jajce jaligny jama_TUN jaraicejo jativa jerez_de_la_frontera jerez_de_los_caballeros jersey
+				jijel jodar joigny joinville jonzac jorquera josselin judenburg jumilla kairouan
+				kaiserslautern kalaa_of_ait_abbas kalocsa kapfenberg kaposvar kapuvar karlovac kaseg kasserine kebili
+				kelibia kempten kendal kesra kettering kidderminster kidwelly kingston kirchdorf kitzbuhel
+				klagenfurt kleve kljuc knin kocevje komarom konjic konstanz koprivnica kormend
+				kortriik kotor kozara kranj kreuznach krk krumbach krupanj ksar_el_boukhari ksar_el_kaoua
+				ksar_el_kebir ksar_ibn_senane kufstein kutina kyburg la_mamora la_mothe_en_bassigny la_mure la_roche la_roche_sur_foron
+				la_roche_sur_yon la_rochelle la_teste_de_buch la_tour_du_pin labrit lagonegro lagos laguardia laigle lalin
+				lamego lancaster lanciano landau landau_rhineland landeck landsberg landshut langres lanzo
+				laon larache laredo larino las_navas lasko lastovo_island_wasteland laufen launceston lausanne
+				lautrec lavagna laval lavaur lavenham le_faou le_lude le_mans le_puy lecce
+				lecco lectoure ledesma leeds legnago legnano leibnitz leicester leiden leiningen
+				leiria lens leoben leon lerma lesparre_medoc leuven lewes lezuza libourne
+				lichtenberg lichtenberg_veldenz liege lienz liezen lignieres ligny lilienfeld lille limbourg
+				limeuil limoges limoux linz lisbon lisieux lisle_jourdain liverpool livno livorno
+				ljubljana llanes llangollen lleida llerena lliria llucena locarno loches lodeve
+				lodi logrono loja lomello london longueville longwy lorca los_yebenes loudun
+				loughborough louhans louth louviers lowestoft lucca lucena lucera lucerne ludlow
+				lugano lugo luneville lusignan luxembourg luxeuil lymington lynn lyon maastricht
+				macclesfield macedo macerata machecoul machynlleth macomer macon madas madila madinat_alawiyyin
+				madjul madrid magyarovar mahdia mahres mainz makarska malaga malagon mallersdorf
+				malta manacor manchester manfredonia mangona manresa mansilla mansouria mantes mantova
+				manzanares maqqara maqueda marbella maribor marle marmande marsciano marseille martigny
+				martinafr martos mascara massa massamar matera mateur matilla_de_canos matmata maubeuge
+				mauleon mauleon_poitou mauriac mayen mayenne mazara mazouna meaux meda medea
+				medellin medenine medicina medina_de_rioseco medina_del_campo medina_sidonia medinaceli medjez_el_bab meisenheim melfi
+				melgueil melk mellid melun memmingen mende menehould merano merida mertola
+				merzig meskiana mesocco messina mestre metkovic metlika metz mevouillon middelburg
+				mieres miesbach mila milano miliana millau mimizan minehead miranda_de_ebro miranda_de_i_douro
+				mirande mirandela mirandola mirecourt mirepoix misratah mistretta mittersill mizda modena
 				modica modigliana mohacs mojacar molina_de_aragon molins monastir monchengladbach moncorvo mondonedo
 				mondovi monesterio monfort_lamaury monfort_sur_meu monforte_de_lemos monmouth monopoli mons monselice mont_de_marsan
 				montaigu montaigut montalban montalcino montalegre montanchez montargis montauban montbeliard montblanc
 				montbozon montbrison montcenis montefeltro monteleone montemor montendre montepeloso monterrey montflanquin
-				monthey montiel montlaur montlucon montmedy montmorency montmorillon montpellier montreuil montreuillon
-				montreux monza monzon monzon_campos mora_de_rubielos mora_portugal morella morgex morhange moron
-				mors mortagne mortain mostaganem mostar moura moutiers mouzon moya msila
-				muhldorf mula mulhouse mullheim munich murau muravera murbach murcia muret
-				murzzuschlag nabeul nagykanizsa najera namalata namur nancy nantes naples narbonne
-				narni navalucillos navia_de_suarna nedroma nemours nerac nesle neuchatel neufchateau_des_vosges neufchateau_luxembourg
-				neuss neustadt_an_der_haardt nevers nevesinje newark newport ngaous nicastro nice nicosiasic
-				niebla nijmegen nimes niort nivelles nogaro nogent_sur_seine nola nonantola nontron
-				northampton norwich noto nottingham novara novi novigrad novo_mesto noya noyon
-				nozza nyon oberdorf ocana odemira oleron olite oloron olovo olsnica
-				olvera onate onogost oppenheim oran orange orchimont orgelet orgiva orihuela
-				oristano orleans ornans oropesa orosei orte orthez orvietano osijek ostend
-				ostiglia osuna otocac oudenaarde ouezzane oujda ourense ourique oviedo oxford
-				ozieri padova pag pakrac palazzolo palencia palenzuela palermo palestrina palma_del_rio
-				palmi pamiers pamplona pantelleria paola papa pareja paris parma parthenay
-				passavant patti pau pavia pazin pecs pedraza pedroche penafiel peniscola
-				perigueux peronne perpignan perreux perugia pesaro peschiera pescia petrinja petrovaradin
-				peyre peyrusse pfaffenhofen piacenza piazza piedimonte piedrahita pieve pina_de_ebro pinar
-				pinerolo pinhel piombino pirmasens pisa pistoia pitigliano pitten plasencia pljevlja
-				ploermel podgorica poggibonsi poitiers pola poligny ponferrada pont_audemer pont_douilly pontarlier
-				ponte_sor pontedera pontevedra poole pordenone portalegre portel portishead porto portsmouth
-				posada postojna potenza potes pozega prades pragelato prato prijepolje prittlewell
-				privas proenca_nova provins prum ptuj puebla_de_alcocer puebla_de_guzman puebla_de_montalban puebla_de_sanabria puente_arzobispo
-				puertollano puget_theniers puigcerda qal_at_ibn_salama quimper quimperle rabat ras_al_ain ras_kebdana ras_lanuf
-				ravenna ravensburg reading redon regensburg reggiocal reggioem reigate reims reinosa
-				rennes requena retford rethel reutte rho riano ribadavia ribemont riberac
-				ried riedlingen rieti rijeka rimini riom ripoll riva riverie roanne
-				rochechouart rochefort rochester rodez roermond rohan romans rome romorantin roncesvalles
-				ronda rosenheim rosnay rossano rotondo rottenburg rottenmann roucy rouen rovegno
-				rovereto rovigo rovinj royan royston rutland saalfelden saanen saarbrucken saarburg
-				saarwerden sabac sabina sable sabugal sahagun saida saint_avold saint_brieuc saint_claude
-				saint_die saint_etienne saint_florentin saint_flour saint_gaudens saint_jean_de_maurienne saint_jean_pied_de_port saint_lizier saint_malo saint_marceilin
-				saint_mihiel saint_omer saint_pol saint_pons saint_quentin sainte_suzanne saintes salacon salamanca saldana
-				sale salemi salerno salins_les_bains salisbury sallanches salm salo_ita saluzzo salvaterra
-				salvatierra salzburg samorin san_clemente san_felices san_sebastian san_vicente_barquera sancerre sancoins sandonnino
-				sanguesa sanlorenzo sanlucar sanlucar_la_mayor sansepolcro sansevero sant_feliu santa_eufemia santander santangelo
-				santarcangelo santarem santiago_compostela sarinena sarlat sarnen sarrebourg sarreguemines sarria sartene
-				sarzana sassari saulgau saumur sauveterre_de_guyenne savona sbiba sbikha scalea schaffhausen
-				scharding scheibbs schio schladming schleiden schongau schwaz schwyz sciacca seddori
-				sefrou segesd segovia segur segura_de_la_sierra seia sejnane semur_en_auxois semur_en_brionnais senj
-				senlis senonches sens sepulveda serpa setif setubal seu_durgell sevilla sfaqes
-				shaftesbury shkoder shoreham sibenik sidi_fredj siena sigmaringen siguenza siklos silandro
-				silves simmern simontornya sines sinj sint_niklaas sion sirte sisak sisteron
-				sitges skikda skofja_loka slano slovenj_gradec slunj soissons soko_grad soli solothurn
-				somogyvar soncino sonthofen sopron sora sorgono soria sos souk_el_arba sousse
-				southampton spalding spilimbergo spittal split spoleto srb srebrenica srebrenik sremska_mitrovica
-				st_affrique st_aignan st_albans st_ambroix st_calais st_gallen st_georgen st_gerand st_jean_dangely st_johann
-				st_leonard st_pierre_de_moutier st_pol_de_leon st_polten st_sauveur st_veit st_vith stafford stavelot steinfeld
-				sterzing steyr sto_domingo_silos stockach stratford straubing subaytila sully sulmona susa
-				syracuse szombathely tabarida tabarka tablat tahert talarn talavera_de_la_reina talmont tamazaghrane
-				tamentfoust tamsweg tamworth tancarville tangier taourirt taranto tarascon tarasp tarazona
-				tarbes tarhuna tarifa tarragona tarrega tartas tata tataouine taunat taunton
-				tavira tawurgha taza tazroute tebessa tebourba tedelles tefelfelt tekouch tempiopausania
-				temsamane tenes teocak teramo termini terracina terralba terranova_pausania terranovasic terrassa
-				teruel tessala tetouan thagaste thagia thala thetford thiers thiesi thionville
-				thiviers thoire thouars thun tiel tiffech tijis tineo tissemsilt tivoli
-				tizgane tlemcen todi toggenburg toledo tolmezzo tolmin tolna tolosa tolz
-				tomar tomelloso tonbridge tonnerre tordesillas toro torralba torres_novas torres_vedras tortoli
-				tortona tortosa tosse toul toulon toulouse tour_auvergne tournai tournon tours
-				trancoso trapani tratalias traunstein trebinje treguier trento tresivio treviglio treviso
-				trevoux trier trieste tripoli trivento trowbridge troyes trujillo tudela tulle
-				tulln tunis turenne turin turnhout tuy ubeda uberlingen ucles udine
-				ulm urbino ussel ustikolina uzes uzice valderrobres valenca valence valencia
-				valencia_de_alcantara valenciennes valjevo valladolid vallo valmaseda valverde vannes varallo varazdin
-				varese vaska vasto vasvar vaucouleurs velez_malaga velez_rubio velletri venafro vendome
-				venice venlo ventadour ventimiglia vercelli verdun verdun_sur_garonne vergato verona vertus
-				vesoul veszprem veurne viana viana_bolo viana_do_castelo vianden vic vic_le_comte vic_sur_seille
-				vicenza vichy vico vielha vienna vienne vierzon vila_real vila_vicosa villa_di_chiesa
-				villablino villach villadiego villafranca_bierzo villafranca_del_penedes villaines villalba villalpando villandro villanueva_de_la_serena
-				villanueva_del_fresno villapalacios villarcayo villarobledo villars villatoro villaviciosa villefranche villemaur villemur
-				villena villingen vire virovitica visegrad viseu viterbo vitoria vitre vitry_aux_loges
-				vitry_en_pertois vivero viviers vodable voghera voitsberg volkermarkt volterra volubilis vrhbosna
-				vukovar waidhofen walcourt waldburg walden waldsee waldshut wallerfangen wasserburg weert
-				weilheim weiz wells wels werdenberg wertingen wesel weymouth wiener_neustadt wight
-				winchester windsor winklern wittlich woking wolfsberg wolhusen worms wycombe yafran
-				yarmouth yecla_de_yeltes yellel ypres yverdon_les_bains zabern zadar zafra zaghouan zagreb
-				zalaegerszeg zalamea zalavar zamora zaragoza zarzis zawiya zell_am_see zell_am_ziller zenica
+				montgomery monthey montiel montlaur montlucon montmedy montmorency montmorillon montpellier montreuil
+				montreuillon montreux monza monzon monzon_campos mora_de_rubielos mora_portugal morella morgex morhange
+				moron mors mortagne mortain mostaganem mostar moura moutiers mouzon moya
+				msila muhldorf mula mulhouse munich murau muravera murbach murcia muret
+				murzzuschlag nabeul nagykanizsa najera nalut namur nancy nantes nantwich naples
+				narbonne narni navalucillos navia_de_suarna neath nedroma nefta nemours nerac nesle
+				neuburg_an_der_donau neuchatel neufchateau_des_vosges neufchateau_luxembourg neuss neustadt_an_der_haardt nevers nevesinje newark newcastle
+				newport ngaous nicastro nice nicosiasic niebla nijmegen nimes niort nivelles
+				nogaro nogent_sur_seine nola nonantola nontron northampton norton norwich noto nottingham
+				novara novi novigrad novo_mesto noya noyon nozza nyon oberdorf ocana
+				odemira okehampton oleron olite oloron olovo olsnica olvera onate oppenheim
+				oran orange orchimont orgelet orgiva orihuela oristano orleans ornans oropesa
+				orosei orte orthez orvietano osijek ostend ostiglia osuna oswestry otocac
+				oudenaarde ouezzane ourense ourique oviedo oxford ozieri padova pag pakrac
+				palazzolo palencia palenzuela palermo palestrina palma palma_del_rio palmi pamiers pamplona
+				pantelleria paola papa pareja paris parma parthenay passau passavant patti
+				pau pavia pazin pecs pedraza pedroche pembroke penafiel peniscola penllyn
+				penrith perigueux peronne perpignan perreux perugia pesaro peschiera pescia petrinja
+				petrovaradin peyre peyrusse pfaffenhofen piacenza piazza piedimonte piedrahita pieve pina_de_ebro
+				pinar pinerolo pinhel piombino pirmasens pisa pistoia pitigliano pitten plasencia
+				pljevlja ploermel plymouth poggibonsi poitiers pola poligny pollensa ponferrada pont_audemer
+				pont_douilly pontarlier ponte_sor pontedera pontefract pontevedra poole pordenone portalegre portel
+				portishead porto portsmouth posada postojna potenza potes pozega prades pragelato
+				prato preston prijepolje prittlewell privas proenca_nova provins prum ptuj puebla_de_alcocer
+				puebla_de_guzman puebla_de_montalban puebla_de_sanabria puente_arzobispo puertollano puget_theniers puigcerda quimper quimperle rabat
+				radnor ras_lanuf ravenna reading redon regensburg reggiocal reggioem reigate reims
+				reinosa rennes requena retford rethel reutte rho riano ribadavia ribemont
+				riberac richmond ried rieti rijeka rimini riom ripoll ripon riva
+				riverie roanne rochechouart rochefort rochester rodez roermond rohan romans rome
+				romorantin roncesvalles ronda rosenheim rosnay rossano rotondo rottenburg rottenmann rotterdam
+				roucy rouen rovegno rovereto rovigo rovinj royan royston rutland saalfelden
+				saanen saarbrucken saarburg saarwerden sabac sabina sable sabugal sahagun saida
+				saint_avold saint_brieuc saint_claude saint_die saint_etienne saint_florentin saint_flour saint_gaudens saint_jean_de_maurienne saint_jean_pied_de_port
+				saint_lizier saint_malo saint_marceilin saint_mihiel saint_omer saint_pol saint_pons saint_quentin sainte_suzanne saintes
+				salacon salamanca saldana sale salemi salerno salins_les_bains salisbury sallanches salm
+				salo_ita saluzzo salvaterra salvatierra salzburg san_clemente san_felices san_sebastian san_vicente_barquera sancerre
+				sancoins sandonnino sanguesa sanlorenzo sanlucar sanlucar_la_mayor sansepolcro sansevero sant_feliu santa_eufemia
+				santander santangelo santarcangelo santarem santiago_compostela sarinena sarlat sarnen sarrebourg sarreguemines
+				sarria sartene sarzana sassari saumur sauveterre_de_guyenne savona sbiba sbikha scalea
+				scarborough scharding scheibbs schio schladming schleiden schongau schwaz schwyz sciacca
+				seddori segesd segovia segur segura_de_la_sierra seia sejnane selby semur_en_auxois semur_en_brionnais
+				senj senlis senonches sens sepulveda serpa setif setubal seu_durgell sevilla
+				sfaqes shaftesbury shoreham shrewsbury sibenik sidi_fredj sidi_okba siena siguenza siklos
+				silandro silves simmern simontornya sines sinj sint_niklaas sion sirte sisak
+				sisteron sitges skikda skipton skofja_loka slano slovenj_gradec slunj soissons soko_grad
+				soli solothurn solt somogyvar soncino sonthofen sopron sora sorgono soria
+				sos souk_el_arba sousse southampton spalding speyer spilimbergo spittal split spoleto
+				srb srebrenica srebrenik sremska_mitrovica st_affrique st_aignan st_albans st_ambroix st_calais st_gallen
+				st_georgen st_gerand st_jean_dangely st_johann st_leonard st_pierre_de_moutier st_pol_de_leon st_polten st_sauveur st_veit
+				st_vith stafford stavelot steinfeld sterzing steyr sto_domingo_silos stockton stoke strasbourg
+				stratford straubing subaytila sully sulmona susa swansea syracuse szombathely tabarka
+				tablat tahert talarn talavera_de_la_reina talmont tamazaghrane tamentfoust tamsweg tamworth tancarville
+				tangier taranto tarascon tarasp tarazona tarbes tarhuna tarifa tarragona tarrega
+				tartas tata tataouine taunton tavira tawurgha tazroute tebessa tebourba tedelles
+				tekouch tempiopausania tenes teocak teramo termini terracina terralba terranova_pausania terranovasic
+				terrassa teruel tessala tetouan thagaste thala the_hague thetford thiers thiesi
+				thionville thiviers thoire thouars thun tiel tiffech tijis tineo tissemsilt
+				tivoli tlemcen todi toggenburg toledo tolga tolmezzo tolmin tolna tolosa
+				tolz tomar tomelloso tonbridge tonnerre tordesillas toro torralba torres_novas torres_vedras
+				tortoli tortona tortosa tosse toul toulon toulouse tour_auvergne tournai tournon
+				tours tozeur trancoso trapani tratalias traunstein trebinje treguier trento tresivio
+				treviglio treviso trevoux trier trieste tripoli trivento trowbridge troyes trujillo
+				truro tudela tulle tulln tunis turenne turin tuy ubeda ucles
+				udine urbino ussel ustikolina utrecht uzes uzice valderrobres valenca valence
+				valencia valencia_de_alcantara valenciennes valjevo valladolid vallo valmaseda valverde vannes varallo
+				varazdin varese vaska vasto vasvar vaucouleurs velez_malaga velez_rubio velletri venafro
+				vendome venice venlo ventadour ventimiglia vercelli verdun verdun_sur_garonne vergato verona
+				vertus vesoul veszprem veurne viana viana_bolo viana_do_castelo vianden vic vic_le_comte
+				vic_sur_seille vicenza vichy vico vielha vienna vienne vierzon vila_real vila_vicosa
+				villa_di_chiesa villablino villach villadiego villafranca_bierzo villafranca_del_penedes villaines villalba villalpando villandro
+				villanueva_de_la_serena villanueva_del_fresno villapalacios villarcayo villarobledo villars villatoro villaviciosa villefranche villemaur
+				villemur villena vire virovitica visegrad viseu viterbo vitoria vitre vitry_aux_loges
+				vitry_en_pertois vivero viviers vodable voghera voitsberg volkermarkt volterra vrhbosna vukovar
+				waidhofen wakefield walcourt walden wallerfangen wasserburg weert weilheim weiz wells
+				wels werdenberg wertingen weymouth whitby wiener_neustadt wight wigmore winchester windsor
+				winklern wittlich woking wolfsberg wolhusen worms wycombe yafran yarmouth yecla_de_yeltes
+				yellel york ypres yverdon_les_bains zabern zadar zafra zaghouan zagreb zalaegerszeg
+				zalamea zalavar zamora zaragoza zarzis zawiya zell_am_see zell_am_ziller zenica zintan
 				zliten zogno zorita zuera zuoz zurich zuwarah zweibrucken
 			}
 			capital = milano

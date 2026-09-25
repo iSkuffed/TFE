@@ -308,6 +308,8 @@ def owned_by_tag(owner):
 def resolve_capitals(tags, owned):
     caps, warnings, errors = {}, [], []
     for t, locs in owned.items():
+        if t not in tags:
+            continue  # undefined tag: reported by check_values
         cap = tags[t]["capital"]
         if cap == "-":
             caps[t] = locs[0]

@@ -150,3 +150,9 @@ def test_emit_definitions_and_localization():
     loc = b.emit_localization(tags)
     assert loc.startswith("﻿l_english:\n")
     assert ' AAA: "Western Roman Empire"' in loc and ' AAA_ADJ: "Western Roman"' in loc
+
+
+def test_resolve_capitals_skips_undefined_tags():
+    # an override naming an undefined tag is reported by check_values; capitals must not crash on it
+    caps, warns, errs = b.resolve_capitals({"AAA": _tag(capital="rome")}, {"AAA": ["rome"], "QQQ": ["x"]})
+    assert caps == {"AAA": "rome"} and errs == [] and warns == []
