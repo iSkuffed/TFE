@@ -1,0 +1,3 @@
+# TFE stub: medieval town charters removed (anachronistic in 395; many sat on unowned/tribal land)
+townrights_manager = {
+}
