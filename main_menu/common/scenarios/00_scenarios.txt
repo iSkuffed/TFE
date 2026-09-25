@@ -1,0 +1,41 @@
+﻿# TFE: replaces vanilla scenarios. The IDs are hardcoded in main_menu/gui/frontend_singleplayer.gui,
+# so the keys stay vanilla while the countries point at 395 tags. Vanilla flags dropped (1337 art).
+
+# Military
+TUR_scenario = {
+	country = HNS
+	player_playstyle = MILITARY
+	player_proficiency = NOVICE
+}
+
+CAS_scenario = {
+	country = SAS
+	player_playstyle = MILITARY
+	player_proficiency = EXPERIENCED
+}
+
+# Economy
+HUN_scenario = {
+	country = AXU
+	player_playstyle = ADMINISTRATIVE
+	player_proficiency = NOVICE
+}
+
+HOL_scenario = {
+	country = GUP
+	player_playstyle = ADMINISTRATIVE
+	player_proficiency = EXPERIENCED
+}
+
+# Politics
+NOR_scenario = {
+	country = EAR
+	player_playstyle = DIPLOMATIC
+	player_proficiency = NOVICE
+}
+
+NAP_scenario = {
+	country = WRE
+	player_playstyle = DIPLOMATIC
+	player_proficiency = EXPERIENCED
+}

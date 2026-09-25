@@ -1,4 +1,5 @@
 """Frontier facts for 395 AD. Each row: location, expected owner, why."""
+import re
 import sys
 from pathlib import Path
 
@@ -58,3 +59,10 @@ def test_no_errors(state):
 @pytest.mark.parametrize("loc", ["pantelleria", "lastovo_island_wasteland", "syrian_desert_corridor8"])
 def test_unownable_never_owned(state, loc):
     assert loc not in state["land"] and loc not in state["owner"]
+
+
+def test_scenario_countries_are_landed_tfe_tags(state):
+    # vanilla 00_scenarios.txt features 1337 tags that own nothing at our start -> lobby crash
+    f = b.MOD / "main_menu/common/scenarios/00_scenarios.txt"
+    tags = re.findall(r"\bcountry\s*=\s*(\w+)", re.sub(r"#[^\n]*", "", f.read_text(encoding="utf-8-sig")))
+    assert tags and all(t in state["owned"] for t in tags), tags
