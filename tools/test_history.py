@@ -66,3 +66,12 @@ def test_scenario_countries_are_landed_tfe_tags(state):
     f = b.MOD / "main_menu/common/scenarios/00_scenarios.txt"
     tags = re.findall(r"\bcountry\s*=\s*(\w+)", re.sub(r"#[^\n]*", "", f.read_text(encoding="utf-8-sig")))
     assert tags and all(t in state["owned"] for t in tags), tags
+
+
+@pytest.mark.parametrize("name", ["03_markets", "07_cities_and_buildings", "09_roads"])
+def test_start_files_only_touch_owned_land(state, name):
+    # vanilla never has a market centre, town or road on unowned land; the start setup crashes on it
+    text = re.sub(r"#[^\n]*", "", (b.MOD / "main_menu/setup/start" / f"{name}.txt").read_text(encoding="utf-8"))
+    owned = {l for l, v in state["owner"].items() if v != "none"}
+    refs = {w for w in re.findall(r"\w+", text) if w in state["anc"]}
+    assert refs and not refs - owned, sorted(refs - owned)[:10]

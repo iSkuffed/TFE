@@ -4,7 +4,7 @@ from pathlib import Path
 MOD = Path(__file__).resolve().parent.parent
 START = MOD / "main_menu/setup/start"
 STUBS = ["05_characters", "07_cities_and_buildings", "11_art", "12_diplomacy", "13_religion",
-         "15_international_organizations", "16_wars", "18_opinions", "20_rivals", "23_colonies", "24_town_rights",
+         "15_international_organizations", "16_wars", "18_opinions", "20_rivals", "23_colonies", "24_town_rights", "03_markets", "09_roads",
          "25_area_preferences", "26_ai_personalities", "27_armies"]
 
 
