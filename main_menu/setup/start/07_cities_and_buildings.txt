@@ -1,4 +1,4 @@
-﻿# TFE stub: 1337 tag-owned buildings removed
+# TFE stub: 1337 tag-owned buildings removed
 locations={
 	
 	#sweden

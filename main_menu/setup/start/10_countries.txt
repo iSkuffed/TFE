@@ -19,7 +19,7 @@ countries = {
 		}
 		AGL = { # Angles
 			own_control_core = {
-				aabenraa amrum_island_wasteland eckernforde flensburg haderslev husum ribe slesvig tonder
+				aabenraa eckernforde flensburg haderslev husum ribe slesvig tonder
 			}
 			capital = aabenraa
 			include = "eurasian_tribe"
@@ -55,8 +55,7 @@ countries = {
 		}
 		AUS = { # Austuriani
 			own_control_core = {
-				al_jawf awjila connector_libya10 connector_libya11 connector_libya12 connector_libya13 connector_libya15 connector_libya3 connector_libya6 maradah
-				tazirbu zella
+				al_jawf awjila maradah tazirbu zella
 			}
 			capital = al_jawf
 			include = "subsaharan_tribe"
@@ -115,7 +114,7 @@ countries = {
 		}
 		BMY = { # Blemmyes
 			own_control_core = {
-				aydhab horn_desert_corridor2
+				aydhab
 			}
 			capital = aydhab
 			include = "subsaharan_tribe"
@@ -190,63 +189,61 @@ countries = {
 				bolu bolvadin bor_tur boruy bosra boyabat bozan bozhenitsa bozok branicevo
 				brskovo brvenik budimlja bukelon burdur burgas burraq bursa butrint cairo
 				can canakkale candia candir candir_cil cankiri catalca caxud celtik cephalonia
-				cerkes cernavoda cesme chalandritsa chania cherven chios cine comana_cil connector_egypt1
-				connector_egypt10 connector_egypt11 connector_egypt12 connector_egypt14 connector_egypt15 connector_egypt16 connector_egypt17 connector_egypt4 connector_egypt6 connector_egypt8
-				connector_egypt9 connector_libya9 constanta constantia_bul constantinople corfu corinth corlu corum corycus
-				cubuk cumra dabiq dakahla damala damanhur damascus damietta dara darende
-				dasmenda debar deir_qamar deliktash demetrias demirci demotica derna develi devol
-				devrekani dinar dinek_keskin divrigi dluk dobrolak domanic dospat drama drastar
-				dukagjini dupnitsa durres dursunbey edessa edfu edirne edremit egin egirdir
-				el_agheila el_alamein el_arish el_bahnasa el_balyana el_burullus el_buwit el_jundi el_mahalla el_qoseir
-				el_tor elassona elbasan elbistan elhovo elmali elounda emet emirdag enez
-				enguzud enisala eregli eregli_kar eretreia ermenek ermioni eskil esna eynegol
-				faiyum famagusta faqus faran farsala finike florina foca fuwa gadegara
-				gallipoli gaza gediz gemerek gerede gerger gergeri gerze giannitsa gigen
-				giresun giza gjakova glubocica gokabat goksun golhisar gonen gordes gorele
-				goynuk gradina gravia grevena gumus gumushane gurun guzelhisar gynaikokastro hacibektas
-				hafik hagios_pavlos hama hargan harmancik harsova has haskovo hatera hatunsaray
-				haymana hayrabolu hebron hiambouli hiw homs honaz hotalich huseyinabad huwwarin
-				idlib ikaria ilgin ilic imbros inebolu inonu insuyu ioannina irbid
-				isaccea iskenderun iskilip isparta ispir istanoz ithriya izmit iznik jabbul
-				jableh jaffa jagodina jayrud jerusalem kafartab kafr_saqr kahta kalabsha kalamata
-				kalavryta kalecik kaliakra kapan karahisar_i_sahib karahisar_i_teke karak karakecili karapinar karditsa
-				karpathos karpenisi kars_armenia karvuna karystos karytaina kas kassandreia kastamonu kastoria
-				kavaje kavala kaymaz kayseri kaysun kelkit kemah kesan khanaser kharga
-				kharibta khupati kibrus kicevo kilis kilkis kirklareli kirsehir kiyikoy kizilca
-				kladentsi kleisoura kleisoura_epirus kocani kochisar kom_ombo koman komotini konitsa konrapa
-				konya kos kostenets koyulhisar kozelj kran kratovo kruje krupnik krusevac
-				ktenia kucevo kula kulu_turkey kumanovo kure_i_mamure kursunlu kutahya kutlovitsa kymi
-				kyparissia kyrenia kythira kythnos ladik ladik_pontus lapseki lardeja larende larissa
-				larnaca latakia lazkiye lemnos leukas leuktron lezha limassol livadeia loidoriki
-				lom lovech luleburgaz lyaskovets maan madaba majdal malatya malgara manavgat
-				manbij manfalut manisa mansoura manyas marash marmaris marrat maskanah masyaf
-				matruh mechili medveda megara megri melnik menemen mengen menouf merzifon
-				mesudiye mihalic mihaliccik milas milos minya mitilene mitrovica modon molevon
-				molyvos monemvasia morphou mount_athos msus mudurnu mugla mut mykonos mystras
-				nabek nablus nafpaktos nafplio nalli nawa naxos nazilli negroponte nekhel
-				neopatras nevrokop nevsehir nicosia_cyp nigde nikopol niksar nis novo_brdo nuweiba
-				obruk ohrid oitylo onogost oreos ormenio oryahovo ostrovo ovech pangalia
-				paphos parga parkhali patras peja perperek pirloganda pirot pleven plovdiv
-				podgorica polatli polygyros pontikokastro preveza prilep pristina prizren prokuplje prosek
-				pyli qalyub qaminis qaryatayn qasr_ibrim qastal qatya qena qus qusayr
-				qutayfah ramsis ras_gharib rashid ravno razgrad rentina rethymno rize rodos
-				rodoscuk rudnik ruse rusokastro sabanozu safaga safed safranbolu saint_anthony saint_katrine
-				saint_paul_anchorite salamiyya salkhad sallum salona samanoud samokov samos samsat samsun
-				sandikli sariyahsi sarkikaraagac sarkisla sebinkarahisar selinti serres servia seydisehir seyhli
-				seyitgazi sharuna shkoder shoubak shtip shumen siatista sidon silifke silivri
-				silli simav sinop siran sis siteia sivas sivrihisar siwa sjenica
-				skopje sliven smederevo smolyan smyrna sogut soma sonisa sorgun sozopol
-				sporades sredets stalac stanimaka stefani stipon stomio strelcha strumica suez
-				sughar suhut sukhnah sultanonu suluklu suluntah sulusaray sungurlu surmene susurluk
-				suwayda svoge svrljig syrian_desert_corridor1 tabqah tadmur tahna targoviste_BUL tarnovo tarrana
-				tarsus tartus taskopru tavas tavsanli taybah tercan terme tetovo thasos
-				thebes thessaloniki tidah tinnis tirana tire tmimi tobruk tokat tomarza
-				tosya traianopolis trapessac trebizond trgoviste_SER trikala tripoli_syria tripolitsa tryavna tsaribrod
-				tsepina tulcea turgut tutrakan tyrnavos ulnia uluborlu ulus unye urgup
-				urla usak ushmum_tannah uskudar ustra varna velbuzd veles veligosti veliki_preslav
-				veria viannos vidin visesav vize vonitsa vostitsa vranje vratsa wadi_el_natrun
-				warrada xanthia xylokastro yahyali yalvac yenicepazari yuksekkum zakynthos zara zardana
-				zemlungrad zetounion zica zile
+				cerkes cernavoda cesme chalandritsa chania cherven chios cine comana_cil constanta
+				constantia_bul constantinople corfu corinth corlu corum corycus cubuk cumra dabiq
+				dakahla damala damanhur damascus damietta dara darende dasmenda debar deir_qamar
+				deliktash demetrias demirci demotica derna develi devol devrekani dinar dinek_keskin
+				divrigi dluk dobrolak domanic dospat drama drastar dukagjini dupnitsa durres
+				dursunbey edessa edfu edirne edremit egin egirdir el_agheila el_alamein el_arish
+				el_bahnasa el_balyana el_burullus el_buwit el_jundi el_mahalla el_qoseir el_tor elassona elbasan
+				elbistan elhovo elmali elounda emet emirdag enez enguzud enisala eregli
+				eregli_kar eretreia ermenek ermioni eskil esna eynegol faiyum famagusta faqus
+				faran farsala finike florina foca fuwa gadegara gallipoli gaza gediz
+				gemerek gerede gerger gergeri gerze giannitsa gigen giresun giza gjakova
+				glubocica gokabat goksun golhisar gonen gordes gorele goynuk gradina gravia
+				grevena gumus gumushane gurun guzelhisar gynaikokastro hacibektas hafik hagios_pavlos hama
+				hargan harmancik harsova has haskovo hatera hatunsaray haymana hayrabolu hebron
+				hiambouli hiw homs honaz hotalich huseyinabad huwwarin idlib ikaria ilgin
+				ilic imbros inebolu inonu insuyu ioannina irbid isaccea iskenderun iskilip
+				isparta ispir istanoz ithriya izmit iznik jabbul jableh jaffa jagodina
+				jayrud jerusalem kafartab kafr_saqr kahta kalabsha kalamata kalavryta kalecik kaliakra
+				kapan karahisar_i_sahib karahisar_i_teke karak karakecili karapinar karditsa karpathos karpenisi kars_armenia
+				karvuna karystos karytaina kas kassandreia kastamonu kastoria kavaje kavala kaymaz
+				kayseri kaysun kelkit kemah kesan khanaser kharga kharibta khupati kibrus
+				kicevo kilis kilkis kirklareli kirsehir kiyikoy kizilca kladentsi kleisoura kleisoura_epirus
+				kocani kochisar kom_ombo koman komotini konitsa konrapa konya kos kostenets
+				koyulhisar kozelj kran kratovo kruje krupnik krusevac ktenia kucevo kula
+				kulu_turkey kumanovo kure_i_mamure kursunlu kutahya kutlovitsa kymi kyparissia kyrenia kythira
+				kythnos ladik ladik_pontus lapseki lardeja larende larissa larnaca latakia lazkiye
+				lemnos leukas leuktron lezha limassol livadeia loidoriki lom lovech luleburgaz
+				lyaskovets maan madaba majdal malatya malgara manavgat manbij manfalut manisa
+				mansoura manyas marash marmaris marrat maskanah masyaf matruh mechili medveda
+				megara megri melnik menemen mengen menouf merzifon mesudiye mihalic mihaliccik
+				milas milos minya mitilene mitrovica modon molevon molyvos monemvasia morphou
+				mount_athos msus mudurnu mugla mut mykonos mystras nabek nablus nafpaktos
+				nafplio nalli nawa naxos nazilli negroponte nekhel neopatras nevrokop nevsehir
+				nicosia_cyp nigde nikopol niksar nis novo_brdo nuweiba obruk ohrid oitylo
+				onogost oreos ormenio oryahovo ostrovo ovech pangalia paphos parga parkhali
+				patras peja perperek pirloganda pirot pleven plovdiv podgorica polatli polygyros
+				pontikokastro preveza prilep pristina prizren prokuplje prosek pyli qalyub qaminis
+				qaryatayn qasr_ibrim qastal qatya qena qus qusayr qutayfah ramsis ras_gharib
+				rashid ravno razgrad rentina rethymno rize rodos rodoscuk rudnik ruse
+				rusokastro sabanozu safaga safed safranbolu saint_anthony saint_katrine saint_paul_anchorite salamiyya salkhad
+				sallum salona samanoud samokov samos samsat samsun sandikli sariyahsi sarkikaraagac
+				sarkisla sebinkarahisar selinti serres servia seydisehir seyhli seyitgazi sharuna shkoder
+				shoubak shtip shumen siatista sidon silifke silivri silli simav sinop
+				siran sis siteia sivas sivrihisar siwa sjenica skopje sliven smederevo
+				smolyan smyrna sogut soma sonisa sorgun sozopol sporades sredets stalac
+				stanimaka stefani stipon stomio strelcha strumica suez sughar suhut sukhnah
+				sultanonu suluklu suluntah sulusaray sungurlu surmene susurluk suwayda svoge svrljig
+				tabqah tadmur tahna targoviste_BUL tarnovo tarrana tarsus tartus taskopru tavas
+				tavsanli taybah tercan terme tetovo thasos thebes thessaloniki tidah tinnis
+				tirana tire tmimi tobruk tokat tomarza tosya traianopolis trapessac trebizond
+				trgoviste_SER trikala tripoli_syria tripolitsa tryavna tsaribrod tsepina tulcea turgut tutrakan
+				tyrnavos ulnia uluborlu ulus unye urgup urla usak ushmum_tannah uskudar
+				ustra varna velbuzd veles veligosti veliki_preslav veria viannos vidin visesav
+				vize vonitsa vostitsa vranje vratsa wadi_el_natrun warrada xanthia xylokastro yahyali
+				yalvac yenicepazari yuksekkum zakynthos zara zardana zemlungrad zetounion zica zile
 			}
 			capital = constantinople
 			include = "eastern_european_monarchy"
@@ -283,9 +280,9 @@ countries = {
 		GEA = { # Geats
 			own_control_core = {
 				albo allingsas alvastra amal bogesund dalaborg ekholm falkoping handbord hjo
-				hoborg jonkoping kinda konga lidkoping linkoping ljungby lodose norrkoping oland
-				sevede skara skene slite soderkoping tiveden tjust trollaborg uppvidinge utlandet
-				vadstena vallsjo vartofta vaxjo vedbo vetlanda visby waestbo
+				hoborg jonkoping kalmar kinda konga lidkoping linkoping ljungby lodose norrkoping
+				oland sevede skara skene slite soderkoping tiveden tjust trollaborg uppvidinge
+				utlandet vadstena vallsjo vartofta vaxjo vedbo vetlanda visby waestbo
 			}
 			capital = albo
 			include = "eurasian_tribe"
@@ -309,8 +306,7 @@ countries = {
 		}
 		GMT = { # Garamantes
 			own_control_core = {
-				brak coastal_libyan_desert1 connector_libya17 connector_libya2 connector_libya4 connector_libya5 ghat murzuk sabha sokna
-				ubari zawila
+				brak ghat murzuk sabha sokna ubari zawila
 			}
 			capital = brak
 			include = "subsaharan_tribe"
@@ -336,76 +332,76 @@ countries = {
 			own_control_core = {
 				acham adanki agar agartala agori agra ahmednagar ajayameru ajmer akbarpur
 				aklera akola alirajpur almora alwar amarkantak ambagarh amber_loc ambikapur amet
-				amravati amreli andar angul anupgarh aravali_range aror arrah ashaval asika
-				asirgarh asni athmallik atiya awadh azamgarh badamgarh bahadamer bahraich baijnath
-				bajaura bajwara balaghat balangir balasore ballia balrampur banda bandogarh baniachang
-				banihal bankura bansi banswara barabhum baragram baran barbakaabad bardhaman bareilly
-				bargarh barguna baria baripada barmaur baroda basim basna bassein bastar
-				basti batala bathinda baud bayana belabo belkhandi bemetara beohari bettiah
-				bhadohi bhadrak bhagalpur bhanpura bhanvad bharatpur bhatnir bhatta bhilsa bhilwara
-				bhind bhojpur bhopal bhuban bhurwara bihar_sharif bihariganj bijagarh bijnot bikrampur
-				bilgram binayakpur birampur birugarh bishnupur bissam_cuttack biswan bobbili bogra bombay
-				bonaigarh bordowa brahmapur broach budaun bundi burhanpur buxar chai chaibasa
-				chaiturgarh chakan chamba_india champaner champavati chanderi chandor chandpur chandpur_garhi chandpur_uttar_pradesh
-				chandrabad chandrakona chandrapur chandravati chandrawip chandwar channan_pir chatra chaughera chaul
-				chauragarh chavand chhaparagarh chhatarpur chhaya chichawatni chillupar chiniot chishtian chisobibra
-				chitrakuta chittoor chittor chunar churu daboka dadri dajal daman damoh
-				danduka dang dantewada darbhanga datia daulatabad dausa debagarh delhi deo
-				deodar deogarh deoghar deori dera_ghazi_khan derawar devgarh devkot devprayag dhamtari
-				dhansiri dhar dharampur dharangaon dhenkanal dholka dholpur dhrangadhra dijkot dipalpur
-				dipayal diphu diu dongartal dubrajpur dumka dunga_bunga dungarpur dura durg
-				durgarazpatnam durjaya dwarahat dwarka east_sundarban ellur eminabad etawah faridkot fatehabad
-				fathabad firozpur firuzabad_bahraich gagraun gangadvara ganjam garha garhwa gaur gawilgarh
-				gaya ghansor ghasipura ghatgaon ghatsila ghazipur ghotki gidhaur goalpara gobindpur
-				godagari gonda gondal goraghat gorakhpur gudamalani gudur gugera guna gunnaur
-				guntur gunupur gurgaon guwahati gwalior hajipur hajner hajo handia hanol
-				hansi hapur hardoi harishpur harrand hazaribagh hijli hisar hoshangabad husaynabad
-				ibrahimabad ichagarh idar ilambazar illichpur indore irij jabhua jagdalpur jaintiapur
-				jaisalmer jajjaldeypur jajnagar jalalpur_pirwala jalandhar jalesar jalesar_doab jalna jalor jammu
-				janakpur jangipur jansath jaranwala jashpur_nagar jaund jaunpur jawhar jaynagar jessore
-				jhang jhansi jhenaidah jhunjhunu jind junagarh junnar jyotipur kahlur kailali
-				kailashahar kaithal kalahandinagara kalahasti kalanaur kalinganagara kalingapattanam kalinjar kalluru kalpi
-				kalsi kalyan kamalia kanauj kanchapur kandakura kanigiri kanker kantha kanthal
-				kanthi kantit kapasia kapilkot kapurthala kara karauli karnal karor karor_2
-				karur_punjab kashigarh kashipur kasipur kasur kataka kathua katihar katol katrasgarh
-				kavali kawardha kenda keonjhar keylong khagaria khairabad khairagarh khairpur khajuraho
-				khaliajuri khalifatabad khambat khammamet khandwa khaniadhana khariar kharsawan khaspur khategaon
-				khed kherigarh kherla khiching khukhragarh khulna khurda kiradu kishi kishtwar
-				kobirhat koksar kol kolasar kolayat konch kondagaon kondapalli kondavidu korra
-				kosi kot_addu kot_marot kota kotagad kotalipara kothagudem kotpad kuchinda kulada
-				kulpi kumilla kundar kunjabangarh kurki kushinagar kutlehar lahore lakhiyarvira lakhpat
-				lalian laling lalitpur lanka laskarpur lathi limbdi lucknow ludrava lumbini
-				lyngngam macherla madaran madhubani madugula madwas maheshpur maheshwar mahoba maibong
-				mailsi makanpur makrana maksi malkangiri malneta malpura mandalgarh mandar_parvat mandi
-				mandla mandleshwar mandore mandsaur mandu mangapet mangrol manikpur mankera manoharpur
-				masulipatnam mathura mau_jaunpur mauganj mayuragiri mehkar mehsi merta milwat mir_garh_qila
-				mirat mithankot modasa mohan monghyr morangi morvi motupalli muktagacha muktsar
-				multan mungra murwara mymensingh nabagram nadia nadol nagahrada nagarkot nagaur
-				naggar nagina nagnes nagod nahan nahil nainital nainpur nako nandapur
-				nandgram nandod nandurbar naogaon narhat narnaul narsinghpur narwar nasik nawagarh
-				nawakot nayagarh nellore nilagiri nilakamberu nowrangapur nurpur nuzvid omerkot orchha
-				osian pabna pachora paddar paikmal pakpattan pal_lahara palamau palampur palanpur
-				pali pali_uttar_pradesh palitana pallakolu pandua pandua_adina pangi panipat panna paralkot
-				parlakimidi pasrur patan pathankot patharkandi patna patna_garjat pazhaverkadu peddapalli pendra
-				phalvardhika phulbani phulia pilak pilibhit pindi_bhattian pipli piran_i_kaliyar pithapuram pokhran
-				porahat pottapi prayag pugal puri purnia qasba rabkob radhanpur raebareli
-				rahatgarh rahon raigadh raighar raikot raipur raipur_bengal rairangpur raisin rajamahendry
-				rajgir rajim rajmahal rajnagar rakni ramgad ramgar ramgiri ramkola ramnagar
-				ramnagar_bihar rampa rampur_boalla rampura ranchi rander rangamati rangpur_bengal ranpur ranthambore
-				rasyal rath ratlam ratnagiri ratnapura rawatsar rayagada redhakhol rekapalle rewa
-				roh rohtak rohtas rudrapur rudrapur_kumaon ruga sabalgarh sadhaura saharanpur saharsa
-				saintala sakti salagiri salianah salumbar samana_india samasingha samastipur sambalpur sambhal
-				sambhar sarahan sarangarh sarangpur sardarshahar sargadwari sarsuti sasaram satgaon savar
-				sehore seohara shahabad shahabad_uttar_pradesh shaharpara shahbazpur shahjadpur shahjahanpur shahpur shankargah
-				sheohar sheopur shergarh shishgarh shorkot shravasti sialkot sidhi sidhmukh sihor
-				sikar sillanwali sindkedh singorgarh sinnar sipri sirhind sirohi sironj sitakunda
-				sitamarhi sitapur sitpur siwana sohagpur sohra somnath sonargaon sonepur sonepur_bihar
-				sonhat soonpur sreepur srinagar_garhwal sripura sugaur sui suket sukhma sultanpur
-				sultanpur_uttar_pradesh sultanwind sunam sundergarh surat suratgarh sutnga sylhet tajpur talwandi
-				tamluk tarakanda taranagar tarhasi tehri teliagarhi tendukheda thalisain thalner thanesar
-				thawe tilda tirupati tulamba tulsipur tummana tuni uch udamphur udasar
-				udayagiri udayagiri_kotagad ujargarh ujjain undrugonda unnao untari urda uttarkashi varanasi
-				vijaygarh vinukonda virkgarh visakhapatnam vizianagaram wazirabad west_sundarban
+				amravati amreli andar angul anupgarh aror arrah ashaval asika asirgarh
+				asni athmallik atiya awadh azamgarh badamgarh bahadamer bahraich baijnath bajaura
+				bajwara balaghat balangir balasore ballia balrampur banda bandogarh baniachang banihal
+				bankura bansi banswara barabhum baragram baran barbakaabad bardhaman bareilly bargarh
+				barguna baria baripada barmaur baroda basim basna bassein bastar basti
+				batala bathinda baud bayana belabo belkhandi bemetara beohari bettiah bhadohi
+				bhadrak bhagalpur bhanpura bhanvad bharatpur bhatnir bhatta bhilsa bhilwara bhind
+				bhojpur bhopal bhuban bhurwara bihar_sharif bihariganj bijagarh bijnot bikrampur bilgram
+				binayakpur birampur birugarh bishnupur bissam_cuttack biswan bobbili bogra bombay bonaigarh
+				bordowa brahmapur broach budaun bundi burhanpur buxar chai chaibasa chaiturgarh
+				chakan chamba_india champaner champavati chanderi chandor chandpur chandpur_garhi chandpur_uttar_pradesh chandrabad
+				chandrakona chandrapur chandravati chandrawip chandwar channan_pir chatra chaughera chaul chauragarh
+				chavand chhaparagarh chhatarpur chhaya chichawatni chillupar chiniot chishtian chisobibra chitrakuta
+				chittoor chittor chunar churu daboka dadri dajal daman damoh danduka
+				dang dantewada darbhanga datia daulatabad dausa debagarh delhi deo deodar
+				deogarh deoghar deori dera_ghazi_khan derawar devgarh devkot devprayag dhamtari dhansiri
+				dhar dharampur dharangaon dhenkanal dholka dholpur dhrangadhra dijkot dipalpur dipayal
+				diphu diu dongartal dubrajpur dumka dunga_bunga dungarpur dura durg durgarazpatnam
+				durjaya dwarahat dwarka east_sundarban ellur eminabad etawah faridkot fatehabad fathabad
+				firozpur firuzabad_bahraich gagraun gangadvara ganjam garha garhwa gaur gawilgarh gaya
+				ghansor ghasipura ghatgaon ghatsila ghazipur ghotki gidhaur goalpara gobindpur godagari
+				gonda gondal goraghat gorakhpur gudamalani gudur gugera guna gunnaur guntur
+				gunupur gurgaon guwahati gwalior hajipur hajner hajo handia hanol hansi
+				hapur hardoi harishpur harrand hazaribagh hijli hisar hoshangabad husaynabad ibrahimabad
+				ichagarh idar ilambazar illichpur indore irij jabhua jagdalpur jaintiapur jaisalmer
+				jajjaldeypur jajnagar jalalpur_pirwala jalandhar jalesar jalesar_doab jalna jalor jammu janakpur
+				jangipur jansath jaranwala jashpur_nagar jaund jaunpur jawhar jaynagar jessore jhang
+				jhansi jhenaidah jhunjhunu jind junagarh junnar jyotipur kahlur kailali kailashahar
+				kaithal kalahandinagara kalahasti kalanaur kalinganagara kalingapattanam kalinjar kalluru kalpi kalsi
+				kalyan kamalia kanauj kanchapur kandakura kanigiri kanker kantha kanthal kanthi
+				kantit kapasia kapilkot kapurthala kara karauli karnal karor karor_2 karur_punjab
+				kashigarh kashipur kasipur kasur kataka kathua katihar katol katrasgarh kavali
+				kawardha kenda keonjhar keylong khagaria khairabad khairagarh khairpur khajuraho khaliajuri
+				khalifatabad khambat khammamet khandwa khaniadhana khariar kharsawan khaspur khategaon khed
+				kherigarh kherla khiching khukhragarh khulna khurda kiradu kishi kishtwar kobirhat
+				koksar kol kolasar kolayat konch kondagaon kondapalli kondavidu korra kosi
+				kot_addu kot_marot kota kotagad kotalipara kothagudem kotpad kuchinda kulada kulpi
+				kumilla kundar kunjabangarh kurki kushinagar kutlehar lahore lakhiyarvira lakhpat lalian
+				laling lalitpur lanka laskarpur lathi limbdi lucknow ludrava lumbini lyngngam
+				macherla madaran madhubani madugula madwas maheshpur maheshwar mahoba maibong mailsi
+				makanpur makrana maksi malkangiri malneta malpura mandalgarh mandar_parvat mandi mandla
+				mandleshwar mandore mandsaur mandu mangapet mangrol manikpur mankera manoharpur masulipatnam
+				mathura mau_jaunpur mauganj mayuragiri mehkar mehsi merta milwat mir_garh_qila mirat
+				mithankot modasa mohan monghyr morangi morvi motupalli muktagacha muktsar multan
+				mungra murwara mymensingh nabagram nadia nadol nagahrada nagarkot nagaur naggar
+				nagina nagnes nagod nahan nahil nainital nainpur nako nandapur nandgram
+				nandod nandurbar naogaon narhat narnaul narsinghpur narwar nasik nawagarh nawakot
+				nayagarh nellore nilagiri nilakamberu nowrangapur nurpur nuzvid omerkot orchha osian
+				pabna pachora paddar paikmal pakpattan pal_lahara palamau palampur palanpur pali
+				pali_uttar_pradesh palitana pallakolu pandua pandua_adina pangi panipat panna paralkot parlakimidi
+				pasrur patan pathankot patharkandi patna patna_garjat pazhaverkadu peddapalli pendra phalvardhika
+				phulbani phulia pilak pilibhit pindi_bhattian pipli piran_i_kaliyar pithapuram pokhran porahat
+				pottapi prayag pugal puri purnia qasba rabkob radhanpur raebareli rahatgarh
+				rahon raigadh raighar raikot raipur raipur_bengal rairangpur raisin rajamahendry rajgir
+				rajim rajmahal rajnagar rakni ramgad ramgar ramgiri ramkola ramnagar ramnagar_bihar
+				rampa rampur_boalla rampura ranchi rander rangamati rangpur_bengal ranpur ranthambore rasyal
+				rath ratlam ratnagiri ratnapura rawatsar rayagada redhakhol rekapalle rewa roh
+				rohtak rohtas rudrapur rudrapur_kumaon ruga sabalgarh sadhaura saharanpur saharsa saintala
+				sakti salagiri salianah salumbar samana_india samasingha samastipur sambalpur sambhal sambhar
+				sarahan sarangarh sarangpur sardarshahar sargadwari sarsuti sasaram satgaon savar sehore
+				seohara shahabad shahabad_uttar_pradesh shaharpara shahbazpur shahjadpur shahjahanpur shahpur shankargah sheohar
+				sheopur shergarh shishgarh shorkot shravasti sialkot sidhi sidhmukh sihor sikar
+				sillanwali sindkedh singorgarh sinnar sipri sirhind sirohi sironj sitakunda sitamarhi
+				sitapur sitpur siwana sohagpur sohra somnath sonargaon sonepur sonepur_bihar sonhat
+				soonpur sreepur srinagar_garhwal sripura sugaur sui suket sukhma sultanpur sultanpur_uttar_pradesh
+				sultanwind sunam sundergarh surat suratgarh sutnga sylhet tajpur talwandi tamluk
+				tarakanda taranagar tarhasi tehri teliagarhi tendukheda thalisain thalner thanesar thawe
+				tilda tirupati tulamba tulsipur tummana tuni uch udamphur udasar udayagiri
+				udayagiri_kotagad ujargarh ujjain undrugonda unnao untari urda uttarkashi varanasi vijaygarh
+				vinukonda virkgarh visakhapatnam vizianagaram wazirabad west_sundarban
 			}
 			capital = patna
 			include = "indian_hindu_monarchy"
@@ -444,11 +440,11 @@ countries = {
 				barahrah baraqish bariq bayhan birali dha_sohis dhafar dhahran dhamar dhat_irq
 				dhi_ain dhufar farasan ghumayqah habban hajar hajjah hali harad_asir harib
 				hays hudaida huraydah hutayb huth ibb jazan jeddah juban jurrah
-				kamaran_islands_wasteland kawkaban khalfut khamir khaybar_janoub khayrij khulays lahj lawdar main
-				marib markha mawza mecca mikhlaf_al_hubishiyah mudhaykirah muhayil musaymir najran nisab
-				qishn qudayd radaa raghdan rakhyah raysut rijal_almaa sabt_bani_bishr sabya sadah
-				samakh sana_yemen sayun shabwa shaharah shibam shuqra suq_al_ghinan tabalah taif
-				taizz tanomah tarim thula turbah yahr yalamlam zabid zinjibar
+				kawkaban khalfut khamir khaybar_janoub khayrij khulays lahj lawdar main marib
+				markha mawza mecca mikhlaf_al_hubishiyah mudhaykirah muhayil musaymir najran nisab qishn
+				qudayd radaa raghdan rakhyah raysut rijal_almaa sabt_bani_bishr sabya sadah samakh
+				sana_yemen sayun shabwa shaharah shibam shuqra suq_al_ghinan tabalah taif taizz
+				tanomah tarim thula turbah yahr yalamlam zabid zinjibar
 			}
 			capital = abha
 			include = "eastern_european_monarchy"
@@ -529,136 +525,136 @@ countries = {
 				beisheng binchuan binh_lam binh_nguyen bishan biyang bo_hai_khau boai bobai bochuan
 				boluo bomoping boxing bozhou cam_hoa cangwu cangxi caoni ceheng cengtai
 				cenxi chaling changan changge changguo changle changle_fujian changle_xunzhou changlin changning
-				changning_anyuan changning_changning changqing changsha changshan changshan_islands_wastelands changshe changshi changshou_changshou changshou_pingjiang
-				changshu changtai changtan changting changxing changyang changyi changyuan chaocheng chaoxian
-				chaoyang chengbu chengcheng chengdu chengfu chenggong chenggu chengji chengshan chengwu
-				chengxiang chengzhou chenxi chenyang chi_la chiping chongan chongde chongming chongren
-				chongshan chongyang chongyi chunan chunhua chuqiu cili cixi co_dang conghua
-				da_giang daan dadandang dafang dagu_shunyuan daguan dai_man dancheng dangshan dangtu
-				dangyang daning_kuizhou danleng dantu danyang dartsedo dasong datian datian_shizhou daxue
-				dayao dayaoshan daye dayi dayong dayu dazhu dazu dean dechang
-				dehua dehua_jiujiang dejiang dengfeng deqing dexing deyang dianbai dianjiang diaomen
-				dien_chau dingcheng dinghai dingnan dingnan_anshun dingtao dingyuan dingyuan_chuxiong dingyuan_fengyang dizhai
-				dongan dongan_yongzhou dongchuan donge dongguan donglan dongliu dongming dongping dongxiang
-				dongxiang_dazhou dongyang doukang duanshi duanxi duchang ducheng duling duoshui durgyeling
-				dushan duyang duyun emei enping fanchang fancheng fangcheng fangling fanxian
-				feicheng feixian fengcheng fengcheng_fengcheng fengchuan fengdu fengfu fenghua fengjie fengle
-				fengqiu fengxi fengxian fengxiang fengxin fenning fenyi foping fuan fuchuan
-				fufeng fugou fuliang fumin funing_huaian fuping_xian fuqing fushan_jiaozhou fushan_muping fushui
-				fushun futian fuyang fuyang_hangzhou fuzhou_guangnan fuzhou_sichuan fuzhou_songpan ganxian ganyu gaoan
-				gaocheng_suizhou gaomi gaoming gaoping gaoqiao gaoyang gaoyao gaoyou gegou gongan
-				gongcheng gongxian goupingguan guancheng guancheng_zhengzhou guanfu guangchang guangde guanghai guanghua
-				guangji guangnan guangning_zhaoqing guangping guangshan guangsuoling guangxi guangze guangzhou guanyang
-				guanzhou gucheng gucheng_xi guichi guidong guihua guiling guiping guishan guishun
-				guixi_guangxin guiyang_chenzhou guiyang_hengyang guizhou_guizhou guizhou_xunzhou guliang gulin guochuan gushi gutian
-				guwan guzhang guzhen guzhou haifeng haikang hailing haimen haining haiyan
-				haiyang hancheng hanchuan hanguang hangzhou hanshan hanyang hanyin hanyuan hechi
-				hedong hefei heizhang hejiang hejin henei hengshan hengyang heping hepu
-				heqing hequ_wuding heyang heyang_xian heyuan hezhou_he hoan_chau hong_chau hongxian houguan
-				huacheng huafeng huaihua huaiji huaining huaiyuan huaiyuan_rongzhou huangan huangcaoba huanggang
-				huanglong huangmei huangpi huangping huangxian huangyan huarong huating huayin huaying
-				huayuan huayuantou huazhou huguan huian huichang huichuan_dechang huilai huili huiqi
-				huitong huixian huizhou hukou huoqiu huoshan huozhu huxian jiachuan jiading
-				jiaha jiajiang jianan jianchang jianchang_sichuan jiande jiangan jiangchuan jiangdu jianghua
-				jiangjin jiangle jiangling jiangning jiangshan jiangshan_laiyang jiangxia jiangxian jiangyin jiangyou
-				jianli jianning jianping jianshi jianshui jianyang jianzhou jiaohua jiaoshui jiaoxi
-				jiaxian jiaxiang jiaxing jiayu jieyang jiezhou jimo jincheng_zezhou jingan jingde
-				jinghai_tongzhou jingling jingshan jingxian jingyan jingyang jingzhao jinhua jinji jinjiang
-				jinkang jinkou jinshajiang jintan jintang jinxi jinxian jinxiang jinxiangping jinyuan
-				jinyun jinzhu jinzhuping jishan jishui jixi_huizhou jixian jiyin jiyuan juancheng
-				juegang juque jurong juxian juye kaifeng kaihua kaili kaizhou kangzuo
-				kaocheng kedu keutkeut kheong khet_theu khoai_chau khuzhupai kunming kunshan kunyang
-				kuozhou ky_son lai_chau laian laian_tianzhou laibin laiwu laiyang lang_giang lang_son
-				langning langqu langzhong lankou lanling lanshan lantian lantu lanxi lanyang
-				lean lean_fuzhou lechang leibo leiyang lemin lengshuitan leping lezhi lhagang
-				liancheng liangdang liangquan liangshan liangxian liangxian_ruzhou lianjiang liannan lianping lianshan
-				lianzhou liaocheng libo licheng licheng_yizhou lichuan lidian lihua liling linan
-				linchuan lingbao lingbi lingchuan lingchuan_zezhou lingfang lingling lingshan lingshanwei lingui
-				lingxian linhai linhe linhuai linhuan linjiang linjin linqu linshui lintong
-				linwu linxiang linyi linying linyou linzhang linzhou liping lipu liquan
-				lishan_pingle lishan_xinyang lishui lishui_yingtian liuba liucheng liujiang liupu liuyang liuzhai
-				liyang liyang_lizhou lizhou_mahu loc_chau longan longchang longchuan_xunzhou longhui longli longmen
-				longnan longping_pingle longquan longquan_taihe longquanping longxi longyan longyang longyou longyou_jiading
-				longzhou_fengxiang longzhou_longzhou loudi luan luanchuan lucheng luchuan_rongzhou lueyang lufeng lufeng_haifeng
-				lugu luhe lujiang_luzhou lukou luliang luling lunan luocheng luodian luoji
-				luojiao luonan luorong luoshan luoshan_qujing luotian luoxiong luoxiu luoyang luoyang_wenzhou
-				luoyuan luozuoguan luquan lushan lushan_yazhou lushi lutoudian luxi luxiang luyang
-				luyi luzhou mabian mabu machang macheng madi_yuanling mahu mala malong_qujing
-				mang_viet mangbu maoming maping mat_chau maxia mayang meiqiu meixian meizhou
-				mengcheng mengding_mengzi mengjin mengli mengxian mengyin mengzi mianchi miangu mianzhou
-				mianzhu midu mile minggang minghe mingshan mingtong mingxi mingyi mingying
-				minqing minxian mixian muang_et muang_kham muang_lang muang_sam_tai muchuan muli muong
-				muong_cha muong_luan muping nadi nalou nam_sach nanan_quanzhou nanbu nanchang nancheng
-				nanchong nanchuan nandan nandun nanfeng nanhai nanhui nanjiang nankang nanlang
-				nanle nanling nanliu nanning nanping nansheng nanxi nanyang nanzhang nanzhao
-				nanzheng naxi neihuang neijiang neixiang nga_lac nghe_ann ngoc_ma nhat_nam ningde
-				ningdu ningfan ningguo ninghai ninghua_tingzhou ningling ningpu ningshan ningxiang ningyang
-				ningyuan ouning panqiao pantian panyu peixian penglai pengshan pengshui pengxi
-				pengze pengzhou phon_nha phong_tho pingba pingchuan pinghe pingjiang pingle pingli
-				pinglu pingnan pingshan_huiyang pingwu pingxiang pingxiang_pingxiang pingyang pingyang_guiyang pingyin pingyu
-				pingyuan_mei pingyue pingzhu pixian poyang puan puan_puan pucheng pucheng_jianning puding
-				puge pujiang pujiang_qiongzhou puning puning_rongzhou puqi putian puyang qianhua qianjiang
-				qianjiang_binzhou qianjiang_shaoqing qianlong qianlong_siming qianshan qianwei qianyang qianyang_yuanzhou qianyou qianzhou
-				qiaojia qiaokou qiaoxian qichun qidong qihe qijiang qimen qingchuan qingdao
-				qingfeng qingfu qinghe_huaian qingjiang qingjiang_liping qingliu qingliu_chuzhou qingshen qingtai qingtian
-				qingxiang qingyang qingyang_luan qingyuan qingyuan_chuzhou qinjiang qinshui qiongbu qiongshui qiongzhou
-				qishan qishui qiubei qixia qixian qixian_tongchuan qiyang qizhou quan_da_chau quang_uyen
-				quang_yen quanjiao queshan qufu qujiang qujiang_guangan qushan quwo quy_chau quy_hoa
-				quynh_lam rangxian rencheng rende renhua renhuai renshou rinpung rizhao rongchang
-				rongcheng rongjing rongmei rongshan rongshui rongxian rongzhou rugao ruian ruichang
-				ruicheng ruijin runyan rushan ruxi ruyang ruyuan sancha sanhe_chaozhou sanmao
-				sanrao sanshui sanshui_binzhou sanyao sanyuan shagou shahe_bobai shangcai shangcheng shangdang
-				shanggao shanghai shanghang shangjin shanglin shangluo shangnan shangrao shangshui shangsi
-				shangxi shangyou shangyu shangyuan shangzhou shansu shanxian shanyang shanyang_huaian shaowu
-				shaoxing shaoyang shaxi shaxian shayang shehong shengxian shenqiu shenxian shexian
-				shicheng shicheng_ningdu shidai shifang shilong shimen shimen_poyang shimian shinan shipai
-				shiping shiqian shiquan shiquan_maozhou shishou shixi shixing shizhao shizhou shizhu
-				shizilu shizong shouchun shouguang shouzhang shuangliu shuangshui shuangxi shucheng shuicheng
-				shuihu shuitejiang shuixi shunchang shunde shunyang shuyang sicheng sien sienzhou
-				sihui siming sishui son_la songming songxi songyang songzhou_songzhou songzi suian
-				suichang suidong suining suining_jing suining_pizhou suiping suixi suixian suiyang suiyang_guide
-				suqian susong suxi suzhou suzhou_fengyang taigong taihe taihe_taihe taihu taikang
-				taining taipengruodong taiping taiping_ningguo taixing tam_dai tanchang tancheng tangcheng tangdan
-				tanghe tangxing tangyi tangyin tanjin taoyuan taoyuan_huaian tengdong tengxian thai_binh
-				thai_nguyen thang_long thanh_hoa that_nguyen thien_quan thien_truong tho_hoang thu_vat thuan_chau thuy_vi
-				tianchang tianping tiantai tianzhou tianzhu tixi tongan tongan_lijiang tongbai tongcheng_anqing
-				tongcheng_wuchang tongchuan_dazhou tongdao tongdao_rongzhou tonggu tonggu_liping tongguan_tongchuan tonghai tongjiang tongle
-				tongliang tongling tonglu tongren tongshan tongxu tongzhou trang_an tunxi tuyen_hoa
-				tuyen_quang van_ban van_don van_kiep vo_nhai vu_ninh waerhdje wanan wangjiang wangmu
-				wannian wanqiu wanquan wanzai wanzhou watang weichu weihai weimo weinan
-				weiqing weishi weixian weiyuan_jiading wenchuan wendeng wengshui wengyuan wenling wenshang
-				wenxi wenxian wenxian_gongchang wenxiang wucao wuchang wuchuan_huazhou wuchuan_sinan wudang wufeng
-				wugang wuhe wuhu wujiang wujiang_bozhou wujiang_yingtian wujin wulian wuling wulong
-				wuluo wumeng wuning wuping wusa wushan wutun wuwei wuxi wuxian
-				wuxian_liuzhou wuxing wuyang wuyi_jinhua wuyuan_huizhou wuyuan_nanning wuzhai wuzhi xam_neua xiacai
-				xiajiang xiakou xian_quzhou xiangcheng xiangcheng_kaifeng xiangru xiangshan xiangshan_xinhui xiangtan xiangxiang
-				xiangyang xiangyi xiangyin xianju xianning xianning_xian xianyang xianyou xianzhu xiaodandang
-				xiaodong xiaogan xiaoshan xiaoxi xiaoxian xiaozhenan xiapi xiaxian xiayi xibao
-				xicheng xichong xichuan xiexian xigu xihe_huizhou xihua xilin xilong xinan
-				xincai xinchang xinchang_yifeng xincheng xincheng_annan xincheng_jianchang xincheng_jinan xincheng_xincheng xindi xindu
-				xinfeng xinfeng_panyu xingan xingan_linjiang xingguo xinghua xingning xingshan xingyang xingzi
-				xinhua xinhua_guizhou xinhui xinjian xinning_chen xinning_dazhou xinning_wugang xinping xintai xintian
-				xinxiang xinxing xinxing_annan xinxing_nanen xinyang xinye xinyi xinyi_gaozhou xinyu xinzheng
-				xiping xisa xisha xiuning xiushan xiuwu xixi xixia xixiang xiyan
-				xizhou xuancheng xuanhua xuanhua_nanning xucheng xunxian xunyang xupu xuwen xuyi
-				xuzhou yancheng yancheng_kaifeng yandao yangcheng yangchun yangdi yanggu_yanzhou yangjiang yangshan
-				yangshou yangshuo yangyuan yangzhou yangzi yanhe yanjin yanling yanshan_guangxin yanshen
-				yanshi yanting yaoshan yaozhou yexian yexian_laizhou yibin yicheng yicheng_pingyang yichun
-				yidu yidu_qingzhou yihuang yijun yiliang yiling yilong yimen yingcheng yingdao
-				yingde yingshan yingshan_luan yingshan_shunqing yingshang yingshui yingzhou yining yinjiang yinxian
-				yique yishan yishui yiwu yixian yixing yiyang yiyang_changsha yiyang_guangxin yiyang_songzhou
-				yiyuan yizhang yizhou_tengzhou yongan_sha yongan_youzhou yongcheng yongchuan yongchun yongcong yongding_shanghang
-				yongfeng yongfeng_jian yongfeng_xiangxiang yongfu yongfu_fuzhou yongjia yongkang yongming yongning yongning_baisheng
-				yongning_hengzhou yongning_shanzhou yongning_taihe yongping yongshan yongshou yongshun yongshun_yongshun yongxin yongxing
-				yongxing_xingguo youxi youyang youzhou yuanan yuancheng yuanjiang yuanling yuanmou yuannan
-				yuanqu yuanyang yucheng_kaifeng yudu yuechi yueqing yuexi yugan yuhang yun
-				yuncheng yunhe yunlian yunmeng yunnan yunxi yunyang yusha yushan_guangxin yutai
-				yuyao zaoyang zengkou zhanchuan zhangming zhangping zhangpu zhangqiu zhanyi zhaoan
-				zhaoban zhaohua zhaoxin zhaoyuan zhecheng zhehai zhehong zhenan zhenan_guishun zhenfeng
-				zhengan zhengcheng zhenghe zhengping zhennan zhenning zhenping zhenxi_lizhou zhenyang zhenyuan_sizhou
-				zhenzhou zhijiang zhijin zhishan zhongjiang zhongli zhonglu zhongmu zhongxiang zhouzhi
-				zhucheng zhugao zhuji zhushan zhuxi zhuyang zichuan zigui zitong zixian
-				ziyang ziyang_xingan ziyang_zizhong zizhou zongyang zouping zouxian zuokeng zuosuo
+				changning_anyuan changning_changning changqing changsha changshan changshe changshi changshou_changshou changshou_pingjiang changshu
+				changtai changtan changting changxing changyang changyi changyuan chaocheng chaoxian chaoyang
+				chengbu chengcheng chengdu chengfu chenggong chenggu chengji chengshan chengwu chengxiang
+				chengzhou chenxi chenyang chi_la chiping chongan chongde chongming chongren chongshan
+				chongyang chongyi chunan chunhua chuqiu cili cixi co_dang conghua da_giang
+				daan dadandang dafang dagu_shunyuan daguan dai_man dancheng dangshan dangtu dangyang
+				daning_kuizhou danleng dantu danyang dartsedo dasong datian datian_shizhou daxue dayao
+				dayaoshan daye dayi dayong dayu dazhu dazu dean dechang dehua
+				dehua_jiujiang dejiang dengfeng deqing dexing deyang dianbai dianjiang diaomen dien_chau
+				dingcheng dinghai dingnan dingnan_anshun dingtao dingyuan dingyuan_chuxiong dingyuan_fengyang dizhai dongan
+				dongan_yongzhou dongchuan donge dongguan donglan dongliu dongming dongping dongxiang dongxiang_dazhou
+				dongyang doukang duanshi duanxi duchang ducheng duling duoshui durgyeling dushan
+				duyang duyun emei enping fanchang fancheng fangcheng fangling fanxian feicheng
+				feixian fengcheng fengcheng_fengcheng fengchuan fengdu fengfu fenghua fengjie fengle fengqiu
+				fengxi fengxian fengxiang fengxin fenning fenyi foping fuan fuchuan fufeng
+				fugou fuliang fumin funing_huaian fuping_xian fuqing fushan_jiaozhou fushan_muping fushui fushun
+				futian fuyang fuyang_hangzhou fuzhou_guangnan fuzhou_sichuan fuzhou_songpan ganxian ganyu gaoan gaocheng_suizhou
+				gaomi gaoming gaoping gaoqiao gaoyang gaoyao gaoyou gegou gongan gongcheng
+				gongxian goupingguan guancheng guancheng_zhengzhou guanfu guangchang guangde guanghai guanghua guangji
+				guangnan guangning_zhaoqing guangping guangshan guangsuoling guangxi guangze guangzhou guanyang guanzhou
+				gucheng gucheng_xi guichi guidong guihua guiling guiping guishan guishun guixi_guangxin
+				guiyang_chenzhou guiyang_hengyang guizhou_guizhou guizhou_xunzhou guliang gulin guochuan gushi gutian guwan
+				guzhang guzhen guzhou haifeng haikang hailing haimen haining haiyan haiyang
+				hancheng hanchuan hanguang hangzhou hanshan hanyang hanyin hanyuan hechi hedong
+				hefei heizhang hejiang hejin henei hengshan hengyang heping hepu heqing
+				hequ_wuding heyang heyang_xian heyuan hezhou_he hoan_chau hong_chau hongxian houguan huacheng
+				huafeng huaihua huaiji huaining huaiyuan huaiyuan_rongzhou huangan huangcaoba huanggang huanglong
+				huangmei huangpi huangping huangxian huangyan huarong huating huayin huaying huayuan
+				huayuantou huazhou huguan huian huichang huichuan_dechang huilai huili huiqi huitong
+				huixian huizhou hukou huoqiu huoshan huozhu huxian jiachuan jiading jiaha
+				jiajiang jianan jianchang jianchang_sichuan jiande jiangan jiangchuan jiangdu jianghua jiangjin
+				jiangle jiangling jiangning jiangshan jiangshan_laiyang jiangxia jiangxian jiangyin jiangyou jianli
+				jianning jianping jianshi jianshui jianyang jianzhou jiaohua jiaoshui jiaoxi jiaxian
+				jiaxiang jiaxing jiayu jieyang jiezhou jimo jincheng_zezhou jingan jingde jinghai_tongzhou
+				jingling jingshan jingxian jingyan jingyang jingzhao jinhua jinji jinjiang jinkang
+				jinkou jinshajiang jintan jintang jinxi jinxian jinxiang jinxiangping jinyuan jinyun
+				jinzhu jinzhuping jishan jishui jixi_huizhou jixian jiyin jiyuan juancheng juegang
+				juque jurong juxian juye kaifeng kaihua kaili kaizhou kangzuo kaocheng
+				kedu keutkeut kheong khet_theu khoai_chau khuzhupai kunming kunshan kunyang kuozhou
+				ky_son lai_chau laian laian_tianzhou laibin laiwu laiyang lang_giang lang_son langning
+				langqu langzhong lankou lanling lanshan lantian lantu lanxi lanyang lean
+				lean_fuzhou lechang leibo leiyang lemin lengshuitan leping lezhi lhagang liancheng
+				liangdang liangquan liangshan liangxian liangxian_ruzhou lianjiang liannan lianping lianshan lianzhou
+				liaocheng libo licheng licheng_yizhou lichuan lidian lihua liling linan linchuan
+				lingbao lingbi lingchuan lingchuan_zezhou lingfang lingling lingshan lingshanwei lingui lingxian
+				linhai linhe linhuai linhuan linjiang linjin linqu linshui lintong linwu
+				linxiang linyi linying linyou linzhang linzhou liping lipu liquan lishan_pingle
+				lishan_xinyang lishui lishui_yingtian liuba liucheng liujiang liupu liuyang liuzhai liyang
+				liyang_lizhou lizhou_mahu loc_chau longan longchang longchuan_xunzhou longhui longli longmen longnan
+				longping_pingle longquan longquan_taihe longquanping longxi longyan longyang longyou longyou_jiading longzhou_fengxiang
+				longzhou_longzhou loudi luan luanchuan lucheng luchuan_rongzhou lueyang lufeng lufeng_haifeng lugu
+				luhe lujiang_luzhou lukou luliang luling lunan luocheng luodian luoji luojiao
+				luonan luorong luoshan luoshan_qujing luotian luoxiong luoxiu luoyang luoyang_wenzhou luoyuan
+				luozuoguan luquan lushan lushan_yazhou lushi lutoudian luxi luxiang luyang luyi
+				luzhou mabian mabu machang macheng madi_yuanling mahu mala malong_qujing mang_viet
+				mangbu maoming maping mat_chau maxia mayang meiqiu meixian meizhou mengcheng
+				mengding_mengzi mengjin mengli mengxian mengyin mengzi mianchi miangu mianzhou mianzhu
+				midu mile minggang minghe mingshan mingtong mingxi mingyi mingying minqing
+				minxian mixian muang_et muang_kham muang_lang muang_sam_tai muchuan muli muong muong_cha
+				muong_luan muping nadi nalou nam_sach nanan_quanzhou nanbu nanchang nancheng nanchong
+				nanchuan nandan nandun nanfeng nanhai nanhui nanjiang nankang nanlang nanle
+				nanling nanliu nanning nanping nansheng nanxi nanyang nanzhang nanzhao nanzheng
+				naxi neihuang neijiang neixiang nga_lac nghe_ann ngoc_ma nhat_nam ningde ningdu
+				ningfan ningguo ninghai ninghua_tingzhou ningling ningpu ningshan ningxiang ningyang ningyuan
+				ouning panqiao pantian panyu peixian penglai pengshan pengshui pengxi pengze
+				pengzhou phon_nha phong_tho pingba pingchuan pinghe pingjiang pingle pingli pinglu
+				pingnan pingshan_huiyang pingwu pingxiang pingxiang_pingxiang pingyang pingyang_guiyang pingyin pingyu pingyuan_mei
+				pingyue pingzhu pixian poyang puan puan_puan pucheng pucheng_jianning puding puge
+				pujiang pujiang_qiongzhou puning puning_rongzhou puqi putian puyang qianhua qianjiang qianjiang_binzhou
+				qianjiang_shaoqing qianlong qianlong_siming qianshan qianwei qianyang qianyang_yuanzhou qianyou qianzhou qiaojia
+				qiaokou qiaoxian qichun qidong qihe qijiang qimen qingchuan qingdao qingfeng
+				qingfu qinghe_huaian qingjiang qingjiang_liping qingliu qingliu_chuzhou qingshen qingtai qingtian qingxiang
+				qingyang qingyang_luan qingyuan qingyuan_chuzhou qinjiang qinshui qiongbu qiongshui qiongzhou qishan
+				qishui qiubei qixia qixian qixian_tongchuan qiyang qizhou quan_da_chau quang_uyen quang_yen
+				quanjiao queshan qufu qujiang qujiang_guangan qushan quwo quy_chau quy_hoa quynh_lam
+				rangxian rencheng rende renhua renhuai renshou rinpung rizhao rongchang rongcheng
+				rongjing rongmei rongshan rongshui rongxian rongzhou rugao ruian ruichang ruicheng
+				ruijin runyan rushan ruxi ruyang ruyuan sancha sanhe_chaozhou sanmao sanrao
+				sanshui sanshui_binzhou sanyao sanyuan shagou shahe_bobai shangcai shangcheng shangdang shanggao
+				shanghai shanghang shangjin shanglin shangluo shangnan shangrao shangshui shangsi shangxi
+				shangyou shangyu shangyuan shangzhou shansu shanxian shanyang shanyang_huaian shaowu shaoxing
+				shaoyang shaxi shaxian shayang shehong shengxian shenqiu shenxian shexian shicheng
+				shicheng_ningdu shidai shifang shilong shimen shimen_poyang shimian shinan shipai shiping
+				shiqian shiquan shiquan_maozhou shishou shixi shixing shizhao shizhou shizhu shizilu
+				shizong shouchun shouguang shouzhang shuangliu shuangshui shuangxi shucheng shuicheng shuihu
+				shuitejiang shuixi shunchang shunde shunyang shuyang sicheng sien sienzhou sihui
+				siming sishui son_la songming songxi songyang songzhou_songzhou songzi suian suichang
+				suidong suining suining_jing suining_pizhou suiping suixi suixian suiyang suiyang_guide suqian
+				susong suxi suzhou suzhou_fengyang taigong taihe taihe_taihe taihu taikang taining
+				taipengruodong taiping taiping_ningguo taixing tam_dai tanchang tancheng tangcheng tangdan tanghe
+				tangxing tangyi tangyin tanjin taoyuan taoyuan_huaian tengdong tengxian thai_binh thai_nguyen
+				thang_long thanh_hoa that_nguyen thien_quan thien_truong tho_hoang thu_vat thuan_chau thuy_vi tianchang
+				tianping tiantai tianzhou tianzhu tixi tongan tongan_lijiang tongbai tongcheng_anqing tongcheng_wuchang
+				tongchuan_dazhou tongdao tongdao_rongzhou tonggu tonggu_liping tongguan_tongchuan tonghai tongjiang tongle tongliang
+				tongling tonglu tongren tongshan tongxu tongzhou trang_an tunxi tuyen_hoa tuyen_quang
+				van_ban van_don van_kiep vo_nhai vu_ninh waerhdje wanan wangjiang wangmu wannian
+				wanqiu wanquan wanzai wanzhou watang weichu weihai weimo weinan weiqing
+				weishi weixian weiyuan_jiading wenchuan wendeng wengshui wengyuan wenling wenshang wenxi
+				wenxian wenxian_gongchang wenxiang wucao wuchang wuchuan_huazhou wuchuan_sinan wudang wufeng wugang
+				wuhe wuhu wujiang wujiang_bozhou wujiang_yingtian wujin wulian wuling wulong wuluo
+				wumeng wuning wuping wusa wushan wutun wuwei wuxi wuxian wuxian_liuzhou
+				wuxing wuyang wuyi_jinhua wuyuan_huizhou wuyuan_nanning wuzhai wuzhi xam_neua xiacai xiajiang
+				xiakou xian_quzhou xiangcheng xiangcheng_kaifeng xiangru xiangshan xiangshan_xinhui xiangtan xiangxiang xiangyang
+				xiangyi xiangyin xianju xianning xianning_xian xianyang xianyou xianzhu xiaodandang xiaodong
+				xiaogan xiaoshan xiaoxi xiaoxian xiaozhenan xiapi xiaxian xiayi xibao xicheng
+				xichong xichuan xiexian xigu xihe_huizhou xihua xilin xilong xinan xincai
+				xinchang xinchang_yifeng xincheng xincheng_annan xincheng_jianchang xincheng_jinan xincheng_xincheng xindi xindu xinfeng
+				xinfeng_panyu xingan xingan_linjiang xingguo xinghua xingning xingshan xingyang xingzi xinhua
+				xinhua_guizhou xinhui xinjian xinning_chen xinning_dazhou xinning_wugang xinping xintai xintian xinxiang
+				xinxing xinxing_annan xinxing_nanen xinyang xinye xinyi xinyi_gaozhou xinyu xinzheng xiping
+				xisa xisha xiuning xiushan xiuwu xixi xixia xixiang xiyan xizhou
+				xuancheng xuanhua xuanhua_nanning xucheng xunxian xunyang xupu xuwen xuyi xuzhou
+				yancheng yancheng_kaifeng yandao yangcheng yangchun yangdi yanggu_yanzhou yangjiang yangshan yangshou
+				yangshuo yangyuan yangzhou yangzi yanhe yanjin yanling yanshan_guangxin yanshen yanshi
+				yanting yaoshan yaozhou yexian yexian_laizhou yibin yicheng yicheng_pingyang yichun yidu
+				yidu_qingzhou yihuang yijun yiliang yiling yilong yimen yingcheng yingdao yingde
+				yingshan yingshan_luan yingshan_shunqing yingshang yingshui yingzhou yining yinjiang yinxian yique
+				yishan yishui yiwu yixian yixing yiyang yiyang_changsha yiyang_guangxin yiyang_songzhou yiyuan
+				yizhang yizhou_tengzhou yongan_sha yongan_youzhou yongcheng yongchuan yongchun yongcong yongding_shanghang yongfeng
+				yongfeng_jian yongfeng_xiangxiang yongfu yongfu_fuzhou yongjia yongkang yongming yongning yongning_baisheng yongning_hengzhou
+				yongning_shanzhou yongning_taihe yongping yongshan yongshou yongshun yongshun_yongshun yongxin yongxing yongxing_xingguo
+				youxi youyang youzhou yuanan yuancheng yuanjiang yuanling yuanmou yuannan yuanqu
+				yuanyang yucheng_kaifeng yudu yuechi yueqing yuexi yugan yuhang yun yuncheng
+				yunhe yunlian yunmeng yunnan yunxi yunyang yusha yushan_guangxin yutai yuyao
+				zaoyang zengkou zhanchuan zhangming zhangping zhangpu zhangqiu zhanyi zhaoan zhaoban
+				zhaohua zhaoxin zhaoyuan zhecheng zhehai zhehong zhenan zhenan_guishun zhenfeng zhengan
+				zhengcheng zhenghe zhengping zhennan zhenning zhenping zhenxi_lizhou zhenyang zhenyuan_sizhou zhenzhou
+				zhijiang zhijin zhishan zhongjiang zhongli zhonglu zhongmu zhongxiang zhouzhi zhucheng
+				zhugao zhuji zhushan zhuxi zhuyang zichuan zigui zitong zixian ziyang
+				ziyang_xingan ziyang_zizhong zizhou zongyang zouping zouxian zuokeng zuosuo
 			}
 			capital = ami
 			include = "chinese_monarchy"
@@ -716,10 +712,11 @@ countries = {
 		}
 		LGB = { # Lombards
 			own_control_core = {
-				angermunde beeskow belzig bitterfeld brandenburg calau chojna cottbus freienwalde gardelegen
-				gorzow guben haldensleben havelberg herzfelde juterbog lebus lubben luckau osterburg
-				potsdam prenzlau pritzwalk ruppin salzwedel santok schweinitz soltyn spremberg stendal
-				teltow templin torzym treuenbrietzen wittenberg wittenberge wittstock wolmirstedt zerbst zossen
+				angermunde beeskow belzig berlin bitterfeld brandenburg calau chojna cottbus freienwalde
+				gardelegen gorzow guben haldensleben havelberg herzfelde juterbog lebus lubben luckau
+				osterburg potsdam prenzlau pritzwalk ruppin salzwedel santok schweinitz soltyn spremberg
+				stendal teltow templin torzym treuenbrietzen wittenberg wittenberge wittstock wolmirstedt zerbst
+				zossen
 			}
 			capital = angermunde
 			include = "eurasian_tribe"
@@ -729,11 +726,11 @@ countries = {
 		}
 		LKA = { # Anuradhapura
 			own_control_core = {
-				adams_bridge anuradhapura badulla devanagara digavapi galle gampola hambantota hatthigiripura jaffna
-				kandy kotte kurunegala madakalapu mahatittha medawachchiya mullaitivu negombo polonnaruva ratnapura_LKA
-				salavata sitavaka tissamaharama trincomalee vavuniya yapavu
+				anuradhapura badulla devanagara digavapi galle gampola hambantota hatthigiripura jaffna kandy
+				kotte kurunegala madakalapu mahatittha medawachchiya mullaitivu negombo polonnaruva ratnapura_LKA salavata
+				sitavaka tissamaharama trincomalee vavuniya yapavu
 			}
-			capital = adams_bridge
+			capital = anuradhapura
 			include = "indian_hindu_monarchy"
 			government = {
 				ruler = random
@@ -815,9 +812,9 @@ countries = {
 		MRX = { # Mauri
 			own_control_core = {
 				afso ain_madhi ain_sefra al_mazamma asir_ALG badis brezina charef djelfa el_abiodh_sidi_cheikh
-				el_bayadh ghassasa jarawah_abu_al_aysh jerada kuku laghouat medrissa melilla messaad moulouya_corridor1
-				moulouya_corridor2 moulouya_corridor3 naama oujda ouled_djellal qal_at_ibn_salama qutb ras_al_ain ras_kebdana taourirt
-				taunat temsamane tizgane zenina
+				el_bayadh ghassasa jarawah_abu_al_aysh jerada kuku laghouat medrissa melilla messaad naama
+				oujda ouled_djellal qal_at_ibn_salama qutb ras_al_ain ras_kebdana taourirt taunat temsamane tizgane
+				zenina
 			}
 			capital = afso
 			include = "subsaharan_tribe"
@@ -850,9 +847,9 @@ countries = {
 		NOB = { # Nobatia
 			own_control_core = {
 				abu_hamed al_jeblien alays arbaji atbara berber branko daw_sud deraheib dongola
-				ed_damer ed_debba el_eleila el_gadarif el_manaqil el_metemma faras horn_desert_corridor1 horn_desert_corridor3 karima
-				karkuj kerma korti kosa omdurman qerri quz_rajab sai sennar shemkhiya
-				shendi singa soba wad_madani waylula
+				ed_damer ed_debba el_eleila el_gadarif el_manaqil el_metemma faras karima karkuj kerma
+				korti kosa omdurman qerri quz_rajab sai sennar shemkhiya shendi singa
+				soba wad_madani waylula
 			}
 			capital = abu_hamed
 			include = "subsaharan_monarchy"
@@ -890,9 +887,9 @@ countries = {
 			own_control_core = {
 				aberdeen aberfeldy arbroath ardtornish arran badenoch banff buchan clackmannan cowal
 				cupar dingwall dornoch dundee dunfermline durness elgin forfar gairloch harris
-				inverary inverurie islay kintyre lewis lochaber mann mar mull oban
-				perth scone skye st_andrews stonehaven strathearn thurso tongue uist ullapool
-				urquhart
+				inverary inverness inverurie islay kintyre lewis lochaber mann mar mull
+				oban perth scone skye st_andrews stonehaven strathearn thurso tongue uist
+				ullapool urquhart
 			}
 			capital = aberdeen
 			include = "gaelic_tribe"
@@ -990,85 +987,84 @@ countries = {
 				adakli adraskan agh_qala agham_kot aghkand agror agsu ahar ahel ahlat
 				ahmad_khan ahvaz akhalkalaki akhaltsikhe akora akre al_anbar al_madar al_mamtir al_qatr
 				al_sinn al_tib al_tiz al_udayb alamarvdasht aleshtar aliabad_katul aligurdaz altun_kupri amadiya
-				amberd amol an_nil anah anar anarak anarak_jondaq_corridor anardara andika andimeshk
-				ani aqda ar_rabb araban ardabil ardahan ardakan ardestan aresh arghestan
-				arkvaz artanuji artashavan arzu asadabad asadabad_kunar ashraf asir aslanduz aspas
-				astara astarabad attock avaj aveh awaran awbeh ayn_tamr azab azadvar
-				azghand bab_kot baciravan badra badreh bafq baft bagh_iran bagh_malek baghdad
-				baghin baghran bahcesaray bahramchah bahreman bajestan bakharz bakusaya balad balad_ruz
-				bam bam_esfarayen bampur banader bandar_charak bandar_deylam bandar_deyr bandar_e_anzali bandar_e_jask bandar_khamir
-				bandar_lengeh bandar_rig bannajbur bannu baqubah bara_iraq barda bardsir bargiri barqaid
-				barza bashagard bashqurtaran basht baskale basra bastak bastam batumi bavanat
-				bayazit bazman behabad behbahan bela bent besima beyarjomand beylagan beyza
-				bhakkar bhera bhimber bih bijar bilasuvar bingol birecik birjand bisotun
-				bitlis bjni bodbe bojnord borazjan borborud borujen borujerd boshruyeh bost
-				bukan buleda busal busayrah catak cemisgezek cermik chagai chak chakwal
-				chalus chaman chamchamal chehl_dokhtaran chishti_sarif chor cizre dalgan damavand damghan
-				daquq darab daraban dargaz darrehshahr darz dasht_kavir2 dasht_khaf2 dasht_khara2 dastgerdan
-				dayr_aqul deh_kord deh_kundi dehagh dehaj dehdasht dehdez dehgolan dehloran dehram
-				dehshir dehtal deir_ez_zor delaram delijan dera_bugti dera_ismail_khan deychopan deyhuk dezful
-				dhadar dina dinkot dishmok divandarreh diyarbekir dmanisi dogonbadan doroh dorud
-				dowlatabad dowlatabad_esfandaqeh dowraq dowzdab dubbi duhok duki dulab dunaysir egil
-				eqlid erbil ercis ergani ernan eruh erzincan erzurum esfarayen espakeh
-				eyvan eyvanekey fadisheh fahraj_narmashir fahrej farah farashband farhadgerd farim_iran fariman
-				farumad fasa fereydunshahr fin firozkoh firuzabad firuzkuh firuzkuh_afghanistan fuman gagi
-				gamrun gandamak gandava gandzasar ganja gardez gardman garmsir genc gereshk
-				gerit germi ghazni ghobeyra ghorveh gilan_gharb gladzor golashkerd golpayegan gonabad
-				goris goroz goychay gujrat gulistan gwadar gwatar hadishahr haditha hajjiabad
-				hajjiabad_zarrindasht hakkari hala hamadan hamidiyeh hangu harat haresabad harput harran
-				harunabad hasakah hasankale hasankeyf hashatjin hashtrud haterk hawraman hazro hendijan
-				heni herat hereti heris hillah hinglaj hinis hit hizan holeylan
-				hormuz hosap hoveyzeh igdir ij_iran ilam irafshan isakhel isfahan islamgarh
-				islamkot istakhr istalif izeh jabar jagin_zir jahreh jahrom jajarm jalalabad
-				jaleq jannaba jannat_shahr javad javanrud jhal jhao jhatpat jiroft jondaq
-				julfa juyom kabul kadkan kagizman kahak kahan kahnuj kajran kalameh
-				kalat kalat_nader kaleybar kalmat kamyaran kandahar kandiaro kapan_armenia karaj karaj_abi_dulaf
-				karakilise karbala kariyan karkevand karokh kars karvandar karzin kashan kashatagh
-				kashmar kashmore kavar kayen kazerun kazimah keban kerman kermanshah khabar
-				khabr khabushan khalafabad khalis khalkhal khameneh khanaqin khanashin kharan khargerd
-				kharturan khash khash_sistan khatunabad khaysar kherameh khewra khikhani khiyav khomeyn
-				khondab khor_virap khormoj khornabuji khorramabad khost khoy khunani khunj khusf
-				khushab khuzdar khvor khwansar khwar kirkuk kish kldekari kohat kohi_safi
-				kohtali kojur komshecheh korit kot_lalu kotri kozluk kuddan kufa kuhbanan
-				kuhdast kulp kumayri kurijan kusk kuzucan ladiz lafur lahijan lahri
-				lakhsar lalpur langarud lankaran lar laribandar lash_joveyn lasjerd lemberan logar
-				lordegan lorelai lori machul madinat_far mahabad mahallat mahan mahgas mahmudabad
-				mahneshan mahvelat maiwand makisin maku malakand malayer malazgirt malekan mandali
-				manora mansura manujan maragheh marand maranjab mardan mardanaqom mardehek mardin
-				marivan maruf marvast mashhad mashhad_rizeh mashkai mashkel masjed_soleyman mastung mawet
-				mayyafariqin mazdaran mazhan meshkan meshkan_khorasan meyami meybod meymand meymeh miandoab
-				midyat minab minudasht mithri miyaneh moro_sindh mosharahat mosul muchesh mughan
-				muhammad_tur muhammerah muqur murcheh_khvort murt mus musa_qala naalbandin nadushan nagarparkar
-				nagh naghan nahavand nain nakhchivan nal nardin narmashir naserpur nasiriyah
-				natanz nawah nayband nazok_olya negar nehbandan neyasar neyriz nimvar nir
-				nishapur nowdezh numaniyyah nurabad nusaybin nushki oltu ormara osnavieh paat
-				palu panaskerti pangvay paroom pasni pertek peshawar pindi_gheb piranshahr pivehzhan
-				pol_dokhtar poonch pushang qabala qadisiyyah qaen qahqaheh qala_fateh qala_safid qala_zari
-				qaladiza qalat_ghilji qaleh_ganj qarahziaoddin qarnin qaryat_al_bidh qasr_e_qand qasr_shirin qatruyeh qayyarah
-				qazvin qeydar qobustan qom qorveh_darjazin quban quchan quetta qumis qumisha
-				rabor radkan rafsanjan rahba rahimabad rajabar rajouri rameshk ramhormoz ramsheh
-				ranikot raqqa ras_ayn rasht rask ravar ravar_nayband_corridor rawalakot rawalpindi rawanduz
-				rayen raz razeqan rey reyshahr ribat_ushturan ribat_ushturan_jondaq_corridor rigan riz rohri
-				roshtkhar rostaq rudbar rudbar_sistan rudkhaneh rusafa rustavi ruydar saadatabad saadatshahr
-				sabzevar saghand sagzabad sahrazur sain salameh salehabad salmas salyan samalqan
-				samarra samawa samiram sanandaj sangni santeh sar_mashhad sarab sarab_dowreh sarakhs
-				saravan sarayan sarbaz sarbisheh sarcham sardasht sarduiyeh sari saruk sarvestan
-				saryazd sason saveh savojbolagh savsat savur sehwan semdinli semnan senderk
-				sepeh shadodkot shahabad_kerman shahdad shahr_e_babak shahr_meyan shahr_sabz shahrakht shahrestan_sofla shaki
-				shamiram shamkir shaqrud sherwan shikarpur shindand shiraz shirvan_iran shoqan shorabak
-				shusef shush shusha shushtar siah_cheshmeh sibak siirt sinjar siraf sirdan
-				sirik sirjan sirnak sisakht siverek sivrice siwi soghan sohrevard sohrfiruzan
-				sojas soltaniyeh somaleh sonamiani sonda sonqor sotk spitak sui_pakistan sukkur
-				sulaymaniyah suleiman_range_7 suq suq_al_shuyukh surab suran surmali suruc syrian_desert_corridor13 syrian_desert_corridor5
-				syrian_desert_corridor6 syrian_desert_corridor7 syrian_desert_corridor8 tabas_al_tamr tabas_al_tamr_ribat_ushturan_corridor tabas_al_unnab tabriz tafresh taft takestan
-				takht_e_soleyman tal_afar tammisha tank tarinkot tarom tatev tatvan tbilisi tejend
-				tekman thal_daman tharthar thatta tikrit tmogvi tonekabon torbat_e_jam tortum tudeshk
-				tufarqan tulak tump tun tunanir turaythith turbat tus tutak tuz_khurma
-				udabhanda ujan ukbara umarkot urfa urgun urmia van vanak varamin
-				varsan vartashen varto vingur viransehir wadh wana wanga_bazar washuk wasit
-				wazakhwa yangabad yasuj yasukand yazd yazdikhwast yazduye yerevan zabol zakho
-				zakht zanjan zarabad zarand_iran zaranj zardab zarghun_shahr zarqan zavareh zaveh
-				zhob zik zohan zozan zuwayr
+				amberd amol an_nil anah anar anarak anardara andika andimeshk ani
+				aqda ar_rabb araban ardabil ardahan ardakan ardestan aresh arghestan arkvaz
+				artanuji artashavan arzu asadabad asadabad_kunar ashraf asir aslanduz aspas astara
+				astarabad attock avaj aveh awaran awbeh ayn_tamr azab azadvar azghand
+				bab_kot baciravan badra badreh bafq baft bagh_iran bagh_malek baghdad baghin
+				baghran bahcesaray bahramchah bahreman bajestan bakharz bakusaya balad balad_ruz bam
+				bam_esfarayen bampur banader bandar_charak bandar_deylam bandar_deyr bandar_e_anzali bandar_e_jask bandar_khamir bandar_lengeh
+				bandar_rig bannajbur bannu baqubah bara_iraq barda bardsir bargiri barqaid barza
+				bashagard bashqurtaran basht baskale basra bastak bastam batumi bavanat bayazit
+				bazman behabad behbahan bela bent besima beyarjomand beylagan beyza bhakkar
+				bhera bhimber bih bijar bilasuvar bingol birecik birjand bisotun bitlis
+				bjni bodbe bojnord borazjan borborud borujen borujerd boshruyeh bost bukan
+				buleda busal busayrah catak cemisgezek cermik chagai chak chakwal chalus
+				chaman chamchamal chehl_dokhtaran chishti_sarif chor cizre dalgan damavand damghan daquq
+				darab daraban dargaz darrehshahr darz dastgerdan dayr_aqul deh_kord deh_kundi dehagh
+				dehaj dehdasht dehdez dehgolan dehloran dehram dehshir dehtal deir_ez_zor delaram
+				delijan dera_bugti dera_ismail_khan deychopan deyhuk dezful dhadar dina dinkot dishmok
+				divandarreh diyarbekir dmanisi dogonbadan doroh dorud dowlatabad dowlatabad_esfandaqeh dowraq dowzdab
+				dubbi duhok duki dulab dunaysir egil eqlid erbil ercis ergani
+				ernan eruh erzincan erzurum esfarayen espakeh eyvan eyvanekey fadisheh fahraj_narmashir
+				fahrej farah farashband farhadgerd farim_iran fariman farumad fasa fereydunshahr fin
+				firozkoh firuzabad firuzkuh firuzkuh_afghanistan fuman gagi gamrun gandamak gandava gandzasar
+				ganja gardez gardman garmsir genc gereshk gerit germi ghazni ghobeyra
+				ghorveh gilan_gharb gladzor golashkerd golpayegan gonabad goris goroz goychay gujrat
+				gulistan gwadar gwatar hadishahr haditha hajjiabad hajjiabad_zarrindasht hakkari hala hamadan
+				hamidiyeh hangu harat haresabad harput harran harunabad hasakah hasankale hasankeyf
+				hashatjin hashtrud haterk hawraman hazro hendijan heni herat hereti heris
+				hillah hinglaj hinis hit hizan holeylan hormuz hosap hoveyzeh igdir
+				ij_iran ilam irafshan isakhel isfahan islamgarh islamkot istakhr istalif izeh
+				jabar jagin_zir jahreh jahrom jajarm jalalabad jaleq jannaba jannat_shahr javad
+				javanrud jhal jhao jhatpat jiroft jondaq julfa juyom kabul kadkan
+				kagizman kahak kahan kahnuj kajran kalameh kalat kalat_nader kaleybar kalmat
+				kamyaran kandahar kandiaro kapan_armenia karaj karaj_abi_dulaf karakilise karbala kariyan karkevand
+				karokh kars karvandar karzin kashan kashatagh kashmar kashmore kavar kayen
+				kazerun kazimah keban kerman kermanshah khabar khabr khabushan khalafabad khalis
+				khalkhal khameneh khanaqin khanashin kharan khargerd kharturan khash khash_sistan khatunabad
+				khaysar kherameh khewra khikhani khiyav khomeyn khondab khor_virap khormoj khornabuji
+				khorramabad khost khoy khunani khunj khusf khushab khuzdar khvor khwansar
+				khwar kirkuk kish kldekari kohat kohi_safi kohtali kojur komshecheh korit
+				kot_lalu kotri kozluk kuddan kufa kuhbanan kuhdast kulp kumayri kurijan
+				kusk kuzucan ladiz lafur lahijan lahri lakhsar lalpur langarud lankaran
+				lar laribandar lash_joveyn lasjerd lemberan logar lordegan lorelai lori machul
+				madinat_far mahabad mahallat mahan mahgas mahmudabad mahneshan mahvelat maiwand makisin
+				maku malakand malayer malazgirt malekan mandali manora mansura manujan maragheh
+				marand maranjab mardan mardanaqom mardehek mardin marivan maruf marvast mashhad
+				mashhad_rizeh mashkai mashkel masjed_soleyman mastung mawet mayyafariqin mazdaran mazhan meshkan
+				meshkan_khorasan meyami meybod meymand meymeh miandoab midyat minab minudasht mithri
+				miyaneh moro_sindh mosharahat mosul muchesh mughan muhammad_tur muhammerah muqur murcheh_khvort
+				murt mus musa_qala naalbandin nadushan nagarparkar nagh naghan nahavand nain
+				nakhchivan nal nardin narmashir naserpur nasiriyah natanz nawah nayband nazok_olya
+				negar nehbandan neyasar neyriz nimvar nir nishapur nowdezh numaniyyah nurabad
+				nusaybin nushki oltu ormara osnavieh paat palu panaskerti pangvay paroom
+				pasni pertek peshawar pindi_gheb piranshahr pivehzhan pol_dokhtar poonch pushang qabala
+				qadisiyyah qaen qahqaheh qala_fateh qala_safid qala_zari qaladiza qalat_ghilji qaleh_ganj qarahziaoddin
+				qarnin qaryat_al_bidh qasr_e_qand qasr_shirin qatruyeh qayyarah qazvin qeydar qobustan qom
+				qorveh_darjazin quban quchan quetta qumis qumisha rabor radkan rafsanjan rahba
+				rahimabad rajabar rajouri rameshk ramhormoz ramsheh ranikot raqqa ras_ayn rasht
+				rask ravar rawalakot rawalpindi rawanduz rayen raz razeqan rey reyshahr
+				ribat_ushturan rigan riz rohri roshtkhar rostaq rudbar rudbar_sistan rudkhaneh rusafa
+				rustavi ruydar saadatabad saadatshahr sabzevar saghand sagzabad sahrazur sain salameh
+				salehabad salmas salyan samalqan samarra samawa samiram sanandaj sangni santeh
+				sar_mashhad sarab sarab_dowreh sarakhs saravan sarayan sarbaz sarbisheh sarcham sardasht
+				sarduiyeh sari saruk sarvestan saryazd sason saveh savojbolagh savsat savur
+				sehwan semdinli semnan senderk sepeh shadodkot shahabad_kerman shahdad shahr_e_babak shahr_meyan
+				shahr_sabz shahrakht shahrestan_sofla shaki shamiram shamkir shaqrud sherwan shikarpur shindand
+				shiraz shirvan_iran shoqan shorabak shusef shush shusha shushtar siah_cheshmeh sibak
+				siirt sinjar siraf sirdan sirik sirjan sirnak sisakht siverek sivrice
+				siwi soghan sohrevard sohrfiruzan sojas soltaniyeh somaleh sonamiani sonda sonqor
+				sotk spitak sui_pakistan sukkur sulaymaniyah suq suq_al_shuyukh surab suran surmali
+				suruc tabas_al_tamr tabas_al_unnab tabriz tafresh taft takestan takht_e_soleyman tal_afar tammisha
+				tank tarinkot tarom tatev tatvan tbilisi tejend tekman thal_daman thatta
+				tikrit tmogvi tonekabon torbat_e_jam tortum tudeshk tufarqan tulak tump tun
+				tunanir turaythith turbat tus tutak tuz_khurma udabhanda ujan ukbara umarkot
+				urfa urgun urmia van vanak varamin varsan vartashen varto vingur
+				viransehir wadh wana wanga_bazar washuk wasit wazakhwa yangabad yasuj yasukand
+				yazd yazdikhwast yazduye yerevan zabol zakho zakht zanjan zarabad zarand_iran
+				zaranj zardab zarghun_shahr zarqan zavareh zaveh zhob zik zohan zozan
+				zuwayr
 			}
 			capital = baghdad
 			include = "eastern_european_monarchy"
@@ -1153,10 +1149,11 @@ countries = {
 		}
 		SVE = { # Svear
 			own_control_core = {
-				arboga avesta enkoping falun farnebo floda goksholm grange grythyttan hamrange
-				hedemora hedesunda idre josse kolmarden linde malung nas nora nordmark
-				norrtalje nykoping ockelbo oppunda orebro orsa riseberga sala skinskatteberg soderbarke
-				sodertalje stockholm strangnas tierp tingvalla uppsala varnum vasteras
+				arboga avesta enkoping falun farnebo floda fryksdal gefle gillberg goksholm
+				grange grythyttan hamrange heby hedemora hedesunda idre josse kastelholm kolmarden
+				leksand linde malung mora nas nora nordmark norrtalje nykoping ockelbo
+				oppunda orebro orsa riseberga sala skinskatteberg soderbarke sodertalje stockholm stora_tuna
+				strangnas tierp tingvalla uppsala varnum vasteras
 			}
 			capital = uppsala
 			include = "eurasian_tribe"
@@ -1305,60 +1302,60 @@ countries = {
 				grenoble griesbach grimsby grosseto gruyere guadalajara guadalupe guadix guarda guastalla
 				gubbio guelma guerande gueret guildford guimaraes guise gunzburg gyor haguenau
 				hallein hammamet harcourt harlech harrow hasselt hastings hedingham heinsberg hellin
-				henley hennebont hermagor herment herrera hertford hesdin hexham hirson huelva
-				huesca huescar huete hull hulst huntingdon huriel hythe ibiza idanha
-				ikjan ilanz ilirska_bistrica illereichen illescas illora ilok immenstadt imola imst
-				indersdorf iniesta innsbruck interlaken ipswich isernia isili issoudun ivrea jaca
-				jadu jaen jajce jaligny jama_TUN jaraicejo jativa jerez_de_la_frontera jerez_de_los_caballeros jersey
-				jijel jodar joigny joinville jonzac jorquera josselin judenburg jumilla kairouan
-				kaiserslautern kalaa_of_ait_abbas kalocsa kapfenberg kaposvar kapuvar karlovac kaseg kasserine kebili
-				kelibia kempten kendal kesra kettering kidderminster kidwelly kingston kirchdorf kitzbuhel
-				klagenfurt kleve kljuc knin kocevje komarom konjic konstanz koprivnica kormend
-				kortriik kotor kozara kranj kreuznach krk krumbach krupanj ksar_el_boukhari ksar_el_kaoua
-				ksar_el_kebir ksar_ibn_senane kufstein kutina kyburg la_mamora la_mothe_en_bassigny la_mure la_roche la_roche_sur_foron
-				la_roche_sur_yon la_rochelle la_teste_de_buch la_tour_du_pin labrit lagonegro lagos laguardia laigle lalin
-				lamego lancaster lanciano landau landau_rhineland landeck landsberg landshut langres lanzo
-				laon larache laredo larino las_navas lasko lastovo_island_wasteland laufen launceston lausanne
+				henley hennebont hereford hermagor herment herrera hertford hesdin hexham hirson
+				huelva huesca huescar huete hull hulst huntingdon huriel hythe ibiza
+				idanha ikjan ilanz ilirska_bistrica illereichen illescas illora ilok immenstadt imola
+				imst indersdorf iniesta innsbruck interlaken ipswich isernia isili issoudun ivrea
+				jaca jadu jaen jajce jaligny jama_TUN jaraicejo jativa jerez_de_la_frontera jerez_de_los_caballeros
+				jersey jijel jodar joigny joinville jonzac jorquera josselin judenburg jumilla
+				kairouan kaiserslautern kalaa_of_ait_abbas kalocsa kapfenberg kaposvar kapuvar karlovac kaseg kasserine
+				kebili kelibia kempten kendal kesra kettering kidderminster kidwelly kingston kirchdorf
+				kitzbuhel klagenfurt kleve kljuc knin kocevje komarom konjic konstanz koprivnica
+				kormend kortriik kotor kozara kranj kreuznach krk krumbach krupanj ksar_el_boukhari
+				ksar_el_kaoua ksar_el_kebir ksar_ibn_senane kufstein kutina kyburg la_mamora la_mothe_en_bassigny la_mure la_roche
+				la_roche_sur_foron la_roche_sur_yon la_rochelle la_teste_de_buch la_tour_du_pin labrit lagonegro lagos laguardia laigle
+				lalin lamego lancaster lanciano landau landau_rhineland landeck landsberg landshut langres
+				lanzo laon larache laredo larino las_navas lasko laufen launceston lausanne
 				lautrec lavagna laval lavaur lavenham le_faou le_lude le_mans le_puy lecce
 				lecco lectoure ledesma leeds legnago legnano leibnitz leicester leiden leiningen
 				leiria lens leoben leon lerma lesparre_medoc leuven lewes lezuza libourne
 				lichtenberg lichtenberg_veldenz liege lienz liezen lignieres ligny lilienfeld lille limbourg
-				limeuil limoges limoux linz lisbon lisieux lisle_jourdain liverpool livno livorno
-				ljubljana llanes llangollen lleida llerena lliria llucena locarno loches lodeve
-				lodi logrono loja lomello london longueville longwy lorca los_yebenes loudun
-				loughborough louhans louth louviers lowestoft lucca lucena lucera lucerne ludlow
-				lugano lugo luneville lusignan luxembourg luxeuil lymington lynn lyon maastricht
-				macclesfield macedo macerata machecoul machynlleth macomer macon madas madila madinat_alawiyyin
-				madjul madrid magyarovar mahdia mahres mainz makarska malaga malagon mallersdorf
-				malta manacor manchester manfredonia mangona manresa mansilla mansouria mantes mantova
-				manzanares maqqara maqueda marbella maribor marle marmande marsciano marseille martigny
-				martinafr martos mascara massa massamar matera mateur matilla_de_canos matmata maubeuge
-				mauleon mauleon_poitou mauriac mayen mayenne mazara mazouna meaux meda medea
-				medellin medenine medicina medina_de_rioseco medina_del_campo medina_sidonia medinaceli medjez_el_bab meisenheim melfi
-				melgueil melk mellid melun memmingen mende menehould merano merida mertola
-				merzig meskiana mesocco messina mestre metkovic metlika metz mevouillon middelburg
-				mieres miesbach mila milano miliana millau mimizan minehead miranda_de_ebro miranda_de_i_douro
-				mirande mirandela mirandola mirecourt mirepoix misratah mistretta mittersill mizda modena
-				modica modigliana mohacs mojacar molina_de_aragon molins monastir monchengladbach moncorvo mondonedo
-				mondovi monesterio monfort_lamaury monfort_sur_meu monforte_de_lemos monmouth monopoli mons monselice mont_de_marsan
-				montaigu montaigut montalban montalcino montalegre montanchez montargis montauban montbeliard montblanc
-				montbozon montbrison montcenis montefeltro monteleone montemor montendre montepeloso monterrey montflanquin
-				montgomery monthey montiel montlaur montlucon montmedy montmorency montmorillon montpellier montreuil
-				montreuillon montreux monza monzon monzon_campos mora_de_rubielos mora_portugal morella morgex morhange
-				moron mors mortagne mortain mostaganem mostar moura moutiers mouzon moya
-				msila muhldorf mula mulhouse munich murau muravera murbach murcia muret
-				murzzuschlag nabeul nagykanizsa najera nalut namur nancy nantes nantwich naples
-				narbonne narni navalucillos navia_de_suarna neath nedroma nefta nemours nerac nesle
-				neuburg_an_der_donau neuchatel neufchateau_des_vosges neufchateau_luxembourg neuss neustadt_an_der_haardt nevers nevesinje newark newcastle
-				newport ngaous nicastro nice nicosiasic niebla nijmegen nimes niort nivelles
-				nogaro nogent_sur_seine nola nonantola nontron northampton norton norwich noto nottingham
-				novara novi novigrad novo_mesto noya noyon nozza nyon oberdorf ocana
-				odemira okehampton oleron olite oloron olovo olsnica olvera onate oppenheim
-				oran orange orchimont orgelet orgiva orihuela oristano orleans ornans oropesa
-				orosei orte orthez orvietano osijek ostend ostiglia osuna oswestry otocac
-				oudenaarde ouezzane ourense ourique oviedo oxford ozieri padova pag pakrac
-				palazzolo palencia palenzuela palermo palestrina palma palma_del_rio palmi pamiers pamplona
-				pantelleria paola papa pareja paris parma parthenay passau passavant patti
+				limeuil limoges limoux lincoln linz lisbon lisieux lisle_jourdain liverpool livno
+				livorno ljubljana llanes llangollen lleida llerena lliria llucena locarno loches
+				lodeve lodi logrono loja lomello london longueville longwy lorca los_yebenes
+				loudun loughborough louhans louth louviers lowestoft lucca lucena lucera lucerne
+				ludlow lugano lugo luneville lusignan luxembourg luxeuil lymington lynn lyon
+				maastricht macclesfield macedo macerata machecoul machynlleth macomer macon madas madila
+				madinat_alawiyyin madjul madrid magyarovar mahdia mahres mainz makarska malaga malagon
+				mallersdorf malta manacor manchester manfredonia mangona manresa mansilla mansouria mantes
+				mantova manzanares maqqara maqueda marbella maribor marle marmande marsciano marseille
+				martigny martinafr martos mascara massa massamar matera mateur matilla_de_canos matmata
+				maubeuge mauleon mauleon_poitou mauriac mayen mayenne mazara mazouna meaux meda
+				medea medellin medenine medicina medina_de_rioseco medina_del_campo medina_sidonia medinaceli medjez_el_bab meisenheim
+				melfi melgueil melk mellid melun memmingen mende menehould merano merida
+				mertola merzig meskiana mesocco messina mestre metkovic metlika metz mevouillon
+				middelburg mieres miesbach mila milano miliana millau mimizan minehead miranda_de_ebro
+				miranda_de_i_douro mirande mirandela mirandola mirecourt mirepoix misratah mistretta mittersill mizda
+				modena modica modigliana mohacs mojacar molina_de_aragon molins monastir monchengladbach moncorvo
+				mondonedo mondovi monesterio monfort_lamaury monfort_sur_meu monforte_de_lemos monmouth monopoli mons monselice
+				mont_de_marsan montaigu montaigut montalban montalcino montalegre montanchez montargis montauban montbeliard
+				montblanc montbozon montbrison montcenis montefeltro monteleone montemor montendre montepeloso monterrey
+				montflanquin montgomery monthey montiel montlaur montlucon montmedy montmorency montmorillon montpellier
+				montreuil montreuillon montreux monza monzon monzon_campos mora_de_rubielos mora_portugal morella morgex
+				morhange moron mors mortagne mortain mostaganem mostar moura moutiers mouzon
+				moya msila muhldorf mula mulhouse munich murau muravera murbach murcia
+				muret murzzuschlag nabeul nagykanizsa najera nalut namur nancy nantes nantwich
+				naples narbonne narni navalucillos navia_de_suarna neath nedroma nefta nemours nerac
+				nesle neuburg_an_der_donau neuchatel neufchateau_des_vosges neufchateau_luxembourg neuss neustadt_an_der_haardt nevers nevesinje newark
+				newcastle newport ngaous nicastro nice nicosiasic niebla nijmegen nimes niort
+				nivelles nogaro nogent_sur_seine nola nonantola nontron northampton norton norwich noto
+				nottingham novara novi novigrad novo_mesto noya noyon nozza nyon oberdorf
+				ocana odemira okehampton oleron olite oloron olovo olsnica olvera onate
+				oppenheim oran orange orchimont orgelet orgiva orihuela oristano orleans ornans
+				oropesa orosei orte orthez orvietano osijek ostend ostiglia osuna oswestry
+				otocac oudenaarde ouezzane ourense ourique oviedo oxford ozieri padova pag
+				pakrac palazzolo palencia palenzuela palermo palestrina palma palma_del_rio palmi pamiers
+				pamplona paola papa pareja paris parma parthenay passau passavant patti
 				pau pavia pazin pecs pedraza pedroche pembroke penafiel peniscola penllyn
 				penrith perigueux peronne perpignan perreux perugia pesaro peschiera pescia petrinja
 				petrovaradin peyre peyrusse pfaffenhofen piacenza piazza piedimonte piedrahita pieve pina_de_ebro
@@ -1418,10 +1415,10 @@ countries = {
 				vitry_en_pertois vivero viviers vodable voghera voitsberg volkermarkt volterra vrhbosna vukovar
 				waidhofen wakefield walcourt walden wallerfangen wasserburg weert weilheim weiz wells
 				wels werdenberg wertingen weymouth whitby wiener_neustadt wight wigmore winchester windsor
-				winklern wittlich woking wolfsberg wolhusen worms wycombe yafran yarmouth yecla_de_yeltes
-				yellel york ypres yverdon_les_bains zabern zadar zafra zaghouan zagreb zalaegerszeg
-				zalamea zalavar zamora zaragoza zarzis zawiya zell_am_see zell_am_ziller zenica zintan
-				zliten zogno zorita zuera zuoz zurich zuwarah zweibrucken
+				winklern wittlich woking wolfsberg wolhusen worcester worms wycombe yafran yarmouth
+				yecla_de_yeltes yellel york ypres yverdon_les_bains zabern zadar zafra zaghouan zagreb
+				zalaegerszeg zalamea zalavar zamora zaragoza zarzis zawiya zell_am_see zell_am_ziller zenica
+				zintan zliten zogno zorita zuera zuoz zurich zuwarah zweibrucken
 			}
 			capital = milano
 			include = "catholic_monarchy"

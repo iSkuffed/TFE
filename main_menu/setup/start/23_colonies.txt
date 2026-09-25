@@ -1,3 +1,3 @@
-﻿# TFE stub: 1337 content removed
+# TFE stub: 1337 content removed
 colony_manager = {
 }

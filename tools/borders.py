@@ -8,6 +8,7 @@
   uv run tools/borders.py explain LOC  show how LOC got its owner
 """
 import json
+import zlib
 import re
 import sys
 from pathlib import Path
@@ -62,10 +63,17 @@ def load_colors():
     colors = {}
     for f in sorted((MAP / "named_locations").glob("*.txt")):
         for line in f.read_text(encoding="utf-8-sig").splitlines():
-            m = re.match(r"\s*(\w+)\s*=\s*([0-9a-fA-F]{6})\b", line)
+            m = re.match(r"\s*(\w+)\s*=\s*([0-9a-fA-F]{1,6})\b", line)
             if m:
                 colors[int(m[2], 16)] = m[1]
     return colors
+
+
+def load_unownable():
+    # default.map lists wasteland the engine refuses as owned land (no pops/culture -> crash)
+    text = re.sub(r"#[^\n]*", "", (MAP / "default.map").read_text(encoding="utf-8-sig"))
+    return {l for key in ("impassable_mountains", "non_ownable")
+            for l in re.search(key + r"\s*=\s*\{([^}]*)\}", text)[1].split()}
 
 
 def packed_rows(arr):
@@ -76,10 +84,13 @@ def packed_rows(arr):
 def load_centroids():
     # ponytail: plain pixel mean; wrong for the few locations straddling the x wrap (mid-Pacific, unowned)
     cache = OUT / "centroids.tsv"
-    if cache.exists():
-        rows = (l.split("\t") for l in cache.read_text().splitlines())
-        return {n: (float(x), float(y)) for n, x, y in rows}
     colors = load_colors()
+    png = (MAP / "locations.png").stat()
+    sig = f"#sig {png.st_size} {png.st_mtime_ns} {zlib.crc32(repr(sorted(colors.items())).encode())}"
+    if cache.exists():
+        head, *lines = cache.read_text().splitlines()
+        if head == sig:
+            return {n: (float(x), float(y)) for n, x, y in (l.split("\t") for l in lines)}
     keys = np.array(sorted(colors), dtype=np.uint32)
     arr = np.asarray(Image.open(MAP / "locations.png").convert("RGB"))
     h, w, _ = arr.shape
@@ -96,7 +107,7 @@ def load_centroids():
         sy += np.bincount(i, weights=np.broadcast_to(ys, p.shape)[ok], minlength=len(keys))
     cent = {colors[int(k)]: (sx[j] / cnt[j], sy[j] / cnt[j]) for j, k in enumerate(keys) if cnt[j]}
     OUT.mkdir(exist_ok=True)
-    cache.write_text("".join(f"{n}\t{x:.1f}\t{y:.1f}\n" for n, (x, y) in cent.items()))
+    cache.write_text(sig + "\n" + "".join(f"{n}\t{x:.1f}\t{y:.1f}\n" for n, (x, y) in cent.items()))
     return cent
 
 
@@ -248,6 +259,9 @@ def assign(land, anc, ds, entries):
         if key not in known:
             errors.append(f"{src}: unknown location/province/area/region '{key}'")
             continue
+        if key not in members:
+            errors.append(f"{src}: '{key}' covers no ownable land")
+            continue
         for loc in members.get(key, ()):
             owner[loc] = val
             trail[loc].append(f"{src} {key} = {val}")
@@ -291,7 +305,9 @@ def check_values(entries, tags):
 def check_coverage(land, owner, anc, scopes):
     missing = sorted(l for l in land if l not in owner)
     inside = [l for l in missing if scopes & {l, *anc.get(l, ())}]
-    errors = [f"{len(inside)} unsourced land locations in curated scope: {' '.join(inside[:40])}"] if inside else []
+    known = set(anc) | {n for a in anc.values() for n in a}
+    errors = [f"!scope: unknown region/area '{s}'" for s in sorted(scopes - known)]
+    errors += [f"{len(inside)} unsourced land locations in curated scope: {' '.join(inside[:40])}"] if inside else []
     rest = len(missing) - len(inside)
     warnings = [f"{rest} unsourced land locations outside curated scope (left unowned)"] if rest else []
     return errors, warnings
@@ -383,7 +399,7 @@ def render(owner, tags, topo, step=4):
 
 def compute():
     anc, topo, cent = load_hierarchy(), load_topography(), load_centroids()
-    land = {l for l in cent if topo.get(l) in LAND_TOPO}
+    land = {l for l in cent if topo.get(l) in LAND_TOPO} - load_unownable()
     proj = fit_projection(cent)
     stats, holdout = error_stats(fit_errors(proj, cent, ANCHORS)), fit_errors(proj, cent, HOLDOUT)
     errors, warnings = [], []
@@ -431,7 +447,7 @@ def build():
     for path, text in ((COUNTRIES_OUT, emit_countries(s["tags"], s["owned"], s["caps"])),
                        (DEFS_OUT, emit_definitions(s["tags"])), (LOC_OUT, emit_localization(s["tags"]))):
         path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_text(text, encoding="utf-8")
+        path.write_text(text, encoding="utf-8-sig" if path == DEFS_OUT else "utf-8")
     img = render(s["owner"], s["tags"], s["topo"])
     img.save(OUT / "owners.png")
     lon0, lat0, lon1, lat1 = MED_BOX

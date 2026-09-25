@@ -8,6 +8,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import borders as b
 
 WEST = [
+    ("lincoln", "WRE", "Lindum, capital of Flavia Caesariensis"),
+    ("kalmar", "GEA", "short hex colour 291f; Gotaland = Geats"),
     ("trier", "WRE", "Augusta Treverorum, left bank of the Rhine"),
     ("cologne", "WRE", "Colonia Agrippina, left bank"),
     ("dusseldorf", "FRK", "right bank opposite Cologne: Franks"),
@@ -51,3 +53,8 @@ def test_west(state, loc, tag, why):
 
 def test_no_errors(state):
     assert state["errors"] == []
+
+
+@pytest.mark.parametrize("loc", ["pantelleria", "lastovo_island_wasteland", "syrian_desert_corridor8"])
+def test_unownable_never_owned(state, loc):
+    assert loc not in state["land"] and loc not in state["owner"]

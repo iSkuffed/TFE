@@ -156,3 +156,30 @@ def test_resolve_capitals_skips_undefined_tags():
     # an override naming an undefined tag is reported by check_values; capitals must not crash on it
     caps, warns, errs = b.resolve_capitals({"AAA": _tag(capital="rome")}, {"AAA": ["rome"], "QQQ": ["x"]})
     assert caps == {"AAA": "rome"} and errs == [] and warns == []
+
+
+def test_start_files_have_no_bom_but_country_definitions_do():
+    # the start loader chokes on a BOM ("Unexpected token"); in_game/setup wants utf8-bom
+    for f in START.glob("*.txt"):
+        assert not f.read_bytes().startswith(b"\xef\xbb\xbf"), f.name
+    assert b.DEFS_OUT.read_bytes().startswith(b"\xef\xbb\xbf")
+
+
+def test_short_hex_colours_are_loaded():
+    names = set(b.load_colors().values())
+    assert {"kalmar", "lincoln"} <= names          # kalmar = 291f
+    assert {"kalmar", "lincoln"} <= set(b.load_centroids())
+
+
+def test_unownable_lists_loaded():
+    un = b.load_unownable()
+    assert {"pantelleria", "syrian_desert_corridor8", "lastovo_island_wasteland"} <= un
+    assert "rome" not in un
+
+
+def test_override_covering_no_land_and_scope_typo_error(tmp_path):
+    anc = {"a1": ("r", "areaA"), "w1": ("r", "wasteA")}
+    _, _, errs = b.assign({"a1"}, anc, {}, [("f:1", "wasteA", "AAA")])
+    assert errs and "no ownable land" in errs[0]
+    errs, _ = b.check_coverage({"a1"}, {"a1": "AAA"}, anc, {"bogus_region"})
+    assert errs and "bogus_region" in errs[0]
