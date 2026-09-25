@@ -1,0 +1,3 @@
+﻿# TFE stub: 1337 content removed
+character_db = {
+}

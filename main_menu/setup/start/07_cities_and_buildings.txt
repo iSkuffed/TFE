@@ -1,0 +1,1180 @@
+﻿# TFE stub: 1337 tag-owned buildings removed
+locations={
+	
+	#sweden
+	stockholm = { rank = town 		town_setup = important_scandinavian_town }
+	linkoping = { rank = town 		town_setup = scandinavian_town }
+	soderkoping = { rank = town 	town_setup = scandinavian_town }
+	kalmar = { rank = town 			town_setup = scandinavian_town }
+	skara = { rank = town 			town_setup = scandinavian_town }
+	lund = { rank = town 			town_setup = scandinavian_town }
+	abo = { rank = town 			town_setup = scandinavian_town }
+	vyborg = { rank = town			town_setup = scandinavian_town }
+	visby = { rank = town 			town_setup = baltic_town }
+	
+	#Norway
+	tonsberg = { rank = town 		town_setup = scandinavian_town }
+	nidaros = { rank = town 		town_setup = scandinavian_town }
+	bergen = { rank = town 			town_setup = scandinavian_town }
+	hamar = { rank = town 			town_setup = scandinavian_town }
+	stavanger = { rank = town 		town_setup = scandinavian_town }
+	oslo = { rank = town 			town_setup = important_scandinavian_town }
+	
+	#denmark
+	kobenhavn = { rank = town 		town_setup = important_scandinavian_town }
+	roskilde = { rank = town 		town_setup = important_scandinavian_town }
+	viborg = { rank = town			town_setup = important_scandinavian_town }
+	randers = { rank = town 		town_setup = important_scandinavian_town }
+	aalborg = { rank = town 		town_setup = important_scandinavian_town }
+	odense = { rank = town 			town_setup = important_scandinavian_town }
+	flensburg = { rank = town 		town_setup = german_coastal_town }
+
+	skalholt = { rank = town 		town_setup = scandinavian_town }
+	
+	# britain
+	london = { rank = city			town_setup = british_town_port}
+	edinburgh = { rank = town 		town_setup = british_town_port}
+	york = { rank = town 			town_setup = british_town}
+	bristol = { rank = town 		town_setup = british_town_port}
+	coventry = { rank = town 		town_setup = british_town}
+	norwich = { rank = town 		town_setup = british_town}
+	oxford = { rank = town 			town_setup = british_town}
+	cambridge = { rank = town 		town_setup = british_town}
+	lincoln = { rank = town 		town_setup = british_town}
+	salisbury = { rank = town 		town_setup = british_town}
+	lynn = { rank = town 			town_setup = british_town_port}
+	colchester = { rank = town 		town_setup = british_town_port}
+	boston = { rank = town 			town_setup = british_town_port}
+	inverness = { rank = town		town_setup = british_town_port}
+	aberdeen = { rank = town 		town_setup = british_town_port}
+	perth = { rank = town 			town_setup = british_town_port}
+	berwick = { rank = town 		town_setup = british_town_port}
+	#cardiff = { rank = town 		town_setup = british_town_port}
+	
+	# ireland
+	dublin = { rank = town 			town_setup = british_town_port}
+	cork = { rank = town 			town_setup = british_town_port}
+	waterford = { rank = town 		town_setup = british_town_port}
+	new_ross = { rank = town 		town_setup = british_town_port}
+	wexford = { rank = town 		town_setup = british_town_port}
+	limerick = { rank = town 		town_setup = british_town_port}
+	galway = { rank = town 			town_setup = british_town_port}
+	sligo = { rank = town 			town_setup = british_town_port}
+	
+	# greece
+	athens = { rank = city			town_setup = greek_city_port }
+	thessaloniki = { rank = city 	town_setup = greek_city_port }
+	candia = { rank = town 			town_setup = greek_town_port }
+	corinth = { rank = town 		town_setup = greek_town_port }
+	ioannina = { rank = town 		town_setup = balkan_town }
+	kalamata = { rank = town 		town_setup = greek_town_port }
+	larissa = { rank = town 		town_setup = balkan_town }
+	rodos = { rank = town 			town_setup = greek_town_port }
+	
+	# albania
+	durres = { rank = town 			town_setup = balkan_town }
+	
+	# turkey (modern day)
+	constantinople = { rank = megalopolis 	town_setup = greek_city_port }
+	edirne = { rank = town 			town_setup = balkan_town }
+	gallipoli = { rank = town 		town_setup = greek_town_port }
+	
+	# bulgaria
+	tarnovo = { rank = city 		town_setup = balkan_town }
+	cherven = { rank = town 		town_setup = balkan_town }
+	drastar = { rank = town 		town_setup = balkan_town }
+	plovdiv = { rank = town 		town_setup = balkan_town }
+	ruse = { rank = town 			town_setup = balkan_town }	
+	shumen = { rank = town 			town_setup = balkan_town }
+	sliven = { rank = town 			town_setup = balkan_town }
+	sredets = { rank = town 		town_setup = balkan_town }
+	targoviste_BUL = { rank = town 	town_setup = balkan_town }
+	varna = { rank = town 			town_setup = balkan_town }
+	vidin = { rank = town 			town_setup = balkan_town }	
+	
+	#ex-yugoslavia
+	belgrad = { rank = town 		town_setup = balkan_town }
+	nis = { rank = town 			town_setup = balkan_town }	
+	ohrid = { rank = town 			town_setup = balkan_town }	
+	prizren = { rank = town 		town_setup = balkan_town }	
+	skopje = { rank = town 			town_setup = balkan_town }	
+	dubrovnik = { rank = city 		town_setup = dubrovnik_city }
+	knin = { rank = town 			town_setup = balkan_town }	
+	rijeka = { rank = town 			town_setup = balkan_town }	
+	zagreb = { rank = town 			town_setup = balkan_town }	
+	
+	#Italy	
+	aquila = { rank = city			town_setup = italian_city }
+	ancona = { rank = city 			town_setup = italian_coastal_city }
+	ascolipiceno = { rank = city 	town_setup = italian_coastal_city }
+	bologna = { rank = city 		town_setup = italian_city }
+	brescia = { rank = city 		town_setup = italian_city }
+	cremona = { rank = city 		town_setup = italian_city }
+	ferrara = { rank = city 		town_setup = italian_city }
+	florence = { rank = city 		town_setup = florence_city }
+	genoa = { rank = city 			town_setup = genoa_city }
+	lucca = { rank = city 			town_setup = italian_coastal_city }
+	mantova = { rank = city 		town_setup = italian_city }
+	messina = { rank = city 		town_setup = italian_coastal_city }
+	milano = { rank = city 			town_setup = milan_city }
+	naples = { rank = city 			town_setup = italian_trading_capital }
+	padova = { rank = city 			town_setup = italian_city }
+	palermo = { rank = city 		town_setup = italian_coastal_city }
+	parma = { rank = city 			town_setup = italian_city }
+	pavia = { rank = city			town_setup = italian_city }
+	perugia = { rank = city 		town_setup = italian_city }
+	pisa = { rank = city 			town_setup = italian_trading_capital }
+	rome = { rank = city 			town_setup = italian_coastal_city }
+	siena = { rank = city 			town_setup = italian_city }
+	venice = { rank = city 			town_setup = venice_city }
+	verona = { rank = city 			town_setup = italian_city }
+	
+	alessandria = { rank = town 	town_setup = italian_town }
+	arezzo = { rank = town 			town_setup = italian_town }
+	assisi = { rank = town 			town_setup = italian_town }
+	asti = { rank = town 			town_setup = italian_town }
+	bari = { rank = town 			town_setup = italian_coastal_town }
+	benevento = { rank = town 			town_setup = italian_town }
+	bergamo = { rank = town 		town_setup = italian_town }
+	brindisi = { rank = town 		town_setup = italian_town }
+	cagliari = { rank = town 		town_setup = italian_town }
+	catania = { rank = town 		town_setup = italian_coastal_town }
+	catanzaro = { rank = town 		town_setup = italian_coastal_town }
+	cefalu = { rank = town 			town_setup = italian_town }
+	cesena = { rank = town 			town_setup = italian_town }
+	chioggia = { rank = town 		town_setup = italian_coastal_town }
+	cotrone = { rank = town 		town_setup = italian_coastal_town }
+	foggia = { rank = town 			town_setup = italian_town }
+	gaeta = { rank = town 			town_setup = italian_town }
+	girgenti = { rank = town 		town_setup = italian_town }
+	imola = { rank = town 			town_setup = italian_town }
+	lanciano = { rank = town 		town_setup = italian_town }
+	lecce = { rank = town 			town_setup = italian_coastal_town }
+	lodi = { rank = town 			town_setup = italian_town }
+	lucera = { rank = town 			town_setup = italian_town }
+	macerata = { rank = town 		town_setup = italian_town }
+	manfredonia = { rank = town 	town_setup = italian_town }
+	matera = { rank = town 			town_setup = italian_town }
+	mazara = { rank = town 			town_setup = italian_town }
+	melfi = { rank = town 			town_setup = italian_town }
+	modena = { rank = town 			town_setup = italian_town }
+	modica = { rank = town 			town_setup = italian_town } 
+	monza = { rank = town 			town_setup = italian_town }
+	novara = { rank = town 			town_setup = italian_town }
+	oristano = { rank = town 			town_setup = italian_coastal_town }
+	orvietano = { rank = town 		town_setup = italian_town }
+	pesaro = { rank = town 			town_setup = italian_coastal_town }
+	piacenza = { rank = town 		town_setup = italian_town }
+	pistoia = { rank = town 		town_setup = italian_town }
+	potenza = { rank = town 		town_setup = italian_town }
+	prato = { rank = town 			town_setup = italian_town }
+	ravenna = { rank = town 		town_setup = italian_coastal_town }
+	reggioem = { rank = town 		town_setup = italian_town }
+	rimini = { rank = town 			town_setup = italian_town }
+	salerno = { rank = town 		town_setup = italian_coastal_town }
+	sassari = { rank = town 		town_setup = italian_town }
+	savona = { rank = town 			town_setup = italian_coastal_town }
+	syracuse = { rank = town 		town_setup = italian_coastal_town }
+	spoleto = { rank = town 		town_setup = italian_town }
+	taranto = { rank = town 		town_setup = italian_town }
+	tivoli = { rank = town 			town_setup = italian_town }
+	turin = { rank = town 			town_setup = italian_town }
+	trapani = { rank = town 		town_setup = italian_town }
+	treviso = { rank = town 		town_setup = italian_town }
+	trieste = { rank = town 		town_setup = italian_coastal_town }
+	udine = { rank = town 			town_setup = italian_town }
+	urbino = { rank = town 			town_setup = italian_town }
+	velletri = { rank = town 		town_setup = italian_town }
+	vercelli = { rank = town 		town_setup = italian_town }
+	vicenza = { rank = town 		town_setup = italian_town }
+	villa_di_chiesa = { rank = town town_setup = italian_town }
+	viterbo = { rank = town 		town_setup = italian_town }
+	volterra = { rank = town 		town_setup = italian_town }
+	
+	#France
+	angers = { rank = city 		town_setup = french_city }
+	arras = { rank = city 		town_setup = french_city }
+	bordeaux = { rank = city 	town_setup = bordeaux_city }
+	marseille = { rank = city 	town_setup = french_city }
+	metz = { rank = city 		town_setup = french_city }
+	montpellier = { rank = city town_setup = french_city }
+	narbonne = { rank = city 	town_setup = french_city }
+	paris = { rank = city 		town_setup = paris_city }
+	rouen = { rank = city 		town_setup = french_city }
+	saint_omer = { rank = town 	town_setup = french_town }
+	toulouse = { rank = city 	town_setup = french_city }
+	tours = { rank = city 		town_setup = french_city }
+	troyes = { rank = city 		town_setup = troyes_city }
+	
+	agen = { rank = town 			town_setup = french_town }
+	aix_en_provence = { rank = town town_setup = french_town }
+	albi = { rank = town town_setup = french_town }
+	amiens = { rank = town town_setup = french_town }
+	angouleme = { rank = town town_setup = french_town }
+	arles = { rank = town town_setup = french_town }
+	autun = { rank = town town_setup = french_town }
+	avignon = { rank = town town_setup = french_town }
+	bayonne = { rank = town town_setup = iberian_town_port }
+	beauvais = { rank = town town_setup = french_town }
+	besancon = { rank = town town_setup = french_town }
+	beziers = { rank = town town_setup = french_town }
+	blois = { rank = town town_setup = french_town }
+	bourges = { rank = town town_setup = french_town }
+	caen = { rank = town town_setup = french_town }
+	cahors = { rank = town town_setup = french_town }
+	carcassonne = { rank = town town_setup = french_town }
+	chalons_champagne = { rank = town town_setup = french_town }
+	chartres = { rank = town town_setup = french_town }
+	cherbourg = { rank = town town_setup = french_town }
+	clermont = { rank = town town_setup = french_town }
+	dijon = { rank = town town_setup = french_town }
+	colmar = { rank = town town_setup = french_town }
+	mulhouse = { rank = town town_setup = french_town }
+	laon = { rank = town town_setup = french_town }
+	le_puy = { rank = town town_setup = french_town }
+	lyon = { rank = town town_setup = french_town }
+	montauban = { rank = town town_setup = french_town }
+	montbrison = { rank = town town_setup = french_town }
+	nantes = { rank = town town_setup = french_town }
+	nice = { rank = town town_setup = french_town }
+	nimes = { rank = town town_setup = french_town }
+	orleans = { rank = town town_setup = french_town }
+	perigueux = { rank = town town_setup = french_town }
+	perpignan = { rank = town town_setup = iberian_town_port }
+	poitiers = { rank = town town_setup = french_town }
+	provins = { rank = town town_setup = french_town }
+	reims = { rank = town town_setup = french_town }
+	rennes = { rank = town town_setup = french_town }
+	rodez = { rank = town town_setup = french_town }
+	saint_flour = { rank = town town_setup = french_town }
+	sens = { rank = town town_setup = french_town }
+	sisteron = { rank = town town_setup = french_town }
+	strasbourg = { rank = town town_setup = french_town }
+	tarbes = { rank = town town_setup = french_town } #Bagneres-de-Bigorre
+	valence = { rank = town town_setup = french_town  }
+	vienne = { rank = town town_setup = french_town  }
+
+	la_rochelle = { rank = town town_setup = french_town }
+
+	#Germany
+	lubeck = { rank = city town_setup = lubeck_city }
+	erfurt = { rank = city town_setup = german_city }
+	cologne = { rank = city town_setup = cologne_city }
+	speyer = { rank = city town_setup = german_city }
+	mainz = { rank = city town_setup = german_city }
+	augsburg = { rank = city town_setup = german_city }
+	prague = { rank = city town_setup = prague_city }
+	vienna = { rank = city town_setup = german_city }
+	
+	aachen = { rank = town town_setup = german_town }
+	bamberg = { rank = town town_setup = german_town }
+	brandenburg = { rank = town town_setup = german_town }
+	berlin = { rank = town town_setup = german_town }
+	bremen = { rank = town town_setup = german_town }
+	brunswick = { rank = town town_setup = german_town }
+	dortmund = { rank = town town_setup = german_town }
+	frankfurt = { rank = town town_setup = german_town }
+	beeskow = { rank = town town_setup = german_town }
+	freiberg = { rank = town town_setup = german_town }
+	freiburg = { rank = town town_setup = german_town }
+	gorlitz = { rank = town town_setup = german_town }
+	gottingen = { rank = town town_setup = german_town }
+	goslar = { rank = town town_setup = german_town }
+	halberstadt = { rank = town town_setup = german_town }
+	halle_an_der_saale = { rank = town town_setup = german_town }
+	heidelberg = { rank = town town_setup = german_town }
+	konstanz = { rank = town town_setup = german_town }
+	leipzig = { rank = town town_setup = german_town }
+	luneburg = { rank = town town_setup = german_town }
+	magdeburg = { rank = city town_setup = german_city }
+	munich = { rank = town town_setup = german_town }
+	munster = { rank = town town_setup = german_town }
+	oettingen = { rank = town town_setup = german_town }
+	nuremberg = { rank = town town_setup = nuremberg_town }
+	osnabruck = { rank = town town_setup = german_town }
+	paderborn = { rank = town town_setup = german_town }
+	regensburg = { rank = town town_setup = german_town }
+	ravensburg = { rank = town town_setup = german_town }
+	rothenburg = { rank = town town_setup = german_town }
+	soest = { rank = town town_setup = german_town }
+	stuttgart = { rank = town town_setup = german_town }
+	ulm = { rank = town town_setup = german_town }
+	trier = { rank = town town_setup = german_town }
+	dusseldorf = { rank = town town_setup = german_town }
+	wetzlar = { rank = town town_setup = german_town }
+	worms = { rank = town town_setup = german_town }
+	wurzburg = { rank = town town_setup = german_town }
+	zerbst = { rank = town town_setup = german_town }
+	zurich = { rank = town town_setup = german_town }
+	geneve = { rank = town town_setup = german_town }
+	bern = { rank = town town_setup = german_town }
+	graz = { rank = town town_setup = german_town }
+	innsbruck = { rank = town town_setup = german_town }
+	wittenberg = { rank = town town_setup = german_town }
+
+	wolgast = { rank = town town_setup = german_coastal_town } #Greifswald
+	hamburg = { rank = city town_setup = hamburg_city }
+	kiel = { rank = town town_setup = german_coastal_town }
+	rostock = { rank = town town_setup = german_coastal_town }
+	stralsund = { rank = town town_setup = german_coastal_town }
+	wismar = { rank = town town_setup = german_coastal_town }
+	stettin = { rank = town town_setup = german_coastal_town }
+
+	kempten = { rank = town town_setup = german_town }
+	memmingen = { rank = town town_setup = german_town }
+	landau_rhineland = { rank = town town_setup = german_town }
+
+	brno = { rank = town town_setup = german_town }
+	kutna_hora = { rank = town town_setup = german_town }
+	olomouc = { rank = town town_setup = german_town }
+	opole = { rank = town town_setup = german_town }
+	plzen = { rank = town town_setup = german_town }
+
+	linz = { rank = town town_setup = german_town }
+	melk = { rank = town town_setup = german_town }
+	klagenfurt = { rank = town town_setup = german_town }
+	salzburg = { rank = town town_setup = german_town }
+
+	#Low Countries	
+	bruges = { rank = city 				town_setup = bruges_city }
+	ghent = { rank = city 				town_setup = ghent_city }
+	ypres = { rank = town 				town_setup = ypres_town }
+
+	antwerp = { rank = town 			town_setup = lowlands_costal_town }
+	the_hague = { rank = town 			town_setup = lowlands_costal_town }
+	amsterdam = { rank = town 			town_setup = lowlands_costal_town }
+	middelburg = { rank = town 			town_setup = lowlands_costal_town }
+	groningen = { rank = town 			town_setup = lowlands_costal_town }
+	utrecht = { rank = town 			town_setup = lowlands_town }
+	zwolle = { rank = town 				town_setup = lowlands_town }
+
+	liege = { rank = town 				town_setup = lowlands_town }
+	brussels = { rank = town 			town_setup = lowlands_town }
+	mons = { rank = town 				town_setup = lowlands_town }
+	tournai = { rank = town 			town_setup = lowlands_town }
+	leuven = { rank = town 				town_setup = lowlands_town }
+	sint_niklaas = { rank = town 		town_setup = lowlands_town }
+	namur = { rank = town 				town_setup = lowlands_town }
+	deventer = { rank = town 			town_setup = lowlands_town }
+	dordrecht = { rank = town 			town_setup = lowlands_town }
+	maastricht = { rank = town 			town_setup = lowlands_town }
+	zutphen = { rank = town 			town_setup = lowlands_town }
+	hertogenbosch = { rank = town 		town_setup = lowlands_town }
+
+	luxembourg = { rank = town town_setup = german_town }
+
+	# Poland
+	gdansk = { rank = city		town_setup = german_coastal_city }
+	kaunas = { rank = town	 	town_setup = baltic_town }
+	konigsberg = { rank = town	town_setup = german_coastal_town }
+	krakow = { rank = city 		town_setup = polish_town }
+	plock = 	{ rank = town	town_setup = polish_town }
+	poznan = 	{ rank = town	town_setup = polish_town }
+	torun = 	{ rank = town	town_setup = baltic_town	prosperity = -0.5}
+	wroclaw = { rank = town 	town_setup = polish_town }
+	wloclawek =	{ prosperity = -0.2 }
+	radziejow =	{ prosperity = -0.2 }
+
+	# Baltic
+	riga = { rank = city			town_setup = german_coastal_city  }
+	tallinn = { rank = town 		town_setup = baltic_town }
+	tartu = { rank = town 			town_setup = baltic_town }
+	trakai = { rank = town 	town_setup = baltic_town }
+	vilnius = { rank = town 	town_setup = baltic_town }
+
+	# Ruthenia
+	chernihiv = { rank = town 	town_setup = ruthenian_town }
+	ismail = { rank = town town_setup = ruthenian_town }
+	kyiv = { rank = town 		town_setup = ruthenian_town }	
+	lviv = { rank = town 		town_setup = ruthenian_town }	
+	polotsk = { rank = town 	town_setup = ruthenian_town }
+	poltava = { rank = town town_setup = ruthenian_town }
+
+	gomel = { rank = town 		town_setup = ruthenian_town }	
+	grodno = { rank = town 		town_setup = ruthenian_town }	
+	minsk = { rank = town 		town_setup = ruthenian_town }	
+
+	# Russia city
+	moscow = { rank = city 			town_setup = russian_city }
+	novgorod = { rank = city 		town_setup = novgorod_city }
+	pskov = { rank = city 			town_setup = russian_city }
+	smolensk = { rank = city 		town_setup = russian_city }
+	tver = { rank = city 			town_setup = russian_city }
+
+	kursk = { rank = town 			town_setup = russian_town }
+	vladimir = { rank = town 		town_setup = russian_town }
+	yaroslavl = { rank = town 		town_setup = russian_town }
+
+	nizhny_novgorod = { rank = town 		town_setup = russian_town }
+	rostov = { rank = town 		town_setup = russian_town }
+	staraya_ladoga = { rank = town	town_setup = russian_town }
+	staraya_russa = { rank = town 	town_setup = russian_town }
+	vologda = { rank = town 		town_setup = russian_town }
+
+	# Golden Horde towns
+	astrakhan = { rank = city			town_setup = russian_city }
+
+	kazan = { rank = town 			town_setup = russian_town }
+	sarai_al_jadid = { rank = town			town_setup = russian_town }
+	
+	# Maghreb
+	mahdia = { rank = city town_setup = maghreb_coastal_city }
+	marrakesh = { rank = city 	town_setup = maghreb_city }
+	rabat = { rank = city 	town_setup = maghreb_coastal_city }
+	annaba = { rank = city 		town_setup = maghreb_coastal_city }
+	bejaia = { rank = city 	town_setup = maghreb_coastal_city }
+	fez = { rank = city 		town_setup = fez_city }
+	meknes = { rank = city 		town_setup = maghreb_city }
+	constantine_ALG = { rank = city town_setup = maghreb_city }
+	sijilmasa = { rank = city 	town_setup = maghreb_city }
+	tlemcen = { rank = city 	town_setup = maghreb_city }
+	tunis = { rank = city 		town_setup = maghreb_coastal_city }
+	oran = { rank = city 		town_setup = maghreb_coastal_city }
+	
+	algiers = { rank = town 	town_setup = maghreb_coastal_town }
+	kairouan = { rank = town town_setup = maghreb_town }
+	azemmour = { rank = town 		town_setup = maghreb_coastal_town }
+	noul_lamta = { rank = town 	town_setup = maghreb_coastal_town }
+	cherchell = { rank = town 	town_setup = maghreb_coastal_town }
+	tahert = { rank = town 		town_setup = maghreb_town }
+	taza = { rank = town 		town_setup = maghreb_town }
+	tidsi = { rank = town 		town_setup = maghreb_town }
+	
+	# Carpathia
+	pest = { rank = town 				town_setup = carpathian_town }
+	bratislava = { rank = town 			town_setup = carpathian_town }
+	bucharest = { rank = town 			town_setup = carpathian_town }
+	buda = { rank = city 				town_setup = carpathian_town }
+	campulung_muscel = { rank = town	town_setup = carpathian_town  }
+	cluj = { rank = town	town_setup = carpathian_town  }
+	constanta = { rank = town	town_setup = carpathian_town  }
+	pecs = { rank = town 				town_setup = carpathian_town }
+	brasov = { rank = town 				town_setup = carpathian_town }
+	esztergom = { rank = town 				town_setup = carpathian_town }
+	fehervar = { rank = town 				town_setup = carpathian_town }
+	iasi = { rank = town 				town_setup = carpathian_town }
+	kosice = { rank = town 				town_setup = carpathian_town }
+	krupina = { rank = town 				town_setup = carpathian_town } #Banská Štiavnica
+	sopron = { rank = town 				town_setup = carpathian_town }
+	szeged = { rank = town 				town_setup = carpathian_town }
+	suceava = { rank = town 			town_setup = carpathian_town }
+	targoviste = { rank = town 			town_setup = carpathian_town }
+	
+	# Iberia
+	barcelona = { rank = city 	town_setup = barcelona_city }
+	cordoba = { rank = city town_setup = cordoba_city }
+	granada = { rank = city town_setup = iberian_city }
+	lisbon = { rank = city town_setup = iberian_city_port }
+	malaga = { rank = city town_setup = iberian_city_port }
+	sevilla = { rank = city town_setup = iberian_city }
+	toledo = { rank = city town_setup = toledo_city }
+	valencia = { rank = city town_setup = iberian_city_port }
+	valladolid = { rank = city town_setup = iberian_city }
+	
+	alcala_de_henares = { rank = town town_setup = iberian_town }
+	almeria = { rank = town town_setup = iberian_town_port }
+	badajoz = { rank = town town_setup = iberian_town }
+	burgos = { rank = town town_setup = iberian_town }
+	calatayud = { rank = town town_setup = iberian_town }
+	castellon_de_la_plana = { rank = town town_setup = iberian_town_port }
+	cervera = { rank = town town_setup = iberian_town }
+	ciudad_rodrigo = { rank = town town_setup = iberian_town }
+	coimbra = { rank = town town_setup = iberian_town }
+	cuenca = { rank = town town_setup = iberian_town }
+	ecija = { rank = town town_setup = iberian_town }
+	viseu = { rank = town town_setup = iberian_town }
+	evora = { rank = town town_setup = iberian_town }
+	faro = { rank = town town_setup = iberian_town_port }
+	girona = { rank = town town_setup = iberian_town_port }
+	huesca = { rank = town town_setup = iberian_town }
+	jaen = { rank = town town_setup = iberian_town }
+	jativa = { rank = town town_setup = iberian_town }
+	jerez_de_la_frontera = { rank = town town_setup = iberian_town }
+	leon = { rank = town town_setup = iberian_town }
+	lleida = { rank = town town_setup = iberian_town }
+	medina_del_campo = { rank = town town_setup = iberian_town }
+	caceres = { rank = town town_setup = iberian_town }
+	morella = { rank = town town_setup = iberian_town }
+	murcia = { rank = town town_setup = iberian_town_port }
+	orihuela = { rank = town town_setup = iberian_town_port }
+	palma = { rank = town town_setup = iberian_town_port }
+	pamplona = { rank = town town_setup = iberian_town }
+	porto = { rank = town town_setup = iberian_town_port }
+	salamanca = { rank = town town_setup = iberian_town }
+	santander = { rank = town town_setup = iberian_town_port }
+	santarem = { rank = town town_setup = iberian_town }
+	santiago_compostela = { rank = town town_setup = iberian_town }
+	oviedo = { rank = town town_setup = iberian_town }
+	segovia = { rank = town town_setup = iberian_town }
+	tarragona = { rank = town town_setup = iberian_town }
+	teruel = { rank = town town_setup = iberian_town }
+	tortosa = { rank = town town_setup = iberian_town_port }
+	tudela = { rank = town town_setup = iberian_town }
+	zamora = { rank = town town_setup = iberian_town }
+	zaragoza = { rank = town town_setup = iberian_town }
+	
+	#West Africa
+	
+	benin = { rank = city town_setup = sahel_city }
+	ife = { rank = town town_setup = sahel_town }
+	bida = { rank = city town_setup = sahel_city }
+	oyo_ile = { rank = city town_setup = sahel_city }
+	begho = { rank = town town_setup = sahel_town  }
+	kong = { rank = town town_setup = sahel_town  }
+	igbo_ukwu = { rank = town town_setup = sahel_town }
+	bono_manso = { rank = town town_setup = sahel_town }
+	linguere = { rank = town town_setup = sahel_town }
+	
+	#Sahel
+	
+	kano = { rank = city  town_setup = sahel_city }
+	katsina = { rank = city town_setup = sahel_city }
+	zazzau = { rank = city town_setup = sahel_city }
+	niani = { rank = city town_setup = sahel_city }
+
+	rano = { rank = town 	town_setup = sahel_town }	
+	walata = { rank = town 	town_setup = sahel_town  }
+	djenne = { rank = town town_setup = sahel_town  }
+	segou = { rank = town town_setup = sahel_town  }
+	timbuktu = { rank = city town_setup = timbuktu_city }
+	gao = { rank = town 	town_setup = sahel_town  }
+	njimi = { rank = town town_setup = sahel_town  }
+	alkalawa = { rank = town town_setup = sahel_town  }
+	birni_lalle = { rank = town town_setup = sahel_town  }
+	birnin_zamfara = { rank = town town_setup = sahel_town  }
+	boussouma = { rank = town town_setup = sahel_town }
+	bamako = { rank = town town_setup = sahel_town }
+	dieribakoro = { rank = town town_setup = sahel_town }
+	dutsi = { rank = town town_setup = sahel_town  }
+	koumbi_saleh = { rank = town town_setup = sahel_town  }
+	manan = { rank = town town_setup = sahel_town  }
+	ouagadougou = { rank = town town_setup = sahel_town  }
+	yatenga = { rank = town town_setup = sahel_town  }
+	tenkodogo = { rank = town town_setup = sahel_town  }
+	birnin_kebbi = { rank = town town_setup = sahel_town  }
+	abesehir = { rank = town town_setup = sahel_town  }
+	
+	# Horn of Africa
+	axum = { rank = city town_setup = sahel_city  }
+	dongola = { rank = city town_setup = sahel_city }
+	lalibela = { rank = town town_setup = sahel_town  }
+	soba = { rank = town town_setup = sahel_town  }
+
+	mogadishu = { rank = town town_setup = sahel_town  }
+	
+	# Egypt and Libya
+	alexandria = { rank = city 	town_setup	 = egyptian_city }
+	asyut = { rank = city 		town_setup	 = egyptian_city }
+	cairo = { rank = megalopolis 		town_setup = cairo_city }
+	damietta = { rank = city 	town_setup	 = egyptian_city }
+	mansoura = { rank = city 	town_setup	 = egyptian_city }
+	qus = { rank = city 		town_setup	 = egyptian_city }
+	tripoli = { rank = town 	town_setup	 = maghreb_town }
+
+	#Japan and Korea
+	kyoto = { rank = city 		town_setup = japan_city }
+	hata = { rank = town 		town_setup = japan_town }
+	kamakura = { rank = city 	town_setup = japan_city }
+	yoshiki_suou = { rank = town town_setup = japan_town}
+	kagoshima = { rank = town 	town_setup = japan_town }
+	miyagi = { rank = town 		town_setup = japan_town }
+	akita = { rank = town 		town_setup = japan_town }
+
+	kaesong = { rank = city 	town_setup = korea_city }
+	namgyeong = { rank = city 	town_setup = korea_city }
+	gyeongju = { rank = city 	town_setup = korean_city_port }
+	jinju = { rank = city 		town_setup = korea_city }
+	jeonju = { rank = city 		town_setup = korea_city }
+	seogyeong = { rank = city 	town_setup = korea_city }
+	andong = { rank = town		town_setup = korea_town  }
+	seongju = { rank = town 		town_setup = korea_town }
+	
+	# China
+	anyang = { rank = city town_setup = chinese_city }
+	dadu = { rank = megalopolis town_setup = chinese_city }
+	changsha = { rank = city town_setup = chinese_city }
+	chengdu = { rank = city town_setup = chinese_city }
+	baxian = { rank = city town_setup = chinese_city }
+	taihe_dali = { rank = city town_setup = south_east_asia_town }
+	datong_datong = { rank = city town_setup = chinese_city }
+	gengma = { rank = city town_setup = chinese_city }
+	fuliang = { rank = city town_setup = jingdezhen_city } #Jingdezhen
+	minxian = { rank = city town_setup = chinese_coastal_city }
+	ganzhou = { rank = city town_setup = chinese_city }
+	guangzhou = { rank = city town_setup = guangzhou_city }
+	handan = { rank = city town_setup = chinese_city }
+	hangzhou = { rank = city town_setup = hangzhou_city }
+	jiangdu = { rank = city town_setup = chinese_city } #Yangzhou
+	jiangling = { rank = city town_setup = chinese_city }
+	kaifeng = { rank = city town_setup = chinese_city }
+	kunming = { rank = city town_setup = chinese_city }
+	nanchang = { rank = city town_setup = chinese_city } #Nanchang
+	luoyang = { rank = city town_setup = chinese_city }
+	shangyuan = { rank = city town_setup = chinese_city }
+	xuanhua_nanning = { rank = city town_setup = chinese_city }
+	chengji = { rank = city town_setup = chinese_city }
+	qingxiang = { rank = city town_setup = chinese_city }
+	qufu = { rank = city town_setup = chinese_city }
+	suiyang_guide = { rank = city town_setup = chinese_city }
+	shaoxing = { rank = city town_setup = chinese_coastal_city }
+	wuxian = { rank = city town_setup = chinese_city }
+	pingjin = { rank = city town_setup = chinese_city }
+	jiangxia = { rank = city town_setup = chinese_city }
+	jingzhao = { rank = city town_setup = chinese_city }
+	xiangyang = { rank = city town_setup = chinese_city }
+	xinzheng = { rank = city town_setup = chinese_city }
+	changshe = { rank = city town_setup = chinese_city }
+	shangrao = { rank = city town_setup = chinese_city } #Shangrao
+	ningxia = { rank = city town_setup = chinese_city }
+	yiyang = { rank = city town_setup = chinese_city }
+	guancheng_zhengzhou = { rank = city town_setup = chinese_city }
+	zichuan = { rank = city town_setup = chinese_city }
+
+	shipai = { rank = town town_setup = chinese_town }
+	huaining = { rank = town town_setup = chinese_town }
+	dingxing = { rank = town town_setup = chinese_town }
+	duyang = { rank = town town_setup = chinese_town }
+	baoan_baoan = { rank = town town_setup = chinese_town }
+	hequ = { rank = town town_setup = chinese_town }
+	tangxian = { rank = town town_setup = chinese_town }
+	baicang = { rank = town town_setup = chinese_town }
+	qianjiang_binzhou = { rank = town town_setup = chinese_town }
+	wudi = { rank = town town_setup = chinese_coastal_town }
+	sanshui_binzhou = { rank = town town_setup = chinese_town }
+	mengcheng = { rank = town town_setup = chinese_town }
+	bozhou = { rank = town town_setup = chinese_town }
+	yanshan = { rank = town town_setup = chinese_coastal_town }
+	chuqiu = { rank = town town_setup = chinese_town }
+	wuling = { rank = town town_setup = chinese_town }
+	rongxian = { rank = town town_setup = chinese_town }
+	yiyang_changsha = { rank = town town_setup = chinese_town }
+	jiangyin = { rank = town town_setup = chinese_coastal_town }
+	xingzhong = { rank = town town_setup = chinese_town }
+	jieyang = { rank = town town_setup = chinese_coastal_town }
+	gengdang = { rank = town town_setup = chinese_town }
+	yuanling = { rank = town town_setup = chinese_town }
+	xiangcheng = { rank = town town_setup = chinese_town }
+	yizhang = { rank = town town_setup = chinese_town }
+	dongliu = { rank = town town_setup = chinese_town }
+	weichu = { rank = town town_setup = chinese_town }
+	zhaoxin = { rank = town town_setup = chinese_town }
+	longquan = { rank = town town_setup = chinese_town }
+	wuan = { rank = town town_setup = chinese_town }
+	guozhou = { rank = town town_setup = chinese_town }
+	baima_daming = { rank = town town_setup = chinese_town }
+	hezhong = { rank = town town_setup = chinese_town }
+	ningyuan = { rank = town town_setup = chinese_town }
+	xiaogan = { rank = town town_setup = chinese_town }
+	huichuan_dechang = { rank = town town_setup = chinese_town }
+	rangxian = { rank = town town_setup = chinese_town }
+	qixia = { rank = town town_setup = chinese_town }
+	ducheng = { rank = town town_setup = chinese_town }
+	qihe = { rank = town town_setup = chinese_town }
+	longnan = { rank = town town_setup = chinese_town }
+	anxi_dingzhou = { rank = town town_setup = chinese_town }
+	liaocheng = { rank = town town_setup = chinese_town }
+	dongguan = { rank = town town_setup = chinese_coastal_town }
+	pingyin = { rank = town town_setup = chinese_town }
+	fangling = { rank = town town_setup = chinese_town }
+	linyou = { rank = town town_setup = chinese_town }
+	huaiyuan = { rank = town town_setup = chinese_town }
+	xihe = { rank = town town_setup = chinese_town }
+	lean_fuzhou = { rank = town town_setup = chinese_town }
+	gutian = { rank = town town_setup = chinese_town }
+	fuzhou_yanan = { rank = town town_setup = chinese_town }
+	fuzhou_sichuan = { rank = town town_setup = chinese_town }
+	xingguo = { rank = town town_setup = chinese_town }
+	gaoyou = { rank = town town_setup = chinese_town }
+	xinyi_gaozhou = { rank = town town_setup = chinese_town }
+	longxi_gongchang = { rank = town town_setup = chinese_town }
+	guangde = { rank = town town_setup = chinese_town }
+	guangping = { rank = town town_setup = chinese_town }
+	xizhou = { rank = town town_setup = chinese_town }
+	nanhai = { rank = town town_setup = chinese_town }
+	yongcheng = { rank = town town_setup = chinese_town }
+	lingui = { rank = town town_setup = chinese_town }
+	pingyang_guiyang = { rank = town town_setup = chinese_town }
+	zigui = { rank = town town_setup = chinese_town }
+	linan = { rank = town town_setup = chinese_town }
+	hanchuan = { rank = town town_setup = chinese_town }
+	daan = { rank = town town_setup = chinese_town }
+	hezhou_he = { rank = town town_setup = chinese_town }
+	hejian = { rank = town town_setup = chinese_town }
+	ningpu = { rank = town town_setup = chinese_town }
+	hengyang = { rank = town town_setup = chinese_town }
+	dingqiang = { rank = town town_setup = chinese_town }
+	shizhao = { rank = town town_setup = chinese_town }
+	funing_huaian = { rank = town town_setup = chinese_coastal_town }
+	jiyuan = { rank = town town_setup = chinese_town }
+	macheng = { rank = town town_setup = chinese_town }
+	shilong = { rank = town town_setup = chinese_town }
+	pucheng = { rank = town town_setup = chinese_town }
+	wuyuan_huizhou = { rank = town town_setup = chinese_town }
+	lingshi = { rank = town town_setup = chinese_town }
+	anji = { rank = town town_setup = chinese_town }
+	anfu_jian = { rank = town town_setup = chinese_town }
+	nancheng = { rank = town town_setup = chinese_town }
+	taiping_jiangzhou = { rank = town town_setup = chinese_town }
+	pucheng_jianning = { rank = town town_setup = chinese_town }
+	mianzhou = { rank = town town_setup = chinese_town }
+	jianzhou = { rank = town town_setup = chinese_town }
+	jimo = { rank = town town_setup = chinese_coastal_town }
+	jiaxing = { rank = town town_setup = chinese_town }
+	fugu = { rank = town town_setup = chinese_town }
+	wenxian_gongchang = { rank = town town_setup = chinese_town }
+	licheng = { rank = town town_setup = chinese_town }
+	suining_jing = { rank = town town_setup = chinese_town }
+	shayang = { rank = town town_setup = chinese_town }
+	jingning = { rank = town town_setup = chinese_town }
+	tiaoxian = { rank = town town_setup = chinese_town }
+	jingchuan = { rank = town town_setup = chinese_town }
+	dongyang = { rank = town town_setup = chinese_town }
+	yuncheng = { rank = town town_setup = chinese_town }
+	erdao = { rank = town town_setup = chinese_town }
+	pengze = { rank = town town_setup = chinese_town }
+	yuyang = { rank = town town_setup = chinese_town }
+	nangong = { rank = town town_setup = chinese_town }
+	wudang = { rank = town town_setup = chinese_town }
+	juxian = { rank = town town_setup = chinese_town }
+	puyang = { rank = town town_setup = chinese_town }
+	hehe = { rank = town town_setup = chinese_town }
+	yexian_laizhou = { rank = town town_setup = chinese_coastal_town }
+	qingdao = { rank = town town_setup = chinese_coastal_town }
+	yangshan = { rank = town town_setup = chinese_town }
+	hepu = { rank = town town_setup = chinese_coastal_town }
+	yushe = { rank = town town_setup = chinese_town }
+	xingan_linjiang = { rank = town town_setup = chinese_town }
+	lanzhou = { rank = town town_setup = chinese_town }
+	maping = { rank = town town_setup = chinese_town }
+	shixi = { rank = town town_setup = chinese_town }
+	jiangyou = { rank = town town_setup = chinese_town }
+	luan = { rank = town town_setup = chinese_town }
+	xiangyuan = { rank = town town_setup = chinese_town }
+	yifeng = { rank = town town_setup = chinese_town }
+	luorong = { rank = town town_setup = chinese_town }
+	wuwei = { rank = town town_setup = chinese_town }
+	luzhou = { rank = town town_setup = chinese_town }
+	yusha = { rank = town town_setup = chinese_town }
+	anqiu = { rank = town town_setup = chinese_town }
+	chongyi = { rank = town town_setup = chinese_town }
+	xinxing_nanen = { rank = town town_setup = chinese_town }
+	jianchang = { rank = town town_setup = chinese_town }
+	changhua = { rank = town town_setup = chinese_coastal_town }
+	baochang_nanxiong = { rank = town town_setup = chinese_town }
+	biyang = { rank = town town_setup = chinese_town }
+	yinxian = { rank = town town_setup = chinese_coastal_town }
+	huichang = { rank = town town_setup = chinese_town }
+	ningguo = { rank = town town_setup = chinese_town }
+	muping = { rank = town town_setup = chinese_coastal_town }
+	fuchuan_ningxia = { rank = town town_setup = chinese_town }
+	fenning = { rank = town town_setup = chinese_town }
+	conghua = { rank = town town_setup = chinese_town }
+	shouyang = { rank = town town_setup = chinese_town }
+	lishan_pingle = { rank = town town_setup = chinese_town }
+	pingliang = { rank = town town_setup = chinese_town }
+	hongtong = { rank = town town_setup = chinese_town }
+	hedong = { rank = town town_setup = chinese_town }
+	qianzhou = { rank = town town_setup = chinese_town }
+	huanzhou_qingyang = { rank = town town_setup = chinese_town }
+	jinghai = { rank = town town_setup = chinese_town }
+	wuxiang = { rank = town town_setup = chinese_town }
+	wenchang = { rank = town town_setup = chinese_coastal_town }
+	puyin = { rank = town town_setup = chinese_town }
+	anxi = { rank = town town_setup = chinese_town }
+	xian_quzhou = { rank = town town_setup = chinese_town }
+	changan = { rank = town town_setup = chinese_town }
+	puning_rongzhou = { rank = town town_setup = chinese_town }
+	gaoan = { rank = town town_setup = chinese_town }
+	liangxian_ruzhou = { rank = town town_setup = chinese_town }
+	shanyang = { rank = town town_setup = chinese_town }
+	shanxian = { rank = town town_setup = chinese_town }
+	shansu = { rank = town town_setup = chinese_town }
+	pengshui = { rank = town town_setup = chinese_town }
+	shaowu = { rank = town town_setup = chinese_town }
+	zhuji = { rank = town town_setup = chinese_town }
+	jingan_shenzhou = { rank = town town_setup = chinese_town }
+	lichuan = { rank = town town_setup = chinese_town }
+	dinghu = { rank = town town_setup = chinese_town }
+	shouchun = { rank = town town_setup = chinese_town }
+	xingtai = { rank = town town_setup = chinese_town }
+	puge = { rank = town town_setup = chinese_town }
+	sime = { rank = town town_setup = chinese_town }
+	linhuai = { rank = town town_setup = chinese_town }
+	huating = { rank = town town_setup = chinese_coastal_town }
+	lushi = { rank = town town_setup = chinese_town }
+	suide = { rank = town town_setup = chinese_town }
+	lanyang = { rank = town town_setup = chinese_town }
+	gaotai = { rank = town town_setup = chinese_town }
+	suzhou_fengyang = { rank = town town_setup = chinese_town }
+	changshu = { rank = town town_setup = chinese_coastal_town }
+	fengfu = { rank = town town_setup = chinese_town }
+	yongxin = { rank = town town_setup = chinese_town }
+	dangtu = { rank = town town_setup = chinese_town }
+	hailing = { rank = town town_setup = chinese_coastal_town }
+	linhai = { rank = town town_setup = chinese_coastal_town }
+	tanjin = { rank = town town_setup = chinese_town }
+	tengxian = { rank = town town_setup = chinese_town }
+	shanghang = { rank = town town_setup = chinese_town }
+	lutai = { rank = town town_setup = chinese_coastal_town }
+	haimen = { rank = town town_setup = chinese_coastal_town }
+	hancheng = { rank = town town_setup = chinese_town }
+	ningyuan_wananjun = { rank = town town_setup = chinese_coastal_town }
+	shunsheng = { rank = town town_setup = chinese_town }
+	huixian = { rank = town town_setup = chinese_town }
+	shuangxi = { rank = town town_setup = chinese_coastal_town }
+	yanci = { rank = town town_setup = chinese_town }
+	huaiji = { rank = town town_setup = chinese_town }
+	xiangtan = { rank = town town_setup = chinese_town }
+	wenxi = { rank = town town_setup = chinese_town }
+	xunyang = { rank = town town_setup = chinese_town }
+	tongshan = { rank = town town_setup = chinese_town }
+	fuzhou = { rank = town town_setup = chinese_town }
+	putian = { rank = town town_setup = chinese_coastal_town }
+	yixingzhou = { rank = town town_setup = chinese_town }
+	xiangshan_xinhui = { rank = town town_setup = chinese_coastal_town }
+	zhuanglang = { rank = town town_setup = chinese_town }
+	xiurong = { rank = town town_setup = chinese_town }
+	shilou = { rank = town town_setup = chinese_town }
+	xuzhou = { rank = town town_setup = chinese_town }
+	fushun = { rank = town town_setup = chinese_town }
+	baoan = { rank = town town_setup = chinese_town }
+	youxi = { rank = town town_setup = chinese_town }
+	chunan = { rank = town town_setup = chinese_town }
+	huayuan = { rank = town town_setup = chinese_town }
+	yiling = { rank = town town_setup = chinese_town }
+	jiangning = { rank = town town_setup = chinese_town }
+	yingshang = { rank = town town_setup = chinese_town }
+	shanyin = { rank = town town_setup = chinese_town }
+	yixian_yizhou = { rank = town town_setup = chinese_town }
+	linyi = { rank = town town_setup = chinese_town }
+	zhenfan = { rank = town town_setup = chinese_town }
+	yongshun_yongshun = { rank = town town_setup = chinese_town }
+	lingling = { rank = town town_setup = chinese_town }
+	youyang = { rank = town town_setup = chinese_town }
+	yongan_youzhou = { rank = town town_setup = chinese_town }
+	luyang = { rank = town town_setup = chinese_town }
+	yichun = { rank = town town_setup = chinese_town }
+	baling = { rank = town town_setup = chinese_town }
+	nanliu = { rank = town town_setup = chinese_town }
+	jingbian = { rank = town town_setup = chinese_town }
+	lingxian_shanxi = { rank = town town_setup = chinese_town }
+	jincheng_zezhou = { rank = town town_setup = chinese_town }
+	zhangping = { rank = town town_setup = chinese_town }
+	gaoyao = { rank = town town_setup = chinese_town }
+	pingji = { rank = town town_setup = chinese_town }
+	zhending = { rank = town town_setup = chinese_town }
+	yangdi = { rank = town town_setup = chinese_town }
+	dantu = { rank = town town_setup = chinese_town }
+	fengdu = { rank = town town_setup = chinese_town }
+	jinjiang = { rank = town 	town_setup = chinese_town }
+
+	kashgar = { rank = city town_setup = central_asian_city }
+	lhasa = { rank = city town_setup = central_asian_city }
+	chamdo = { rank = city town_setup = central_asian_city }
+	leh = { rank = city town_setup = central_asian_city }
+	urgench = { rank = city town_setup = central_asian_city }
+	sarayjuk = { rank = city town_setup = central_asian_city }
+	turpan = { rank = city town_setup = central_asian_city }
+	aksu = { rank = town town_setup = central_asian_town }
+	khotan = { rank = town town_setup = central_asian_town }
+	kurla = { rank = town town_setup = central_asian_town }
+	yarkand = { rank = town town_setup = central_asian_town }
+	chimgi_tura = { rank = town town_setup = central_asian_town }
+
+	#Mongolia and Manchuria
+	karakorum = { rank = town town_setup = chinese_town }
+	liaoyang = { rank = city town_setup = chinese_city }
+	ilan_hala = { rank = town 	town_setup = jurchen_town }
+
+	#Southeast Asia
+	ayodhya = { rank = town town_setup = south_east_asia_port_town }
+	lopburi = { rank = town town_setup = south_east_asia_town }
+	suphanburi = { rank = town town_setup = south_east_asia_town }
+	angkor = { rank = city town_setup = south_east_asia_city }
+	lamphun = { rank = city town_setup = south_east_asia_city }
+	martaban = { rank = city town_setup = south_east_asia_port_town }
+	pagan = { rank = city town_setup = south_east_asia_city }
+	pegu = { rank = city town_setup = south_east_asia_town }
+	pinya = { rank = city town_setup = south_east_asia_town }
+	pyay = { rank = city town_setup = south_east_asia_city }
+	sukhothai = { rank = city town_setup = south_east_asia_city }
+	thang_long = { rank = city town_setup = south_east_asia_city }
+	trowulan = { rank = city town_setup = majapahit_city }
+	vijaya = { rank = city town_setup = south_east_asia_city }
+
+	longvek = { rank = town town_setup = south_east_asia_town }
+	indrapura_khmer = { rank = town town_setup = south_east_asia_town }
+	vyadhapura = { rank = town town_setup = south_east_asia_town }
+
+	sunda_kelapa = { rank = town town_setup = south_east_asia_port_town }
+	kawali = { rank = town town_setup = south_east_asia_town }
+	palembang = { rank = town town_setup = south_east_asia_town }
+	pasai = { rank = town town_setup = south_east_asia_port_town }
+	maynila = { rank = town town_setup = south_east_asia_port_town }
+	berune = { rank = town town_setup = south_east_asia_port_town }
+	temasek = { rank = town town_setup = south_east_asia_port_town }
+	ternate = { rank = town town_setup = south_east_asia_port_town }
+	gowa = { rank = town town_setup = south_east_asia_port_town }
+
+	# Anatolia city
+	amasya = { rank = city		town_setup = anatolian_city }
+	ankara = { rank = city 		town_setup = anatolian_city }
+	antioch = { rank = city	 	town_setup = anatolian_city }
+	bursa = { rank = city 		town_setup = bursa_city }
+	diyarbekir = { rank = city 	town_setup = anatolian_city }
+	izmit = { rank = city 		town_setup = anatolian_city }
+	kayseri = { rank = city 	town_setup = anatolian_city }
+	konya = { rank = city 		town_setup = anatolian_city }
+	larnaca = { rank = town 	town_setup = christian_anatolian_town }
+	malatya = { rank = city 	town_setup = anatolian_city }
+	nicosia_cyp = { rank = town town_setup = christian_anatolian_town }
+	urfa = { rank = city 	town_setup = anatolian_city }
+	sivas = { rank = city 		town_setup = anatolian_city }
+	smyrna = { rank = city 		town_setup = anatolian_city }
+	tarsus = { rank = town 		town_setup = christian_anatolian_town }
+	trebizond = { rank = city 	town_setup = trebizond_city }
+	van = { rank = city 		town_setup = anatolian_city }
+	
+	bergama = { rank = town		town_setup = anatolian_town }
+	birgi = { rank = town		town_setup = anatolian_town }
+	iznik = { rank = town		town_setup = anatolian_town }
+	alaiye = { rank = town		town_setup = anatolian_town }
+	mardin = { rank = town		town_setup = anatolian_town }
+	bafra = { rank = town		town_setup = anatolian_town }
+	kastamonu = { rank = town		town_setup = anatolian_town }
+	kozluk = { rank = town		town_setup = anatolian_town }
+	elbistan = { rank = town		town_setup = anatolian_town }
+	kutahya = { rank = town		town_setup = anatolian_town }
+	uluborlu = { rank = town		town_setup = anatolian_town }
+	bayramlu = { rank = town		town_setup = anatolian_town }
+	lazkiye = { rank = town		town_setup = anatolian_town }
+	ladik_pontus = { rank = town		town_setup = anatolian_town }
+	balikesir = { rank = town		town_setup = anatolian_town }
+	milas = { rank = town		town_setup = anatolian_town }
+	karahisar_i_sahib = { rank = town		town_setup = anatolian_town }
+	manisa = { rank = town		town_setup = anatolian_town }
+	niksar = { rank = town		town_setup = anatolian_town }
+	antalya = { rank = town		town_setup = anatolian_town }
+	alasehir = { rank = town		town_setup = greek_town }
+
+	#Central Asia
+	bukhara = { rank = city town_setup = central_asian_city }
+	samarkand = { rank = city town_setup = samarkand_city }
+	almaty = { rank = town town_setup = central_asian_town }
+	balasagun = { rank = town town_setup = central_asian_town }
+	chach = { rank = town town_setup = central_asian_town }
+	merv = { rank = town town_setup = central_asian_town }
+
+	#Afghanistan, Caucasus and Persia
+	balkh = { rank = city town_setup = levant_city }
+	ghazni = { rank = city town_setup = levant_city }
+	hamadan = { rank = city town_setup = levant_city }
+	herat = { rank = city town_setup = herat_city }
+	hormuz = { rank = city town_setup = hormuz_city }
+	isfahan = { rank = city town_setup = levant_city }
+	kermanshah = { rank = city town_setup = levant_city }
+	nishapur = { rank = city town_setup = levant_city }
+	qom = { rank = city town_setup = levant_city }
+	rey = { rank = city town_setup = levant_city }
+	shiraz = { rank = city town_setup = levant_city }
+	soltaniyeh = { rank = city town_setup = levant_city }
+	tabriz = { rank = city town_setup = tabriz_city }
+	tbilisi = { rank = city 	town_setup = christian_anatolian_city }
+	gladzor = { rank = town town_setup = christian_anatolian_town }
+	yazd = { rank = city town_setup = levant_city }
+
+	zaranj = { rank = town town_setup = levant_city }
+	kabul = { rank = town town_setup = levant_city }
+
+	ganja = { rank = town town_setup = levant_city }
+	ani = { rank = town town_setup = levant_city }
+	astarabad = { rank = town town_setup = levant_city }
+	siraf = { rank = town town_setup = levant_city }
+	rasht = { rank = town town_setup = levant_city }
+	al_qatif = { rank = town town_setup = levant_town }
+	ar_rabadha = { rank = town town_setup = tiny_levant_town }
+	taizz = { rank = town town_setup = levant_city }
+	jeddah = { rank = town town_setup = levant_city }
+	quetta = { rank = town town_setup = levant_city }
+
+	# Crescent and Arabia
+	acre = { rank = city 		town_setup = levant_city }
+	aleppo = { rank = city 		town_setup = levant_city }
+	baghdad = { rank = city 	town_setup = baghdad_city }
+	basra = { rank = city 		town_setup = levant_city }
+	damascus = { rank = city 	town_setup = damascus_city }
+	jerusalem = { rank = city 	town_setup = levant_city }
+	mosul = { rank = city 		town_setup = levant_city }
+	nusaybin = { rank = city 	town_setup = levant_city }
+	mecca = { rank = town 	town_setup = levant_city }
+	medina = { rank = town 	town_setup = levant_city }
+	al_hajr = { rank = town 	town_setup = levant_town }
+	al_ahsa = { rank = city 	town_setup = levant_city }
+
+	wasit = { rank = town 	town_setup = levant_city }
+	adan = { rank = town 	town_setup = levant_city }
+	
+	# Mesoamerica
+	azcapotzalco = { rank = city 	town_setup = mexican_city }
+	tenochtitlan = { rank = city	town_setup = mexican_city }
+	tlacopan = { rank = city	town_setup = mexican_city }
+	tetzcoco = { rank = city 		town_setup = mexican_city }
+	patzcuaro = { rank = town 		town_setup = mexican_town }
+	tzintzuntzan = { rank = town	town_setup = mexican_town }
+	yucucui = { rank = town			town_setup = mexican_town }
+	mictlan = { rank = town			town_setup = mexican_town }
+
+	zaachila = { rank = town	town_setup = mexican_town }
+	kuskatan = { rank = town	town_setup = mexican_town }
+	
+	#Colombia
+	teyuna = { rank = town 			town_setup = andes_town  }
+	chunsua = { rank = town	town_setup = andes_town }
+	
+	# Cahokia
+	cahokia = { rank = town town_setup = south_east_woodlands_town }
+	canajoharie = { rank = town town_setup = south_east_woodlands_town }
+	ialophaybo = { rank = town town_setup = south_east_woodlands_town }
+
+	#Andes
+	#tantaricuy = { rank = town 		town_setup = andes_town }
+	#xllang = { rank = town	 		town_setup = andes_town  }
+	#ishma = { rank = town 			town_setup = andes_town  }
+	#allpas = { rank = town 			town_setup = andes_town  }
+	#huaman_karpa = { rank = town	town_setup = andes_town  }
+	chinchay = { rank = town 		town_setup = andes_town  }
+	#qusqu = { rank = town 			town_setup = andes_town  }
+	#charka = { rank = town		 	town_setup = andes_town  }
+	#malacatos = { rank = town	 	town_setup = andes_town  }
+	#markahuamachuco = { rank = town town_setup = andes_town }
+	#cantamarca = { rank = town  	town_setup = andes_town }
+	#ayaviri = { rank = town  		town_setup = andes_town }
+	#cangochamba = { rank = town  	town_setup = andes_town }
+	#huarco = { rank = town  		town_setup = andes_town }
+	#calvas = { rank = town  		town_setup = andes_town }
+	hatunqulla = { rank = town  	town_setup = andes_town }
+	chucuito = { rank = town  		town_setup = andes_town }
+	sana = { rank = town 	town_setup = andes_town }
+	chan_chan = { rank = town 		town_setup = andes_town }
+	
+	#Yucatan
+	mayapan = { rank = city town_setup = yucatan_town }
+	mani = { rank = city town_setup = yucatan_town }
+	chakan_putum = { rank = city town_setup = yucatan_town }
+	noh_peten = { rank = city town_setup = yucatan_town }
+	pismachi = { rank = city town_setup = yucatan_town }
+
+	# Crimea
+	kaffa = { rank = city town_setup = kaffa_city }
+	soldaia = { rank = town town_setup = italian_town }
+	tana = { rank = town town_setup = italian_town }
+	theodoro = { rank = city town_setup = greek_city_port }
+	vosporo = { rank = town town_setup = italian_town }
+
+
+	#India
+	broach = { rank = city  town_setup = indian_sultanate_coastal_city }
+	kataka = { rank = city  town_setup = indian_sultanate_city }
+	dhar = { rank = city  town_setup = indian_sultanate_city }
+	chittor = { rank = city  town_setup = indian_sultanate_city }
+	ashaval = { rank = city  town_setup = indian_sultanate_city }
+	ahmednagar = { rank = city  town_setup = indian_sultanate_city }
+	amber_loc = { rank = city  town_setup = indian_sultanate_city }
+	bidar = { rank = city  town_setup = indian_sultanate_city }
+	bijapur = { rank = city  town_setup = indian_sultanate_city }
+	champaner = { rank = city  town_setup = indian_sultanate_city }
+	belur = { rank = town  town_setup = indian_town }
+	budaun = { rank = town town_setup = indian_town }
+	chanderi = { rank = town town_setup = indian_town }
+	dabhol = { rank = town town_setup = indian_town }
+	delhi = { rank = city  town_setup = indian_sultanate_city }
+	awadh = { rank = city  town_setup = indian_sultanate_city }
+	gaur = { rank = city  town_setup = indian_sultanate_city }
+	goa = { rank = city  town_setup = indian_sultanate_coastal_city }
+	gulbarga = { rank = city  town_setup = indian_sultanate_city }
+	gwalior = { rank = city  town_setup = indian_sultanate_city }
+	jalandhar = { rank = city  town_setup = indian_sultanate_city }
+	kalinjar = { rank = city  town_setup = indian_sultanate_city }
+	kalyan = { rank = city  town_setup = indian_sultanate_city }
+	kamatapur = { rank = city  town_setup = indian_sultanate_city }
+	kanchipuram = { rank = city  town_setup = indian_sultanate_city } #Kanchi
+	kanauj = { rank = city  town_setup = indian_sultanate_city }
+	khambat = { rank = city  town_setup = indian_sultanate_coastal_city }
+	kolhapur = { rank = city  town_setup = indian_sultanate_city }
+	kollam = { rank = city  town_setup = indian_sultanate_coastal_city }
+	kayal = { rank = city  town_setup = indian_sultanate_coastal_city } #Korkai
+	kozhikode = { rank = city  town_setup = indian_sultanate_coastal_city }
+	madurai = { rank = city  town_setup = indian_sultanate_city }
+	mahoba = { rank = city  town_setup = indian_sultanate_city }
+	mandu = { rank = town town_setup = indian_town }
+	mathura = { rank = town town_setup = indian_town }
+	bombay = { rank = city  town_setup = indian_sultanate_coastal_city }
+	monghyr = { rank = town town_setup = indian_town }
+	pazhaverkadu = { rank = city town_setup = pazhaverkadu_city }
+	mysore = { rank = city  town_setup = indian_sultanate_city }
+	sargadwari = { rank = town town_setup = indian_town }
+	
+	nadia = { rank = city  town_setup = indian_city }
+	pandua = { rank = city  town_setup = indian_city }
+	patna = { rank = city  town_setup = indian_city }
+	pallakolu = { rank = city  town_setup = indian_coastal_city } #Penugonda
+	puri = { rank = city  town_setup = indian_coastal_city }
+	raichur = { rank = city  town_setup = indian_city }
+	satgaon = { rank = city  town_setup = indian_city }
+	srinagar = { rank = city  town_setup = indian_city }
+	thanjavur = { rank = city  town_setup = indian_city }
+	thatta = { rank = city  town_setup = indian_city }
+	ujjain = { rank = city  town_setup = indian_city }
+	varanasi = { rank = city  town_setup = indian_city }
+	vijayanagar = { rank = city  town_setup = indian_city }
+	sonargaon = { rank = city  town_setup = indian_city }
+
+	chittagong = { rank = city town_setup = chittagong_city }
+	kotte = { rank = town town_setup = indian_town }
+	bangalore = { rank = town town_setup = indian_town }
+	dharmapuri = { rank = town town_setup = indian_town }
+	gutti = { rank = town town_setup = indian_town }
+	golconda = { rank = town town_setup = indian_town }
+	warangal = { rank = town town_setup = indian_town }
+
+	uch = { rank = town town_setup = indian_town }
+	multan = { rank = town town_setup = indian_town }
+	lahore = { rank = town town_setup = indian_town }
+	peshawar = { rank = town town_setup = indian_town }
+	diu = { rank = town town_setup = indian_town }
+
+
+	#Kilwa
+	kilwa_kisiwani = { rank = town 	town_setup = east_african_coastal_town }
+	#Merchant Settlements
+	mikindani = { rank = rural_settlement town_setup = kilwan_merchant_settlement }
+	mitimiri = { rank = rural_settlement town_setup = kilwan_merchant_settlement }
+	lindi = { rank = rural_settlement town_setup = kilwan_merchant_settlement }
+	kisiju = { rank = rural_settlement town_setup = kilwan_merchant_settlement }
+
+	#Fishing Settlements
+	tungi = { rank = rural_settlement town_setup = kilwan_fishing_settlement }
+	mkwaja = { rank = rural_settlement town_setup = kilwan_fishing_settlement }
+	memba = { rank = rural_settlement town_setup = kilwan_fishing_settlement }
+
+	#Majapahit
+	gresik = { rank = town town_setup = majapahit_coastal_town }
+	surabaya = { rank = town town_setup = majapahit_coastal_town }
+	daha = { rank = town town_setup = majapahit_town }
+
+	#Zimbabwe South East Africa
+	great_zimbabwe = { rank = town 	town_setup = east_african_town }
+	sofala = { rank = town 	town_setup = east_african_town }
+
+	bungu_kongo = { rank = town 	town_setup = east_african_town }
+
+	#Isolated Island Markets
+	# tongatapu
+	# o_ahu
+	# gardr
+}
+
+# for the unique and special buildings
+
+building_manager = {
+}

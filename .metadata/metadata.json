@@ -1,0 +1,11 @@
+{
+	"name": "TFE: The Roman World in 395",
+	"id": "tfe_395",
+	"version": "0.1.0",
+	"supported_game_version": "1.2.*",
+	"short_description": "The Roman world at the death of Theodosius, 395 AD",
+	"tags": ["Total Conversion"],
+	"relationships": [],
+	"game_id": "eu5",
+	"game_custom_data": {}
+}

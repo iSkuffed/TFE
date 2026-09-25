@@ -1,0 +1,5 @@
+﻿# TFE stub: 1337 content removed
+countries = {
+	countries = {
+	}
+}

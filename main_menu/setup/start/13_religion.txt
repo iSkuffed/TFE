@@ -1,0 +1,73 @@
+﻿# TFE stub: 1337 tag references removed
+building_manager = {
+	#Papal Cardinals
+	
+	#French Cardinals
+	
+	#French Vassals
+	
+	#Other
+}
+
+religion_manager = {
+	catholic = {
+		timed_modifier = {
+			modifier = "limited_indulgences_religion"
+			start_date = 1000.1.1
+			date = 9999.1.1
+			size = 1
+		}
+		timed_modifier = {
+			modifier = "tolerated_simony_religion"
+			start_date = 313.1.1
+			date = 9999.1.1
+			size = 1
+		}
+		#Saints
+
+
+
+
+		#saint = { character = nor_olaf_ii							country = NOR } #Not yet a scripted character 
+
+
+		#saint = { character = hun_istvan_i_arpad					country = HUN } #Saint Stephen I of Hungary #Not yet a scripted character 
+		#saint = { character = hun_ladislaus_i_arpad				country = HUN } #Ladislaus I of Hungary 'the Saint' #Not yet a scripted character 
+		#saint = { character = hun_imre_arpad						country = HUN } #Saint Emeric of Hungary #Not yet a scripted character
+		#saint = { character = hun_erzsebet_arpad					country = HUN } #Saint Elizabeth of Hungary #Not yet a scripted character 
+
+
+		#saint = { character = pap_leo_ix							country = PAP } #Pope Leo IX #Not yet a scripted character 
+		#saint = { character = pap_celestino_v						country = PAP } #Pope Celestine V #Not yet a scripted character 
+
+		#Depending on the scope we want
+		#saint = { character = pol_saint_wojciech					country = POL}
+		#saint = { character = pol_saint_stanislav					country = POL}
+		#Thomas Aquinas
+		#Clare of Assissi
+		#Francis of Assisi
+		#Hedwig of Silesia
+		#Dominic de Guzmán
+		#Thomas Becket
+		#Bernard of Clairvaux
+		#Margaret of Scotland
+		#Anselm of Canterbury
+		#Robert Of Molesme
+		#Hugh of Cluny
+		#Dominic de la Calzada
+		#Adela of France
+		#Dominic of Silos
+		
+	}
+
+	orthodox = {
+		#saint = { character = kie_alexander_nevsky_rurikovich 		country = KIE }
+
+	}
+
+	miaphysite = {
+		#Depending on the scope we want
+		#saint = { character = geo_mirian_iii 						country = GEO }
+		#saint = { character = geo_saint_nino 						country = GEO }
+	}
+}
