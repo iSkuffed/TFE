@@ -320,7 +320,6 @@ locations={
 
 	brno = { rank = town town_setup = german_town }
 	kutna_hora = { rank = town town_setup = german_town }
-	olomouc = { rank = town town_setup = german_town }
 	opole = { rank = town town_setup = german_town }
 	plzen = { rank = town town_setup = german_town }
 
@@ -383,7 +382,6 @@ locations={
 	
 	# Maghreb
 	mahdia = { rank = city town_setup = maghreb_coastal_city }
-	marrakesh = { rank = city 	town_setup = maghreb_city }
 	rabat = { rank = city 	town_setup = maghreb_coastal_city }
 	annaba = { rank = city 		town_setup = maghreb_coastal_city }
 	bejaia = { rank = city 	town_setup = maghreb_coastal_city }
@@ -414,8 +412,6 @@ locations={
 	esztergom = { rank = town 				town_setup = carpathian_town }
 	fehervar = { rank = town 				town_setup = carpathian_town }
 	iasi = { rank = town 				town_setup = carpathian_town }
-	kosice = { rank = town 				town_setup = carpathian_town }
-	krupina = { rank = town 				town_setup = carpathian_town } #Banská Štiavnica
 	sopron = { rank = town 				town_setup = carpathian_town }
 	szeged = { rank = town 				town_setup = carpathian_town }
 	suceava = { rank = town 			town_setup = carpathian_town }

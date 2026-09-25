@@ -18,7 +18,7 @@ HAS = heir = tfe_gunderic
 BGD = ruler = tfe_gibica
 BGD = heir = tfe_gundahar
 FRK = ruler = tfe_marcomer
-QAD = ruler = tfe_fritigil
+MKM = ruler = tfe_fritigil
 HNS = ruler = tfe_uldin
 CQT = ruler = tfe_niall
 MUM = ruler = tfe_conall_corc

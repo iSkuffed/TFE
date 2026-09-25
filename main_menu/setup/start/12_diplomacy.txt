@@ -2,4 +2,6 @@
 diplomacy_manager = {
 	# Alaric's Goths, foederati of the East under the foedus of 3 Oct 382
 	dependency = { first = EAR second = VIS subject_type = vassal start_date = 382.10.3 }
+	# Baquates, Western client in Tingitana (treaty altars at Volubilis, 3rd c.)
+	dependency = { first = WRE second = BAQ subject_type = vassal }
 }

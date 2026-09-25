@@ -55,7 +55,8 @@ JUT | Jutes | Jutish | - | eurasian_tribe | danish | norse | 190 110 110
 DAX | Danes | Danish | - | eurasian_tribe | danish | norse | 180 50 50
 NRW | Norse Petty Kingdoms | Norse | - | eurasian_tribe | norwegian | norse | 110 70 140
 TGI | Thuringians | Thuringian | - | eurasian_tribe | saxon | norse | 100 160 60
-QAD | Marcomanni and Quadi | Suebian | - | eurasian_tribe | swabian | norse | 130 80 40
+MKM | Marcomanni | Marcomannic | prague | eurasian_tribe | swabian | norse | 190 140 60
+QAD | Quadi | Quadian | nitra | eurasian_tribe | swabian | norse | 150 100 100
 HAS | Hasding Vandals | Vandal | - | eurasian_tribe | gothic_culture | catholic | 210 130 30   # Arian
 SLX | Siling Vandals | Siling | - | eurasian_tribe | gothic_culture | norse | 230 170 70
 LGB | Lombards | Lombard | - | eurasian_tribe | lower_saxon | norse | 90 120 90
@@ -63,6 +64,6 @@ RUG | Rugii | Rugian | - | eurasian_tribe | eastern_pomeranian | norse | 150 120
 IAZ | Iazyges | Sarmatian | - | eurasian_tribe | alan_culture | alan_paganism | 170 170 130
 AES | Aesti | Aestian | - | eurasian_tribe | prussian | norse | 110 110 60
 MRX | Mauri | Mauri | - | subsaharan_tribe | kabyle | hellenism_religion | 190 150 110
-BAQ | Baquates | Baquatian | - | subsaharan_tribe | masmuda | hellenism_religion | 170 120 80
+BAQ | Baquates | Baquatian | volubilis | subsaharan_tribe | masmuda | hellenism_religion | 170 120 80
 AUS | Austuriani | Austurian | - | subsaharan_tribe | eastern_amazigh | hellenism_religion | 200 170 120
 GMT | Garamantes | Garamantian | - | subsaharan_tribe | tuareg | hellenism_religion | 150 100 60

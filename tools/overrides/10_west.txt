@@ -140,12 +140,20 @@ grafenau = none
 bavaria_regen = none
 franconia_area = BGD
 upper_austria_area = WRE        # Noricum Ripense
-muhlviertel_province = QAD
+muhlviertel_province = MKM
 austria_area = WRE
-ober_dem_manhartsberg_province = QAD
-unter_dem_manhartsberg_province = QAD
-bohemia_area = QAD              # Marcomanni
-moravia_area = QAD              # Quadi
+# Marcomanni and Quadi after the omniatlas 395 map (georeferenced, sampled per province); rims without a polity left unowned
+ober_dem_manhartsberg_province = MKM
+unter_dem_manhartsberg_province = QAD   # Weinviertel
+bohemia_area = MKM              # Marcomanni: the Bohemian basin
+chebsko_province = none
+zatecko_province = none
+litomericko_province = none
+boleslavsko_province = none
+hradecko_province = none
+moravia_area = MKM              # south Moravia
+olomoucko_province = none
+hradistsko_province = QAD       # Quadi
 
 # ---------- North Germany, Scandinavia, Baltic ----------
 holstein_area = SAX
@@ -190,20 +198,19 @@ morea_area = EAR
 aegean_archipelago_area = EAR
 south_alfold_area = IAZ         # Sarmatians between Danube and Tisza
 north_alfold_area = HAS         # Hasdingi, upper Tisza
-slovakia_area = QAD
+slovakia_area = none             # omniatlas: no polity (Gepid/Hun fringe)
+pozsony_province = QAD          # Quadi: Nitra, Trnava, Bratislava
 transylvania_area = GEP
 wallachia_area = HNS            # Uldin's Huns north of the lower Danube c. 400
 moldavia_area = HNS
 
 # ---------- Africa: Tingitana, the Mauretanias, Africa, Tripolitania ----------
+# Baquates: WRE client holding the northern band, Atlantic to the Moulouya, incl. Tingitana (user ruling after omniatlas 395)
 morocco_area = BAQ
-errif_province = MRX
-kert_province = MRX
-habat_province = WRE            # Tingis, Septem, Tamuda
-azghar_province = WRE           # Lixus
-sale = WRE
-rabat = WRE                     # Sala (Chellah)
-la_mamora = WRE
+dukkala_province = none         # south of the band: Mauri, no polity
+tadla_province = none
+marrakesh_province = none
+haha_province = none
 sus_area = none
 western_sahara_area = none
 algiers_area = WRE              # Caesariensis, incl. the Tlemcen-Saida limes

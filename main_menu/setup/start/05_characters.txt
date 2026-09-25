@@ -373,7 +373,7 @@ character_db = {
 		religion = norse
 		birth_date = 360.1.1
 		birth = balassagyarmat
-		tag = QAD
+		tag = MKM
 	}
 	tfe_uldin = { # first securely attested Hun king (c. 400); approx
 		first_name = { name = name_uldin }

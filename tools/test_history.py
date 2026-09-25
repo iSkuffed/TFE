@@ -20,7 +20,14 @@ WEST = [
     ("ulm", "ALM", "north of the Danube-Iller-Rhine limes"),
     ("regensburg", "WRE", "Castra Regina, south bank"),
     ("vienna", "WRE", "Vindobona"),
-    ("krems", "QAD", "north bank of the Danube: Marcomanni/Quadi"),
+    ("krems", "MKM", "north bank of the Danube: Marcomanni (omniatlas 395)"),
+    ("prague", "MKM", "Bohemian basin: Marcomanni"),
+    ("brno", "MKM", "south Moravia: Marcomanni"),
+    ("bratislava", "QAD", "Quadi, west Slovakia"),
+    ("nitra", "QAD", "Quadi"),
+    ("cheb", "none", "north-west Bohemia: no polity on the reference map"),
+    ("olomouc", "none", "north Moravia: no polity"),
+    ("zilina", "none", "central Slovakia: no polity"),
     ("antwerp", "SLF", "Toxandria, Salian foederati since 358"),
     ("newcastle", "WRE", "Pons Aelius on Hadrian's Wall"),
     ("alnwick", "VOT", "north of the Wall: Votadini"),
@@ -31,8 +38,10 @@ WEST = [
     ("belgrad", "EAR", "Singidunum, Moesia I (diocese of Dacia)"),
     ("shkoder", "EAR", "Scodra, Praevalitana"),
     ("split", "WRE", "Salona, Dalmatia"),
-    ("tangier", "WRE", "Tingis, Mauretania Tingitana"),
-    ("rabat", "WRE", "Sala, held to the 5th c."),
+    ("tangier", "BAQ", "Tingitana given to the Baquates client (user ruling, omniatlas 395)"),
+    ("rabat", "BAQ", "Sala: Baquates band from the Atlantic to the Moulouya"),
+    ("badis", "BAQ", "Rif: Baquates band"),
+    ("marrakesh", "none", "south of the Baquates: Mauri, no polity"),
     ("fez", "BAQ", "interior beyond the reduced Tingitana"),
     ("cherchell", "WRE", "Caesarea, Mauretania Caesariensis"),
     ("setif", "WRE", "Sitifis"),
@@ -89,5 +98,5 @@ def test_empires_ranked_and_discovery_sane(state):
 def test_diplomacy_links_landed_tags(state):
     text = re.sub(r"#[^\n]*", "", (b.MOD / "main_menu/setup/start/12_diplomacy.txt").read_text(encoding="utf-8"))
     pairs = re.findall(r"first\s*=\s*(\w+)\s+second\s*=\s*(\w+)", text)
-    assert ("EAR", "VIS") in pairs
+    assert ("EAR", "VIS") in pairs and ("WRE", "BAQ") in pairs
     assert all(t in state["owned"] for p in pairs for t in p), pairs
