@@ -1,0 +1,124 @@
+# TFE — 395 AD Start Borders (Design)
+
+Date: 2026-09-25
+Status: approved in chat, awaiting spec review
+
+## Goal
+
+First sub-project of TFE, an EU5 mod portraying the Roman world in 395 AD (after the death of
+Theodosius I, 17 Jan 395) in the spirit of CK3's *The Fallen Eagle*. This sub-project delivers
+**game-start ownership borders** that are as historically accurate as available records allow,
+across the whole map, and a game that loads with them.
+
+Success = the game loads a new campaign with the 395 political map, `error.log` has no errors
+caused by the mod's border/tag setup, and the West (first curated batch) matches 395 reference
+maps at province level.
+
+## Out of scope
+
+Pops, cultures, religions (beyond placeholders), characters, dynasties, wars, diplomacy/subject
+relations, start date, mechanics, events. Vanilla 1337 pops/buildings/roads remain for now.
+
+## Engine facts (EU5, verified in game files)
+
+- Start ownership: `main_menu/setup/start/10_countries.txt`, `countries = { countries = { TAG = { own_control_core = { loc … } … } } }`.
+- Geography: `in_game/map_data/definitions.txt`, nested continent > subcontinent > region > area > province > location.
+- Location pixels: `in_game/map_data/locations.png` (16384×8192, `wrap_x = yes`, `equator_y = 3340`); colours → names in `in_game/map_data/named_locations/00_default.txt` (`name = rrggbb`).
+- Country definitions: `in_game/setup/countries/*.txt` — `TAG = { color, color2, culture_definition, religion_definition, description_category, difficulty, … }`.
+- Start date: `START_DATE` in `loading_screen/common/defines/00_defines.txt` (unchanged here).
+- Other `main_menu/setup/start/*.txt` files reference 1337 tags and must be stubbed when those tags lose all land.
+
+## Approach: hybrid
+
+1. **Whole-world draft** from `historical-basemaps` `world_400.geojson` (aourednik, pinned copy):
+   location centroid → containing polygon → tag via `tag_map.txt`.
+2. **Hand-curated override batches** (Notitia Dignitatum diocese structure, Barrington Atlas
+   frontiers) applied last; overrides always win. Batches: `west` first, then `east_med`, then
+   further regions on request.
+
+## Layout
+
+```
+TFE/
+├── .metadata/metadata.json
+├── docs/specs/…
+├── tools/
+│   ├── borders.py              # generator + checks + preview render
+│   ├── world_400.geojson       # pinned dataset
+│   ├── tag_map.txt             # dataset NAME → TAG (or `none` = unowned)
+│   └── overrides/<batch>.txt   # `<area|province|location> = TAG|none`, later lines win
+├── main_menu/setup/start/10_countries.txt   # GENERATED, never hand-edited
+├── main_menu/setup/start/<stubs>.txt         # minimal replacements for tag-referencing files
+└── in_game/setup/countries/tfe_countries.txt # 395 tag definitions
+```
+
+## borders.py
+
+1. Parse `named_locations` (colour → name) and `definitions.txt` (name → province/area/region).
+2. Compute each location's pixel centroid from `locations.png` (numpy; run via `uv run --with numpy,pillow,shapely`).
+3. Fit pixel ↔ lon/lat from ~15 anchor cities with known coordinates; print residuals; **fail if mean error > threshold**.
+4. Point-in-polygon each centroid against the dataset → tag via `tag_map.txt`.
+5. Apply override files in order (area < province < location granularity resolved by file order; later wins).
+6. Emit `10_countries.txt` (all land as `own_control_core`).
+7. Checks: every override/tag_map key exists; every tag used is defined in `tfe_countries.txt`; no location owned twice; per-tag location counts printed.
+8. Render `tools/out/owners.png` (downscaled owner map) for review before launching.
+
+Water, lakes and wasteland locations are never assigned.
+
+## Roman sphere (batches `west`, `east_med`)
+
+New tags only (no vanilla tag reuse, to avoid 1337 flavour hooks).
+
+- **WRE — Western Roman Empire** (Honorius; Stilicho; capital Mediolanum): dioceses Italia
+  (incl. Sicily, Sardinia, Corsica, Raetia I–II), W. Illyricum (Pannonia I–II, Valeria, Savia,
+  Noricum Rip./Med., Dalmatia), Galliae, Septem Provinciae, Hispaniae (+ Tingitana, Balearics),
+  Britanniae to Hadrian's Wall, Africa (Proconsularis, Byzacena, Numidia, Tripolitania,
+  Mauretania Sitifensis & Caesariensis — coastal/Tell belt only).
+- **ERE — Eastern Roman Empire** (Arcadius; Rufinus; capital Constantinople): dioceses Thrace,
+  Dacia, Macedonia (+ Crete), Asiana, Pontica (+ Armenia Minor & Roman share of 387 partition),
+  Oriens (frontier Circesium–Khabur–Amida; Nisibis/Singara Persian; south to Aila), Egypt to
+  Syene/Philae, Libyan Pentapolis; Chersonesus.
+- **Foederati / clients (landed tags):** Visigoths (Alaric; Moesia II / Dacia Ripensis), Salian
+  Franks (Toxandria), Lazica, Caucasian Iberia (Trdat), Bosporan remnant.
+- **Beyond the frontiers:** Picts; Brittonic tribes between the walls (Votadini, Damnonii,
+  Novantae, Selgovae); Irish over-kingdoms (Connachta, Ulaid, Laigin, Mumu); Frisians, Saxons,
+  Angles, Jutes, Rhine Franks, Alamanni, Burgundians (Main), Thuringians; Marcomanni/Quadi,
+  Vandals (Hasdingi, Silingi), Lombards, Rugii, Heruli, Gepids, Sarmatians/Iazyges; Huns
+  (Pontic steppe, Greuthungi subordinate), Caucasian Alans, Akatziri; Svear, Geats, Danes/Jutes,
+  Norwegian petty kingdoms, Aesti; Sasanians (Bahram IV), Persarmenia (Vramshapuh), Caucasian
+  Albania, Lakhmids, Himyar (incl. Hadramawt); Mauri kingdoms, Austuriani, Garamantes,
+  Blemmyes, Nobatae, Aksum.
+- **Unowned:** Venethi/early Slavic and Finnic lands; "Empire of Ghana" polygon (weak evidence
+  for c. 400).
+
+Subject relationships are noted but deferred to the diplomacy pass.
+
+## Rest of world (dataset draft + corrections)
+
+India: Gupta, Vakataka, Western Satraps (Rudrasimha III), Pallava, Kadamba, W. Ganga, Kamarupa,
+Anuradhapura. Central Asia: Kidarites, Khwarazm (Afrighid), Sogdian city-states, Tarim states
+(Kucha, Khotan, Shanshan, Kashgar). China: split dataset "Sixteen Kingdoms" into Eastern Jin,
+Northern Wei, Later Yan, Later Qin, Western Qin, Later Liang; Tuyuhun; Rouran. Korea/Japan:
+Goguryeo, Baekje, Silla, Gaya, Yamato. SE Asia: Funan, Linyi, Pyu, Tarumanagara, Kutai.
+Americas: Teotihuacan, Monte Albán, major Maya city-states, Moche, Nazca. All hunter-gatherer /
+culture-complex polygons → unowned.
+
+## Placeholders
+
+Each tag gets the nearest vanilla culture/religion, marked `# PLACEHOLDER`. WRE `catholic`, ERE
+`orthodox`, Arian Goths/Vandals `catholic`, Sasanians `zoroastrian`, pagan Germanic/steppe →
+nearest vanilla folk religion. Map colours: WRE imperial purple, ERE wine red.
+
+## Stubbing
+
+Replace with minimal valid contents any `main_menu/setup/start/*.txt` that references 1337
+tags: characters, dynasties, diplomacy, wars, rivals, opinions, international organizations,
+situations, colonies, markets, armies, AI personalities, area preferences (exact set determined
+by grepping for tag references and by `error.log`). Pops, buildings, roads, development,
+institutions, religion manager kept vanilla unless they block loading.
+
+## Verification per batch
+
+1. `borders.py` checks pass (fit threshold, names, uniqueness, tag definitions).
+2. `owners.png` reviewed against 395 reference maps.
+3. User launches EU5; `logs/error.log` read for mod-caused errors; user reviews map in-game.
