@@ -12,7 +12,12 @@ countries = {
 				tuchola wegorzewo wehlau windenburg
 			}
 			capital = balga
+			discovered_regions = {
+				anatolia_region balkan_region baltic_region carpathia_region great_britain_region italy_region north_german_region russian_region
+				ruthenia_region scandinavian_region south_german_region steppes_region
+			}
 			include = "eurasian_tribe"
+			country_rank = rank_duchy
 			government = {
 				ruler = random
 			}
@@ -22,7 +27,12 @@ countries = {
 				aabenraa eckernforde flensburg haderslev husum ribe slesvig tonder
 			}
 			capital = aabenraa
+			discovered_regions = {
+				balkan_region baltic_region carpathia_region france_region great_britain_region italy_region north_atlantic_islands_region north_german_region
+				scandinavian_region south_german_region
+			}
 			include = "eurasian_tribe"
+			country_rank = rank_county
 			government = {
 				ruler = random
 			}
@@ -32,7 +42,12 @@ countries = {
 				bashtanka bereznehuvate oleshia tavan velyka_oleksandrivka vithold_hammami
 			}
 			capital = bashtanka
+			discovered_regions = {
+				anatolia_region balkan_region baltic_region carpathia_region caucasus_region crescent_region russian_region ruthenia_region
+				steppes_region
+			}
 			include = "eurasian_tribe"
+			country_rank = rank_county
 			government = {
 				ruler = random
 			}
@@ -48,7 +63,12 @@ countries = {
 				waldsee waldshut welzheim wetzlar wiesbaden
 			}
 			capital = baden
+			discovered_regions = {
+				balkan_region baltic_region carpathia_region france_region great_britain_region iberia_region italy_region maghreb_region
+				north_atlantic_islands_region north_german_region scandinavian_region south_german_region
+			}
 			include = "eurasian_tribe"
+			country_rank = rank_duchy
 			government = {
 				ruler = random
 			}
@@ -58,7 +78,11 @@ countries = {
 				al_jawf awjila maradah tazirbu zella
 			}
 			capital = al_jawf
+			discovered_regions = {
+				anatolia_region balkan_region crescent_region egypt_region italy_region maghreb_region nubia_region sahel_region
+			}
 			include = "subsaharan_tribe"
+			country_rank = rank_county
 			government = {
 				ruler = random
 			}
@@ -69,7 +93,11 @@ countries = {
 				debre_bizen dekemhare edd mekele mendefera senafe shire waldeba yeha zula
 			}
 			capital = axum
+			discovered_regions = {
+				arabia_region central_africa_region ethiopia_region great_lakes_region nubia_region somalia_region
+			}
 			include = "subsaharan_monarchy"
+			country_rank = rank_kingdom
 			government = {
 				ruler = random
 			}
@@ -79,7 +107,11 @@ countries = {
 				aju
 			}
 			capital = aju
+			discovered_regions = {
+				east_china_region japan_region korea_region manchuria_region mongolia_region north_china_region
+			}
 			include = "east_asia_monarchy"
+			country_rank = rank_kingdom
 			government = {
 				ruler = random
 			}
@@ -93,7 +125,11 @@ countries = {
 				tefelfelt tegeget terrest tezerghe thagia tinmel tit volubilis
 			}
 			capital = aghmat
+			discovered_regions = {
+				france_region iberia_region macaronesia_region maghreb_region sahel_region
+			}
 			include = "subsaharan_tribe"
+			country_rank = rank_duchy
 			government = {
 				ruler = random
 			}
@@ -107,7 +143,12 @@ countries = {
 				wunsiedel wurzburg
 			}
 			capital = ansbach
+			discovered_regions = {
+				balkan_region baltic_region carpathia_region france_region great_britain_region iberia_region italy_region north_atlantic_islands_region
+				north_german_region scandinavian_region south_german_region
+			}
 			include = "eurasian_tribe"
+			country_rank = rank_duchy
 			government = {
 				ruler = random
 			}
@@ -117,7 +158,11 @@ countries = {
 				aydhab
 			}
 			capital = aydhab
+			discovered_regions = {
+				arabia_region crescent_region egypt_region ethiopia_region nubia_region
+			}
 			include = "subsaharan_tribe"
+			country_rank = rank_county
 			government = {
 				ruler = random
 			}
@@ -135,7 +180,12 @@ countries = {
 				zavetnoye zelenokumsk
 			}
 			capital = adyukh
+			discovered_regions = {
+				anatolia_region arabia_region balkan_region carpathia_region caucasus_region crescent_region khorasan_region persia_region
+				russian_region ruthenia_region steppes_region ural_region
+			}
 			include = "eurasian_tribe"
+			country_rank = rank_duchy
 			government = {
 				ruler = random
 			}
@@ -146,7 +196,11 @@ countries = {
 				galway kilconnell killeshandra killycolly leitrim roscommon skreen sligo tuam
 			}
 			capital = athenry
+			discovered_regions = {
+				france_region great_britain_region ireland_region macaronesia_region north_atlantic_islands_region north_atlantic_ocean_region scandinavian_region
+			}
 			include = "gaelic_tribe"
+			country_rank = rank_duchy
 			government = {
 				ruler = random
 			}
@@ -158,7 +212,12 @@ countries = {
 				roskilde slagelse solvesborg svendborg varberg vordingborg
 			}
 			capital = asbo
+			discovered_regions = {
+				balkan_region baltic_region carpathia_region france_region great_britain_region italy_region north_german_region ruthenia_region
+				scandinavian_region south_german_region
+			}
 			include = "eurasian_tribe"
+			country_rank = rank_duchy
 			government = {
 				ruler = random
 			}
@@ -168,7 +227,11 @@ countries = {
 				ayr dumbarton glasgow irvine lanark paisley stirling
 			}
 			capital = ayr
+			discovered_regions = {
+				france_region great_britain_region ireland_region north_atlantic_islands_region north_atlantic_ocean_region north_german_region scandinavian_region
+			}
 			include = "gaelic_tribe"
+			country_rank = rank_county
 			government = {
 				ruler = random
 			}
@@ -246,7 +309,13 @@ countries = {
 				yalvac yenicepazari yuksekkum zakynthos zara zardana zemlungrad zetounion zica zile
 			}
 			capital = constantinople
+			discovered_regions = {
+				anatolia_region arabia_region balkan_region baltic_region carpathia_region caucasus_region crescent_region egypt_region
+				ethiopia_region italy_region khorasan_region maghreb_region north_german_region nubia_region persia_region russian_region
+				ruthenia_region sahel_region scandinavian_region south_german_region steppes_region
+			}
 			include = "eastern_european_monarchy"
+			country_rank = rank_empire
 			government = {
 				ruler = random
 			}
@@ -261,7 +330,12 @@ countries = {
 				wesel wied ziegenhain zutphen zwolle
 			}
 			capital = ahaus
+			discovered_regions = {
+				balkan_region baltic_region carpathia_region france_region great_britain_region iberia_region ireland_region italy_region
+				north_atlantic_islands_region north_german_region scandinavian_region south_german_region
+			}
 			include = "eurasian_tribe"
+			country_rank = rank_duchy
 			government = {
 				ruler = random
 			}
@@ -272,7 +346,12 @@ countries = {
 				meppel sloten stavoren wedde wolvega
 			}
 			capital = alkmaar
+			discovered_regions = {
+				balkan_region baltic_region france_region great_britain_region ireland_region italy_region north_atlantic_islands_region north_german_region
+				scandinavian_region south_german_region
+			}
 			include = "eurasian_tribe"
+			country_rank = rank_county
 			government = {
 				ruler = random
 			}
@@ -285,7 +364,12 @@ countries = {
 				utlandet vadstena vallsjo vartofta vaxjo vedbo vetlanda visby waestbo
 			}
 			capital = albo
+			discovered_regions = {
+				baltic_region carpathia_region france_region great_britain_region north_german_region russian_region ruthenia_region scandinavian_region
+				south_german_region
+			}
 			include = "eurasian_tribe"
+			country_rank = rank_duchy
 			government = {
 				ruler = random
 			}
@@ -299,7 +383,12 @@ countries = {
 				sighisoara targu_mures turda tykhomel zbarazh zhovkva
 			}
 			capital = aiud
+			discovered_regions = {
+				anatolia_region balkan_region baltic_region carpathia_region crescent_region italy_region maghreb_region north_german_region
+				russian_region ruthenia_region scandinavian_region south_german_region steppes_region
+			}
 			include = "eurasian_tribe"
+			country_rank = rank_duchy
 			government = {
 				ruler = random
 			}
@@ -309,7 +398,11 @@ countries = {
 				brak ghat murzuk sabha sokna ubari zawila
 			}
 			capital = brak
+			discovered_regions = {
+				balkan_region egypt_region italy_region maghreb_region sahel_region
+			}
 			include = "subsaharan_tribe"
+			country_rank = rank_duchy
 			government = {
 				ruler = random
 			}
@@ -323,7 +416,11 @@ countries = {
 				yeongwon
 			}
 			capital = baekcheon
+			discovered_regions = {
+				east_china_region japan_region korea_region manchuria_region mongolia_region north_china_region
+			}
 			include = "east_asia_monarchy"
+			country_rank = rank_kingdom
 			government = {
 				ruler = random
 			}
@@ -404,7 +501,12 @@ countries = {
 				vinukonda virkgarh visakhapatnam vizianagaram wazirabad west_sundarban
 			}
 			capital = patna
+			discovered_regions = {
+				arabia_region bengal_region central_india_region deccan_region hindustan_region indian_ocean_region indochina_region indonesia_region
+				khorasan_region persia_region south_china_region tibet_region west_china_region western_india_region xinjiang_region
+			}
 			include = "indian_hindu_monarchy"
+			country_rank = rank_empire
 			government = {
 				ruler = random
 			}
@@ -414,7 +516,11 @@ countries = {
 				sacheon
 			}
 			capital = sacheon
+			discovered_regions = {
+				east_china_region japan_region korea_region manchuria_region north_china_region
+			}
 			include = "east_asia_monarchy"
+			country_rank = rank_duchy
 			government = {
 				ruler = random
 			}
@@ -426,7 +532,12 @@ countries = {
 				nagykallo oradea pest syvlyush szabolcs szarvas szatmar szolnok varda zalau
 			}
 			capital = abrahamtelke
+			discovered_regions = {
+				anatolia_region balkan_region baltic_region carpathia_region italy_region north_german_region russian_region ruthenia_region
+				scandinavian_region south_german_region steppes_region
+			}
 			include = "eurasian_tribe"
+			country_rank = rank_duchy
 			government = {
 				ruler = random
 			}
@@ -447,7 +558,12 @@ countries = {
 				tanomah tarim thula turbah yahr yalamlam zabid zinjibar
 			}
 			capital = abha
+			discovered_regions = {
+				arabia_region crescent_region egypt_region ethiopia_region great_lakes_region indian_ocean_region nubia_region persia_region
+				somalia_region western_india_region
+			}
 			include = "eastern_european_monarchy"
+			country_rank = rank_kingdom
 			government = {
 				ruler = random
 			}
@@ -497,7 +613,13 @@ countries = {
 				zhytomyr zimnicea zimnyatsky zmiiv zolotari zolotonosha zvenyhorod zvenyhorodka
 			}
 			capital = adalaga
+			discovered_regions = {
+				anatolia_region balkan_region baltic_region carpathia_region caucasus_region crescent_region egypt_region italy_region
+				khorasan_region maghreb_region north_german_region persia_region russian_region ruthenia_region scandinavian_region south_german_region
+				steppes_region ural_region
+			}
 			include = "eurasian_horde_no_muslim"
+			country_rank = rank_kingdom
 			government = {
 				ruler = random
 			}
@@ -509,7 +631,12 @@ countries = {
 				semlacu_mare szeged timisoara titel veliky_beckerek zarand zenta
 			}
 			capital = arad
+			discovered_regions = {
+				anatolia_region balkan_region baltic_region carpathia_region crescent_region italy_region maghreb_region north_german_region
+				russian_region ruthenia_region scandinavian_region south_german_region steppes_region
+			}
 			include = "eurasian_tribe"
+			country_rank = rank_duchy
 			government = {
 				ruler = random
 			}
@@ -657,7 +784,12 @@ countries = {
 				ziyang_xingan ziyang_zizhong zizhou zongyang zouping zouxian zuokeng zuosuo
 			}
 			capital = ami
+			discovered_regions = {
+				bengal_region east_china_region indochina_region indonesia_region japan_region korea_region manchuria_region mongolia_region
+				north_china_region south_china_region tibet_region west_china_region
+			}
 			include = "chinese_monarchy"
+			country_rank = rank_empire
 			government = {
 				ruler = random
 			}
@@ -668,7 +800,12 @@ countries = {
 				ringkobing silkeborg skagen thisted varde viborg
 			}
 			capital = aalborg
+			discovered_regions = {
+				balkan_region baltic_region carpathia_region france_region great_britain_region italy_region north_atlantic_islands_region north_german_region
+				scandinavian_region south_german_region
+			}
 			include = "eurasian_tribe"
+			country_rank = rank_county
 			government = {
 				ruler = random
 			}
@@ -693,7 +830,11 @@ countries = {
 				vempalle vemulawada vijayanagar wairagarh warangal yedagiri yegaladapa
 			}
 			capital = adilabad
+			discovered_regions = {
+				bengal_region central_india_region deccan_region hindustan_region indian_ocean_region persia_region tibet_region western_india_region
+			}
 			include = "indian_hindu_monarchy"
+			country_rank = rank_kingdom
 			government = {
 				ruler = random
 			}
@@ -705,7 +846,11 @@ countries = {
 				tullamore wexford wicklow
 			}
 			capital = ardagh
+			discovered_regions = {
+				france_region great_britain_region ireland_region macaronesia_region north_atlantic_islands_region north_atlantic_ocean_region scandinavian_region
+			}
 			include = "gaelic_tribe"
+			country_rank = rank_duchy
 			government = {
 				ruler = random
 			}
@@ -719,7 +864,12 @@ countries = {
 				zossen
 			}
 			capital = angermunde
+			discovered_regions = {
+				balkan_region baltic_region carpathia_region france_region great_britain_region iberia_region italy_region north_german_region
+				ruthenia_region scandinavian_region south_german_region
+			}
 			include = "eurasian_tribe"
+			country_rank = rank_duchy
 			government = {
 				ruler = random
 			}
@@ -731,7 +881,11 @@ countries = {
 				sitavaka tissamaharama trincomalee vavuniya yapavu
 			}
 			capital = anuradhapura
+			discovered_regions = {
+				bengal_region central_india_region deccan_region indian_ocean_region
+			}
 			include = "indian_hindu_monarchy"
+			country_rank = rank_kingdom
 			government = {
 				ruler = random
 			}
@@ -742,7 +896,11 @@ countries = {
 				shandan suzhou_gansu yongchang_ganzhou
 			}
 			capital = alxa
+			discovered_regions = {
+				east_china_region mongolia_region north_china_region tibet_region west_china_region xinjiang_region
+			}
 			include = "chinese_monarchy"
+			country_rank = rank_kingdom
 			government = {
 				ruler = random
 			}
@@ -791,7 +949,12 @@ countries = {
 				zhenrong zhenwu zhenyuan zhigu zhongbu zhongdu zhongling zhuanghe zhuanglang zunhua
 			}
 			capital = aerzhai
+			discovered_regions = {
+				bengal_region east_china_region indochina_region japan_region korea_region manchuria_region mongolia_region north_china_region
+				south_china_region tibet_region west_china_region xinjiang_region
+			}
 			include = "chinese_monarchy"
+			country_rank = rank_kingdom
 			government = {
 				ruler = random
 			}
@@ -804,7 +967,11 @@ countries = {
 				willcahuain xllang
 			}
 			capital = apurlec
+			discovered_regions = {
+				andes_region brazil_region central_america_region colombia_region south_pacific_ocean_region
+			}
 			include = "andean_monarchy"
+			country_rank = rank_duchy
 			government = {
 				ruler = random
 			}
@@ -817,7 +984,11 @@ countries = {
 				zenina
 			}
 			capital = afso
+			discovered_regions = {
+				balkan_region france_region iberia_region italy_region macaronesia_region maghreb_region sahel_region south_german_region
+			}
 			include = "subsaharan_tribe"
+			country_rank = rank_duchy
 			government = {
 				ruler = random
 			}
@@ -829,7 +1000,11 @@ countries = {
 				muskerry nenagh roscrea tipperary tralee waterford youghal
 			}
 			capital = cashel
+			discovered_regions = {
+				france_region great_britain_region iberia_region ireland_region macaronesia_region north_atlantic_islands_region north_atlantic_ocean_region scandinavian_region
+			}
 			include = "gaelic_tribe"
+			country_rank = rank_duchy
 			government = {
 				ruler = random
 			}
@@ -839,7 +1014,11 @@ countries = {
 				acari cahuachi chinchay chullac chuqlluqucha ica incawasi puka_tampu pukiupukio
 			}
 			capital = acari
+			discovered_regions = {
+				andes_region brazil_region
+			}
 			include = "andean_monarchy"
+			country_rank = rank_county
 			government = {
 				ruler = random
 			}
@@ -852,7 +1031,12 @@ countries = {
 				soba wad_madani waylula
 			}
 			capital = abu_hamed
+			discovered_regions = {
+				arabia_region central_africa_region crescent_region egypt_region ethiopia_region great_lakes_region maghreb_region nubia_region
+				sahel_region somalia_region
+			}
 			include = "subsaharan_monarchy"
+			country_rank = rank_duchy
 			government = {
 				ruler = random
 			}
@@ -868,7 +1052,12 @@ countries = {
 				vardal vik voss
 			}
 			capital = amli
+			discovered_regions = {
+				baltic_region carpathia_region france_region great_britain_region ireland_region north_atlantic_islands_region north_german_region scandinavian_region
+				south_german_region
+			}
 			include = "eurasian_tribe"
+			country_rank = rank_duchy
 			government = {
 				ruler = random
 			}
@@ -878,7 +1067,11 @@ countries = {
 				kenmure kirkcudbright stranraer
 			}
 			capital = kenmure
+			discovered_regions = {
+				france_region great_britain_region ireland_region north_atlantic_islands_region north_atlantic_ocean_region north_german_region scandinavian_region
+			}
 			include = "gaelic_tribe"
+			country_rank = rank_county
 			government = {
 				ruler = random
 			}
@@ -892,7 +1085,11 @@ countries = {
 				ullapool urquhart
 			}
 			capital = aberdeen
+			discovered_regions = {
+				france_region great_britain_region ireland_region macaronesia_region north_atlantic_islands_region north_atlantic_ocean_region north_german_region scandinavian_region
+			}
 			include = "gaelic_tribe"
+			country_rank = rank_duchy
 			government = {
 				ruler = random
 			}
@@ -911,7 +1108,11 @@ countries = {
 				vellore vembar virudhunagar wayanad
 			}
 			capital = angadippuram
+			discovered_regions = {
+				bengal_region central_india_region deccan_region indian_ocean_region western_india_region
+			}
 			include = "indian_hindu_monarchy"
+			country_rank = rank_kingdom
 			government = {
 				ruler = random
 			}
@@ -932,7 +1133,12 @@ countries = {
 				zvolen zwettl
 			}
 			capital = balassagyarmat
+			discovered_regions = {
+				anatolia_region balkan_region baltic_region carpathia_region france_region great_britain_region iberia_region italy_region
+				north_german_region russian_region ruthenia_region scandinavian_region south_german_region steppes_region
+			}
 			include = "eurasian_tribe"
+			country_rank = rank_duchy
 			government = {
 				ruler = random
 			}
@@ -963,7 +1169,12 @@ countries = {
 				zavkhan zed zelterijin zhanaarka zhekdeliq zuun_garyn_gobi zyryan
 			}
 			capital = achit_nuur
+			discovered_regions = {
+				east_china_region east_siberia_region hindustan_region khorasan_region korea_region manchuria_region mongolia_region north_china_region
+				persia_region tibet_region west_china_region west_siberia_region xinjiang_region
+			}
 			include = "eurasian_horde_no_muslim"
+			country_rank = rank_kingdom
 			government = {
 				ruler = random
 			}
@@ -976,7 +1187,12 @@ countries = {
 				wolgast
 			}
 			capital = anklam
+			discovered_regions = {
+				balkan_region baltic_region carpathia_region france_region great_britain_region italy_region north_german_region ruthenia_region
+				scandinavian_region south_german_region
+			}
 			include = "eurasian_tribe"
+			country_rank = rank_duchy
 			government = {
 				ruler = random
 			}
@@ -1067,7 +1283,13 @@ countries = {
 				zuwayr
 			}
 			capital = baghdad
+			discovered_regions = {
+				anatolia_region arabia_region bengal_region carpathia_region caucasus_region central_india_region crescent_region deccan_region
+				egypt_region hindustan_region khorasan_region nubia_region persia_region ruthenia_region steppes_region tibet_region
+				western_india_region xinjiang_region
+			}
 			include = "eastern_european_monarchy"
+			country_rank = rank_empire
 			government = {
 				ruler = random
 			}
@@ -1086,7 +1308,12 @@ countries = {
 				wolfenbuttel zeven
 			}
 			capital = achim
+			discovered_regions = {
+				balkan_region baltic_region carpathia_region france_region great_britain_region iberia_region italy_region north_atlantic_islands_region
+				north_german_region scandinavian_region south_german_region
+			}
 			include = "eurasian_tribe"
+			country_rank = rank_duchy
 			government = {
 				ruler = random
 			}
@@ -1096,7 +1323,12 @@ countries = {
 				balta savran torhovytsia zavallia
 			}
 			capital = balta
+			discovered_regions = {
+				anatolia_region balkan_region baltic_region carpathia_region caucasus_region crescent_region russian_region ruthenia_region
+				scandinavian_region steppes_region
+			}
 			include = "eurasian_tribe"
+			country_rank = rank_county
 			government = {
 				ruler = random
 			}
@@ -1108,7 +1340,11 @@ countries = {
 				seonsan taegu uian uiseong ulju wonju yeongcheon yeongju yeongwol yeongyang
 			}
 			capital = andong
+			discovered_regions = {
+				east_china_region japan_region korea_region manchuria_region mongolia_region north_china_region
+			}
 			include = "east_asia_monarchy"
+			country_rank = rank_kingdom
 			government = {
 				ruler = random
 			}
@@ -1118,7 +1354,12 @@ countries = {
 				antwerp bergen_zoom breda cuijk eindhoven helmond hertogenbosch mechelen turnhout
 			}
 			capital = antwerp
+			discovered_regions = {
+				balkan_region france_region great_britain_region iberia_region ireland_region italy_region north_atlantic_islands_region north_german_region
+				scandinavian_region south_german_region
+			}
 			include = "eurasian_tribe"
+			country_rank = rank_county
 			government = {
 				ruler = random
 			}
@@ -1128,7 +1369,11 @@ countries = {
 				dumfries roxburgh selkirk
 			}
 			capital = dumfries
+			discovered_regions = {
+				france_region great_britain_region ireland_region north_atlantic_islands_region north_atlantic_ocean_region north_german_region scandinavian_region
+			}
 			include = "gaelic_tribe"
+			country_rank = rank_county
 			government = {
 				ruler = random
 			}
@@ -1142,7 +1387,12 @@ countries = {
 				tesin toszek trzebnica wolow wroclaw zagan zary ziebice zielona_gora zlotoryja
 			}
 			capital = bielsko
+			discovered_regions = {
+				anatolia_region balkan_region baltic_region carpathia_region france_region great_britain_region iberia_region italy_region
+				north_german_region russian_region ruthenia_region scandinavian_region south_german_region
+			}
 			include = "eurasian_tribe"
+			country_rank = rank_duchy
 			government = {
 				ruler = random
 			}
@@ -1156,7 +1406,11 @@ countries = {
 				strangnas tierp tingvalla uppsala varnum vasteras
 			}
 			capital = uppsala
+			discovered_regions = {
+				baltic_region great_britain_region north_german_region russian_region ruthenia_region scandinavian_region south_german_region
+			}
 			include = "eurasian_tribe"
+			country_rank = rank_duchy
 			government = {
 				ruler = random
 			}
@@ -1170,7 +1424,12 @@ countries = {
 				schleusingen schmalkalden sondershausen torgau weimar weissenfels wurzen zittau zwickau
 			}
 			capital = altenburg
+			discovered_regions = {
+				balkan_region baltic_region carpathia_region france_region great_britain_region iberia_region italy_region north_german_region
+				ruthenia_region scandinavian_region south_german_region
+			}
 			include = "eurasian_tribe"
+			country_rank = rank_duchy
 			government = {
 				ruler = random
 			}
@@ -1189,7 +1448,11 @@ countries = {
 				zama zapaluta zinacantan
 			}
 			capital = acasaguastlan
+			discovered_regions = {
+				aridoamerica_region caribbean_region central_america_region east_coast_region great_plains_region mesoamerica_region south_pacific_ocean_region
+			}
 			include = "amerindian_advanced_monarchy_not_nahuatl"
+			country_rank = rank_kingdom
 			government = {
 				ruler = random
 			}
@@ -1201,7 +1464,11 @@ countries = {
 				tlalpujahua tollan tollohcan tzitacuaro xaltocan xilotepec xochimilco zacazonapan zinapecuaro
 			}
 			capital = acambaro
+			discovered_regions = {
+				aridoamerica_region caribbean_region central_america_region great_plains_region mesoamerica_region north_pacific_ocean_region
+			}
 			include = "amerindian_advanced_monarchy_not_nahuatl"
+			country_rank = rank_kingdom
 			government = {
 				ruler = random
 			}
@@ -1213,7 +1480,11 @@ countries = {
 				magherafelt monaghan newtownards oriel raphoe strabane
 			}
 			capital = armagh
+			discovered_regions = {
+				france_region great_britain_region ireland_region macaronesia_region north_atlantic_islands_region north_atlantic_ocean_region north_german_region scandinavian_region
+			}
 			include = "gaelic_tribe"
+			country_rank = rank_duchy
 			government = {
 				ruler = random
 			}
@@ -1223,7 +1494,11 @@ countries = {
 				alnwick berwick dunbar duns edinburgh linlithgow morpeth
 			}
 			capital = alnwick
+			discovered_regions = {
+				france_region great_britain_region ireland_region north_atlantic_islands_region north_atlantic_ocean_region north_german_region scandinavian_region south_german_region
+			}
 			include = "gaelic_tribe"
+			country_rank = rank_county
 			government = {
 				ruler = random
 			}
@@ -1421,7 +1696,13 @@ countries = {
 				zintan zliten zogno zorita zuera zuoz zurich zuwarah zweibrucken
 			}
 			capital = milano
+			discovered_regions = {
+				anatolia_region balkan_region baltic_region carpathia_region crescent_region egypt_region france_region great_britain_region
+				iberia_region ireland_region italy_region macaronesia_region maghreb_region north_atlantic_islands_region north_atlantic_ocean_region north_german_region
+				ruthenia_region sahel_region scandinavian_region south_german_region steppes_region
+			}
 			include = "catholic_monarchy"
+			country_rank = rank_empire
 			government = {
 				ruler = random
 			}
@@ -1431,7 +1712,11 @@ countries = {
 				kashkanteniz kyzylsay moiynty mukur tokrau
 			}
 			capital = kashkanteniz
+			discovered_regions = {
+				hindustan_region khorasan_region west_siberia_region xinjiang_region
+			}
 			include = "eurasian_horde_no_muslim"
+			country_rank = rank_county
 			government = {
 				ruler = random
 			}
@@ -1444,7 +1729,11 @@ countries = {
 				yucucui yucundaa yucundeq zaachila zacatepec
 			}
 			capital = amoltepec
+			discovered_regions = {
+				aridoamerica_region caribbean_region central_america_region mesoamerica_region
+			}
 			include = "amerindian_advanced_monarchy_not_nahuatl"
+			country_rank = rank_duchy
 			government = {
 				ruler = random
 			}

@@ -183,3 +183,30 @@ def test_override_covering_no_land_and_scope_typo_error(tmp_path):
     assert errs and "no ownable land" in errs[0]
     errs, _ = b.check_coverage({"a1"}, {"a1": "AAA"}, anc, {"bogus_region"})
     assert errs and "bogus_region" in errs[0]
+
+
+def test_load_ranks_reports_unknown_rank_and_tag(tmp_path):
+    f = tmp_path / "ranks.txt"
+    f.write_text("rank_empire = AAA\nrank_emperor = BBB\nrank_duchy = ZZZ AAA\n")
+    ranks, errs = b.load_ranks(f, {"AAA": _tag(), "BBB": _tag()}, {"rank_empire", "rank_duchy", "rank_county"})
+    assert ranks["BBB"] == "rank_county"          # unlisted/invalid -> default
+    assert any("rank_emperor" in e for e in errs)
+    assert any("ZZZ" in e for e in errs)
+    assert any("AAA" in e and "twice" in e for e in errs)
+
+
+def test_discovered_regions_by_distance():
+    anc = {"a": ("c", "s", "home_region", "x", "p"), "b": ("c", "s", "near_region", "x", "p"),
+           "c": ("c", "s", "far_region", "x", "p"), "c2": ("c", "s", "far_region", "x", "p"),
+           "wrap": ("c", "s", "far_region", "x", "p")}   # map-wrapping sea zone: centroid lands mid-map
+    lonlat = {"a": (0.0, 0.0), "b": (5.0, 0.0), "c": (40.0, 0.0), "c2": (41.0, 0.0), "wrap": (1.0, 0.0)}
+    disc = b.discovered_regions(anc, lonlat, {"AAA": ["a"]}, radius_deg=8)
+    assert disc["AAA"] == ["home_region", "near_region"]
+
+
+def test_emit_countries_writes_rank_and_discovery():
+    text = b.emit_countries({"AAA": _tag()}, {"AAA": ["l1"]}, {"AAA": "l1"},
+                            ranks={"AAA": "rank_empire"}, discovered={"AAA": ["r1", "r2"]})
+    assert text.index("include =") < text.index("country_rank = rank_empire")   # after template: overrides it
+    assert re.search(r"discovered_regions = \{\s*r1 r2\s*\}", text)
+    assert text.count("{") == text.count("}")

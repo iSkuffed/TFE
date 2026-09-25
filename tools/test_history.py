@@ -75,3 +75,9 @@ def test_start_files_only_touch_owned_land(state, name):
     owned = {l for l, v in state["owner"].items() if v != "none"}
     refs = {w for w in re.findall(r"\w+", text) if w in state["anc"]}
     assert refs and not refs - owned, sorted(refs - owned)[:10]
+
+
+def test_empires_ranked_and_discovery_sane(state):
+    assert state["ranks"]["WRE"] == state["ranks"]["EAR"] == "rank_empire"
+    assert {"italy_region", "maghreb_region", "france_region"} <= set(state["discovered"]["WRE"])
+    assert "italy_region" not in state["discovered"]["GUP"]
