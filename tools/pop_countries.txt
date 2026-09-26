@@ -1,0 +1,3 @@
+# Societies of Pops (country_type = pop): own no land, their people live in their locations.
+# They migrate (vanilla Migrate Pops), plant camps and raise warbands (in_game/common/generic_actions/tfe_migratory.txt).
+HAS   # Hasding Vandals, upper Tisza; crossed the Rhine 406

@@ -235,3 +235,19 @@ def test_splice_dynasties_keeps_vanilla_and_adds_ours():
     out = b.splice_dynasties("dynasty_manager = {\n\ta_dynasty = { }\n}\n", "\tb_dynasty = { }\n")
     assert out.index("a_dynasty") < out.index("b_dynasty") < out.rindex("}")
     assert out.count("{") == out.count("}")
+
+
+def test_emit_countries_pop_based_hold_pops_not_land():
+    # a Society of Pops (vanilla SMI) owns nothing: its people live in the locations, which stay unowned
+    text = b.emit_countries({"AAA": _tag(), "BBB": _tag()}, {"AAA": ["l1"], "BBB": ["l2", "l3"]},
+                            {"AAA": "l1", "BBB": "l2"}, pop_based={"BBB"})
+    a, bb = text.split("BBB = {")
+    assert "own_control_core" in a and "capital = l1" in a and "type = pop" not in a
+    assert "type = pop" in bb and re.search(r"add_pops_from_locations = \{\s*l2 l3\s*\}", bb)
+    assert "own_control_core" not in bb and "capital" not in bb
+    assert text.count("{") == text.count("}")
+
+
+def test_landed_locations_exclude_pop_based_countries():
+    owner = {"l1": "AAA", "l2": "BBB", "l3": "none"}
+    assert b.landed_locations(owner, {"BBB"}) == {"l1"}

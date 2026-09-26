@@ -1,0 +1,9 @@
+﻿tfe_migratory_list = {
+	potential = {
+		country_type = pop
+	}
+	actions = {
+		tfe_make_camp
+		tfe_raise_warband
+	}
+}

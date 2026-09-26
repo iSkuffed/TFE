@@ -530,12 +530,12 @@ countries = {
 			}
 		}
 		HAS = { # Hasding Vandals
-			own_control_core = {
+			type = pop
+			add_pops_from_locations = {
 				abrahamtelke baia_mare beius bekes bihar borsod carei cheresig crasna debrecen
 				eger hajduszoboszlo heves hodod jaszbereny karcag kecskemet miskolc nagyboszormeny nagyecsed
 				nagykallo oradea pest syvlyush szabolcs szarvas szatmar szolnok varda zalau
 			}
-			capital = abrahamtelke
 			discovered_regions = {
 				anatolia_region balkan_region baltic_region carpathia_region italy_region north_german_region russian_region ruthenia_region
 				scandinavian_region south_german_region steppes_region

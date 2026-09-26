@@ -1,3 +1,16 @@
-# TFE stub: 1337 content removed
+# TFE 395: starting armies
 unit_manager = {
+	# The Hasding host on the upper Tisza, a Society of Pops that lives by its army
+	army = {
+		country = HAS
+		location = debrecen
+		sub_units = {
+			a_footmen = { strength = 1 }
+			a_footmen = { strength = 1 }
+			a_footmen = { strength = 1 }
+			a_footmen = { strength = 1 }
+			a_tribal_cavalry = { strength = 1 }
+			a_tribal_cavalry = { strength = 1 }
+		}
+	}
 }

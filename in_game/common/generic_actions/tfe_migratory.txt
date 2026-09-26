@@ -1,0 +1,114 @@
+﻿# TFE: migratory peoples (Societies of Pops) - the host plants a camp on empty land and raises warbands from its people.
+
+# The host claims the empty land it stands on as its camp and capital; the old camp is given up.
+tfe_make_camp = {
+	type = owncountry
+	icon = migrate_pop_based_country
+
+	potential = {
+		scope:actor = { country_type = pop }
+	}
+	allow = {
+		scope:actor = {
+			any_army = { unit_location = { is_land = yes is_ownable = yes has_owner = no } }
+		}
+	}
+
+	price = price:tfe_make_camp
+	cooldown = { type = tfe_make_camp years = 1 }
+
+	ai_tick = monthly
+	ai_tick_frequency = 6
+	automation_tick = never
+	automation_tick_frequency = 12
+
+	effect = {
+		custom_tooltip = tfe_make_camp_tt
+		hidden_effect = {
+			scope:actor = {
+				random_army = {
+					limit = { unit_location = { is_land = yes is_ownable = yes has_owner = no } }
+					unit_location = { save_scope_as = tfe_new_camp }
+				}
+				random_owned_location = {
+					limit = { has_variable = tfe_camp }
+					save_scope_as = tfe_old_camp
+				}
+				scope:tfe_new_camp = {
+					change_location_owner = scope:actor
+					add_core = scope:actor
+					set_variable = tfe_camp
+				}
+				set_capital = scope:tfe_new_camp
+				if = {
+					limit = { exists = scope:tfe_old_camp }
+					scope:tfe_old_camp = { remove_variable = tfe_camp }
+					abandon_location = scope:tfe_old_camp
+				}
+			}
+		}
+	}
+
+	ai_will_do = {
+		value = 0
+		if = {
+			limit = { scope:actor = { NOT = { any_owned_location = { has_variable = tfe_camp } } } }
+			add = 50
+		}
+	}
+}
+
+# Warriors of the people join the host: at the camp, else where the host stands, else among the people.
+tfe_raise_warband = {
+	type = owncountry
+	icon = migrate_pop_based_country
+
+	potential = {
+		scope:actor = { country_type = pop }
+	}
+	allow = {
+		scope:actor = { any_owned_nomad_pop = { always = yes } }
+	}
+
+	price = price:tfe_raise_warband
+	cooldown = { type = tfe_raise_warband years = 1 }
+
+	ai_tick = monthly
+	ai_tick_frequency = 3
+	automation_tick = never
+	automation_tick_frequency = 12
+
+	effect = {
+		custom_tooltip = tfe_raise_warband_tt
+		hidden_effect = {
+			scope:actor = {
+				if = {
+					limit = { any_owned_location = { has_variable = tfe_camp } }
+					random_owned_location = { limit = { has_variable = tfe_camp } save_scope_as = tfe_muster }
+				}
+				else_if = {
+					limit = { any_army = { always = yes } }
+					random_army = { unit_location = { save_scope_as = tfe_muster } }
+				}
+				else = {
+					random_owned_nomad_pop = { location = { save_scope_as = tfe_muster } }
+				}
+				scope:tfe_muster = {
+					while = {
+						count = 3
+						create_sub_unit_with_owner = { type = a_footmen owner = scope:actor origin = scope:tfe_muster }
+					}
+					create_sub_unit_with_owner = { type = a_tribal_cavalry owner = scope:actor origin = scope:tfe_muster }
+				}
+			}
+		}
+	}
+
+	ai_will_do = {
+		value = 0
+		if = {
+			limit = { scope:actor = { OR = { at_war = yes NOT = { any_army = { always = yes } } } } }
+			add = 50
+		}
+	}
+}

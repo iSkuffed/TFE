@@ -94,7 +94,7 @@ def test_scenario_countries_are_landed_tfe_tags(state):
 def test_start_files_only_touch_owned_land(state, name):
     # vanilla never has a market centre, town or road on unowned land; the start setup crashes on it
     text = re.sub(r"#[^\n]*", "", (b.MOD / "main_menu/setup/start" / f"{name}.txt").read_text(encoding="utf-8"))
-    owned = {l for l, v in state["owner"].items() if v != "none"}
+    owned = b.landed_locations(state["owner"], state["pop_based"])
     refs = {w for w in re.findall(r"\w+", text) if w in state["anc"]}
     assert refs and not refs - owned, sorted(refs - owned)[:10]
 
@@ -110,3 +110,10 @@ def test_diplomacy_links_landed_tags(state):
     pairs = re.findall(r"first\s*=\s*(\w+)\s+second\s*=\s*(\w+)", text)
     assert ("EAR", "VIS") in pairs and ("WRE", "BAQ") in pairs
     assert all(t in state["owned"] for p in pairs for t in p), pairs
+
+
+def test_vandals_are_a_society_of_pops(state):
+    text = (b.MOD / "main_menu/setup/start/10_countries.txt").read_text(encoding="utf-8")
+    block = text[text.index("\t\tHAS = {"):].split("\n\t\t}\n")[0]
+    assert "type = pop" in block and "add_pops_from_locations" in block and "own_control_core" not in block
+    assert "HAS" in state["pop_based"] and "debrecen" not in b.landed_locations(state["owner"], state["pop_based"])

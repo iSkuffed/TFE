@@ -403,7 +403,6 @@ locations={
 	taza = { rank = town 		town_setup = maghreb_town }
 	
 	# Carpathia
-	pest = { rank = town 				town_setup = carpathian_town }
 	bratislava = { rank = town 			town_setup = carpathian_town }
 	bucharest = { rank = town 			town_setup = carpathian_town }
 	buda = { rank = city 				town_setup = carpathian_town }
