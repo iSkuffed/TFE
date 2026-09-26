@@ -1,0 +1,108 @@
+﻿# TFE: the Imperium Romanum - one empire under two Augusti (395). Unity decides how far the halves act as one.
+tfe_roman_empire = {
+	has_target = no
+	unique = yes
+	show_on_diplomatic_map = yes
+	member_color = rgb { 120 30 100 }
+
+	show_as_overlord_on_map_trigger = { always = yes }
+	create_visible_trigger = { always = no }
+	invite_visible_trigger = { always = no }
+
+	variables = {
+		tfe_unity = {
+			format = "tfe_unity_DISPLAY"
+			change_format = "VARIABLE_CHANGE_FORMAT"
+			start = 65
+			min = 0
+			max = 100
+			monthly_change = {
+				subtract = { desc = "TFE_UNITY_DRIFT" value = 0.1 }
+				add = {
+					if = {
+						limit = { c:WRE ?= { ruler ?= { dynasty ?= c:EAR.ruler.dynasty } } }
+						add = { desc = "TFE_UNITY_ONE_DYNASTY" value = 0.1 }
+					}
+					if = {
+						limit = { c:EAR ?= { any_country_at_war_with = { is_at_war_with = c:WRE } } }
+						add = { desc = "TFE_UNITY_COMMON_ENEMY" value = 0.15 }
+					}
+				}
+				subtract = {
+					if = {
+						limit = { c:WRE ?= { opinion = { target = c:EAR value < 0 } } }
+						add = { desc = "TFE_UNITY_WEST_RESENTS" value = 0.1 }
+					}
+					if = {
+						limit = { c:EAR ?= { opinion = { target = c:WRE value < 0 } } }
+						add = { desc = "TFE_UNITY_EAST_RESENTS" value = 0.1 }
+					}
+					if = {
+						limit = {
+							OR = {
+								c:WRE ?= { any_core_location = { owner = c:EAR } }
+								c:EAR ?= { any_core_location = { owner = c:WRE } }
+							}
+						}
+						add = { desc = "TFE_UNITY_DISPUTED_LANDS" value = 0.1 }
+					}
+					# Closing the roads to the other Augustus; the IO grants access itself from 75 up
+					if = {
+						limit = { var:tfe_unity < 75 c:WRE ?= { NOT = { gives_military_access_to = c:EAR } } }
+						add = { desc = "TFE_UNITY_ACCESS_DENIED" value = 0.1 }
+					}
+					if = {
+						limit = { var:tfe_unity < 75 c:EAR ?= { NOT = { gives_military_access_to = c:WRE } } }
+						add = { desc = "TFE_UNITY_ACCESS_DENIED" value = 0.1 }
+					}
+					if = {
+						limit = { c:WRE ?= { is_at_war_with = c:EAR } }
+						add = { desc = "TFE_UNITY_CIVIL_WAR" value = 1 }
+					}
+				}
+			}
+		}
+	}
+
+	# >= 75: one army of Rome
+	has_military_access = {
+		var:tfe_unity >= 75
+	}
+	join_defensive_wars_auto_call = { var:tfe_unity >= 75 }
+	# >= 50: the other Augustus can be asked for help
+	join_defensive_wars_can_call = { var:tfe_unity >= 50 }
+
+	# < 50: the Augusti may go to war with each other, but only over the succession of the Empire
+	can_declare_war = {
+		trigger_if = {
+			limit = {
+				scope:attacker ?= { is_member_of_international_organization = scope:recipient }
+				scope:defender ?= { is_member_of_international_organization = scope:recipient }
+			}
+			scope:recipient.var:tfe_unity < 50
+		}
+		trigger_else = { always = yes }
+	}
+
+	ai_desire_to_attack_other_members = {
+		if = {
+			limit = { scope:recipient.var:tfe_unity >= 35 }
+			subtract = { desc = "TFE_UNITY_HOLDS" value = 10000 }
+		}
+	}
+
+	modifier = {
+		monthly_legitimacy = 0.05
+	}
+	modifier = {
+		potential_trigger = { scope:recipient.var:tfe_unity >= 75 }
+		monthly_prestige = 0.1
+	}
+
+	auto_disband_trigger = {
+		OR = {
+			var:tfe_unity <= 0
+			total_members < 2
+		}
+	}
+}

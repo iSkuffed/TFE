@@ -1,0 +1,12 @@
+﻿# TFE: civil war between the halves of the Empire, only once Unity has collapsed below 50
+cb_tfe_war_of_the_augusti = {
+	create_visible = {
+		is_member_of_international_organization = international_organization:tfe_roman_empire
+		scope:target = { is_member_of_international_organization = international_organization:tfe_roman_empire }
+	}
+	create_enabled = {
+		international_organization:tfe_roman_empire.var:tfe_unity < 50
+	}
+	speed = 10
+	war_goal_type = superiority
+}

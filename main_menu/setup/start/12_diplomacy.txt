@@ -4,4 +4,7 @@ diplomacy_manager = {
 	dependency = { first = EAR second = VIS subject_type = vassal start_date = 382.10.3 }
 	# Baquates, Western client in Tingitana (treaty altars at Volubilis, 3rd c.)
 	dependency = { first = WRE second = BAQ subject_type = vassal }
+	# Roads of the one Empire stay open; closing them costs Unity
+	scripted_oneway = { first = WRE second = EAR type = military_access }
+	scripted_oneway = { first = EAR second = WRE type = military_access }
 }

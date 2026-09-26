@@ -1,3 +1,9 @@
-# TFE stub: 1337 content removed
+# TFE 395: one Empire, two courts
 international_organization_manager = {
+	add_international_organization = {
+		type = tfe_roman_empire
+		creation_date = 395.1.17
+		map_color = hsv360 { 300 60 45 }
+		members = { WRE EAR }
+	}
 }
