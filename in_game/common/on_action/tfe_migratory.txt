@@ -1,0 +1,34 @@
+﻿# TFE: the first land a migrating host (generic_actions/tfe_migratory.txt) wins ends the migration. The great host
+# disbands back to the warband it started with; its free upkeep (auto_modifiers/tfe_migratory.txt) ends for good.
+on_location_changed_owner = {
+	on_actions = { tfe_on_host_settles }
+}
+
+tfe_on_host_settles = {
+	trigger = {
+		exists = scope:winner
+		scope:winner = {
+			has_variable = tfe_migrating
+			NOT = { has_variable = tfe_settled }
+		}
+	}
+	effect = {
+		scope:winner = {
+			set_variable = tfe_settled
+			# the host breaks up and its old warband (setup/start/27_armies.txt) re-forms where it stood. Whole armies
+			# go: destroying sub-units one by one crashed the game a tick later.
+			random_army = { unit_location = { save_scope_as = tfe_warband_site } }
+			every_army = { destroy_unit = yes }
+			scope:tfe_warband_site = {
+				while = {
+					count = 4
+					create_sub_unit_with_owner = { type = a_footmen owner = scope:winner origin = scope:tfe_warband_site }
+				}
+				while = {
+					count = 2
+					create_sub_unit_with_owner = { type = a_tribal_cavalry owner = scope:winner origin = scope:tfe_warband_site }
+				}
+			}
+		}
+	}
+}

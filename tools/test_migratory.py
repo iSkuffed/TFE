@@ -1,6 +1,7 @@
 """Migratory peoples: an army-based host gives up its homeland for a large host that costs nothing while landless."""
 import re
 import sys
+from collections import Counter
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -12,9 +13,10 @@ AUTO = COMMON / "auto_modifiers/tfe_migratory.txt"
 AI_LIST = COMMON / "generic_action_ai_lists/tfe_migratory_list.txt"
 CB = COMMON / "casus_belli/tfe_migration.txt"
 WARGOAL = COMMON / "wargoals/tfe_migration.txt"
+SETTLE = COMMON / "on_action/tfe_migratory.txt"
 LOC = b.MOD / "main_menu/localization/english/tfe_migratory_l_english.yml"
 ARMIES = b.MOD / "main_menu/setup/start/27_armies.txt"
-SCRIPTS = (ACTIONS, AUTO, AI_LIST, CB, WARGOAL)
+SCRIPTS = (ACTIONS, AUTO, AI_LIST, CB, WARGOAL, SETTLE)
 NEW_ACTIONS = ("tfe_start_migration",)
 
 
@@ -42,6 +44,22 @@ def test_start_migration_is_a_one_way_trip_for_hosts():
     potential = re.search(r"potential = \{(.*?)\n\t\}", acts, re.S).group(1)
     assert "NOT = { has_variable = tfe_migrating }" in potential   # once only: the host never comes back
     assert "set_variable = tfe_migrating" in acts and "every_owned_location" in acts and "abandon_location" in acts
+
+
+def test_the_host_disbands_back_to_its_old_warband_once_it_takes_land():
+    # user: force disband the special troops after the migration; otherwise one location has to pay 16,000 men
+    on = code(SETTLE)
+    assert re.search(r"on_location_changed_owner = \{\s*on_actions = \{\s*tfe_on_host_settles\s*\}", on)
+    trigger = re.search(r"tfe_on_host_settles = \{\s*trigger = \{(.*?)\n\t\}", on, re.S).group(1)
+    assert "has_variable = tfe_migrating" in trigger and "NOT = { has_variable = tfe_settled }" in trigger   # once
+    assert "set_variable = tfe_settled" in on
+    host = re.search(r"country = HAS.*?sub_units = \{(.*?)\n\t\t\}", code(ARMIES), re.S).group(1)
+    # destroying sub-units one by one crashed the game a tick later; vanilla drops whole armies (destroy_unit)
+    assert "destroy_subunit" not in on and "every_army = { destroy_unit = yes }" in on
+    raised = re.findall(r"count = (\d+)\s*create_sub_unit_with_owner = \{ type = (\w+)", on)
+    assert Counter({t: int(n) for n, t in raised}) == Counter(re.findall(r"(a_\w+) = \{", host))
+    trigger = re.search(r"potential_trigger = \{(.*?)\n\t\}", code(AUTO), re.S).group(1)
+    assert "NOT = { has_variable = tfe_settled }" in trigger   # losing the land again does not make it free
 
 
 def test_camp_warband_and_their_prices_are_gone():

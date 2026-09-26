@@ -58,72 +58,72 @@ locations={
 	sligo = { rank = town 			town_setup = british_town_port}
 	
 	# greece
-	athens = { rank = city			town_setup = greek_city_port }
-	thessaloniki = { rank = city 	town_setup = greek_city_port }
+	athens = { rank = city			town_setup = tfe_unfortified_greek_city_port }
+	thessaloniki = { rank = city 	town_setup = tfe_unfortified_greek_city_port }
 	candia = { rank = town 			town_setup = greek_town_port }
 	corinth = { rank = town 		town_setup = greek_town_port }
-	ioannina = { rank = town 		town_setup = balkan_town }
+	ioannina = { rank = town 		town_setup = tfe_unfortified_balkan_town }
 	kalamata = { rank = town 		town_setup = greek_town_port }
-	larissa = { rank = town 		town_setup = balkan_town }
+	larissa = { rank = town 		town_setup = tfe_unfortified_balkan_town }
 	rodos = { rank = town 			town_setup = greek_town_port }
 	
 	# albania
-	durres = { rank = town 			town_setup = balkan_town }
+	durres = { rank = town 			town_setup = tfe_unfortified_balkan_town }
 	
 	# turkey (modern day)
-	constantinople = { rank = megalopolis 	town_setup = greek_city_port }
-	edirne = { rank = town 			town_setup = balkan_town }
+	constantinople = { rank = megalopolis 	town_setup = tfe_unfortified_greek_city_port }
+	edirne = { rank = town 			town_setup = tfe_unfortified_balkan_town }
 	gallipoli = { rank = town 		town_setup = greek_town_port }
 	
 	# bulgaria
 	tarnovo = { rank = city 		town_setup = balkan_town }
 	cherven = { rank = town 		town_setup = balkan_town }
-	drastar = { rank = town 		town_setup = balkan_town }
-	plovdiv = { rank = town 		town_setup = balkan_town }
+	drastar = { rank = town 		town_setup = tfe_unfortified_balkan_town }
+	plovdiv = { rank = town 		town_setup = tfe_unfortified_balkan_town }
 	ruse = { rank = town 			town_setup = balkan_town }	
-	shumen = { rank = town 			town_setup = balkan_town }
-	sliven = { rank = town 			town_setup = balkan_town }
-	sredets = { rank = town 		town_setup = balkan_town }
-	targoviste_BUL = { rank = town 	town_setup = balkan_town }
-	varna = { rank = town 			town_setup = balkan_town }
+	shumen = { rank = town 			town_setup = tfe_unfortified_balkan_town }
+	sliven = { rank = town 			town_setup = tfe_unfortified_balkan_town }
+	sredets = { rank = town 		town_setup = tfe_unfortified_balkan_town }
+	targoviste_BUL = { rank = town 	town_setup = tfe_unfortified_balkan_town }
+	varna = { rank = town 			town_setup = tfe_unfortified_balkan_town }
 	vidin = { rank = town 			town_setup = balkan_town }	
 	
 	#ex-yugoslavia
-	belgrad = { rank = town 		town_setup = balkan_town }
-	nis = { rank = town 			town_setup = balkan_town }	
-	ohrid = { rank = town 			town_setup = balkan_town }	
-	prizren = { rank = town 		town_setup = balkan_town }	
-	skopje = { rank = town 			town_setup = balkan_town }	
-	dubrovnik = { rank = city 		town_setup = dubrovnik_city }
-	knin = { rank = town 			town_setup = balkan_town }	
-	rijeka = { rank = town 			town_setup = balkan_town }	
-	zagreb = { rank = town 			town_setup = balkan_town }	
+	belgrad = { rank = town 		town_setup = tfe_unfortified_balkan_town }
+	nis = { rank = town 			town_setup = tfe_unfortified_balkan_town }	
+	ohrid = { rank = town 			town_setup = tfe_unfortified_balkan_town }	
+	prizren = { rank = town 		town_setup = tfe_unfortified_balkan_town }	
+	skopje = { rank = town 			town_setup = tfe_unfortified_balkan_town }	
+	dubrovnik = { rank = city 		town_setup = tfe_unfortified_dubrovnik_city }
+	knin = { rank = town 			town_setup = tfe_unfortified_balkan_town }	
+	rijeka = { rank = town 			town_setup = tfe_unfortified_balkan_town }	
+	zagreb = { rank = town 			town_setup = tfe_unfortified_balkan_town }	
 	
 	#Italy	
-	aquila = { rank = city			town_setup = italian_city }
-	ancona = { rank = city 			town_setup = italian_coastal_city }
-	ascolipiceno = { rank = city 	town_setup = italian_coastal_city }
-	bologna = { rank = city 		town_setup = italian_city }
-	brescia = { rank = city 		town_setup = italian_city }
-	cremona = { rank = city 		town_setup = italian_city }
-	ferrara = { rank = city 		town_setup = italian_city }
-	florence = { rank = city 		town_setup = florence_city }
-	genoa = { rank = city 			town_setup = genoa_city }
-	lucca = { rank = city 			town_setup = italian_coastal_city }
-	mantova = { rank = city 		town_setup = italian_city }
-	messina = { rank = city 		town_setup = italian_coastal_city }
-	milano = { rank = city 			town_setup = milan_city }
-	naples = { rank = city 			town_setup = italian_trading_capital }
-	padova = { rank = city 			town_setup = italian_city }
-	palermo = { rank = city 		town_setup = italian_coastal_city }
-	parma = { rank = city 			town_setup = italian_city }
-	pavia = { rank = city			town_setup = italian_city }
-	perugia = { rank = city 		town_setup = italian_city }
-	pisa = { rank = city 			town_setup = italian_trading_capital }
-	rome = { rank = city 			town_setup = italian_coastal_city }
-	siena = { rank = city 			town_setup = italian_city }
-	venice = { rank = city 			town_setup = venice_city }
-	verona = { rank = city 			town_setup = italian_city }
+	aquila = { rank = city			town_setup = tfe_unfortified_italian_city }
+	ancona = { rank = city 			town_setup = tfe_unfortified_italian_coastal_city }
+	ascolipiceno = { rank = city 	town_setup = tfe_unfortified_italian_coastal_city }
+	bologna = { rank = city 		town_setup = tfe_unfortified_italian_city }
+	brescia = { rank = city 		town_setup = tfe_unfortified_italian_city }
+	cremona = { rank = city 		town_setup = tfe_unfortified_italian_city }
+	ferrara = { rank = city 		town_setup = tfe_unfortified_italian_city }
+	florence = { rank = city 		town_setup = tfe_unfortified_florence_city }
+	genoa = { rank = city 			town_setup = tfe_unfortified_genoa_city }
+	lucca = { rank = city 			town_setup = tfe_unfortified_italian_coastal_city }
+	mantova = { rank = city 		town_setup = tfe_unfortified_italian_city }
+	messina = { rank = city 		town_setup = tfe_unfortified_italian_coastal_city }
+	milano = { rank = city 			town_setup = tfe_unfortified_milan_city }
+	naples = { rank = city 			town_setup = tfe_unfortified_italian_trading_capital }
+	padova = { rank = city 			town_setup = tfe_unfortified_italian_city }
+	palermo = { rank = city 		town_setup = tfe_unfortified_italian_coastal_city }
+	parma = { rank = city 			town_setup = tfe_unfortified_italian_city }
+	pavia = { rank = city			town_setup = tfe_unfortified_italian_city }
+	perugia = { rank = city 		town_setup = tfe_unfortified_italian_city }
+	pisa = { rank = city 			town_setup = tfe_unfortified_italian_trading_capital }
+	rome = { rank = city 			town_setup = tfe_unfortified_italian_coastal_city }
+	siena = { rank = city 			town_setup = tfe_unfortified_italian_city }
+	venice = { rank = city 			town_setup = tfe_unfortified_venice_city }
+	verona = { rank = city 			town_setup = tfe_unfortified_italian_city }
 	
 	alessandria = { rank = town 	town_setup = italian_town }
 	arezzo = { rank = town 			town_setup = italian_town }
@@ -188,81 +188,81 @@ locations={
 	volterra = { rank = town 		town_setup = italian_town }
 	
 	#France
-	angers = { rank = city 		town_setup = french_city }
-	arras = { rank = city 		town_setup = french_city }
-	bordeaux = { rank = city 	town_setup = bordeaux_city }
-	marseille = { rank = city 	town_setup = french_city }
-	metz = { rank = city 		town_setup = french_city }
-	montpellier = { rank = city town_setup = french_city }
-	narbonne = { rank = city 	town_setup = french_city }
-	paris = { rank = city 		town_setup = paris_city }
-	rouen = { rank = city 		town_setup = french_city }
-	saint_omer = { rank = town 	town_setup = french_town }
-	toulouse = { rank = city 	town_setup = french_city }
-	tours = { rank = city 		town_setup = french_city }
-	troyes = { rank = city 		town_setup = troyes_city }
+	angers = { rank = city 		town_setup = tfe_unfortified_french_city }
+	arras = { rank = city 		town_setup = tfe_unfortified_french_city }
+	bordeaux = { rank = city 	town_setup = tfe_unfortified_bordeaux_city }
+	marseille = { rank = city 	town_setup = tfe_unfortified_french_city }
+	metz = { rank = city 		town_setup = tfe_unfortified_french_city }
+	montpellier = { rank = city town_setup = tfe_unfortified_french_city }
+	narbonne = { rank = city 	town_setup = tfe_unfortified_french_city }
+	paris = { rank = city 		town_setup = tfe_unfortified_paris_city }
+	rouen = { rank = city 		town_setup = tfe_unfortified_french_city }
+	saint_omer = { rank = town 	town_setup = tfe_unfortified_french_town }
+	toulouse = { rank = city 	town_setup = tfe_unfortified_french_city }
+	tours = { rank = city 		town_setup = tfe_unfortified_french_city }
+	troyes = { rank = city 		town_setup = tfe_unfortified_troyes_city }
 	
-	agen = { rank = town 			town_setup = french_town }
-	aix_en_provence = { rank = town town_setup = french_town }
-	albi = { rank = town town_setup = french_town }
-	amiens = { rank = town town_setup = french_town }
-	angouleme = { rank = town town_setup = french_town }
-	arles = { rank = town town_setup = french_town }
-	autun = { rank = town town_setup = french_town }
-	avignon = { rank = town town_setup = french_town }
-	bayonne = { rank = town town_setup = iberian_town_port }
-	beauvais = { rank = town town_setup = french_town }
-	besancon = { rank = town town_setup = french_town }
-	beziers = { rank = town town_setup = french_town }
-	blois = { rank = town town_setup = french_town }
-	bourges = { rank = town town_setup = french_town }
-	caen = { rank = town town_setup = french_town }
-	cahors = { rank = town town_setup = french_town }
-	carcassonne = { rank = town town_setup = french_town }
-	chalons_champagne = { rank = town town_setup = french_town }
-	chartres = { rank = town town_setup = french_town }
-	cherbourg = { rank = town town_setup = french_town }
-	clermont = { rank = town town_setup = french_town }
-	dijon = { rank = town town_setup = french_town }
-	colmar = { rank = town town_setup = french_town }
-	mulhouse = { rank = town town_setup = french_town }
-	laon = { rank = town town_setup = french_town }
-	le_puy = { rank = town town_setup = french_town }
-	lyon = { rank = town town_setup = french_town }
-	montauban = { rank = town town_setup = french_town }
-	montbrison = { rank = town town_setup = french_town }
-	nantes = { rank = town town_setup = french_town }
-	nice = { rank = town town_setup = french_town }
-	nimes = { rank = town town_setup = french_town }
-	orleans = { rank = town town_setup = french_town }
-	perigueux = { rank = town town_setup = french_town }
-	perpignan = { rank = town town_setup = iberian_town_port }
-	poitiers = { rank = town town_setup = french_town }
-	provins = { rank = town town_setup = french_town }
-	reims = { rank = town town_setup = french_town }
-	rennes = { rank = town town_setup = french_town }
-	rodez = { rank = town town_setup = french_town }
-	saint_flour = { rank = town town_setup = french_town }
-	sens = { rank = town town_setup = french_town }
-	sisteron = { rank = town town_setup = french_town }
-	strasbourg = { rank = town town_setup = french_town }
-	tarbes = { rank = town town_setup = french_town } #Bagneres-de-Bigorre
-	valence = { rank = town town_setup = french_town  }
-	vienne = { rank = town town_setup = french_town  }
+	agen = { rank = town 			town_setup = tfe_unfortified_french_town }
+	aix_en_provence = { rank = town town_setup = tfe_unfortified_french_town }
+	albi = { rank = town town_setup = tfe_unfortified_french_town }
+	amiens = { rank = town town_setup = tfe_unfortified_french_town }
+	angouleme = { rank = town town_setup = tfe_unfortified_french_town }
+	arles = { rank = town town_setup = tfe_unfortified_french_town }
+	autun = { rank = town town_setup = tfe_unfortified_french_town }
+	avignon = { rank = town town_setup = tfe_unfortified_french_town }
+	bayonne = { rank = town town_setup = tfe_unfortified_iberian_town_port }
+	beauvais = { rank = town town_setup = tfe_unfortified_french_town }
+	besancon = { rank = town town_setup = tfe_unfortified_french_town }
+	beziers = { rank = town town_setup = tfe_unfortified_french_town }
+	blois = { rank = town town_setup = tfe_unfortified_french_town }
+	bourges = { rank = town town_setup = tfe_unfortified_french_town }
+	caen = { rank = town town_setup = tfe_unfortified_french_town }
+	cahors = { rank = town town_setup = tfe_unfortified_french_town }
+	carcassonne = { rank = town town_setup = tfe_unfortified_french_town }
+	chalons_champagne = { rank = town town_setup = tfe_unfortified_french_town }
+	chartres = { rank = town town_setup = tfe_unfortified_french_town }
+	cherbourg = { rank = town town_setup = tfe_unfortified_french_town }
+	clermont = { rank = town town_setup = tfe_unfortified_french_town }
+	dijon = { rank = town town_setup = tfe_unfortified_french_town }
+	colmar = { rank = town town_setup = tfe_unfortified_french_town }
+	mulhouse = { rank = town town_setup = tfe_unfortified_french_town }
+	laon = { rank = town town_setup = tfe_unfortified_french_town }
+	le_puy = { rank = town town_setup = tfe_unfortified_french_town }
+	lyon = { rank = town town_setup = tfe_unfortified_french_town }
+	montauban = { rank = town town_setup = tfe_unfortified_french_town }
+	montbrison = { rank = town town_setup = tfe_unfortified_french_town }
+	nantes = { rank = town town_setup = tfe_unfortified_french_town }
+	nice = { rank = town town_setup = tfe_unfortified_french_town }
+	nimes = { rank = town town_setup = tfe_unfortified_french_town }
+	orleans = { rank = town town_setup = tfe_unfortified_french_town }
+	perigueux = { rank = town town_setup = tfe_unfortified_french_town }
+	perpignan = { rank = town town_setup = tfe_unfortified_iberian_town_port }
+	poitiers = { rank = town town_setup = tfe_unfortified_french_town }
+	provins = { rank = town town_setup = tfe_unfortified_french_town }
+	reims = { rank = town town_setup = tfe_unfortified_french_town }
+	rennes = { rank = town town_setup = tfe_unfortified_french_town }
+	rodez = { rank = town town_setup = tfe_unfortified_french_town }
+	saint_flour = { rank = town town_setup = tfe_unfortified_french_town }
+	sens = { rank = town town_setup = tfe_unfortified_french_town }
+	sisteron = { rank = town town_setup = tfe_unfortified_french_town }
+	strasbourg = { rank = town town_setup = tfe_unfortified_french_town }
+	tarbes = { rank = town town_setup = tfe_unfortified_french_town } #Bagneres-de-Bigorre
+	valence = { rank = town town_setup = tfe_unfortified_french_town  }
+	vienne = { rank = town town_setup = tfe_unfortified_french_town  }
 
-	la_rochelle = { rank = town town_setup = french_town }
+	la_rochelle = { rank = town town_setup = tfe_unfortified_french_town }
 
 	#Germany
 	lubeck = { rank = city town_setup = lubeck_city }
 	erfurt = { rank = city town_setup = german_city }
-	cologne = { rank = city town_setup = cologne_city }
-	speyer = { rank = city town_setup = german_city }
-	mainz = { rank = city town_setup = german_city }
-	augsburg = { rank = city town_setup = german_city }
+	cologne = { rank = city town_setup = tfe_unfortified_cologne_city }
+	speyer = { rank = city town_setup = tfe_unfortified_german_city }
+	mainz = { rank = city town_setup = tfe_unfortified_german_city }
+	augsburg = { rank = city town_setup = tfe_unfortified_german_city }
 	prague = { rank = city town_setup = prague_city }
-	vienna = { rank = city town_setup = german_city }
+	vienna = { rank = city town_setup = tfe_unfortified_german_city }
 	
-	aachen = { rank = town town_setup = german_town }
+	aachen = { rank = town town_setup = tfe_unfortified_german_town }
 	bamberg = { rank = town town_setup = german_town }
 	brandenburg = { rank = town town_setup = german_town }
 	berlin = { rank = town town_setup = german_town }
@@ -279,33 +279,33 @@ locations={
 	halberstadt = { rank = town town_setup = german_town }
 	halle_an_der_saale = { rank = town town_setup = german_town }
 	heidelberg = { rank = town town_setup = german_town }
-	konstanz = { rank = town town_setup = german_town }
+	konstanz = { rank = town town_setup = tfe_unfortified_german_town }
 	leipzig = { rank = town town_setup = german_town }
 	luneburg = { rank = town town_setup = german_town }
 	magdeburg = { rank = city town_setup = german_city }
-	munich = { rank = town town_setup = german_town }
+	munich = { rank = town town_setup = tfe_unfortified_german_town }
 	munster = { rank = town town_setup = german_town }
 	oettingen = { rank = town town_setup = german_town }
 	nuremberg = { rank = town town_setup = nuremberg_town }
 	osnabruck = { rank = town town_setup = german_town }
 	paderborn = { rank = town town_setup = german_town }
-	regensburg = { rank = town town_setup = german_town }
+	regensburg = { rank = town town_setup = tfe_unfortified_german_town }
 	ravensburg = { rank = town town_setup = german_town }
 	rothenburg = { rank = town town_setup = german_town }
 	soest = { rank = town town_setup = german_town }
 	stuttgart = { rank = town town_setup = german_town }
 	ulm = { rank = town town_setup = german_town }
-	trier = { rank = town town_setup = german_town }
+	trier = { rank = town town_setup = tfe_unfortified_german_town }
 	dusseldorf = { rank = town town_setup = german_town }
 	wetzlar = { rank = town town_setup = german_town }
-	worms = { rank = town town_setup = german_town }
+	worms = { rank = town town_setup = tfe_unfortified_german_town }
 	wurzburg = { rank = town town_setup = german_town }
 	zerbst = { rank = town town_setup = german_town }
-	zurich = { rank = town town_setup = german_town }
-	geneve = { rank = town town_setup = german_town }
-	bern = { rank = town town_setup = german_town }
-	graz = { rank = town town_setup = german_town }
-	innsbruck = { rank = town town_setup = german_town }
+	zurich = { rank = town town_setup = tfe_unfortified_german_town }
+	geneve = { rank = town town_setup = tfe_unfortified_german_town }
+	bern = { rank = town town_setup = tfe_unfortified_german_town }
+	graz = { rank = town town_setup = tfe_unfortified_german_town }
+	innsbruck = { rank = town town_setup = tfe_unfortified_german_town }
 	wittenberg = { rank = town town_setup = german_town }
 
 	wolgast = { rank = town town_setup = german_coastal_town } #Greifswald
@@ -316,9 +316,9 @@ locations={
 	wismar = { rank = town town_setup = german_coastal_town }
 	stettin = { rank = town town_setup = german_coastal_town }
 
-	kempten = { rank = town town_setup = german_town }
-	memmingen = { rank = town town_setup = german_town }
-	landau_rhineland = { rank = town town_setup = german_town }
+	kempten = { rank = town town_setup = tfe_unfortified_german_town }
+	memmingen = { rank = town town_setup = tfe_unfortified_german_town }
+	landau_rhineland = { rank = town town_setup = tfe_unfortified_german_town }
 
 	brno = { rank = town town_setup = german_town }
 	kutna_hora = { rank = town town_setup = german_town }
@@ -326,38 +326,38 @@ locations={
 	opole = { rank = town town_setup = german_town }
 	plzen = { rank = town town_setup = german_town }
 
-	linz = { rank = town town_setup = german_town }
-	melk = { rank = town town_setup = german_town }
-	klagenfurt = { rank = town town_setup = german_town }
-	salzburg = { rank = town town_setup = german_town }
+	linz = { rank = town town_setup = tfe_unfortified_german_town }
+	melk = { rank = town town_setup = tfe_unfortified_german_town }
+	klagenfurt = { rank = town town_setup = tfe_unfortified_german_town }
+	salzburg = { rank = town town_setup = tfe_unfortified_german_town }
 
 	#Low Countries	
-	bruges = { rank = city 				town_setup = bruges_city }
-	ghent = { rank = city 				town_setup = ghent_city }
-	ypres = { rank = town 				town_setup = ypres_town }
+	bruges = { rank = city 				town_setup = tfe_unfortified_bruges_city }
+	ghent = { rank = city 				town_setup = tfe_unfortified_ghent_city }
+	ypres = { rank = town 				town_setup = tfe_unfortified_ypres_town }
 
 	antwerp = { rank = town 			town_setup = lowlands_costal_town }
-	the_hague = { rank = town 			town_setup = lowlands_costal_town }
+	the_hague = { rank = town 			town_setup = tfe_unfortified_lowlands_costal_town }
 	amsterdam = { rank = town 			town_setup = lowlands_costal_town }
-	middelburg = { rank = town 			town_setup = lowlands_costal_town }
+	middelburg = { rank = town 			town_setup = tfe_unfortified_lowlands_costal_town }
 	groningen = { rank = town 			town_setup = lowlands_costal_town }
-	utrecht = { rank = town 			town_setup = lowlands_town }
+	utrecht = { rank = town 			town_setup = tfe_unfortified_lowlands_town }
 	zwolle = { rank = town 				town_setup = lowlands_town }
 
-	liege = { rank = town 				town_setup = lowlands_town }
-	brussels = { rank = town 			town_setup = lowlands_town }
-	mons = { rank = town 				town_setup = lowlands_town }
-	tournai = { rank = town 			town_setup = lowlands_town }
-	leuven = { rank = town 				town_setup = lowlands_town }
-	sint_niklaas = { rank = town 		town_setup = lowlands_town }
-	namur = { rank = town 				town_setup = lowlands_town }
+	liege = { rank = town 				town_setup = tfe_unfortified_lowlands_town }
+	brussels = { rank = town 			town_setup = tfe_unfortified_lowlands_town }
+	mons = { rank = town 				town_setup = tfe_unfortified_lowlands_town }
+	tournai = { rank = town 			town_setup = tfe_unfortified_lowlands_town }
+	leuven = { rank = town 				town_setup = tfe_unfortified_lowlands_town }
+	sint_niklaas = { rank = town 		town_setup = tfe_unfortified_lowlands_town }
+	namur = { rank = town 				town_setup = tfe_unfortified_lowlands_town }
 	deventer = { rank = town 			town_setup = lowlands_town }
-	dordrecht = { rank = town 			town_setup = lowlands_town }
-	maastricht = { rank = town 			town_setup = lowlands_town }
+	dordrecht = { rank = town 			town_setup = tfe_unfortified_lowlands_town }
+	maastricht = { rank = town 			town_setup = tfe_unfortified_lowlands_town }
 	zutphen = { rank = town 			town_setup = lowlands_town }
 	hertogenbosch = { rank = town 		town_setup = lowlands_town }
 
-	luxembourg = { rank = town town_setup = german_town }
+	luxembourg = { rank = town town_setup = tfe_unfortified_german_town }
 
 	# Poland
 	gdansk = { rank = city		town_setup = german_coastal_city }
@@ -384,16 +384,16 @@ locations={
 	sarai_al_jadid = { rank = town			town_setup = russian_town }
 	
 	# Maghreb
-	mahdia = { rank = city town_setup = maghreb_coastal_city }
+	mahdia = { rank = city town_setup = tfe_unfortified_maghreb_coastal_city }
 	rabat = { rank = city 	town_setup = maghreb_coastal_city }
-	annaba = { rank = city 		town_setup = maghreb_coastal_city }
-	bejaia = { rank = city 	town_setup = maghreb_coastal_city }
+	annaba = { rank = city 		town_setup = tfe_unfortified_maghreb_coastal_city }
+	bejaia = { rank = city 	town_setup = tfe_unfortified_maghreb_coastal_city }
 	fez = { rank = city 		town_setup = fez_city }
 	meknes = { rank = city 		town_setup = maghreb_city }
-	constantine_ALG = { rank = city town_setup = maghreb_city }
-	tlemcen = { rank = city 	town_setup = maghreb_city }
-	tunis = { rank = city 		town_setup = maghreb_coastal_city }
-	oran = { rank = city 		town_setup = maghreb_coastal_city }
+	constantine_ALG = { rank = city town_setup = tfe_unfortified_maghreb_city }
+	tlemcen = { rank = city 	town_setup = tfe_unfortified_maghreb_city }
+	tunis = { rank = city 		town_setup = tfe_unfortified_maghreb_coastal_city }
+	oran = { rank = city 		town_setup = tfe_unfortified_maghreb_coastal_city }
 	
 	algiers = { rank = town 	town_setup = maghreb_coastal_town }
 	kairouan = { rank = town town_setup = maghreb_town }
@@ -406,72 +406,72 @@ locations={
 	pest = { rank = town 				town_setup = carpathian_town }
 	bratislava = { rank = town 			town_setup = carpathian_town }
 	bucharest = { rank = town 			town_setup = carpathian_town }
-	buda = { rank = city 				town_setup = carpathian_town }
+	buda = { rank = city 				town_setup = tfe_unfortified_carpathian_town }
 	campulung_muscel = { rank = town	town_setup = carpathian_town  }
 	cluj = { rank = town	town_setup = carpathian_town  }
-	constanta = { rank = town	town_setup = carpathian_town  }
-	pecs = { rank = town 				town_setup = carpathian_town }
+	constanta = { rank = town	town_setup = tfe_unfortified_carpathian_town  }
+	pecs = { rank = town 				town_setup = tfe_unfortified_carpathian_town }
 	brasov = { rank = town 				town_setup = carpathian_town }
-	esztergom = { rank = town 				town_setup = carpathian_town }
-	fehervar = { rank = town 				town_setup = carpathian_town }
+	esztergom = { rank = town 				town_setup = tfe_unfortified_carpathian_town }
+	fehervar = { rank = town 				town_setup = tfe_unfortified_carpathian_town }
 	iasi = { rank = town 				town_setup = carpathian_town }
-	sopron = { rank = town 				town_setup = carpathian_town }
+	sopron = { rank = town 				town_setup = tfe_unfortified_carpathian_town }
 	szeged = { rank = town 				town_setup = carpathian_town }
 	suceava = { rank = town 			town_setup = carpathian_town }
 	targoviste = { rank = town 			town_setup = carpathian_town }
 	
 	# Iberia
-	barcelona = { rank = city 	town_setup = barcelona_city }
-	cordoba = { rank = city town_setup = cordoba_city }
-	granada = { rank = city town_setup = iberian_city }
-	lisbon = { rank = city town_setup = iberian_city_port }
-	malaga = { rank = city town_setup = iberian_city_port }
-	sevilla = { rank = city town_setup = iberian_city }
-	toledo = { rank = city town_setup = toledo_city }
-	valencia = { rank = city town_setup = iberian_city_port }
-	valladolid = { rank = city town_setup = iberian_city }
+	barcelona = { rank = city 	town_setup = tfe_unfortified_barcelona_city }
+	cordoba = { rank = city town_setup = tfe_unfortified_cordoba_city }
+	granada = { rank = city town_setup = tfe_unfortified_iberian_city }
+	lisbon = { rank = city town_setup = tfe_unfortified_iberian_city_port }
+	malaga = { rank = city town_setup = tfe_unfortified_iberian_city_port }
+	sevilla = { rank = city town_setup = tfe_unfortified_iberian_city }
+	toledo = { rank = city town_setup = tfe_unfortified_toledo_city }
+	valencia = { rank = city town_setup = tfe_unfortified_iberian_city_port }
+	valladolid = { rank = city town_setup = tfe_unfortified_iberian_city }
 	
-	alcala_de_henares = { rank = town town_setup = iberian_town }
-	almeria = { rank = town town_setup = iberian_town_port }
-	badajoz = { rank = town town_setup = iberian_town }
-	burgos = { rank = town town_setup = iberian_town }
-	calatayud = { rank = town town_setup = iberian_town }
-	castellon_de_la_plana = { rank = town town_setup = iberian_town_port }
-	cervera = { rank = town town_setup = iberian_town }
-	ciudad_rodrigo = { rank = town town_setup = iberian_town }
-	coimbra = { rank = town town_setup = iberian_town }
-	cuenca = { rank = town town_setup = iberian_town }
-	ecija = { rank = town town_setup = iberian_town }
-	viseu = { rank = town town_setup = iberian_town }
-	evora = { rank = town town_setup = iberian_town }
-	faro = { rank = town town_setup = iberian_town_port }
-	girona = { rank = town town_setup = iberian_town_port }
-	huesca = { rank = town town_setup = iberian_town }
-	jaen = { rank = town town_setup = iberian_town }
-	jativa = { rank = town town_setup = iberian_town }
-	jerez_de_la_frontera = { rank = town town_setup = iberian_town }
-	leon = { rank = town town_setup = iberian_town }
-	lleida = { rank = town town_setup = iberian_town }
-	medina_del_campo = { rank = town town_setup = iberian_town }
-	caceres = { rank = town town_setup = iberian_town }
-	morella = { rank = town town_setup = iberian_town }
-	murcia = { rank = town town_setup = iberian_town_port }
-	orihuela = { rank = town town_setup = iberian_town_port }
-	palma = { rank = town town_setup = iberian_town_port }
-	pamplona = { rank = town town_setup = iberian_town }
-	porto = { rank = town town_setup = iberian_town_port }
-	salamanca = { rank = town town_setup = iberian_town }
-	santander = { rank = town town_setup = iberian_town_port }
-	santarem = { rank = town town_setup = iberian_town }
-	santiago_compostela = { rank = town town_setup = iberian_town }
-	oviedo = { rank = town town_setup = iberian_town }
-	segovia = { rank = town town_setup = iberian_town }
-	tarragona = { rank = town town_setup = iberian_town }
-	teruel = { rank = town town_setup = iberian_town }
-	tortosa = { rank = town town_setup = iberian_town_port }
-	tudela = { rank = town town_setup = iberian_town }
-	zamora = { rank = town town_setup = iberian_town }
-	zaragoza = { rank = town town_setup = iberian_town }
+	alcala_de_henares = { rank = town town_setup = tfe_unfortified_iberian_town }
+	almeria = { rank = town town_setup = tfe_unfortified_iberian_town_port }
+	badajoz = { rank = town town_setup = tfe_unfortified_iberian_town }
+	burgos = { rank = town town_setup = tfe_unfortified_iberian_town }
+	calatayud = { rank = town town_setup = tfe_unfortified_iberian_town }
+	castellon_de_la_plana = { rank = town town_setup = tfe_unfortified_iberian_town_port }
+	cervera = { rank = town town_setup = tfe_unfortified_iberian_town }
+	ciudad_rodrigo = { rank = town town_setup = tfe_unfortified_iberian_town }
+	coimbra = { rank = town town_setup = tfe_unfortified_iberian_town }
+	cuenca = { rank = town town_setup = tfe_unfortified_iberian_town }
+	ecija = { rank = town town_setup = tfe_unfortified_iberian_town }
+	viseu = { rank = town town_setup = tfe_unfortified_iberian_town }
+	evora = { rank = town town_setup = tfe_unfortified_iberian_town }
+	faro = { rank = town town_setup = tfe_unfortified_iberian_town_port }
+	girona = { rank = town town_setup = tfe_unfortified_iberian_town_port }
+	huesca = { rank = town town_setup = tfe_unfortified_iberian_town }
+	jaen = { rank = town town_setup = tfe_unfortified_iberian_town }
+	jativa = { rank = town town_setup = tfe_unfortified_iberian_town }
+	jerez_de_la_frontera = { rank = town town_setup = tfe_unfortified_iberian_town }
+	leon = { rank = town town_setup = tfe_unfortified_iberian_town }
+	lleida = { rank = town town_setup = tfe_unfortified_iberian_town }
+	medina_del_campo = { rank = town town_setup = tfe_unfortified_iberian_town }
+	caceres = { rank = town town_setup = tfe_unfortified_iberian_town }
+	morella = { rank = town town_setup = tfe_unfortified_iberian_town }
+	murcia = { rank = town town_setup = tfe_unfortified_iberian_town_port }
+	orihuela = { rank = town town_setup = tfe_unfortified_iberian_town_port }
+	palma = { rank = town town_setup = tfe_unfortified_iberian_town_port }
+	pamplona = { rank = town town_setup = tfe_unfortified_iberian_town }
+	porto = { rank = town town_setup = tfe_unfortified_iberian_town_port }
+	salamanca = { rank = town town_setup = tfe_unfortified_iberian_town }
+	santander = { rank = town town_setup = tfe_unfortified_iberian_town_port }
+	santarem = { rank = town town_setup = tfe_unfortified_iberian_town }
+	santiago_compostela = { rank = town town_setup = tfe_unfortified_iberian_town }
+	oviedo = { rank = town town_setup = tfe_unfortified_iberian_town }
+	segovia = { rank = town town_setup = tfe_unfortified_iberian_town }
+	tarragona = { rank = town town_setup = tfe_unfortified_iberian_town }
+	teruel = { rank = town town_setup = tfe_unfortified_iberian_town }
+	tortosa = { rank = town town_setup = tfe_unfortified_iberian_town_port }
+	tudela = { rank = town town_setup = tfe_unfortified_iberian_town }
+	zamora = { rank = town town_setup = tfe_unfortified_iberian_town }
+	zaragoza = { rank = town town_setup = tfe_unfortified_iberian_town }
 	
 	#West Africa
 	
@@ -487,12 +487,12 @@ locations={
 
 	
 	# Egypt and Libya
-	alexandria = { rank = city 	town_setup	 = egyptian_city }
-	asyut = { rank = city 		town_setup	 = egyptian_city }
-	cairo = { rank = megalopolis 		town_setup = cairo_city }
-	damietta = { rank = city 	town_setup	 = egyptian_city }
-	mansoura = { rank = city 	town_setup	 = egyptian_city }
-	qus = { rank = city 		town_setup	 = egyptian_city }
+	alexandria = { rank = city 	town_setup	 = tfe_unfortified_egyptian_city }
+	asyut = { rank = city 		town_setup	 = tfe_unfortified_egyptian_city }
+	cairo = { rank = megalopolis 		town_setup = tfe_unfortified_cairo_city }
+	damietta = { rank = city 	town_setup	 = tfe_unfortified_egyptian_city }
+	mansoura = { rank = city 	town_setup	 = tfe_unfortified_egyptian_city }
+	qus = { rank = city 		town_setup	 = tfe_unfortified_egyptian_city }
 	tripoli = { rank = town 	town_setup	 = maghreb_town }
 
 	#Japan and Korea
@@ -787,22 +787,22 @@ locations={
 
 
 	# Anatolia city
-	amasya = { rank = city		town_setup = anatolian_city }
-	ankara = { rank = city 		town_setup = anatolian_city }
-	antioch = { rank = city	 	town_setup = anatolian_city }
-	bursa = { rank = city 		town_setup = bursa_city }
+	amasya = { rank = city		town_setup = tfe_unfortified_anatolian_city }
+	ankara = { rank = city 		town_setup = tfe_unfortified_anatolian_city }
+	antioch = { rank = city	 	town_setup = tfe_unfortified_anatolian_city }
+	bursa = { rank = city 		town_setup = tfe_unfortified_bursa_city }
 	diyarbekir = { rank = city 	town_setup = anatolian_city }
-	izmit = { rank = city 		town_setup = anatolian_city }
-	kayseri = { rank = city 	town_setup = anatolian_city }
-	konya = { rank = city 		town_setup = anatolian_city }
+	izmit = { rank = city 		town_setup = tfe_unfortified_anatolian_city }
+	kayseri = { rank = city 	town_setup = tfe_unfortified_anatolian_city }
+	konya = { rank = city 		town_setup = tfe_unfortified_anatolian_city }
 	larnaca = { rank = town 	town_setup = christian_anatolian_town }
-	malatya = { rank = city 	town_setup = anatolian_city }
+	malatya = { rank = city 	town_setup = tfe_unfortified_anatolian_city }
 	nicosia_cyp = { rank = town town_setup = christian_anatolian_town }
 	urfa = { rank = city 	town_setup = anatolian_city }
-	sivas = { rank = city 		town_setup = anatolian_city }
-	smyrna = { rank = city 		town_setup = anatolian_city }
+	sivas = { rank = city 		town_setup = tfe_unfortified_anatolian_city }
+	smyrna = { rank = city 		town_setup = tfe_unfortified_anatolian_city }
 	tarsus = { rank = town 		town_setup = christian_anatolian_town }
-	trebizond = { rank = city 	town_setup = trebizond_city }
+	trebizond = { rank = city 	town_setup = tfe_unfortified_trebizond_city }
 	van = { rank = city 		town_setup = anatolian_city }
 	
 	bergama = { rank = town		town_setup = anatolian_town }
@@ -825,7 +825,7 @@ locations={
 	manisa = { rank = town		town_setup = anatolian_town }
 	niksar = { rank = town		town_setup = anatolian_town }
 	antalya = { rank = town		town_setup = anatolian_town }
-	alasehir = { rank = town		town_setup = greek_town }
+	alasehir = { rank = town		town_setup = tfe_unfortified_greek_town }
 
 	#Central Asia
 
@@ -859,12 +859,12 @@ locations={
 	quetta = { rank = town town_setup = levant_city }
 
 	# Crescent and Arabia
-	acre = { rank = city 		town_setup = levant_city }
-	aleppo = { rank = city 		town_setup = levant_city }
+	acre = { rank = city 		town_setup = tfe_unfortified_levant_city }
+	aleppo = { rank = city 		town_setup = tfe_unfortified_levant_city }
 	baghdad = { rank = city 	town_setup = baghdad_city }
 	basra = { rank = city 		town_setup = levant_city }
-	damascus = { rank = city 	town_setup = damascus_city }
-	jerusalem = { rank = city 	town_setup = levant_city }
+	damascus = { rank = city 	town_setup = tfe_unfortified_damascus_city }
+	jerusalem = { rank = city 	town_setup = tfe_unfortified_levant_city }
 	mosul = { rank = city 		town_setup = levant_city }
 	nusaybin = { rank = city 	town_setup = levant_city }
 	mecca = { rank = town 	town_setup = levant_city }
@@ -1008,4 +1008,38 @@ locations={
 # for the unique and special buildings
 
 building_manager = {
+	castle = { tag = WRE level = 1 location = milano }
+	castle = { tag = WRE level = 1 location = rome }
+	castle = { tag = WRE level = 1 location = ravenna }
+	castle = { tag = WRE level = 1 location = tunis }
+	castle = { tag = WRE level = 1 location = trier }
+	castle = { tag = WRE level = 1 location = cologne }
+	castle = { tag = WRE level = 1 location = mainz }
+	castle = { tag = WRE level = 1 location = strasbourg }
+	castle = { tag = WRE level = 1 location = regensburg }
+	castle = { tag = WRE level = 1 location = vienna }
+	castle = { tag = WRE level = 1 location = buda }
+	castle = { tag = WRE level = 1 location = york }
+	castle = { tag = WRE level = 1 location = carlisle }
+	castle = { tag = EAR level = 1 location = constantinople }
+	castle = { tag = EAR level = 1 location = thessaloniki }
+	castle = { tag = EAR level = 1 location = edirne }
+	castle = { tag = EAR level = 1 location = nis }
+	castle = { tag = EAR level = 1 location = antioch }
+	castle = { tag = EAR level = 1 location = malatya }
+	castle = { tag = EAR level = 1 location = trebizond }
+	castle = { tag = EAR level = 1 location = alexandria }
+	castle = { tag = EAR level = 1 location = dara }
+	local_governor = { tag = WRE level = 1 location = rome }
+	local_governor = { tag = WRE level = 1 location = tunis }
+	local_governor = { tag = WRE level = 1 location = sevilla }
+	local_governor = { tag = WRE level = 1 location = marseille }
+	local_governor = { tag = WRE level = 1 location = metz }
+	local_governor = { tag = WRE level = 1 location = london }
+	local_governor = { tag = WRE level = 1 location = buda }
+	local_governor = { tag = EAR level = 1 location = thessaloniki }
+	local_governor = { tag = EAR level = 1 location = smyrna }
+	local_governor = { tag = EAR level = 1 location = kayseri }
+	local_governor = { tag = EAR level = 1 location = antioch }
+	local_governor = { tag = EAR level = 1 location = alexandria }
 }

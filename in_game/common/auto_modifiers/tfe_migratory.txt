@@ -1,8 +1,9 @@
 ﻿# TFE: a migrating host (generic_actions/tfe_migratory.txt) lives off the land it passes through: while it
-# owns no land its warriors cost nothing and endure the road. Winning land ends it, and upkeep begins.
+# owns no land its warriors cost nothing and endure the road. Winning land ends it for good.
 tfe_migrating_host = {
 	potential_trigger = {
 		has_variable = tfe_migrating
+		NOT = { has_variable = tfe_settled }	# on_action/tfe_migratory.txt
 		NOT = { any_owned_location = { always = yes } }
 	}
 	alert = yes

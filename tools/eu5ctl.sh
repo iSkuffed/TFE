@@ -23,8 +23,8 @@ gs_pid() { [[ -f $STATE/pid ]] && kill -0 "$(cat "$STATE/pid")" 2>/dev/null && c
 
 # DISPLAY / GAMESCOPE_WAYLAND_DISPLAY of our gamescope, read from its game child's environment
 gs_env() {
-  local child
-  child=$(pgrep -P "$(gs_pid)" | head -1) || { echo "eu5ctl: not running" >&2; exit 1; }
+  local pid child
+  pid=$(gs_pid) && child=$(pgrep -P "$pid" | head -1) || { echo "eu5ctl: not running" >&2; exit 1; }
   tr '\0' '\n' < "/proc/$child/environ" | grep -E "^$1=" | cut -d= -f2-
 }
 tree() { local p; for p in $(pgrep -P "$1"); do echo "$p"; tree "$p"; done; }
