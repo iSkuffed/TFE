@@ -2,7 +2,7 @@
 # Drive EU5 in a hidden (headless) gamescope display, the way Novum's QA runs: no window on the desktop.
 # Menu path (1280x720 shot coords): New Game 176,292 -> click the country on the map -> move the mouse away
 # (its tooltip hides the button) -> "Play as" 640,592. The console opens with the grave key (-debug_mode).
-#   eu5ctl start | stop | status
+#   eu5ctl start | wait | stop | status   (wait: until loading or new-game generation is done)
 #   eu5ctl shot [name]            -> prints a 1280x720 jpg path (click coordinates use this space)
 #   eu5ctl click X Y [button]     eu5ctl key KEY...     eu5ctl type TEXT
 #   eu5ctl cmd "tag HAS"          open console, run one command, close console
@@ -27,11 +27,19 @@ gs_env() {
   child=$(pgrep -P "$(gs_pid)" | head -1) || { echo "eu5ctl: not running" >&2; exit 1; }
   tr '\0' '\n' < "/proc/$child/environ" | grep -E "^$1=" | cut -d= -f2-
 }
-x() { DISPLAY=$(gs_env DISPLAY) xdotool "$@"; }
+tree() { local p; for p in $(pgrep -P "$1"); do echo "$p"; tree "$p"; done; }
+# after a crash the reporter window takes the input, and a stray Return would submit the report
+crashed() { tree "$(gs_pid)" | xargs -r ps -o comm= -p | grep -qi crash; }
+x() {
+  if crashed; then echo "eu5ctl: game crashed (crash reporter open), not sending input" >&2; exit 1; fi
+  DISPLAY=$(gs_env DISPLAY) xdotool "$@"
+}
 
 case "${1:-}" in
   start)
     if gs_pid >/dev/null; then echo "already running (pid $(gs_pid))"; exit 0; fi
+    # a stop during loading leaves this behind, and the next boot then disables mods and un-marks the playset
+    rm -f "$DOCS/.force_disable_mods_sentinel.txt"
     cd "$GAME/binaries"
     STEAM_COMPAT_DATA_PATH="$PREFIX" STEAM_COMPAT_CLIENT_INSTALL_PATH="$STEAM" SteamAppId=3450310 SteamGameId=3450310 \
       nohup gamescope --backend headless -W $W -H $H -w $W -h $H -- \
@@ -41,7 +49,6 @@ case "${1:-}" in
     # gamescope ignores SIGTERM while its child lives, and Proton leaves winedevice.exe orphans behind:
     # quit through the console, then kill whatever is left in our own process tree (and nothing else).
     pid=$(gs_pid) || { echo "not running"; exit 0; }
-    tree() { local p; for p in $(pgrep -P "$1"); do echo "$p"; tree "$p"; done; }
     "$0" cmd quit 2>/dev/null || true
     for _ in $(seq 30); do tree "$pid" | xargs -r ps -o comm= -p | grep -q eu5 || break; sleep 1; done
     kids=$(tree "$pid"); kill $kids 2>/dev/null || true; sleep 3; kill -9 $kids 2>/dev/null || true
@@ -49,6 +56,13 @@ case "${1:-}" in
     kill -0 "$pid" 2>/dev/null && kill -9 "$pid"
     rm -f "$STATE/pid"; echo stopped ;;
   status) gs_pid >/dev/null && echo "running (pid $(gs_pid))" || echo "not running" ;;
+  wait)   # until game.log has been quiet for 15 s: boot finished, or a new game finished generating
+    prev=-1 quiet=0
+    for _ in $(seq 200); do
+      n=$(wc -c < "$DOCS/logs/game.log" 2>/dev/null || echo 0)
+      if [[ $n == "$prev" && $n -gt 0 ]]; then quiet=$((quiet + 1)); else quiet=0; fi
+      prev=$n; (( quiet >= 5 )) && break; sleep 3
+    done ;;
   shot)
     name=${2:-shot}; png="$STATE/$name.png"; rm -f "$png"
     GAMESCOPE_WAYLAND_DISPLAY=$(gs_env GAMESCOPE_WAYLAND_DISPLAY) gamescopectl screenshot "$png" >/dev/null 2>&1

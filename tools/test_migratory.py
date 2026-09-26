@@ -72,3 +72,17 @@ def test_vandal_host_starts_in_its_homeland():
 def test_pop_based_leftovers_are_gone():
     # the first-age migration-law advance only served pop-based countries, which cannot be played
     assert not (COMMON / "advances/tfe_migratory_advances.txt").exists()
+
+
+GUI = b.MOD / "in_game/gui/form_new_country.gui"
+GUI_BEGIN, GUI_END = "\t\t\t\t\t# TFE: migratory host actions\n", "\t\t\t\t\t# TFE: end\n"
+
+
+def test_host_actions_have_buttons_in_the_settle_panel():
+    # owncountry actions are only reachable where a GUI file places a button for them by name
+    text = GUI.read_text(encoding="utf-8")
+    for a in NEW_ACTIONS:
+        assert f'left_click_and_hold_action = {{ action_name = "{a}" }}' in text, a
+    # the override is vanilla plus our one block, so a game patch that changes the file shows up here
+    start, end = text.index(GUI_BEGIN), text.index(GUI_END) + len(GUI_END)
+    assert text[:start] + text[end:] == (b.GAME / "in_game/gui/form_new_country.gui").read_text(encoding="utf-8")
