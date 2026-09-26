@@ -5,3 +5,7 @@ tfe_hellenic_group = {
 		olives = 1.2
 	}
 }
+
+# TFE 395: the Aramaic-speakers of Syria, Mesopotamia and Palestine, whom vanilla files with the Arabs
+tfe_aramaic_group = {
+}

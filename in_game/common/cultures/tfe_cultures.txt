@@ -246,3 +246,66 @@ REPLACE:gothic_culture = {
 		german_group
 	}
 }
+
+# vanilla files the Aramaic-speakers of 1337 with the Arabs; in 395 they are the Aramaic world of Edessa,
+# Galilee and the Babylonian academies
+REPLACE:syriac_culture = {
+	language = aramaic_language
+	color = color_culture_syriac
+	tags = { levantine_gfx middle_east_gfx }
+
+	opinions = {
+		greek_culture = positive
+	}
+
+	culture_groups = {
+		tfe_aramaic_group
+	}
+}
+
+REPLACE:mandean_culture = {
+	language = iraqi_dialect
+	color = religion_mandeaism
+	tags = { levantine_gfx middle_east_gfx }
+
+	culture_groups = {
+		tfe_aramaic_group
+	}
+}
+
+REPLACE:samaritan_culture = {
+	language = hebrew_language
+	color = religion_samaritanism
+	tags = { levantine_gfx middle_east_gfx }
+
+	culture_groups = {
+		tfe_aramaic_group
+	}
+}
+
+REPLACE:mizrahi = {
+	language = levantine_dialect
+	color = map_ISR
+	tags = { jewish_gfx middle_east_gfx }
+
+	opinions = {
+		ashkenazi = kindred
+		beyte_yisrael = kindred
+		gurji = kindred
+		italki = kindred
+		kalimi = kindred
+		kochini = kindred
+		mustaarabi = kindred
+		qayfengi = kindred
+		romanyoti = kindred
+		sephardi = kindred
+		teimani = kindred
+	}
+
+	culture_groups = {
+		jewish_group
+		tfe_aramaic_group
+	}
+
+	use_patronym = yes
+}

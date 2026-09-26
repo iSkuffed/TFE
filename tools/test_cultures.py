@@ -259,3 +259,13 @@ def test_balkans_and_britain():
         accepted = set(re.search(r"accepted_cultures = \{([^}]*)\}", block).group(1).split())
         assert "albanian" in accepted, tag
     assert "romano_british" in set(b.ACCEPTED_CULTURES["WRE"])
+
+
+def test_the_aramaic_group():
+    # the Aramaic-speakers of 395 are no Arabs: Syriac, Mandaean, Samaritan, and the Jews of Galilee and Babylon
+    assert "tfe_aramaic_group" in blocks(GROUPS.read_text(encoding="utf-8-sig"))
+    assert re.search(r'^ tfe_aramaic_group: "Aramaic"$', LOC.read_text(encoding="utf-8-sig"), re.M)
+    g = effective_groups()
+    for c in ("syriac_culture", "mandean_culture", "samaritan_culture", "mizrahi"):
+        assert "tfe_aramaic_group" in g[c] and "arabic_group" not in g[c], c
+    assert "jewish_group" in g["mizrahi"]
