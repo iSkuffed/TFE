@@ -1,0 +1,14 @@
+﻿# Vanilla gives these tags (Saxony, Romania) their own flag lists; in 395 they fly the TFE coat of arms.
+REPLACE:SAX = {
+	flag_definition = {
+		coa = SAX
+		priority = 100
+	}
+}
+
+REPLACE:RMN = {
+	flag_definition = {
+		coa = RMN
+		priority = 100
+	}
+}

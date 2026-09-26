@@ -181,7 +181,7 @@ ALM = {
 	color2 = "white"
 	color3 = "red"
 	colored_emblem = {
-		texture = "ce_swords_crossed.dds"
+		texture = "ce_boar_passant_mane.dds"
 		color1 = color2
 		color2 = color3
 		color3 = color1
@@ -255,7 +255,7 @@ SAX = {
 		color1 = color2
 		color2 = color3
 		color3 = color1
-		instance = { position = { 0.5 0.5 } scale = { 0.7 0.7 } }
+		instance = { position = { 0.5 0.5 } scale = { 0.95 0.95 } }
 	}
 }
 
@@ -909,11 +909,11 @@ TAY = {
 	color2 = "black"
 	color3 = "red"
 	colored_emblem = {
-		texture = "ce_sword_arabic.dds"
+		texture = "ce_tamgha_altai_15.dds"
 		color1 = color2
 		color2 = color3
 		color3 = color1
-		instance = { position = { 0.5 0.5 } scale = { 0.8 0.8 } }
+		instance = { position = { 0.5 0.5 } scale = { 0.6 0.6 } }
 	}
 }
 
@@ -1053,7 +1053,7 @@ AUS = {
 		color1 = color2
 		color2 = color3
 		color3 = color1
-		instance = { position = { 0.5 0.5 } scale = { 0.7 0.7 } }
+		instance = { position = { 0.5 0.5 } scale = { 0.95 0.95 } }
 	}
 }
 
@@ -1109,7 +1109,7 @@ BBS = {
 		color1 = color2
 		color2 = color3
 		color3 = color1
-		instance = { position = { 0.5 0.5 } scale = { 0.7 0.7 } }
+		instance = { position = { 0.5 0.5 } scale = { 0.95 0.95 } }
 	}
 }
 
@@ -1585,7 +1585,7 @@ WJI = {
 		color1 = color2
 		color2 = color3
 		color3 = color1
-		instance = { position = { 0.5 0.5 } scale = { 0.7 0.7 } }
+		instance = { position = { 0.5 0.5 } scale = { 0.95 0.95 } }
 	}
 }
 
