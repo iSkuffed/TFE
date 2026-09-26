@@ -6,21 +6,21 @@ gallo_roman = {
 	language = roman_dialect
 	color = rgb { 178 74 96 }
 	tags = { occitan_gfx french_gfx west_mediterranean_gfx mediterranean_gfx western_european_gfx european_gfx }
-	opinions = { roman_culture = kindred hispano_roman = kindred afro_roman = kindred romano_british = kindred }
+	opinions = { roman_culture = kindred hispano_roman = kindred afro_roman = kindred romano_british = kindred illyro_roman = kindred thraco_roman = kindred greek_culture = kindred cappadocian_greek_culture = kindred pontic_greek_culture = kindred griko_culture = kindred phrygian = kindred galatian = kindred }
 	culture_groups = { greek_group french_group }
 }
 hispano_roman = {
 	language = roman_dialect
 	color = rgb { 204 128 72 }
 	tags = { castilian_gfx iberian_gfx west_mediterranean_gfx mediterranean_gfx western_european_gfx european_gfx }
-	opinions = { roman_culture = kindred gallo_roman = kindred afro_roman = kindred romano_british = kindred }
+	opinions = { roman_culture = kindred gallo_roman = kindred afro_roman = kindred romano_british = kindred illyro_roman = kindred thraco_roman = kindred greek_culture = kindred cappadocian_greek_culture = kindred pontic_greek_culture = kindred griko_culture = kindred phrygian = kindred galatian = kindred }
 	culture_groups = { greek_group iberian_group }
 }
 afro_roman = {
 	language = roman_dialect
 	color = rgb { 196 160 96 }
 	tags = { roman_gfx west_mediterranean_gfx mediterranean_gfx european_gfx }
-	opinions = { roman_culture = kindred gallo_roman = kindred hispano_roman = kindred romano_british = kindred }
+	opinions = { roman_culture = kindred gallo_roman = kindred hispano_roman = kindred romano_british = kindred illyro_roman = kindred thraco_roman = kindred greek_culture = kindred cappadocian_greek_culture = kindred pontic_greek_culture = kindred griko_culture = kindred phrygian = kindred galatian = kindred }
 	culture_groups = { greek_group maghrebi_group }
 }
 
@@ -29,7 +29,7 @@ romano_british = {	# the villa and town country of the lowland civitates: Britto
 	language = welsh_dialect
 	color = rgb { 150 96 124 }
 	tags = { welsh_gfx celtic_gfx british_gfx western_european_gfx european_gfx }
-	opinions = { roman_culture = kindred gallo_roman = kindred hispano_roman = kindred afro_roman = kindred briton = kindred }
+	opinions = { roman_culture = kindred gallo_roman = kindred hispano_roman = kindred afro_roman = kindred briton = kindred illyro_roman = kindred thraco_roman = kindred greek_culture = kindred cappadocian_greek_culture = kindred pontic_greek_culture = kindred griko_culture = kindred phrygian = kindred galatian = kindred }
 	culture_groups = { greek_group british_group }
 }
 briton = {
@@ -113,6 +113,13 @@ REPLACE:roman_culture = {
 		hispano_roman = kindred
 		afro_roman = kindred
 		romano_british = kindred
+		illyro_roman = kindred
+		thraco_roman = kindred
+		cappadocian_greek_culture = kindred
+		pontic_greek_culture = kindred
+		griko_culture = kindred
+		phrygian = kindred
+		galatian = kindred
 	}
 
 	culture_groups = {
@@ -138,12 +145,20 @@ REPLACE:greek_culture = {
 	tags = { greek_gfx east_mediterranean_gfx mediterranean_gfx eastern_european_gfx european_gfx }
 
 	opinions = {
-		cappadocian_greek_culture = positive
-		griko_culture = positive
-		pontic_greek_culture = positive
+		cappadocian_greek_culture = kindred
+		griko_culture = kindred
+		pontic_greek_culture = kindred
 		gothic_culture = positive
 		roman_culture = kindred
 		turkish_culture = negative
+		gallo_roman = kindred
+		hispano_roman = kindred
+		afro_roman = kindred
+		romano_british = kindred
+		illyro_roman = kindred
+		thraco_roman = kindred
+		phrygian = kindred
+		galatian = kindred
 	}
 
 	culture_groups = {
@@ -157,10 +172,19 @@ REPLACE:cappadocian_greek_culture = {
 	tags = { greek_gfx east_mediterranean_gfx mediterranean_gfx eastern_european_gfx european_gfx }
 
 	opinions = {
-		greek_culture = positive
-		griko_culture = positive
-		pontic_greek_culture = positive
+		greek_culture = kindred
+		griko_culture = kindred
+		pontic_greek_culture = kindred
 		gothic_culture = positive
+		roman_culture = kindred
+		gallo_roman = kindred
+		hispano_roman = kindred
+		afro_roman = kindred
+		romano_british = kindred
+		illyro_roman = kindred
+		thraco_roman = kindred
+		phrygian = kindred
+		galatian = kindred
 	}
 
 	culture_groups = {
@@ -174,10 +198,19 @@ REPLACE:pontic_greek_culture = {
 	tags = { greek_gfx east_mediterranean_gfx mediterranean_gfx eastern_european_gfx european_gfx }
 
 	opinions = {
-		greek_culture = positive
-		griko_culture = positive
-		cappadocian_greek_culture = positive
+		greek_culture = kindred
+		griko_culture = kindred
+		cappadocian_greek_culture = kindred
 		gothic_culture = positive
+		roman_culture = kindred
+		gallo_roman = kindred
+		hispano_roman = kindred
+		afro_roman = kindred
+		romano_british = kindred
+		illyro_roman = kindred
+		thraco_roman = kindred
+		phrygian = kindred
+		galatian = kindred
 	}
 
 	culture_groups = {
@@ -191,10 +224,20 @@ REPLACE:griko_culture = {
 	tags = { greek_gfx east_mediterranean_gfx mediterranean_gfx eastern_european_gfx european_gfx }
 
 	opinions = {
-		cappadocian_greek_culture = positive
-		pontic_greek_culture = positive
+		cappadocian_greek_culture = kindred
+		pontic_greek_culture = kindred
 		gothic_culture = positive
 		neapolitan = positive
+		roman_culture = kindred
+		gallo_roman = kindred
+		hispano_roman = kindred
+		afro_roman = kindred
+		romano_british = kindred
+		illyro_roman = kindred
+		thraco_roman = kindred
+		greek_culture = kindred
+		phrygian = kindred
+		galatian = kindred
 	}
 
 	culture_groups = {
@@ -316,14 +359,14 @@ illyro_roman = {	# the Latin towns and villas of Pannonia, Noricum and the Dalma
 	language = dalmatian_dialect
 	color = rgb { 200 70 90 }
 	tags = { north_italian_gfx west_mediterranean_gfx mediterranean_gfx western_european_gfx european_gfx }
-	opinions = { roman_culture = kindred albanian = positive }
+	opinions = { roman_culture = kindred albanian = positive gallo_roman = kindred hispano_roman = kindred afro_roman = kindred romano_british = kindred thraco_roman = kindred greek_culture = kindred cappadocian_greek_culture = kindred pontic_greek_culture = kindred griko_culture = kindred phrygian = kindred galatian = kindred }
 	culture_groups = { greek_group italian_group }
 }
 thraco_roman = {	# Moesia and Dacia Ripensis north of the Jirecek line, where Latin outlived the Empire as Romanian
 	language = romanian_language
 	color = rgb { 215 125 110 }
 	tags = { romanian_gfx east_mediterranean_gfx mediterranean_gfx eastern_european_gfx european_gfx }
-	opinions = { roman_culture = kindred thracian = positive }
+	opinions = { roman_culture = kindred thracian = positive gallo_roman = kindred hispano_roman = kindred afro_roman = kindred romano_british = kindred illyro_roman = kindred greek_culture = kindred cappadocian_greek_culture = kindred pontic_greek_culture = kindred griko_culture = kindred phrygian = kindred galatian = kindred }
 	culture_groups = { greek_group romanian_group }
 }
 dacian = {	# the Carpi and the free Dacians of the Carpathians; Albanian stands in for a Paleo-Balkan tongue
@@ -360,14 +403,14 @@ phrygian = {	# Phrygian was still spoken in the villages around Cotyaeum and Amo
 	language = greek_language
 	color = rgb { 200 60 110 }
 	tags = { greek_gfx east_mediterranean_gfx mediterranean_gfx eastern_european_gfx european_gfx }
-	opinions = { greek_culture = positive galatian = positive }
+	opinions = { greek_culture = kindred galatian = kindred roman_culture = kindred gallo_roman = kindred hispano_roman = kindred afro_roman = kindred romano_british = kindred illyro_roman = kindred thraco_roman = kindred cappadocian_greek_culture = kindred pontic_greek_culture = kindred griko_culture = kindred }
 	culture_groups = { tfe_hellenic_group }
 }
 galatian = {	# the Celts of Ancyra: Jerome heard in Galatia the speech of the Treveri
 	language = breton_dialect
 	color = rgb { 160 170 50 }
 	tags = { greek_gfx east_mediterranean_gfx mediterranean_gfx eastern_european_gfx european_gfx }
-	opinions = { greek_culture = positive phrygian = positive }
+	opinions = { greek_culture = kindred phrygian = kindred roman_culture = kindred gallo_roman = kindred hispano_roman = kindred afro_roman = kindred romano_british = kindred illyro_roman = kindred thraco_roman = kindred cappadocian_greek_culture = kindred pontic_greek_culture = kindred griko_culture = kindred }
 	culture_groups = { tfe_hellenic_group }
 }
 

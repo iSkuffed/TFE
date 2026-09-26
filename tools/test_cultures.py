@@ -273,3 +273,15 @@ def test_the_aramaic_group():
     for c in ("syriac_culture", "mandean_culture", "samaritan_culture", "mizrahi"):
         assert "tfe_aramaic_group" in g[c] and "arabic_group" not in g[c], c
     assert "jewish_group" in g["mizrahi"]
+
+
+def test_greeks_and_romans_are_kindred():
+    # every Latin and Greek people of the Empire holds every other one kindred
+    text = CULTURES.read_text(encoding="utf-8-sig")
+    defs = {m.group(1): m.group(2) for m in re.finditer(r"^(?:REPLACE:)?(\w+) = \{(.*?)^\}", text, re.M | re.S)}
+    both = ["roman_culture", "gallo_roman", "hispano_roman", "afro_roman", "romano_british", "illyro_roman", "thraco_roman",
+            "greek_culture", "cappadocian_greek_culture", "pontic_greek_culture", "griko_culture", "phrygian", "galatian"]
+    for c in both:
+        opinions = dict(re.findall(r"(\w+) = (\w+)", re.search(r"opinions = \{(.*?)\}", defs[c], re.S).group(1)))
+        for other in both:
+            assert other == c or opinions.get(other) == "kindred", (c, other)
