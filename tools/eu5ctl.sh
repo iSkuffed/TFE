@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-# Drive EU5 in a hidden (headless) gamescope display, the way Novum's QA runs: no window on the desktop.
+# Drive EU5 inside gamescope: a window on the desktop to watch, or hidden with --headless (Novum's QA way).
 # Menu path (1280x720 shot coords): New Game 176,292 -> click the country on the map -> move the mouse away
 # (its tooltip hides the button) -> "Play as" 640,592. The console opens with the grave key (-debug_mode).
-#   eu5ctl start | wait | stop | status   (wait: until loading or new-game generation is done)
+#   eu5ctl start [--headless] | wait | stop | status   (wait: until loading or new-game generation is done)
 #   eu5ctl shot [name]            -> prints a 1280x720 jpg path (click coordinates use this space)
 #   eu5ctl click X Y [button]     eu5ctl key KEY...     eu5ctl type TEXT
 #   eu5ctl cmd "tag HAS"          open console, run one command, close console
@@ -42,7 +42,7 @@ case "${1:-}" in
     rm -f "$DOCS/.force_disable_mods_sentinel.txt"
     cd "$GAME/binaries"
     STEAM_COMPAT_DATA_PATH="$PREFIX" STEAM_COMPAT_CLIENT_INSTALL_PATH="$STEAM" SteamAppId=3450310 SteamGameId=3450310 \
-      nohup gamescope --backend headless -W $W -H $H -w $W -h $H -- \
+      nohup gamescope $([[ ${2:-} == --headless ]] && echo --backend headless) -W $W -H $H -w $W -h $H -- \
       "$PROTON" waitforexitandrun "$GAME/binaries/eu5.exe" -debug_mode > "$STATE/gamescope.log" 2>&1 &
     echo $! > "$STATE/pid"; echo "started (pid $!); loading takes a minute or two, watch with: eu5ctl shot" ;;
   stop)

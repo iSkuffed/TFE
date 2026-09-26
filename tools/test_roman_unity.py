@@ -64,3 +64,25 @@ def test_io_has_member_opinion_and_diplomatic_status():
     bias = b.MOD / "in_game/common/biases/tfe_biases.txt"
     assert bias.read_bytes().startswith(b"\xef\xbb\xbf") and re.search(r"io_opinion_tfe_roman_empire = \{\s*value = \d+", code(bias))
     assert {"diplomatic_status_tfe_roman_empire_name", "diplomatic_status_tfe_roman_empire_tooltip"} <= loc_keys()
+
+
+FORMABLES = "in_game/common/formable_countries/00_formable_countries.txt"
+
+
+def test_the_empires_cannot_form_vanilla_countries_except_rome():
+    # the AI forms any formable it can: WRE turned into Italy, EAR into Byzantium, Eastern Jin into CHI (with Ming effects)
+    text = (b.MOD / FORMABLES).read_text(encoding="utf-8-sig")
+    blocks = re.split(r"^(?=\w+ = \{)", text, flags=re.M)
+    potentials = {bl.split()[0]: re.search(r"potential = \{(.*?)\n\t\}", bl, re.S).group(1)
+                  for bl in blocks if re.match(r"\w+ = \{", bl)}
+    assert len(potentials) == len(re.findall(r"^\w+ = \{", (b.GAME / FORMABLES).read_text(encoding="utf-8-sig"), re.M))
+    for bl in blocks:
+        assert len(re.findall(r"^\tpotential = \{", bl, re.M)) <= 1, bl.split()[0]   # a second one would shadow ours
+    for key, pot in potentials.items():
+        barred = "NOR = { tag = WRE tag = EAR tag = JIN }" in pot
+        assert barred == (key != "ROM_f"), key   # restoring the whole Empire stays a goal
+
+
+def test_formables_override_is_regenerated_from_the_current_game():
+    vanilla = (b.GAME / FORMABLES).read_text(encoding="utf-8-sig")
+    assert (b.MOD / FORMABLES).read_text(encoding="utf-8-sig") == b.bar_empires_from_formables(vanilla)

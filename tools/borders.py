@@ -557,6 +557,21 @@ def splice_dynasties(vanilla, ours):
     return vanilla[:end] + "\n\t# ---- TFE 395 (tools/tfe_dynasties.txt) ----\n" + ours + vanilla[end:]
 
 
+def bar_empires_from_formables(vanilla):
+    # the AI forms whatever it can (WRE became Italy, EAR Byzantium, Jin a Ming-era China); the empires may only restore Rome
+    bar = "\t\tNOR = { tag = WRE tag = EAR tag = JIN }\t# TFE\n"
+    def one(m):
+        block = m.group(0)
+        if block.startswith("ROM_f "):
+            return block
+        pot = re.search(r"^\tpotential = \{[ \t]*\n", block, re.M)
+        if pot:
+            return block[:pot.end()] + bar + block[pot.end():]
+        head = block.index("\n") + 1
+        return block[:head] + "\tpotential = {\n" + bar + "\t}\n" + block[head:]
+    return re.sub(r"^\w+ = \{.*?^\}", one, vanilla, flags=re.M | re.S)
+
+
 def emit_filtered_start(anc, owner, pop_based):
     owned = landed_locations(owner, pop_based)
     for name in FILTERED_START:
@@ -591,6 +606,10 @@ def build():
     people = {l: (s["tags"][t]["culture"], s["tags"][t]["religion"]) for t in s["country_types"] for l in s["owned"][t]}
     pops = pop_society_pops((GAME / "main_menu/setup/start/06_pops.txt").read_text(encoding="utf-8-sig"), people)
     (MOD / "main_menu/setup/start/06_pops.txt").write_text(pops, encoding="utf-8")
+    formables = "in_game/common/formable_countries/00_formable_countries.txt"
+    (MOD / formables).parent.mkdir(parents=True, exist_ok=True)
+    (MOD / formables).write_text(bar_empires_from_formables((GAME / formables).read_text(encoding="utf-8-sig")),
+                                 encoding="utf-8-sig")
     img = render(s["owner"], s["tags"], s["topo"])
     img.save(OUT / "owners.png")
     lon0, lat0, lon1, lat1 = MED_BOX
