@@ -144,3 +144,13 @@ KHW | Khwarazm | Khwarazmian | kath | eastern_european_monarchy | khorasani_cult
 FRG | Ferghana | Ferghanan | fergana | eastern_european_monarchy | tajik_culture | zoroastrian | 160 180 90
 KNJ | Kangju | Kangju | chach | eurasian_tribe | tajik_culture | tengri | 140 120 170
 WSN | Wusun | Wusun | barskoon | eurasian_horde_no_muslim | hunnic | tengri | 110 170 200
+# ---- the Himalayan rim ----
+LCV | Nepala | Licchavi | - | indian_hindu_monarchy_no_coast | newar_culture | hindu | 170 60 70
+KTP | Kartripura | Kartripuran | - | indian_hindu_monarchy_no_coast | khas_culture | hindu | 200 120 150
+KMR | Kamarupa | Kamarupan | - | indian_hindu_monarchy_no_coast | bodo_culture | hindu | 90 150 70
+KGL | Kangleipak | Meitei | - | indian_animist_monarchy | meitei_culture | sanamahism | 150 60 150
+ZOT | Zo | Zo | - | asia_tribe | zo_culture | mizo_religion | 110 120 60
+MYL | Monyul | Monpa | - | asia_tribe | ngalop_culture | monpa_religion | 180 150 60
+KSM | Kashmir | Kashmiri | srinagar | indian_hindu_monarchy_no_coast | kashmiri_culture | hindu | 80 110 170
+BLR | Bolor | Bolori | gilgit | asia_tribe | shina_culture | mahayana | 140 170 170
+MDV | Maldives | Maldivian | male_atoll | indonesia_monarchy_no_mandala | dhivehi_culture | theravada | 60 160 180

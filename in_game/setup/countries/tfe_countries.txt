@@ -1259,3 +1259,84 @@ WSN = { # Wusun
 	description_category = administrative
 	difficulty = 3
 }
+
+LCV = { # Nepala
+	color = rgb { 170 60 70 }
+	color2 = rgb { 85 30 35 }
+	culture_definition = newar_culture # PLACEHOLDER
+	religion_definition = hindu # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+KTP = { # Kartripura
+	color = rgb { 200 120 150 }
+	color2 = rgb { 100 60 75 }
+	culture_definition = khas_culture # PLACEHOLDER
+	religion_definition = hindu # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+KMR = { # Kamarupa
+	color = rgb { 90 150 70 }
+	color2 = rgb { 45 75 35 }
+	culture_definition = bodo_culture # PLACEHOLDER
+	religion_definition = hindu # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+KGL = { # Kangleipak
+	color = rgb { 150 60 150 }
+	color2 = rgb { 75 30 75 }
+	culture_definition = meitei_culture # PLACEHOLDER
+	religion_definition = sanamahism # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+ZOT = { # Zo
+	color = rgb { 110 120 60 }
+	color2 = rgb { 55 60 30 }
+	culture_definition = zo_culture # PLACEHOLDER
+	religion_definition = mizo_religion # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+MYL = { # Monyul
+	color = rgb { 180 150 60 }
+	color2 = rgb { 90 75 30 }
+	culture_definition = ngalop_culture # PLACEHOLDER
+	religion_definition = monpa_religion # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+KSM = { # Kashmir
+	color = rgb { 80 110 170 }
+	color2 = rgb { 40 55 85 }
+	culture_definition = kashmiri_culture # PLACEHOLDER
+	religion_definition = hindu # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+BLR = { # Bolor
+	color = rgb { 140 170 170 }
+	color2 = rgb { 70 85 85 }
+	culture_definition = shina_culture # PLACEHOLDER
+	religion_definition = mahayana # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+MDV = { # Maldives
+	color = rgb { 60 160 180 }
+	color2 = rgb { 30 80 90 }
+	culture_definition = dhivehi_culture # PLACEHOLDER
+	religion_definition = theravada # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}

@@ -179,6 +179,10 @@ YTB | burghers:* | judaism
 SLH | nobles:* | orthodox                  # the Salihids took Rome's faith with Rome's gold
 AGA | * | waaqeffanna_religion
 
+# ---- the Buddhist rim of India ----
+BLR | * | mahayana                        # Gilgit's manuscripts and rock-cut Buddhas
+MDV | * | theravada                       # the Maldives, Buddhist until 1153
+
 # ---- the wider world: faiths not yet born give way to what came before ----
 tibet_region | * | bon                      # Buddhism reaches Tibet under Songtsen Gampo
 somalia_region | * | waaqeffanna_religion   # the Cushitic sky-god Waaq

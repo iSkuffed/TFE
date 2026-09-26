@@ -339,3 +339,6 @@ scandinavian_region | * | swedish
 
 # ---- the Horn: no Amhara before the Solomonic age; the highlands south of Aksum are Agaw ----
 ethiopia_region | amhara | agaw_culture
+
+# ---- Assam: no Ahom (Tai) before 1228; Kamarupa's plain is Bodo ----
+assam_area | tai_nua_culture | bodo_culture

@@ -1006,6 +1006,7 @@ locations={
 	jalandhar = { rank = city  town_setup = indian_sultanate_city }
 	kalinjar = { rank = city  town_setup = indian_sultanate_city }
 	kalyan = { rank = city  town_setup = indian_sultanate_city }
+	kamatapur = { rank = city  town_setup = indian_sultanate_city }
 	kanchipuram = { rank = city  town_setup = indian_sultanate_city } #Kanchi
 	kanauj = { rank = city  town_setup = indian_sultanate_city }
 	khambat = { rank = city  town_setup = indian_sultanate_coastal_city }
@@ -1030,6 +1031,7 @@ locations={
 	puri = { rank = city  town_setup = indian_coastal_city }
 	raichur = { rank = city  town_setup = indian_city }
 	satgaon = { rank = city  town_setup = indian_city }
+	srinagar = { rank = city  town_setup = indian_city }
 	thanjavur = { rank = city  town_setup = indian_city }
 	thatta = { rank = city  town_setup = indian_city }
 	ujjain = { rank = city  town_setup = indian_city }

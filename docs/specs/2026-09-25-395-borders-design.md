@@ -158,6 +158,13 @@ khorezmian is Turkic). Ferghana is the Dayuan. The Kangju hold the Syr Darya, an
 the Issyk-kul. The Yueban hold the central Kazakh steppe, and the Huns everything west of the Irgiz and
 the Emba.
 
+**The Himalayan rim** (`tools/overrides/60_himalaya.txt`). Samudragupta's Allahabad pillar names the frontier
+kings who paid him tribute. Nepala (Licchavi Nepal), Kartripura (Kumaon and Garhwal) and Kamarupa (Assam,
+with Davaka folded in) are Gupta samantas; the Guptas' samanta advance rules out plain vassals. Assam's Tai
+pops become Bodo, since the Ahom only arrive in 1228. Independent of the Guptas are Kangleipak (Manipur),
+the Zo hill tribes, Monyul (Bhutan and Sikkim), Kashmir, Buddhist Bolor (Gilgit and Hunza) and the Buddhist
+Maldives. Swat goes to the Kidarites, Chitral to the Alkhon and Gorgan to Persia.
+
 ## Placeholders
 
 Each tag gets the nearest vanilla culture/religion, marked `# PLACEHOLDER`. WRE `catholic`, ERE

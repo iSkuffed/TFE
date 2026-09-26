@@ -30,6 +30,10 @@ diplomacy_manager = {
 	dependency = { first = HIM second = KZA subject_type = tributary }
 	# Aksum's Agaw tributaries
 	dependency = { first = AXU second = AGA subject_type = tributary }
+	# the frontier kings of Samudragupta's Allahabad pillar
+	dependency = { first = GUP second = LCV subject_type = samanta }
+	dependency = { first = GUP second = KTP subject_type = samanta }
+	dependency = { first = GUP second = KMR subject_type = samanta }
 	# Roads of the one Empire stay open; closing them costs Unity
 	scripted_oneway = { first = WRE second = EAR type = military_access }
 	scripted_oneway = { first = EAR second = WRE type = military_access }

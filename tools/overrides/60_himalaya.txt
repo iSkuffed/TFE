@@ -1,0 +1,27 @@
+# The Himalayan rim and the north-east of India. Samudragupta's Allahabad pillar names the frontier kings who paid
+# him tribute: Nepala, Kartripura, Kamarupa and Davaka (folded into Kamarupa). Later lines win.
+bettiah_province = GUP
+darbhanga_province = GUP
+purnia_province = GUP
+jalpaiguri_province = GUP
+devkot_province = GUP
+nepal_area = LCV                # Licchavi Nepal
+garhwal_province = KTP          # Kartripura: Kumaon, Garhwal and the Khas west of Nepal
+kumaon_province = KTP
+bheri_province = KTP
+upper_ghaghara_province = KTP
+lower_ghaghara_province = KTP
+assam_area = KMR                # Kamarupa of the Varmans
+monyul_area = MYL               # the Mon of Bhutan, Sikkim and the eastern hills
+hill_area = ZOT                 # the Zo of the Chin and Lushai hills
+manipur_province = KGL          # Kangleipak, the Meitei
+naga_province = KGL
+kashmir_province = KSM
+hazara = KSM                    # Urasa, tied to Kashmir
+swat = KDT                      # Uddiyana, under the Kidarites
+chitral_province = ALK
+kafiristan = ALK
+balor = BLR                     # Bolor: Gilgit, Hunza and the Buddhist road to Khotan
+hunza = BLR
+maldives_area = MDV
+gorgan_province = SAS           # Hyrcania

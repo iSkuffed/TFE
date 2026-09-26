@@ -324,3 +324,35 @@ def test_arabian_horn_and_central_asian_capitals_and_clients(state):
                                  "AZN", "KDT", "ALK", "SGD", "KHW", "FRG", "KNJ", "WSN"])
 def test_new_countries_peasants_share_their_rulers_culture(state, tag):
     test_caucasian_peasants_share_their_rulers_culture(state, tag)
+
+
+HIMALAYA = [
+    ("dolakha", "LCV", "Licchavi Nepal, Nepala of Samudragupta's pillar"),
+    ("badrinath", "KTP", "Kartripura in Kumaon and Garhwal, another frontier king of the pillar"),
+    ("charaideo", "KMR", "Kamarupa of the Varmans, Samudravarman's day"),
+    ("liangmei", "KGL", "Kangleipak, the Meitei of Manipur"),
+    ("srinagar", "KSM", "Kashmir"),
+    ("gilgit", "BLR", "Bolor, the Buddhist Gilgit of the manuscripts"),
+    ("male_atoll", "MDV", "the Buddhist Maldives"),
+]
+
+
+@pytest.mark.parametrize("loc,tag,why", HIMALAYA)
+def test_himalaya(state, loc, tag, why):
+    assert state["owner"].get(loc) == tag, f"{loc}: {why}; trail {state['trail'].get(loc)}"
+
+
+@pytest.mark.parametrize("region", ["hindustan_region", "bengal_region", "deccan_region", "persia_region"])
+def test_india_has_no_empty_land(state, region):
+    test_the_last_regions_have_no_empty_land(state, region)
+
+
+def test_the_pillars_frontier_kings_serve_the_guptas():
+    text = re.sub(r"#[^\n]*", "", (b.MOD / "main_menu/setup/start/12_diplomacy.txt").read_text(encoding="utf-8"))
+    pairs = set(re.findall(r"first\s*=\s*(\w+)\s+second\s*=\s*(\w+)", text))
+    assert {("GUP", "LCV"), ("GUP", "KTP"), ("GUP", "KMR")} <= pairs
+
+
+@pytest.mark.parametrize("tag", ["LCV", "KTP", "KMR", "KGL", "ZOT", "MYL", "KSM", "BLR", "MDV"])
+def test_himalayan_peasants_share_their_rulers_culture(state, tag):
+    test_caucasian_peasants_share_their_rulers_culture(state, tag)

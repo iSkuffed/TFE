@@ -58852,59 +58852,59 @@ baligram = {
 	define_pop = {	type = peasants	size = 7.466	culture = kohistani	religion = hindu }
 }
 gilgit = {
-	define_pop = {	type = nobles	size = 0.042	culture = kashmiri_culture	religion = hindu }
-	define_pop = {	type = clergy	size = 0.034	culture = kashmiri_culture	religion = hindu }
-	define_pop = {	type = peasants	size = 3.466	culture = shina_culture	religion = hindu }
+	define_pop = {	type = nobles	size = 0.042	culture = kashmiri_culture	religion = mahayana }
+	define_pop = {	type = clergy	size = 0.034	culture = kashmiri_culture	religion = mahayana }
+	define_pop = {	type = peasants	size = 3.466	culture = shina_culture	religion = mahayana }
 }
 astore = {
-	define_pop = {	type = clergy	size = 0.018	culture = kashmiri_culture	religion = hindu }
-	define_pop = {	type = peasants	size = 2.275	culture = shina_culture	religion = hindu }
+	define_pop = {	type = clergy	size = 0.018	culture = kashmiri_culture	religion = mahayana }
+	define_pop = {	type = peasants	size = 2.275	culture = shina_culture	religion = mahayana }
 }
 bunji = {
-	define_pop = {	type = clergy	size = 0.018	culture = kashmiri_culture	religion = hindu }
-	define_pop = {	type = peasants	size = 2.955	culture = shina_culture	religion = hindu }
+	define_pop = {	type = clergy	size = 0.018	culture = kashmiri_culture	religion = mahayana }
+	define_pop = {	type = peasants	size = 2.955	culture = shina_culture	religion = mahayana }
 }
 chilas = {
-	define_pop = {	type = clergy	size = 0.018	culture = shina_culture	religion = hindu }
-	define_pop = {	type = peasants	size = 5.600	culture = shina_culture	religion = hindu }
+	define_pop = {	type = clergy	size = 0.018	culture = shina_culture	religion = mahayana }
+	define_pop = {	type = peasants	size = 5.600	culture = shina_culture	religion = mahayana }
 }
 punial = {
-	define_pop = {	type = clergy	size = 0.011	culture = kashmiri_culture	religion = hindu }
-	define_pop = {	type = peasants	size = 2.631	culture = shina_culture	religion = hindu }
+	define_pop = {	type = clergy	size = 0.011	culture = kashmiri_culture	religion = mahayana }
+	define_pop = {	type = peasants	size = 2.631	culture = shina_culture	religion = mahayana }
 }
 ishkoman = {
-	define_pop = {	type = clergy	size = 0.014	culture = kashmiri_culture	religion = hindu }
-	define_pop = {	type = peasants	size = 3.120	culture = shina_culture	religion = hindu }
+	define_pop = {	type = clergy	size = 0.014	culture = kashmiri_culture	religion = mahayana }
+	define_pop = {	type = peasants	size = 3.120	culture = shina_culture	religion = mahayana }
 }
 phander = {
-	define_pop = {	type = clergy	size = 0.008	culture = chitrali	religion = hindu }
-	define_pop = {	type = peasants	size = 2.771	culture = chitrali	religion = hindu }
+	define_pop = {	type = clergy	size = 0.008	culture = chitrali	religion = mahayana }
+	define_pop = {	type = peasants	size = 2.771	culture = chitrali	religion = mahayana }
 }
 yasin = {
-	define_pop = {	type = clergy	size = 0.011	culture = chitrali	religion = hindu }
-	define_pop = {	type = peasants	size = 2.548	culture = chitrali	religion = hindu }
+	define_pop = {	type = clergy	size = 0.011	culture = chitrali	religion = mahayana }
+	define_pop = {	type = peasants	size = 2.548	culture = chitrali	religion = mahayana }
 }
 hindu_kush9 = {
 }
 hindu_kush10 = {
 }
 altit = {
-	define_pop = {	type = nobles	size = 0.028	culture = kashmiri_culture	religion = hindu }
-	define_pop = {	type = clergy	size = 0.034	culture = kashmiri_culture	religion = hindu }
-	define_pop = {	type = peasants	size = 3.160	culture = burusho	religion = hindu }
+	define_pop = {	type = nobles	size = 0.028	culture = kashmiri_culture	religion = mahayana }
+	define_pop = {	type = clergy	size = 0.034	culture = kashmiri_culture	religion = mahayana }
+	define_pop = {	type = peasants	size = 3.160	culture = burusho	religion = mahayana }
 }
 nagar = {
-	define_pop = {	type = nobles	size = 0.010	culture = kashmiri_culture	religion = hindu }
-	define_pop = {	type = clergy	size = 0.025	culture = kashmiri_culture	religion = hindu }
-	define_pop = {	type = peasants	size = 1.899	culture = burusho	religion = hindu }
+	define_pop = {	type = nobles	size = 0.010	culture = kashmiri_culture	religion = mahayana }
+	define_pop = {	type = clergy	size = 0.025	culture = kashmiri_culture	religion = mahayana }
+	define_pop = {	type = peasants	size = 1.899	culture = burusho	religion = mahayana }
 }
 misgar = {
-	define_pop = {	type = clergy	size = 0.018	culture = kashmiri_culture	religion = hindu }
-	define_pop = {	type = peasants	size = 3.777	culture = pamiri_culture	religion = hindu }
+	define_pop = {	type = clergy	size = 0.018	culture = kashmiri_culture	religion = mahayana }
+	define_pop = {	type = peasants	size = 3.777	culture = pamiri_culture	religion = mahayana }
 }
 passu = {
-	define_pop = {	type = clergy	size = 0.018	culture = kashmiri_culture	religion = hindu }
-	define_pop = {	type = peasants	size = 4.562	culture = burusho	religion = hindu }
+	define_pop = {	type = clergy	size = 0.018	culture = kashmiri_culture	religion = mahayana }
+	define_pop = {	type = peasants	size = 4.562	culture = burusho	religion = mahayana }
 }
 hindu_kush8 = {
 }
@@ -59359,33 +59359,33 @@ tansen = {
 	define_pop = {	type = tribesmen	size = 7.067	culture = magar_culture	religion = shamanism }
 }
 charaideo = {
-	define_pop = {	type = nobles	size = 0.008	culture = tai_nua_culture	religion = satsana_phi }
-	define_pop = {	type = clergy	size = 0.010	culture = tai_nua_culture	religion = satsana_phi }
-	define_pop = {	type = peasants	size = 6.433	culture = tai_nua_culture	religion = satsana_phi }
-	define_pop = {	type = tribesmen	size = 13.609	culture = tai_nua_culture	religion = satsana_phi }
+	define_pop = {	type = nobles	size = 0.008	culture = bodo_culture	religion = satsana_phi }
+	define_pop = {	type = clergy	size = 0.010	culture = bodo_culture	religion = satsana_phi }
+	define_pop = {	type = peasants	size = 6.433	culture = bodo_culture	religion = satsana_phi }
+	define_pop = {	type = tribesmen	size = 13.609	culture = bodo_culture	religion = satsana_phi }
 }
 charagua = {
-	define_pop = {	type = clergy	size = 0.007	culture = tai_nua_culture	religion = satsana_phi }
-	define_pop = {	type = peasants	size = 8.396	culture = tai_nua_culture	religion = satsana_phi }
-	define_pop = {	type = tribesmen	size = 8.616	culture = tai_nua_culture	religion = satsana_phi }
+	define_pop = {	type = clergy	size = 0.007	culture = bodo_culture	religion = satsana_phi }
+	define_pop = {	type = peasants	size = 8.396	culture = bodo_culture	religion = satsana_phi }
+	define_pop = {	type = tribesmen	size = 8.616	culture = bodo_culture	religion = satsana_phi }
 }
 namrup = {
-	define_pop = {	type = clergy	size = 0.008	culture = tai_nua_culture	religion = satsana_phi }
-	define_pop = {	type = peasants	size = 7.298	culture = tai_nua_culture	religion = satsana_phi }
-	define_pop = {	type = tribesmen	size = 9.184	culture = tai_nua_culture	religion = satsana_phi }
+	define_pop = {	type = clergy	size = 0.008	culture = bodo_culture	religion = satsana_phi }
+	define_pop = {	type = peasants	size = 7.298	culture = bodo_culture	religion = satsana_phi }
+	define_pop = {	type = tribesmen	size = 9.184	culture = bodo_culture	religion = satsana_phi }
 }
 noadihang = {
-	define_pop = {	type = clergy	size = 0.008	culture = tai_nua_culture	religion = satsana_phi }
-	define_pop = {	type = peasants	size = 6.886	culture = tai_nua_culture	religion = satsana_phi }
-	define_pop = {	type = tribesmen	size = 11.280	culture = tai_nua_culture	religion = satsana_phi }
+	define_pop = {	type = clergy	size = 0.008	culture = bodo_culture	religion = satsana_phi }
+	define_pop = {	type = peasants	size = 6.886	culture = bodo_culture	religion = satsana_phi }
+	define_pop = {	type = tribesmen	size = 11.280	culture = bodo_culture	religion = satsana_phi }
 	define_pop = {	type = slaves	size = 11.133	culture = deori_culture	religion = kundism_religion }
 }
 tezpur = {
 	define_pop = {	type = clergy	size = 0.005	culture = kamarupi	religion = hindu }
 	define_pop = {	type = peasants	size = 5.352	culture = tiwa_culture	religion = tiwa_religion }
-	define_pop = {	type = peasants	size = 1.342	culture = tai_nua_culture	religion = satsana_phi }
+	define_pop = {	type = peasants	size = 1.342	culture = bodo_culture	religion = satsana_phi }
 	define_pop = {	type = tribesmen	size = 8.847	culture = tiwa_culture	religion = tiwa_religion }
-	define_pop = {	type = tribesmen	size = 2.660	culture = tai_nua_culture	religion = satsana_phi }
+	define_pop = {	type = tribesmen	size = 2.660	culture = bodo_culture	religion = satsana_phi }
 }
 barpeta = {
 	define_pop = {	type = clergy	size = 0.005	culture = kamarupi	religion = hindu }
@@ -59400,9 +59400,9 @@ bijni = {
 }
 bordowa = {
 	define_pop = {	type = clergy	size = 0.005	culture = kamarupi	religion = hindu }
-	define_pop = {	type = peasants	size = 9.429	culture = tai_nua_culture	religion = satsana_phi }
+	define_pop = {	type = peasants	size = 9.429	culture = bodo_culture	religion = satsana_phi }
 	define_pop = {	type = peasants	size = 2.409	culture = tiwa_culture	religion = tiwa_religion }
-	define_pop = {	type = tribesmen	size = 10.702	culture = tai_nua_culture	religion = satsana_phi }
+	define_pop = {	type = tribesmen	size = 10.702	culture = bodo_culture	religion = satsana_phi }
 	define_pop = {	type = tribesmen	size = 5.418	culture = tiwa_culture	religion = tiwa_religion }
 }
 dhubri = {
@@ -59416,9 +59416,9 @@ dhubri = {
 durjaya = {
 	define_pop = {	type = clergy	size = 0.006	culture = kamarupi	religion = hindu }
 	define_pop = {	type = peasants	size = 8.250	culture = bodo_culture	religion = bathou_religion }
-	define_pop = {	type = peasants	size = 1.878	culture = tai_nua_culture	religion = satsana_phi }
+	define_pop = {	type = peasants	size = 1.878	culture = bodo_culture	religion = satsana_phi }
 	define_pop = {	type = tribesmen	size = 8.759	culture = bodo_culture	religion = bathou_religion }
-	define_pop = {	type = tribesmen	size = 2.641	culture = tai_nua_culture	religion = satsana_phi }
+	define_pop = {	type = tribesmen	size = 2.641	culture = bodo_culture	religion = satsana_phi }
 }
 goalpara = {
 	define_pop = {	type = clergy	size = 0.004	culture = kamarupi	religion = hindu }
@@ -59430,9 +59430,9 @@ goalpara = {
 }
 guwahati = {
 	define_pop = {	type = clergy	size = 0.005	culture = kamarupi	religion = hindu }
-	define_pop = {	type = peasants	size = 9.984	culture = tai_nua_culture	religion = satsana_phi }
+	define_pop = {	type = peasants	size = 9.984	culture = bodo_culture	religion = satsana_phi }
 	define_pop = {	type = peasants	size = 1.662	culture = khasi_culture	religion = ka_niam_khasi_religion }
-	define_pop = {	type = tribesmen	size = 10.132	culture = tai_nua_culture	religion = satsana_phi }
+	define_pop = {	type = tribesmen	size = 10.132	culture = bodo_culture	religion = satsana_phi }
 	define_pop = {	type = tribesmen	size = 3.365	culture = khasi_culture	religion = ka_niam_khasi_religion }
 }
 hajo = {
@@ -59451,9 +59451,9 @@ kokrajhar = {
 rowta = {
 	define_pop = {	type = clergy	size = 0.005	culture = kamarupi	religion = hindu }
 	define_pop = {	type = peasants	size = 5.722	culture = tiwa_culture	religion = tiwa_religion }
-	define_pop = {	type = peasants	size = 1.396	culture = tai_nua_culture	religion = satsana_phi }
+	define_pop = {	type = peasants	size = 1.396	culture = bodo_culture	religion = satsana_phi }
 	define_pop = {	type = tribesmen	size = 10.356	culture = tiwa_culture	religion = tiwa_religion }
-	define_pop = {	type = tribesmen	size = 2.131	culture = tai_nua_culture	religion = satsana_phi }
+	define_pop = {	type = tribesmen	size = 2.131	culture = bodo_culture	religion = satsana_phi }
 }
 bengmara = {
 	define_pop = {	type = clergy	size = 0.005	culture = chutia_culture	religion = chutia_religion }
@@ -59467,12 +59467,12 @@ dibrugarh = {
 	define_pop = {	type = tribesmen	size = 10.024	culture = chutia_culture	religion = chutia_religion }
 }
 konwargaon = {
-	define_pop = {	type = clergy	size = 0.005	culture = tai_nua_culture	religion = satsana_phi }
+	define_pop = {	type = clergy	size = 0.005	culture = bodo_culture	religion = satsana_phi }
 	define_pop = {	type = peasants	size = 7.902	culture = tani_culture	religion = donyi_polo_religion }
 	define_pop = {	type = tribesmen	size = 10.263	culture = tani_culture	religion = donyi_polo_religion }
 }
 lakhimpur = {
-	define_pop = {	type = clergy	size = 0.004	culture = tai_nua_culture	religion = satsana_phi }
+	define_pop = {	type = clergy	size = 0.004	culture = bodo_culture	religion = satsana_phi }
 	define_pop = {	type = peasants	size = 9.689	culture = tani_culture	religion = donyi_polo_religion }
 	define_pop = {	type = tribesmen	size = 15.399	culture = tani_culture	religion = donyi_polo_religion }
 }
@@ -59487,15 +59487,15 @@ dimapur = {
 }
 daboka = {
 	define_pop = {	type = clergy	size = 0.007	culture = khasi_culture	religion = ka_niam_khasi_religion }
-	define_pop = {	type = peasants	size = 4.286	culture = tai_nua_culture	religion = satsana_phi }
+	define_pop = {	type = peasants	size = 4.286	culture = bodo_culture	religion = satsana_phi }
 	define_pop = {	type = peasants	size = 3.297	culture = karbi_culture	religion = karbi_religion }
-	define_pop = {	type = tribesmen	size = 5.170	culture = tai_nua_culture	religion = satsana_phi }
+	define_pop = {	type = tribesmen	size = 5.170	culture = bodo_culture	religion = satsana_phi }
 	define_pop = {	type = tribesmen	size = 6.947	culture = karbi_culture	religion = karbi_religion }
 }
 dergaon = {
-	define_pop = {	type = clergy	size = 0.005	culture = tai_nua_culture	religion = satsana_phi }
-	define_pop = {	type = peasants	size = 10.224	culture = tai_nua_culture	religion = satsana_phi }
-	define_pop = {	type = tribesmen	size = 14.195	culture = tai_nua_culture	religion = satsana_phi }
+	define_pop = {	type = clergy	size = 0.005	culture = bodo_culture	religion = satsana_phi }
+	define_pop = {	type = peasants	size = 10.224	culture = bodo_culture	religion = satsana_phi }
+	define_pop = {	type = tribesmen	size = 14.195	culture = bodo_culture	religion = satsana_phi }
 }
 dhansiri = {
 	define_pop = {	type = clergy	size = 0.009	culture = dimasa_culture	religion = dimasa_religion }
@@ -59508,7 +59508,7 @@ diphu = {
 	define_pop = {	type = peasants	size = 2.092	culture = dimasa_culture	religion = dimasa_religion }
 	define_pop = {	type = tribesmen	size = 7.406	culture = karbi_culture	religion = karbi_religion }
 	define_pop = {	type = tribesmen	size = 2.740	culture = dimasa_culture	religion = dimasa_religion }
-	define_pop = {	type = slaves	size = 7.251	culture = tai_nua_culture	religion = satsana_phi }
+	define_pop = {	type = slaves	size = 7.251	culture = bodo_culture	religion = satsana_phi }
 }
 lanka = {
 	define_pop = {	type = clergy	size = 0.009	culture = khasi_culture	religion = ka_niam_khasi_religion }
@@ -59525,10 +59525,10 @@ maibong = {
 	define_pop = {	type = tribesmen	size = 2.316	culture = meitei_culture	religion = sanamahism }
 }
 morangi = {
-	define_pop = {	type = clergy	size = 0.005	culture = tai_nua_culture	religion = satsana_phi }
-	define_pop = {	type = peasants	size = 4.156	culture = tai_nua_culture	religion = satsana_phi }
+	define_pop = {	type = clergy	size = 0.005	culture = bodo_culture	religion = satsana_phi }
+	define_pop = {	type = peasants	size = 4.156	culture = bodo_culture	religion = satsana_phi }
 	define_pop = {	type = peasants	size = 4.492	culture = karbi_culture	religion = karbi_religion }
-	define_pop = {	type = tribesmen	size = 7.424	culture = tai_nua_culture	religion = satsana_phi }
+	define_pop = {	type = tribesmen	size = 7.424	culture = bodo_culture	religion = satsana_phi }
 	define_pop = {	type = tribesmen	size = 8.566	culture = karbi_culture	religion = karbi_religion }
 }
 dura = {
@@ -64141,26 +64141,26 @@ amini_atoll = {
 andrott_atoll = {
 }
 kavaratti_atoll = {
-	define_pop = {	type = tribesmen	size = 0.494	culture = malayali	religion = hindu }
+	define_pop = {	type = tribesmen	size = 0.494	culture = malayali	religion = theravada }
 }
 minicoy_atoll = {
 }
 thiladhunmathi_atoll = {
-	define_pop = {	type = nobles	size = 0.026	culture = dhivehi_culture	religion = hindu }
-	define_pop = {	type = clergy	size = 0.026	culture = dhivehi_culture	religion = hindu }
-	define_pop = {	type = peasants	size = 3.454	culture = dhivehi_culture	religion = hindu }
+	define_pop = {	type = nobles	size = 0.026	culture = dhivehi_culture	religion = theravada }
+	define_pop = {	type = clergy	size = 0.026	culture = dhivehi_culture	religion = theravada }
+	define_pop = {	type = peasants	size = 3.454	culture = dhivehi_culture	religion = theravada }
 }
 male_atoll = {
-	define_pop = {	type = tribesmen	size = 5.300	culture = dhivehi_culture	religion = hindu }
-	define_pop = {	type = peasants	size = 0.769	culture = dhivehi_culture	religion = hindu }
+	define_pop = {	type = tribesmen	size = 5.300	culture = dhivehi_culture	religion = theravada }
+	define_pop = {	type = peasants	size = 0.769	culture = dhivehi_culture	religion = theravada }
 }
 nilandhe_atoll = {
-	define_pop = {	type = tribesmen	size = 1.983	culture = dhivehi_culture	religion = hindu }
-	define_pop = {	type = peasants	size = 0.476	culture = dhivehi_culture	religion = hindu }
+	define_pop = {	type = tribesmen	size = 1.983	culture = dhivehi_culture	religion = theravada }
+	define_pop = {	type = peasants	size = 0.476	culture = dhivehi_culture	religion = theravada }
 }
 addu_atoll = {
-	define_pop = {	type = tribesmen	size = 1.321	culture = dhivehi_culture	religion = hindu }
-	define_pop = {	type = peasants	size = 0.182	culture = dhivehi_culture	religion = hindu }
+	define_pop = {	type = tribesmen	size = 1.321	culture = dhivehi_culture	religion = theravada }
+	define_pop = {	type = peasants	size = 0.182	culture = dhivehi_culture	religion = theravada }
 }
 chagos_archipelago = {
 }
