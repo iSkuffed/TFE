@@ -4,7 +4,7 @@ WRE = { # Western Roman Empire
 	color = rgb { 150 20 50 }
 	color2 = rgb { 75 10 25 }
 	culture_definition = roman_culture # PLACEHOLDER
-	religion_definition = catholic # PLACEHOLDER
+	religion_definition = orthodox # PLACEHOLDER
 	description_category = administrative
 	difficulty = 3
 }
@@ -22,7 +22,7 @@ VIS = { # Visigoths
 	color = rgb { 200 120 60 }
 	color2 = rgb { 100 60 30 }
 	culture_definition = gothic_culture # PLACEHOLDER
-	religion_definition = catholic # PLACEHOLDER
+	religion_definition = arianism # PLACEHOLDER
 	description_category = administrative
 	difficulty = 3
 }
@@ -85,7 +85,7 @@ GEP = { # Gepids
 	color = rgb { 185 155 60 }
 	color2 = rgb { 92 77 30 }
 	culture_definition = gothic_culture # PLACEHOLDER
-	religion_definition = catholic # PLACEHOLDER
+	religion_definition = arianism # PLACEHOLDER
 	description_category = administrative
 	difficulty = 3
 }
@@ -112,7 +112,7 @@ SCR = { # Sciri
 	color = rgb { 140 160 80 }
 	color2 = rgb { 70 80 40 }
 	culture_definition = gothic_culture # PLACEHOLDER
-	religion_definition = norse # PLACEHOLDER
+	religion_definition = arianism # PLACEHOLDER
 	description_category = administrative
 	difficulty = 3
 }
@@ -121,7 +121,7 @@ DMN = { # Damnonii
 	color = rgb { 120 160 120 }
 	color2 = rgb { 60 80 60 }
 	culture_definition = briton # PLACEHOLDER
-	religion_definition = norse # PLACEHOLDER
+	religion_definition = celtic_paganism # PLACEHOLDER
 	description_category = administrative
 	difficulty = 3
 }
@@ -148,7 +148,7 @@ AXU = { # Aksum
 	color = rgb { 175 130 40 }
 	color2 = rgb { 87 65 20 }
 	culture_definition = tigrinya # PLACEHOLDER
-	religion_definition = miaphysite # PLACEHOLDER
+	religion_definition = orthodox # PLACEHOLDER
 	description_category = administrative
 	difficulty = 3
 }
@@ -274,7 +274,7 @@ SIL = { # Silla
 	color = rgb { 200 170 50 }
 	color2 = rgb { 100 85 25 }
 	culture_definition = korean_culture # PLACEHOLDER
-	religion_definition = shinto # PLACEHOLDER
+	religion_definition = shamanism # PLACEHOLDER
 	description_category = administrative
 	difficulty = 3
 }
@@ -283,7 +283,7 @@ GYK = { # Gaya
 	color = rgb { 160 200 140 }
 	color2 = rgb { 80 100 70 }
 	culture_definition = korean_culture # PLACEHOLDER
-	religion_definition = shinto # PLACEHOLDER
+	religion_definition = shamanism # PLACEHOLDER
 	description_category = administrative
 	difficulty = 3
 }
@@ -346,7 +346,7 @@ PKT = { # Picts
 	color = rgb { 60 90 60 }
 	color2 = rgb { 30 45 30 }
 	culture_definition = pictish # PLACEHOLDER
-	religion_definition = norse # PLACEHOLDER
+	religion_definition = celtic_paganism # PLACEHOLDER
 	description_category = administrative
 	difficulty = 3
 }
@@ -355,7 +355,7 @@ VOT = { # Votadini
 	color = rgb { 140 180 110 }
 	color2 = rgb { 70 90 55 }
 	culture_definition = briton # PLACEHOLDER
-	religion_definition = norse # PLACEHOLDER
+	religion_definition = celtic_paganism # PLACEHOLDER
 	description_category = administrative
 	difficulty = 3
 }
@@ -364,7 +364,7 @@ NVN = { # Novantae
 	color = rgb { 100 150 130 }
 	color2 = rgb { 50 75 65 }
 	culture_definition = briton # PLACEHOLDER
-	religion_definition = norse # PLACEHOLDER
+	religion_definition = celtic_paganism # PLACEHOLDER
 	description_category = administrative
 	difficulty = 3
 }
@@ -373,7 +373,7 @@ SLG = { # Selgovae
 	color = rgb { 160 190 150 }
 	color2 = rgb { 80 95 75 }
 	culture_definition = briton # PLACEHOLDER
-	religion_definition = norse # PLACEHOLDER
+	religion_definition = celtic_paganism # PLACEHOLDER
 	description_category = administrative
 	difficulty = 3
 }
@@ -382,7 +382,7 @@ CQT = { # Connachta
 	color = rgb { 40 130 70 }
 	color2 = rgb { 20 65 35 }
 	culture_definition = irish # PLACEHOLDER
-	religion_definition = norse # PLACEHOLDER
+	religion_definition = celtic_paganism # PLACEHOLDER
 	description_category = administrative
 	difficulty = 3
 }
@@ -391,7 +391,7 @@ ULD = { # Ulaid
 	color = rgb { 90 170 60 }
 	color2 = rgb { 45 85 30 }
 	culture_definition = irish # PLACEHOLDER
-	religion_definition = norse # PLACEHOLDER
+	religion_definition = celtic_paganism # PLACEHOLDER
 	description_category = administrative
 	difficulty = 3
 }
@@ -400,7 +400,7 @@ LAI = { # Laigin
 	color = rgb { 30 100 50 }
 	color2 = rgb { 15 50 25 }
 	culture_definition = irish # PLACEHOLDER
-	religion_definition = norse # PLACEHOLDER
+	religion_definition = celtic_paganism # PLACEHOLDER
 	description_category = administrative
 	difficulty = 3
 }
@@ -409,7 +409,7 @@ MUM = { # Mumu
 	color = rgb { 120 190 90 }
 	color2 = rgb { 60 95 45 }
 	culture_definition = irish # PLACEHOLDER
-	religion_definition = norse # PLACEHOLDER
+	religion_definition = celtic_paganism # PLACEHOLDER
 	description_category = administrative
 	difficulty = 3
 }
@@ -499,7 +499,7 @@ HAS = { # Hasding Vandals
 	color = rgb { 210 130 30 }
 	color2 = rgb { 105 65 15 }
 	culture_definition = vandal # PLACEHOLDER
-	religion_definition = catholic # PLACEHOLDER
+	religion_definition = arianism # PLACEHOLDER
 	description_category = administrative
 	difficulty = 3
 }
@@ -526,7 +526,7 @@ RUG = { # Rugii
 	color = rgb { 150 120 170 }
 	color2 = rgb { 75 60 85 }
 	culture_definition = gothic_culture # PLACEHOLDER
-	religion_definition = norse # PLACEHOLDER
+	religion_definition = arianism # PLACEHOLDER
 	description_category = administrative
 	difficulty = 3
 }
@@ -544,7 +544,7 @@ AES = { # Aesti
 	color = rgb { 110 110 60 }
 	color2 = rgb { 55 55 30 }
 	culture_definition = pruthenian # PLACEHOLDER
-	religion_definition = norse # PLACEHOLDER
+	religion_definition = romuva # PLACEHOLDER
 	description_category = administrative
 	difficulty = 3
 }
@@ -553,7 +553,7 @@ MRX = { # Mauri
 	color = rgb { 190 150 110 }
 	color2 = rgb { 95 75 55 }
 	culture_definition = kabyle # PLACEHOLDER
-	religion_definition = hellenism_religion # PLACEHOLDER
+	religion_definition = godala_religion # PLACEHOLDER
 	description_category = administrative
 	difficulty = 3
 }
@@ -562,7 +562,7 @@ BAQ = { # Baquates
 	color = rgb { 170 120 80 }
 	color2 = rgb { 85 60 40 }
 	culture_definition = masmuda # PLACEHOLDER
-	religion_definition = hellenism_religion # PLACEHOLDER
+	religion_definition = godala_religion # PLACEHOLDER
 	description_category = administrative
 	difficulty = 3
 }
@@ -571,7 +571,7 @@ AUS = { # Austuriani
 	color = rgb { 200 170 120 }
 	color2 = rgb { 100 85 60 }
 	culture_definition = eastern_amazigh # PLACEHOLDER
-	religion_definition = hellenism_religion # PLACEHOLDER
+	religion_definition = godala_religion # PLACEHOLDER
 	description_category = administrative
 	difficulty = 3
 }
@@ -580,7 +580,7 @@ GMT = { # Garamantes
 	color = rgb { 150 100 60 }
 	color2 = rgb { 75 50 30 }
 	culture_definition = tuareg # PLACEHOLDER
-	religion_definition = hellenism_religion # PLACEHOLDER
+	religion_definition = godala_religion # PLACEHOLDER
 	description_category = administrative
 	difficulty = 3
 }

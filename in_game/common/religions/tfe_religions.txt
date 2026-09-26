@@ -1,0 +1,116 @@
+﻿# TFE 395: the faiths vanilla's 1337 lacks. The Nicene church is vanilla orthodox (renamed in localization).
+# Icons: main_menu/gfx/interface/icons/religion/<key>.dds, borrowed from vanilla.
+
+arianism = {	# the Homoian creed of Ulfilas' Gothic Bible
+	color = rgb { 196 132 52 }
+	group = christian
+
+	has_canonization = yes
+	has_religious_influence = yes
+
+	clergy_goods_demand_modifier = {
+		incense = 2
+	}
+
+	definition_modifier = {
+		global_max_literacy = 5
+		maximum_religious_influence = 400
+		tolerance_heretic = 1
+	}
+
+	opinions = {
+		orthodox = negative
+		donatism = negative
+	}
+
+	tags = { western_christian_gfx christian_gfx abrahamic_gfx }
+}
+
+donatism = {	# the church of the martyrs, Africa's own
+	color = rgb { 150 40 60 }
+	group = christian
+
+	has_canonization = yes
+	has_religious_influence = yes
+
+	clergy_goods_demand_modifier = {
+		incense = 2
+	}
+
+	definition_modifier = {
+		global_peasants_estate_power = 0.25
+		maximum_religious_influence = 400
+		global_defensive = 0.1
+	}
+
+	opinions = {
+		orthodox = enemy
+		arianism = negative
+	}
+
+	tags = { western_christian_gfx christian_gfx abrahamic_gfx }
+}
+
+celtic_paganism = {	# the gods of the druids: Lugus, Taranis' wheel, Nodens and Sulis
+	color = rgb { 60 140 90 }
+	group = folk_european_group
+
+	definition_modifier = {
+		global_defensive = 0.1
+		retreat_delay = 20
+	}
+
+	tags = { folk_european_gfx pagan_gfx }
+}
+
+slavic_paganism = {	# Perun and Veles, before the Slavs leave the forest
+	color = rgb { 170 130 50 }
+	group = folk_european_group
+
+	definition_modifier = {
+		global_wild_game_output_modifier = 0.1
+		global_defensive = 0.1
+	}
+
+	tags = { folk_european_gfx pagan_gfx }
+}
+
+arabian_paganism = {	# Hubal of the Kaaba, al-Lat, al-Uzza the morning star
+	color = rgb { 190 160 90 }
+	group = folk_european_group
+
+	definition_modifier = {
+		movement_speed_if_no_road = 0.05
+		global_pop_food_consumption = -0.1
+	}
+
+	tags = { pagan_gfx }
+}
+
+REPLACE:hellenism_religion = {	# vanilla waits for 9999 and a Byzantine revival; in 395 it is the old faith of half the West
+    color = map_greek
+    group = folk_european_group
+
+	religious_aspects = 2
+	has_religious_influence = yes
+	has_canonization = yes
+	saints_concept = god_emperors
+
+	has_omens = yes
+
+    definition_modifier = {
+		tolerance_heretic = 1
+		tolerance_heathen = 1
+        army_heavy_infantry_power = 0.05
+        skill_of_new_artists = 0.1
+		omens_offered = 3
+		monthly_religious_influence = 0.1
+    }
+    
+    opinions = {
+    }
+
+	tags = {
+		hellenism_gfx folk_european_gfx pagan_gfx
+	}
+}

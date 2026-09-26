@@ -1,0 +1,179 @@
+# 395 religions for the pops of 06_pops.txt (tools/borders.py pop_cultures, field = religion), run after cultures.txt.
+# scope | from | to    - first match wins. scope: * (anywhere), a 395 owner TAG, or a location / province / area / region.
+# from: the pop's 395 culture, *, or a social class qualifier (nobles:*, peasants:gallo_roman).
+# orthodox is the one Nicene church of 395 (shown "Nicene Christianity"); catholic, Islam and the medieval
+# heresies are not born yet. Docs: docs/specs/2026-09-26-395-religions-design.md
+
+# ---- the Jews, the Samaritans and the Mandaeans, wherever they live ----
+* | mizrahi | judaism
+* | romanyoti | judaism
+* | italki | judaism
+* | sephardi | judaism
+* | kalimi | judaism
+* | teimani | judaism
+* | samaritan_culture | samaritanism
+* | mandean_culture | mandeaism
+
+# ---- the old gods inside the Empire: temple cities, the senate, the pagani of the north ----
+harran | * | hellenism_religion         # Carrhae, the city of the Moon-god, pagan into the Caliphate
+baalbek | * | hellenism_religion        # Heliopolis
+gaza | * | hellenism_religion           # the Marneion stands until 402
+aswan | * | hellenism_religion          # Philae's Isis, until Justinian
+laconia_province | * | hellenism_religion   # the Maniots keep the gods into the 9th century
+attica_province | nobles:* | hellenism_religion   # the Athenian schools
+akhmim | nobles:* | hellenism_religion  # Panopolis, which Shenoute harried
+rome | nobles:* | hellenism_religion    # Symmachus and the Altar of Victory
+lazio_area | nobles:* | hellenism_religion
+trentino_province | peasants:roman_culture | hellenism_religion   # the Anaunians, who martyr missionaries in 397
+tirol_area | peasants:roman_culture | hellenism_religion
+savoy_area | peasants:gallo_roman | hellenism_religion
+western_switzerland_area | peasants:gallo_roman | hellenism_religion
+brittany_area | peasants:gallo_roman | hellenism_religion  # Armorica and Belgica: Martin of Tours' mission field
+normandy_area | peasants:gallo_roman | hellenism_religion
+picardy_area | peasants:gallo_roman | hellenism_religion
+champagne_area | peasants:gallo_roman | hellenism_religion
+lorraine_area | peasants:gallo_roman | hellenism_religion
+franche_comte_area | peasants:gallo_roman | hellenism_religion
+flanders_area | peasants:gallo_roman | hellenism_religion
+brabant_area | peasants:gallo_roman | hellenism_religion
+wallonia_area | peasants:gallo_roman | hellenism_religion
+holland_area | peasants:gallo_roman | hellenism_religion
+rhineland_area | peasants:gallo_roman | hellenism_religion
+hesse_area | peasants:gallo_roman | hellenism_religion
+alsace_area | peasants:gallo_roman | hellenism_religion
+upper_rhine_area | peasants:gallo_roman | hellenism_religion
+* | basque | hellenism_religion            # the Vascones, pagan into the 7th century
+
+# ---- Britain: Christian towns and villas, a countryside of Nodens and Sulis ----
+great_britain_region | peasants:* | celtic_paganism
+* | romano_british | orthodox
+* | briton | celtic_paganism
+* | irish | celtic_paganism
+* | pictish | celtic_paganism
+
+# ---- Africa: Augustine's Catholics against the church of Donatus ----
+annaba | peasants:* | donatism           # Hippo: Augustine's see, Donatist fields
+annaba | * | orthodox
+constantine_province | * | donatism      # Numidia, the Donatist heartland
+baghai_province | * | donatism
+kabylia_province | * | donatism          # Sitifensis
+hodna_province | * | donatism
+aures_province | * | donatism            # the Circumcellions' hills
+algiers_area | afro_roman | donatism      # Caesariensis
+tunis_area | peasants:afro_roman | donatism
+* | chaoui | donatism
+* | afro_roman | orthodox
+* | kabyle | godala_religion
+* | zenati | godala_religion
+* | masmuda | godala_religion
+* | sanhaja | godala_religion
+* | mozabite | godala_religion
+* | eastern_amazigh | godala_religion
+* | tuareg | godala_religion
+
+# ---- the Arians: Ulfilas' Goths and their neighbours ----
+crimea_area | gothic_culture | orthodox   # the Goths of Gothia sent a bishop to Nicaea
+VIS | * | arianism
+GEP | * | arianism
+RUG | * | arianism
+SCR | * | arianism
+HAS | * | arianism
+* | gothic_culture | arianism             # the federates and the Goths in Roman service
+
+# ---- Persia: the fire temples, the Church of the East, Buddhist Bactria ----
+SAS | syriac_culture | nestorianism
+* | syriac_culture | orthodox
+* | armenian_culture | orthodox
+* | afghan_culture | mahayana              # Gandhara and Kapisa
+* | pashayi_culture | mahayana
+badakhshan_area | * | mahayana            # Tokharistan: Termez and Balkh's Nava Vihara
+* | sindhi | hindu
+persia_region | * | zoroastrian
+khorasan_region | tajik_culture | zoroastrian
+khorasan_region | khorasani_culture | zoroastrian
+khorasan_region | pamiri_culture | zoroastrian
+* | kurdish_culture | zoroastrian
+* | lur_culture | zoroastrian
+* | adhari_culture | zoroastrian
+
+# ---- Arabia: the Kaaba's gods; Himyar's court has gone over to the One God ----
+HIM | nobles:* | judaism
+HIM | burghers:* | judaism
+* | bedouin_culture | arabian_paganism
+arabia_region | * | arabian_paganism
+
+# ---- the Caucasus: Christian kingdoms, mountain gods ----
+* | georgian_culture | orthodox
+* | mingrelian_culture | orthodox
+* | laz_culture | orthodox
+* | lezgin_culture | orthodox              # Caucasian Albania, Christian since Urnayr
+* | svan_culture | khabzeism
+* | abkhazian_culture | khabzeism
+* | abazin_culture | khabzeism
+* | circassian_culture | khabzeism
+* | nakh_culture | vainakh_paganism
+* | avar_culture | lezgin_paganism
+* | dargin_culture | lezgin_paganism
+* | lak_culture | lezgin_paganism
+* | alan_culture | alan_paganism
+
+# ---- the steppe ----
+* | hunnic | tengri
+* | mongolian_culture | tengri
+
+# ---- the Germanic peoples ----
+* | frankish | norse
+* | alamannic | norse
+* | suebian | norse
+* | saxon | norse
+* | frisian | norse
+* | tfe_burgundian | norse
+* | vandal | norse
+* | danish | norse
+* | swedish | norse
+* | norwegian | norse
+* | gutnish | norse
+
+# ---- the forest: Venedi, Balts, Finns, Sami ----
+* | venedi | slavic_paganism
+* | aukstaitian | romuva
+* | samogitian | romuva
+* | sudovian | romuva
+* | pruthenian | romuva
+* | curonian | romuva
+* | latvian | romuva
+* | votian | votian_religion
+* | sapmi | sapmi_shamanism
+* | mari_culture | mari_paganism
+* | merya_culture | mari_paganism
+* | erzya_culture | erzya_religion
+* | moksha_culture | moksha_religion
+* | meschera_culture | moksha_religion
+* | bjarmian | komi_paganism
+* | nenets_culture | samoyedic_paganism
+* | estonian | muinaisusko
+* | liv | muinaisusko
+* | finnish | muinaisusko
+* | tavastian | muinaisusko
+* | savonian | muinaisusko
+* | karelian | muinaisusko
+* | kvens | muinaisusko
+* | vepsian | muinaisusko
+* | ingrian | muinaisusko
+
+# ---- Nubia: the Isis of Philae ----
+* | nubian | hellenism_religion
+* | beja_culture | hellenism_religion
+
+# ---- the Roman world: one Nicene church ----
+* | roman_culture | orthodox
+* | greek_culture | orthodox
+* | gallo_roman | orthodox
+* | hispano_roman | orthodox
+* | cappadocian_greek_culture | orthodox
+* | pontic_greek_culture | orthodox
+* | griko_culture | orthodox
+* | coptic_culture | orthodox
+* | albanian | orthodox
+* | thracian | orthodox                     # the Bessi, baptised by Nicetas of Remesiana
+* | tigrinya | orthodox                     # Aksum, since Frumentius

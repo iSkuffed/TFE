@@ -504,7 +504,7 @@ def compute():
     errors += check_tags(tags, {t for t in vanilla_keys(GAME / "in_game/setup/countries") if TAG_RE.match(t)},
                          {p.stem for p in (GAME / "main_menu/setup/templates").glob("*.txt")},
                          known_cultures(),
-                         vanilla_keys(GAME / "in_game/common/religions"), set(anc))
+                         known_religions(), set(anc))
     errors += check_tag_map(tag_map, set(names), tags)
     errors += check_values(entries, tags)
     e, w = check_coverage(land, owner, anc, scopes)
@@ -571,6 +571,11 @@ def known_cultures():
     return {k for p in defs for k in re.findall(r"^(\w+)\s*=\s*\{", p.read_text(encoding="utf-8-sig"), re.M)}
 
 
+def known_religions():
+    defs = [*(GAME / "in_game/common/religions").glob("*.txt"), MOD / "in_game/common/religions/tfe_religions.txt"]
+    return {k for p in defs for k in re.findall(r"^(?:REPLACE:)?(\w+)\s*=\s*\{", p.read_text(encoding="utf-8-sig"), re.M)}
+
+
 def load_culture_rules(path, scopes, cultures):
     # "scope | from | to" per line, first match wins; scope is a 395 owner tag or a location/province/area/region
     rules = []
@@ -587,14 +592,16 @@ def load_culture_rules(path, scopes, cultures):
     return rules
 
 
-def pop_cultures(text, owner, anc, rules):
-    # from: a culture, *, or a social class qualifier (burghers:*, nobles:greek_culture)
+def pop_cultures(text, owner, anc, rules, field="culture"):
+    # from: a culture, *, or a social class qualifier (burghers:*, nobles:greek_culture); scope * is everywhere.
+    # field = religion keeps the culture and sets the pop's religion from the same kind of table
     def repl(m):
-        where = {owner.get(m.group(1)), m.group(1), *anc[m.group(1)]}
+        where = {owner.get(m.group(1)), m.group(1), *anc[m.group(1)], "*"}
         def pick(p):
             kind, c = re.search(r"type = (\w+)", p.group(0)).group(1), re.search(r"culture = (\w+)", p.group(0)).group(1)
-            to = next((to for scope, frm, to in rules if scope in where and frm in ("*", c, f"{kind}:*", f"{kind}:{c}")), c)
-            return re.sub(r"(?<=culture = )\w+", to, p.group(0))
+            old = re.search(rf"{field} = (\w+)", p.group(0)).group(1)
+            to = next((to for scope, frm, to in rules if scope in where and frm in ("*", c, f"{kind}:*", f"{kind}:{c}")), old)
+            return re.sub(rf"(?<={field} = )\w+", to, p.group(0))
         return re.sub(r"define_pop = \{[^}]*\}", pick, m.group(0))
     return re.sub(r"^(\w+) = \{(.*?)^\}", repl, text, flags=re.M | re.S)
 
@@ -753,6 +760,8 @@ def build():
     scopes = set(s["tags"]) | set(s["anc"]) | {n for a in s["anc"].values() for n in a}
     rules = load_culture_rules(TOOLS / "cultures.txt", scopes, known_cultures())
     pops = pop_cultures(pops, s["owner"], s["anc"], rules)
+    pops = pop_cultures(pops, s["owner"], s["anc"], load_culture_rules(TOOLS / "religions.txt", scopes | {"*"},
+                                                                      known_religions()), field="religion")
     pops = region_pops(pops, s["owner"], s["anc"])
     (MOD / "main_menu/setup/start/06_pops.txt").write_text(pops, encoding="utf-8")
     formables = "in_game/common/formable_countries/00_formable_countries.txt"

@@ -6,7 +6,7 @@ character_db = {
 		first_name = { name = name_theodosius }
 		nickname = { name = tfe_nick_the_great }
 		culture = roman_culture
-		religion = catholic
+		religion = orthodox
 		adm = 70 dip = 65 mil = 80
 		birth_date = 347.1.11
 		death_date = 395.1.17
@@ -20,7 +20,7 @@ character_db = {
 		first_name = { name = name_flaccilla }
 		female = yes
 		culture = roman_culture
-		religion = catholic
+		religion = orthodox
 		birth_date = 356.1.1
 		death_date = 386.1.1
 		birth = segovia
@@ -30,7 +30,7 @@ character_db = {
 		first_name = { name = name_galla }
 		female = yes
 		culture = roman_culture
-		religion = catholic
+		religion = orthodox
 		birth_date = 374.1.1
 		death_date = 394.5.1
 		birth = trier
@@ -53,7 +53,7 @@ character_db = {
 	tfe_honorius = { # 10 years old: Stilicho rules
 		first_name = { name = name_honorius }
 		culture = roman_culture
-		religion = catholic
+		religion = orthodox
 		adm = 20 dip = 25 mil = 10
 		birth_date = 384.9.9
 		birth = constantinople
@@ -67,7 +67,7 @@ character_db = {
 		first_name = { name = name_placidia }
 		female = yes
 		culture = roman_culture
-		religion = catholic
+		religion = orthodox
 		birth_date = 390.1.1
 		birth = constantinople
 		dynasty = theodosian_dynasty
@@ -79,7 +79,7 @@ character_db = {
 	tfe_stilicho = { # magister utriusque militiae; Vandal father; approx
 		first_name = { name = name_stilicho }
 		culture = roman_culture
-		religion = catholic
+		religion = orthodox
 		adm = 70 dip = 75 mil = 85
 		birth_date = 359.1.1
 		birth = sremska_mitrovica
@@ -94,7 +94,7 @@ character_db = {
 		first_name = { name = name_serena }
 		female = yes
 		culture = roman_culture
-		religion = catholic
+		religion = orthodox
 		birth_date = 365.1.1
 		birth = segovia
 		dynasty = theodosian_dynasty
@@ -106,7 +106,7 @@ character_db = {
 		first_name = { name = name_maria }
 		female = yes
 		culture = roman_culture
-		religion = catholic
+		religion = orthodox
 		birth_date = 385.1.1
 		birth = constantinople
 		father = tfe_stilicho
@@ -118,7 +118,7 @@ character_db = {
 		first_name = { name = name_thermantia }
 		female = yes
 		culture = roman_culture
-		religion = catholic
+		religion = orthodox
 		birth_date = 386.1.1
 		birth = constantinople
 		father = tfe_stilicho
@@ -129,7 +129,7 @@ character_db = {
 	tfe_eucherius = { # approx
 		first_name = { name = name_eucherius }
 		culture = roman_culture
-		religion = catholic
+		religion = orthodox
 		birth_date = 389.1.1
 		birth = constantinople
 		father = tfe_stilicho
@@ -140,7 +140,7 @@ character_db = {
 	tfe_gildo = { # comes Africae, son of Nubel; approx
 		first_name = { name = name_gildo }
 		culture = kabyle
-		religion = catholic
+		religion = donatism
 		adm = 45 dip = 35 mil = 60
 		birth_date = 330.1.1
 		birth = cherchell
@@ -153,7 +153,7 @@ character_db = {
 	tfe_ambrose = { # bishop of Milan; approx
 		first_name = { name = name_ambrose }
 		culture = roman_culture
-		religion = catholic
+		religion = orthodox
 		adm = 70 dip = 85 mil = 10
 		birth_date = 339.1.1
 		birth = trier
@@ -165,7 +165,7 @@ character_db = {
 	tfe_augustine = { # priest at Hippo, bishop 395/6
 		first_name = { name = name_augustine }
 		culture = roman_culture
-		religion = catholic
+		religion = orthodox
 		adm = 65 dip = 80 mil = 5
 		birth_date = 354.11.13
 		birth = thagaste
@@ -189,7 +189,7 @@ character_db = {
 	tfe_constantius = { # future Constantius III; approx
 		first_name = { name = name_constantius }
 		culture = roman_culture
-		religion = catholic
+		religion = orthodox
 		mil = 60
 		birth_date = 375.1.1
 		birth = nis
@@ -199,7 +199,7 @@ character_db = {
 	tfe_aetius = { # born at Durostorum; approx
 		first_name = { name = name_aetius }
 		culture = roman_culture
-		religion = catholic
+		religion = orthodox
 		birth_date = 391.1.1
 		birth = drastar
 		estate = nobles_estate
@@ -244,7 +244,7 @@ character_db = {
 	tfe_gainas = { # Gothic comes; approx
 		first_name = { name = name_gainas }
 		culture = gothic_culture
-		religion = catholic
+		religion = arianism
 		mil = 65
 		birth_date = 350.1.1
 		birth = tulcea
@@ -268,7 +268,7 @@ character_db = {
 	tfe_jerome = { # at Bethlehem; born at Stridon; approx
 		first_name = { name = name_jerome }
 		culture = roman_culture
-		religion = catholic
+		religion = orthodox
 		adm = 60 dip = 40 mil = 5
 		birth_date = 347.1.1
 		birth = split
@@ -279,7 +279,7 @@ character_db = {
 	tfe_alaric = { # born on Peuce in the Danube delta; approx
 		first_name = { name = name_alaric }
 		culture = gothic_culture
-		religion = catholic
+		religion = arianism
 		adm = 50 dip = 60 mil = 85
 		birth_date = 370.1.1
 		birth = tulcea
@@ -292,7 +292,7 @@ character_db = {
 	tfe_athaulf = { # Alaric's brother-in-law; approx
 		first_name = { name = name_athaulf }
 		culture = gothic_culture
-		religion = catholic
+		religion = arianism
 		mil = 60
 		birth_date = 370.1.1
 		birth = tulcea
@@ -302,7 +302,7 @@ character_db = {
 	tfe_godigisel = { # d. 406 aged 47
 		first_name = { name = name_godigisel }
 		culture = vandal
-		religion = catholic
+		religion = arianism
 		mil = 60
 		birth_date = 359.1.1
 		birth = abrahamtelke
@@ -312,7 +312,7 @@ character_db = {
 	tfe_gunderic = {
 		first_name = { name = name_gunderic }
 		culture = vandal
-		religion = catholic
+		religion = arianism
 		birth_date = 379.1.1
 		birth = abrahamtelke
 		dynasty = hasding_dynasty
@@ -322,7 +322,7 @@ character_db = {
 	tfe_gaiseric = { # illegitimate; approx
 		first_name = { name = name_gaiseric }
 		culture = vandal
-		religion = catholic
+		religion = arianism
 		birth_date = 389.1.1
 		birth = abrahamtelke
 		dynasty = hasding_dynasty
@@ -410,7 +410,7 @@ character_db = {
 		first_name = { name = name_niall }
 		nickname = { name = tfe_nick_nine_hostages }
 		culture = irish
-		religion = norse
+		religion = celtic_paganism
 		mil = 70
 		birth_date = 350.1.1
 		birth = athenry
@@ -420,7 +420,7 @@ character_db = {
 		first_name = { name = name_conall }
 		nickname = { name = tfe_nick_corc }
 		culture = irish
-		religion = norse
+		religion = celtic_paganism
 		birth_date = 360.1.1
 		birth = cashel
 		tag = MUM
@@ -428,7 +428,7 @@ character_db = {
 	tfe_cunedda = { # Manaw Gododdin; traditional
 		first_name = { name = name_cunedda }
 		culture = briton
-		religion = norse
+		religion = celtic_paganism
 		birth_date = 370.1.1
 		birth = edinburgh
 		tag = VOT
@@ -680,7 +680,7 @@ character_db = {
 	tfe_naemul = { # r. 356-402; approx
 		first_name = { name = name_naemul }
 		culture = korean_culture
-		religion = shinto
+		religion = shamanism
 		birth_date = 330.1.1
 		birth = gyeongju
 		dynasty = silla_kim_dynasty
