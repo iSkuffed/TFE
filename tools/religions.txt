@@ -99,6 +99,7 @@ khorasan_region | pamiri_culture | zoroastrian
 # ---- Arabia: the Kaaba's gods; Himyar's court has gone over to the One God ----
 HIM | nobles:* | judaism
 HIM | burghers:* | judaism
+HIM | clergy:* | judaism                  # the Rahmananist court of Zafar
 * | bedouin_culture | arabian_paganism
 arabia_region | * | arabian_paganism
 
@@ -171,6 +172,12 @@ AXU | burghers:* | orthodox                # Adulis and the Red Sea trade
 NOB | * | kushite_religion
 BMY | * | kushite_religion
 AXU | * | arabian_paganism                 # Almaqah, Astar and Mahrem, gods shared with Saba
+
+# ---- Arabia's Jews and Christians, the Agaw's sky-god ----
+YTB | nobles:* | judaism                   # the Jewish tribes of Yathrib and Khaybar
+YTB | burghers:* | judaism
+SLH | nobles:* | orthodox                  # the Salihids took Rome's faith with Rome's gold
+AGA | * | waaqeffanna_religion
 
 # ---- the wider world: faiths not yet born give way to what came before ----
 tibet_region | * | bon                      # Buddhism reaches Tibet under Songtsen Gampo

@@ -20665,8 +20665,8 @@ kursk = {
 	define_pop = {	type = slaves	size = 6.244	culture = hunnic	religion = tengri }
 }
 fatezh = {
-	define_pop = {	type = clergy	size = 0.001	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = slaves	size = 4.012	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = clergy	size = 0.001	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 4.012	culture = hunnic	religion = tengri }
 }
 opalkova = {
 	define_pop = {	type = slaves	size = 2.902	culture = hunnic	religion = tengri }
@@ -20712,19 +20712,19 @@ sudzha = {
 	define_pop = {	type = slaves	size = 4.521	culture = hunnic	religion = tengri }
 }
 yelets = {
-	define_pop = {	type = slaves	size = 3.663	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = slaves	size = 3.663	culture = hunnic	religion = tengri }
 }
 gogol = {
-	define_pop = {	type = slaves	size = 3.172	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = slaves	size = 3.172	culture = hunnic	religion = tengri }
 }
 talitsa_yelets = {
-	define_pop = {	type = slaves	size = 2.608	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = slaves	size = 2.608	culture = hunnic	religion = tengri }
 }
 terbuny = {
 	define_pop = {	type = slaves	size = 2.928	culture = hunnic	religion = tengri }
 }
 ust_livny = {
-	define_pop = {	type = slaves	size = 3.891	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = slaves	size = 3.891	culture = hunnic	religion = tengri }
 }
 zemlyansk = {
 	define_pop = {	type = slaves	size = 4.238	culture = hunnic	religion = tengri }
@@ -21399,12 +21399,12 @@ krasny_yar = {
 	define_pop = {	type = slaves	size = 1.613	culture = hunnic	religion = tengri }
 }
 ganyushkino = {
-	define_pop = {	type = clergy	size = 0.002	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = peasants	size = 0.075	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = peasants	size = 0.396	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = peasants	size = 0.107	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = tribesmen	size = 0.118	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = slaves	size = 1.187	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = clergy	size = 0.002	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.075	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.396	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.107	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 0.118	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 1.187	culture = hunnic	religion = tengri }
 }
 pologoye_zaymishche = {
 	define_pop = {	type = peasants	size = 0.679	culture = hunnic	religion = tengri }
@@ -21500,11 +21500,11 @@ rechnoye = {
 	define_pop = {	type = slaves	size = 0.944	culture = hunnic	religion = tengri }
 }
 bokey = {
-	define_pop = {	type = peasants	size = 0.035	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = peasants	size = 0.184	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = peasants	size = 0.049	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = tribesmen	size = 0.055	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = slaves	size = 0.552	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = peasants	size = 0.035	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.184	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.049	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 0.055	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 0.552	culture = hunnic	religion = tengri }
 }
 botkul = {
 	define_pop = {	type = clergy	size = 0.002	culture = hunnic	religion = tengri }
@@ -21515,12 +21515,12 @@ botkul = {
 	define_pop = {	type = slaves	size = 0.831	culture = hunnic	religion = tengri }
 }
 zhanybek = {
-	define_pop = {	type = clergy	size = 0.003	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = peasants	size = 0.105	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = peasants	size = 0.554	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = peasants	size = 0.153	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = tribesmen	size = 0.163	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = slaves	size = 1.662	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = clergy	size = 0.003	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.105	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.554	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.153	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 0.163	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 1.662	culture = hunnic	religion = tengri }
 }
 dardeling = {
 	define_pop = {	type = peasants	size = 0.946	culture = hunnic	religion = tengri }
@@ -27776,10 +27776,10 @@ tokrau = {
 	define_pop = {	type = tribesmen	size = 1.158	culture = hunnic	religion = tengri }
 }
 espe = {
-	define_pop = {	type = clergy	size = 0.001	culture = mongolian_culture	religion = tengri }
-	define_pop = {	type = peasants	size = 0.510	culture = mongolian_culture	religion = tengri }
-	define_pop = {	type = peasants	size = 0.076	culture = mongolian_culture	religion = tengri }
-	define_pop = {	type = tribesmen	size = 0.935	culture = mongolian_culture	religion = tengri }
+	define_pop = {	type = clergy	size = 0.001	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.510	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.076	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 0.935	culture = hunnic	religion = tengri }
 }
 kusak = {
 	define_pop = {	type = clergy	size = 0.001	culture = hunnic	religion = tengri }
@@ -28280,46 +28280,46 @@ kattashor_lake = {
 karakum_desert1 = {
 }
 masat_ata = {
-	define_pop = {	type = peasants	size = 0.060	culture = khorasani_culture	religion = zoroastrian }
-	define_pop = {	type = slaves	size = 1.149	culture = khorasani_culture	religion = zoroastrian }
+	define_pop = {	type = peasants	size = 0.060	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 1.149	culture = hunnic	religion = tengri }
 }
 beket_ata = {
-	define_pop = {	type = peasants	size = 0.065	culture = khorasani_culture	religion = zoroastrian }
-	define_pop = {	type = slaves	size = 1.252	culture = khorasani_culture	religion = zoroastrian }
+	define_pop = {	type = peasants	size = 0.065	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 1.252	culture = hunnic	religion = tengri }
 }
 beki = {
-	define_pop = {	type = peasants	size = 0.050	culture = khorasani_culture	religion = zoroastrian }
-	define_pop = {	type = slaves	size = 0.949	culture = khorasani_culture	religion = zoroastrian }
+	define_pop = {	type = peasants	size = 0.050	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 0.949	culture = hunnic	religion = tengri }
 }
 kenderli_kayasan = {
-	define_pop = {	type = peasants	size = 0.045	culture = khorasani_culture	religion = zoroastrian }
-	define_pop = {	type = slaves	size = 0.859	culture = khorasani_culture	religion = zoroastrian }
+	define_pop = {	type = peasants	size = 0.045	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 0.859	culture = hunnic	religion = tengri }
 }
 koshkar_ata = {
-	define_pop = {	type = peasants	size = 0.109	culture = khorasani_culture	religion = zoroastrian }
-	define_pop = {	type = slaves	size = 0.620	culture = khorasani_culture	religion = zoroastrian }
+	define_pop = {	type = peasants	size = 0.109	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 0.620	culture = hunnic	religion = tengri }
 }
 temir_baba = {
-	define_pop = {	type = peasants	size = 0.156	culture = khorasani_culture	religion = zoroastrian }
-	define_pop = {	type = slaves	size = 0.889	culture = khorasani_culture	religion = zoroastrian }
+	define_pop = {	type = peasants	size = 0.156	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 0.889	culture = hunnic	religion = tengri }
 }
 karagiye_lake = {
 }
 ketik_kala = {
-	define_pop = {	type = peasants	size = 0.079	culture = khorasani_culture	religion = zoroastrian }
-	define_pop = {	type = slaves	size = 0.447	culture = khorasani_culture	religion = zoroastrian }
+	define_pop = {	type = peasants	size = 0.079	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 0.447	culture = hunnic	religion = tengri }
 }
 kabakty = {
-	define_pop = {	type = peasants	size = 0.121	culture = khorasani_culture	religion = zoroastrian }
-	define_pop = {	type = slaves	size = 0.684	culture = khorasani_culture	religion = zoroastrian }
+	define_pop = {	type = peasants	size = 0.121	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 0.684	culture = hunnic	religion = tengri }
 }
 karatobe_mangyshlak = {
-	define_pop = {	type = peasants	size = 0.120	culture = khorasani_culture	religion = zoroastrian }
-	define_pop = {	type = slaves	size = 0.684	culture = khorasani_culture	religion = zoroastrian }
+	define_pop = {	type = peasants	size = 0.120	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 0.684	culture = hunnic	religion = tengri }
 }
 kyzylkala = {
-	define_pop = {	type = peasants	size = 0.056	culture = khorasani_culture	religion = zoroastrian }
-	define_pop = {	type = slaves	size = 1.075	culture = khorasani_culture	religion = zoroastrian }
+	define_pop = {	type = peasants	size = 0.056	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 1.075	culture = hunnic	religion = tengri }
 }
 dead_kultuk = {
 }
@@ -29071,33 +29071,33 @@ akkol_lake = {
 bilikol_lake = {
 }
 almaliq = {
-	define_pop = {	type = nobles	size = 0.005	culture = mongolian_culture	religion = tengri }
-	define_pop = {	type = clergy	size = 0.010	culture = mongolian_culture	religion = tengri }
-	define_pop = {	type = peasants	size = 0.444	culture = mongolian_culture	religion = tengri }
-	define_pop = {	type = peasants	size = 4.573	culture = mongolian_culture	religion = tengri }
-	define_pop = {	type = peasants	size = 0.785	culture = mongolian_culture	religion = tengri }
-	define_pop = {	type = tribesmen	size = 1.088	culture = mongolian_culture	religion = tengri }
-	define_pop = {	type = tribesmen	size = 5.224	culture = mongolian_culture	religion = tengri }
-	define_pop = {	type = tribesmen	size = 1.503	culture = mongolian_culture	religion = tengri }
-	define_pop = {	type = slaves	size = 2.246	culture = mongolian_culture	religion = tengri }
+	define_pop = {	type = nobles	size = 0.005	culture = hunnic	religion = tengri }
+	define_pop = {	type = clergy	size = 0.010	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.444	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 4.573	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.785	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 1.088	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 5.224	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 1.503	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 2.246	culture = hunnic	religion = tengri }
 }
 gulja = {
-	define_pop = {	type = clergy	size = 0.005	culture = mongolian_culture	religion = tengri }
-	define_pop = {	type = peasants	size = 2.694	culture = mongolian_culture	religion = tengri }
-	define_pop = {	type = tribesmen	size = 5.153	culture = mongolian_culture	religion = tengri }
-	define_pop = {	type = slaves	size = 0.413	culture = mongolian_culture	religion = tengri }
+	define_pop = {	type = clergy	size = 0.005	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 2.694	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 5.153	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 0.413	culture = hunnic	religion = tengri }
 }
 narat = {
-	define_pop = {	type = clergy	size = 0.005	culture = mongolian_culture	religion = tengri }
-	define_pop = {	type = peasants	size = 3.918	culture = mongolian_culture	religion = tengri }
-	define_pop = {	type = tribesmen	size = 3.920	culture = mongolian_culture	religion = tengri }
-	define_pop = {	type = slaves	size = 0.413	culture = mongolian_culture	religion = tengri }
+	define_pop = {	type = clergy	size = 0.005	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 3.918	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 3.920	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 0.413	culture = hunnic	religion = tengri }
 }
 nilka = {
-	define_pop = {	type = clergy	size = 0.005	culture = mongolian_culture	religion = tengri }
-	define_pop = {	type = peasants	size = 2.419	culture = mongolian_culture	religion = tengri }
-	define_pop = {	type = tribesmen	size = 4.783	culture = mongolian_culture	religion = tengri }
-	define_pop = {	type = slaves	size = 0.378	culture = mongolian_culture	religion = tengri }
+	define_pop = {	type = clergy	size = 0.005	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 2.419	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 4.783	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 0.378	culture = hunnic	religion = tengri }
 }
 tokkuztara = {
 	define_pop = {	type = clergy	size = 0.005	culture = hunnic	religion = tengri }
@@ -29120,9 +29120,9 @@ almaty = {
 	define_pop = {	type = tribesmen	size = 16.891	culture = hunnic	religion = tengri }
 }
 boyauli = {
-	define_pop = {	type = clergy	size = 0.001	culture = mongolian_culture	religion = tengri }
-	define_pop = {	type = peasants	size = 1.092	culture = mongolian_culture	religion = tengri }
-	define_pop = {	type = tribesmen	size = 2.310	culture = mongolian_culture	religion = tengri }
+	define_pop = {	type = clergy	size = 0.001	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 1.092	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 2.310	culture = hunnic	religion = tengri }
 }
 karakastek = {
 	define_pop = {	type = clergy	size = 0.001	culture = hunnic	religion = tengri }
@@ -29130,22 +29130,22 @@ karakastek = {
 	define_pop = {	type = tribesmen	size = 0.927	culture = hunnic	religion = tengri }
 }
 karamergen = {
-	define_pop = {	type = clergy	size = 0.001	culture = mongolian_culture	religion = tengri }
-	define_pop = {	type = peasants	size = 1.505	culture = mongolian_culture	religion = tengri }
-	define_pop = {	type = tribesmen	size = 1.592	culture = mongolian_culture	religion = tengri }
+	define_pop = {	type = clergy	size = 0.001	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 1.505	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 1.592	culture = hunnic	religion = tengri }
 }
 kargaly = {
 	define_pop = {	type = peasants	size = 1.705	culture = hunnic	religion = tengri }
 	define_pop = {	type = tribesmen	size = 2.751	culture = hunnic	religion = tengri }
 }
 kurty = {
-	define_pop = {	type = clergy	size = 0.001	culture = mongolian_culture	religion = tengri }
-	define_pop = {	type = peasants	size = 0.733	culture = mongolian_culture	religion = tengri }
-	define_pop = {	type = tribesmen	size = 1.158	culture = mongolian_culture	religion = tengri }
+	define_pop = {	type = clergy	size = 0.001	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.733	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 1.158	culture = hunnic	religion = tengri }
 }
 shengeldy = {
-	define_pop = {	type = peasants	size = 1.197	culture = mongolian_culture	religion = tengri }
-	define_pop = {	type = tribesmen	size = 1.473	culture = mongolian_culture	religion = tengri }
+	define_pop = {	type = peasants	size = 1.197	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 1.473	culture = hunnic	religion = tengri }
 }
 talkhir = {
 	define_pop = {	type = peasants	size = 10.021	culture = hunnic	religion = tengri }
@@ -29246,32 +29246,32 @@ balruq = {
 targabatay_mountains = {
 }
 ilibalyk = {
-	define_pop = {	type = peasants	size = 1.632	culture = mongolian_culture	religion = tengri }
-	define_pop = {	type = tribesmen	size = 2.166	culture = mongolian_culture	religion = tengri }
-	define_pop = {	type = slaves	size = 0.129	culture = mongolian_culture	religion = tengri }
+	define_pop = {	type = peasants	size = 1.632	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 2.166	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 0.129	culture = hunnic	religion = tengri }
 }
 charyn = {
-	define_pop = {	type = peasants	size = 1.667	culture = mongolian_culture	religion = tengri }
-	define_pop = {	type = tribesmen	size = 1.959	culture = mongolian_culture	religion = tengri }
+	define_pop = {	type = peasants	size = 1.667	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 1.959	culture = hunnic	religion = tengri }
 }
 chundzha = {
-	define_pop = {	type = peasants	size = 1.389	culture = mongolian_culture	religion = tengri }
-	define_pop = {	type = peasants	size = 0.398	culture = mongolian_culture	religion = tengri }
-	define_pop = {	type = tribesmen	size = 1.824	culture = mongolian_culture	religion = tengri }
-	define_pop = {	type = tribesmen	size = 0.409	culture = mongolian_culture	religion = tengri }
+	define_pop = {	type = peasants	size = 1.389	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.398	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 1.824	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 0.409	culture = hunnic	religion = tengri }
 }
 kegen = {
 	define_pop = {	type = peasants	size = 0.766	culture = hunnic	religion = tengri }
 	define_pop = {	type = tribesmen	size = 0.866	culture = hunnic	religion = tengri }
 }
 koktal = {
-	define_pop = {	type = peasants	size = 1.820	culture = mongolian_culture	religion = tengri }
-	define_pop = {	type = tribesmen	size = 2.187	culture = mongolian_culture	religion = tengri }
-	define_pop = {	type = slaves	size = 0.141	culture = mongolian_culture	religion = tengri }
+	define_pop = {	type = peasants	size = 1.820	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 2.187	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 0.141	culture = hunnic	religion = tengri }
 }
 lavar = {
-	define_pop = {	type = peasants	size = 1.077	culture = mongolian_culture	religion = tengri }
-	define_pop = {	type = tribesmen	size = 1.271	culture = mongolian_culture	religion = tengri }
+	define_pop = {	type = peasants	size = 1.077	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 1.271	culture = hunnic	religion = tengri }
 }
 shelek = {
 	define_pop = {	type = peasants	size = 1.460	culture = hunnic	religion = tengri }
@@ -31429,20 +31429,20 @@ mandali = {
 	define_pop = {	type = slaves	size = 2.704	culture = mandean_culture	religion = mandeaism }
 }
 kufa = {
-	define_pop = {	type = clergy	size = 0.026	culture = syriac_culture	religion = nestorianism }
-	define_pop = {	type = peasants	size = 40.534	culture = syriac_culture	religion = nestorianism }
-	define_pop = {	type = peasants	size = 8.102	culture = syriac_culture	religion = nestorianism }
-	define_pop = {	type = slaves	size = 5.398	culture = syriac_culture	religion = nestorianism }
+	define_pop = {	type = clergy	size = 0.026	culture = syriac_culture	religion = orthodox }
+	define_pop = {	type = peasants	size = 40.534	culture = syriac_culture	religion = orthodox }
+	define_pop = {	type = peasants	size = 8.102	culture = syriac_culture	religion = orthodox }
+	define_pop = {	type = slaves	size = 5.398	culture = syriac_culture	religion = orthodox }
 }
 al_udayb = {
-	define_pop = {	type = clergy	size = 0.037	culture = syriac_culture	religion = nestorianism }
-	define_pop = {	type = peasants	size = 23.821	culture = syriac_culture	religion = nestorianism }
-	define_pop = {	type = peasants	size = 4.202	culture = syriac_culture	religion = nestorianism }
+	define_pop = {	type = clergy	size = 0.037	culture = syriac_culture	religion = orthodox }
+	define_pop = {	type = peasants	size = 23.821	culture = syriac_culture	religion = orthodox }
+	define_pop = {	type = peasants	size = 4.202	culture = syriac_culture	religion = orthodox }
 }
 ayn_tamr = {
-	define_pop = {	type = clergy	size = 0.003	culture = syriac_culture	religion = nestorianism }
-	define_pop = {	type = peasants	size = 10.004	culture = syriac_culture	religion = nestorianism }
-	define_pop = {	type = peasants	size = 1.765	culture = syriac_culture	religion = nestorianism }
+	define_pop = {	type = clergy	size = 0.003	culture = syriac_culture	religion = orthodox }
+	define_pop = {	type = peasants	size = 10.004	culture = syriac_culture	religion = orthodox }
+	define_pop = {	type = peasants	size = 1.765	culture = syriac_culture	religion = orthodox }
 }
 hillah = {
 	define_pop = {	type = clergy	size = 0.010	culture = syriac_culture	religion = nestorianism }
@@ -31461,10 +31461,10 @@ karbala = {
 	define_pop = {	type = slaves	size = 9.128	culture = syriac_culture	religion = nestorianism }
 }
 qadisiyyah = {
-	define_pop = {	type = clergy	size = 0.024	culture = syriac_culture	religion = nestorianism }
-	define_pop = {	type = peasants	size = 32.626	culture = syriac_culture	religion = nestorianism }
-	define_pop = {	type = peasants	size = 6.521	culture = syriac_culture	religion = nestorianism }
-	define_pop = {	type = slaves	size = 4.346	culture = syriac_culture	religion = nestorianism }
+	define_pop = {	type = clergy	size = 0.024	culture = syriac_culture	religion = orthodox }
+	define_pop = {	type = peasants	size = 32.626	culture = syriac_culture	religion = orthodox }
+	define_pop = {	type = peasants	size = 6.521	culture = syriac_culture	religion = orthodox }
+	define_pop = {	type = slaves	size = 4.346	culture = syriac_culture	religion = orthodox }
 }
 kirkuk = {
 	define_pop = {	type = clergy	size = 0.010	culture = syriac_culture	religion = nestorianism }
@@ -32826,10 +32826,10 @@ makna = {
 	define_pop = {	type = tribesmen	size = 1.614	culture = hijazi_culture	religion = arabian_paganism }
 }
 mecca = {
-	define_pop = {	type = nobles	size = 0.017	culture = hijazi_culture	religion = judaism }
+	define_pop = {	type = nobles	size = 0.017	culture = hijazi_culture	religion = arabian_paganism }
 	define_pop = {	type = clergy	size = 0.078	culture = hijazi_culture	religion = arabian_paganism }
-	define_pop = {	type = burghers	size = 1.424	culture = hijazi_culture	religion = judaism }
-	define_pop = {	type = burghers	size = 0.355	culture = hijazi_culture	religion = judaism }
+	define_pop = {	type = burghers	size = 1.424	culture = hijazi_culture	religion = arabian_paganism }
+	define_pop = {	type = burghers	size = 0.355	culture = hijazi_culture	religion = arabian_paganism }
 	define_pop = {	type = peasants	size = 3.728	culture = hijazi_culture	religion = arabian_paganism }
 	define_pop = {	type = peasants	size = 14.919	culture = hijazi_culture	religion = arabian_paganism }
 	define_pop = {	type = slaves	size = 1.128	culture = najdi_culture	religion = arabian_paganism }
@@ -33842,7 +33842,7 @@ al_shuqayq = {
 	define_pop = {	type = peasants	size = 0.187	culture = hijazi_culture	religion = arabian_paganism }
 }
 al_sirrayn = {
-	define_pop = {	type = clergy	size = 0.003	culture = hijazi_culture	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.003	culture = hijazi_culture	religion = judaism }
 	define_pop = {	type = peasants	size = 3.411	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = peasants	size = 10.234	culture = hijazi_culture	religion = arabian_paganism }
 	define_pop = {	type = peasants	size = 0.852	culture = yemeni_culture	religion = arabian_paganism }
@@ -33867,36 +33867,36 @@ muhayil = {
 	define_pop = {	type = peasants	size = 0.347	culture = hijazi_culture	religion = arabian_paganism }
 }
 rijal_almaa = {
-	define_pop = {	type = clergy	size = 0.004	culture = yemeni_culture	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.004	culture = yemeni_culture	religion = judaism }
 	define_pop = {	type = peasants	size = 2.234	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = peasants	size = 0.558	culture = yemeni_culture	religion = arabian_paganism }
 }
 al_hirda = {
-	define_pop = {	type = clergy	size = 0.059	culture = yemeni_culture	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.059	culture = yemeni_culture	religion = judaism }
 	define_pop = {	type = peasants	size = 25.258	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = peasants	size = 16.838	culture = yemeni_culture	religion = arabian_paganism }
 }
 hajjah = {
-	define_pop = {	type = clergy	size = 0.077	culture = yemeni_culture	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.077	culture = yemeni_culture	religion = judaism }
 	define_pop = {	type = peasants	size = 9.034	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = peasants	size = 1.128	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = peasants	size = 12.422	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = slaves	size = 3.985	culture = teimani	religion = judaism }
 }
 harad_asir = {
-	define_pop = {	type = clergy	size = 0.051	culture = yemeni_culture	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.051	culture = yemeni_culture	religion = judaism }
 	define_pop = {	type = peasants	size = 25.791	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = peasants	size = 11.053	culture = yemeni_culture	religion = arabian_paganism }
 }
 khamir = {
-	define_pop = {	type = clergy	size = 0.082	culture = yemeni_culture	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.082	culture = yemeni_culture	religion = judaism }
 	define_pop = {	type = peasants	size = 9.694	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = peasants	size = 1.211	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = peasants	size = 13.331	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = slaves	size = 4.276	culture = teimani	religion = judaism }
 }
 shaharah = {
-	define_pop = {	type = clergy	size = 0.109	culture = yemeni_culture	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.109	culture = yemeni_culture	religion = judaism }
 	define_pop = {	type = peasants	size = 13.551	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = peasants	size = 1.693	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = peasants	size = 18.633	culture = yemeni_culture	religion = arabian_paganism }
@@ -33905,7 +33905,7 @@ shaharah = {
 haraz_mountains1 = {
 }
 jazan = {
-	define_pop = {	type = clergy	size = 0.021	culture = yemeni_culture	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.021	culture = yemeni_culture	religion = judaism }
 	define_pop = {	type = peasants	size = 12.195	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = peasants	size = 3.048	culture = yemeni_culture	religion = arabian_paganism }
 }
@@ -33914,7 +33914,7 @@ al_haqu = {
 	define_pop = {	type = peasants	size = 0.097	culture = yemeni_culture	religion = arabian_paganism }
 }
 al_khosuf = {
-	define_pop = {	type = clergy	size = 0.008	culture = yemeni_culture	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.008	culture = yemeni_culture	religion = judaism }
 	define_pop = {	type = peasants	size = 5.372	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = peasants	size = 1.343	culture = yemeni_culture	religion = arabian_paganism }
 }
@@ -33923,12 +33923,12 @@ farasan = {
 	define_pop = {	type = peasants	size = 0.347	culture = yemeni_culture	religion = arabian_paganism }
 }
 sabt_bani_bishr = {
-	define_pop = {	type = clergy	size = 0.002	culture = yemeni_culture	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.002	culture = yemeni_culture	religion = judaism }
 	define_pop = {	type = peasants	size = 1.937	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = peasants	size = 0.484	culture = yemeni_culture	religion = arabian_paganism }
 }
 sabya = {
-	define_pop = {	type = clergy	size = 0.013	culture = yemeni_culture	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.013	culture = yemeni_culture	religion = judaism }
 	define_pop = {	type = peasants	size = 7.302	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = peasants	size = 1.825	culture = yemeni_culture	religion = arabian_paganism }
 }
@@ -34014,7 +34014,7 @@ al_mahjal = {
 	define_pop = {	type = slaves	size = 0.266	culture = teimani	religion = judaism }
 }
 dhahran = {
-	define_pop = {	type = clergy	size = 0.004	culture = yemeni_culture	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.004	culture = yemeni_culture	religion = judaism }
 	define_pop = {	type = peasants	size = 1.229	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = peasants	size = 0.330	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = tribesmen	size = 1.855	culture = yemeni_culture	religion = arabian_paganism }
@@ -34084,21 +34084,21 @@ tathlith = {
 	define_pop = {	type = tribesmen	size = 0.294	culture = hijazi_culture	religion = arabian_paganism }
 }
 al_amwah = {
-	define_pop = {	type = clergy	size = 0.005	culture = yemeni_culture	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.005	culture = yemeni_culture	religion = judaism }
 	define_pop = {	type = peasants	size = 1.124	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = peasants	size = 0.280	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = tribesmen	size = 1.858	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = tribesmen	size = 0.465	culture = yemeni_culture	religion = arabian_paganism }
 }
 al_harjah = {
-	define_pop = {	type = clergy	size = 0.004	culture = yemeni_culture	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.004	culture = yemeni_culture	religion = judaism }
 	define_pop = {	type = peasants	size = 1.212	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = peasants	size = 0.228	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = tribesmen	size = 1.318	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = tribesmen	size = 0.404	culture = yemeni_culture	religion = arabian_paganism }
 }
 al_maddah = {
-	define_pop = {	type = clergy	size = 0.005	culture = yemeni_culture	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.005	culture = yemeni_culture	religion = judaism }
 	define_pop = {	type = peasants	size = 1.037	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = peasants	size = 0.308	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = tribesmen	size = 2.080	culture = yemeni_culture	religion = arabian_paganism }
@@ -34121,7 +34121,7 @@ yadamah = {
 	define_pop = {	type = tribesmen	size = 0.125	culture = yemeni_culture	religion = arabian_paganism }
 }
 turbah = {
-	define_pop = {	type = clergy	size = 0.003	culture = hijazi_culture	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.003	culture = hijazi_culture	religion = judaism }
 	define_pop = {	type = peasants	size = 1.221	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = peasants	size = 4.369	culture = hijazi_culture	religion = arabian_paganism }
 	define_pop = {	type = peasants	size = 0.339	culture = yemeni_culture	religion = arabian_paganism }
@@ -34162,7 +34162,7 @@ barahrah = {
 	define_pop = {	type = tribesmen	size = 0.476	culture = hijazi_culture	religion = arabian_paganism }
 }
 adan = {
-	define_pop = {	type = clergy	size = 0.086	culture = yemeni_culture	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.086	culture = yemeni_culture	religion = judaism }
 	define_pop = {	type = peasants	size = 17.247	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = peasants	size = 1.076	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = peasants	size = 3.233	culture = yemeni_culture	religion = arabian_paganism }
@@ -34170,38 +34170,38 @@ adan = {
 	define_pop = {	type = slaves	size = 3.803	culture = teimani	religion = judaism }
 }
 al_arah = {
-	define_pop = {	type = clergy	size = 0.032	culture = yemeni_culture	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.032	culture = yemeni_culture	religion = judaism }
 	define_pop = {	type = peasants	size = 5.690	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = peasants	size = 17.071	culture = yemeni_culture	religion = arabian_paganism }
 }
 al_mafalis = {
-	define_pop = {	type = clergy	size = 0.037	culture = yemeni_culture	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.037	culture = yemeni_culture	religion = judaism }
 	define_pop = {	type = peasants	size = 6.782	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = peasants	size = 20.351	culture = yemeni_culture	religion = arabian_paganism }
 }
 lahj = {
-	define_pop = {	type = clergy	size = 0.033	culture = yemeni_culture	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.033	culture = yemeni_culture	religion = judaism }
 	define_pop = {	type = peasants	size = 7.436	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = peasants	size = 17.351	culture = yemeni_culture	religion = arabian_paganism }
 }
 zinjibar = {
-	define_pop = {	type = clergy	size = 0.058	culture = yemeni_culture	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.058	culture = yemeni_culture	religion = judaism }
 	define_pop = {	type = peasants	size = 13.747	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = peasants	size = 0.859	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = peasants	size = 2.577	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = slaves	size = 3.031	culture = teimani	religion = judaism }
 }
 birali = {
-	define_pop = {	type = clergy	size = 0.011	culture = yemeni_culture	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.011	culture = yemeni_culture	religion = judaism }
 	define_pop = {	type = peasants	size = 3.784	culture = hadhrami_culture	religion = arabian_paganism }
 	define_pop = {	type = peasants	size = 0.667	culture = yemeni_culture	religion = arabian_paganism }
 }
 al_mukalla = {
-	define_pop = {	type = clergy	size = 0.009	culture = yemeni_culture	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.009	culture = yemeni_culture	religion = judaism }
 	define_pop = {	type = peasants	size = 10.701	culture = hadhrami_culture	religion = arabian_paganism }
 }
 al_shihr = {
-	define_pop = {	type = clergy	size = 0.008	culture = yemeni_culture	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.008	culture = yemeni_culture	religion = judaism }
 	define_pop = {	type = peasants	size = 13.018	culture = hadhrami_culture	religion = arabian_paganism }
 	define_pop = {	type = peasants	size = 2.296	culture = dhofari_culture	religion = arabian_paganism }
 }
@@ -34210,65 +34210,65 @@ azzan = {
 	define_pop = {	type = peasants	size = 0.454	culture = hadhrami_culture	religion = arabian_paganism }
 }
 balhaf = {
-	define_pop = {	type = clergy	size = 0.002	culture = yemeni_culture	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.002	culture = yemeni_culture	religion = judaism }
 	define_pop = {	type = peasants	size = 4.585	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = peasants	size = 0.809	culture = hadhrami_culture	religion = arabian_paganism }
 }
 habban = {
-	define_pop = {	type = clergy	size = 0.009	culture = yemeni_culture	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.009	culture = yemeni_culture	religion = judaism }
 	define_pop = {	type = peasants	size = 1.743	culture = yemeni_culture	religion = arabian_paganism }
 }
 hajar = {
-	define_pop = {	type = clergy	size = 0.008	culture = yemeni_culture	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.008	culture = yemeni_culture	religion = judaism }
 	define_pop = {	type = peasants	size = 3.069	culture = hadhrami_culture	religion = arabian_paganism }
 	define_pop = {	type = peasants	size = 0.541	culture = yemeni_culture	religion = arabian_paganism }
 }
 ahwar = {
-	define_pop = {	type = clergy	size = 0.009	culture = yemeni_culture	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.009	culture = yemeni_culture	religion = judaism }
 	define_pop = {	type = peasants	size = 4.915	culture = yemeni_culture	religion = arabian_paganism }
 }
 al_qara = {
-	define_pop = {	type = clergy	size = 0.004	culture = yemeni_culture	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.004	culture = yemeni_culture	religion = judaism }
 	define_pop = {	type = peasants	size = 0.698	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = peasants	size = 3.960	culture = yemeni_culture	religion = arabian_paganism }
 }
 jurrah = {
-	define_pop = {	type = clergy	size = 0.005	culture = yemeni_culture	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.005	culture = yemeni_culture	religion = judaism }
 	define_pop = {	type = peasants	size = 1.580	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = peasants	size = 0.105	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = slaves	size = 0.421	culture = teimani	religion = judaism }
 }
 lawdar = {
-	define_pop = {	type = clergy	size = 0.014	culture = yemeni_culture	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.014	culture = yemeni_culture	religion = judaism }
 	define_pop = {	type = peasants	size = 3.876	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = peasants	size = 0.242	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = slaves	size = 0.727	culture = teimani	religion = judaism }
 }
 shuqra = {
-	define_pop = {	type = clergy	size = 0.034	culture = yemeni_culture	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.034	culture = yemeni_culture	religion = judaism }
 	define_pop = {	type = peasants	size = 9.441	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = peasants	size = 0.590	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = slaves	size = 1.770	culture = teimani	religion = judaism }
 }
 shibam = {
-	define_pop = {	type = clergy	size = 0.016	culture = yemeni_culture	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.016	culture = yemeni_culture	religion = judaism }
 	define_pop = {	type = peasants	size = 5.349	culture = hadhrami_culture	religion = arabian_paganism }
 	define_pop = {	type = peasants	size = 0.943	culture = yemeni_culture	religion = arabian_paganism }
 }
 al_khuraybah = {
-	define_pop = {	type = clergy	size = 0.009	culture = yemeni_culture	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.009	culture = yemeni_culture	religion = judaism }
 	define_pop = {	type = peasants	size = 7.540	culture = hadhrami_culture	religion = arabian_paganism }
 }
 arrayda = {
-	define_pop = {	type = clergy	size = 0.009	culture = yemeni_culture	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.009	culture = yemeni_culture	religion = judaism }
 	define_pop = {	type = peasants	size = 7.127	culture = hadhrami_culture	religion = arabian_paganism }
 }
 dha_sohis = {
-	define_pop = {	type = clergy	size = 0.009	culture = yemeni_culture	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.009	culture = yemeni_culture	religion = judaism }
 	define_pop = {	type = peasants	size = 1.590	culture = hadhrami_culture	religion = arabian_paganism }
 }
 huraydah = {
-	define_pop = {	type = clergy	size = 0.011	culture = yemeni_culture	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.011	culture = yemeni_culture	religion = judaism }
 	define_pop = {	type = peasants	size = 3.843	culture = hadhrami_culture	religion = arabian_paganism }
 	define_pop = {	type = peasants	size = 0.678	culture = yemeni_culture	religion = arabian_paganism }
 }
@@ -34281,88 +34281,88 @@ rakhyah = {
 	define_pop = {	type = peasants	size = 0.711	culture = hadhrami_culture	religion = arabian_paganism }
 }
 sayun = {
-	define_pop = {	type = clergy	size = 0.009	culture = yemeni_culture	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.009	culture = yemeni_culture	religion = judaism }
 	define_pop = {	type = peasants	size = 12.298	culture = hadhrami_culture	religion = arabian_paganism }
 }
 tarim = {
-	define_pop = {	type = clergy	size = 0.009	culture = yemeni_culture	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.009	culture = yemeni_culture	religion = judaism }
 	define_pop = {	type = peasants	size = 7.830	culture = hadhrami_culture	religion = arabian_paganism }
 }
 rub_al_khali2 = {
 }
 hudaida = {
-	define_pop = {	type = clergy	size = 0.056	culture = yemeni_culture	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.056	culture = yemeni_culture	religion = judaism }
 	define_pop = {	type = peasants	size = 16.169	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = peasants	size = 24.253	culture = yemeni_culture	religion = arabian_paganism }
 }
 al_luhayyah = {
-	define_pop = {	type = clergy	size = 0.058	culture = yemeni_culture	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.058	culture = yemeni_culture	religion = judaism }
 	define_pop = {	type = peasants	size = 16.678	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = peasants	size = 25.017	culture = yemeni_culture	religion = arabian_paganism }
 }
 as_salif = {
-	define_pop = {	type = clergy	size = 0.061	culture = yemeni_culture	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.061	culture = yemeni_culture	religion = judaism }
 	define_pop = {	type = peasants	size = 17.561	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = peasants	size = 26.343	culture = yemeni_culture	religion = arabian_paganism }
 }
 kamaran_islands_wasteland = {
 }
 hutayb = {
-	define_pop = {	type = clergy	size = 0.066	culture = yemeni_culture	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.066	culture = yemeni_culture	religion = judaism }
 	define_pop = {	type = peasants	size = 7.630	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = peasants	size = 0.953	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = peasants	size = 10.493	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = slaves	size = 6.358	culture = teimani	religion = judaism }
 }
 kawkaban = {
-	define_pop = {	type = clergy	size = 0.067	culture = yemeni_culture	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.067	culture = yemeni_culture	religion = judaism }
 	define_pop = {	type = peasants	size = 7.754	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = peasants	size = 0.968	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = peasants	size = 10.661	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = slaves	size = 6.462	culture = teimani	religion = judaism }
 }
 ibb = {
-	define_pop = {	type = clergy	size = 0.121	culture = yemeni_culture	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.121	culture = yemeni_culture	religion = judaism }
 	define_pop = {	type = peasants	size = 21.265	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = peasants	size = 1.772	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = peasants	size = 12.404	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = slaves	size = 6.253	culture = teimani	religion = judaism }
 }
 dhafar = {
-	define_pop = {	type = clergy	size = 0.042	culture = yemeni_culture	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.042	culture = yemeni_culture	religion = judaism }
 	define_pop = {	type = peasants	size = 4.953	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = peasants	size = 0.619	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = peasants	size = 6.811	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = slaves	size = 2.185	culture = teimani	religion = judaism }
 }
 juban = {
-	define_pop = {	type = clergy	size = 0.082	culture = yemeni_culture	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.082	culture = yemeni_culture	religion = judaism }
 	define_pop = {	type = peasants	size = 5.646	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = peasants	size = 8.469	culture = yemeni_culture	religion = arabian_paganism }
 }
 musaymir = {
-	define_pop = {	type = clergy	size = 0.093	culture = yemeni_culture	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.093	culture = yemeni_culture	religion = judaism }
 	define_pop = {	type = peasants	size = 18.927	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = peasants	size = 1.352	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = peasants	size = 6.759	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = slaves	size = 4.770	culture = teimani	religion = judaism }
 }
 yahr = {
-	define_pop = {	type = clergy	size = 0.020	culture = yemeni_culture	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.020	culture = yemeni_culture	religion = judaism }
 	define_pop = {	type = peasants	size = 5.874	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = peasants	size = 8.812	culture = yemeni_culture	religion = arabian_paganism }
 }
 dhufar = {
-	define_pop = {	type = clergy	size = 0.011	culture = dhofari_culture	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.011	culture = dhofari_culture	religion = judaism }
 	define_pop = {	type = peasants	size = 0.667	culture = mehri_culture	religion = arabian_paganism }
 	define_pop = {	type = peasants	size = 0.815	culture = dhofari_culture	religion = arabian_paganism }
 }
 hadibu = {
-	define_pop = {	type = clergy	size = 0.004	culture = yemeni_culture	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.004	culture = yemeni_culture	religion = judaism }
 	define_pop = {	type = peasants	size = 4.607	culture = soqotri_culture	religion = arabian_paganism }
 }
 qulensya = {
-	define_pop = {	type = clergy	size = 0.005	culture = yemeni_culture	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.005	culture = yemeni_culture	religion = judaism }
 	define_pop = {	type = tribesmen	size = 4.395	culture = soqotri_culture	religion = arabian_paganism }
 }
 khalfut = {
@@ -34370,7 +34370,7 @@ khalfut = {
 	define_pop = {	type = peasants	size = 0.447	culture = dhofari_culture	religion = arabian_paganism }
 }
 mirbat = {
-	define_pop = {	type = clergy	size = 0.005	culture = dhofari_culture	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.005	culture = dhofari_culture	religion = judaism }
 	define_pop = {	type = peasants	size = 0.327	culture = mehri_culture	religion = arabian_paganism }
 	define_pop = {	type = peasants	size = 0.399	culture = dhofari_culture	religion = arabian_paganism }
 }
@@ -34379,7 +34379,7 @@ qishn = {
 	define_pop = {	type = peasants	size = 0.118	culture = dhofari_culture	religion = arabian_paganism }
 }
 raysut = {
-	define_pop = {	type = clergy	size = 0.007	culture = dhofari_culture	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.007	culture = dhofari_culture	religion = judaism }
 	define_pop = {	type = peasants	size = 0.474	culture = mehri_culture	religion = arabian_paganism }
 	define_pop = {	type = peasants	size = 0.579	culture = dhofari_culture	religion = arabian_paganism }
 }
@@ -34398,7 +34398,7 @@ baraqish = {
 	define_pop = {	type = slaves	size = 0.981	culture = teimani	religion = judaism }
 }
 dhamar = {
-	define_pop = {	type = clergy	size = 0.132	culture = yemeni_culture	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.132	culture = yemeni_culture	religion = judaism }
 	define_pop = {	type = peasants	size = 15.150	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = peasants	size = 1.892	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = peasants	size = 20.831	culture = yemeni_culture	religion = arabian_paganism }
@@ -34411,63 +34411,63 @@ harib = {
 	define_pop = {	type = slaves	size = 1.511	culture = teimani	religion = judaism }
 }
 radaa = {
-	define_pop = {	type = clergy	size = 0.136	culture = yemeni_culture	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.136	culture = yemeni_culture	religion = judaism }
 	define_pop = {	type = peasants	size = 9.392	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = peasants	size = 14.089	culture = yemeni_culture	religion = arabian_paganism }
 }
 shabwa = {
-	define_pop = {	type = clergy	size = 0.007	culture = yemeni_culture	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.007	culture = yemeni_culture	religion = judaism }
 	define_pop = {	type = peasants	size = 2.005	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = peasants	size = 0.153	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = peasants	size = 0.463	culture = hadhrami_culture	religion = arabian_paganism }
 	define_pop = {	type = slaves	size = 0.463	culture = teimani	religion = judaism }
 }
 al_bayda_yemen = {
-	define_pop = {	type = clergy	size = 0.017	culture = yemeni_culture	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.017	culture = yemeni_culture	religion = judaism }
 	define_pop = {	type = peasants	size = 5.336	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = peasants	size = 8.004	culture = yemeni_culture	religion = arabian_paganism }
 }
 bayhan = {
-	define_pop = {	type = clergy	size = 0.025	culture = yemeni_culture	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.025	culture = yemeni_culture	religion = judaism }
 	define_pop = {	type = peasants	size = 1.730	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = peasants	size = 2.594	culture = yemeni_culture	religion = arabian_paganism }
 }
 markha = {
-	define_pop = {	type = clergy	size = 0.008	culture = yemeni_culture	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.008	culture = yemeni_culture	religion = judaism }
 	define_pop = {	type = peasants	size = 1.030	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = peasants	size = 5.840	culture = yemeni_culture	religion = arabian_paganism }
 }
 nisab = {
-	define_pop = {	type = clergy	size = 0.009	culture = yemeni_culture	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.009	culture = yemeni_culture	religion = judaism }
 	define_pop = {	type = peasants	size = 5.581	culture = yemeni_culture	religion = arabian_paganism }
 }
 taizz = {
-	define_pop = {	type = clergy	size = 0.091	culture = yemeni_culture	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.091	culture = yemeni_culture	religion = judaism }
 	define_pop = {	type = peasants	size = 18.688	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = peasants	size = 1.335	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = peasants	size = 6.674	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = slaves	size = 4.710	culture = teimani	religion = judaism }
 }
 al_mandab = {
-	define_pop = {	type = clergy	size = 0.025	culture = yemeni_culture	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.025	culture = yemeni_culture	religion = judaism }
 	define_pop = {	type = peasants	size = 4.577	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = peasants	size = 13.732	culture = yemeni_culture	religion = arabian_paganism }
 }
 al_mukha = {
-	define_pop = {	type = clergy	size = 0.062	culture = yemeni_culture	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.062	culture = yemeni_culture	religion = judaism }
 	define_pop = {	type = peasants	size = 11.181	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = peasants	size = 33.546	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = slaves	size = 2.463	culture = najdi_culture	religion = arabian_paganism }
 }
 hays = {
-	define_pop = {	type = clergy	size = 0.118	culture = yemeni_culture	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.118	culture = yemeni_culture	religion = judaism }
 	define_pop = {	type = peasants	size = 24.180	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = peasants	size = 1.727	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = peasants	size = 8.635	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = slaves	size = 6.095	culture = teimani	religion = judaism }
 }
 mawza = {
-	define_pop = {	type = clergy	size = 0.081	culture = yemeni_culture	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.081	culture = yemeni_culture	religion = judaism }
 	define_pop = {	type = peasants	size = 16.655	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = peasants	size = 1.189	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = peasants	size = 5.947	culture = yemeni_culture	religion = arabian_paganism }
@@ -34476,33 +34476,33 @@ mawza = {
 haraz_mountains3 = {
 }
 zabid = {
-	define_pop = {	type = clergy	size = 0.123	culture = yemeni_culture	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.123	culture = yemeni_culture	religion = judaism }
 	define_pop = {	type = peasants	size = 23.356	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = peasants	size = 1.796	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = peasants	size = 10.779	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = slaves	size = 6.340	culture = teimani	religion = judaism }
 }
 al_ghulayfiqah = {
-	define_pop = {	type = clergy	size = 0.047	culture = yemeni_culture	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.047	culture = yemeni_culture	religion = judaism }
 	define_pop = {	type = peasants	size = 13.542	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = peasants	size = 20.314	culture = yemeni_culture	religion = arabian_paganism }
 }
 as_salafiyah = {
-	define_pop = {	type = clergy	size = 0.052	culture = yemeni_culture	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.052	culture = yemeni_culture	religion = judaism }
 	define_pop = {	type = peasants	size = 6.495	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = peasants	size = 0.811	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = peasants	size = 8.931	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = slaves	size = 4.058	culture = teimani	religion = judaism }
 }
 mikhlaf_al_hubishiyah = {
-	define_pop = {	type = clergy	size = 0.090	culture = yemeni_culture	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.090	culture = yemeni_culture	religion = judaism }
 	define_pop = {	type = peasants	size = 10.605	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = peasants	size = 1.325	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = peasants	size = 14.582	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = slaves	size = 4.678	culture = teimani	religion = judaism }
 }
 mudhaykirah = {
-	define_pop = {	type = clergy	size = 0.114	culture = yemeni_culture	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.114	culture = yemeni_culture	religion = judaism }
 	define_pop = {	type = peasants	size = 22.913	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = peasants	size = 1.761	culture = yemeni_culture	religion = arabian_paganism }
 	define_pop = {	type = peasants	size = 10.575	culture = yemeni_culture	religion = arabian_paganism }
@@ -72645,187 +72645,187 @@ bayombe = {
 	define_pop = {	type = tribesmen	size = 11.585	culture = bashilele	religion = bantu_religion }
 }
 kubar = {
-	define_pop = {	type = clergy	size = 0.211	culture = amhara	religion = arabian_paganism }
-	define_pop = {	type = peasants	size = 13.761	culture = amhara	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.211	culture = agaw_culture	religion = waaqeffanna_religion }
+	define_pop = {	type = peasants	size = 13.761	culture = agaw_culture	religion = waaqeffanna_religion }
 }
 aheyya_fagg = {
-	define_pop = {	type = clergy	size = 0.008	culture = amhara	religion = arabian_paganism }
-	define_pop = {	type = peasants	size = 17.729	culture = amhara	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.008	culture = agaw_culture	religion = waaqeffanna_religion }
+	define_pop = {	type = peasants	size = 17.729	culture = agaw_culture	religion = waaqeffanna_religion }
 }
 gannata_giyorgis = {
-	define_pop = {	type = clergy	size = 0.008	culture = amhara	religion = arabian_paganism }
-	define_pop = {	type = peasants	size = 13.822	culture = amhara	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.008	culture = agaw_culture	religion = waaqeffanna_religion }
+	define_pop = {	type = peasants	size = 13.822	culture = agaw_culture	religion = waaqeffanna_religion }
 }
 tadbaba = {
-	define_pop = {	type = clergy	size = 0.008	culture = amhara	religion = arabian_paganism }
-	define_pop = {	type = peasants	size = 5.845	culture = amhara	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.008	culture = agaw_culture	religion = waaqeffanna_religion }
+	define_pop = {	type = peasants	size = 5.845	culture = agaw_culture	religion = waaqeffanna_religion }
 }
 north_east_ethiopian_mountains = {
 }
 ankober = {
-	define_pop = {	type = nobles	size = 0.010	culture = amhara	religion = arabian_paganism }
-	define_pop = {	type = clergy	size = 0.014	culture = amhara	religion = arabian_paganism }
-	define_pop = {	type = clergy	size = 0.004	culture = afar_culture	religion = arabian_paganism }
-	define_pop = {	type = peasants	size = 12.175	culture = amhara	religion = arabian_paganism }
-	define_pop = {	type = peasants	size = 6.072	culture = afar_culture	religion = arabian_paganism }
+	define_pop = {	type = nobles	size = 0.010	culture = agaw_culture	religion = waaqeffanna_religion }
+	define_pop = {	type = clergy	size = 0.014	culture = agaw_culture	religion = waaqeffanna_religion }
+	define_pop = {	type = clergy	size = 0.004	culture = afar_culture	religion = waaqeffanna_religion }
+	define_pop = {	type = peasants	size = 12.175	culture = agaw_culture	religion = waaqeffanna_religion }
+	define_pop = {	type = peasants	size = 6.072	culture = afar_culture	religion = waaqeffanna_religion }
 }
 gendebelo = {
-	define_pop = {	type = clergy	size = 0.008	culture = afar_culture	religion = arabian_paganism }
-	define_pop = {	type = peasants	size = 20.497	culture = afar_culture	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.008	culture = afar_culture	religion = waaqeffanna_religion }
+	define_pop = {	type = peasants	size = 20.497	culture = afar_culture	religion = waaqeffanna_religion }
 }
 kombolcha = {
-	define_pop = {	type = clergy	size = 0.008	culture = amhara	religion = arabian_paganism }
-	define_pop = {	type = peasants	size = 7.751	culture = amhara	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.008	culture = agaw_culture	religion = waaqeffanna_religion }
+	define_pop = {	type = peasants	size = 7.751	culture = agaw_culture	religion = waaqeffanna_religion }
 }
 nora_eth = {
-	define_pop = {	type = clergy	size = 0.004	culture = afar_culture	religion = arabian_paganism }
-	define_pop = {	type = clergy	size = 0.004	culture = amhara	religion = arabian_paganism }
-	define_pop = {	type = peasants	size = 14.877	culture = afar_culture	religion = arabian_paganism }
-	define_pop = {	type = peasants	size = 9.902	culture = amhara	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.004	culture = afar_culture	religion = waaqeffanna_religion }
+	define_pop = {	type = clergy	size = 0.004	culture = agaw_culture	religion = waaqeffanna_religion }
+	define_pop = {	type = peasants	size = 14.877	culture = afar_culture	religion = waaqeffanna_religion }
+	define_pop = {	type = peasants	size = 9.902	culture = agaw_culture	religion = waaqeffanna_religion }
 }
 gonder = {
-	define_pop = {	type = clergy	size = 0.008	culture = amhara	religion = arabian_paganism }
-	define_pop = {	type = peasants	size = 16.010	culture = amhara	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.008	culture = agaw_culture	religion = waaqeffanna_religion }
+	define_pop = {	type = peasants	size = 16.010	culture = agaw_culture	religion = waaqeffanna_religion }
 }
 tsana = {
-	define_pop = {	type = clergy	size = 0.008	culture = amhara	religion = arabian_paganism }
-	define_pop = {	type = peasants	size = 24.798	culture = amhara	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.008	culture = agaw_culture	religion = waaqeffanna_religion }
+	define_pop = {	type = peasants	size = 24.798	culture = agaw_culture	religion = waaqeffanna_religion }
 }
 debre_tabor = {
-	define_pop = {	type = clergy	size = 0.008	culture = amhara	religion = arabian_paganism }
-	define_pop = {	type = peasants	size = 14.195	culture = amhara	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.008	culture = agaw_culture	religion = waaqeffanna_religion }
+	define_pop = {	type = peasants	size = 14.195	culture = agaw_culture	religion = waaqeffanna_religion }
 }
 lake_tana = {
 }
 manadeley = {
-	define_pop = {	type = nobles	size = 0.010	culture = tigrinya	religion = arabian_paganism }
-	define_pop = {	type = clergy	size = 0.016	culture = afar_culture	religion = arabian_paganism }
-	define_pop = {	type = clergy	size = 0.002	culture = tigrinya	religion = arabian_paganism }
-	define_pop = {	type = peasants	size = 4.188	culture = afar_culture	religion = arabian_paganism }
-	define_pop = {	type = peasants	size = 1.039	culture = tigrinya	religion = arabian_paganism }
+	define_pop = {	type = nobles	size = 0.010	culture = tigrinya	religion = waaqeffanna_religion }
+	define_pop = {	type = clergy	size = 0.016	culture = afar_culture	religion = waaqeffanna_religion }
+	define_pop = {	type = clergy	size = 0.002	culture = tigrinya	religion = waaqeffanna_religion }
+	define_pop = {	type = peasants	size = 4.188	culture = afar_culture	religion = waaqeffanna_religion }
+	define_pop = {	type = peasants	size = 1.039	culture = tigrinya	religion = waaqeffanna_religion }
 }
 afrera = {
-	define_pop = {	type = clergy	size = 0.008	culture = afar_culture	religion = arabian_paganism }
-	define_pop = {	type = peasants	size = 4.477	culture = afar_culture	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.008	culture = afar_culture	religion = waaqeffanna_religion }
+	define_pop = {	type = peasants	size = 4.477	culture = afar_culture	religion = waaqeffanna_religion }
 }
 amora_gadal = {
-	define_pop = {	type = clergy	size = 0.005	culture = amhara	religion = arabian_paganism }
-	define_pop = {	type = clergy	size = 0.003	culture = afar_culture	religion = arabian_paganism }
-	define_pop = {	type = peasants	size = 6.379	culture = amhara	religion = arabian_paganism }
-	define_pop = {	type = peasants	size = 2.723	culture = afar_culture	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.005	culture = agaw_culture	religion = waaqeffanna_religion }
+	define_pop = {	type = clergy	size = 0.003	culture = afar_culture	religion = waaqeffanna_religion }
+	define_pop = {	type = peasants	size = 6.379	culture = agaw_culture	religion = waaqeffanna_religion }
+	define_pop = {	type = peasants	size = 2.723	culture = afar_culture	religion = waaqeffanna_religion }
 }
 chercher = {
-	define_pop = {	type = clergy	size = 0.004	culture = amhara	religion = arabian_paganism }
-	define_pop = {	type = clergy	size = 0.003	culture = afar_culture	religion = arabian_paganism }
-	define_pop = {	type = clergy	size = 0.001	culture = tigrinya	religion = arabian_paganism }
-	define_pop = {	type = peasants	size = 2.569	culture = amhara	religion = arabian_paganism }
-	define_pop = {	type = peasants	size = 1.272	culture = afar_culture	religion = arabian_paganism }
-	define_pop = {	type = peasants	size = 0.423	culture = tigrinya	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.004	culture = agaw_culture	religion = waaqeffanna_religion }
+	define_pop = {	type = clergy	size = 0.003	culture = afar_culture	religion = waaqeffanna_religion }
+	define_pop = {	type = clergy	size = 0.001	culture = tigrinya	religion = waaqeffanna_religion }
+	define_pop = {	type = peasants	size = 2.569	culture = agaw_culture	religion = waaqeffanna_religion }
+	define_pop = {	type = peasants	size = 1.272	culture = afar_culture	religion = waaqeffanna_religion }
+	define_pop = {	type = peasants	size = 0.423	culture = tigrinya	religion = waaqeffanna_religion }
 }
 hayq = {
-	define_pop = {	type = clergy	size = 0.208	culture = amhara	religion = arabian_paganism }
-	define_pop = {	type = clergy	size = 0.003	culture = afar_culture	religion = arabian_paganism }
-	define_pop = {	type = peasants	size = 6.379	culture = amhara	religion = arabian_paganism }
-	define_pop = {	type = peasants	size = 2.723	culture = afar_culture	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.208	culture = agaw_culture	religion = waaqeffanna_religion }
+	define_pop = {	type = clergy	size = 0.003	culture = afar_culture	religion = waaqeffanna_religion }
+	define_pop = {	type = peasants	size = 6.379	culture = agaw_culture	religion = waaqeffanna_religion }
+	define_pop = {	type = peasants	size = 2.723	culture = afar_culture	religion = waaqeffanna_religion }
 }
 lalibela = {
-	define_pop = {	type = nobles	size = 0.016	culture = agaw_culture	religion = arabian_paganism }
-	define_pop = {	type = clergy	size = 0.089	culture = agaw_culture	religion = arabian_paganism }
-	define_pop = {	type = burghers	size = 2.130	culture = agaw_culture	religion = arabian_paganism }
-	define_pop = {	type = peasants	size = 36.302	culture = agaw_culture	religion = arabian_paganism }
+	define_pop = {	type = nobles	size = 0.016	culture = agaw_culture	religion = waaqeffanna_religion }
+	define_pop = {	type = clergy	size = 0.089	culture = agaw_culture	religion = waaqeffanna_religion }
+	define_pop = {	type = burghers	size = 2.130	culture = agaw_culture	religion = waaqeffanna_religion }
+	define_pop = {	type = peasants	size = 36.302	culture = agaw_culture	religion = waaqeffanna_religion }
 }
 antalo = {
-	define_pop = {	type = clergy	size = 0.006	culture = agaw_culture	religion = arabian_paganism }
-	define_pop = {	type = clergy	size = 0.002	culture = tigrinya	religion = arabian_paganism }
-	define_pop = {	type = peasants	size = 7.635	culture = agaw_culture	religion = arabian_paganism }
-	define_pop = {	type = peasants	size = 1.901	culture = tigrinya	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.006	culture = agaw_culture	religion = waaqeffanna_religion }
+	define_pop = {	type = clergy	size = 0.002	culture = tigrinya	religion = waaqeffanna_religion }
+	define_pop = {	type = peasants	size = 7.635	culture = agaw_culture	religion = waaqeffanna_religion }
+	define_pop = {	type = peasants	size = 1.901	culture = tigrinya	religion = waaqeffanna_religion }
 }
 sokota = {
-	define_pop = {	type = clergy	size = 0.006	culture = agaw_culture	religion = arabian_paganism }
-	define_pop = {	type = clergy	size = 0.002	culture = amhara	religion = arabian_paganism }
-	define_pop = {	type = peasants	size = 12.197	culture = agaw_culture	religion = arabian_paganism }
-	define_pop = {	type = peasants	size = 3.041	culture = amhara	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.006	culture = agaw_culture	religion = waaqeffanna_religion }
+	define_pop = {	type = clergy	size = 0.002	culture = agaw_culture	religion = waaqeffanna_religion }
+	define_pop = {	type = peasants	size = 12.197	culture = agaw_culture	religion = waaqeffanna_religion }
+	define_pop = {	type = peasants	size = 3.041	culture = agaw_culture	religion = waaqeffanna_religion }
 }
 asaita = {
-	define_pop = {	type = clergy	size = 0.008	culture = afar_culture	religion = arabian_paganism }
-	define_pop = {	type = peasants	size = 10.241	culture = afar_culture	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.008	culture = afar_culture	religion = waaqeffanna_religion }
+	define_pop = {	type = peasants	size = 10.241	culture = afar_culture	religion = waaqeffanna_religion }
 }
 killelu = {
-	define_pop = {	type = clergy	size = 0.004	culture = afar_culture	religion = arabian_paganism }
-	define_pop = {	type = clergy	size = 0.004	culture = somali_culture	religion = arabian_paganism }
-	define_pop = {	type = peasants	size = 5.119	culture = afar_culture	religion = arabian_paganism }
-	define_pop = {	type = peasants	size = 7.702	culture = somali_culture	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.004	culture = afar_culture	religion = waaqeffanna_religion }
+	define_pop = {	type = clergy	size = 0.004	culture = somali_culture	religion = waaqeffanna_religion }
+	define_pop = {	type = peasants	size = 5.119	culture = afar_culture	religion = waaqeffanna_religion }
+	define_pop = {	type = peasants	size = 7.702	culture = somali_culture	religion = waaqeffanna_religion }
 }
 mora_eth = {
-	define_pop = {	type = clergy	size = 0.008	culture = afar_culture	religion = arabian_paganism }
-	define_pop = {	type = peasants	size = 10.952	culture = afar_culture	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.008	culture = afar_culture	religion = waaqeffanna_religion }
+	define_pop = {	type = peasants	size = 10.952	culture = afar_culture	religion = waaqeffanna_religion }
 }
 waldeba = {
 	define_pop = {	type = clergy	size = 0.002	culture = tigrinya	religion = orthodox }
-	define_pop = {	type = clergy	size = 0.002	culture = amhara	religion = orthodox }
+	define_pop = {	type = clergy	size = 0.002	culture = agaw_culture	religion = orthodox }
 	define_pop = {	type = clergy	size = 0.004	culture = beyte_yisrael	religion = orthodox }
 	define_pop = {	type = peasants	size = 4.132	culture = tigrinya	religion = arabian_paganism }
-	define_pop = {	type = peasants	size = 9.326	culture = amhara	religion = arabian_paganism }
+	define_pop = {	type = peasants	size = 9.326	culture = agaw_culture	religion = arabian_paganism }
 	define_pop = {	type = peasants	size = 7.234	culture = beyte_yisrael	religion = arabian_paganism }
 }
 debarq = {
-	define_pop = {	type = clergy	size = 0.002	culture = agaw_culture	religion = arabian_paganism }
-	define_pop = {	type = clergy	size = 0.002	culture = amhara	religion = arabian_paganism }
-	define_pop = {	type = clergy	size = 0.004	culture = beyte_yisrael	religion = judaism }
+	define_pop = {	type = clergy	size = 0.002	culture = agaw_culture	religion = orthodox }
+	define_pop = {	type = clergy	size = 0.002	culture = agaw_culture	religion = orthodox }
+	define_pop = {	type = clergy	size = 0.004	culture = beyte_yisrael	religion = orthodox }
 	define_pop = {	type = peasants	size = 4.686	culture = agaw_culture	religion = arabian_paganism }
-	define_pop = {	type = peasants	size = 10.572	culture = amhara	religion = arabian_paganism }
-	define_pop = {	type = peasants	size = 8.203	culture = beyte_yisrael	religion = judaism }
+	define_pop = {	type = peasants	size = 10.572	culture = agaw_culture	religion = arabian_paganism }
+	define_pop = {	type = peasants	size = 8.203	culture = beyte_yisrael	religion = arabian_paganism }
 }
 kosoge = {
-	define_pop = {	type = clergy	size = 0.003	culture = agaw_culture	religion = arabian_paganism }
-	define_pop = {	type = clergy	size = 0.001	culture = amhara	religion = arabian_paganism }
-	define_pop = {	type = clergy	size = 0.004	culture = beyte_yisrael	religion = judaism }
+	define_pop = {	type = clergy	size = 0.003	culture = agaw_culture	religion = orthodox }
+	define_pop = {	type = clergy	size = 0.001	culture = agaw_culture	religion = orthodox }
+	define_pop = {	type = clergy	size = 0.004	culture = beyte_yisrael	religion = orthodox }
 	define_pop = {	type = peasants	size = 4.924	culture = agaw_culture	religion = arabian_paganism }
-	define_pop = {	type = peasants	size = 0.889	culture = amhara	religion = arabian_paganism }
-	define_pop = {	type = peasants	size = 3.118	culture = beyte_yisrael	religion = judaism }
+	define_pop = {	type = peasants	size = 0.889	culture = agaw_culture	religion = arabian_paganism }
+	define_pop = {	type = peasants	size = 3.118	culture = beyte_yisrael	religion = arabian_paganism }
 }
 debre_libanos = {
-	define_pop = {	type = clergy	size = 0.211	culture = amhara	religion = arabian_paganism }
-	define_pop = {	type = peasants	size = 11.566	culture = amhara	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.211	culture = agaw_culture	religion = waaqeffanna_religion }
+	define_pop = {	type = peasants	size = 11.566	culture = agaw_culture	religion = waaqeffanna_religion }
 }
 ambat = {
-	define_pop = {	type = clergy	size = 0.008	culture = amhara	religion = arabian_paganism }
-	define_pop = {	type = peasants	size = 7.935	culture = amhara	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.008	culture = agaw_culture	religion = waaqeffanna_religion }
+	define_pop = {	type = peasants	size = 7.935	culture = agaw_culture	religion = waaqeffanna_religion }
 }
 badabedi = {
-	define_pop = {	type = clergy	size = 0.008	culture = amhara	religion = arabian_paganism }
-	define_pop = {	type = peasants	size = 4.411	culture = amhara	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.008	culture = agaw_culture	religion = waaqeffanna_religion }
+	define_pop = {	type = peasants	size = 4.411	culture = agaw_culture	religion = waaqeffanna_religion }
 }
 debra_berhan = {
-	define_pop = {	type = clergy	size = 0.008	culture = amhara	religion = arabian_paganism }
-	define_pop = {	type = peasants	size = 9.619	culture = amhara	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.008	culture = agaw_culture	religion = waaqeffanna_religion }
+	define_pop = {	type = peasants	size = 9.619	culture = agaw_culture	religion = waaqeffanna_religion }
 }
 wej = {
-	define_pop = {	type = clergy	size = 0.003	culture = amhara	religion = arabian_paganism }
-	define_pop = {	type = clergy	size = 0.005	culture = gurage	religion = arabian_paganism }
-	define_pop = {	type = peasants	size = 5.375	culture = amhara	religion = arabian_paganism }
-	define_pop = {	type = peasants	size = 16.152	culture = gurage	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.003	culture = agaw_culture	religion = waaqeffanna_religion }
+	define_pop = {	type = clergy	size = 0.005	culture = gurage	religion = waaqeffanna_religion }
+	define_pop = {	type = peasants	size = 5.375	culture = agaw_culture	religion = waaqeffanna_religion }
+	define_pop = {	type = peasants	size = 16.152	culture = gurage	religion = waaqeffanna_religion }
 }
 tadjoura = {
-	define_pop = {	type = nobles	size = 0.010	culture = afar_culture	religion = arabian_paganism }
-	define_pop = {	type = clergy	size = 0.017	culture = afar_culture	religion = arabian_paganism }
+	define_pop = {	type = nobles	size = 0.010	culture = afar_culture	religion = orthodox }
+	define_pop = {	type = clergy	size = 0.017	culture = afar_culture	religion = orthodox }
 	define_pop = {	type = peasants	size = 7.564	culture = afar_culture	religion = arabian_paganism }
 }
 assab = {
-	define_pop = {	type = clergy	size = 0.008	culture = afar_culture	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.008	culture = afar_culture	religion = orthodox }
 	define_pop = {	type = peasants	size = 9.638	culture = afar_culture	religion = arabian_paganism }
 }
 balho = {
-	define_pop = {	type = nobles	size = 0.010	culture = afar_culture	religion = arabian_paganism }
-	define_pop = {	type = clergy	size = 0.010	culture = afar_culture	religion = arabian_paganism }
+	define_pop = {	type = nobles	size = 0.010	culture = afar_culture	religion = orthodox }
+	define_pop = {	type = clergy	size = 0.010	culture = afar_culture	religion = orthodox }
 	define_pop = {	type = tribesmen	size = 4.973	culture = afar_culture	religion = arabian_paganism }
 }
 obock = {
-	define_pop = {	type = clergy	size = 0.007	culture = afar_culture	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.007	culture = afar_culture	religion = orthodox }
 	define_pop = {	type = peasants	size = 4.930	culture = afar_culture	religion = arabian_paganism }
 }
 rahayta = {
-	define_pop = {	type = clergy	size = 0.007	culture = afar_culture	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.007	culture = afar_culture	religion = orthodox }
 	define_pop = {	type = peasants	size = 4.635	culture = afar_culture	religion = arabian_paganism }
 }
 zula = {
@@ -72847,22 +72847,22 @@ dekemhare = {
 	define_pop = {	type = peasants	size = 2.176	culture = tigrinya	religion = arabian_paganism }
 }
 massawa = {
-	define_pop = {	type = nobles	size = 0.010	culture = beja_culture	religion = kushite_religion }
-	define_pop = {	type = clergy	size = 0.016	culture = tigre	religion = arabian_paganism }
-	define_pop = {	type = clergy	size = 0.002	culture = beja_culture	religion = kushite_religion }
+	define_pop = {	type = nobles	size = 0.010	culture = beja_culture	religion = orthodox }
+	define_pop = {	type = clergy	size = 0.016	culture = tigre	religion = orthodox }
+	define_pop = {	type = clergy	size = 0.002	culture = beja_culture	religion = orthodox }
 	define_pop = {	type = peasants	size = 1.697	culture = beja_culture	religion = kushite_religion }
 	define_pop = {	type = peasants	size = 5.711	culture = tigre	religion = arabian_paganism }
 	define_pop = {	type = tribesmen	size = 2.277	culture = beja_culture	religion = kushite_religion }
 	define_pop = {	type = tribesmen	size = 10.218	culture = tigre	religion = arabian_paganism }
 }
 dahlak = {
-	define_pop = {	type = nobles	size = 0.010	culture = tigre	religion = arabian_paganism }
-	define_pop = {	type = clergy	size = 0.018	culture = tigre	religion = arabian_paganism }
+	define_pop = {	type = nobles	size = 0.010	culture = tigre	religion = orthodox }
+	define_pop = {	type = clergy	size = 0.018	culture = tigre	religion = orthodox }
 	define_pop = {	type = peasants	size = 2.221	culture = tigre	religion = arabian_paganism }
 }
 nafka = {
-	define_pop = {	type = clergy	size = 0.006	culture = tigre	religion = arabian_paganism }
-	define_pop = {	type = clergy	size = 0.002	culture = beja_culture	religion = kushite_religion }
+	define_pop = {	type = clergy	size = 0.006	culture = tigre	religion = orthodox }
+	define_pop = {	type = clergy	size = 0.002	culture = beja_culture	religion = orthodox }
 	define_pop = {	type = peasants	size = 1.221	culture = beja_culture	religion = kushite_religion }
 	define_pop = {	type = peasants	size = 6.787	culture = tigre	religion = arabian_paganism }
 	define_pop = {	type = tribesmen	size = 2.584	culture = beja_culture	religion = kushite_religion }
@@ -72871,32 +72871,32 @@ nafka = {
 eritrean_mountains = {
 }
 tesenei = {
-	define_pop = {	type = nobles	size = 0.010	culture = beja_culture	religion = kushite_religion }
-	define_pop = {	type = clergy	size = 0.014	culture = kunama_culture	religion = anna_religion }
-	define_pop = {	type = clergy	size = 0.004	culture = tigre	religion = arabian_paganism }
-	define_pop = {	type = peasants	size = 7.830	culture = kunama_culture	religion = anna_religion }
-	define_pop = {	type = tribesmen	size = 10.542	culture = kunama_culture	religion = anna_religion }
+	define_pop = {	type = nobles	size = 0.010	culture = beja_culture	religion = orthodox }
+	define_pop = {	type = clergy	size = 0.014	culture = kunama_culture	religion = orthodox }
+	define_pop = {	type = clergy	size = 0.004	culture = tigre	religion = orthodox }
+	define_pop = {	type = peasants	size = 7.830	culture = kunama_culture	religion = arabian_paganism }
+	define_pop = {	type = tribesmen	size = 10.542	culture = kunama_culture	religion = arabian_paganism }
 	define_pop = {	type = slaves	size = 12.233	culture = tigre	religion = arabian_paganism }
 }
 bazin = {
-	define_pop = {	type = clergy	size = 0.005	culture = kunama_culture	religion = anna_religion }
-	define_pop = {	type = clergy	size = 0.003	culture = agaw_culture	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.005	culture = kunama_culture	religion = orthodox }
+	define_pop = {	type = clergy	size = 0.003	culture = agaw_culture	religion = orthodox }
 	define_pop = {	type = peasants	size = 0.395	culture = beja_culture	religion = kushite_religion }
-	define_pop = {	type = peasants	size = 1.262	culture = kunama_culture	religion = anna_religion }
+	define_pop = {	type = peasants	size = 1.262	culture = kunama_culture	religion = arabian_paganism }
 	define_pop = {	type = tribesmen	size = 0.618	culture = beja_culture	religion = kushite_religion }
-	define_pop = {	type = tribesmen	size = 2.094	culture = kunama_culture	religion = anna_religion }
+	define_pop = {	type = tribesmen	size = 2.094	culture = kunama_culture	religion = arabian_paganism }
 	define_pop = {	type = slaves	size = 1.138	culture = agaw_culture	religion = arabian_paganism }
 }
 tembesha = {
-	define_pop = {	type = clergy	size = 0.004	culture = agaw_culture	religion = arabian_paganism }
-	define_pop = {	type = clergy	size = 0.001	culture = amhara	religion = arabian_paganism }
-	define_pop = {	type = clergy	size = 0.001	culture = tigrinya	religion = arabian_paganism }
-	define_pop = {	type = clergy	size = 0.002	culture = kunama_culture	religion = anna_religion }
+	define_pop = {	type = clergy	size = 0.004	culture = agaw_culture	religion = orthodox }
+	define_pop = {	type = clergy	size = 0.001	culture = agaw_culture	religion = orthodox }
+	define_pop = {	type = clergy	size = 0.001	culture = tigrinya	religion = orthodox }
+	define_pop = {	type = clergy	size = 0.002	culture = kunama_culture	religion = orthodox }
 	define_pop = {	type = peasants	size = 3.015	culture = agaw_culture	religion = arabian_paganism }
 	define_pop = {	type = tribesmen	size = 3.728	culture = agaw_culture	religion = arabian_paganism }
-	define_pop = {	type = slaves	size = 2.240	culture = kunama_culture	religion = anna_religion }
+	define_pop = {	type = slaves	size = 2.240	culture = kunama_culture	religion = arabian_paganism }
 	define_pop = {	type = slaves	size = 1.119	culture = tigrinya	religion = arabian_paganism }
-	define_pop = {	type = slaves	size = 1.119	culture = amhara	religion = arabian_paganism }
+	define_pop = {	type = slaves	size = 1.119	culture = agaw_culture	religion = arabian_paganism }
 }
 northern_ethiopian_mountains = {
 }
@@ -72943,18 +72943,18 @@ agula = {
 	define_pop = {	type = peasants	size = 1.098	culture = afar_culture	religion = arabian_paganism }
 }
 asmara = {
-	define_pop = {	type = clergy	size = 0.008	culture = tigrinya	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.008	culture = tigrinya	religion = orthodox }
 	define_pop = {	type = peasants	size = 19.712	culture = tigrinya	religion = arabian_paganism }
 }
 agordat = {
-	define_pop = {	type = nobles	size = 0.010	culture = beja_culture	religion = kushite_religion }
-	define_pop = {	type = clergy	size = 0.018	culture = tigre	religion = arabian_paganism }
+	define_pop = {	type = nobles	size = 0.010	culture = beja_culture	religion = orthodox }
+	define_pop = {	type = clergy	size = 0.018	culture = tigre	religion = orthodox }
 	define_pop = {	type = peasants	size = 4.534	culture = tigre	religion = arabian_paganism }
 	define_pop = {	type = tribesmen	size = 7.226	culture = tigre	religion = arabian_paganism }
 }
 keren = {
-	define_pop = {	type = clergy	size = 0.209	culture = agaw_culture	religion = arabian_paganism }
-	define_pop = {	type = clergy	size = 0.002	culture = tigre	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.209	culture = agaw_culture	religion = orthodox }
+	define_pop = {	type = clergy	size = 0.002	culture = tigre	religion = orthodox }
 	define_pop = {	type = peasants	size = 8.972	culture = agaw_culture	religion = arabian_paganism }
 	define_pop = {	type = peasants	size = 2.236	culture = tigre	religion = arabian_paganism }
 }
@@ -73038,62 +73038,62 @@ saqqa = {
 	define_pop = {	type = peasants	size = 6.106	culture = gonga_culture	religion = omo_religion }
 }
 dima = {
-	define_pop = {	type = clergy	size = 0.004	culture = agaw_culture	religion = arabian_paganism }
-	define_pop = {	type = clergy	size = 0.004	culture = amhara	religion = arabian_paganism }
-	define_pop = {	type = peasants	size = 5.650	culture = agaw_culture	religion = arabian_paganism }
-	define_pop = {	type = peasants	size = 8.500	culture = amhara	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.004	culture = agaw_culture	religion = waaqeffanna_religion }
+	define_pop = {	type = clergy	size = 0.004	culture = agaw_culture	religion = waaqeffanna_religion }
+	define_pop = {	type = peasants	size = 5.650	culture = agaw_culture	religion = waaqeffanna_religion }
+	define_pop = {	type = peasants	size = 8.500	culture = agaw_culture	religion = waaqeffanna_religion }
 }
 bahir_dar = {
-	define_pop = {	type = clergy	size = 0.008	culture = amhara	religion = arabian_paganism }
-	define_pop = {	type = peasants	size = 7.198	culture = amhara	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.008	culture = agaw_culture	religion = waaqeffanna_religion }
+	define_pop = {	type = peasants	size = 7.198	culture = agaw_culture	religion = waaqeffanna_religion }
 }
 dangila = {
-	define_pop = {	type = clergy	size = 0.006	culture = agaw_culture	religion = arabian_paganism }
-	define_pop = {	type = clergy	size = 0.002	culture = amhara	religion = arabian_paganism }
-	define_pop = {	type = peasants	size = 13.966	culture = agaw_culture	religion = arabian_paganism }
-	define_pop = {	type = peasants	size = 3.484	culture = amhara	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.006	culture = agaw_culture	religion = waaqeffanna_religion }
+	define_pop = {	type = clergy	size = 0.002	culture = agaw_culture	religion = waaqeffanna_religion }
+	define_pop = {	type = peasants	size = 13.966	culture = agaw_culture	religion = waaqeffanna_religion }
+	define_pop = {	type = peasants	size = 3.484	culture = agaw_culture	religion = waaqeffanna_religion }
 }
 debra_warq = {
-	define_pop = {	type = clergy	size = 0.008	culture = amhara	religion = arabian_paganism }
-	define_pop = {	type = peasants	size = 10.605	culture = amhara	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.008	culture = agaw_culture	religion = waaqeffanna_religion }
+	define_pop = {	type = peasants	size = 10.605	culture = agaw_culture	religion = waaqeffanna_religion }
 }
 enjebara = {
-	define_pop = {	type = clergy	size = 0.004	culture = agaw_culture	religion = arabian_paganism }
-	define_pop = {	type = clergy	size = 0.004	culture = amhara	religion = arabian_paganism }
-	define_pop = {	type = peasants	size = 11.463	culture = agaw_culture	religion = arabian_paganism }
-	define_pop = {	type = peasants	size = 7.626	culture = amhara	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.004	culture = agaw_culture	religion = waaqeffanna_religion }
+	define_pop = {	type = clergy	size = 0.004	culture = agaw_culture	religion = waaqeffanna_religion }
+	define_pop = {	type = peasants	size = 11.463	culture = agaw_culture	religion = waaqeffanna_religion }
+	define_pop = {	type = peasants	size = 7.626	culture = agaw_culture	religion = waaqeffanna_religion }
 }
 ethiopian_mountains = {
 }
 hadiya = {
-	define_pop = {	type = nobles	size = 0.010	culture = amhara	religion = arabian_paganism }
-	define_pop = {	type = clergy	size = 0.006	culture = gurage	religion = omo_religion }
-	define_pop = {	type = clergy	size = 0.002	culture = hadiya_culture	religion = omo_religion }
-	define_pop = {	type = peasants	size = 26.235	culture = gurage	religion = omo_religion }
-	define_pop = {	type = peasants	size = 6.551	culture = hadiya_culture	religion = omo_religion }
+	define_pop = {	type = nobles	size = 0.010	culture = agaw_culture	religion = waaqeffanna_religion }
+	define_pop = {	type = clergy	size = 0.006	culture = gurage	religion = waaqeffanna_religion }
+	define_pop = {	type = clergy	size = 0.002	culture = hadiya_culture	religion = waaqeffanna_religion }
+	define_pop = {	type = peasants	size = 26.235	culture = gurage	religion = waaqeffanna_religion }
+	define_pop = {	type = peasants	size = 6.551	culture = hadiya_culture	religion = waaqeffanna_religion }
 }
 fofa = {
-	define_pop = {	type = clergy	size = 0.008	culture = gurage	religion = omo_religion }
-	define_pop = {	type = peasants	size = 7.407	culture = gurage	religion = omo_religion }
+	define_pop = {	type = clergy	size = 0.008	culture = gurage	religion = waaqeffanna_religion }
+	define_pop = {	type = peasants	size = 7.407	culture = gurage	religion = waaqeffanna_religion }
 }
 jibat = {
-	define_pop = {	type = clergy	size = 0.008	culture = gurage	religion = omo_religion }
-	define_pop = {	type = peasants	size = 10.258	culture = gurage	religion = omo_religion }
+	define_pop = {	type = clergy	size = 0.008	culture = gurage	religion = waaqeffanna_religion }
+	define_pop = {	type = peasants	size = 10.258	culture = gurage	religion = waaqeffanna_religion }
 }
 worabe = {
-	define_pop = {	type = clergy	size = 0.005	culture = kambaata_culture	religion = omo_religion }
-	define_pop = {	type = peasants	size = 4.402	culture = kambaata_culture	religion = omo_religion }
+	define_pop = {	type = clergy	size = 0.005	culture = kambaata_culture	religion = waaqeffanna_religion }
+	define_pop = {	type = peasants	size = 4.402	culture = kambaata_culture	religion = waaqeffanna_religion }
 }
 central_west_ethiopian_mountains = {
 }
 gilgel_beles = {
 	define_pop = {	type = tribesmen	size = 2.792	culture = gumuz_culture	religion = rebba_religion }
-	define_pop = {	type = tribesmen	size = 4.490	culture = agaw_culture	religion = arabian_paganism }
+	define_pop = {	type = tribesmen	size = 4.490	culture = agaw_culture	religion = waaqeffanna_religion }
 	define_pop = {	type = tribesmen	size = 3.910	culture = gonga_culture	religion = omo_religion }
 }
 chilga = {
-	define_pop = {	type = tribesmen	size = 11.073	culture = agaw_culture	religion = arabian_paganism }
-	define_pop = {	type = tribesmen	size = 1.381	culture = amhara	religion = arabian_paganism }
+	define_pop = {	type = tribesmen	size = 11.073	culture = agaw_culture	religion = waaqeffanna_religion }
+	define_pop = {	type = tribesmen	size = 1.381	culture = agaw_culture	religion = waaqeffanna_religion }
 	define_pop = {	type = tribesmen	size = 1.381	culture = gumuz_culture	religion = rebba_religion }
 }
 guba = {
@@ -73101,22 +73101,22 @@ guba = {
 	define_pop = {	type = tribesmen	size = 0.888	culture = gonga_culture	religion = omo_religion }
 }
 barara = {
-	define_pop = {	type = clergy	size = 0.006	culture = gurage	religion = omo_religion }
-	define_pop = {	type = clergy	size = 0.002	culture = amhara	religion = arabian_paganism }
-	define_pop = {	type = peasants	size = 26.389	culture = gurage	religion = omo_religion }
-	define_pop = {	type = peasants	size = 6.590	culture = amhara	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.006	culture = gurage	religion = waaqeffanna_religion }
+	define_pop = {	type = clergy	size = 0.002	culture = agaw_culture	religion = waaqeffanna_religion }
+	define_pop = {	type = peasants	size = 26.389	culture = gurage	religion = waaqeffanna_religion }
+	define_pop = {	type = peasants	size = 6.590	culture = agaw_culture	religion = waaqeffanna_religion }
 }
 sharka = {
-	define_pop = {	type = clergy	size = 0.004	culture = harla_culture	religion = omo_religion }
-	define_pop = {	type = clergy	size = 0.004	culture = afar_culture	religion = arabian_paganism }
-	define_pop = {	type = peasants	size = 10.535	culture = harla_culture	religion = omo_religion }
-	define_pop = {	type = peasants	size = 7.007	culture = afar_culture	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.004	culture = harla_culture	religion = waaqeffanna_religion }
+	define_pop = {	type = clergy	size = 0.004	culture = afar_culture	religion = waaqeffanna_religion }
+	define_pop = {	type = peasants	size = 10.535	culture = harla_culture	religion = waaqeffanna_religion }
+	define_pop = {	type = peasants	size = 7.007	culture = afar_culture	religion = waaqeffanna_religion }
 }
 ziqwala = {
-	define_pop = {	type = clergy	size = 0.004	culture = gurage	religion = omo_religion }
-	define_pop = {	type = clergy	size = 0.004	culture = amhara	religion = arabian_paganism }
-	define_pop = {	type = peasants	size = 16.546	culture = gurage	religion = omo_religion }
-	define_pop = {	type = peasants	size = 11.016	culture = amhara	religion = arabian_paganism }
+	define_pop = {	type = clergy	size = 0.004	culture = gurage	religion = waaqeffanna_religion }
+	define_pop = {	type = clergy	size = 0.004	culture = agaw_culture	religion = waaqeffanna_religion }
+	define_pop = {	type = peasants	size = 16.546	culture = gurage	religion = waaqeffanna_religion }
+	define_pop = {	type = peasants	size = 11.016	culture = agaw_culture	religion = waaqeffanna_religion }
 }
 central_east_ethiopian_mountains = {
 }
@@ -73129,22 +73129,22 @@ bonga = {
 }
 bossa = {
 	define_pop = {	type = clergy	size = 0.003	culture = ometo_culture	religion = omo_religion }
-	define_pop = {	type = clergy	size = 0.001	culture = gedeo_culture	religion = omo_religion }
-	define_pop = {	type = clergy	size = 0.001	culture = kambaata_culture	religion = omo_religion }
-	define_pop = {	type = clergy	size = 0.003	culture = sidama_culture	religion = omo_religion }
+	define_pop = {	type = clergy	size = 0.001	culture = gedeo_culture	religion = waaqeffanna_religion }
+	define_pop = {	type = clergy	size = 0.001	culture = kambaata_culture	religion = waaqeffanna_religion }
+	define_pop = {	type = clergy	size = 0.003	culture = sidama_culture	religion = waaqeffanna_religion }
 	define_pop = {	type = peasants	size = 2.902	culture = ometo_culture	religion = omo_religion }
-	define_pop = {	type = peasants	size = 2.369	culture = gedeo_culture	religion = omo_religion }
-	define_pop = {	type = peasants	size = 2.369	culture = kambaata_culture	religion = omo_religion }
-	define_pop = {	type = peasants	size = 11.878	culture = sidama_culture	religion = omo_religion }
+	define_pop = {	type = peasants	size = 2.369	culture = gedeo_culture	religion = waaqeffanna_religion }
+	define_pop = {	type = peasants	size = 2.369	culture = kambaata_culture	religion = waaqeffanna_religion }
+	define_pop = {	type = peasants	size = 11.878	culture = sidama_culture	religion = waaqeffanna_religion }
 	define_pop = {	type = tribesmen	size = 4.209	culture = ometo_culture	religion = omo_religion }
 }
 gamo = {
 	define_pop = {	type = tribesmen	size = 4.395	culture = ometo_culture	religion = omo_religion }
-	define_pop = {	type = tribesmen	size = 10.276	culture = burji_culture	religion = omo_religion }
+	define_pop = {	type = tribesmen	size = 10.276	culture = burji_culture	religion = waaqeffanna_religion }
 }
 konso = {
 	define_pop = {	type = tribesmen	size = 9.613	culture = omo_culture	religion = omo_religion }
-	define_pop = {	type = tribesmen	size = 2.397	culture = burji_culture	religion = omo_religion }
+	define_pop = {	type = tribesmen	size = 2.397	culture = burji_culture	religion = waaqeffanna_religion }
 }
 omo = {
 	define_pop = {	type = tribesmen	size = 8.634	culture = omo_culture	religion = omo_religion }
@@ -73281,11 +73281,11 @@ singa = {
 	define_pop = {	type = peasants	size = 1.677	culture = funj_culture	religion = kushite_religion }
 }
 al_rusayrisi = {
-	define_pop = {	type = tribesmen	size = 8.315	culture = gumuz_culture	religion = rebba_religion }
+	define_pop = {	type = tribesmen	size = 8.315	culture = gumuz_culture	religion = kushite_religion }
 }
 dabarqi = {
-	define_pop = {	type = tribesmen	size = 2.310	culture = dinka_culture	religion = muonyjang_religion }
-	define_pop = {	type = tribesmen	size = 3.468	culture = berta_culture	religion = muonyjang_religion }
+	define_pop = {	type = tribesmen	size = 2.310	culture = dinka_culture	religion = kushite_religion }
+	define_pop = {	type = tribesmen	size = 3.468	culture = berta_culture	religion = kushite_religion }
 }
 karkuj = {
 	define_pop = {	type = clergy	size = 0.002	culture = nubian	religion = kushite_religion }
@@ -73293,8 +73293,8 @@ karkuj = {
 	define_pop = {	type = peasants	size = 5.008	culture = funj_culture	religion = kushite_religion }
 }
 renk = {
-	define_pop = {	type = tribesmen	size = 3.840	culture = dinka_culture	religion = muonyjang_religion }
-	define_pop = {	type = tribesmen	size = 5.763	culture = berta_culture	religion = muonyjang_religion }
+	define_pop = {	type = tribesmen	size = 3.840	culture = dinka_culture	religion = kushite_religion }
+	define_pop = {	type = tribesmen	size = 5.763	culture = berta_culture	religion = kushite_religion }
 }
 el_obeid = {
 	define_pop = {	type = clergy	size = 0.001	culture = nuba	religion = musala_religion }

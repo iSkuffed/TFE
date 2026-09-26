@@ -63,3 +63,5 @@ LNY = ruler = tfe_bhadravarman
 TRM = ruler = tfe_purnawarman
 KTI = ruler = tfe_aswawarman
 KTI = heir = tfe_mulawarman
+LKM = ruler = tfe_numan
+KDT = ruler = tfe_kidara

@@ -15,7 +15,7 @@ SVE | Svear | Svear | uppsala | eurasian_tribe | swedish | norse | 55 105 175
 SCR | Sciri | Scirian | - | eurasian_tribe | gothic_culture | arianism | 140 160 80
 DMN | Damnonii | Damnonian | - | gaelic_tribe | briton | celtic_paganism | 120 160 120
 SAS | Sasanian Empire | Sasanian | baghdad | eastern_european_monarchy | farsi_culture | zoroastrian | 60 150 100   # Ctesiphon lies beside Baghdad
-HIM | Himyar | Himyarite | - | eastern_european_monarchy | yemeni_culture | judaism | 150 170 90
+HIM | Himyar | Himyarite | dhafar | eastern_european_monarchy | yemeni_culture | judaism | 150 170 90
 AXU | Aksum | Aksumite | axum | subsaharan_monarchy | tigrinya | orthodox | 175 130 40
 BMY | Blemmyes | Blemmyan | - | subsaharan_tribe | beja_culture | kushite_religion | 160 120 90
 NOB | Nobatia | Nobadian | - | subsaharan_monarchy | nubian | kushite_religion | 130 90 50
@@ -88,7 +88,7 @@ PUG | Yarlung | Yarlung | nedong | asia_advanced_tribe | utsang_culture | bon | 
 SUM | Sumpa | Sumpa | chamdo | asia_tribe | khampa_culture | bon | 140 120 90
 KUC | Kucha | Kuchean | kucha | east_asia_monarchy | uyghur_culture | mahayana | 200 140 110
 KHO | Khotan | Khotanese | khotan | east_asia_monarchy | khorezmian_culture | mahayana | 110 170 110
-SSN | Shanshan | Shanshan | charklik | east_asia_monarchy | uyghur_culture | mahayana | 190 170 120
+SSN | Shanshan | Shanshan | charklik | east_asia_monarchy | uyghur_culture | mahayana | 215 190 140
 SHL | Shule | Shule | kashgar | east_asia_monarchy | khorezmian_culture | mahayana | 160 110 90
 YQI | Yanqi | Yanqi | karasahr | east_asia_monarchy | uyghur_culture | mahayana | 130 130 170
 CNZ | Cuan | Cuan | malong_qujing | chinese_monarchy | yi_culture | bimoism | 170 90 90
@@ -123,3 +123,24 @@ TRM | Tarumanagara | Tarumanagaran | pakuan | indonesia_monarchy | sundanese_cul
 KTI | Kutai | Kutai | muarakaman | indonesia_monarchy | kutai_culture | hindu | 80 130 60
 KDL | Kantoli | Kantoli | palembang | indonesia_monarchy | malay_culture | mahayana | 170 150 60
 HLT | Holotan | Holotan | mataram | indonesia_monarchy | javanese_culture | hindu | 120 150 170
+# ---- Arabia, the Horn and Central Asia ----
+KZA | Khuza'a | Khuza'i | mecca | eurasian_tribe | hijazi_culture | arabian_paganism | 205 140 95
+YTB | Yathrib | Yathribi | medina | eurasian_tribe | hijazi_culture | judaism | 120 140 190
+SLH | Salihids | Salihid | dumat_al_jandal | eurasian_tribe | najdi_culture | orthodox | 160 90 130
+TAY | Tayy | Ta'i | hail | eurasian_tribe | najdi_culture | arabian_paganism | 200 175 120
+KIN | Kinda | Kindite | ad_dawasir | eurasian_tribe | najdi_culture | arabian_paganism | 170 110 70
+TMM | Tamim | Tamimi | al_yamamah | eurasian_tribe | najdi_culture | arabian_paganism | 140 160 100
+LKM | Lakhmids | Lakhmid | kufa | eastern_european_monarchy | bahrani_culture | arabian_paganism | 90 130 150
+AZD | Azd | Azdi | nizwa | eurasian_tribe | omani_culture | arabian_paganism | 175 95 125
+AGA | Agaw | Agaw | lalibela | subsaharan_tribe | agaw_culture | waaqeffanna_religion | 150 150 80
+DMT | Damot | Damoti | hirmata | subsaharan_tribe | gonga_culture | omo_religion | 120 165 70
+
+BBS | Barbara | Barbaran | berbera | subsaharan_tribe | somali_culture | waaqeffanna_religion | 200 160 80
+AZN | Azania | Azanian | mogadishu | subsaharan_tribe | somali_culture | waaqeffanna_religion | 100 170 160
+KDT | Kidarites | Kidarite | balkh | eurasian_horde_no_muslim | tajik_culture | mahayana | 195 105 55
+ALK | Alkhon | Alkhon | kabul | eurasian_horde_no_muslim | afghan_culture | tengri | 130 80 110
+SGD | Sogdia | Sogdian | samarkand | eastern_european_monarchy | tajik_culture | zoroastrian | 210 140 70
+KHW | Khwarazm | Khwarazmian | kath | eastern_european_monarchy | khorasani_culture | zoroastrian | 75 150 145
+FRG | Ferghana | Ferghanan | fergana | eastern_european_monarchy | tajik_culture | zoroastrian | 160 180 90
+KNJ | Kangju | Kangju | chach | eurasian_tribe | tajik_culture | tengri | 140 120 170
+WSN | Wusun | Wusun | barskoon | eurasian_horde_no_muslim | hunnic | tengri | 110 170 200

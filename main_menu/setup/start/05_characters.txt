@@ -807,4 +807,26 @@ character_db = {
 		father = tfe_aswawarman
 		tag = KTI
 	}
+	tfe_numan = { # al-Nu'man I of al-Hira, r. 390-418, builder of Khawarnaq and Sadir; the tale says he left his throne for a hermit's life
+		first_name = { name = name_numan }
+		culture = bahrani_culture
+		religion = arabian_paganism
+		adm = 70 dip = 60 mil = 55
+		birth_date = 360.1.1
+		birth = kufa
+		dynasty = lakhmid_dynasty
+		ruler_trait = pious
+		tag = LKM
+	}
+	tfe_kidara = { # Kidara, who gave the Kidarites their name, king in Bactria from about 390; approx
+		first_name = { name = name_kidara }
+		culture = tajik_culture
+		religion = mahayana
+		adm = 55 dip = 50 mil = 75
+		birth_date = 350.1.1
+		birth = balkh
+		dynasty = kidarite_dynasty
+		ruler_trait = conqueror
+		tag = KDT
+	}
 }

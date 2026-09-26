@@ -257,3 +257,70 @@ def test_asian_capitals_and_clients(state):
     pairs = set(re.findall(r"first\s*=\s*(\w+)\s+second\s*=\s*(\w+)", text))
     assert {("JIN", "CNZ"), ("JIN", "DIC"), ("GOG", "BUY"), ("GOG", "SIL"), ("WAK", "KIB"), ("WAK", "IZM"),
             ("WAK", "KNU"), ("WAK", "TSU"), ("FUN", "JNL"), ("FUN", "TNS")} <= pairs
+
+
+ARABIA_HORN_CENTRAL_ASIA = [
+    # Arabia between Rome, Persia and Himyar
+    ("mecca", "KZA", "Khuza'a keep the Kaaba; Qusayy's Quraysh take it in the 5th century"),
+    ("medina", "YTB", "Yathrib of the Jewish tribes, Nadir and Qurayza"),
+    ("khaybar", "YTB", "the Jewish oasis of Khaybar"),
+    ("tabuk_arabia", "SLH", "the Salihids, Rome's Arab federates after Mavia's Tanukh"),
+    ("dumat_al_jandal", "SLH", "Dumat al-Jandal on the desert road to Syria"),
+    ("hail", "TAY", "Tayy in the two mountains, Aja and Salma"),
+    ("ad_dawasir", "KIN", "Kinda of Qaryat al-Faw, Himyar's men in the Najd"),
+    ("al_yamamah", "TMM", "Tamim of the Yamama"),
+    ("al_ahsa", "LKM", "the Lakhmids hold Bahrayn for Persia"),
+    ("kufa", "LKM", "al-Hira: al-Nu'man I, builder of Khawarnaq"),
+    ("nizwa", "AZD", "the Azd of Oman under Persia's Mazun"),
+    ("sana_yemen", "HIM", "Himyar"),
+    # the Horn: Aksum and its neighbours
+    ("asmara", "AXU", "the Eritrean plateau is Aksum's"),
+    ("assab", "AXU", "the Danakil coast below Adulis"),
+    ("lalibela", "AGA", "the Agaw of Lasta, Aksum's tributaries"),
+    ("gonder", "AGA", "the Agaw of Dembiya"),
+    ("hirmata", "DMT", "Damot and Ennarea south of the Abay"),
+    ("bonga", "DMT", "Kaffa and the Sidama under Damot"),
+    ("berbera", "BBS", "Malao of the Periplus, the Barbara coast"),
+    ("mogadishu", "AZN", "Azania: Sarapion and Nikon of the Periplus"),
+    # Central Asia: the Kidarites, the Sogdian cities, Khwarazm, the Tian Shan nomads
+    ("balkh", "KDT", "Kidara's Kidarites in Bactria"),
+    ("termez", "KDT", "Tokharistan"),
+    ("peshawar", "KDT", "Gandhara, taken by the Kidarites around 390"),
+    ("kabul", "ALK", "the Alkhon Huns strike coins at Kabul"),
+    ("samarkand", "SGD", "Samarkand of the Sogdian merchants"),
+    ("bukhara", "SGD", "Bukhara"),
+    ("kath", "KHW", "Kath of the Afrighid Khwarazmshahs, founded 305"),
+    ("fergana", "FRG", "Dayuan, the land of the heavenly horses"),
+    ("chach", "KNJ", "the Kangju of the Syr Darya"),
+    ("barskoon", "WSN", "the Wusun at the Issyk-kul"),
+    ("merv", "SAS", "Marw, Persia's gate to the east"),
+    ("ulytau", "YUB", "the Yueban, the northern Xiongnu left behind"),
+    ("namjan", "HNS", "the Huns' kin east of the Volga"),
+]
+
+
+@pytest.mark.parametrize("loc,tag,why", ARABIA_HORN_CENTRAL_ASIA)
+def test_arabia_horn_and_central_asia(state, loc, tag, why):
+    assert state["owner"].get(loc) == tag, f"{loc}: {why}; trail {state['trail'].get(loc)}"
+
+
+@pytest.mark.parametrize("region", ["arabia_region", "ethiopia_region", "somalia_region", "khorasan_region",
+                                    "steppes_region"])
+def test_the_last_regions_have_no_empty_land(state, region):
+    empty = [l for l in state["land"] if state["anc"][l][2] == region and state["owner"].get(l, "none") == "none"]
+    assert not empty, empty
+
+
+def test_arabian_horn_and_central_asian_capitals_and_clients(state):
+    for tag, cap in (("LKM", "kufa"), ("KDT", "balkh"), ("SGD", "samarkand"), ("KHW", "kath"), ("ALK", "kabul"),
+                     ("YTB", "medina"), ("KZA", "mecca"), ("SLH", "dumat_al_jandal"), ("BBS", "berbera"), ("HIM", "dhafar")):
+        assert state["caps"][tag] == cap, (tag, state["caps"][tag])
+    text = re.sub(r"#[^\n]*", "", (b.MOD / "main_menu/setup/start/12_diplomacy.txt").read_text(encoding="utf-8"))
+    pairs = set(re.findall(r"first\s*=\s*(\w+)\s+second\s*=\s*(\w+)", text))
+    assert {("SAS", "LKM"), ("SAS", "AZD"), ("EAR", "SLH"), ("HIM", "KIN"), ("HIM", "KZA"), ("AXU", "AGA")} <= pairs
+
+
+@pytest.mark.parametrize("tag", ["KZA", "YTB", "SLH", "TAY", "KIN", "TMM", "LKM", "AZD", "AGA", "DMT", "BBS",
+                                 "AZN", "KDT", "ALK", "SGD", "KHW", "FRG", "KNJ", "WSN"])
+def test_new_countries_peasants_share_their_rulers_culture(state, tag):
+    test_caucasian_peasants_share_their_rulers_culture(state, tag)

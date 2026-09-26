@@ -484,8 +484,10 @@ locations={
 	# Horn of Africa
 	axum = { rank = city town_setup = sahel_city  }
 	dongola = { rank = city town_setup = sahel_city }
+	lalibela = { rank = town town_setup = sahel_town  }
 	soba = { rank = town town_setup = sahel_town  }
 
+	mogadishu = { rank = town town_setup = sahel_town  }
 	
 	# Egypt and Libya
 	alexandria = { rank = city 	town_setup	 = tfe_unfortified_egyptian_city }
@@ -797,6 +799,8 @@ locations={
 	lhasa = { rank = city town_setup = central_asian_city }
 	chamdo = { rank = city town_setup = central_asian_city }
 	leh = { rank = city town_setup = central_asian_city }
+	urgench = { rank = city town_setup = central_asian_city }
+	sarayjuk = { rank = city town_setup = central_asian_city }
 	turpan = { rank = city town_setup = central_asian_city }
 	aksu = { rank = town town_setup = central_asian_town }
 	khotan = { rank = town town_setup = central_asian_town }
@@ -874,8 +878,15 @@ locations={
 	alasehir = { rank = town		town_setup = tfe_unfortified_greek_town }
 
 	#Central Asia
+	bukhara = { rank = city town_setup = central_asian_city }
+	samarkand = { rank = city town_setup = samarkand_city }
+	almaty = { rank = town town_setup = central_asian_town }
+	balasagun = { rank = town town_setup = central_asian_town }
+	chach = { rank = town town_setup = central_asian_town }
+	merv = { rank = town town_setup = central_asian_town }
 
 	#Afghanistan, Caucasus and Persia
+	balkh = { rank = city town_setup = levant_city }
 	ghazni = { rank = city town_setup = levant_city }
 	hamadan = { rank = city town_setup = levant_city }
 	herat = { rank = city town_setup = herat_city }
@@ -900,6 +911,8 @@ locations={
 	astarabad = { rank = town town_setup = levant_city }
 	siraf = { rank = town town_setup = levant_city }
 	rasht = { rank = town town_setup = levant_city }
+	al_qatif = { rank = town town_setup = levant_town }
+	ar_rabadha = { rank = town town_setup = tiny_levant_town }
 	taizz = { rank = town town_setup = levant_city }
 	jeddah = { rank = town town_setup = levant_city }
 	quetta = { rank = town town_setup = levant_city }
@@ -914,6 +927,9 @@ locations={
 	mosul = { rank = city 		town_setup = levant_city }
 	nusaybin = { rank = city 	town_setup = levant_city }
 	mecca = { rank = town 	town_setup = levant_city }
+	medina = { rank = town 	town_setup = levant_city }
+	al_hajr = { rank = town 	town_setup = levant_town }
+	al_ahsa = { rank = city 	town_setup = levant_city }
 
 	wasit = { rank = town 	town_setup = levant_city }
 	adan = { rank = town 	town_setup = levant_city }

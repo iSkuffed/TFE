@@ -170,3 +170,9 @@ def test_asian_rulers(chars):
                      ("LNY", "tfe_bhadravarman"), ("TRM", "tfe_purnawarman"), ("KTI", "tfe_aswawarman")):
         assert f"ruler = {cid}" in govs[tag], tag
     assert "heir = tfe_mulawarman" in govs["KTI"]
+
+
+def test_arabian_and_central_asian_rulers(chars):
+    govs, _ = b.load_governments(b.TOOLS / "governments.txt", b.load_tags())
+    for tag, cid in (("LKM", "tfe_numan"), ("KDT", "tfe_kidara")):
+        assert f"ruler = {cid}" in govs[tag], tag

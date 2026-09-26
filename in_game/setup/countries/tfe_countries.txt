@@ -775,8 +775,8 @@ KHO = { # Khotan
 }
 
 SSN = { # Shanshan
-	color = rgb { 190 170 120 }
-	color2 = rgb { 95 85 60 }
+	color = rgb { 215 190 140 }
+	color2 = rgb { 107 95 70 }
 	culture_definition = uyghur_culture # PLACEHOLDER
 	religion_definition = mahayana # PLACEHOLDER
 	description_category = administrative
@@ -1085,6 +1085,177 @@ HLT = { # Holotan
 	color2 = rgb { 60 75 85 }
 	culture_definition = javanese_culture # PLACEHOLDER
 	religion_definition = hindu # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+KZA = { # Khuza'a
+	color = rgb { 205 140 95 }
+	color2 = rgb { 102 70 47 }
+	culture_definition = hijazi_culture # PLACEHOLDER
+	religion_definition = arabian_paganism # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+YTB = { # Yathrib
+	color = rgb { 120 140 190 }
+	color2 = rgb { 60 70 95 }
+	culture_definition = hijazi_culture # PLACEHOLDER
+	religion_definition = judaism # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+SLH = { # Salihids
+	color = rgb { 160 90 130 }
+	color2 = rgb { 80 45 65 }
+	culture_definition = najdi_culture # PLACEHOLDER
+	religion_definition = orthodox # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+TAY = { # Tayy
+	color = rgb { 200 175 120 }
+	color2 = rgb { 100 87 60 }
+	culture_definition = najdi_culture # PLACEHOLDER
+	religion_definition = arabian_paganism # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+KIN = { # Kinda
+	color = rgb { 170 110 70 }
+	color2 = rgb { 85 55 35 }
+	culture_definition = najdi_culture # PLACEHOLDER
+	religion_definition = arabian_paganism # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+TMM = { # Tamim
+	color = rgb { 140 160 100 }
+	color2 = rgb { 70 80 50 }
+	culture_definition = najdi_culture # PLACEHOLDER
+	religion_definition = arabian_paganism # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+LKM = { # Lakhmids
+	color = rgb { 90 130 150 }
+	color2 = rgb { 45 65 75 }
+	culture_definition = bahrani_culture # PLACEHOLDER
+	religion_definition = arabian_paganism # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+AZD = { # Azd
+	color = rgb { 175 95 125 }
+	color2 = rgb { 87 47 62 }
+	culture_definition = omani_culture # PLACEHOLDER
+	religion_definition = arabian_paganism # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+AGA = { # Agaw
+	color = rgb { 150 150 80 }
+	color2 = rgb { 75 75 40 }
+	culture_definition = agaw_culture # PLACEHOLDER
+	religion_definition = waaqeffanna_religion # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+DMT = { # Damot
+	color = rgb { 120 165 70 }
+	color2 = rgb { 60 82 35 }
+	culture_definition = gonga_culture # PLACEHOLDER
+	religion_definition = omo_religion # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+BBS = { # Barbara
+	color = rgb { 200 160 80 }
+	color2 = rgb { 100 80 40 }
+	culture_definition = somali_culture # PLACEHOLDER
+	religion_definition = waaqeffanna_religion # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+AZN = { # Azania
+	color = rgb { 100 170 160 }
+	color2 = rgb { 50 85 80 }
+	culture_definition = somali_culture # PLACEHOLDER
+	religion_definition = waaqeffanna_religion # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+KDT = { # Kidarites
+	color = rgb { 195 105 55 }
+	color2 = rgb { 97 52 27 }
+	culture_definition = tajik_culture # PLACEHOLDER
+	religion_definition = mahayana # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+ALK = { # Alkhon
+	color = rgb { 130 80 110 }
+	color2 = rgb { 65 40 55 }
+	culture_definition = afghan_culture # PLACEHOLDER
+	religion_definition = tengri # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+SGD = { # Sogdia
+	color = rgb { 210 140 70 }
+	color2 = rgb { 105 70 35 }
+	culture_definition = tajik_culture # PLACEHOLDER
+	religion_definition = zoroastrian # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+KHW = { # Khwarazm
+	color = rgb { 75 150 145 }
+	color2 = rgb { 37 75 72 }
+	culture_definition = khorasani_culture # PLACEHOLDER
+	religion_definition = zoroastrian # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+FRG = { # Ferghana
+	color = rgb { 160 180 90 }
+	color2 = rgb { 80 90 45 }
+	culture_definition = tajik_culture # PLACEHOLDER
+	religion_definition = zoroastrian # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+KNJ = { # Kangju
+	color = rgb { 140 120 170 }
+	color2 = rgb { 70 60 85 }
+	culture_definition = tajik_culture # PLACEHOLDER
+	religion_definition = tengri # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+WSN = { # Wusun
+	color = rgb { 110 170 200 }
+	color2 = rgb { 55 85 100 }
+	culture_definition = hunnic # PLACEHOLDER
+	religion_definition = tengri # PLACEHOLDER
 	description_category = administrative
 	difficulty = 3
 }

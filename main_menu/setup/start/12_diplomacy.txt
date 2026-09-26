@@ -12,8 +12,8 @@ diplomacy_manager = {
 	# East Asia: Jin's southern and western clients; Goguryeo shelters Buyeo and Silla (Silseong a hostage since 392)
 	dependency = { first = JIN second = CNZ subject_type = vassal }
 	dependency = { first = JIN second = DIC subject_type = vassal }
-	dependency = { first = GOG second = BUY subject_type = tributary }
-	dependency = { first = GOG second = SIL subject_type = tributary start_date = 392.1.1 }
+	dependency = { first = GOG second = BUY subject_type = vassal }
+	dependency = { first = GOG second = SIL subject_type = vassal start_date = 392.1.1 }
 	# Yamato's great kings over the regional lords of Kibi, Izumo, Kenu and Tsukushi
 	dependency = { first = WAK second = KIB subject_type = vassal }
 	dependency = { first = WAK second = IZM subject_type = vassal }
@@ -22,6 +22,14 @@ diplomacy_manager = {
 	# Funan's tributaries since Fan Shiman's conquests
 	dependency = { first = FUN second = JNL subject_type = tributary }
 	dependency = { first = FUN second = TNS subject_type = tributary }
+	# Arabia: Persia's Lakhmids and Azd, Rome's Salihids, Himyar's Kinda and Ma'add
+	dependency = { first = SAS second = LKM subject_type = vassal }
+	dependency = { first = SAS second = AZD subject_type = tributary }
+	dependency = { first = EAR second = SLH subject_type = vassal }
+	dependency = { first = HIM second = KIN subject_type = vassal }
+	dependency = { first = HIM second = KZA subject_type = tributary }
+	# Aksum's Agaw tributaries
+	dependency = { first = AXU second = AGA subject_type = tributary }
 	# Roads of the one Empire stay open; closing them costs Unity
 	scripted_oneway = { first = WRE second = EAR type = military_access }
 	scripted_oneway = { first = EAR second = WRE type = military_access }

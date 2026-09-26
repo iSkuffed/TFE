@@ -37,6 +37,23 @@ countries = {
 				ruler = random
 			}
 		}
+		AGA = { # Agaw
+			own_control_core = {
+				afrera aheyya_fagg ambat amora_gadal ankober antalo asaita badabedi bahir_dar barara
+				chercher dangila debra_berhan debra_warq debre_libanos debre_tabor dima enjebara gannata_giyorgis gendebelo
+				gonder hayq killelu kombolcha kubar lalibela manadeley mora_eth nora_eth sharka
+				sokota tadbaba tsana wej ziqwala
+			}
+			capital = lalibela
+			discovered_regions = {
+				arabia_region central_africa_region ethiopia_region great_lakes_region nubia_region somalia_region
+			}
+			include = "subsaharan_tribe"
+			country_rank = rank_county
+			government = {
+				ruler = random
+			}
+		}
 		AGL = { # Angles
 			own_control_core = {
 				aabenraa eckernforde flensburg haderslev husum ribe slesvig tonder
@@ -128,6 +145,21 @@ countries = {
 				ruler = random
 			}
 		}
+		ALK = { # Alkhon
+			own_control_core = {
+				alishang chak gandamak gardez ghazni jalalabad kabul kohi_safi logar muqur
+				nawah wazakhwa zarghun_shahr
+			}
+			capital = kabul
+			discovered_regions = {
+				arabia_region central_india_region hindustan_region khorasan_region persia_region tibet_region western_india_region xinjiang_region
+			}
+			include = "eurasian_horde_no_muslim"
+			country_rank = rank_duchy
+			government = {
+				ruler = random
+			}
+		}
 		ALM = { # Alamanni
 			own_control_core = {
 				baden balingen bensheim biberach bonndorf bruchsal buchen budingen calw darmstadt
@@ -183,15 +215,49 @@ countries = {
 		}
 		AXU = { # Aksum
 			own_control_core = {
-				abala abiy_addi adigrat adwa agula axum bayul buri dallol debarwa
-				debre_bizen dekemhare edd mekele mendefera senafe shire waldeba yeha zula
+				abala abiy_addi adigrat adwa agordat agula asmara assab axum balho
+				bayul bazin buri dahlak dallol debarq debarwa debre_bizen dekemhare edd
+				keren kosoge massawa mekele mendefera nafka obock rahayta senafe shire
+				tadjoura tembesha tesenei waldeba yeha zula
 			}
 			capital = axum
 			discovered_regions = {
-				arabia_region central_africa_region ethiopia_region great_lakes_region nubia_region somalia_region
+				arabia_region central_africa_region egypt_region ethiopia_region great_lakes_region nubia_region somalia_region
 			}
 			include = "subsaharan_monarchy"
 			country_rank = rank_kingdom
+			government = {
+				ruler = random
+			}
+		}
+		AZD = { # Azd
+			own_control_core = {
+				abu_dhabi al_ayn al_dhaid al_kamil_wal_wafi al_khaburah as_sib bahla dubai ibra ibri
+				izki jalan_buani_buali julfar khor_fakkan liwa marawah masirah masqat nakhal nizwa
+				qalhat rustaq saham sharjah shinas sinaw suhar sur yanqul
+			}
+			capital = nizwa
+			discovered_regions = {
+				arabia_region crescent_region hindustan_region indian_ocean_region persia_region western_india_region
+			}
+			include = "eurasian_tribe"
+			country_rank = rank_county
+			government = {
+				ruler = random
+			}
+		}
+		AZN = { # Azania
+			own_control_core = {
+				afmadow awrtable baidoa barawa bardera beledweyne buale buur_hakaba buur_heybe ceeldheer
+				dusmareb el_buur el_hamurre galkayo garacad garbahare haranka harardhere hobyo hudur
+				jilib jowhar kismayo luuq mareeg maxaas merca mogadishu qoryooley warsheikh
+			}
+			capital = mogadishu
+			discovered_regions = {
+				arabia_region ethiopia_region great_lakes_region indian_ocean_region nubia_region somalia_region swahili_coast_region
+			}
+			include = "subsaharan_tribe"
+			country_rank = rank_county
 			government = {
 				ruler = random
 			}
@@ -232,6 +298,24 @@ countries = {
 				ruler = random
 			}
 		}
+		BBS = { # Barbara
+			own_control_core = {
+				ali_sabieh alula amud arabi aware awbare bandarbeyla barbacadle bargaal berbera
+				bosaso buhoodle burao dakkar degehabur dire_dawa el_ayum el_darad el_dhere el_sheikh
+				erigavo fardawsa garoowe geledi gode harar hargaya hargeisa haylan jeldesa
+				kelafo las_khorey limey maduna maydh oodweyne qandala qardho ras_hafun ruguda
+				siyara xagal zeila
+			}
+			capital = berbera
+			discovered_regions = {
+				arabia_region ethiopia_region great_lakes_region indian_ocean_region nubia_region somalia_region swahili_coast_region
+			}
+			include = "subsaharan_tribe"
+			country_rank = rank_county
+			government = {
+				ruler = random
+			}
+		}
 		BGD = { # Burgundians
 			own_control_core = {
 				amberg ansbach aschach aschaffenburg backnang bamberg bayreuth beilngries bruckenau burglengenfeld
@@ -254,11 +338,11 @@ countries = {
 		}
 		BMY = { # Blemmyes
 			own_control_core = {
-				aydhab
+				anseba atbara aydhab badi deraheib kassala khawr_baraka khawr_nubt suakin
 			}
-			capital = aydhab
+			capital = anseba
 			discovered_regions = {
-				arabia_region crescent_region egypt_region ethiopia_region nubia_region
+				arabia_region crescent_region egypt_region ethiopia_region nubia_region somalia_region
 			}
 			include = "subsaharan_tribe"
 			country_rank = rank_county
@@ -390,6 +474,23 @@ countries = {
 				ruler = random
 			}
 		}
+		DMT = { # Damot
+			own_control_core = {
+				agaro bale bilo bonga bossa chilga dolo fazughli fofa gambo
+				gamo gilgel_beles gimbi goba guba hadiya harro_walabu hirmata ilimo jibat
+				konso liban lieka maldarede mormor nekemte omo saqqa seru sheikh_hussein
+				soddo tulu_nama_dun tulu_walal worabe
+			}
+			capital = hirmata
+			discovered_regions = {
+				arabia_region central_africa_region ethiopia_region great_lakes_region indian_ocean_region nubia_region somalia_region swahili_coast_region
+			}
+			include = "subsaharan_tribe"
+			country_rank = rank_county
+			government = {
+				ruler = random
+			}
+		}
 		DZR = { # Dzurdzuks
 			own_control_core = {
 				simsir targim tsontaroy_kala
@@ -506,6 +607,22 @@ countries = {
 			}
 			include = "asia_tribe"
 			country_rank = rank_county
+			government = {
+				ruler = random
+			}
+		}
+		FRG = { # Ferghana
+			own_control_core = {
+				akhsikath andijan arslanbob asht dakhkat fergana gulcha isfara jalalabad_fergana karasuu
+				kasan kerben khujand kokand konibodom marghinan osh pop_fargana quva rishton
+				uzkand
+			}
+			capital = fergana
+			discovered_regions = {
+				hindustan_region khorasan_region persia_region tibet_region west_siberia_region xinjiang_region
+			}
+			include = "eastern_european_monarchy"
+			country_rank = rank_duchy
 			government = {
 				ruler = random
 			}
@@ -765,20 +882,20 @@ countries = {
 		}
 		HIM = { # Himyar
 			own_control_core = {
-				abha abil abu_rakah adan adham ahwar al_abala al_arah al_bayda_yemen al_ghulayfiqah
-				al_haqu al_harjah al_hirda al_husayniyah al_jumum al_kharabah al_khosuf al_khuraybah al_lith al_luhayyah
-				al_maddah al_mafalis al_mahani al_mahjal al_mandab al_mukalla al_mukha al_muthainiyah al_qara al_qunfudhah
-				al_shihr al_shuqayq al_sirrayn arrayda as_salafiyah as_salif asfan azzan balhaf bani_saad
-				barahrah baraqish bariq bayhan birali dha_sohis dhafar dhahran dhamar dhat_irq
-				dhi_ain dhufar farasan ghumayqah habban hajar hajjah hali harad_asir harib
-				hays hudaida huraydah hutayb huth ibb jazan jeddah juban jurrah
-				kawkaban khalfut khamir khaybar_janoub khayrij khulays lahj lawdar main marib
-				markha mawza mecca mikhlaf_al_hubishiyah mudhaykirah muhayil musaymir najran nisab qishn
-				qudayd radaa raghdan rakhyah raysut rijal_almaa sabt_bani_bishr sabya sadah samakh
-				sana_yemen sayun shabwa shaharah shibam shuqra suq_al_ghinan tabalah taif taizz
-				tanomah tarim thula turbah yahr yalamlam zabid zinjibar
+				abha abil abu_rakah ad_dughmiyah adan adham ahwar al_abala al_amlah al_amwah
+				al_arah al_bayda_yemen al_ghulayfiqah al_haqu al_harjah al_hirda al_husayniyah al_khosuf al_khuraybah al_luhayyah
+				al_maddah al_mafalis al_mahjal al_mandab al_mukalla al_mukha al_qara al_qunfudhah al_shihr al_shuqayq
+				al_sirrayn arrayda as_salafiyah as_salif ash_shaqiqah azzan balhaf barahrah baraqish bariq
+				bayhan birali dha_sohis dhafar dhahran dhamar dhi_ain dhufar farasan habban
+				hadibu hajar hajjah hali harad_asir harib hays hudaida huraydah hutayb
+				huth ibb jazan juban jurrah kawkaban khalfut khamir khaybar_janoub khayrij
+				lahj lawdar main marib markha mawza mikhlaf_al_hubishiyah mirbat mudhaykirah muhayil
+				musaymir najran nisab qalat_bishah qishn qulensya radaa raghdan rakhyah ranyah
+				raysut rijal_almaa sabt_bani_bishr sabya sadah samakh sana_yemen sayun shabwa shaharah
+				shibam shuqra suq_al_ghinan tabalah taizz tanomah tarim tathlith thula turbah
+				yadamah yahr zabid zinjibar
 			}
-			capital = abha
+			capital = dhafar
 			discovered_regions = {
 				arabia_region crescent_region egypt_region ethiopia_region great_lakes_region indian_ocean_region nubia_region persia_region
 				somalia_region western_india_region
@@ -808,53 +925,62 @@ countries = {
 		}
 		HNS = { # Huns
 			own_control_core = {
-				adalaga adjud aksay alexeyevka alexeyevskaya ananiv anna_russia aqmecit aqmecit_prybuzhzhya argamakli_sarai
-				arges arkadak aslan_horod astrakhan atkarsk bacau bakhmach bakhmut bakota balanda
-				balashov balikley balti bannoye barlad barvinkove belaya_kalitva belgorod beljamen berdiansk
-				berdychiv berestyn berezhnovka bershad bielska_sloboda bila_tserkva bilovodsk boguchar bohorodchany bohuslav
+				adalaga adjud aksay aksay_pointic alexandrov_gay alexeyevka alexeyevskaya ananiv anna_russia aqmecit
+				aqmecit_prybuzhzhya argamakli_sarai arges arkadak aslan_horod astrakhan atach atkarsk atzhaksy bacau
+				bakhmach bakhmut bakota balakovo balanda balashov balikley balti bannoye barlad
+				baronsk barvinkove baytak beket_ata beki belaya_kalitva belgorod beljamen berdiansk berdychiv
+				berestyn berezhnovka bershad bielska_sloboda bila_tserkva bilovodsk boguchar bohorodchany bohuslav bokey
 				bokovskaya bol_shaya_martynovka bolekhiv bolkhuny bolshaya_gribanovka borisoglebsk boryspil botkul braila bratslav
 				buchach bucharest bukov buryn buturlinovka buzau buzhskyi bykovo cahul calafat
 				campulung_moldovenesc campulung_muscel caracal cegani cernauti cetatea_alba cetatea_tetina cetateni cherkasy chernyanka
-				chernyye_zemli chertkovo chilia chisinau chornukhy chortolisy chudniv chuhuiv chyhyryn chyorny_yar
-				comana corabia cotnari cozia craiova cudalbi danilovka dardeling dashev ded_khulsun
-				desnyanskyi_horodok dolyna domakha donets_kharkiv dorohoi dragasani drahushiv drohobych dubovskoye dymer
-				elton enice fastiv focsani gaiseni galati giurgiu glavacioc glushkovo goly_karamysh
-				gratia gura_galbenei hadiach halych hangu_romania harbuzynka harlau hlukhiv horodok horodyshche
-				horoshino hotin hovtva hryshyne huliaipole husi iagorlic iasi ichnia ikryanoye
-				ilovlya ingul ismail iziaslav izium jurchi kaffa kaharlyk kalach kalay
-				kalmius kalnivka kamenskaya kamianets_podilskyi kamyshin kaniv karabul karlivka kashary kastornoye
-				kezlev khadjibey khmilnyk khorostkiv khosheutovo khotmyzh kichkas kirsanov kletskaya kodak
-				kolomak kolomyia konski_vody konstantinovka konstantinovsk korocha korostyshiv korsun kosozhichi kotelva
-				kotovo kozelets krasnopillia krasny_sulin krasny_yar kremenchuk kremenskaya kreminna kryvyi_rih kuchugur
-				kumylzhenskaya kupiansk kursk kuyanlik kyiv kyrylivka lebedyn letychiv lichiresti lipnic
-				liubar lubny luhansk lusta lutava lypova_dolyna lysychansk lysye_gory machekha mala_vyska
-				malodelskaya malye_derbety manturovo_kursk mechet melitopol melnya meteleu mezhybozhe mikhaylovka mikhaylovka_pontic
-				millerovo milyutinskaya mityakinskaya mohyliv_podilskyi mordovo muzhech mychesk mykytyn_rih myrhorod myshuryn_rih
-				nagavskaya nikolskoye_pontic nizhny_chir nizhyn novaya_pokrovka novoaidar novoanninsky novonikolayevsky novopskov nyzhnia_duvanka
-				oancea oblivskaya oboyan okhtyrka oleksandrivka olgov opalkova opishnya or_qapi orasul_de_floci
-				ordu_bazar orhei oril oskol oster ostrogozhsk palada parscov pavlohrad pereiaslav
-				petrove piatra_lui_craciun pitesti plenita ploesti poenari pohrebyshche pologoye_zaymishche polonne poltava
-				posad pryluky putna putyvl pyriatyn qalancaq qarasuvbazar qirq_yer radovanu rakitnoye
-				ramnicu_sarat ramnicu_valcea rasskazovo rechnoye reni rohat_kermen rohatyn roman romen rossosh
-				rov rovenki rovenky rovnoye rozdory rozkishna rtishchevo rudnya_pontic rusii_de_vede rylsk
-				sadovoye sadovoye_kalmykia samarchyk samoylovka sapara sarai_al_jadid sarata semidesyatnoye semikarakorsk serdobinskaya
-				severin seyitler shakhty sherbiv shyrokyne siret skvyra slanic slatina slobozia
-				sloviansk smila sniatyn sofiivka sokilets soldaia solkhat soroca srednyaya_akhtuba stefanesti
-				stepanevka storozhynets stramba strehaia stryi suceava sudzha sumy taganrog tana
-				targoviste targu_bengai targu_jiu targu_lapusnei targu_neamt targu_trotus targul_saratii tatsinskaya tecuci teligol
-				teplyk terbuny terebovlia ternivka ternopil theodoro tighina tokmak tomakivka tormosin
-				troitskoye_na_shchigrakh tsybuliv tulnici turka turki turnu_magurele tutova tuzara tysmenytsia uman
-				umanske ungheni uryupin ushytsia usivka usman ust_medveditskaya ust_tsimla uvarovo valenii_de_munte
-				valuyki vaslui vasylivka vatra_dornei veesky velyka_lepetykha velyka_novosilka velyki_sorochyntsi verkhny_mamon viadineti
-				vilshana vinnytsia viziru voronezh voronizh_chernihiv vosporo vovchansk yahotyn yaroslavka yekaterinovka
-				yelan yelanets yenotayevka zalishchyky zamyany zdvizhen zemlyansk zenzevatka zherdevka zhydachiv
+				chernyye_zemli chertanla chertkovo chet_irgiz chilia chisinau chornukhy chortolisy chudniv chuhuiv
+				chyhyryn chyorny_yar comana corabia cotnari cozia craiova cudalbi danilovka dardeling
+				dashev ded_khulsun dergachi desnyanskyi_horodok dolyna domakha donets_kharkiv dorohoi dragasani drahushiv
+				drohobych dubovskoye dukhovnitskoye dymer elton emba enice fastiv fatezh focsani
+				gaiseni galati ganyushkino gebergeyel giurgiu glavacioc glushkovo gogol goly_karamysh gratia
+				gura_galbenei hadiach halych hangu_romania harbuzynka harlau hlukhiv horodok horodyshche horoshino
+				hotin hovtva hryshyne huliaipole husi iagorlic iasi ichnia ikryanoye ilek
+				ilovlya ingul irek irgiz ishkul ismail ivanteyevka iziaslav izium jurchi
+				kabakty kaffa kaharlyk kalach kalay kalmius kalmyk kalnivka kamenskaya kamianets_podilskyi
+				kamyshin kaniv karabul karasay karatobe karatobe_mangyshlak kargaly_aktobe karlivka kashary kastornoye
+				kaynar kayrakty kenderli_kayasan ketik_kala kezlev khadjibey khaiylmysh khaqmar khmilnyk khorostkiv
+				khosheutovo khotmyzh kichkas kirsanov kisikkamys kiyl kletskaya kobda kodak kolomak
+				kolomyia konski_vody konstantinovka konstantinovsk koptam korocha korostyshiv korsun koshkar_ata koskuduk
+				kosozhichi kotelva kotovo kozelets krasnopillia krasny_kut_pontic krasny_sulin krasny_yar kremenchuk kremenskaya
+				kreminna kryvyi_rih kuchugur kulagin kumak kumylzhenskaya kupiansk kursk kuyanlik kyiv
+				kyrylivka kyzylkala lebedyn letychiv lichiresti lipnic liubar lubny luhansk lusta
+				lutava lypova_dolyna lysychansk lysye_gory machekha mala_vyska malodelskaya malye_derbety manturovo_kursk manysai
+				masat_ata mavliberda mechet mechetnaya melitopol melnya meteleu mezhybozhe mikhaylovka mikhaylovka_pontic
+				millerovo milyutinskaya mityakinskaya mohyliv_podilskyi mokrous mordovo muzhech mychesk mykytyn_rih myrhorod
+				myshuryn_rih nagavskaya namjan nikolskoye_pontic nizhny_chir nizhyn novaya_pokrovka novoaidar novoanninsky novonikolayevsky
+				novopskov nyzhnia_duvanka oancea oblivskaya oboyan okhtyrka oleksandrivka olgov opalkova opishnya
+				or_aktobe or_qapi oral orasul_de_floci ordu_bazar orhei oril oskol oster ostrogozhsk
+				ozinki palada parscov pavlohrad pereiaslav perelyub petrove piatra_lui_craciun piterka pitesti
+				plenita ploesti poenari pohrebyshche pokrovsk pologoye_zaymishche polonne poltava posad pryluky
+				putna putyvl pyriatyn qalancaq qarasuvbazar qirq_yer radovanu rakitnoye ramnicu_sarat ramnicu_valcea
+				rasskazovo rechnoye reni rohat_kermen rohatyn roman romen rossosh rov rovenki
+				rovenky rovnoye rozdory rozkishna rtishchevo rudnya_pontic rusii_de_vede rylsk ryn sadovoye
+				sadovoye_kalmykia sakminskoye_vodokhranilishche samarchyk samoylovka sapara sarai_al_jadid sarata sarayjuk saryadyn savinka
+				sazanbay semidesyatnoye semikarakorsk serdobinskaya severin seyitler shagan shagiz shakhty shatyrlysay
+				sherbiv shikashin shyngyrlau shyrokyne siret skvyra slanic slatina slobozia sloviansk
+				smila sniatyn sofiivka sokilets soldaia solkhat soroca srednyaya_akhtuba stefanesti stepanevka
+				storozhynets stramba strehaia stryi suceava sudzha sumy suyunduk taganrog talitsa_yelets
+				talowski tana tanalyk targoviste targu_bengai targu_jiu targu_lapusnei targu_neamt targu_trotus targul_saratii
+				tas_kichu taskala tatsinskaya tecuci teligol temir temir_baba tenteksor teplyk terbuny
+				terebovlia terekti ternivka ternopil theodoro tighina tokmak tomakivka tormosin troitskoye_na_shchigrakh
+				tsybuliv tulnici turka turki turnu_magurele tutova tuzara tysmenytsia uil uman
+				umanske ungheni uryupin ushkan ushtagan ushytsia usivka usman ust_livny ust_medveditskaya
+				ust_tsimla uvarovo valenii_de_munte valuyki vaslui vasylivka vatra_dornei veesky velyka_lepetykha velyka_novosilka
+				velyki_sorochyntsi verkhny_mamon viadineti vilshana vinnytsia viziru voronezh voronizh_chernihiv vosporo vovchansk
+				yahotyn yaik yaroslavka yekaterinovka yelan yelanets yelets yenotayevka yershov yuldibay
+				zalishchyky zamyany zdvizhen zemlyansk zenzevatka zhaksy_karasay zhanybek zherdevka zhydachiv zhympity
 				zhytomyr zimnicea zimnyatsky zmiiv zolotari zolotonosha zvenyhorodka
 			}
 			capital = adalaga
 			discovered_regions = {
 				anatolia_region balkan_region baltic_region carpathia_region caucasus_region crescent_region egypt_region italy_region
 				khorasan_region maghreb_region north_german_region persia_region russian_region ruthenia_region scandinavian_region south_german_region
-				steppes_region ural_region
+				steppes_region ural_region west_siberia_region
 			}
 			include = "eurasian_horde_no_muslim"
 			country_rank = rank_kingdom
@@ -1138,6 +1264,28 @@ countries = {
 				ruler = random
 			}
 		}
+		KDT = { # Kidarites
+			own_control_core = {
+				aiwanj akhsisek andarab andkhoy aqca araska arkhan ashkamesh attock baghlan
+				bagram balkh bamyan basand boyena_qara charikar chiras daroot_korgon darzanji dawlat_abad
+				denov farkhor fayzabad gharm gunt guzor hissar hulbuk ishkashim istalif
+				jurm kahmard karakol kelif kerki kham_bahar khamyab khoja_idat_kala khulm kishim
+				kohat kulob kunduz lalpur mardan maymana mazar_i_sharif muksu munk murghab
+				nasaf navidakh oksu panjshir peshawar qaisar qalai_khumb qila_panjeh qubodijon ragh
+				roshtqala samangan sangcharak sangvor sar_pol sar_sang sarhad sheberghan shighnan shiveh
+				shuman taleqan termez vakhs vamar vanch wesgird yakawlang zadian zebak
+			}
+			capital = balkh
+			discovered_regions = {
+				arabia_region central_india_region hindustan_region khorasan_region persia_region tibet_region west_siberia_region western_india_region
+				xinjiang_region
+			}
+			include = "eurasian_horde_no_muslim"
+			country_rank = rank_kingdom
+			government = {
+				ruler = tfe_kidara
+			}
+		}
 		KHI = { # Khitan
 			own_control_core = {
 				chaghankhot gorlos haihaer huolin kailu linhuang qingzhou_mongol taluhe tuliemao wafang
@@ -1169,6 +1317,23 @@ countries = {
 				ruler = random
 			}
 		}
+		KHW = { # Khwarazm
+			own_control_core = {
+				beleuli darganata hazarasp kath khiva khurgancha kyat_kala kyushe nyzvar orta_kuyu
+				pulzhai qonirat sam shimbay shuruk sisem_ata talaikhan_ata uchkuduk urgench uzboy
+				vezir xojeli
+			}
+			capital = kath
+			discovered_regions = {
+				caucasus_region crescent_region hindustan_region khorasan_region persia_region russian_region steppes_region ural_region
+				west_siberia_region
+			}
+			include = "eastern_european_monarchy"
+			country_rank = rank_duchy
+			government = {
+				ruler = random
+			}
+		}
 		KIB = { # Kibi
 			own_control_core = {
 				aita aka asakuchi ashida eso joutou kameshi katou_bicchuu kaya kume
@@ -1180,6 +1345,23 @@ countries = {
 			}
 			include = "japanese_clan"
 			country_rank = rank_county
+			government = {
+				ruler = random
+			}
+		}
+		KIN = { # Kinda
+			own_control_core = {
+				ad_dawasir afif al_aflaj al_aythamah al_baharah al_bijadiyah al_fuqarah al_ghrabah al_haddar al_hisu
+				al_laghfiyyah al_mardamah al_maslum al_quway an_nuhaytiyyah an_nuqrah aqiq_banu_uqayi ar_rayn ash_shuara bilghah
+				dawbah habiyah halaban laila miskah nifi qasr_himam ramah rawdat_al_ard tamrah
+				udakh
+			}
+			capital = ad_dawasir
+			discovered_regions = {
+				arabia_region crescent_region egypt_region ethiopia_region nubia_region persia_region
+			}
+			include = "eurasian_tribe"
+			country_rank = rank_duchy
 			government = {
 				ruler = random
 			}
@@ -1210,6 +1392,25 @@ countries = {
 				east_china_region japan_region korea_region manchuria_region mongolia_region north_china_region west_china_region
 			}
 			include = "asia_advanced_tribe"
+			country_rank = rank_county
+			government = {
+				ruler = random
+			}
+		}
+		KNJ = { # Kangju
+			own_control_core = {
+				akkesene aksumbe aktas_kystagy almalik_chach altyntobe arsubaniket artyk_ata asanas baba_ata badam
+				barchkend baydibek_ata bogiston burchmullo buzikkala chach dzhulsub fanakat gulshara ikan
+				isbijab jand jubara kamyskala karabulak karmakshi karnak kazatlyk kyr_uzkand kyzylkorgan
+				mardankuyik nuket nurlykent otrar ran sarvaslyk saudakent sawran shavgar shilik
+				sholakkorgan shymkent sighnaq sozak sutkent talas tamdy tasty tekabket turkestan
+				yangi yangikent zemukh zhaushikumtobe zherkorgan
+			}
+			capital = chach
+			discovered_regions = {
+				hindustan_region khorasan_region persia_region steppes_region tibet_region ural_region west_siberia_region xinjiang_region
+			}
+			include = "eurasian_tribe"
 			country_rank = rank_county
 			government = {
 				ruler = random
@@ -1280,6 +1481,23 @@ countries = {
 				ruler = random
 			}
 		}
+		KZA = { # Khuza'a
+			own_control_core = {
+				al_abwa al_hadhah al_hinakiyah al_hufayrah al_juhfah al_jumum al_kharabah al_lith al_mahani al_mundassah
+				al_muthainiyah an_nakhil ar_rabadha ar_rayyan ar_ruwailiyyah as_suwayriqiyah asfan bani_saad dhalam dhat_irq
+				ghumayqah jeddah khulays madin_bani_sulaym mecca murayghan muwayh qasr_al_qaba qudayd sufaynah
+				taif umm_ad_dawm umm_al_ghiran yalamlam
+			}
+			capital = mecca
+			discovered_regions = {
+				arabia_region crescent_region egypt_region ethiopia_region nubia_region persia_region
+			}
+			include = "eurasian_tribe"
+			country_rank = rank_county
+			government = {
+				ruler = random
+			}
+		}
 		LAI = { # Laigin
 			own_control_core = {
 				ardagh athy ballymore carlow cullahill daingean dublin dunamase ferns fingal
@@ -1344,6 +1562,24 @@ countries = {
 			country_rank = rank_kingdom
 			government = {
 				ruler = tfe_upatissa_i
+			}
+		}
+		LKM = { # Lakhmids
+			own_control_core = {
+				al_ahsa al_bidda al_hunayy al_huwaila al_jubayl al_mashqar al_qatif al_suman al_udayb al_udayd
+				al_uqayr al_uyayna ar_rukai ash_shuaybah ayn_tamr baqqa eglat_faisal hafar_al_batin harad_al_ahsa jannah
+				jarrarah kazimah khurays kufa manama mashdhubah nita_arabia qadisiyyah qaryat_ulya qurain
+				rumah sayhat sir_bani_yas urayrah yabrin zubarah
+			}
+			capital = kufa
+			discovered_regions = {
+				anatolia_region arabia_region caucasus_region crescent_region egypt_region ethiopia_region indian_ocean_region khorasan_region
+				nubia_region persia_region
+			}
+			include = "eastern_european_monarchy"
+			country_rank = rank_duchy
+			government = {
+				ruler = tfe_numan
 			}
 		}
 		LKS = { # Langkasuka
@@ -1611,10 +1847,10 @@ countries = {
 		}
 		NOB = { # Nobatia
 			own_control_core = {
-				abu_hamed al_jeblien alays arbaji atbara berber branko daw_sud deraheib dongola
-				ed_damer ed_debba el_eleila el_gadarif el_manaqil el_metemma faras karima karkuj kerma
-				korti kosa omdurman qerri quz_rajab sai sennar shemkhiya shendi singa
-				soba wad_madani waylula
+				abu_hamed al_jeblien al_matamma al_rusayrisi alays arbaji berber branko dabarqi daw_sud
+				dongola ed_damer ed_debba el_eleila el_gadarif el_manaqil el_metemma faras karima karkuj
+				kerma korti kosa omdurman qerri quz_rajab renk sai sennar shemkhiya
+				shendi singa soba wad_madani waylula
 			}
 			capital = abu_hamed
 			discovered_regions = {
@@ -1793,35 +2029,33 @@ countries = {
 		}
 		RRN = { # Rouran
 			own_control_core = {
-				achit_nuur airag_nuur almaliq altan_gadas altayn_ovor_gobi alyanbulag amarbayas_galang anaa arkat ashchyozek
-				atanuul avga avnagar avraga ayagoz baganuur baibalyk baidrag bakanas baldan_bereeven
-				balj balyktyg banzart_khairkhan barkul bayan beshbalik biger bii bishreit bodonch
-				bogd boontsagaan bornuur bortala boyauli bugat bulgan bureen buren_khem burqin
-				busiyn charyn cheremkhovo chikhan_agui chinggil choigan chono choyrin_datsan chuluutyn chundzha
-				dagandely dahra_sasykkol dalay del_khad delger_moron den_terek doloodyn_gobi dungene dunla dzaigil
-				emin erenkhot eringiin eroo erzin espe galbyn_gobi gaxun_gobi gazrin_chuluu gimpil_darjaalan
-				gonganbao guchung gulja haerhhana hoboksar hunguy huysiyn ider ikh_narttin_chuluu ilanbalyk
-				ilibalyk irkutsk jeminay jing kaa kandysu kara_irtysh karakorum karamergen kayalyk
-				kedun khadanzaa khadat khalzan_shireg khan_khentii khangal khar_balgas khar_bukhyn khara_khoto kharkhul
-				kharuukh khatanbulag khatgal khemchik kherlen khilgo khilgoson khimni khobootsar khovd
-				khudan khurbe khurgan khuuchid khyargas_nuur kokpekty koksala koktal koktuma kurchum
-				kurty kutubi kuytun kyakhta kyra lavar lepsy manas manzushir matad
-				mori mori_baridag naomao naraan_chilaun naran narat narhata nilka noyon_uul ogomoor
-				oiyin_korken ongiin_khiid onguday onon ooshiyn_gobi orkhon orog oskemen otegu_qulan qanbalik
-				rahsaan_khad sagabuyen saikhandulaan sangiin_dalai santokhe sarybulak sayak selenge shaazan_khot shaazan_tolgoi
-				shar sharga_uul shargyn_gobi shengeldy shira_qulusun shuluun_khoboot_tsagaan slyudyanka sonod sorin_nuur sulkhari
-				sumtiin suriig systyg tahiltyn_khotgot takhilyn tansyk targabatay tarvagatai tavan_tolgoi teel
-				tekeli telemba telmen tes tevsh_uul toli tost_uul tsagaan_agui tsagaan_usun tsetserleg
-				tsogt tsokh tuin turuum tuul ude_baikal uguumur ukhaa_khudag ulaagchiin ulaamgom
-				ulaan ulaanbadrakh ulan_us ulenkhe ulgain uliastai ulug ulungur ulziit undurkhaan
-				ung urga urghtbulaq urumqi ust_barguzin ust_koksa usu_xinjiang usun utbulaq uur
-				uzemchin yangjibaliq yuanhu zag_suujiyn_gobi zagzuugiin_balgas zara_uul zavkhan zed zelterijin zhanaarka
-				zhavklant_khairkhan zhekdeliq zuun_garyn_gobi zyryan
+				achit_nuur airag_nuur altan_gadas altayn_ovor_gobi alyanbulag amarbayas_galang anaa arkat ashchyozek atanuul
+				avga avnagar avraga ayagoz baganuur baibalyk baidrag bakanas baldan_bereeven balj
+				balyktyg banzart_khairkhan barkul bayan beshbalik biger bii bishreit bodonch bogd
+				boontsagaan bornuur bortala bugat bulgan bureen buren_khem burqin busiyn cheremkhovo
+				chikhan_agui chinggil choigan chono choyrin_datsan chuluutyn dagandely dahra_sasykkol dalay del_khad
+				delger_moron den_terek doloodyn_gobi dungene dunla dzaigil emin erenkhot eringiin eroo
+				erzin galbyn_gobi gaxun_gobi gazrin_chuluu gimpil_darjaalan gonganbao guchung haerhhana hoboksar hunguy
+				huysiyn ider ikh_narttin_chuluu ilanbalyk irkutsk jeminay jing kaa kandysu kara_irtysh
+				karakorum kayalyk kedun khadanzaa khadat khalzan_shireg khan_khentii khangal khar_balgas khar_bukhyn
+				khara_khoto kharkhul kharuukh khatanbulag khatgal khemchik kherlen khilgo khilgoson khimni
+				khobootsar khovd khudan khurbe khurgan khuuchid khyargas_nuur kokpekty koksala koktuma
+				kurchum kutubi kuytun kyakhta kyra lepsy manas manzushir matad mori
+				mori_baridag naomao naraan_chilaun naran narhata noyon_uul ogomoor oiyin_korken ongiin_khiid onguday
+				onon ooshiyn_gobi orkhon orog oskemen otegu_qulan qanbalik rahsaan_khad sagabuyen saikhandulaan
+				sangiin_dalai santokhe sarybulak sayak selenge shaazan_khot shaazan_tolgoi shar sharga_uul shargyn_gobi
+				shira_qulusun shuluun_khoboot_tsagaan slyudyanka sonod sorin_nuur sulkhari sumtiin suriig systyg tahiltyn_khotgot
+				takhilyn tansyk targabatay tarvagatai tavan_tolgoi teel tekeli telemba telmen tes
+				tevsh_uul toli tost_uul tsagaan_agui tsagaan_usun tsetserleg tsogt tsokh tuin turuum
+				tuul ude_baikal uguumur ukhaa_khudag ulaagchiin ulaamgom ulaan ulaanbadrakh ulan_us ulenkhe
+				ulgain uliastai ulug ulungur ulziit undurkhaan ung urga urghtbulaq urumqi
+				ust_barguzin ust_koksa usu_xinjiang usun utbulaq uur uzemchin yangjibaliq yuanhu zag_suujiyn_gobi
+				zagzuugiin_balgas zara_uul zavkhan zed zelterijin zhanaarka zhavklant_khairkhan zhekdeliq zuun_garyn_gobi zyryan
 			}
 			capital = achit_nuur
 			discovered_regions = {
 				east_china_region east_siberia_region hindustan_region khorasan_region korea_region manchuria_region mongolia_region north_china_region
-				persia_region tibet_region west_china_region west_siberia_region xinjiang_region
+				tibet_region west_china_region west_siberia_region xinjiang_region
 			}
 			include = "eurasian_horde_no_muslim"
 			country_rank = rank_kingdom
@@ -1851,76 +2085,76 @@ countries = {
 			own_control_core = {
 				abadan abadeh abadeh_tashk abarkuh abdanan abdas abhar abiward abiz abu_kemal
 				adraskan agh_qala agham_kot aghkand agror ahar ahel ahmad_khan ahvaz akora
-				akre al_anbar al_madar al_mamtir al_qatr al_sinn al_tib al_tiz al_udayb alamarvdasht
-				aleshtar aliabad_katul aligurdaz altun_kupri amadiya amol an_nil anah anar anarak
-				anardara andika andimeshk aqda ar_rabb araban ardabil ardakan ardestan arghestan
+				akre al_anbar al_madar al_mamtir al_qatr al_sinn al_tib al_tiz alamarvdasht aleshtar
+				aliabad_katul aligurdaz altun_kupri amadiya amol an_nil anah anar anarak anardara
+				andika andimeshk anew aqda ar_rabb araban ardabil ardakan ardestan arghestan
 				arkvaz arzu asadabad asadabad_kunar ashraf asir aslanduz aspas astara astarabad
-				attock avaj aveh awaran awbeh ayn_tamr azab azadvar azghand bab_kot
-				baciravan badra badreh bafq baft bagh_iran bagh_malek baghdad baghin baghran
-				bahramchah bahreman bajestan bakharz bakusaya balad balad_ruz bam bam_esfarayen bampur
-				banader bandar_charak bandar_deylam bandar_deyr bandar_e_anzali bandar_e_jask bandar_khamir bandar_lengeh bandar_rig bannajbur
-				bannu baqubah bara_iraq bardsir barqaid barza bashagard bashqurtaran basht baskale
-				basra bastak bastam bavanat bayazit bazman behabad behbahan bela bent
-				besima beyarjomand beyza bhakkar bhera bhimber bih bijar bilasuvar birecik
-				birjand bisotun bojnord borazjan borborud borujen borujerd boshruyeh bost bukan
-				buleda busal busayrah cermik chagai chak chakwal chalus chaman chamchamal
-				chehl_dokhtaran chishti_sarif chor cizre dalgan damavand damghan daquq darab daraban
-				dargaz darrehshahr darz dastgerdan dayr_aqul deh_kord deh_kundi dehagh dehaj dehdasht
-				dehdez dehgolan dehloran dehram dehshir dehtal deir_ez_zor delaram delijan dera_bugti
-				dera_ismail_khan deychopan deyhuk dezful dhadar dina dinkot dishmok divandarreh diyarbekir
-				dogonbadan doroh dorud dowlatabad dowlatabad_esfandaqeh dowraq dowzdab dubbi duhok duki
-				dulab dunaysir egil eqlid erbil ergani ernan eruh esfarayen espakeh
-				eyvan eyvanekey fadisheh fahraj_narmashir fahrej farah farashband farhadgerd farim_iran fariman
-				farumad fasa fereydunshahr fin firozkoh firuzabad firuzkuh firuzkuh_afghanistan fuman gamrun
-				gandamak gandava gardez garmsir gereshk gerit germi ghazni ghobeyra ghorveh
-				gilan_gharb golashkerd golpayegan gonabad gujrat gulistan gwadar gwatar hadishahr haditha
-				hajjiabad hajjiabad_zarrindasht hakkari hala hamadan hamidiyeh hangu harat haresabad harran
-				harunabad hasakah hasankeyf hashatjin hashtrud hawraman hazro hendijan heni herat
-				heris hillah hinglaj hit holeylan hormuz hoveyzeh ij_iran ilam irafshan
-				isakhel isfahan islamgarh islamkot istakhr istalif izeh jabar jagin_zir jahreh
-				jahrom jajarm jalalabad jaleq jannaba jannat_shahr javanrud jhal jhao jhatpat
-				jiroft jondaq juyom kabul kadkan kahak kahan kahnuj kajran kalameh
+				avaj aveh awaran awbeh azab azadvar azghand bab_kot baciravan badra
+				badreh bafq baft bagh_iran bagh_malek baghdad baghin baghran bahramchah bahreman
+				bajestan bakharz bakusaya balad balad_ruz bam bam_esfarayen bampur banader bandar_charak
+				bandar_deylam bandar_deyr bandar_e_anzali bandar_e_jask bandar_khamir bandar_lengeh bandar_rig bannajbur bannu baqubah
+				bara_iraq bardsir barkdiz barqaid barza bashagard bashqurtaran basht baskale basra
+				bastak bastam bavanat bayazit bazman behabad behbahan bela bent besima
+				beyarjomand beyza bhakkar bhera bhimber bih bijar bilasuvar birecik birjand
+				bisotun bojnord borazjan borborud borujen borujerd boshruyeh bost bukan buleda
+				busal busayrah cermik chagai chakwal chalus chaman chamchamal chehl_dokhtaran chishti_sarif
+				chor cizre dalgan damavand damghan daquq darab daraban dargaz darrehshahr
+				darz dastgerdan dayr_aqul deh_kord deh_kundi dehagh dehaj dehdasht dehdez dehgolan
+				dehistan dehloran dehram dehshir dehtal deir_ez_zor delaram delijan dera_bugti dera_ismail_khan
+				deychopan deyhuk dezful dhadar dina dinkot dishmok divandarreh diyarbekir dogonbadan
+				doroh dorud dowlatabad dowlatabad_esfandaqeh dowraq dowzdab dubbi duhok duki dulab
+				dunaysir durun egil eqlid erbil ergani ernan eruh esfarayen espakeh
+				eyvan eyvanekey fadisheh fahraj_narmashir fahrej farah farashband faraveh farhadgerd farim_iran
+				fariman farumad fasa fereydunshahr fin firozkoh firuzabad firuzkuh firuzkuh_afghanistan fuman
+				gamrun gandava ganlygala garmsir gazanjyk gereshk gerit germi ghobeyra ghormach
+				ghorveh gilan_gharb golashkerd golpayegan gonabad gujrat gulistan gwadar gwatar hadishahr
+				haditha hajjiabad hajjiabad_zarrindasht hakkari hala hamadan hamidiyeh hangu harat haresabad
+				harran harunabad hasakah hasankeyf hashatjin hashtrud hawraman hazro hendijan heni
+				herat heris hillah hinglaj hit holeylan hormuz hoveyzeh ij_iran ilam
+				irafshan isakhel isfahan islamgarh islamkot istakhr izeh jabar jagin_zir jahreh
+				jahrom jajarm jaleq jannaba jannat_shahr jargalan javanrud jawand jhal jhao
+				jhatpat jiroft jondaq juyom kadkan kahak kahan kahnuj kajran kalameh
 				kalat kalat_nader kaleybar kalmat kamyaran kandahar kandiaro karaj karaj_abi_dulaf karbala
 				kariyan karkevand karokh karvandar karzin kashan kashmar kashmore kavar kazerun
-				kazimah kerman kermanshah khabar khabr khabushan khalafabad khalis khalkhal khameneh
-				khanaqin khanashin kharan khargerd kharturan khash khash_sistan khatunabad khaysar kherameh
-				khewra khiyav khomeyn khondab khormoj khorramabad khost khoy khunj khusf
-				khushab khuzdar khvor khwansar khwar kirkuk kish kohat kohi_safi kohtali
-				kojur komshecheh korit kot_lalu kotri kozluk kuddan kufa kuhbanan kuhdast
-				kulp kurijan kusk ladiz lafur lahijan lahri lakhsar lalpur langarud
-				lankaran lar laribandar lash_joveyn lasjerd logar lordegan lorelai machul madinat_far
-				mahabad mahallat mahan mahgas mahneshan mahvelat maiwand makisin maku malakand
-				malayer malekan mandali manora mansura manujan maragheh marand maranjab mardan
-				mardanaqom mardehek mardin marivan maruf marvast mashhad mashhad_rizeh mashkai mashkel
-				masjed_soleyman mastung mawet mayyafariqin mazdaran mazhan meshkan meshkan_khorasan meyami meybod
-				meymand meymeh miandoab midyat minab minudasht mithri miyaneh moro_sindh mosharahat
-				mosul muchesh mughan muhammad_tur muhammerah muqur murcheh_khvort murt musa_qala naalbandin
-				nadushan nagarparkar nagh naghan nahavand nain nal nardin narmashir naserpur
-				nasiriyah natanz nawah nayband nazok_olya negar nehbandan neyasar neyriz nimvar
-				nir nishapur nowdezh numaniyyah nurabad nusaybin nushki ormara osnavieh paat
-				pangvay paroom pasni peshawar pindi_gheb piranshahr pivehzhan pol_dokhtar poonch pushang
-				qadisiyyah qaen qahqaheh qala_fateh qala_safid qala_zari qaladiza qalat_ghilji qaleh_ganj qarahziaoddin
-				qarnin qaryat_al_bidh qasr_e_qand qasr_shirin qatruyeh qayyarah qazvin qeydar qom qorveh_darjazin
-				quban quchan quetta qumis qumisha rabor radkan rafsanjan rahba rahimabad
-				rajabar rajouri rameshk ramhormoz ramsheh ranikot raqqa ras_ayn rasht rask
-				ravar rawalakot rawalpindi rawanduz rayen raz razeqan rey reyshahr ribat_ushturan
-				rigan riz rohri roshtkhar rostaq rudbar rudbar_sistan rudkhaneh rusafa ruydar
-				saadatabad saadatshahr sabzevar saghand sagzabad sahrazur sain salameh salehabad salmas
-				salyan samalqan samarra samawa samiram sanandaj sangni santeh sar_mashhad sarab
-				sarab_dowreh sarakhs saravan sarayan sarbaz sarbisheh sarcham sardasht sarduiyeh sari
-				saruk sarvestan saryazd sason saveh savojbolagh savur sehwan semdinli semnan
-				senderk sepeh shadodkot shahabad_kerman shahdad shahr_e_babak shahr_meyan shahr_sabz shahrakht shahrestan_sofla
-				shamiram shaqrud sherwan shikarpur shindand shiraz shirvan_iran shoqan shorabak shusef
-				shush shushtar siah_cheshmeh sibak siirt sinjar siraf sirdan sirik sirjan
-				sirnak sisakht siverek siwi soghan sohrevard sohrfiruzan sojas soltaniyeh somaleh
-				sonamiani sonda sonqor sui_pakistan sukkur sulaymaniyah suq suq_al_shuyukh surab suran
-				suruc tabas_al_tamr tabas_al_unnab tabriz tafresh taft takestan takht_e_soleyman tal_afar tammisha
-				tank tarinkot tarom tejend thal_daman thatta tikrit tonekabon torbat_e_jam tudeshk
-				tufarqan tulak tump tun tunanir turaythith turbat tus tuz_khurma udabhanda
-				ujan ukbara umarkot urfa urgun urmia vanak varamin varsan vingur
-				viransehir wadh wana wanga_bazar washuk wasit wazakhwa yangabad yasuj yasukand
-				yazd yazdikhwast yazduye zabol zakho zakht zanjan zarabad zarand_iran zaranj
-				zarghun_shahr zarqan zavareh zaveh zhob zik zohan zozan zuwayr
+				kerman kermanshah khabar khabr khabushan khalafabad khalis khalkhal khameneh khanaqin
+				khanashin kharan khargerd kharturan khash khash_sistan khatunabad khaysar kherameh khewra
+				khiyav khomeyn khondab khormoj khorramabad khost khoy khunj khusf khushab
+				khuzdar khvor khwansar khwar kirkuk kish kohtali kojur komshecheh konjikala
+				korit kot_lalu kotri kozluk kuddan kuhbanan kuhdast kulp kurijan kusk
+				kusk_kohneh ladiz lafur lahijan lahri lakhsar langarud lankaran lar laribandar
+				lash_joveyn lasjerd lordegan lorelai machul madinat_far mahabad mahallat mahan mahgas
+				mahneshan mahvelat maiwand makisin maku malakand malayer malekan mandali manora
+				mansura manujan maragheh marand maranjab maraveh mardanaqom mardehek mardin marivan
+				maruf marv_al_rudh marvast mashhad mashhad_rizeh mashkai mashkel masjed_soleyman mastung mawet
+				mayyafariqin mazdaran mazhan merv meshkan meshkan_khorasan meyami meybod meymand meymeh
+				miandoab midyat minab minudasht mithri miyaneh moro_sindh mosharahat mosul muchesh
+				mughan muhammad_tur muhammerah murcheh_khvort murt musa_qala naalbandin nadushan nagarparkar nagh
+				naghan nahavand nain nal nardin narmashir naserpur nasiriyah natanz nayband
+				nazok_olya negar nehbandan neyasar neyriz nimvar nir nishapur nowdezh numaniyyah
+				nurabad nusaybin nushki ormara osnavieh paat pandjih pangvay paroom pasni
+				pindi_gheb piranshahr pivehzhan pol_dokhtar poonch pushang qaen qahqaheh qala_fateh qala_kohistan
+				qala_naw qala_safid qala_zari qaladiza qalat_ghilji qaleh_ganj qarahziaoddin qarnin qaryat_al_bidh qasr_ahnaf
+				qasr_e_qand qasr_shirin qatruyeh qayyarah qazvin qeydar qom qorveh_darjazin quban quchan
+				quetta qumis qumisha rabor radkan rafsanjan rahba rahimabad rajabar rajouri
+				rameshk ramhormoz ramsheh ranikot raqqa ras_ayn rasht rask ravar rawalakot
+				rawalpindi rawanduz rayen raz razeqan rey reyshahr ribat_ushturan rigan riz
+				rohri roshtkhar rostaq rudbar rudbar_sistan rudkhaneh rusafa ruydar saadatabad saadatshahr
+				sabzevar saghand sagzabad sahrazur sain salameh salehabad salmas salyan samalqan
+				samarra samawa samiram sanandaj sangni santeh sar_mashhad sarab sarab_dowreh sarakhs
+				saravan sarayan sarbaz sarbisheh sarcham sardasht sarduiyeh sari sarlawuk saruk
+				sarvestan saryazd sason saveh savojbolagh savur sehwan semdinli semnan senderk
+				sepeh shadodkot shahabad_kerman shahdad shahr_e_babak shahr_meyan shahr_sabz shahrakht shahrestan_sofla shamiram
+				shaqrud sherwan shikarpur shindand shiraz shirvan_iran shoqan shorabak shusef shush
+				shushtar siah_cheshmeh sibak siirt sinjar siraf sirdan sirik sirjan sirnak
+				sisakht siverek siwi soghan sohrevard sohrfiruzan sojas soltaniyeh somaleh sonamiani
+				sonda sonqor sui_pakistan sukkur sulaymaniyah suq suq_al_shuyukh surab suran suruc
+				tabas_al_tamr tabas_al_unnab tabriz tafresh taft takestan takht_e_soleyman tal_afar tammisha tank
+				tarinkot tarom tejend thal_daman thatta tikrit tonekabon torbat_e_jam tudeshk tufarqan
+				tulak tump tun tunanir turaythith turbat tus tuz_khurma udabhanda ujan
+				ukbara umarkot urfa urgun urmia vanak varamin varsan vingur viransehir
+				wadh wana wanga_bazar washuk wasit yangabad yasuj yasukand yazd yazdikhwast
+				yazduye zabol zakho zakht zanjan zarabad zarand_iran zaranj zarqan zavareh
+				zaveh zhob zik zohan zozan zuwayr
 			}
 			capital = baghdad
 			discovered_regions = {
@@ -1973,6 +2207,22 @@ countries = {
 			}
 			include = "eurasian_tribe"
 			country_rank = rank_county
+			government = {
+				ruler = random
+			}
+		}
+		SGD = { # Sogdia
+			own_control_core = {
+				alat amol_turkmenabad ayni bukhara chiroqchi daya_kathyn dimishk firabr ishtixon jizzakh
+				karmana kish_shahrisabz koson muborak nurota paikend panjakent paykend pishagar primkent
+				samarkand tim_samarkand ura_tyube vardanzi yangirabod zomin
+			}
+			capital = samarkand
+			discovered_regions = {
+				hindustan_region khorasan_region persia_region tibet_region west_siberia_region xinjiang_region
+			}
+			include = "eastern_european_monarchy"
+			country_rank = rank_kingdom
 			government = {
 				ruler = random
 			}
@@ -2053,6 +2303,24 @@ countries = {
 				france_region great_britain_region ireland_region north_atlantic_islands_region north_atlantic_ocean_region north_german_region scandinavian_region
 			}
 			include = "gaelic_tribe"
+			country_rank = rank_county
+			government = {
+				ruler = random
+			}
+		}
+		SLH = { # Salihids
+			own_control_core = {
+				aba_al_qur abu_qasr ad_disah al_ais al_azlam al_bad al_hamad al_harrah al_hawra al_khanbarah
+				al_manjur al_maramiyah al_muazzam al_muwaylih al_ukhaydir al_wajh an_nasifah arar aynuna bada_yaqub
+				bajdah basithah bir_al_qurr bir_fajr bir_ibn_hermas dhat_al_hajj duba dumat_al_jandal haql kaf
+				makna qurayyat_al_milh sakaka tabuk_arabia umluj
+			}
+			capital = dumat_al_jandal
+			discovered_regions = {
+				anatolia_region arabia_region balkan_region caucasus_region crescent_region egypt_region ethiopia_region khorasan_region
+				nubia_region persia_region
+			}
+			include = "eurasian_tribe"
 			country_rank = rank_county
 			government = {
 				ruler = random
@@ -2164,6 +2432,24 @@ countries = {
 				ruler = random
 			}
 		}
+		TAY = { # Tayy
+			own_control_core = {
+				al_ajfar al_burud al_hufayr al_labbah al_maghib al_mithnab al_thulayma al_udhaim al_waqbi an_nabhaniyah
+				an_nibaj ar_rass ash_shamli ash_shuaybah_hail asila_arabia at_tarfawi baqa buraydah dhurma fayd
+				hail jubbah linah lowqah mawqaq samira saqra sara tanumah tayma
+				thadij umm_al_qulban unaizah uyun_al_jiwa zubala
+			}
+			capital = hail
+			discovered_regions = {
+				anatolia_region arabia_region caucasus_region crescent_region egypt_region ethiopia_region khorasan_region nubia_region
+				persia_region
+			}
+			include = "eurasian_tribe"
+			country_rank = rank_county
+			government = {
+				ruler = random
+			}
+		}
 		TGI = { # Thuringians
 			own_control_core = {
 				altenburg annaburg apolda arnstadt bautzen beichlingen cheb chemnitz decin delitzsch
@@ -2219,6 +2505,21 @@ countries = {
 			country_rank = rank_kingdom
 			government = {
 				ruler = tfe_yax_nuun_ahiin
+			}
+		}
+		TMM = { # Tamim
+			own_control_core = {
+				ad_dilam al_ghat al_hajr al_majazah al_majmaah al_qaiyah al_yamamah az_zilfi diriyah malham
+				muzahmiyah naam thadiq
+			}
+			capital = al_yamamah
+			discovered_regions = {
+				arabia_region crescent_region ethiopia_region nubia_region persia_region
+			}
+			include = "eurasian_tribe"
+			country_rank = rank_county
+			government = {
+				ruler = random
 			}
 		}
 		TNS = { # Tun Sun
@@ -2656,6 +2957,24 @@ countries = {
 				regnal_numbers = { name_valentinian = 2 }
 			}
 		}
+		WSN = { # Wusun
+			own_control_core = {
+				almaliq almaty aspara balasagun balykchy barskoon boyauli charyn cholok_kaiyn chon_naryn
+				chundzha dzhul gulja harandzuvan ilibalyk jumgal karakastek karamergen kargaly kegen
+				ketmen_tobe khantau kochkor koktal koshoy_korgon kulan kurty kysmyci lavar merki
+				narat naryn nilka nuzket san_tash sargau shelek shengeldy soltobe sretenskoe
+				talkhir tasuktul tokkuztara tolekskoe
+			}
+			capital = barskoon
+			discovered_regions = {
+				hindustan_region khorasan_region mongolia_region persia_region tibet_region west_siberia_region xinjiang_region
+			}
+			include = "eurasian_horde_no_muslim"
+			country_rank = rank_duchy
+			government = {
+				ruler = random
+			}
+		}
 		YQI = { # Yanqi
 			own_control_core = {
 				bosten karasahr kumux yulduz
@@ -2670,13 +2989,32 @@ countries = {
 				ruler = random
 			}
 		}
+		YTB = { # Yathrib
+			own_control_core = {
+				al_ahmar al_ayn_khaybar al_bleiteh al_farah_ula al_furaish al_ghazalah al_hegrieah al_huwayyit al_jar al_marwa
+				al_thamad al_ula ar_rawdah as_sulaymi as_suwaydirah ash_shibahah az_zubayir badr_hunayn buwat darghat
+				fadak khalis_medina khaybar medina mughayra shajwa yanbu yanbu_an_nakhil
+			}
+			capital = medina
+			discovered_regions = {
+				anatolia_region arabia_region balkan_region crescent_region egypt_region ethiopia_region nubia_region persia_region
+			}
+			include = "eurasian_tribe"
+			country_rank = rank_county
+			government = {
+				ruler = random
+			}
+		}
 		YUB = { # Yueban
 			own_control_core = {
-				kashkanteniz kyzylsay moiynty mukur tokrau
+				aitbulat alashakhan aybas baskamyr belen_ana bolgan_ana dandybay espe kabyrga kaip_ata
+				karabay karagau karasu karaturgay kashkanteniz kon_tengiz korgan kulanotpes kusak kyzylsay
+				maulimberdy moiynty mukur orda_bazar sarykopa saryozen smai_samkai sonaly tagatay talmas_ata
+				tengiz tokrau turgay ulkayak ulytau yegindybulak zhaldama zhamankul zhamshy zhuban_ana
 			}
-			capital = kashkanteniz
+			capital = aitbulat
 			discovered_regions = {
-				hindustan_region khorasan_region west_siberia_region xinjiang_region
+				hindustan_region khorasan_region mongolia_region ural_region west_siberia_region xinjiang_region
 			}
 			include = "eurasian_horde_no_muslim"
 			country_rank = rank_county

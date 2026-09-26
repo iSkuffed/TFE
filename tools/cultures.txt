@@ -336,3 +336,6 @@ finland_area | * | tavastian
 karelia_area | * | karelian
 kola_area | * | sapmi
 scandinavian_region | * | swedish
+
+# ---- the Horn: no Amhara before the Solomonic age; the highlands south of Aksum are Agaw ----
+ethiopia_region | amhara | agaw_culture

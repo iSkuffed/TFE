@@ -110,7 +110,7 @@ def test_mixed_places():
     assert any(r == "donatism" for _, c, r in p["constantine_ALG"])                       # Numidia
     assert any(r == "nestorianism" for _, c, r in p["mosul"] if c == "syriac_culture")   # the Persian church
     himyar = b.owned_by_tag(b.compute()["owner"])["HIM"]
-    assert any(r == "judaism" for l in himyar for k, _, r in p.get(l, []) if k == "nobles")   # Himyar's court
+    assert any(r == "judaism" for l in himyar for k, _, r in p.get(l, []) if k in ("nobles", "clergy"))   # Himyar's court
     assert any(r == "celtic_paganism" for k, c, r in p["london"] if k == "peasants")
     assert {r for ps in p.values() for _, c, r in ps if c == "venedi"} == {"slavic_paganism"}
     assert any(r == "arabian_paganism" for _, c, r in p["mecca"])

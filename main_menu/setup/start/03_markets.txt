@@ -40,6 +40,7 @@ market_manager = {
 	add_market = tunis
 	
 	#East Africa
+	add_market = mogadishu
 	add_market = axum
 	add_market = dongola
 	
@@ -58,6 +59,12 @@ market_manager = {
 	add_market = zaranj
 	add_market = adan
 	add_market = mecca
+	add_market = al_ahsa
+	add_market = al_hajr
+	add_market = samarkand
+	add_market = almaty
+	add_market = sarayjuk
+	add_market = urgench
 	
 	# East Asia
 	add_market = dadu

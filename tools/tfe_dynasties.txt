@@ -66,3 +66,11 @@
 		name = { name = kudungga_dynasty }
 		home = muarakaman
 	}
+	lakhmid_dynasty = {
+		name = { name = lakhmid_dynasty }
+		home = kufa
+	}
+	kidarite_dynasty = {
+		name = { name = kidarite_dynasty }
+		home = balkh
+	}

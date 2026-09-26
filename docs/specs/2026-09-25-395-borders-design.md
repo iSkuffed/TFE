@@ -135,6 +135,29 @@ Tarumanagara (Purnawarman), Kutai (Aswawarman and his son Mulawarman), Kantoli (
 Holotan (central Java). Still empty: the Amur, the Ryukyus, Taiwan, the Philippines, Celebes, east
 Java, Borneo outside Kutai, and north Sumatra.
 
+## Arabia, the Horn and Central Asia (`tools/overrides/50_arabia_horn_central_asia.txt`, curated)
+
+The last fill batch. After this, nations that rise later come from events, not the start map.
+
+**Arabia.** Himyar rules the south from Zafar, with a Jewish court (its clergy) over a pagan people. Its
+clients are Kinda in the Najd (vassal) and Khuza'a at Mecca (tributary). Yathrib, Khaybar and Wadi
+al-Qura are held by the Jewish tribes. The Salihids, Rome's Christian federates, hold the northern
+Hejaz and Dumat al-Jandal as an EAR vassal. The Tayy hold Ha'il and the Qassim, and Tamim holds the
+Yamama. Persia's clients are the Lakhmids of al-Hira (al-Nu'man I), who also hold Bahrayn, and the Azd
+of Oman (tributary).
+
+**The Horn.** Aksum holds all of the north, from Adulis to the Danakil. The Agaw of Lasta, Dembiya,
+Gojjam and Shewa are its tributaries; Amhara pops become Agaw, since there are no Amhara before the
+Solomonic age. Damot covers the Omotic and Sidama south-west. Barbara (the Periplus' market towns of
+Malao and Mosylon) and Azania (Sarapion, Nikon, Benadir) are Somali.
+
+**Central Asia.** Kidara's Kidarites rule Tokharistan and Gandhara, and the Alkhon Huns hold Kabul
+and Ghazni, both taken from Persia's lost east. Persia keeps Merv and Herat. Sogdia rules from
+Samarkand and Bukhara. Afrighid Khwarazm rules from Kath (pops stay Iranian khorasani, since vanilla's
+khorezmian is Turkic). Ferghana is the Dayuan. The Kangju hold the Syr Darya, and the Wusun the Ili and
+the Issyk-kul. The Yueban hold the central Kazakh steppe, and the Huns everything west of the Irgiz and
+the Emba.
+
 ## Placeholders
 
 Each tag gets the nearest vanilla culture/religion, marked `# PLACEHOLDER`. WRE `catholic`, ERE
