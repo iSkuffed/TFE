@@ -3,3 +3,7 @@
  tfe_start_migration_desc: "We leave the lands of our fathers behind. Every warrior of our people joins the host on the road, to take by the sword a richer home within the Empire."
  tfe_start_migration_tt: "#R We abandon every [location|e] we own.#!\nTwenty-four regiments of footmen and eight of tribal cavalry join our host.\nWhile we own no land our [army|e] costs nothing to maintain and suffers far less attrition, but it cannot be replenished: the fallen are gone until we win land of our own."
  AUTO_MODIFIER_NAME_tfe_migrating_host: "Host on the Move"
+ cb_tfe_migration: "Migration"
+ cb_tfe_migration_desc: "Our people are on the road, and the road ends where we take land of our own."
+ war_goal_superiority_tfe_migration: "Seize a Homeland"
+ war_goal_superiority_tfe_migration_desc: "We will take land from them for our people to settle."

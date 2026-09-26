@@ -10,9 +10,11 @@ COMMON = b.MOD / "in_game/common"
 ACTIONS = COMMON / "generic_actions/tfe_migratory.txt"
 AUTO = COMMON / "auto_modifiers/tfe_migratory.txt"
 AI_LIST = COMMON / "generic_action_ai_lists/tfe_migratory_list.txt"
+CB = COMMON / "casus_belli/tfe_migration.txt"
+WARGOAL = COMMON / "wargoals/tfe_migration.txt"
 LOC = b.MOD / "main_menu/localization/english/tfe_migratory_l_english.yml"
 ARMIES = b.MOD / "main_menu/setup/start/27_armies.txt"
-SCRIPTS = (ACTIONS, AUTO, AI_LIST)
+SCRIPTS = (ACTIONS, AUTO, AI_LIST, CB, WARGOAL)
 NEW_ACTIONS = ("tfe_start_migration",)
 
 
@@ -62,6 +64,21 @@ def test_a_landless_migrating_host_is_free_to_keep_and_hardy():
     assert float(re.search(r"land_unit_attrition = (-[\d.]+)", auto).group(1)) <= -0.9
 
 
+def test_a_landless_host_has_a_cheap_casus_belli_for_new_land():
+    # without one it can only declare a no-CB war: a heavy stability hit and a plain superiority goal
+    cb = code(CB)
+    assert top_keys(CB) == ["cb_tfe_migration"]
+    visible = re.search(r"create_visible = \{(.*?)\n\t\}", cb, re.S).group(1)
+    assert "has_variable = tfe_migrating" in visible and "any_owned_location" in visible   # gone once settled
+    # the game never offers it on its own (a landless host has no neighbours to scan), so migrating grants it
+    grants = re.findall(r"add_casus_belli = \{[^}]*target = c:(\w+)[^}]*type = casus_belli:cb_tfe_migration", code(ACTIONS))
+    assert sorted(grants) == ["EAR", "WRE"], grants
+    goal = re.search(r"war_goal_type = (\w+)", cb).group(1)
+    assert top_keys(WARGOAL) == [goal] and "type = superiority" in code(WARGOAL)
+    attacker = re.search(r"attacker = \{(.*?)\n\t\}", code(WARGOAL), re.S).group(1)
+    assert float(re.search(r"conquer_cost = ([\d.]+)", attacker).group(1)) < 1   # land is the whole point
+
+
 def test_warband_units_exist_in_vanilla():
     vanilla = set()
     for p in (b.GAME / "in_game/common/unit_types").glob("*.txt"):
@@ -75,6 +92,8 @@ def test_everything_is_localized():
     wanted = {k for a in NEW_ACTIONS for k in (a, f"{a}_desc")}
     wanted |= set(re.findall(r"custom_tooltip = (\w+)", code(ACTIONS)))
     wanted |= {f"AUTO_MODIFIER_NAME_{k}" for k in top_keys(AUTO)}
+    wanted |= {k for c in top_keys(CB) for k in (c, f"{c}_desc")}
+    wanted |= {k for g in top_keys(WARGOAL) for k in (f"war_goal_{g}", f"war_goal_{g}_desc")}
     assert not wanted - keys, sorted(wanted - keys)
 
 

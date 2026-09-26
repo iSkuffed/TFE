@@ -4,7 +4,7 @@
 # (its tooltip hides the button) -> "Play as" 640,592. The console opens with the grave key (-debug_mode).
 #   eu5ctl start [--headless] | wait | stop | status   (wait: until loading or new-game generation is done)
 #   eu5ctl shot [name]            -> prints a 1280x720 jpg path (click coordinates use this space)
-#   eu5ctl click X Y [button]     eu5ctl key KEY...     eu5ctl type TEXT
+#   eu5ctl click X Y [button]     eu5ctl hover X Y     eu5ctl key KEY...     eu5ctl type TEXT
 #   eu5ctl cmd "tag HAS"          open console, run one command, close console
 #   eu5ctl run FILE               copy an effect file into Documents/.../run/ and `run` it
 #   eu5ctl log [N] [file]         last N lines of a log (default 40 of debug.log, where debug_log output lands)
@@ -62,7 +62,7 @@ case "${1:-}" in
   wait)   # until game.log has been quiet for 15 s: boot finished, or a new game finished generating
     prev=-1 quiet=0
     for _ in $(seq 200); do
-      n=$(wc -c < "$DOCS/logs/game.log" 2>/dev/null || echo 0)
+      n=$(wc -c 2>/dev/null < "$DOCS/logs/game.log" || echo 0)
       if [[ $n == "$prev" && $n -gt 0 ]]; then quiet=$((quiet + 1)); else quiet=0; fi
       prev=$n; (( quiet >= 5 )) && break; sleep 3
     done ;;
@@ -74,6 +74,8 @@ case "${1:-}" in
   click)
     s=$(( W * 1000 / SHOT_W ))       # screenshot space -> game space
     x mousemove $(( $2 * s / 1000 )) $(( $3 * s / 1000 )); sleep 0.1; x click "${4:-1}" ;;
+  hover)  # move without clicking, e.g. off a tooltip that hides a button
+    s=$(( W * 1000 / SHOT_W )); x mousemove $(( $2 * s / 1000 )) $(( $3 * s / 1000 )) ;;
   key) shift; x key --delay 80 "$@" ;;
   type) x type --delay 30 "$2" ;;
   cmd)

@@ -37,6 +37,9 @@ tfe_start_migration = {
 					}
 				}
 				every_owned_location = { scope:actor = { abandon_location = prev } }
+				# a landless host has no neighbours for the game to offer a casus belli against
+				if = { limit = { country_exists = c:WRE } add_casus_belli = { target = c:WRE type = casus_belli:cb_tfe_migration } }
+				if = { limit = { country_exists = c:EAR } add_casus_belli = { target = c:EAR type = casus_belli:cb_tfe_migration } }
 			}
 		}
 	}

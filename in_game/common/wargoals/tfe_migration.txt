@@ -1,0 +1,12 @@
+﻿# TFE: land is the whole point of a migration (casus_belli/tfe_migration.txt), so taking it comes cheap.
+superiority_tfe_migration = {
+	type = superiority
+
+	attacker = {
+		conquer_cost = 0.5
+		subjugate_cost = 1.3
+	}
+	defender = {
+	}
+	ticking_war_score = 0.5
+}
