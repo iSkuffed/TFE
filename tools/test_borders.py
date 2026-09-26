@@ -240,12 +240,25 @@ def test_splice_dynasties_keeps_vanilla_and_adds_ours():
 def test_emit_countries_pop_based_hold_pops_not_land():
     # a Society of Pops (vanilla SMI) owns nothing: its people live in the locations, which stay unowned
     text = b.emit_countries({"AAA": _tag(), "BBB": _tag()}, {"AAA": ["l1"], "BBB": ["l2", "l3"]},
-                            {"AAA": "l1", "BBB": "l2"}, pop_based={"BBB"})
+                            {"AAA": "l1", "BBB": "l2"}, country_types={"BBB": "pop"})
     a, bb = text.split("BBB = {")
     assert "own_control_core" in a and "capital = l1" in a and "type = pop" not in a
     assert "type = pop" in bb and re.search(r"add_pops_from_locations = \{\s*l2 l3\s*\}", bb)
     assert "own_control_core" not in bb and "capital" not in bb
     assert text.count("{") == text.count("}")
+
+
+def test_emit_countries_army_based_keep_their_land():
+    # an army-based country (vanilla hordes) owns land like any other but lives or dies by its armies
+    text = b.emit_countries({"AAA": _tag()}, {"AAA": ["l1", "l2"]}, {"AAA": "l1"}, country_types={"AAA": "army"})
+    assert "type = army" in text and re.search(r"own_control_core = \{\s*l1 l2\s*\}", text) and "capital = l1" in text
+
+
+def test_load_country_types_rejects_unknown_types(tmp_path):
+    f = tmp_path / "t.txt"
+    f.write_text("AAA = army   # host\nBBB = pop\nCCC = building\n", encoding="utf-8")
+    types, errs = b.load_country_types(f)
+    assert types == {"AAA": "army", "BBB": "pop"} and errs == ["t.txt:3: CCC: unknown country type 'building'"]
 
 
 def test_landed_locations_exclude_pop_based_countries():

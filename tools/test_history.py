@@ -112,11 +112,12 @@ def test_diplomacy_links_landed_tags(state):
     assert all(t in state["owned"] for p in pairs for t in p), pairs
 
 
-def test_vandals_are_a_society_of_pops(state):
+def test_vandals_are_an_army_based_host(state):
+    # pop-based countries cannot be played ("Cannot play pop based countries"); army-based hordes can
     text = (b.MOD / "main_menu/setup/start/10_countries.txt").read_text(encoding="utf-8")
     block = text[text.index("\t\tHAS = {"):].split("\n\t\t}\n")[0]
-    assert "type = pop" in block and "add_pops_from_locations" in block and "own_control_core" not in block
-    assert "HAS" in state["pop_based"] and "debrecen" not in b.landed_locations(state["owner"], state["pop_based"])
+    assert "type = army" in block and "own_control_core" in block
+    assert state["country_types"]["HAS"] == "army" and "debrecen" in b.landed_locations(state["owner"], state["pop_based"])
 
 
 def test_vandal_locations_hold_vandal_tribesmen(state):

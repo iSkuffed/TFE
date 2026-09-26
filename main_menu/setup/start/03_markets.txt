@@ -19,6 +19,7 @@ market_manager = {
 	add_market = kaffa
 	add_market = astrakhan
 	add_market = sarai_al_jadid
+	add_market = pest
 	add_market = prague
 	add_market = bordeaux	
 	add_market = naples

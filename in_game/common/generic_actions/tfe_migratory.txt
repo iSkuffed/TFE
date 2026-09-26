@@ -1,4 +1,4 @@
-﻿# TFE: migratory peoples (Societies of Pops) - the host plants a camp on empty land and raises warbands from its people.
+﻿# TFE: migratory peoples (army-based hosts) - the host plants a camp on empty land and raises warbands wherever it stands.
 
 # The host claims the empty land it stands on as its camp and capital; the old camp is given up.
 tfe_make_camp = {
@@ -6,7 +6,7 @@ tfe_make_camp = {
 	icon = migrate_pop_based_country
 
 	potential = {
-		scope:actor = { country_type = pop }
+		scope:actor = { country_type = army }
 	}
 	allow = {
 		scope:actor = {
@@ -58,16 +58,16 @@ tfe_make_camp = {
 	}
 }
 
-# Warriors of the people join the host: at the camp, else where the host stands, else among the people.
+# Warriors of the people join the host: at the camp, else where the host stands, else at the capital.
 tfe_raise_warband = {
 	type = owncountry
 	icon = migrate_pop_based_country
 
 	potential = {
-		scope:actor = { country_type = pop }
+		scope:actor = { country_type = army }
 	}
 	allow = {
-		scope:actor = { any_owned_nomad_pop = { always = yes } }
+		scope:actor = { OR = { any_army = { always = yes } exists = capital } }
 	}
 
 	price = price:tfe_raise_warband
@@ -91,7 +91,7 @@ tfe_raise_warband = {
 					random_army = { unit_location = { save_scope_as = tfe_muster } }
 				}
 				else = {
-					random_owned_nomad_pop = { location = { save_scope_as = tfe_muster } }
+					capital = { save_scope_as = tfe_muster }
 				}
 				scope:tfe_muster = {
 					while = {

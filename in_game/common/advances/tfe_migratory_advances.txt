@@ -1,6 +1,0 @@
-﻿# TFE: the Migration Age starts in 395 - vanilla only unlocks the migration law in the Age of Reformation
-tfe_tribal_migration_law_advance = {
-	age = age_1_traditions
-	government = tribe
-	unlock_law = tribal_migration_law
-}

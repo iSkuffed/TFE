@@ -1,6 +1,6 @@
 ﻿tfe_migratory_list = {
 	potential = {
-		country_type = pop
+		country_type = army
 	}
 	actions = {
 		tfe_make_camp
