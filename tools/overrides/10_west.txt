@@ -207,6 +207,7 @@ moldavia_area = HNS
 # ---------- Africa: Tingitana, the Mauretanias, Africa, Tripolitania ----------
 # Baquates: WRE client holding the northern band, Atlantic to the Moulouya, incl. Tingitana (user ruling after omniatlas 395)
 morocco_area = BAQ
+habat_province = WRE            # Tingis and Septem stay Roman (user ruling)
 dukkala_province = none         # south of the band: Mauri, no polity
 tadla_province = none
 marrakesh_province = none
