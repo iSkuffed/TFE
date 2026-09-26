@@ -1,0 +1,95 @@
+﻿# TFE 395: peoples the 1337 culture list lacks. Languages, gfx tags and groups are vanilla's; tools/cultures.txt
+# decides which pops speak what.
+
+# ---- Roman provincials: Latin-speaking, kin to Rome and to each other ----
+gallo_roman = {
+	language = roman_dialect
+	color = rgb { 178 74 96 }
+	tags = { occitan_gfx french_gfx west_mediterranean_gfx mediterranean_gfx western_european_gfx european_gfx }
+	opinions = { roman_culture = kindred hispano_roman = kindred afro_roman = kindred }
+	culture_groups = { french_group italian_group }
+}
+hispano_roman = {
+	language = roman_dialect
+	color = rgb { 204 128 72 }
+	tags = { castilian_gfx iberian_gfx west_mediterranean_gfx mediterranean_gfx western_european_gfx european_gfx }
+	opinions = { roman_culture = kindred gallo_roman = kindred afro_roman = kindred }
+	culture_groups = { iberian_group italian_group }
+}
+afro_roman = {
+	language = roman_dialect
+	color = rgb { 196 160 96 }
+	tags = { roman_gfx west_mediterranean_gfx mediterranean_gfx european_gfx }
+	opinions = { roman_culture = kindred gallo_roman = kindred hispano_roman = kindred }
+	culture_groups = { maghrebi_group italian_group }
+}
+
+# ---- Celts ----
+briton = {
+	language = welsh_dialect
+	color = rgb { 72 132 92 }
+	tags = { welsh_gfx celtic_gfx british_gfx western_european_gfx european_gfx }
+	opinions = { pictish = negative }
+	culture_groups = { celtic_group british_group }
+}
+pictish = {
+	language = scottish_gaelic_dialect
+	color = rgb { 62 92 142 }
+	tags = { scottish_highland_gfx gaelic_gfx scottish_gfx celtic_gfx north_british_gfx british_gfx western_european_gfx european_gfx }
+	opinions = { briton = negative }
+	culture_groups = { celtic_group scottish_group }
+}
+
+# ---- West Germanic ----
+frankish = {
+	language = dutch_dialect
+	color = rgb { 72 112 184 }
+	tags = { dutch_gfx north_german_gfx german_gfx western_european_gfx european_gfx }
+	opinions = { alamannic = negative }
+	culture_groups = { netherlandish_group german_group }
+}
+alamannic = {
+	language = alemannic_dialect
+	color = rgb { 152 172 64 }
+	tags = { south_german_gfx german_gfx western_european_gfx european_gfx }
+	opinions = { frankish = negative suebian = positive }
+	culture_groups = { german_group swiss_group }
+}
+suebian = {
+	language = upper_german_dialect
+	color = rgb { 122 152 112 }
+	tags = { south_german_gfx german_gfx western_european_gfx european_gfx }
+	opinions = { alamannic = positive }
+	culture_groups = { german_group }
+}
+
+# ---- East Germanic ----
+vandal = {
+	language = gothic_language
+	color = rgb { 172 112 164 }
+	tags = { gothic_gfx eastern_european_gfx european_gfx }
+	opinions = { gothic_culture = positive }
+	culture_groups = { german_group }
+}
+tfe_burgundian = {
+	language = gothic_language
+	color = rgb { 192 92 62 }
+	tags = { gothic_gfx eastern_european_gfx european_gfx }
+	opinions = { gothic_culture = positive }
+	culture_groups = { german_group }
+}
+
+# ---- Steppe and forest ----
+hunnic = {
+	language = kipchak_language
+	color = rgb { 142 102 62 }
+	tags = { central_asian_gfx middle_east_gfx altai_coa_gfx }
+	opinions = { alan_culture = negative gothic_culture = negative }
+	culture_groups = { turkic_group }
+}
+venedi = {
+	language = ukrainian_dialect
+	color = rgb { 112 162 152 }
+	tags = { ruthenian_gfx east_slavic_gfx slavic_gfx eastern_european_gfx european_gfx }
+	culture_groups = { slavic_group }
+}
