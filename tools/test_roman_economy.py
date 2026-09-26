@@ -106,5 +106,37 @@ def test_roman_regions_have_395_populations():
     for key, millions in b.ROMAN_POPULATION_M.items():
         assert abs(total[key] / 1000 - millions) <= 0.01 * millions, (key, total[key] / 1000)
     assert set(total) == set(b.ROMAN_POPULATION_M), set(total) ^ set(b.ROMAN_POPULATION_M)
-    # the rest of the world keeps vanilla's numbers (Society of Pops lands are thinned separately)
-    assert ours["paris"] != vanilla["paris"] and ours["baghdad"] == vanilla["baghdad"]
+    assert ours["paris"] != vanilla["paris"]
+
+
+def test_the_rest_of_the_world_has_395_populations():
+    own, _ = owners()
+    anc = b.load_hierarchy()
+    ours = pops_by_location((START / "06_pops.txt").read_text(encoding="utf-8"))
+    vanilla = pops_by_location((b.GAME / "main_menu/setup/start/06_pops.txt").read_text(encoding="utf-8-sig"))
+    total = defaultdict(float)
+    for l, p in ours.items():
+        if l not in own:
+            total[anc[l][2]] += p
+    for region, millions in b.WORLD_POPULATION_M.items():
+        assert abs(total[region] / 1000 - millions) <= 0.01 * millions, (region, total[region] / 1000)
+    # 1337 had four times as many people in China and India as 395; Japan five times
+    assert sum(b.WORLD_POPULATION_M.values()) + sum(b.ROMAN_POPULATION_M.values()) < 250
+    assert ours["baghdad"] != vanilla["baghdad"] and ours["kyoto"] < vanilla["kyoto"] / 3
+
+
+FISC = b.MOD / "in_game/common/auto_modifiers/tfe_roman_fisc.txt"
+
+
+def test_the_empires_run_an_imperial_fisc():
+    # court and diplomacy each cost a tenth of the economic base: the empires' size alone ate their whole income
+    text = FISC.read_text(encoding="utf-8-sig")
+    assert FISC.read_bytes().startswith(b"\xef\xbb\xbf") and text.count("{") == text.count("}")
+    body = re.search(r"^tfe_roman_fisc = \{(.*)^\}", text, re.M | re.S).group(1)
+    trigger = re.search(r"potential_trigger = \{(.*?)\n\t\}", body, re.S).group(1)
+    assert set(re.findall(r"has_or_had_tag = (\w+)", trigger)) == set(b.ROMAN_EMPIRES)
+    values = dict((k, float(v)) for k, v in re.findall(r"^\t(\w+) = (-?[\d.]+)", body, re.M))
+    assert values["tax_income_efficiency"] > 0 and values["court_spending_efficiency"] > 0
+    assert values["diplomatic_spending_cost"] < 0 and values["building_upkeep_efficiency"] > 0
+    loc = (b.MOD / "main_menu/localization/english/tfe_roman_economy_l_english.yml").read_text(encoding="utf-8-sig")
+    assert "AUTO_MODIFIER_NAME_tfe_roman_fisc:" in loc

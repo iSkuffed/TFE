@@ -582,6 +582,23 @@ ROMAN_POPULATION_M = {
     ("EAR", "balkan_region"): 3.5, ("EAR", "caucasus_region"): 0.2, ("EAR", "nubia_region"): 0.08,
 }
 # vanilla town presets gave the West 175 castles; it keeps its seats and the limes (Rhine, Danube, the Wall)
+WORLD_POPULATION_M = {  # 395 population (millions) of each region's land outside the empires (McEvedy & Jones, rounded
+    # for play). Vanilla's 1337 had China and India near 90M each and Japan 10M. Unlisted regions (Iceland, the far
+    # Pacific) keep vanilla's handful rather than go empty.
+    "north_german_region":3.0, "south_german_region":1.2, "carpathia_region":1.5, "balkan_region":0.3,
+    "great_britain_region":0.3, "ireland_region":0.5, "scandinavian_region":0.8, "baltic_region":1.0,
+    "russian_region":1.0, "ruthenia_region":1.2, "steppes_region":0.8, "ural_region":0.3, "west_siberia_region":0.1,
+    "caucasus_region":1.5, "persia_region":4.0, "khorasan_region":2.5, "crescent_region":4.5, "arabia_region":3.0,
+    "egypt_region":0.01, "nubia_region":0.6, "ethiopia_region":1.2, "maghreb_region":1.0,
+    "east_china_region":22.0, "north_china_region":12.0, "south_china_region":4.0, "west_china_region":4.0,
+    "manchuria_region":1.0, "korea_region":2.0, "mongolia_region":0.8, "tibet_region":0.8, "xinjiang_region":0.6,
+    "japan_region":2.0, "hindustan_region":15.0, "bengal_region":10.0, "deccan_region":12.0,
+    "western_india_region":7.0, "central_india_region":6.0, "indochina_region":4.0, "indonesia_region":4.0,
+    "guinea_region":3.0, "sahel_region":2.0, "kongo_region":2.0, "central_africa_region":1.5, "east_coast_region":1.0,
+    "swahili_coast_region":0.8, "zimbabwe_region":0.5, "somalia_region":0.5, "southern_africa_region":0.4,
+    "mesoamerica_region":6.0, "central_america_region":1.5, "andes_region":4.0, "colombia_region":1.5,
+    "brazil_region":1.5, "great_lakes_region":1.5, "aridoamerica_region":0.3, "chaco_region":0.4,
+    "la_plata_region":0.3, "melanesia_region":1.0 }
 ROMAN_FORTS = {
     "WRE": ("milano", "rome", "ravenna", "tunis", "trier", "cologne", "mainz", "strasbourg", "regensburg", "vienna",
             "buda", "york", "carlisle"),
@@ -629,19 +646,22 @@ def roman_buildings():
     return "\n".join(L) + "\n}\n"
 
 
-def roman_pops(text, owner, anc):
-    blocks = {m.group(1): m for m in re.finditer(r"^(\w+) = \{(.*?)^\}", text, re.M | re.S)}
+def region_pops(text, owner, anc):
+    # each Roman region is scaled to ROMAN_POPULATION_M, the rest of each region to WORLD_POPULATION_M; vanilla's
+    # spread between locations is kept. Regions in neither table keep vanilla's numbers.
+    def key(l):
+        t = owner.get(l)
+        return (t, anc[l][2]) if t in ROMAN_EMPIRES else anc[l][2]
+    target = ROMAN_POPULATION_M | WORLD_POPULATION_M
+    blocks = [(m.group(1), m.group(2)) for m in re.finditer(r"^(\w+) = \{(.*?)^\}", text, re.M | re.S)]
     total = {}
-    for l, t in owner.items():
-        if t in ROMAN_EMPIRES and l in blocks:
-            key = (t, anc[l][2])
-            total[key] = total.get(key, 0) + sum(float(x) for x in re.findall(r"size = ([\d.]+)", blocks[l].group(2)))
+    for l, body in blocks:
+        total[key(l)] = total.get(key(l), 0) + sum(float(x) for x in re.findall(r"size = ([\d.]+)", body))
     def repl(m):
-        t = owner.get(m.group(1))
-        key = (t, anc.get(m.group(1), ("",) * 3)[2])
-        if t not in ROMAN_EMPIRES:
+        k = key(m.group(1))
+        if k not in target:
             return m.group(0)
-        f = ROMAN_POPULATION_M[key] * 1000 / total[key]
+        f = target[k] * 1000 / total[k]
         return re.sub(r"size = ([\d.]+)", lambda s: f"size = {float(s.group(1)) * f:.3f}", m.group(0))
     return re.sub(r"^(\w+) = \{(.*?)^\}", repl, text, flags=re.M | re.S)
 
@@ -682,7 +702,7 @@ def build():
     (MOD / "main_menu/setup/start/04_dynasties.txt").write_text(dyn, encoding="utf-8")
     people = {l: (s["tags"][t]["culture"], s["tags"][t]["religion"]) for t in s["country_types"] for l in s["owned"][t]}
     pops = pop_society_pops((GAME / "main_menu/setup/start/06_pops.txt").read_text(encoding="utf-8-sig"), people)
-    pops = roman_pops(pops, s["owner"], s["anc"])
+    pops = region_pops(pops, s["owner"], s["anc"])
     (MOD / "main_menu/setup/start/06_pops.txt").write_text(pops, encoding="utf-8")
     formables = "in_game/common/formable_countries/00_formable_countries.txt"
     (MOD / formables).parent.mkdir(parents=True, exist_ok=True)

@@ -1,0 +1,16 @@
+﻿# TFE: the late Roman state taxed through a standing bureaucracy (praetorian prefects, the sacred largesses, the
+# annona). Without it the empires start deep in debt: court and diplomacy each cost a tenth of the economic base,
+# and their size made that more than their whole income. Tuned so that at default sliders they scrape by.
+tfe_roman_fisc = {
+	potential_trigger = {
+		OR = {
+			has_or_had_tag = WRE
+			has_or_had_tag = EAR
+		}
+	}
+
+	tax_income_efficiency = 0.5
+	court_spending_efficiency = 1.0	# pay 1 / (1 + 1) of the court
+	diplomatic_spending_cost = -0.5
+	building_upkeep_efficiency = 1.0
+}
