@@ -1,6 +1,8 @@
 # 395 religions for the pops of 06_pops.txt (tools/borders.py pop_cultures, field = religion), run after cultures.txt.
 # scope | from | to    - first match wins. scope: * (anywhere), a 395 owner TAG, or a location / province / area / region.
 # from: the pop's 395 culture, *, or a social class qualifier (nobles:*, peasants:gallo_roman).
+# to: one faith, or a mix that splits the pop by size (religio_romana 55 orthodox 45): the biggest share colours the
+# map, the rest live on as minorities.
 # orthodox is the one Nicene church of 395 (shown "Nicene Christianity"); catholic, Islam and the medieval
 # heresies are not born yet. Docs: docs/specs/2026-09-26-395-religions-design.md
 
@@ -14,35 +16,18 @@
 * | samaritan_culture | samaritanism
 * | mandean_culture | mandeaism
 
-# ---- the old gods inside the Empire: temple cities, the senate, the pagani of the north ----
+# ---- the old gods inside the Empire: temple cities, the senate ----
 harran | * | hellenism_religion         # Carrhae, the city of the Moon-god, pagan into the Caliphate
 baalbek | * | hellenism_religion        # Heliopolis
 gaza | * | hellenism_religion           # the Marneion stands until 402
 aswan | * | hellenism_religion          # Philae's Isis, until Justinian
-laconia_province | * | hellenism_religion   # the Maniots keep the gods into the 9th century
-attica_province | nobles:* | hellenism_religion   # the Athenian schools
+laconia_province | * | hellenism_religion 80 orthodox 20   # the Maniots keep the gods into the 9th century
+attica_province | * | hellenism_religion 60 orthodox 40     # the Athenian schools
 akhmim | nobles:* | hellenism_religion  # Panopolis, which Shenoute harried
-rome | nobles:* | hellenism_religion    # Symmachus and the Altar of Victory
-lazio_area | nobles:* | hellenism_religion
-trentino_province | peasants:roman_culture | hellenism_religion   # the Anaunians, who martyr missionaries in 397
-tirol_area | peasants:roman_culture | hellenism_religion
-savoy_area | peasants:gallo_roman | hellenism_religion
-western_switzerland_area | peasants:gallo_roman | hellenism_religion
-brittany_area | peasants:gallo_roman | hellenism_religion  # Armorica and Belgica: Martin of Tours' mission field
-normandy_area | peasants:gallo_roman | hellenism_religion
-picardy_area | peasants:gallo_roman | hellenism_religion
-champagne_area | peasants:gallo_roman | hellenism_religion
-lorraine_area | peasants:gallo_roman | hellenism_religion
-franche_comte_area | peasants:gallo_roman | hellenism_religion
-flanders_area | peasants:gallo_roman | hellenism_religion
-brabant_area | peasants:gallo_roman | hellenism_religion
-wallonia_area | peasants:gallo_roman | hellenism_religion
-holland_area | peasants:gallo_roman | hellenism_religion
-rhineland_area | peasants:gallo_roman | hellenism_religion
-hesse_area | peasants:gallo_roman | hellenism_religion
-alsace_area | peasants:gallo_roman | hellenism_religion
-upper_rhine_area | peasants:gallo_roman | hellenism_religion
-* | basque | hellenism_religion            # the Vascones, pagan into the 7th century
+rome | nobles:* | religio_romana        # Symmachus and the Altar of Victory
+lazio_area | nobles:* | religio_romana 60 orthodox 40
+trentino_province | peasants:* | religio_romana   # the Anaunians, who martyr missionaries in 397
+* | basque | basque_paganism 85 orthodox 15      # the Vascones, pagan into the 7th century
 
 # ---- Britain: Christian towns and villas, a countryside of Nodens and Sulis ----
 great_britain_region | peasants:* | celtic_paganism
@@ -52,17 +37,17 @@ great_britain_region | peasants:* | celtic_paganism
 * | pictish | celtic_paganism
 
 # ---- Africa: Augustine's Catholics against the church of Donatus ----
-annaba | peasants:* | donatism           # Hippo: Augustine's see, Donatist fields
+annaba | peasants:* | donatism 65 orthodox 25 manichaeism 10   # Hippo: Augustine's see, Donatist fields
 annaba | * | orthodox
-constantine_province | * | donatism      # Numidia, the Donatist heartland
-baghai_province | * | donatism
-kabylia_province | * | donatism          # Sitifensis
-hodna_province | * | donatism
-aures_province | * | donatism            # the Circumcellions' hills
-algiers_area | afro_roman | donatism      # Caesariensis
-tunis_area | peasants:afro_roman | donatism
-* | chaoui | donatism
-* | afro_roman | orthodox
+constantine_province | * | donatism 75 orthodox 15 religio_romana 10   # Numidia, the Donatist heartland
+baghai_province | * | donatism 75 orthodox 15 religio_romana 10
+kabylia_province | * | donatism 70 orthodox 20 religio_romana 10       # Sitifensis
+hodna_province | * | donatism 70 orthodox 20 religio_romana 10
+aures_province | * | donatism 80 religio_romana 20                    # the Circumcellions' hills
+algiers_area | afro_roman | donatism 60 orthodox 30 religio_romana 10  # Caesariensis
+tunis_area | peasants:afro_roman | orthodox 45 donatism 35 religio_romana 10 manichaeism 10   # Carthage's hinterland
+* | chaoui | donatism 80 godala_religion 20
+* | afro_roman | orthodox 80 religio_romana 10 manichaeism 10   # Augustine was a Manichaean hearer for nine years
 * | kabyle | godala_religion
 * | zenati | godala_religion
 * | masmuda | godala_religion
@@ -70,6 +55,11 @@ tunis_area | peasants:afro_roman | donatism
 * | mozabite | godala_religion
 * | eastern_amazigh | godala_religion
 * | tuareg | godala_religion
+
+# ---- Dacia: Zalmoxis under Gothic and Hunnic lords ----
+transylvania_area | peasants:* | zalmoxism 65 arianism 35      # the Carpi and the free Dacians under the Gepids
+wallachia_area | peasants:gothic_culture | zalmoxism 55 arianism 45
+moldavia_area | peasants:gothic_culture | zalmoxism 55 arianism 45
 
 # ---- the Arians: Ulfilas' Goths and their neighbours ----
 crimea_area | gothic_culture | orthodox   # the Goths of Gothia sent a bishop to Nicaea
@@ -80,15 +70,35 @@ SCR | * | arianism
 HAS | * | arianism
 * | gothic_culture | arianism             # the federates and the Goths in Roman service
 
+# ---- Syria, Egypt and Mesopotamia: the sun of Emesa, Dushara of Petra, Mani's churches, the Euchites ----
+* | bedouin_culture | arabian_paganism
+levant_area | clergy:* | orthodox
+levant_area | burghers:* | orthodox 75 hellenism_religion 15 manichaeism 10
+hims_province | * | hellenism_religion 60 orthodox 40      # Elagabal's black stone at Emesa
+lebanon_province | * | hellenism_religion 60 orthodox 40   # the mountain shrines of Lebanon
+latakia_province | * | orthodox 60 hellenism_religion 40
+sharat_province | * | arabian_paganism 55 orthodox 45      # Dushara of Petra
+hawran_province | * | orthodox 55 arabian_paganism 45
+tadmur_province | * | manichaeism 50 arabian_paganism 30 orthodox 20   # Palmyra and the desert road
+deir_province | * | manichaeism 50 arabian_paganism 30 orthodox 20
+shaam_province | * | orthodox 75 hellenism_religion 15 manichaeism 10
+levant_area | * | orthodox 70 hellenism_religion 20 manichaeism 10
+upper_egypt_area | peasants:coptic_culture | orthodox 65 hellenism_religion 25 manichaeism 10   # Lycopolis, Kellis and the old temples
+egypt_region | peasants:coptic_culture | orthodox 75 hellenism_religion 15 manichaeism 10
+egypt_region | nobles:* | orthodox 75 hellenism_religion 25       # Hypatia's Alexandria
+jazira_area | syriac_culture | nestorianism 45 messalianism 30 zoroastrian 15 hellenism_religion 10
+iraq_arabi_area | syriac_culture | nestorianism 45 manichaeism 20 zoroastrian 20 hellenism_religion 15   # Mani's Babylon
+
 # ---- Persia: the fire temples, the Church of the East, Buddhist Bactria ----
-SAS | syriac_culture | nestorianism
-* | syriac_culture | orthodox
-* | armenian_culture | orthodox
+SAS | syriac_culture | nestorianism 70 zoroastrian 15 manichaeism 15
+* | syriac_culture | orthodox 80 hellenism_religion 20
+SAS | armenian_culture | zoroastrian 55 orthodox 45   # Persarmenia: the Mazdean nakharars
+* | armenian_culture | orthodox 70 zoroastrian 30
 * | afghan_culture | mahayana              # Gandhara and Kapisa
 * | pashayi_culture | mahayana
 badakhshan_area | * | mahayana            # Tokharistan: Termez and Balkh's Nava Vihara
 * | sindhi | hindu
-persia_region | * | zoroastrian
+persia_region | * | zoroastrian 85 manichaeism 10 nestorianism 5
 khorasan_region | tajik_culture | zoroastrian
 khorasan_region | khorasani_culture | zoroastrian
 khorasan_region | pamiri_culture | zoroastrian
@@ -100,11 +110,12 @@ khorasan_region | pamiri_culture | zoroastrian
 HIM | nobles:* | judaism
 HIM | burghers:* | judaism
 HIM | clergy:* | judaism                  # the Rahmananist court of Zafar
-* | bedouin_culture | arabian_paganism
 arabia_region | * | arabian_paganism
 
 # ---- the Caucasus: Christian kingdoms, mountain gods ----
-* | georgian_culture | orthodox
+* | peasants:georgian_culture | armazi_religion 65 orthodox 35   # Iberia's king is baptised, its valleys are not
+* | georgian_culture | orthodox 80 armazi_religion 20
+* | peasants:mingrelian_culture | armazi_religion 55 orthodox 45
 * | mingrelian_culture | orthodox
 * | laz_culture | orthodox
 lezgistan_province | * | lezgin_paganism    # Lpink: the highlands stay pagan
@@ -189,14 +200,171 @@ somalia_region | * | waaqeffanna_religion   # the Cushitic sky-god Waaq
 xinjiang_region | * | mahayana              # Khotan, Kucha and Turfan: the Buddhist oases
 north_atlantic_islands_region | * | norse
 
-# ---- the Roman world: one Nicene church ----
-* | roman_culture | orthodox
-* | greek_culture | orthodox
-* | gallo_roman | orthodox
-* | hispano_roman | orthodox
-* | cappadocian_greek_culture | orthodox
-* | pontic_greek_culture | orthodox
-* | griko_culture | orthodox
-* | coptic_culture | orthodox
-* | albanian | orthodox
-* | thracian | orthodox                     # the Bessi, baptised by Nicetas of Remesiana
+# ---- the Latin West: Nicene towns, a countryside of Jupiter, Taranis and the Lares ----
+* | albanian | illyrian_paganism 55 orthodox 35 hellenism_religion 10   # Dardania and Praevalitana: the serpent's south
+* | thracian | orthodox 60 hellenism_religion 40                          # the Bessi, baptised by Nicetas of Remesiana
+# the towns stay Nicene: bishops, merchants and the court; the countryside below takes the area's mix
+* | clergy:* | orthodox
+italy_region | nobles:* | orthodox 60 religio_romana 40
+france_region | nobles:* | orthodox 60 religio_romana 40
+iberia_region | nobles:* | orthodox 60 religio_romana 40
+* | burghers:roman_culture | orthodox 80 religio_romana 20
+* | burghers:gallo_roman | orthodox 80 religio_romana 20
+* | burghers:hispano_roman | orthodox 80 religio_romana 20
+* | burghers:greek_culture | orthodox 80 hellenism_religion 20
+* | burghers:cappadocian_greek_culture | orthodox 85 hellenism_religion 15
+* | burghers:pontic_greek_culture | orthodox 85 hellenism_religion 15
+* | nobles:greek_culture | orthodox 80 hellenism_religion 20
+* | nobles:cappadocian_greek_culture | orthodox 85 hellenism_religion 15
+* | nobles:pontic_greek_culture | orthodox 85 hellenism_religion 15
+brittany_area | * | celtic_paganism 55 orthodox 25 religio_romana 20   # Armorica: Martin of Tours' mission field
+normandy_area | * | celtic_paganism 55 orthodox 25 religio_romana 20
+picardy_area | * | celtic_paganism 55 orthodox 25 religio_romana 20    # Belgica
+champagne_area | * | celtic_paganism 55 orthodox 25 religio_romana 20
+lorraine_area | * | celtic_paganism 55 orthodox 25 religio_romana 20
+franche_comte_area | * | celtic_paganism 55 orthodox 25 religio_romana 20
+burgundy_area | * | celtic_paganism 55 orthodox 25 religio_romana 20
+flanders_area | * | celtic_paganism 55 orthodox 25 religio_romana 20
+brabant_area | * | celtic_paganism 55 orthodox 25 religio_romana 20
+wallonia_area | * | celtic_paganism 55 orthodox 25 religio_romana 20
+holland_area | * | celtic_paganism 55 orthodox 25 religio_romana 20
+alsace_area | * | celtic_paganism 55 orthodox 25 religio_romana 20
+rhineland_area | * | religio_romana 55 orthodox 30 celtic_paganism 15  # the Rhine forts
+hesse_area | * | religio_romana 55 orthodox 30 celtic_paganism 15
+upper_rhine_area | * | religio_romana 55 orthodox 30 celtic_paganism 15
+ile_de_france_area | * | orthodox 50 religio_romana 25 celtic_paganism 25   # the Loire and the Seine
+orleanais_area | * | orthodox 50 religio_romana 25 celtic_paganism 25
+anjou_area | * | orthodox 50 religio_romana 25 celtic_paganism 25
+poitou_area | * | orthodox 50 religio_romana 25 celtic_paganism 25      # Hilary's Poitiers
+limousin_province | * | religio_romana 55 orthodox 35 celtic_paganism 10   # Aquitania Prima
+auvergne_area | * | religio_romana 55 orthodox 35 celtic_paganism 10
+lyonnais_area | * | religio_romana 55 orthodox 35 celtic_paganism 10
+guyenne_area | * | religio_romana 55 orthodox 35 celtic_paganism 10
+gascony_area | * | orthodox 50 religio_romana 35 basque_paganism 15      # Novempopulana
+narbonnais_province | * | manichaeism 55 orthodox 25 religio_romana 20   # Septimania's Manichaean cells
+nimois_province | * | manichaeism 55 orthodox 25 religio_romana 20
+razes_province | * | manichaeism 55 orthodox 25 religio_romana 20
+languedoc_area | * | orthodox 55 religio_romana 30 manichaeism 15
+provence_area | * | orthodox 50 religio_romana 30 manichaeism 20
+savoy_area | * | religio_romana 55 orthodox 30 celtic_paganism 15       # the Alps
+western_switzerland_area | * | religio_romana 55 orthodox 30 celtic_paganism 15
+central_switzerland_area | * | religio_romana 55 orthodox 30 celtic_paganism 15
+eastern_switzerland_area | * | religio_romana 55 orthodox 30 celtic_paganism 15
+tirol_area | * | religio_romana 55 orthodox 30 celtic_paganism 15
+swabia_area | * | religio_romana 50 orthodox 30 celtic_paganism 20      # Raetia
+bavaria_area | * | celtic_paganism 55 religio_romana 25 orthodox 20     # Noricum
+carinthia_area | * | celtic_paganism 55 religio_romana 25 orthodox 20
+salzburg_area | * | celtic_paganism 55 religio_romana 25 orthodox 20
+styria_area | * | celtic_paganism 55 religio_romana 25 orthodox 20
+austria_area | * | celtic_paganism 55 religio_romana 25 orthodox 20
+upper_austria_area | * | celtic_paganism 55 religio_romana 25 orthodox 20
+lugo_province | * | priscillianism 55 celtic_paganism 25 orthodox 20    # inland Gallaecia, Priscillian's martyr-cult
+ourense_province | * | priscillianism 55 celtic_paganism 25 orthodox 20
+galicia_area | * | celtic_paganism 50 priscillianism 30 orthodox 20
+west_asturias_province | * | celtic_paganism 55 orthodox 25 religio_romana 20   # Asturias and Cantabria
+east_asturias_province | * | celtic_paganism 55 orthodox 25 religio_romana 20
+montana_province | * | celtic_paganism 55 orthodox 25 religio_romana 20
+leon_area | * | priscillianism 50 orthodox 30 religio_romana 20
+minho_province | * | priscillianism 55 orthodox 25 celtic_paganism 20
+tras_os_montes | * | priscillianism 55 orthodox 25 celtic_paganism 20
+north_portugal_area | * | religio_romana 50 orthodox 35 priscillianism 15   # Lusitania
+avila_province | * | priscillianism 55 orthodox 30 religio_romana 15   # Priscillian's own see
+burgos_province | * | celtic_paganism 55 orthodox 25 religio_romana 20
+palencia_province | * | celtic_paganism 55 orthodox 25 religio_romana 20
+castile_area | * | orthodox 45 religio_romana 35 priscillianism 20
+navarre_area | * | religio_romana 55 orthodox 45
+aragon_area | * | religio_romana 55 orthodox 45                       # Tarraconensis
+catalonia_area | * | religio_romana 55 orthodox 45
+valencia_area | * | religio_romana 55 orthodox 45
+murcia_area | * | religio_romana 55 orthodox 45                       # Carthaginiensis
+balearics_area | * | religio_romana 55 orthodox 35 judaism 10          # Magona's Jews
+toledo_area | * | orthodox 55 religio_romana 45
+extremadura_area | * | orthodox 55 religio_romana 45
+south_portugal_area | * | orthodox 50 religio_romana 40 manichaeism 10
+andalusia_area | * | orthodox 65 religio_romana 25 manichaeism 10      # Baetica
+granada_area | * | manichaeism 55 orthodox 25 religio_romana 20
+pumonte_province | * | religio_romana 60 orthodox 40                   # Corsica
+cismonte_province | * | religio_romana 60 orthodox 40
+friuli_province | * | religio_romana 55 orthodox 45
+belluno_province | * | religio_romana 55 orthodox 45
+basilicata_area | * | religio_romana 60 orthodox 40                    # Lucania and Bruttium
+mazara_province | * | religio_romana 55 orthodox 45                    # western Sicily
+girgenti_province | * | religio_romana 55 orthodox 45
+logudoro_province | * | nuragic_religion 60 religio_romana 25 orthodox 15   # the Barbaricini
+arborea_province | * | nuragic_religion 60 religio_romana 25 orthodox 15
+cagliari_province | * | religio_romana 50 orthodox 30 nuragic_religion 20
+sardinia_area | * | orthodox 45 nuragic_religion 30 religio_romana 25
+tuscany_area | * | orthodox 55 religio_romana 45                       # Etruria's haruspices
+italy_region | * | orthodox 60 religio_romana 40
+# Illyricum: no shared pantheon, but local gods everywhere - Silvanus above all, Vidasus and Thana at Topusko, Bindus
+# of the Iapodes, Apollo Tadenus of the Bosna springs; bishops in Salona, Sirmium, Sopianae and Naissus
+sopron_province | * | celtic_paganism 50 orthodox 30 illyrian_paganism 20      # Pannonia Prima: Savaria, Scarbantia, the Boii
+vas_province | * | celtic_paganism 50 orthodox 30 illyrian_paganism 20
+buda_province | * | orthodox 50 celtic_paganism 30 illyrian_paganism 20       # Aquincum and the Celtic Eravisci
+baranya_province | * | orthodox 55 illyrian_paganism 30 celtic_paganism 15    # Sopianae's painted Christian tombs
+transdanubia_area | * | illyrian_paganism 50 orthodox 30 celtic_paganism 20   # Valeria and Savia: Azali, Breuci, Andizetes
+gorizia_province | * | orthodox 55 religio_romana 45                          # Aquileia's hinterland
+slovenia_area | * | celtic_paganism 45 illyrian_paganism 30 orthodox 25      # Emona and the Taurisci
+vukovar_syrmia_province | * | orthodox 60 illyrian_paganism 25 religio_romana 15   # Sirmium, capital of Illyricum
+slavonia_area | * | illyrian_paganism 55 orthodox 30 religio_romana 15      # Siscia; Vidasus and Thana at Topusko
+istria_province | * | orthodox 55 religio_romana 45
+lika_province | * | illyrian_paganism 60 religio_romana 25 orthodox 15      # the Iapodes and their Bindus
+north_dalmatia_province | * | religio_romana 50 illyrian_paganism 30 orthodox 20   # Iader and the Liburni
+south_dalmatia_province | * | orthodox 50 religio_romana 30 illyrian_paganism 20   # Salona, metropolis of Dalmatia
+bosnia_area | * | illyrian_paganism 60 orthodox 20 religio_romana 20        # Delmatae, Daesitiates, Maezaei: Silvanus' country
+zlatibor_province | * | illyrian_paganism 50 orthodox 35 religio_romana 15   # the Moesian highlands
+toplica_province | * | illyrian_paganism 50 orthodox 35 religio_romana 15
+nis_province | * | orthodox 60 illyrian_paganism 25 religio_romana 15       # Naissus, Constantine's birthplace
+serbia_area | * | orthodox 55 illyrian_paganism 25 religio_romana 20        # Singidunum and Viminacium on the Danube
+
+# ---- the Greek East: Nicene cities, the Hellenes of the hills ----
+constantinople_province | * | orthodox 85 hellenism_religion 15
+central_macedonia_province | * | orthodox 60 hellenism_religion 40   # Thessalonica
+thessaly_province | * | orthodox 60 hellenism_religion 40
+neopatras_province | * | orthodox 60 hellenism_religion 40
+corinthia_province | * | orthodox 55 hellenism_religion 45
+argolis_province | * | orthodox 55 hellenism_religion 45
+dardanelles_province | * | orthodox 60 hellenism_religion 40
+burgas_province | * | orthodox 60 hellenism_religion 40
+thrace_area | * | hellenism_religion 55 orthodox 45
+bulgaria_area | * | hellenism_religion 60 orthodox 40          # Moesia Secunda and Scythia
+macedonia_area | * | hellenism_religion 60 orthodox 40
+northern_greece_area | * | hellenism_religion 60 orthodox 40   # Epirus and Achaea
+morea_area | * | hellenism_religion 60 orthodox 40
+aegean_archipelago_area | * | hellenism_religion 60 orthodox 40
+kocaeli_province | * | orthodox 65 hellenism_religion 35        # Nicomedia
+biga_province | * | orthodox 65 hellenism_religion 35
+kutahya_province | * | montanism 55 orthodox 30 hellenism_religion 15   # Phrygia, the New Prophecy
+karahisar_province | * | montanism 55 orthodox 30 hellenism_religion 15
+usak_province | * | montanism 55 orthodox 30 hellenism_religion 15
+marmara_area | * | hellenism_religion 50 orthodox 40 montanism 10   # Bithynia's hills
+ankara_province | * | celtic_paganism 55 orthodox 30 hellenism_religion 15   # Galatia: Jerome heard Celtic here
+cankiri_province | * | celtic_paganism 55 orthodox 30 hellenism_religion 15
+sivrihisar_province | * | celtic_paganism 55 orthodox 30 hellenism_religion 15
+konya_province | * | hellenism_religion 60 orthodox 40          # Lycaonia and Isauria
+beysehir_province | * | hellenism_religion 60 orthodox 40
+larende_province | * | hellenism_religion 60 orthodox 40
+aksaray_province | * | hellenism_religion 60 orthodox 40
+hamid_province | * | hellenism_religion 60 orthodox 40           # Pisidia
+antalya_province | * | hellenism_religion 60 orthodox 40         # Pamphylia and Lycia
+alaiye_province | * | hellenism_religion 60 orthodox 40
+mugla_province | * | hellenism_religion 60 orthodox 40           # Caria
+west_anatolia_area | * | orthodox 65 hellenism_religion 35
+central_anatolia_area | * | orthodox 55 hellenism_religion 45
+kastamonu_province | * | orthodox 55 hellenism_religion 45       # Paphlagonia
+safranbolu_province | * | orthodox 55 hellenism_religion 45
+pontus_area | * | orthodox 75 hellenism_religion 15 zoroastrian 10
+sivas_province | * | zoroastrian 55 orthodox 30 hellenism_religion 15   # the Magusaeans of Cappadocia
+divrigi_province | * | zoroastrian 55 orthodox 30 hellenism_religion 15
+cappadocia_area | * | orthodox 65 zoroastrian 20 hellenism_religion 15
+cilicia_area | * | orthodox 65 hellenism_religion 35
+
+# ---- the Roman world: one Nicene church, and the old gods in every town ----
+* | roman_culture | orthodox 85 religio_romana 15
+* | greek_culture | orthodox 85 hellenism_religion 15
+* | gallo_roman | orthodox 80 religio_romana 20
+* | hispano_roman | orthodox 80 religio_romana 20
+* | cappadocian_greek_culture | orthodox 85 hellenism_religion 15
+* | pontic_greek_culture | orthodox 85 hellenism_religion 15
+* | griko_culture | orthodox 85 hellenism_religion 15
+* | coptic_culture | orthodox 85 hellenism_religion 15

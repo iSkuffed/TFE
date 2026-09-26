@@ -12,7 +12,8 @@ RELIGIONS = b.MOD / "in_game/common/religions/tfe_religions.txt"
 LOC = b.MOD / "main_menu/localization/english/tfe_religions_l_english.yml"
 REPLACE = b.MOD / "main_menu/localization/english/replace/tfe_religions_replace_l_english.yml"
 RULES = b.TOOLS / "religions.txt"
-NEW = {"arianism", "donatism", "celtic_paganism", "slavic_paganism", "arabian_paganism"}
+NEW = {"arianism", "donatism", "celtic_paganism", "slavic_paganism", "arabian_paganism", "religio_romana", "priscillianism",
+       "montanism", "messalianism", "nuragic_religion", "basque_paganism", "zalmoxism", "illyrian_paganism", "armazi_religion"}
 # what may live in the core in 395: nothing born later (Islam, Druze, the medieval heresies), no Latin papacy
 OF_395 = NEW | {"orthodox", "nestorianism", "hellenism_religion", "norse", "tengri", "alan_paganism", "romuva",
                 "muinaisusko", "votian_religion", "sapmi_shamanism", "mari_paganism", "erzya_religion",
@@ -29,6 +30,16 @@ def pops():
     text = (b.MOD / "main_menu/setup/start/06_pops.txt").read_text(encoding="utf-8")
     return {loc: re.findall(r"type = (\w+)\s+size = [\d.]+\s+culture = (\w+)\s+religion = (\w+)", body)
             for loc, body in re.findall(r"^(\w+) = \{(.*?)^\}", text, re.M | re.S)}
+
+
+def majority(loc):
+    # the faith with the most people, which is what the map shows
+    text = (b.MOD / "main_menu/setup/start/06_pops.txt").read_text(encoding="utf-8")
+    body = re.search(rf"^{loc} = \{{(.*?)^\}}", text, re.M | re.S).group(1)
+    size = {}
+    for s, r in re.findall(r"size = ([\d.]+)\s+culture = \w+\s+religion = (\w+)", body):
+        size[r] = size.get(r, 0) + float(s)
+    return max(size, key=size.get)
 
 
 def test_new_religions_are_defined_with_names_and_icons():
@@ -75,8 +86,18 @@ def test_rules_can_set_religion_by_culture():
     assert out.count("culture = roman_culture") == 2
 
 
+def test_a_rule_can_split_a_pop_between_faiths():
+    anc = {"here": ("europe", "western_europe", "italy_region", "lazio_area", "roma_province")}
+    text = "here = {\n\tdefine_pop = { type = peasants size = 10 culture = roman_culture religion = catholic }\n}\n"
+    rules = [("here", "*", "religio_romana 60 orthodox 30 manichaeism 10")]
+    out = b.pop_cultures(text, {}, anc, rules, field="religion")
+    got = re.findall(r"size = ([\d.]+) culture = roman_culture religion = (\w+)", out)
+    assert got == [("6.000", "religio_romana"), ("3.000", "orthodox"), ("1.000", "manichaeism")]
+    assert out.count("type = peasants") == 3 and out.count("\n\tdefine_pop") == 3
+
+
 def test_every_rule_target_exists():
-    targets = {to for _, _, to in b.load_culture_rules(RULES, None, None)}
+    targets = {r for _, _, to in b.load_culture_rules(RULES, None, None) for r, _ in b.mix(to)}
     assert targets and targets <= b.known_religions(), targets - b.known_religions()
 
 
@@ -96,16 +117,19 @@ def test_the_core_keeps_only_religions_of_395():
     ("harran", "hellenism_religion"), ("baalbek", "hellenism_religion"), ("aswan", "hellenism_religion"),
     ("jerusalem", "orthodox"), ("safed", "judaism"), ("nablus", "samaritanism"),
     ("cashel", "celtic_paganism"), ("uppsala", "norse"), ("tarnovo", "arianism"),
-    ("baghdad", "nestorianism"), ("toledo", "orthodox"), ("isfahan", "zoroastrian")])
+    ("baghdad", "nestorianism"), ("toledo", "orthodox"), ("isfahan", "zoroastrian"),
+    # the 395 map after the reference: the West's pagani, the East's Hellenes and the sects between
+    ("narbonne", "manichaeism"), ("lugo", "priscillianism"), ("avila", "priscillianism"), ("sassari", "nuragic_religion"),
+    ("kutahya", "montanism"), ("ankara", "celtic_paganism"), ("homs", "hellenism_religion"), ("karak", "arabian_paganism"),
+    ("tbilisi", "armazi_religion"), ("mystras", "hellenism_religion"), ("granada", "manichaeism"),
+    ("zaragoza", "religio_romana"), ("rennes", "celtic_paganism")])
 def test_spot_checks(loc, religion):
-    ps = pops()[loc]
-    rel = [r for _, _, r in ps]
-    assert max(set(rel), key=rel.count) == religion, (loc, ps)
+    assert majority(loc) == religion, (loc, pops()[loc])
 
 
 def test_mixed_places():
     p = pops()
-    assert ("nobles", "roman_culture", "hellenism_religion") in {x for x in p["rome"]}   # Symmachus' senate
+    assert ("nobles", "roman_culture", "religio_romana") in {x for x in p["rome"]}   # Symmachus' senate
     assert any(r == "orthodox" for _, _, r in p["rome"])
     assert any(r == "donatism" for _, c, r in p["constantine_ALG"])                       # Numidia
     assert any(r == "nestorianism" for _, c, r in p["mosul"] if c == "syriac_culture")   # the Persian church
@@ -114,6 +138,11 @@ def test_mixed_places():
     assert any(r == "celtic_paganism" for k, c, r in p["london"] if k == "peasants")
     assert {r for ps in p.values() for _, c, r in ps if c == "venedi"} == {"slavic_paganism"}
     assert any(r == "arabian_paganism" for _, c, r in p["mecca"])
+    # minorities: most Roman places hold more than one faith
+    anc = b.load_hierarchy()
+    roman = [l for l, ps in p.items() if anc[l][2] in ("italy_region", "france_region", "iberia_region", "anatolia_region")]
+    mixed = [l for l in roman if len({r for _, _, r in p[l]}) > 1]
+    assert len(mixed) > 0.8 * len(roman), (len(mixed), len(roman))
 
 
 def test_late_faiths_fall_to_the_neighbours():

@@ -91,10 +91,10 @@ carpathia_region | * | gothic_culture
 south_german_region | * | roman_culture  # Raetia and Noricum
 
 # ---- the Balkans: Latin north of the Jirecek line, Greek south of it ----
+durres | * | roman_culture          # Dyrrachium, Latin colony on the Via Egnatia
 balkan_region | albanian | albanian      # the Illyrian hills
 balkan_region | romanyoti | romanyoti
 # the Illyrian highlands: Dardania, Praevalitana and the Dalmatian hinterland (albanian reads "Illyrian")
-durres | * | roman_culture          # Dyrrachium, Latin colony on the Via Egnatia
 albania_area | * | albanian
 kosovo_province | * | albanian
 zeta_province | * | albanian

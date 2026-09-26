@@ -55,6 +55,15 @@ def pops_cultures():
             for m in re.finditer(r"^(\w+) = \{(.*?)^\}", POPS.read_text(encoding="utf-8"), re.M | re.S)}
 
 
+def top(loc):
+    # the culture with the most people (pops split by faith would skew a count of entries)
+    body = re.search(rf"^{loc} = \{{(.*?)^\}}", POPS.read_text(encoding="utf-8"), re.M | re.S).group(1)
+    size = {}
+    for s, c in re.findall(r"size = ([\d.]+)\s+culture = (\w+)", body):
+        size[c] = size.get(c, 0) + float(s)
+    return max(size, key=size.get)
+
+
 def test_rules_parse_and_first_match_wins():
     anc = {"here": ("europe", "western_europe", "iberia_region", "castile_area", "toledo_province")}
     text = "here = {\n\tdefine_pop = { type = peasants size = 1 culture = castilian religion = catholic }\n" \
@@ -149,8 +158,6 @@ def test_review_spot_checks():
     # Berbers inland keep Amazigh cultures even inside Roman areas; Roman ports stay Afro-Roman;
     # Khwarazm is Iranian in 395 (vanilla khorezmian_culture is Turkic); Karelians are no Swedes
     by = pops_cultures()
-    def top(loc):
-        return max(set(by[loc]), key=by[loc].count)
     assert top("kuku") == "kabyle"
     assert top("nalut") == "eastern_amazigh"
     for loc in ("tangier", "ceuta"):
@@ -166,8 +173,6 @@ def test_the_illyrian_highlands():
     # the coast and the Danube were Latin by 395, the mountains of Dardania, Praevalitana and the Dalmatian
     # hinterland still Illyrian; vanilla has no Illyrian culture, so albanian (their heirs) carries the name
     by = pops_cultures()
-    def top(loc):
-        return max(set(by[loc]), key=by[loc].count)
     for loc in ("peja", "podgorica", "mostar", "pljevlja", "brskovo"):
         assert top(loc) == "albanian", loc
     for loc in ("dubrovnik", "pola", "belgrad", "sabac"):
@@ -221,8 +226,6 @@ def test_rules_can_pick_a_social_class():
 
 def test_greeks_of_the_east():
     by = pops_cultures()
-    def top(loc):
-        return max(set(by[loc]), key=by[loc].count)
     for loc in ("antioch", "latakia", "hama", "sidon", "acre", "jaffa", "gaza", "majdal", "jerusalem", "irbid", "amman",
                 "bosra", "tinnis", "faiyum", "el_bahnasa", "ashmunayn", "akhmim"):
         assert top(loc) == "greek_culture", loc
@@ -241,8 +244,6 @@ def test_greeks_of_the_east():
 
 def test_balkans_and_britain():
     by = pops_cultures()
-    def top(loc):
-        return max(set(by[loc]), key=by[loc].count)
     for loc in ("skopje", "shtip", "durres"):
         assert top(loc) == "roman_culture", loc
     for loc in ("smolyan", "bansko", "melnik"):

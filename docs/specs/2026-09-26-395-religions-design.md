@@ -31,6 +31,37 @@ The pops, countries and characters of 395 get the faiths of the day after Theodo
   is near: Bön for Tibet, Waaq for Somalia, Buddhism for the Tarim oases, Germanic paganism for the North Atlantic.
 - **Result:** the WRE is about two thirds Nicene; the EAR is about 95% Nicene.
 
+## Minorities and the reference map (2026-09-26)
+
+- **Mixed rules.** A rule's target may be a mix (`religio_romana 55 orthodox 45`). The pop is split by size, and the
+  biggest share colours the map. The other shares live on as minorities, so over 80% of Roman places hold several faiths.
+- **Town and country.** In the Roman world, clergy are Nicene. Burghers and nobles are mostly Nicene with a pagan
+  fifth, and area rules set the mix for everyone else (peasants, tribesmen, slaves).
+- **Target.** The map follows the user's Fallen Eagle reference: a Nicene church in the towns over a pagan countryside,
+  with the sects of the day in their home provinces.
+- **New faiths:**
+  - `religio_romana`: the Latin West's old gods. `hellenism_religion` is now the Greek East only.
+  - `priscillianism`: Gallaecia and Avila.
+  - `montanism`: Phrygia.
+  - `messalianism`: Mesopotamia.
+  - `nuragic_religion`: the Barbaricini.
+  - `basque_paganism`: the Vascones.
+  - `zalmoxism`: the Dacian peasants under the Gepids and Huns.
+  - `illyrian_paganism`: Illyricum's local gods.
+  - `armazi_religion`: the Iberian countryside.
+- **Reused vanilla faiths:**
+  - Manichaeism: Septimania, Malaga and Granada, Africa, Egypt, Palmyra and Babylonia.
+  - Celtic paganism: Armorica, Belgica, Noricum, Asturias and Galatia.
+  - Zoroastrianism: the Magusaeans of Cappadocia and Persarmenia.
+- **Illyricum.** The reference calls it "Tadenusism", but Tadenus is one altar: Apollo Tadenus at the Bosna springs
+  (CIL III 13858). Illyrian cult was local:
+  - the sun in the north and the serpent in the south;
+  - Silvanus, Vidasus and Thana;
+  - Bindus of the Iapodes, Medaurus of Risinium and Redon of the sailors.
+
+  So the faith is "Illyrian Paganism", placed by tribe. The hinterland of the Delmatae, Iapodes and Daesitiates is
+  Illyrian; Sirmium, Salona, Sopianae, Naissus and the Danube forts are Nicene.
+
 ## Later
 
 - The Papacy (needs a Bishop of Rome tag).

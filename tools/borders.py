@@ -586,22 +586,36 @@ def load_culture_rules(path, scopes, cultures):
         scope, frm, to = (f.strip() for f in line.split("|"))
         if scopes is not None and scope not in scopes:
             raise ValueError(f"{path.name}:{n}: unknown scope {scope}")
-        if cultures is not None and to not in cultures:
-            raise ValueError(f"{path.name}:{n}: unknown culture {to}")
+        if cultures is not None and not {c for c, _ in mix(to)} <= cultures:
+            raise ValueError(f"{path.name}:{n}: unknown culture in {to}")
         rules.append((scope, frm, to))
     return rules
 
 
+def mix(to):
+    # "a" or "a 60 b 40": the shares a pop is split into
+    f = to.split()
+    return [(f[0], 1.0)] if len(f) == 1 else [(f[i], float(f[i + 1])) for i in range(0, len(f), 2)]
+
+
 def pop_cultures(text, owner, anc, rules, field="culture"):
     # from: a culture, *, or a social class qualifier (burghers:*, nobles:greek_culture); scope * is everywhere.
-    # field = religion keeps the culture and sets the pop's religion from the same kind of table
+    # field = religion keeps the culture and sets the pop's religion from the same kind of table; a mixed target
+    # splits the pop by size
     def repl(m):
         where = {owner.get(m.group(1)), m.group(1), *anc[m.group(1)], "*"}
         def pick(p):
             kind, c = re.search(r"type = (\w+)", p.group(0)).group(1), re.search(r"culture = (\w+)", p.group(0)).group(1)
             old = re.search(rf"{field} = (\w+)", p.group(0)).group(1)
             to = next((to for scope, frm, to in rules if scope in where and frm in ("*", c, f"{kind}:*", f"{kind}:{c}")), old)
-            return re.sub(rf"(?<={field} = )\w+", to, p.group(0))
+            shares = mix(to)
+            size, total = float(re.search(r"size = ([\d.]+)", p.group(0)).group(1)), sum(w for _, w in shares)
+            parts = [(r, f"{size * w / total:.3f}") for r, w in shares]
+            parts = [x for x in parts if x[1] != "0.000"] if len(parts) > 1 else []   # too small to split
+            if len(parts) < 2:
+                return re.sub(rf"(?<={field} = )\w+", (parts or shares)[0][0], p.group(0))
+            return "\n\t".join(re.sub(rf"(?<={field} = )\w+", r,
+                                      re.sub(r"(?<=size = )[\d.]+", s, p.group(0))) for r, s in parts)
         return re.sub(r"define_pop = \{[^}]*\}", pick, m.group(0))
     return re.sub(r"^(\w+) = \{(.*?)^\}", repl, text, flags=re.M | re.S)
 

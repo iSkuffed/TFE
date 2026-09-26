@@ -126,3 +126,161 @@ kushite_religion = {	# the gods of Meroë: Amun of Napata, the lion Apedemak, Is
 
 	tags = { pagan_gfx }
 }
+
+religio_romana = {	# Jupiter of the Capitol, the Lares of the farm, Victory's altar in the Senate: the old faith of the Latin West
+	color = rgb { 206 92 66 }
+	group = folk_european_group
+
+	religious_aspects = 2
+	has_religious_influence = yes
+	has_canonization = yes
+	saints_concept = god_emperors
+
+	has_omens = yes
+
+	definition_modifier = {
+		tolerance_heretic = 1
+		tolerance_heathen = 1
+		monthly_legitimacy = 0.05
+		omens_offered = 3
+		monthly_religious_influence = 0.1
+	}
+
+	opinions = {
+		hellenism_religion = kindred
+	}
+
+	tags = { hellenism_gfx folk_european_gfx pagan_gfx }
+}
+
+priscillianism = {	# the ascetic circle of Priscillian of Avila, beheaded at Trier in 385 and venerated in Gallaecia
+	color = rgb { 132 176 96 }
+	group = christian
+
+	has_canonization = yes
+	has_religious_influence = yes
+
+	clergy_goods_demand_modifier = {
+		incense = 2
+	}
+
+	definition_modifier = {
+		global_peasants_estate_power = 0.1
+		maximum_religious_influence = 400
+		global_max_literacy = 5
+	}
+
+	opinions = {
+		orthodox = negative
+	}
+
+	tags = { western_christian_gfx christian_gfx abrahamic_gfx }
+}
+
+montanism = {	# the New Prophecy of Phrygia, waiting for the heavenly Jerusalem at Pepuza
+	color = rgb { 206 170 96 }
+	group = christian
+
+	has_canonization = yes
+	has_religious_influence = yes
+
+	clergy_goods_demand_modifier = {
+		incense = 2
+	}
+
+	definition_modifier = {
+		global_clergy_estate_power = 0.1
+		maximum_religious_influence = 400
+		global_defensive = 0.05
+	}
+
+	opinions = {
+		orthodox = negative
+	}
+
+	tags = { christian_gfx abrahamic_gfx }
+}
+
+messalianism = {	# the Euchites of Mesopotamia, who hold that only ceaseless prayer drives out the indwelling demon
+	color = rgb { 186 60 150 }
+	group = christian
+
+	has_canonization = yes
+	has_religious_influence = yes
+
+	clergy_goods_demand_modifier = {
+		incense = 2
+	}
+
+	definition_modifier = {
+		global_clergy_estate_power = 0.15
+		maximum_religious_influence = 400
+	}
+
+	opinions = {
+		orthodox = negative
+		nestorianism = negative
+	}
+
+	tags = { christian_gfx abrahamic_gfx }
+}
+
+nuragic_religion = {	# the Barbaricini of the Sardinian mountains, still worshipping stones and trees in Gregory the Great's day
+	color = rgb { 164 112 64 }
+	group = folk_european_group
+
+	definition_modifier = {
+		global_defensive = 0.15
+		movement_speed_if_no_road = 0.05
+	}
+
+	tags = { folk_european_gfx pagan_gfx }
+}
+
+basque_paganism = {	# Mari of the mountain caves and her serpent consort Sugaar, among the unconverted Vascones
+	color = rgb { 150 122 46 }
+	group = folk_european_group
+
+	definition_modifier = {
+		global_defensive = 0.15
+		global_wild_game_output_modifier = 0.1
+	}
+
+	tags = { folk_european_gfx pagan_gfx }
+}
+
+zalmoxism = {	# Zalmoxis, the god-king of the Getae, among the Carpi and the free Dacians beyond the Danube
+	color = rgb { 176 186 78 }
+	group = folk_european_group
+
+	definition_modifier = {
+		global_defensive = 0.1
+		global_max_literacy = 5
+	}
+
+	tags = { folk_european_gfx pagan_gfx }
+}
+
+illyrian_paganism = {	# no one pantheon: the sun and the serpent, Silvanus, Vidasus and Thana, Bindus, Apollo Tadenus of the Bosna springs
+	color = rgb { 118 158 128 }
+	group = folk_european_group
+
+	definition_modifier = {
+		global_defensive = 0.1
+		army_light_infantry_power = 0.05
+	}
+
+	tags = { folk_european_gfx pagan_gfx }
+}
+
+armazi_religion = {	# Armazi of Mtskheta's acropolis and Zaden, the gods King Mirian threw down, still kept in the Iberian valleys
+	color = rgb { 76 186 156 }
+	group = folk_european_group
+
+	definition_modifier = {
+		global_defensive = 0.1
+		global_pop_food_consumption = -0.05
+	}
+
+	tags = { folk_european_gfx pagan_gfx }
+}
