@@ -159,3 +159,16 @@ def test_review_spot_checks():
     assert top("korela") == "karelian"
     assert "swedish" not in {c for l, a in b.load_hierarchy().items() if len(a) > 3 and a[3] in ("karelia_area", "kola_area")
                              for c in by.get(l, ())}
+
+
+def test_the_illyrian_highlands():
+    # the coast and the Danube were Latin by 395, the mountains of Dardania, Praevalitana and the Dalmatian
+    # hinterland still Illyrian; vanilla has no Illyrian culture, so albanian (their heirs) carries the name
+    by = pops_cultures()
+    def top(loc):
+        return max(set(by[loc]), key=by[loc].count)
+    for loc in ("peja", "podgorica", "mostar", "pljevlja", "brskovo"):
+        assert top(loc) == "albanian", loc
+    for loc in ("dubrovnik", "pola", "belgrad", "sabac"):
+        assert top(loc) == "roman_culture", loc
+    assert re.search(r'^ albanian: "Illyrian"$', REPLACE.read_text(encoding="utf-8-sig"), re.M)

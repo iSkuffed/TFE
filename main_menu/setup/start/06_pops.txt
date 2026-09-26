@@ -25578,52 +25578,52 @@ livno = {
 	define_pop = {	type = peasants	size = 4.447	culture = roman_culture	religion = catholic }
 }
 trebinje = {
-	define_pop = {	type = clergy	size = 0.005	culture = roman_culture	religion = orthodox }
-	define_pop = {	type = peasants	size = 5.210	culture = roman_culture	religion = orthodox }
+	define_pop = {	type = clergy	size = 0.005	culture = albanian	religion = orthodox }
+	define_pop = {	type = peasants	size = 5.210	culture = albanian	religion = orthodox }
 }
 drijeva = {
-	define_pop = {	type = clergy	size = 0.005	culture = roman_culture	religion = orthodox }
-	define_pop = {	type = peasants	size = 0.441	culture = roman_culture	religion = bosnian_church }
-	define_pop = {	type = peasants	size = 1.323	culture = roman_culture	religion = orthodox }
-	define_pop = {	type = peasants	size = 4.411	culture = roman_culture	religion = orthodox }
-	define_pop = {	type = peasants	size = 2.647	culture = roman_culture	religion = catholic }
+	define_pop = {	type = clergy	size = 0.005	culture = albanian	religion = orthodox }
+	define_pop = {	type = peasants	size = 0.441	culture = albanian	religion = bosnian_church }
+	define_pop = {	type = peasants	size = 1.323	culture = albanian	religion = orthodox }
+	define_pop = {	type = peasants	size = 4.411	culture = albanian	religion = orthodox }
+	define_pop = {	type = peasants	size = 2.647	culture = albanian	religion = catholic }
 }
 gacko = {
-	define_pop = {	type = clergy	size = 0.005	culture = roman_culture	religion = orthodox }
-	define_pop = {	type = peasants	size = 4.992	culture = roman_culture	religion = orthodox }
+	define_pop = {	type = clergy	size = 0.005	culture = albanian	religion = orthodox }
+	define_pop = {	type = peasants	size = 4.992	culture = albanian	religion = orthodox }
 }
 mostar = {
-	define_pop = {	type = clergy	size = 0.006	culture = roman_culture	religion = orthodox }
-	define_pop = {	type = peasants	size = 0.464	culture = roman_culture	religion = bosnian_church }
-	define_pop = {	type = peasants	size = 1.395	culture = roman_culture	religion = orthodox }
-	define_pop = {	type = peasants	size = 7.441	culture = roman_culture	religion = orthodox }
+	define_pop = {	type = clergy	size = 0.006	culture = albanian	religion = orthodox }
+	define_pop = {	type = peasants	size = 0.464	culture = albanian	religion = bosnian_church }
+	define_pop = {	type = peasants	size = 1.395	culture = albanian	religion = orthodox }
+	define_pop = {	type = peasants	size = 7.441	culture = albanian	religion = orthodox }
 }
 nevesinje = {
-	define_pop = {	type = clergy	size = 0.006	culture = roman_culture	religion = orthodox }
-	define_pop = {	type = peasants	size = 0.921	culture = roman_culture	religion = bosnian_church }
-	define_pop = {	type = peasants	size = 2.303	culture = roman_culture	religion = orthodox }
-	define_pop = {	type = peasants	size = 5.990	culture = roman_culture	religion = orthodox }
+	define_pop = {	type = clergy	size = 0.006	culture = albanian	religion = orthodox }
+	define_pop = {	type = peasants	size = 0.921	culture = albanian	religion = bosnian_church }
+	define_pop = {	type = peasants	size = 2.303	culture = albanian	religion = orthodox }
+	define_pop = {	type = peasants	size = 5.990	culture = albanian	religion = orthodox }
 }
 dinaric_alps4 = {
 }
 ustikolina = {
-	define_pop = {	type = clergy	size = 0.006	culture = roman_culture	religion = orthodox }
-	define_pop = {	type = peasants	size = 0.462	culture = roman_culture	religion = bosnian_church }
-	define_pop = {	type = peasants	size = 1.387	culture = roman_culture	religion = bogomilism }
-	define_pop = {	type = peasants	size = 2.312	culture = roman_culture	religion = orthodox }
-	define_pop = {	type = peasants	size = 5.088	culture = roman_culture	religion = orthodox }
+	define_pop = {	type = clergy	size = 0.006	culture = albanian	religion = orthodox }
+	define_pop = {	type = peasants	size = 0.462	culture = albanian	religion = bosnian_church }
+	define_pop = {	type = peasants	size = 1.387	culture = albanian	religion = bogomilism }
+	define_pop = {	type = peasants	size = 2.312	culture = albanian	religion = orthodox }
+	define_pop = {	type = peasants	size = 5.088	culture = albanian	religion = orthodox }
 }
 pljevlja = {
-	define_pop = {	type = nobles	size = 0.007	culture = roman_culture	religion = orthodox }
-	define_pop = {	type = clergy	size = 0.007	culture = roman_culture	religion = orthodox }
-	define_pop = {	type = peasants	size = 7.717	culture = roman_culture	religion = orthodox }
-	define_pop = {	type = peasants	size = 1.361	culture = roman_culture	religion = bogomilism }
+	define_pop = {	type = nobles	size = 0.007	culture = albanian	religion = orthodox }
+	define_pop = {	type = clergy	size = 0.007	culture = albanian	religion = orthodox }
+	define_pop = {	type = peasants	size = 7.717	culture = albanian	religion = orthodox }
+	define_pop = {	type = peasants	size = 1.361	culture = albanian	religion = bogomilism }
 }
 soko_grad = {
-	define_pop = {	type = nobles	size = 0.009	culture = roman_culture	religion = orthodox }
-	define_pop = {	type = clergy	size = 0.009	culture = roman_culture	religion = orthodox }
-	define_pop = {	type = peasants	size = 8.964	culture = roman_culture	religion = orthodox }
-	define_pop = {	type = peasants	size = 1.581	culture = roman_culture	religion = bogomilism }
+	define_pop = {	type = nobles	size = 0.009	culture = albanian	religion = orthodox }
+	define_pop = {	type = clergy	size = 0.009	culture = albanian	religion = orthodox }
+	define_pop = {	type = peasants	size = 8.964	culture = albanian	religion = orthodox }
+	define_pop = {	type = peasants	size = 1.581	culture = albanian	religion = bogomilism }
 }
 dinaric_alps5 = {
 }
@@ -25691,44 +25691,44 @@ ravno = {
 }
 peja = {
 	define_pop = {	type = clergy	size = 0.025	culture = albanian	religion = orthodox }
-	define_pop = {	type = clergy	size = 0.218	culture = roman_culture	religion = orthodox }
+	define_pop = {	type = clergy	size = 0.218	culture = albanian	religion = orthodox }
 	define_pop = {	type = peasants	size = 3.872	culture = albanian	religion = orthodox }
-	define_pop = {	type = peasants	size = 15.516	culture = roman_culture	religion = orthodox }
+	define_pop = {	type = peasants	size = 15.516	culture = albanian	religion = orthodox }
 }
 gjakova = {
 	define_pop = {	type = clergy	size = 0.025	culture = albanian	religion = orthodox }
-	define_pop = {	type = clergy	size = 0.218	culture = roman_culture	religion = orthodox }
+	define_pop = {	type = clergy	size = 0.218	culture = albanian	religion = orthodox }
 	define_pop = {	type = peasants	size = 2.465	culture = albanian	religion = orthodox }
-	define_pop = {	type = peasants	size = 9.885	culture = roman_culture	religion = orthodox }
+	define_pop = {	type = peasants	size = 9.885	culture = albanian	religion = orthodox }
 }
 mitrovica = {
-	define_pop = {	type = clergy	size = 0.011	culture = roman_culture	religion = orthodox }
-	define_pop = {	type = peasants	size = 9.328	culture = roman_culture	religion = orthodox }
-	define_pop = {	type = peasants	size = 1.943	culture = roman_culture	religion = catholic }
+	define_pop = {	type = clergy	size = 0.011	culture = albanian	religion = orthodox }
+	define_pop = {	type = peasants	size = 9.328	culture = albanian	religion = orthodox }
+	define_pop = {	type = peasants	size = 1.943	culture = albanian	religion = catholic }
 }
 novo_brdo = {
 	define_pop = {	type = clergy	size = 0.006	culture = albanian	religion = orthodox }
-	define_pop = {	type = clergy	size = 0.006	culture = roman_culture	religion = orthodox }
+	define_pop = {	type = clergy	size = 0.006	culture = albanian	religion = orthodox }
 	define_pop = {	type = peasants	size = 3.511	culture = albanian	religion = orthodox }
-	define_pop = {	type = peasants	size = 16.386	culture = roman_culture	religion = orthodox }
-	define_pop = {	type = peasants	size = 2.340	culture = roman_culture	religion = catholic }
-	define_pop = {	type = peasants	size = 1.170	culture = roman_culture	religion = catholic }
+	define_pop = {	type = peasants	size = 16.386	culture = albanian	religion = orthodox }
+	define_pop = {	type = peasants	size = 2.340	culture = albanian	religion = catholic }
+	define_pop = {	type = peasants	size = 1.170	culture = albanian	religion = catholic }
 }
 pristina = {
 	define_pop = {	type = clergy	size = 0.025	culture = albanian	religion = orthodox }
-	define_pop = {	type = clergy	size = 0.218	culture = roman_culture	religion = orthodox }
+	define_pop = {	type = clergy	size = 0.218	culture = albanian	religion = orthodox }
 	define_pop = {	type = peasants	size = 3.142	culture = albanian	religion = orthodox }
-	define_pop = {	type = peasants	size = 12.594	culture = roman_culture	religion = orthodox }
+	define_pop = {	type = peasants	size = 12.594	culture = albanian	religion = orthodox }
 }
 prizren = {
-	define_pop = {	type = nobles	size = 0.041	culture = roman_culture	religion = orthodox }
+	define_pop = {	type = nobles	size = 0.041	culture = albanian	religion = orthodox }
 	define_pop = {	type = clergy	size = 0.035	culture = albanian	religion = orthodox }
-	define_pop = {	type = clergy	size = 0.081	culture = roman_culture	religion = orthodox }
+	define_pop = {	type = clergy	size = 0.081	culture = albanian	religion = orthodox }
 	define_pop = {	type = burghers	size = 0.195	culture = albanian	religion = orthodox }
-	define_pop = {	type = burghers	size = 1.782	culture = roman_culture	religion = orthodox }
+	define_pop = {	type = burghers	size = 1.782	culture = albanian	religion = orthodox }
 	define_pop = {	type = peasants	size = 9.728	culture = albanian	religion = orthodox }
-	define_pop = {	type = peasants	size = 13.289	culture = roman_culture	religion = orthodox }
-	define_pop = {	type = tribesmen	size = 0.078	culture = roman_culture	religion = orthodox }
+	define_pop = {	type = peasants	size = 13.289	culture = albanian	religion = orthodox }
+	define_pop = {	type = tribesmen	size = 0.078	culture = albanian	religion = orthodox }
 }
 dinaric_alps8 = {
 }
@@ -25777,26 +25777,26 @@ vranje = {
 balkan_mountains3 = {
 }
 trgoviste_SER = {
-	define_pop = {	type = clergy	size = 0.011	culture = roman_culture	religion = orthodox }
-	define_pop = {	type = peasants	size = 16.832	culture = roman_culture	religion = orthodox }
+	define_pop = {	type = clergy	size = 0.011	culture = albanian	religion = orthodox }
+	define_pop = {	type = peasants	size = 16.832	culture = albanian	religion = orthodox }
 }
 brskovo = {
-	define_pop = {	type = clergy	size = 0.011	culture = roman_culture	religion = orthodox }
-	define_pop = {	type = peasants	size = 9.837	culture = roman_culture	religion = orthodox }
-	define_pop = {	type = peasants	size = 1.156	culture = roman_culture	religion = catholic }
-	define_pop = {	type = peasants	size = 0.578	culture = roman_culture	religion = catholic }
+	define_pop = {	type = clergy	size = 0.011	culture = albanian	religion = orthodox }
+	define_pop = {	type = peasants	size = 9.837	culture = albanian	religion = orthodox }
+	define_pop = {	type = peasants	size = 1.156	culture = albanian	religion = catholic }
+	define_pop = {	type = peasants	size = 0.578	culture = albanian	religion = catholic }
 }
 brvenik = {
-	define_pop = {	type = clergy	size = 0.011	culture = roman_culture	religion = orthodox }
-	define_pop = {	type = peasants	size = 14.892	culture = roman_culture	religion = orthodox }
+	define_pop = {	type = clergy	size = 0.011	culture = albanian	religion = orthodox }
+	define_pop = {	type = peasants	size = 14.892	culture = albanian	religion = orthodox }
 }
 budimlja = {
-	define_pop = {	type = clergy	size = 0.011	culture = roman_culture	religion = orthodox }
-	define_pop = {	type = peasants	size = 16.843	culture = roman_culture	religion = orthodox }
+	define_pop = {	type = clergy	size = 0.011	culture = albanian	religion = orthodox }
+	define_pop = {	type = peasants	size = 16.843	culture = albanian	religion = orthodox }
 }
 sjenica = {
-	define_pop = {	type = clergy	size = 0.011	culture = roman_culture	religion = orthodox }
-	define_pop = {	type = peasants	size = 7.868	culture = roman_culture	religion = orthodox }
+	define_pop = {	type = clergy	size = 0.011	culture = albanian	religion = orthodox }
+	define_pop = {	type = peasants	size = 7.868	culture = albanian	religion = orthodox }
 }
 dinaric_alps7 = {
 }
@@ -25833,27 +25833,27 @@ zica = {
 	define_pop = {	type = peasants	size = 10.448	culture = roman_culture	religion = orthodox }
 }
 podgorica = {
-	define_pop = {	type = clergy	size = 0.011	culture = roman_culture	religion = orthodox }
-	define_pop = {	type = peasants	size = 14.431	culture = roman_culture	religion = orthodox }
+	define_pop = {	type = clergy	size = 0.011	culture = albanian	religion = orthodox }
+	define_pop = {	type = peasants	size = 14.431	culture = albanian	religion = orthodox }
 }
 bar_cg = {
 	define_pop = {	type = clergy	size = 0.002	culture = albanian	religion = orthodox }
-	define_pop = {	type = clergy	size = 0.009	culture = roman_culture	religion = orthodox }
+	define_pop = {	type = clergy	size = 0.009	culture = albanian	religion = orthodox }
 	define_pop = {	type = peasants	size = 1.404	culture = albanian	religion = orthodox }
-	define_pop = {	type = peasants	size = 2.124	culture = roman_culture	religion = orthodox }
+	define_pop = {	type = peasants	size = 2.124	culture = albanian	religion = orthodox }
 }
 gradina = {
-	define_pop = {	type = clergy	size = 0.011	culture = roman_culture	religion = orthodox }
-	define_pop = {	type = peasants	size = 13.228	culture = roman_culture	religion = orthodox }
+	define_pop = {	type = clergy	size = 0.011	culture = albanian	religion = orthodox }
+	define_pop = {	type = peasants	size = 13.228	culture = albanian	religion = orthodox }
 }
 kotor = {
-	define_pop = {	type = clergy	size = 0.006	culture = roman_culture	religion = orthodox }
-	define_pop = {	type = peasants	size = 2.470	culture = roman_culture	religion = orthodox }
-	define_pop = {	type = peasants	size = 0.822	culture = roman_culture	religion = catholic }
+	define_pop = {	type = clergy	size = 0.006	culture = albanian	religion = orthodox }
+	define_pop = {	type = peasants	size = 2.470	culture = albanian	religion = orthodox }
+	define_pop = {	type = peasants	size = 0.822	culture = albanian	religion = catholic }
 }
 onogost = {
-	define_pop = {	type = clergy	size = 0.011	culture = roman_culture	religion = orthodox }
-	define_pop = {	type = peasants	size = 10.097	culture = roman_culture	religion = orthodox }
+	define_pop = {	type = clergy	size = 0.011	culture = albanian	religion = orthodox }
+	define_pop = {	type = peasants	size = 10.097	culture = albanian	religion = orthodox }
 }
 lake_skadar = {
 }
@@ -26652,55 +26652,55 @@ tsepina = {
 	define_pop = {	type = peasants	size = 1.902	culture = greek_culture	religion = paulicianism }
 }
 durres = {
-	define_pop = {	type = nobles	size = 0.031	culture = greek_culture	religion = catholic }
-	define_pop = {	type = clergy	size = 0.081	culture = greek_culture	religion = catholic }
-	define_pop = {	type = clergy	size = 0.022	culture = greek_culture	religion = orthodox }
+	define_pop = {	type = nobles	size = 0.031	culture = albanian	religion = catholic }
+	define_pop = {	type = clergy	size = 0.081	culture = albanian	religion = catholic }
+	define_pop = {	type = clergy	size = 0.022	culture = albanian	religion = orthodox }
 	define_pop = {	type = burghers	size = 0.727	culture = albanian	religion = catholic }
-	define_pop = {	type = burghers	size = 0.727	culture = greek_culture	religion = catholic }
-	define_pop = {	type = burghers	size = 0.101	culture = greek_culture	religion = judaism }
-	define_pop = {	type = burghers	size = 0.168	culture = greek_culture	religion = catholic }
-	define_pop = {	type = burghers	size = 0.056	culture = greek_culture	religion = orthodox }
+	define_pop = {	type = burghers	size = 0.727	culture = albanian	religion = catholic }
+	define_pop = {	type = burghers	size = 0.101	culture = albanian	religion = judaism }
+	define_pop = {	type = burghers	size = 0.168	culture = albanian	religion = catholic }
+	define_pop = {	type = burghers	size = 0.056	culture = albanian	religion = orthodox }
 	define_pop = {	type = peasants	size = 10.065	culture = albanian	religion = catholic }
 	define_pop = {	type = peasants	size = 1.118	culture = albanian	religion = orthodox }
-	define_pop = {	type = peasants	size = 1.439	culture = greek_culture	religion = catholic }
-	define_pop = {	type = peasants	size = 1.338	culture = greek_culture	religion = orthodox }
-	define_pop = {	type = tribesmen	size = 0.061	culture = greek_culture	religion = orthodox }
+	define_pop = {	type = peasants	size = 1.439	culture = albanian	religion = catholic }
+	define_pop = {	type = peasants	size = 1.338	culture = albanian	religion = orthodox }
+	define_pop = {	type = tribesmen	size = 0.061	culture = albanian	religion = orthodox }
 }
 ballsh = {
-	define_pop = {	type = clergy	size = 0.010	culture = greek_culture	religion = orthodox }
-	define_pop = {	type = peasants	size = 1.952	culture = greek_culture	religion = orthodox }
+	define_pop = {	type = clergy	size = 0.010	culture = albanian	religion = orthodox }
+	define_pop = {	type = peasants	size = 1.952	culture = albanian	religion = orthodox }
 	define_pop = {	type = peasants	size = 9.764	culture = albanian	religion = orthodox }
 	define_pop = {	type = peasants	size = 1.301	culture = albanian	religion = catholic }
 }
 berat = {
-	define_pop = {	type = nobles	size = 0.010	culture = greek_culture	religion = orthodox }
-	define_pop = {	type = clergy	size = 0.010	culture = greek_culture	religion = orthodox }
-	define_pop = {	type = peasants	size = 4.499	culture = greek_culture	religion = orthodox }
+	define_pop = {	type = nobles	size = 0.010	culture = albanian	religion = orthodox }
+	define_pop = {	type = clergy	size = 0.010	culture = albanian	religion = orthodox }
+	define_pop = {	type = peasants	size = 4.499	culture = albanian	religion = orthodox }
 	define_pop = {	type = peasants	size = 8.999	culture = albanian	religion = orthodox }
-	define_pop = {	type = peasants	size = 1.799	culture = greek_culture	religion = orthodox }
+	define_pop = {	type = peasants	size = 1.799	culture = albanian	religion = orthodox }
 	define_pop = {	type = peasants	size = 2.699	culture = albanian	religion = catholic }
 }
 debar = {
 	define_pop = {	type = nobles	size = 0.008	culture = albanian	religion = orthodox }
-	define_pop = {	type = clergy	size = 0.008	culture = greek_culture	religion = orthodox }
+	define_pop = {	type = clergy	size = 0.008	culture = albanian	religion = orthodox }
 	define_pop = {	type = peasants	size = 10.623	culture = albanian	religion = catholic }
-	define_pop = {	type = peasants	size = 5.311	culture = greek_culture	religion = orthodox }
-	define_pop = {	type = peasants	size = 1.770	culture = greek_culture	religion = bogomilism }
+	define_pop = {	type = peasants	size = 5.311	culture = albanian	religion = orthodox }
+	define_pop = {	type = peasants	size = 1.770	culture = albanian	religion = bogomilism }
 }
 devol = {
-	define_pop = {	type = clergy	size = 0.012	culture = greek_culture	religion = orthodox }
-	define_pop = {	type = peasants	size = 4.010	culture = greek_culture	religion = orthodox }
+	define_pop = {	type = clergy	size = 0.012	culture = albanian	religion = orthodox }
+	define_pop = {	type = peasants	size = 4.010	culture = albanian	religion = orthodox }
 	define_pop = {	type = peasants	size = 5.347	culture = albanian	religion = orthodox }
-	define_pop = {	type = peasants	size = 1.335	culture = greek_culture	religion = orthodox }
-	define_pop = {	type = peasants	size = 2.672	culture = greek_culture	religion = orthodox }
+	define_pop = {	type = peasants	size = 1.335	culture = albanian	religion = orthodox }
+	define_pop = {	type = peasants	size = 2.672	culture = albanian	religion = orthodox }
 }
 elbasan = {
 	define_pop = {	type = clergy	size = 0.010	culture = albanian	religion = catholic }
 	define_pop = {	type = peasants	size = 16.919	culture = albanian	religion = catholic }
 }
 kavaje = {
-	define_pop = {	type = clergy	size = 0.010	culture = greek_culture	religion = orthodox }
-	define_pop = {	type = peasants	size = 1.681	culture = greek_culture	religion = orthodox }
+	define_pop = {	type = clergy	size = 0.010	culture = albanian	religion = orthodox }
+	define_pop = {	type = peasants	size = 1.681	culture = albanian	religion = orthodox }
 	define_pop = {	type = peasants	size = 8.405	culture = albanian	religion = orthodox }
 	define_pop = {	type = peasants	size = 1.120	culture = albanian	religion = catholic }
 }
@@ -26714,9 +26714,9 @@ tirana = {
 }
 shkoder = {
 	define_pop = {	type = clergy	size = 0.007	culture = albanian	religion = orthodox }
-	define_pop = {	type = clergy	size = 0.002	culture = greek_culture	religion = orthodox }
+	define_pop = {	type = clergy	size = 0.002	culture = albanian	religion = orthodox }
 	define_pop = {	type = peasants	size = 6.682	culture = albanian	religion = orthodox }
-	define_pop = {	type = peasants	size = 10.250	culture = greek_culture	religion = orthodox }
+	define_pop = {	type = peasants	size = 10.250	culture = albanian	religion = orthodox }
 }
 dukagjini = {
 	define_pop = {	type = clergy	size = 0.010	culture = albanian	religion = catholic }
@@ -26733,37 +26733,37 @@ koman = {
 lezha = {
 	define_pop = {	type = clergy	size = 0.010	culture = albanian	religion = catholic }
 	define_pop = {	type = peasants	size = 3.396	culture = albanian	religion = catholic }
-	define_pop = {	type = peasants	size = 0.375	culture = greek_culture	religion = catholic }
+	define_pop = {	type = peasants	size = 0.375	culture = albanian	religion = catholic }
 }
 avlonya = {
-	define_pop = {	type = clergy	size = 0.010	culture = greek_culture	religion = orthodox }
-	define_pop = {	type = peasants	size = 7.539	culture = greek_culture	religion = orthodox }
+	define_pop = {	type = clergy	size = 0.010	culture = albanian	religion = orthodox }
+	define_pop = {	type = peasants	size = 7.539	culture = albanian	religion = orthodox }
 	define_pop = {	type = peasants	size = 2.152	culture = albanian	religion = orthodox }
-	define_pop = {	type = peasants	size = 1.075	culture = greek_culture	religion = orthodox }
+	define_pop = {	type = peasants	size = 1.075	culture = albanian	religion = orthodox }
 }
 argyrokastro = {
-	define_pop = {	type = clergy	size = 0.010	culture = greek_culture	religion = orthodox }
-	define_pop = {	type = peasants	size = 15.054	culture = greek_culture	religion = orthodox }
+	define_pop = {	type = clergy	size = 0.010	culture = albanian	religion = orthodox }
+	define_pop = {	type = peasants	size = 15.054	culture = albanian	religion = orthodox }
 	define_pop = {	type = peasants	size = 1.669	culture = albanian	religion = orthodox }
 }
 butrint = {
-	define_pop = {	type = clergy	size = 0.010	culture = greek_culture	religion = catholic }
-	define_pop = {	type = peasants	size = 2.124	culture = greek_culture	religion = orthodox }
-	define_pop = {	type = peasants	size = 1.589	culture = greek_culture	religion = catholic }
-	define_pop = {	type = peasants	size = 0.690	culture = greek_culture	religion = orthodox }
-	define_pop = {	type = peasants	size = 0.224	culture = greek_culture	religion = catholic }
+	define_pop = {	type = clergy	size = 0.010	culture = albanian	religion = catholic }
+	define_pop = {	type = peasants	size = 2.124	culture = albanian	religion = orthodox }
+	define_pop = {	type = peasants	size = 1.589	culture = albanian	religion = catholic }
+	define_pop = {	type = peasants	size = 0.690	culture = albanian	religion = orthodox }
+	define_pop = {	type = peasants	size = 0.224	culture = albanian	religion = catholic }
 }
 kleisoura_epirus = {
-	define_pop = {	type = clergy	size = 0.010	culture = greek_culture	religion = orthodox }
-	define_pop = {	type = peasants	size = 3.539	culture = greek_culture	religion = orthodox }
+	define_pop = {	type = clergy	size = 0.010	culture = albanian	religion = orthodox }
+	define_pop = {	type = peasants	size = 3.539	culture = albanian	religion = orthodox }
 	define_pop = {	type = peasants	size = 0.706	culture = albanian	religion = orthodox }
-	define_pop = {	type = peasants	size = 2.830	culture = greek_culture	religion = orthodox }
+	define_pop = {	type = peasants	size = 2.830	culture = albanian	religion = orthodox }
 }
 konitsa = {
-	define_pop = {	type = clergy	size = 0.010	culture = greek_culture	religion = orthodox }
-	define_pop = {	type = peasants	size = 4.598	culture = greek_culture	religion = orthodox }
+	define_pop = {	type = clergy	size = 0.010	culture = albanian	religion = orthodox }
+	define_pop = {	type = peasants	size = 4.598	culture = albanian	religion = orthodox }
 	define_pop = {	type = peasants	size = 0.917	culture = albanian	religion = orthodox }
-	define_pop = {	type = peasants	size = 3.676	culture = greek_culture	religion = orthodox }
+	define_pop = {	type = peasants	size = 3.676	culture = albanian	religion = orthodox }
 }
 pindus_mountains6 = {
 }

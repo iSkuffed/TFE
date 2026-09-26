@@ -78,6 +78,13 @@ south_german_region | * | roman_culture  # Raetia and Noricum
 # ---- the Balkans: Latin north of the Jirecek line, Greek south of it ----
 balkan_region | albanian | albanian      # the Illyrian hills
 balkan_region | romanyoti | romanyoti
+# the Illyrian highlands: Dardania, Praevalitana and the Dalmatian hinterland (albanian reads "Illyrian")
+albania_area | * | albanian
+kosovo_province | * | albanian
+zeta_province | * | albanian
+raska_province | * | albanian
+podrinje_province | * | albanian
+hum_province | * | albanian
 bosnia_area | * | roman_culture
 croatia_area | * | roman_culture
 slavonia_area | * | roman_culture
