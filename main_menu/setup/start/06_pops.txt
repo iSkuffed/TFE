@@ -6555,205 +6555,205 @@ mulhouse = {
 	define_pop = {	type = peasants	size = 0.210	culture = gallo_roman	religion = judaism }
 }
 london = {
-	define_pop = {	type = burghers	size = 0.811	culture = briton	religion = catholic }
-	define_pop = {	type = burghers	size = 0.177	culture = briton	religion = catholic }
-	define_pop = {	type = peasants	size = 17.758	culture = briton	religion = catholic }
+	define_pop = {	type = burghers	size = 0.811	culture = romano_british	religion = catholic }
+	define_pop = {	type = burghers	size = 0.177	culture = romano_british	religion = catholic }
+	define_pop = {	type = peasants	size = 17.758	culture = romano_british	religion = catholic }
 }
 harrow = {
-	define_pop = {	type = peasants	size = 6.227	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 6.227	culture = romano_british	religion = catholic }
 }
 kingston = {
-	define_pop = {	type = peasants	size = 4.704	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 4.704	culture = romano_british	religion = catholic }
 }
 reigate = {
-	define_pop = {	type = peasants	size = 7.095	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 7.095	culture = romano_british	religion = catholic }
 }
 guildford = {
-	define_pop = {	type = peasants	size = 6.609	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 6.609	culture = romano_british	religion = catholic }
 }
 woking = {
-	define_pop = {	type = peasants	size = 8.415	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 8.415	culture = romano_british	religion = catholic }
 }
 southampton = {
-	define_pop = {	type = peasants	size = 6.688	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 6.688	culture = romano_british	religion = catholic }
 }
 portsmouth = {
-	define_pop = {	type = peasants	size = 6.128	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 6.128	culture = romano_british	religion = catholic }
 }
 winchester = {
-	define_pop = {	type = peasants	size = 6.808	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 6.808	culture = romano_british	religion = catholic }
 }
 lymington = {
-	define_pop = {	type = peasants	size = 5.980	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 5.980	culture = romano_british	religion = catholic }
 }
 wight = {
-	define_pop = {	type = peasants	size = 7.362	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 7.362	culture = romano_british	religion = catholic }
 }
 basingstoke = {
-	define_pop = {	type = peasants	size = 6.413	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 6.413	culture = romano_british	religion = catholic }
 }
 dover = {
-	define_pop = {	type = peasants	size = 11.002	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 11.002	culture = romano_british	religion = catholic }
 }
 canterbury = {
-	define_pop = {	type = peasants	size = 10.842	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 10.842	culture = romano_british	religion = catholic }
 }
 rochester = {
-	define_pop = {	type = peasants	size = 9.852	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 9.852	culture = romano_british	religion = catholic }
 }
 hythe = {
-	define_pop = {	type = peasants	size = 8.970	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 8.970	culture = romano_british	religion = catholic }
 }
 tonbridge = {
-	define_pop = {	type = peasants	size = 9.985	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 9.985	culture = romano_british	religion = catholic }
 }
 shoreham = {
-	define_pop = {	type = peasants	size = 9.889	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 9.889	culture = romano_british	religion = catholic }
 }
 lewes = {
-	define_pop = {	type = peasants	size = 8.640	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 8.640	culture = romano_british	religion = catholic }
 }
 hastings = {
-	define_pop = {	type = peasants	size = 9.156	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 9.156	culture = romano_british	religion = catholic }
 }
 chichester = {
-	define_pop = {	type = peasants	size = 10.264	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 10.264	culture = romano_british	religion = catholic }
 }
 dunstable = {
-	define_pop = {	type = peasants	size = 11.187	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 11.187	culture = romano_british	religion = catholic }
 }
 bedford = {
-	define_pop = {	type = peasants	size = 10.160	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 10.160	culture = romano_british	religion = catholic }
 }
 oxford = {
-	define_pop = {	type = peasants	size = 10.410	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 10.410	culture = romano_british	religion = catholic }
 }
 henley = {
-	define_pop = {	type = peasants	size = 8.328	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 8.328	culture = romano_british	religion = catholic }
 }
 banbury = {
-	define_pop = {	type = peasants	size = 9.308	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 9.308	culture = romano_british	religion = catholic }
 }
 windsor = {
-	define_pop = {	type = peasants	size = 5.833	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 5.833	culture = romano_british	religion = catholic }
 }
 reading = {
-	define_pop = {	type = peasants	size = 7.282	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 7.282	culture = romano_british	religion = catholic }
 }
 abingdon = {
-	define_pop = {	type = peasants	size = 6.812	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 6.812	culture = romano_british	religion = catholic }
 }
 buckingham = {
-	define_pop = {	type = peasants	size = 9.081	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 9.081	culture = romano_british	religion = catholic }
 }
 aylesbury = {
-	define_pop = {	type = peasants	size = 8.146	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 8.146	culture = romano_british	religion = catholic }
 }
 wycombe = {
-	define_pop = {	type = peasants	size = 8.140	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 8.140	culture = romano_british	religion = catholic }
 }
 leicester = {
-	define_pop = {	type = peasants	size = 8.952	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 8.952	culture = romano_british	religion = catholic }
 }
 loughborough = {
-	define_pop = {	type = peasants	size = 6.598	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 6.598	culture = romano_british	religion = catholic }
 }
 bosworth = {
-	define_pop = {	type = peasants	size = 6.902	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 6.902	culture = romano_british	religion = catholic }
 }
 rutland = {
-	define_pop = {	type = peasants	size = 6.761	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 6.761	culture = romano_british	religion = catholic }
 }
 derby = {
-	define_pop = {	type = peasants	size = 9.708	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 9.708	culture = romano_british	religion = catholic }
 }
 glossop = {
-	define_pop = {	type = peasants	size = 7.634	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 7.634	culture = romano_british	religion = catholic }
 }
 chesterfield = {
-	define_pop = {	type = peasants	size = 8.269	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 8.269	culture = romano_british	religion = catholic }
 }
 nottingham = {
-	define_pop = {	type = peasants	size = 7.107	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 7.107	culture = romano_british	religion = catholic }
 }
 newark = {
-	define_pop = {	type = peasants	size = 5.068	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 5.068	culture = romano_british	religion = catholic }
 }
 retford = {
-	define_pop = {	type = peasants	size = 5.704	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 5.704	culture = romano_british	religion = catholic }
 }
 lincoln = {
-	define_pop = {	type = peasants	size = 18.180	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 18.180	culture = romano_british	religion = catholic }
 }
 boston = {
-	define_pop = {	type = peasants	size = 15.680	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 15.680	culture = romano_british	religion = catholic }
 }
 grimsby = {
-	define_pop = {	type = peasants	size = 15.543	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 15.543	culture = romano_british	religion = catholic }
 }
 grantham = {
-	define_pop = {	type = peasants	size = 10.908	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 10.908	culture = romano_british	religion = catholic }
 }
 louth = {
-	define_pop = {	type = peasants	size = 14.406	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 14.406	culture = romano_british	religion = catholic }
 }
 spalding = {
-	define_pop = {	type = peasants	size = 10.385	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 10.385	culture = romano_british	religion = catholic }
 }
 northampton = {
-	define_pop = {	type = peasants	size = 10.182	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 10.182	culture = romano_british	religion = catholic }
 }
 daventry = {
-	define_pop = {	type = peasants	size = 9.405	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 9.405	culture = romano_british	religion = catholic }
 }
 kettering = {
-	define_pop = {	type = peasants	size = 11.060	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 11.060	culture = romano_british	religion = catholic }
 }
 coventry = {
-	define_pop = {	type = peasants	size = 4.358	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 4.358	culture = romano_british	religion = catholic }
 }
 birmingham = {
-	define_pop = {	type = peasants	size = 3.916	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 3.916	culture = romano_british	religion = catholic }
 }
 stratford = {
-	define_pop = {	type = peasants	size = 3.903	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 3.903	culture = romano_british	religion = catholic }
 }
 shrewsbury = {
-	define_pop = {	type = peasants	size = 6.098	culture = briton	religion = catholic }
-	define_pop = {	type = peasants	size = 1.099	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 6.098	culture = romano_british	religion = catholic }
+	define_pop = {	type = peasants	size = 1.099	culture = romano_british	religion = catholic }
 }
 oswestry = {
-	define_pop = {	type = peasants	size = 4.468	culture = briton	religion = catholic }
-	define_pop = {	type = peasants	size = 4.078	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 4.468	culture = romano_british	religion = catholic }
+	define_pop = {	type = peasants	size = 4.078	culture = romano_british	religion = catholic }
 }
 ludlow = {
-	define_pop = {	type = peasants	size = 6.553	culture = briton	religion = catholic }
-	define_pop = {	type = peasants	size = 0.782	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 6.553	culture = romano_british	religion = catholic }
+	define_pop = {	type = peasants	size = 0.782	culture = romano_british	religion = catholic }
 }
 hereford = {
-	define_pop = {	type = peasants	size = 4.346	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 4.346	culture = romano_british	religion = catholic }
 }
 ewyas = {
-	define_pop = {	type = peasants	size = 5.608	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 5.608	culture = romano_british	religion = catholic }
 }
 wigmore = {
-	define_pop = {	type = peasants	size = 3.887	culture = briton	religion = catholic }
-	define_pop = {	type = peasants	size = 0.654	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 3.887	culture = romano_british	religion = catholic }
+	define_pop = {	type = peasants	size = 0.654	culture = romano_british	religion = catholic }
 }
 worcester = {
-	define_pop = {	type = peasants	size = 7.479	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 7.479	culture = romano_british	religion = catholic }
 }
 kidderminster = {
-	define_pop = {	type = peasants	size = 7.239	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 7.239	culture = romano_british	religion = catholic }
 }
 stafford = {
-	define_pop = {	type = peasants	size = 8.061	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 8.061	culture = romano_british	religion = catholic }
 }
 stoke = {
-	define_pop = {	type = peasants	size = 6.578	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 6.578	culture = romano_british	religion = catholic }
 }
 tamworth = {
-	define_pop = {	type = peasants	size = 7.243	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 7.243	culture = romano_british	religion = catholic }
 }
 lancaster = {
 	define_pop = {	type = peasants	size = 2.588	culture = briton	religion = catholic }
@@ -6780,8 +6780,8 @@ pennines_01 = {
 pennines_02 = {
 }
 york = {
-	define_pop = {	type = peasants	size = 7.551	culture = briton	religion = catholic }
-	define_pop = {	type = peasants	size = 3.775	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 7.551	culture = romano_british	religion = catholic }
+	define_pop = {	type = peasants	size = 3.775	culture = romano_british	religion = catholic }
 }
 scarborough = {
 	define_pop = {	type = peasants	size = 7.765	culture = briton	religion = catholic }
@@ -6899,67 +6899,67 @@ nantwich = {
 	define_pop = {	type = peasants	size = 5.427	culture = briton	religion = catholic }
 }
 norwich = {
-	define_pop = {	type = peasants	size = 27.252	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 27.252	culture = romano_british	religion = catholic }
 }
 lynn = {
-	define_pop = {	type = peasants	size = 27.256	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 27.256	culture = romano_british	religion = catholic }
 }
 yarmouth = {
-	define_pop = {	type = peasants	size = 23.784	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 23.784	culture = romano_british	religion = catholic }
 }
 thetford = {
-	define_pop = {	type = peasants	size = 23.111	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 23.111	culture = romano_british	religion = catholic }
 }
 fakenham = {
-	define_pop = {	type = peasants	size = 24.250	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 24.250	culture = romano_british	religion = catholic }
 }
 colchester = {
-	define_pop = {	type = peasants	size = 12.126	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 12.126	culture = romano_british	religion = catholic }
 }
 chelmsford = {
-	define_pop = {	type = peasants	size = 12.288	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 12.288	culture = romano_british	religion = catholic }
 }
 prittlewell = {
-	define_pop = {	type = peasants	size = 12.475	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 12.475	culture = romano_british	religion = catholic }
 }
 hedingham = {
-	define_pop = {	type = peasants	size = 10.210	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 10.210	culture = romano_british	religion = catholic }
 }
 walden = {
-	define_pop = {	type = peasants	size = 10.940	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 10.940	culture = romano_british	religion = catholic }
 }
 barking = {
-	define_pop = {	type = peasants	size = 5.872	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 5.872	culture = romano_british	religion = catholic }
 }
 ipswich = {
-	define_pop = {	type = peasants	size = 19.465	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 19.465	culture = romano_british	religion = catholic }
 }
 bury = {
-	define_pop = {	type = peasants	size = 16.064	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 16.064	culture = romano_british	religion = catholic }
 }
 lowestoft = {
-	define_pop = {	type = peasants	size = 18.409	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 18.409	culture = romano_british	religion = catholic }
 }
 lavenham = {
-	define_pop = {	type = peasants	size = 21.567	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 21.567	culture = romano_british	religion = catholic }
 }
 cambridge = {
-	define_pop = {	type = peasants	size = 10.626	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 10.626	culture = romano_british	religion = catholic }
 }
 ely = {
-	define_pop = {	type = peasants	size = 6.093	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 6.093	culture = romano_british	religion = catholic }
 }
 huntingdon = {
-	define_pop = {	type = peasants	size = 9.872	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 9.872	culture = romano_british	religion = catholic }
 }
 royston = {
-	define_pop = {	type = peasants	size = 9.559	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 9.559	culture = romano_british	religion = catholic }
 }
 hertford = {
-	define_pop = {	type = peasants	size = 11.902	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 11.902	culture = romano_british	religion = catholic }
 }
 st_albans = {
-	define_pop = {	type = peasants	size = 10.948	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 10.948	culture = romano_british	religion = catholic }
 }
 launceston = {
 	define_pop = {	type = peasants	size = 5.426	culture = briton	religion = catholic }
@@ -6976,19 +6976,19 @@ bodmin = {
 scilly_isles = {
 }
 wells = {
-	define_pop = {	type = peasants	size = 8.221	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 8.221	culture = romano_british	religion = catholic }
 }
 taunton = {
-	define_pop = {	type = peasants	size = 11.218	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 11.218	culture = romano_british	religion = catholic }
 }
 bath = {
-	define_pop = {	type = peasants	size = 12.312	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 12.312	culture = romano_british	religion = catholic }
 }
 portishead = {
-	define_pop = {	type = peasants	size = 10.732	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 10.732	culture = romano_british	religion = catholic }
 }
 minehead = {
-	define_pop = {	type = peasants	size = 13.143	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 13.143	culture = romano_british	religion = catholic }
 }
 plymouth = {
 	define_pop = {	type = peasants	size = 8.414	culture = briton	religion = catholic }
@@ -7012,40 +7012,40 @@ okehampton = {
 dartmoor = {
 }
 poole = {
-	define_pop = {	type = peasants	size = 8.591	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 8.591	culture = romano_british	religion = catholic }
 }
 weymouth = {
-	define_pop = {	type = peasants	size = 10.269	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 10.269	culture = romano_british	religion = catholic }
 }
 dorchester = {
-	define_pop = {	type = peasants	size = 8.569	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 8.569	culture = romano_british	religion = catholic }
 }
 shaftesbury = {
-	define_pop = {	type = peasants	size = 7.852	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 7.852	culture = romano_british	religion = catholic }
 }
 salisbury = {
-	define_pop = {	type = peasants	size = 13.926	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 13.926	culture = romano_british	religion = catholic }
 }
 trowbridge = {
-	define_pop = {	type = peasants	size = 13.117	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 13.117	culture = romano_british	religion = catholic }
 }
 chippenham = {
-	define_pop = {	type = peasants	size = 11.458	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 11.458	culture = romano_british	religion = catholic }
 }
 amesbury = {
-	define_pop = {	type = peasants	size = 15.126	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 15.126	culture = romano_british	religion = catholic }
 }
 bristol = {
-	define_pop = {	type = peasants	size = 15.542	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 15.542	culture = romano_british	religion = catholic }
 }
 gloucester = {
-	define_pop = {	type = peasants	size = 12.993	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 12.993	culture = romano_british	religion = catholic }
 }
 cheltenham = {
-	define_pop = {	type = peasants	size = 12.809	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 12.809	culture = romano_british	religion = catholic }
 }
 cirencester = {
-	define_pop = {	type = peasants	size = 10.336	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 10.336	culture = romano_british	religion = catholic }
 }
 inverness = {
 	define_pop = {	type = peasants	size = 1.706	culture = pictish	religion = catholic }
@@ -7377,39 +7377,39 @@ inverurie = {
 	define_pop = {	type = tribesmen	size = 1.175	culture = pictish	religion = catholic }
 }
 carmarthen = {
-	define_pop = {	type = clergy	size = 0.004	culture = briton	religion = catholic }
-	define_pop = {	type = peasants	size = 6.671	culture = briton	religion = catholic }
+	define_pop = {	type = clergy	size = 0.004	culture = irish	religion = catholic }
+	define_pop = {	type = peasants	size = 6.671	culture = irish	religion = catholic }
 }
 pembroke = {
-	define_pop = {	type = peasants	size = 12.540	culture = briton	religion = catholic }
-	define_pop = {	type = peasants	size = 3.608	culture = briton	religion = catholic }
-	define_pop = {	type = peasants	size = 0.472	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 12.540	culture = irish	religion = catholic }
+	define_pop = {	type = peasants	size = 3.608	culture = irish	religion = catholic }
+	define_pop = {	type = peasants	size = 0.472	culture = irish	religion = catholic }
 }
 fishguard = {
-	define_pop = {	type = clergy	size = 0.004	culture = briton	religion = catholic }
-	define_pop = {	type = peasants	size = 7.397	culture = briton	religion = catholic }
+	define_pop = {	type = clergy	size = 0.004	culture = irish	religion = catholic }
+	define_pop = {	type = peasants	size = 7.397	culture = irish	religion = catholic }
 }
 kidwelly = {
-	define_pop = {	type = peasants	size = 2.069	culture = briton	religion = catholic }
+	define_pop = {	type = peasants	size = 2.069	culture = irish	religion = catholic }
 }
 cardigan = {
-	define_pop = {	type = clergy	size = 0.094	culture = briton	religion = catholic }
-	define_pop = {	type = peasants	size = 4.067	culture = briton	religion = catholic }
+	define_pop = {	type = clergy	size = 0.094	culture = irish	religion = catholic }
+	define_pop = {	type = peasants	size = 4.067	culture = irish	religion = catholic }
 }
 aberystwyth = {
-	define_pop = {	type = clergy	size = 0.004	culture = briton	religion = catholic }
-	define_pop = {	type = peasants	size = 5.332	culture = briton	religion = catholic }
+	define_pop = {	type = clergy	size = 0.004	culture = irish	religion = catholic }
+	define_pop = {	type = peasants	size = 5.332	culture = irish	religion = catholic }
 }
 carnarvon = {
-	define_pop = {	type = nobles	size = 0.004	culture = briton	religion = catholic }
-	define_pop = {	type = clergy	size = 0.009	culture = briton	religion = catholic }
-	define_pop = {	type = peasants	size = 5.505	culture = briton	religion = catholic }
-	define_pop = {	type = peasants	size = 0.449	culture = briton	religion = catholic }
+	define_pop = {	type = nobles	size = 0.004	culture = irish	religion = catholic }
+	define_pop = {	type = clergy	size = 0.009	culture = irish	religion = catholic }
+	define_pop = {	type = peasants	size = 5.505	culture = irish	religion = catholic }
+	define_pop = {	type = peasants	size = 0.449	culture = irish	religion = catholic }
 }
 anglesey = {
-	define_pop = {	type = nobles	size = 0.013	culture = briton	religion = catholic }
-	define_pop = {	type = clergy	size = 0.026	culture = briton	religion = catholic }
-	define_pop = {	type = peasants	size = 7.192	culture = briton	religion = catholic }
+	define_pop = {	type = nobles	size = 0.013	culture = irish	religion = catholic }
+	define_pop = {	type = clergy	size = 0.026	culture = irish	religion = catholic }
+	define_pop = {	type = peasants	size = 7.192	culture = irish	religion = catholic }
 }
 conwy = {
 	define_pop = {	type = nobles	size = 0.004	culture = briton	religion = catholic }
@@ -26229,27 +26229,27 @@ thasos = {
 lake_achinos = {
 }
 melnik = {
-	define_pop = {	type = clergy	size = 0.012	culture = greek_culture	religion = orthodox }
-	define_pop = {	type = peasants	size = 21.676	culture = greek_culture	religion = orthodox }
+	define_pop = {	type = clergy	size = 0.012	culture = thracian	religion = orthodox }
+	define_pop = {	type = peasants	size = 21.676	culture = thracian	religion = orthodox }
 }
 bansko = {
-	define_pop = {	type = clergy	size = 0.012	culture = greek_culture	religion = orthodox }
-	define_pop = {	type = peasants	size = 7.681	culture = greek_culture	religion = orthodox }
-	define_pop = {	type = peasants	size = 0.851	culture = greek_culture	religion = paulicianism }
+	define_pop = {	type = clergy	size = 0.012	culture = thracian	religion = orthodox }
+	define_pop = {	type = peasants	size = 7.681	culture = thracian	religion = orthodox }
+	define_pop = {	type = peasants	size = 0.851	culture = thracian	religion = paulicianism }
 }
 krupnik = {
-	define_pop = {	type = clergy	size = 0.010	culture = greek_culture	religion = orthodox }
-	define_pop = {	type = peasants	size = 9.211	culture = greek_culture	religion = orthodox }
+	define_pop = {	type = clergy	size = 0.010	culture = thracian	religion = orthodox }
+	define_pop = {	type = peasants	size = 9.211	culture = thracian	religion = orthodox }
 }
 dospat = {
-	define_pop = {	type = clergy	size = 0.012	culture = greek_culture	religion = orthodox }
-	define_pop = {	type = peasants	size = 17.951	culture = greek_culture	religion = orthodox }
-	define_pop = {	type = peasants	size = 1.991	culture = greek_culture	religion = paulicianism }
+	define_pop = {	type = clergy	size = 0.012	culture = thracian	religion = orthodox }
+	define_pop = {	type = peasants	size = 17.951	culture = thracian	religion = orthodox }
+	define_pop = {	type = peasants	size = 1.991	culture = thracian	religion = paulicianism }
 }
 nevrokop = {
-	define_pop = {	type = clergy	size = 0.012	culture = greek_culture	religion = orthodox }
-	define_pop = {	type = peasants	size = 7.175	culture = greek_culture	religion = orthodox }
-	define_pop = {	type = peasants	size = 0.795	culture = greek_culture	religion = paulicianism }
+	define_pop = {	type = clergy	size = 0.012	culture = thracian	religion = orthodox }
+	define_pop = {	type = peasants	size = 7.175	culture = thracian	religion = orthodox }
+	define_pop = {	type = peasants	size = 0.795	culture = thracian	religion = paulicianism }
 }
 rhodope_mountains1 = {
 }
@@ -26364,54 +26364,54 @@ pindus_mountains9 = {
 pindus_mountains10 = {
 }
 skopje = {
-	define_pop = {	type = nobles	size = 0.019	culture = greek_culture	religion = orthodox }
-	define_pop = {	type = clergy	size = 0.066	culture = greek_culture	religion = orthodox }
-	define_pop = {	type = clergy	size = 0.038	culture = greek_culture	religion = orthodox }
-	define_pop = {	type = burghers	size = 0.788	culture = greek_culture	religion = orthodox }
-	define_pop = {	type = burghers	size = 1.189	culture = greek_culture	religion = orthodox }
-	define_pop = {	type = peasants	size = 11.473	culture = greek_culture	religion = orthodox }
-	define_pop = {	type = peasants	size = 15.788	culture = greek_culture	religion = orthodox }
+	define_pop = {	type = nobles	size = 0.019	culture = roman_culture	religion = orthodox }
+	define_pop = {	type = clergy	size = 0.066	culture = roman_culture	religion = orthodox }
+	define_pop = {	type = clergy	size = 0.038	culture = roman_culture	religion = orthodox }
+	define_pop = {	type = burghers	size = 0.788	culture = roman_culture	religion = orthodox }
+	define_pop = {	type = burghers	size = 1.189	culture = roman_culture	religion = orthodox }
+	define_pop = {	type = peasants	size = 11.473	culture = roman_culture	religion = orthodox }
+	define_pop = {	type = peasants	size = 15.788	culture = roman_culture	religion = orthodox }
 }
 prosek = {
-	define_pop = {	type = clergy	size = 0.011	culture = greek_culture	religion = orthodox }
-	define_pop = {	type = peasants	size = 1.625	culture = greek_culture	religion = orthodox }
-	define_pop = {	type = peasants	size = 16.296	culture = greek_culture	religion = orthodox }
-	define_pop = {	type = peasants	size = 2.032	culture = greek_culture	religion = bogomilism }
-	define_pop = {	type = peasants	size = 0.404	culture = greek_culture	religion = bogomilism }
+	define_pop = {	type = clergy	size = 0.011	culture = roman_culture	religion = orthodox }
+	define_pop = {	type = peasants	size = 1.625	culture = roman_culture	religion = orthodox }
+	define_pop = {	type = peasants	size = 16.296	culture = roman_culture	religion = orthodox }
+	define_pop = {	type = peasants	size = 2.032	culture = roman_culture	religion = bogomilism }
+	define_pop = {	type = peasants	size = 0.404	culture = roman_culture	religion = bogomilism }
 }
 kocani = {
-	define_pop = {	type = clergy	size = 0.013	culture = greek_culture	religion = orthodox }
-	define_pop = {	type = peasants	size = 19.619	culture = greek_culture	religion = orthodox }
+	define_pop = {	type = clergy	size = 0.013	culture = roman_culture	religion = orthodox }
+	define_pop = {	type = peasants	size = 19.619	culture = roman_culture	religion = orthodox }
 }
 kratovo = {
-	define_pop = {	type = clergy	size = 0.011	culture = greek_culture	religion = orthodox }
-	define_pop = {	type = peasants	size = 2.246	culture = greek_culture	religion = orthodox }
-	define_pop = {	type = peasants	size = 4.942	culture = greek_culture	religion = orthodox }
+	define_pop = {	type = clergy	size = 0.011	culture = roman_culture	religion = orthodox }
+	define_pop = {	type = peasants	size = 2.246	culture = roman_culture	religion = orthodox }
+	define_pop = {	type = peasants	size = 4.942	culture = roman_culture	religion = orthodox }
 	define_pop = {	type = peasants	size = 0.149	culture = romanyoti	religion = judaism }
-	define_pop = {	type = peasants	size = 0.149	culture = greek_culture	religion = catholic }
+	define_pop = {	type = peasants	size = 0.149	culture = roman_culture	religion = catholic }
 }
 kumanovo = {
-	define_pop = {	type = clergy	size = 0.011	culture = greek_culture	religion = orthodox }
-	define_pop = {	type = peasants	size = 4.300	culture = greek_culture	religion = orthodox }
-	define_pop = {	type = peasants	size = 6.469	culture = greek_culture	religion = orthodox }
+	define_pop = {	type = clergy	size = 0.011	culture = roman_culture	religion = orthodox }
+	define_pop = {	type = peasants	size = 4.300	culture = roman_culture	religion = orthodox }
+	define_pop = {	type = peasants	size = 6.469	culture = roman_culture	religion = orthodox }
 }
 shtip = {
-	define_pop = {	type = clergy	size = 0.011	culture = greek_culture	religion = orthodox }
-	define_pop = {	type = peasants	size = 1.260	culture = greek_culture	religion = orthodox }
-	define_pop = {	type = peasants	size = 12.648	culture = greek_culture	religion = orthodox }
-	define_pop = {	type = peasants	size = 1.575	culture = greek_culture	religion = bogomilism }
-	define_pop = {	type = peasants	size = 0.313	culture = greek_culture	religion = bogomilism }
+	define_pop = {	type = clergy	size = 0.011	culture = roman_culture	religion = orthodox }
+	define_pop = {	type = peasants	size = 1.260	culture = roman_culture	religion = orthodox }
+	define_pop = {	type = peasants	size = 12.648	culture = roman_culture	religion = orthodox }
+	define_pop = {	type = peasants	size = 1.575	culture = roman_culture	religion = bogomilism }
+	define_pop = {	type = peasants	size = 0.313	culture = roman_culture	religion = bogomilism }
 }
 strumica = {
-	define_pop = {	type = clergy	size = 0.013	culture = greek_culture	religion = orthodox }
-	define_pop = {	type = peasants	size = 13.733	culture = greek_culture	religion = orthodox }
+	define_pop = {	type = clergy	size = 0.013	culture = roman_culture	religion = orthodox }
+	define_pop = {	type = peasants	size = 13.733	culture = roman_culture	religion = orthodox }
 }
 veles = {
-	define_pop = {	type = clergy	size = 0.011	culture = greek_culture	religion = orthodox }
-	define_pop = {	type = peasants	size = 0.793	culture = greek_culture	religion = orthodox }
-	define_pop = {	type = peasants	size = 7.981	culture = greek_culture	religion = orthodox }
-	define_pop = {	type = peasants	size = 0.992	culture = greek_culture	religion = bogomilism }
-	define_pop = {	type = peasants	size = 0.196	culture = greek_culture	religion = bogomilism }
+	define_pop = {	type = clergy	size = 0.011	culture = roman_culture	religion = orthodox }
+	define_pop = {	type = peasants	size = 0.793	culture = roman_culture	religion = orthodox }
+	define_pop = {	type = peasants	size = 7.981	culture = roman_culture	religion = orthodox }
+	define_pop = {	type = peasants	size = 0.992	culture = roman_culture	religion = bogomilism }
+	define_pop = {	type = peasants	size = 0.196	culture = roman_culture	religion = bogomilism }
 }
 burgas = {
 	define_pop = {	type = clergy	size = 0.010	culture = greek_culture	religion = orthodox }
@@ -26544,40 +26544,40 @@ xanthia = {
 	define_pop = {	type = peasants	size = 1.390	culture = greek_culture	religion = orthodox }
 }
 stanimaka = {
-	define_pop = {	type = clergy	size = 0.011	culture = greek_culture	religion = orthodox }
-	define_pop = {	type = peasants	size = 15.153	culture = greek_culture	religion = orthodox }
-	define_pop = {	type = peasants	size = 2.672	culture = greek_culture	religion = paulicianism }
+	define_pop = {	type = clergy	size = 0.011	culture = thracian	religion = orthodox }
+	define_pop = {	type = peasants	size = 15.153	culture = thracian	religion = orthodox }
+	define_pop = {	type = peasants	size = 2.672	culture = thracian	religion = paulicianism }
 }
 beden = {
-	define_pop = {	type = clergy	size = 0.011	culture = greek_culture	religion = orthodox }
-	define_pop = {	type = peasants	size = 6.652	culture = greek_culture	religion = orthodox }
-	define_pop = {	type = peasants	size = 0.738	culture = greek_culture	religion = paulicianism }
+	define_pop = {	type = clergy	size = 0.011	culture = thracian	religion = orthodox }
+	define_pop = {	type = peasants	size = 6.652	culture = thracian	religion = orthodox }
+	define_pop = {	type = peasants	size = 0.738	culture = thracian	religion = paulicianism }
 }
 haskovo = {
-	define_pop = {	type = clergy	size = 0.011	culture = greek_culture	religion = orthodox }
-	define_pop = {	type = peasants	size = 14.144	culture = greek_culture	religion = orthodox }
-	define_pop = {	type = peasants	size = 1.569	culture = greek_culture	religion = paulicianism }
+	define_pop = {	type = clergy	size = 0.011	culture = thracian	religion = orthodox }
+	define_pop = {	type = peasants	size = 14.144	culture = thracian	religion = orthodox }
+	define_pop = {	type = peasants	size = 1.569	culture = thracian	religion = paulicianism }
 }
 ormenio = {
-	define_pop = {	type = clergy	size = 0.011	culture = greek_culture	religion = orthodox }
-	define_pop = {	type = peasants	size = 7.148	culture = greek_culture	religion = orthodox }
-	define_pop = {	type = peasants	size = 2.747	culture = greek_culture	religion = orthodox }
-	define_pop = {	type = peasants	size = 1.099	culture = greek_culture	religion = paulicianism }
+	define_pop = {	type = clergy	size = 0.011	culture = thracian	religion = orthodox }
+	define_pop = {	type = peasants	size = 7.148	culture = thracian	religion = orthodox }
+	define_pop = {	type = peasants	size = 2.747	culture = thracian	religion = orthodox }
+	define_pop = {	type = peasants	size = 1.099	culture = thracian	religion = paulicianism }
 }
 perperek = {
-	define_pop = {	type = clergy	size = 0.011	culture = greek_culture	religion = orthodox }
-	define_pop = {	type = peasants	size = 9.418	culture = greek_culture	religion = orthodox }
-	define_pop = {	type = peasants	size = 1.660	culture = greek_culture	religion = paulicianism }
+	define_pop = {	type = clergy	size = 0.011	culture = thracian	religion = orthodox }
+	define_pop = {	type = peasants	size = 9.418	culture = thracian	religion = orthodox }
+	define_pop = {	type = peasants	size = 1.660	culture = thracian	religion = paulicianism }
 }
 smolyan = {
-	define_pop = {	type = clergy	size = 0.011	culture = greek_culture	religion = orthodox }
-	define_pop = {	type = peasants	size = 11.049	culture = greek_culture	religion = orthodox }
-	define_pop = {	type = peasants	size = 1.948	culture = greek_culture	religion = paulicianism }
+	define_pop = {	type = clergy	size = 0.011	culture = thracian	religion = orthodox }
+	define_pop = {	type = peasants	size = 11.049	culture = thracian	religion = orthodox }
+	define_pop = {	type = peasants	size = 1.948	culture = thracian	religion = paulicianism }
 }
 ustra = {
-	define_pop = {	type = clergy	size = 0.011	culture = greek_culture	religion = orthodox }
-	define_pop = {	type = peasants	size = 10.490	culture = greek_culture	religion = orthodox }
-	define_pop = {	type = peasants	size = 1.849	culture = greek_culture	religion = paulicianism }
+	define_pop = {	type = clergy	size = 0.011	culture = thracian	religion = orthodox }
+	define_pop = {	type = peasants	size = 10.490	culture = thracian	religion = orthodox }
+	define_pop = {	type = peasants	size = 1.849	culture = thracian	religion = paulicianism }
 }
 rhodope_mountains5 = {
 }
@@ -26652,19 +26652,19 @@ tsepina = {
 	define_pop = {	type = peasants	size = 1.902	culture = greek_culture	religion = paulicianism }
 }
 durres = {
-	define_pop = {	type = nobles	size = 0.031	culture = albanian	religion = catholic }
-	define_pop = {	type = clergy	size = 0.081	culture = albanian	religion = catholic }
-	define_pop = {	type = clergy	size = 0.022	culture = albanian	religion = orthodox }
+	define_pop = {	type = nobles	size = 0.031	culture = roman_culture	religion = catholic }
+	define_pop = {	type = clergy	size = 0.081	culture = roman_culture	religion = catholic }
+	define_pop = {	type = clergy	size = 0.022	culture = roman_culture	religion = orthodox }
 	define_pop = {	type = burghers	size = 0.727	culture = albanian	religion = catholic }
-	define_pop = {	type = burghers	size = 0.727	culture = albanian	religion = catholic }
-	define_pop = {	type = burghers	size = 0.101	culture = albanian	religion = judaism }
-	define_pop = {	type = burghers	size = 0.168	culture = albanian	religion = catholic }
-	define_pop = {	type = burghers	size = 0.056	culture = albanian	religion = orthodox }
+	define_pop = {	type = burghers	size = 0.727	culture = roman_culture	religion = catholic }
+	define_pop = {	type = burghers	size = 0.101	culture = roman_culture	religion = judaism }
+	define_pop = {	type = burghers	size = 0.168	culture = roman_culture	religion = catholic }
+	define_pop = {	type = burghers	size = 0.056	culture = roman_culture	religion = orthodox }
 	define_pop = {	type = peasants	size = 10.065	culture = albanian	religion = catholic }
 	define_pop = {	type = peasants	size = 1.118	culture = albanian	religion = orthodox }
-	define_pop = {	type = peasants	size = 1.439	culture = albanian	religion = catholic }
-	define_pop = {	type = peasants	size = 1.338	culture = albanian	religion = orthodox }
-	define_pop = {	type = tribesmen	size = 0.061	culture = albanian	religion = orthodox }
+	define_pop = {	type = peasants	size = 1.439	culture = roman_culture	religion = catholic }
+	define_pop = {	type = peasants	size = 1.338	culture = roman_culture	religion = orthodox }
+	define_pop = {	type = tribesmen	size = 0.061	culture = roman_culture	religion = orthodox }
 }
 ballsh = {
 	define_pop = {	type = clergy	size = 0.010	culture = albanian	religion = orthodox }
@@ -31972,18 +31972,18 @@ makisin = {
 	define_pop = {	type = slaves	size = 1.996	culture = syriac_culture	religion = nestorianism }
 }
 antioch = {
-	define_pop = {	type = nobles	size = 0.044	culture = armenian_culture	religion = miaphysite }
-	define_pop = {	type = clergy	size = 0.356	culture = armenian_culture	religion = miaphysite }
-	define_pop = {	type = burghers	size = 5.066	culture = armenian_culture	religion = miaphysite }
+	define_pop = {	type = nobles	size = 0.044	culture = greek_culture	religion = miaphysite }
+	define_pop = {	type = clergy	size = 0.356	culture = greek_culture	religion = miaphysite }
+	define_pop = {	type = burghers	size = 5.066	culture = greek_culture	religion = miaphysite }
 	define_pop = {	type = burghers	size = 0.937	culture = mizrahi	religion = judaism }
-	define_pop = {	type = burghers	size = 0.937	culture = syriac_culture	religion = sunni }
-	define_pop = {	type = burghers	size = 2.345	culture = syriac_culture	religion = miaphysite }
-	define_pop = {	type = peasants	size = 18.878	culture = syriac_culture	religion = shia }
-	define_pop = {	type = tribesmen	size = 32.364	culture = syriac_culture	religion = shia }
-	define_pop = {	type = slaves	size = 11.326	culture = syriac_culture	religion = orthodox }
-	define_pop = {	type = slaves	size = 7.550	culture = syriac_culture	religion = miaphysite }
+	define_pop = {	type = burghers	size = 0.937	culture = greek_culture	religion = sunni }
+	define_pop = {	type = burghers	size = 2.345	culture = greek_culture	religion = miaphysite }
+	define_pop = {	type = peasants	size = 18.878	culture = greek_culture	religion = shia }
+	define_pop = {	type = tribesmen	size = 32.364	culture = greek_culture	religion = shia }
+	define_pop = {	type = slaves	size = 11.326	culture = greek_culture	religion = orthodox }
+	define_pop = {	type = slaves	size = 7.550	culture = greek_culture	religion = miaphysite }
 	define_pop = {	type = slaves	size = 2.264	culture = mizrahi	religion = judaism }
-	define_pop = {	type = slaves	size = 35.492	culture = armenian_culture	religion = miaphysite }
+	define_pop = {	type = slaves	size = 35.492	culture = greek_culture	religion = miaphysite }
 }
 afrin = {
 	define_pop = {	type = clergy	size = 0.022	culture = syriac_culture	religion = sunni }
@@ -31994,10 +31994,10 @@ afrin = {
 	define_pop = {	type = slaves	size = 9.107	culture = syriac_culture	religion = miaphysite }
 }
 arsuz = {
-	define_pop = {	type = clergy	size = 0.022	culture = armenian_culture	religion = miaphysite }
-	define_pop = {	type = peasants	size = 2.157	culture = syriac_culture	religion = shia }
-	define_pop = {	type = slaves	size = 2.699	culture = syriac_culture	religion = miaphysite }
-	define_pop = {	type = slaves	size = 5.943	culture = armenian_culture	religion = miaphysite }
+	define_pop = {	type = clergy	size = 0.022	culture = greek_culture	religion = miaphysite }
+	define_pop = {	type = peasants	size = 2.157	culture = greek_culture	religion = shia }
+	define_pop = {	type = slaves	size = 2.699	culture = greek_culture	religion = miaphysite }
+	define_pop = {	type = slaves	size = 5.943	culture = greek_culture	religion = miaphysite }
 }
 artah = {
 	define_pop = {	type = clergy	size = 0.022	culture = armenian_culture	religion = miaphysite }
@@ -32070,23 +32070,23 @@ taybah = {
 	define_pop = {	type = slaves	size = 1.347	culture = syriac_culture	religion = miaphysite }
 }
 jerusalem = {
-	define_pop = {	type = nobles	size = 0.030	culture = syriac_culture	religion = sunni }
-	define_pop = {	type = clergy	size = 0.210	culture = syriac_culture	religion = sunni }
-	define_pop = {	type = burghers	size = 5.195	culture = syriac_culture	religion = sunni }
-	define_pop = {	type = peasants	size = 31.543	culture = syriac_culture	religion = sunni }
-	define_pop = {	type = slaves	size = 6.633	culture = syriac_culture	religion = orthodox }
-	define_pop = {	type = slaves	size = 18.670	culture = syriac_culture	religion = orthodox }
+	define_pop = {	type = nobles	size = 0.030	culture = greek_culture	religion = sunni }
+	define_pop = {	type = clergy	size = 0.210	culture = greek_culture	religion = sunni }
+	define_pop = {	type = burghers	size = 5.195	culture = greek_culture	religion = sunni }
+	define_pop = {	type = peasants	size = 31.543	culture = greek_culture	religion = sunni }
+	define_pop = {	type = slaves	size = 6.633	culture = greek_culture	religion = orthodox }
+	define_pop = {	type = slaves	size = 18.670	culture = greek_culture	religion = orthodox }
 	define_pop = {	type = slaves	size = 14.101	culture = mizrahi	religion = judaism }
-	define_pop = {	type = slaves	size = 3.732	culture = syriac_culture	religion = samaritanism }
+	define_pop = {	type = slaves	size = 3.732	culture = greek_culture	religion = samaritanism }
 }
 acre = {
-	define_pop = {	type = nobles	size = 0.027	culture = syriac_culture	religion = sunni }
-	define_pop = {	type = clergy	size = 0.200	culture = syriac_culture	religion = sunni }
-	define_pop = {	type = burghers	size = 5.224	culture = syriac_culture	religion = sunni }
-	define_pop = {	type = peasants	size = 46.591	culture = syriac_culture	religion = sunni }
-	define_pop = {	type = slaves	size = 23.294	culture = syriac_culture	religion = orthodox }
+	define_pop = {	type = nobles	size = 0.027	culture = greek_culture	religion = sunni }
+	define_pop = {	type = clergy	size = 0.200	culture = greek_culture	religion = sunni }
+	define_pop = {	type = burghers	size = 5.224	culture = greek_culture	religion = sunni }
+	define_pop = {	type = peasants	size = 46.591	culture = greek_culture	religion = sunni }
+	define_pop = {	type = slaves	size = 23.294	culture = greek_culture	religion = orthodox }
 	define_pop = {	type = slaves	size = 9.317	culture = mizrahi	religion = judaism }
-	define_pop = {	type = slaves	size = 13.975	culture = syriac_culture	religion = druzism }
+	define_pop = {	type = slaves	size = 13.975	culture = greek_culture	religion = druzism }
 }
 beersheba = {
 	define_pop = {	type = clergy	size = 0.022	culture = syriac_culture	religion = sunni }
@@ -32094,46 +32094,46 @@ beersheba = {
 	define_pop = {	type = tribesmen	size = 46.339	culture = bedouin_culture	religion = sunni }
 }
 gaza = {
-	define_pop = {	type = clergy	size = 0.025	culture = syriac_culture	religion = sunni }
-	define_pop = {	type = peasants	size = 44.142	culture = syriac_culture	religion = sunni }
+	define_pop = {	type = clergy	size = 0.025	culture = greek_culture	religion = sunni }
+	define_pop = {	type = peasants	size = 44.142	culture = greek_culture	religion = sunni }
 }
 hebron = {
 	define_pop = {	type = clergy	size = 0.022	culture = syriac_culture	religion = sunni }
 	define_pop = {	type = peasants	size = 48.084	culture = syriac_culture	religion = sunni }
 }
 jaffa = {
-	define_pop = {	type = peasants	size = 54.647	culture = syriac_culture	religion = sunni }
+	define_pop = {	type = peasants	size = 54.647	culture = greek_culture	religion = sunni }
 }
 majdal = {
-	define_pop = {	type = clergy	size = 0.010	culture = syriac_culture	religion = sunni }
-	define_pop = {	type = peasants	size = 73.155	culture = syriac_culture	religion = sunni }
+	define_pop = {	type = clergy	size = 0.010	culture = greek_culture	religion = sunni }
+	define_pop = {	type = peasants	size = 73.155	culture = greek_culture	religion = sunni }
 	define_pop = {	type = slaves	size = 13.716	culture = mizrahi	religion = judaism }
-	define_pop = {	type = slaves	size = 4.569	culture = syriac_culture	religion = samaritanism }
+	define_pop = {	type = slaves	size = 4.569	culture = greek_culture	religion = samaritanism }
 }
 nablus = {
-	define_pop = {	type = clergy	size = 0.027	culture = syriac_culture	religion = sunni }
-	define_pop = {	type = peasants	size = 57.741	culture = syriac_culture	religion = sunni }
-	define_pop = {	type = slaves	size = 14.432	culture = syriac_culture	religion = orthodox }
+	define_pop = {	type = clergy	size = 0.027	culture = samaritan_culture	religion = sunni }
+	define_pop = {	type = peasants	size = 57.741	culture = samaritan_culture	religion = sunni }
+	define_pop = {	type = slaves	size = 14.432	culture = samaritan_culture	religion = orthodox }
 }
 safed = {
-	define_pop = {	type = clergy	size = 0.012	culture = syriac_culture	religion = sunni }
-	define_pop = {	type = peasants	size = 50.253	culture = syriac_culture	religion = sunni }
-	define_pop = {	type = slaves	size = 25.125	culture = syriac_culture	religion = orthodox }
+	define_pop = {	type = clergy	size = 0.012	culture = mizrahi	religion = sunni }
+	define_pop = {	type = peasants	size = 50.253	culture = mizrahi	religion = sunni }
+	define_pop = {	type = slaves	size = 25.125	culture = mizrahi	religion = orthodox }
 	define_pop = {	type = slaves	size = 10.048	culture = mizrahi	religion = judaism }
-	define_pop = {	type = slaves	size = 15.075	culture = syriac_culture	religion = druzism }
+	define_pop = {	type = slaves	size = 15.075	culture = mizrahi	religion = druzism }
 }
 dead_sea = {
 }
 sea_galilee = {
 }
 aleppo = {
-	define_pop = {	type = nobles	size = 0.044	culture = syriac_culture	religion = orthodox }
+	define_pop = {	type = nobles	size = 0.044	culture = greek_culture	religion = orthodox }
 	define_pop = {	type = clergy	size = 0.185	culture = syriac_culture	religion = miaphysite }
 	define_pop = {	type = clergy	size = 0.185	culture = syriac_culture	religion = orthodox }
-	define_pop = {	type = burghers	size = 2.414	culture = syriac_culture	religion = miaphysite }
-	define_pop = {	type = burghers	size = 2.896	culture = syriac_culture	religion = sunni }
+	define_pop = {	type = burghers	size = 2.414	culture = greek_culture	religion = miaphysite }
+	define_pop = {	type = burghers	size = 2.896	culture = greek_culture	religion = sunni }
 	define_pop = {	type = burghers	size = 0.964	culture = mizrahi	religion = judaism }
-	define_pop = {	type = burghers	size = 3.378	culture = syriac_culture	religion = orthodox }
+	define_pop = {	type = burghers	size = 3.378	culture = greek_culture	religion = orthodox }
 	define_pop = {	type = peasants	size = 16.735	culture = syriac_culture	religion = shia }
 	define_pop = {	type = peasants	size = 58.582	culture = syriac_culture	religion = sunni }
 	define_pop = {	type = slaves	size = 5.019	culture = mizrahi	religion = judaism }
@@ -32188,13 +32188,13 @@ zardana = {
 lake_jabbul = {
 }
 bosra = {
-	define_pop = {	type = clergy	size = 0.012	culture = syriac_culture	religion = sunni }
-	define_pop = {	type = peasants	size = 2.523	culture = syriac_culture	religion = sunni }
-	define_pop = {	type = peasants	size = 18.932	culture = syriac_culture	religion = druzism }
-	define_pop = {	type = slaves	size = 3.786	culture = syriac_culture	religion = orthodox }
+	define_pop = {	type = clergy	size = 0.012	culture = greek_culture	religion = sunni }
+	define_pop = {	type = peasants	size = 2.523	culture = greek_culture	religion = sunni }
+	define_pop = {	type = peasants	size = 18.932	culture = greek_culture	religion = druzism }
+	define_pop = {	type = slaves	size = 3.786	culture = greek_culture	religion = orthodox }
 }
 azraq = {
-	define_pop = {	type = peasants	size = 15.235	culture = syriac_culture	religion = sunni }
+	define_pop = {	type = peasants	size = 15.235	culture = bedouin_culture	religion = sunni }
 }
 dara = {
 	define_pop = {	type = clergy	size = 0.015	culture = syriac_culture	religion = sunni }
@@ -32202,10 +32202,10 @@ dara = {
 	define_pop = {	type = slaves	size = 5.237	culture = syriac_culture	religion = orthodox }
 }
 irbid = {
-	define_pop = {	type = nobles	size = 0.017	culture = bedouin_culture	religion = sunni }
-	define_pop = {	type = clergy	size = 0.017	culture = syriac_culture	religion = sunni }
-	define_pop = {	type = peasants	size = 34.462	culture = syriac_culture	religion = sunni }
-	define_pop = {	type = slaves	size = 6.079	culture = syriac_culture	religion = orthodox }
+	define_pop = {	type = nobles	size = 0.017	culture = greek_culture	religion = sunni }
+	define_pop = {	type = clergy	size = 0.017	culture = greek_culture	religion = sunni }
+	define_pop = {	type = peasants	size = 34.462	culture = greek_culture	religion = sunni }
+	define_pop = {	type = slaves	size = 6.079	culture = greek_culture	religion = orthodox }
 }
 nawa = {
 	define_pop = {	type = clergy	size = 0.012	culture = syriac_culture	religion = sunni }
@@ -32214,16 +32214,16 @@ nawa = {
 	define_pop = {	type = slaves	size = 8.726	culture = syriac_culture	religion = orthodox }
 }
 salkhad = {
-	define_pop = {	type = clergy	size = 0.010	culture = syriac_culture	religion = sunni }
-	define_pop = {	type = peasants	size = 2.301	culture = syriac_culture	religion = sunni }
-	define_pop = {	type = peasants	size = 16.123	culture = syriac_culture	religion = druzism }
-	define_pop = {	type = slaves	size = 4.604	culture = syriac_culture	religion = orthodox }
+	define_pop = {	type = clergy	size = 0.010	culture = bedouin_culture	religion = sunni }
+	define_pop = {	type = peasants	size = 2.301	culture = bedouin_culture	religion = sunni }
+	define_pop = {	type = peasants	size = 16.123	culture = bedouin_culture	religion = druzism }
+	define_pop = {	type = slaves	size = 4.604	culture = bedouin_culture	religion = orthodox }
 }
 suwayda = {
-	define_pop = {	type = clergy	size = 0.015	culture = syriac_culture	religion = sunni }
-	define_pop = {	type = peasants	size = 1.844	culture = syriac_culture	religion = sunni }
-	define_pop = {	type = peasants	size = 13.849	culture = syriac_culture	religion = druzism }
-	define_pop = {	type = slaves	size = 2.768	culture = syriac_culture	religion = orthodox }
+	define_pop = {	type = clergy	size = 0.015	culture = bedouin_culture	religion = sunni }
+	define_pop = {	type = peasants	size = 1.844	culture = bedouin_culture	religion = sunni }
+	define_pop = {	type = peasants	size = 13.849	culture = bedouin_culture	religion = druzism }
+	define_pop = {	type = slaves	size = 2.768	culture = bedouin_culture	religion = orthodox }
 }
 mountain_druze = {
 }
@@ -32234,11 +32234,11 @@ homs = {
 	define_pop = {	type = slaves	size = 12.300	culture = syriac_culture	religion = miaphysite }
 }
 hama = {
-	define_pop = {	type = clergy	size = 0.022	culture = syriac_culture	religion = sunni }
-	define_pop = {	type = peasants	size = 30.285	culture = syriac_culture	religion = sunni }
-	define_pop = {	type = peasants	size = 18.925	culture = syriac_culture	religion = shia }
-	define_pop = {	type = slaves	size = 15.142	culture = syriac_culture	religion = orthodox }
-	define_pop = {	type = slaves	size = 11.356	culture = syriac_culture	religion = miaphysite }
+	define_pop = {	type = clergy	size = 0.022	culture = greek_culture	religion = sunni }
+	define_pop = {	type = peasants	size = 30.285	culture = greek_culture	religion = sunni }
+	define_pop = {	type = peasants	size = 18.925	culture = greek_culture	religion = shia }
+	define_pop = {	type = slaves	size = 15.142	culture = greek_culture	religion = orthodox }
+	define_pop = {	type = slaves	size = 11.356	culture = greek_culture	religion = miaphysite }
 }
 kafartab = {
 	define_pop = {	type = clergy	size = 0.022	culture = syriac_culture	religion = orthodox }
@@ -32275,10 +32275,10 @@ salamiyya = {
 	define_pop = {	type = slaves	size = 3.606	culture = syriac_culture	religion = miaphysite }
 }
 latakia = {
-	define_pop = {	type = clergy	size = 0.040	culture = syriac_culture	religion = orthodox }
-	define_pop = {	type = peasants	size = 100.502	culture = syriac_culture	religion = shia }
-	define_pop = {	type = peasants	size = 40.200	culture = syriac_culture	religion = sunni }
-	define_pop = {	type = slaves	size = 60.302	culture = syriac_culture	religion = orthodox }
+	define_pop = {	type = clergy	size = 0.040	culture = greek_culture	religion = orthodox }
+	define_pop = {	type = peasants	size = 100.502	culture = greek_culture	religion = shia }
+	define_pop = {	type = peasants	size = 40.200	culture = greek_culture	religion = sunni }
+	define_pop = {	type = slaves	size = 60.302	culture = greek_culture	religion = orthodox }
 }
 baniyas = {
 	define_pop = {	type = clergy	size = 0.015	culture = syriac_culture	religion = orthodox }
@@ -32287,21 +32287,21 @@ baniyas = {
 	define_pop = {	type = slaves	size = 28.289	culture = syriac_culture	religion = orthodox }
 }
 jableh = {
-	define_pop = {	type = clergy	size = 0.040	culture = syriac_culture	religion = orthodox }
-	define_pop = {	type = peasants	size = 85.813	culture = syriac_culture	religion = shia }
-	define_pop = {	type = slaves	size = 28.600	culture = syriac_culture	religion = orthodox }
+	define_pop = {	type = clergy	size = 0.040	culture = greek_culture	religion = orthodox }
+	define_pop = {	type = peasants	size = 85.813	culture = greek_culture	religion = shia }
+	define_pop = {	type = slaves	size = 28.600	culture = greek_culture	religion = orthodox }
 }
 tartus = {
-	define_pop = {	type = clergy	size = 0.020	culture = syriac_culture	religion = orthodox }
-	define_pop = {	type = peasants	size = 119.859	culture = syriac_culture	religion = shia }
-	define_pop = {	type = peasants	size = 19.975	culture = syriac_culture	religion = sunni }
-	define_pop = {	type = slaves	size = 59.928	culture = syriac_culture	religion = orthodox }
+	define_pop = {	type = clergy	size = 0.020	culture = greek_culture	religion = orthodox }
+	define_pop = {	type = peasants	size = 119.859	culture = greek_culture	religion = shia }
+	define_pop = {	type = peasants	size = 19.975	culture = greek_culture	religion = sunni }
+	define_pop = {	type = slaves	size = 59.928	culture = greek_culture	religion = orthodox }
 }
 beirut = {
-	define_pop = {	type = clergy	size = 0.020	culture = syriac_culture	religion = catholic }
-	define_pop = {	type = peasants	size = 22.854	culture = syriac_culture	religion = sunni }
-	define_pop = {	type = slaves	size = 15.235	culture = syriac_culture	religion = druzism }
-	define_pop = {	type = slaves	size = 114.282	culture = syriac_culture	religion = catholic }
+	define_pop = {	type = clergy	size = 0.020	culture = roman_culture	religion = catholic }
+	define_pop = {	type = peasants	size = 22.854	culture = roman_culture	religion = sunni }
+	define_pop = {	type = slaves	size = 15.235	culture = roman_culture	religion = druzism }
+	define_pop = {	type = slaves	size = 114.282	culture = roman_culture	religion = catholic }
 }
 baalbek = {
 	define_pop = {	type = clergy	size = 0.035	culture = syriac_culture	religion = sunni }
@@ -32317,26 +32317,26 @@ deir_qamar = {
 	define_pop = {	type = slaves	size = 26.161	culture = syriac_culture	religion = catholic }
 }
 sidon = {
-	define_pop = {	type = clergy	size = 0.025	culture = syriac_culture	religion = shia }
-	define_pop = {	type = peasants	size = 92.114	culture = syriac_culture	religion = shia }
-	define_pop = {	type = slaves	size = 81.878	culture = syriac_culture	religion = catholic }
-	define_pop = {	type = slaves	size = 30.703	culture = syriac_culture	religion = druzism }
+	define_pop = {	type = clergy	size = 0.025	culture = greek_culture	religion = shia }
+	define_pop = {	type = peasants	size = 92.114	culture = greek_culture	religion = shia }
+	define_pop = {	type = slaves	size = 81.878	culture = greek_culture	religion = catholic }
+	define_pop = {	type = slaves	size = 30.703	culture = greek_culture	religion = druzism }
 }
 tripoli_syria = {
-	define_pop = {	type = clergy	size = 0.027	culture = syriac_culture	religion = catholic }
-	define_pop = {	type = peasants	size = 22.382	culture = syriac_culture	religion = shia }
-	define_pop = {	type = slaves	size = 74.623	culture = syriac_culture	religion = catholic }
-	define_pop = {	type = slaves	size = 52.233	culture = syriac_culture	religion = orthodox }
+	define_pop = {	type = clergy	size = 0.027	culture = greek_culture	religion = catholic }
+	define_pop = {	type = peasants	size = 22.382	culture = greek_culture	religion = shia }
+	define_pop = {	type = slaves	size = 74.623	culture = greek_culture	religion = catholic }
+	define_pop = {	type = slaves	size = 52.233	culture = greek_culture	religion = orthodox }
 }
 lebanon_mountains = {
 }
 damascus = {
-	define_pop = {	type = nobles	size = 0.049	culture = syriac_culture	religion = sunni }
+	define_pop = {	type = nobles	size = 0.049	culture = greek_culture	religion = sunni }
 	define_pop = {	type = clergy	size = 0.371	culture = syriac_culture	religion = sunni }
-	define_pop = {	type = burghers	size = 5.800	culture = syriac_culture	religion = sunni }
-	define_pop = {	type = burghers	size = 1.933	culture = syriac_culture	religion = orthodox }
+	define_pop = {	type = burghers	size = 5.800	culture = greek_culture	religion = sunni }
+	define_pop = {	type = burghers	size = 1.933	culture = greek_culture	religion = orthodox }
 	define_pop = {	type = burghers	size = 0.964	culture = mizrahi	religion = judaism }
-	define_pop = {	type = burghers	size = 0.964	culture = syriac_culture	religion = miaphysite }
+	define_pop = {	type = burghers	size = 0.964	culture = greek_culture	religion = miaphysite }
 	define_pop = {	type = peasants	size = 83.667	culture = syriac_culture	religion = sunni }
 	define_pop = {	type = slaves	size = 29.354	culture = syriac_culture	religion = orthodox }
 	define_pop = {	type = slaves	size = 7.337	culture = syriac_culture	religion = miaphysite }
@@ -32362,7 +32362,7 @@ nabek = {
 	define_pop = {	type = slaves	size = 4.577	culture = syriac_culture	religion = miaphysite }
 }
 qutayfah = {
-	define_pop = {	type = nobles	size = 0.022	culture = bedouin_culture	religion = sunni }
+	define_pop = {	type = nobles	size = 0.022	culture = greek_culture	religion = sunni }
 	define_pop = {	type = clergy	size = 0.022	culture = syriac_culture	religion = sunni }
 	define_pop = {	type = peasants	size = 54.371	culture = syriac_culture	religion = sunni }
 	define_pop = {	type = slaves	size = 10.192	culture = syriac_culture	religion = orthodox }
@@ -32375,42 +32375,42 @@ antilebanon_mountains2 = {
 antilebanon_mountains3 = {
 }
 karak = {
-	define_pop = {	type = clergy	size = 0.032	culture = syriac_culture	religion = sunni }
-	define_pop = {	type = peasants	size = 58.013	culture = syriac_culture	religion = sunni }
-	define_pop = {	type = slaves	size = 14.501	culture = syriac_culture	religion = orthodox }
+	define_pop = {	type = clergy	size = 0.032	culture = bedouin_culture	religion = sunni }
+	define_pop = {	type = peasants	size = 58.013	culture = bedouin_culture	religion = sunni }
+	define_pop = {	type = slaves	size = 14.501	culture = bedouin_culture	religion = orthodox }
 }
 al_quwayrah = {
-	define_pop = {	type = peasants	size = 10.743	culture = syriac_culture	religion = sunni }
+	define_pop = {	type = peasants	size = 10.743	culture = bedouin_culture	religion = sunni }
 }
 amman = {
-	define_pop = {	type = clergy	size = 0.015	culture = syriac_culture	religion = sunni }
-	define_pop = {	type = peasants	size = 70.160	culture = syriac_culture	religion = sunni }
-	define_pop = {	type = slaves	size = 17.539	culture = syriac_culture	religion = orthodox }
+	define_pop = {	type = clergy	size = 0.015	culture = greek_culture	religion = sunni }
+	define_pop = {	type = peasants	size = 70.160	culture = greek_culture	religion = sunni }
+	define_pop = {	type = slaves	size = 17.539	culture = greek_culture	religion = orthodox }
 }
 aqaba = {
-	define_pop = {	type = clergy	size = 0.010	culture = syriac_culture	religion = sunni }
-	define_pop = {	type = peasants	size = 2.644	culture = syriac_culture	religion = sunni }
+	define_pop = {	type = clergy	size = 0.010	culture = bedouin_culture	religion = sunni }
+	define_pop = {	type = peasants	size = 2.644	culture = bedouin_culture	religion = sunni }
 	define_pop = {	type = tribesmen	size = 14.988	culture = bedouin_culture	religion = sunni }
 }
 maan = {
-	define_pop = {	type = clergy	size = 0.030	culture = syriac_culture	religion = sunni }
-	define_pop = {	type = peasants	size = 19.652	culture = syriac_culture	religion = sunni }
+	define_pop = {	type = clergy	size = 0.030	culture = bedouin_culture	religion = sunni }
+	define_pop = {	type = peasants	size = 19.652	culture = bedouin_culture	religion = sunni }
 	define_pop = {	type = tribesmen	size = 4.910	culture = bedouin_culture	religion = sunni }
 }
 madaba = {
-	define_pop = {	type = peasants	size = 36.928	culture = syriac_culture	religion = sunni }
+	define_pop = {	type = peasants	size = 36.928	culture = bedouin_culture	religion = sunni }
 }
 shoubak = {
-	define_pop = {	type = peasants	size = 17.650	culture = syriac_culture	religion = sunni }
+	define_pop = {	type = peasants	size = 17.650	culture = bedouin_culture	religion = sunni }
 }
 sughar = {
-	define_pop = {	type = clergy	size = 0.020	culture = syriac_culture	religion = sunni }
-	define_pop = {	type = peasants	size = 16.738	culture = syriac_culture	religion = sunni }
+	define_pop = {	type = clergy	size = 0.020	culture = bedouin_culture	religion = sunni }
+	define_pop = {	type = peasants	size = 16.738	culture = bedouin_culture	religion = sunni }
 	define_pop = {	type = tribesmen	size = 5.150	culture = bedouin_culture	religion = sunni }
-	define_pop = {	type = slaves	size = 3.860	culture = syriac_culture	religion = orthodox }
+	define_pop = {	type = slaves	size = 3.860	culture = bedouin_culture	religion = orthodox }
 }
 tadmur = {
-	define_pop = {	type = nobles	size = 0.017	culture = bedouin_culture	religion = sunni }
+	define_pop = {	type = nobles	size = 0.017	culture = greek_culture	religion = sunni }
 	define_pop = {	type = clergy	size = 0.017	culture = syriac_culture	religion = sunni }
 	define_pop = {	type = peasants	size = 22.886	culture = syriac_culture	religion = sunni }
 	define_pop = {	type = slaves	size = 2.691	culture = syriac_culture	religion = miaphysite }
@@ -75516,14 +75516,14 @@ alexandria = {
 	define_pop = {	type = clergy	size = 0.190	culture = greek_culture	religion = sunni }
 	define_pop = {	type = burghers	size = 3.082	culture = greek_culture	religion = sunni }
 	define_pop = {	type = burghers	size = 0.238	culture = greek_culture	religion = orthodox }
-	define_pop = {	type = burghers	size = 0.238	culture = greek_culture	religion = judaism }
+	define_pop = {	type = burghers	size = 0.238	culture = mizrahi	religion = judaism }
 	define_pop = {	type = burghers	size = 1.154	culture = greek_culture	religion = miaphysite }
 	define_pop = {	type = peasants	size = 147.323	culture = greek_culture	religion = sunni }
 	define_pop = {	type = slaves	size = 3.157	culture = greek_culture	religion = orthodox }
 	define_pop = {	type = slaves	size = 41.816	culture = greek_culture	religion = miaphysite }
 	define_pop = {	type = slaves	size = 10.453	culture = greek_culture	religion = orthodox }
 	define_pop = {	type = slaves	size = 10.453	culture = greek_culture	religion = orthodox }
-	define_pop = {	type = slaves	size = 6.271	culture = greek_culture	religion = judaism }
+	define_pop = {	type = slaves	size = 6.271	culture = mizrahi	religion = judaism }
 }
 el_alamein = {
 	define_pop = {	type = clergy	size = 0.036	culture = coptic_culture	religion = sunni }
@@ -75591,28 +75591,28 @@ dakahla = {
 	define_pop = {	type = slaves	size = 3.805	culture = coptic_culture	religion = orthodox }
 }
 damietta = {
-	define_pop = {	type = nobles	size = 0.014	culture = coptic_culture	religion = sunni }
+	define_pop = {	type = nobles	size = 0.014	culture = greek_culture	religion = sunni }
 	define_pop = {	type = clergy	size = 0.136	culture = coptic_culture	religion = sunni }
-	define_pop = {	type = burghers	size = 3.199	culture = coptic_culture	religion = sunni }
+	define_pop = {	type = burghers	size = 3.199	culture = greek_culture	religion = sunni }
 	define_pop = {	type = peasants	size = 124.757	culture = coptic_culture	religion = sunni }
 	define_pop = {	type = slaves	size = 3.264	culture = coptic_culture	religion = orthodox }
 	define_pop = {	type = slaves	size = 12.357	culture = coptic_culture	religion = miaphysite }
 	define_pop = {	type = slaves	size = 3.530	culture = coptic_culture	religion = orthodox }
 }
 mansoura = {
-	define_pop = {	type = nobles	size = 0.014	culture = coptic_culture	religion = sunni }
+	define_pop = {	type = nobles	size = 0.014	culture = greek_culture	religion = sunni }
 	define_pop = {	type = clergy	size = 0.141	culture = coptic_culture	religion = sunni }
-	define_pop = {	type = burghers	size = 3.338	culture = coptic_culture	religion = sunni }
+	define_pop = {	type = burghers	size = 3.338	culture = greek_culture	religion = sunni }
 	define_pop = {	type = peasants	size = 94.919	culture = coptic_culture	religion = sunni }
 	define_pop = {	type = slaves	size = 3.406	culture = coptic_culture	religion = orthodox }
 	define_pop = {	type = slaves	size = 11.867	culture = coptic_culture	religion = miaphysite }
 	define_pop = {	type = slaves	size = 3.390	culture = coptic_culture	religion = orthodox }
 }
 tinnis = {
-	define_pop = {	type = clergy	size = 0.016	culture = coptic_culture	religion = sunni }
-	define_pop = {	type = peasants	size = 119.926	culture = coptic_culture	religion = sunni }
-	define_pop = {	type = slaves	size = 10.779	culture = coptic_culture	religion = miaphysite }
-	define_pop = {	type = slaves	size = 4.041	culture = coptic_culture	religion = orthodox }
+	define_pop = {	type = clergy	size = 0.016	culture = greek_culture	religion = sunni }
+	define_pop = {	type = peasants	size = 119.926	culture = greek_culture	religion = sunni }
+	define_pop = {	type = slaves	size = 10.779	culture = greek_culture	religion = miaphysite }
+	define_pop = {	type = slaves	size = 4.041	culture = greek_culture	religion = orthodox }
 }
 ushmum_tannah = {
 	define_pop = {	type = clergy	size = 0.009	culture = coptic_culture	religion = sunni }
@@ -75662,11 +75662,11 @@ lake_burullus = {
 lake_idku = {
 }
 cairo = {
-	define_pop = {	type = nobles	size = 0.038	culture = coptic_culture	religion = sunni }
+	define_pop = {	type = nobles	size = 0.038	culture = greek_culture	religion = sunni }
 	define_pop = {	type = clergy	size = 0.198	culture = coptic_culture	religion = sunni }
-	define_pop = {	type = burghers	size = 3.144	culture = coptic_culture	religion = sunni }
+	define_pop = {	type = burghers	size = 3.144	culture = greek_culture	religion = sunni }
 	define_pop = {	type = burghers	size = 0.221	culture = mizrahi	religion = judaism }
-	define_pop = {	type = burghers	size = 1.063	culture = coptic_culture	religion = miaphysite }
+	define_pop = {	type = burghers	size = 1.063	culture = greek_culture	religion = miaphysite }
 	define_pop = {	type = peasants	size = 352.515	culture = coptic_culture	religion = sunni }
 	define_pop = {	type = slaves	size = 4.520	culture = coptic_culture	religion = orthodox }
 	define_pop = {	type = slaves	size = 98.313	culture = coptic_culture	religion = miaphysite }
@@ -75726,9 +75726,9 @@ great_bitter_lake = {
 connector_egypt17 = {
 }
 asyut = {
-	define_pop = {	type = nobles	size = 0.021	culture = coptic_culture	religion = sunni }
+	define_pop = {	type = nobles	size = 0.021	culture = greek_culture	religion = sunni }
 	define_pop = {	type = clergy	size = 0.197	culture = coptic_culture	religion = sunni }
-	define_pop = {	type = burghers	size = 4.617	culture = coptic_culture	religion = sunni }
+	define_pop = {	type = burghers	size = 4.617	culture = greek_culture	religion = sunni }
 	define_pop = {	type = peasants	size = 61.786	culture = coptic_culture	religion = sunni }
 	define_pop = {	type = slaves	size = 33.269	culture = coptic_culture	religion = miaphysite }
 }
@@ -75743,14 +75743,14 @@ el_buwit = {
 	define_pop = {	type = slaves	size = 6.657	culture = coptic_culture	religion = miaphysite }
 }
 akhmim = {
-	define_pop = {	type = clergy	size = 0.009	culture = coptic_culture	religion = sunni }
-	define_pop = {	type = peasants	size = 56.557	culture = coptic_culture	religion = sunni }
-	define_pop = {	type = slaves	size = 23.100	culture = coptic_culture	religion = miaphysite }
+	define_pop = {	type = clergy	size = 0.009	culture = greek_culture	religion = sunni }
+	define_pop = {	type = peasants	size = 56.557	culture = greek_culture	religion = sunni }
+	define_pop = {	type = slaves	size = 23.100	culture = greek_culture	religion = miaphysite }
 }
 el_bahnasa = {
-	define_pop = {	type = clergy	size = 0.009	culture = coptic_culture	religion = sunni }
-	define_pop = {	type = peasants	size = 58.261	culture = coptic_culture	religion = sunni }
-	define_pop = {	type = slaves	size = 9.484	culture = coptic_culture	religion = miaphysite }
+	define_pop = {	type = clergy	size = 0.009	culture = greek_culture	religion = sunni }
+	define_pop = {	type = peasants	size = 58.261	culture = greek_culture	religion = sunni }
+	define_pop = {	type = slaves	size = 9.484	culture = greek_culture	religion = miaphysite }
 }
 beni_suef = {
 	define_pop = {	type = clergy	size = 0.009	culture = coptic_culture	religion = sunni }
@@ -75758,9 +75758,9 @@ beni_suef = {
 	define_pop = {	type = slaves	size = 7.274	culture = coptic_culture	religion = miaphysite }
 }
 faiyum = {
-	define_pop = {	type = clergy	size = 0.009	culture = coptic_culture	religion = sunni }
-	define_pop = {	type = peasants	size = 58.009	culture = coptic_culture	religion = sunni }
-	define_pop = {	type = slaves	size = 7.169	culture = coptic_culture	religion = miaphysite }
+	define_pop = {	type = clergy	size = 0.009	culture = greek_culture	religion = sunni }
+	define_pop = {	type = peasants	size = 58.009	culture = greek_culture	religion = sunni }
+	define_pop = {	type = slaves	size = 7.169	culture = greek_culture	religion = miaphysite }
 }
 sharuna = {
 	define_pop = {	type = clergy	size = 0.009	culture = coptic_culture	religion = sunni }
@@ -75775,9 +75775,9 @@ minya = {
 	define_pop = {	type = slaves	size = 25.363	culture = coptic_culture	religion = miaphysite }
 }
 ashmunayn = {
-	define_pop = {	type = clergy	size = 0.009	culture = coptic_culture	religion = sunni }
-	define_pop = {	type = peasants	size = 42.776	culture = coptic_culture	religion = sunni }
-	define_pop = {	type = slaves	size = 20.129	culture = coptic_culture	religion = miaphysite }
+	define_pop = {	type = clergy	size = 0.009	culture = greek_culture	religion = sunni }
+	define_pop = {	type = peasants	size = 42.776	culture = greek_culture	religion = sunni }
+	define_pop = {	type = slaves	size = 20.129	culture = greek_culture	religion = miaphysite }
 }
 manfalut = {
 	define_pop = {	type = clergy	size = 0.009	culture = coptic_culture	religion = sunni }
@@ -75794,9 +75794,9 @@ connector_egypt9 = {
 north_western_desert = {
 }
 qus = {
-	define_pop = {	type = nobles	size = 0.021	culture = coptic_culture	religion = sunni }
+	define_pop = {	type = nobles	size = 0.021	culture = greek_culture	religion = sunni }
 	define_pop = {	type = clergy	size = 0.197	culture = coptic_culture	religion = shia }
-	define_pop = {	type = burghers	size = 4.617	culture = coptic_culture	religion = sunni }
+	define_pop = {	type = burghers	size = 4.617	culture = greek_culture	religion = sunni }
 	define_pop = {	type = peasants	size = 53.808	culture = coptic_culture	religion = shia }
 	define_pop = {	type = slaves	size = 16.071	culture = coptic_culture	religion = miaphysite }
 }

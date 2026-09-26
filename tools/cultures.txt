@@ -44,7 +44,18 @@ SLG | * | briton
 # ---- the British Isles ----
 scottish_highlands_area | * | pictish
 hebrides_area | * | pictish
-great_britain_region | * | briton
+deheubarth_province | * | irish        # the Deisi of Dyfed
+anglesey | * | irish                   # the Irish Cunedda came south to drive out
+carnarvon | * | irish
+east_anglia_area | * | romano_british  # the lowland civitates: villas, towns, Latin letters
+home_counties_area | * | romano_british
+midlands_area | * | romano_british
+dorset_province | * | romano_british
+somerset_province | * | romano_british
+wiltshire_province | * | romano_british
+gloucestershire_province | * | romano_british
+york | * | romano_british               # Eboracum
+great_britain_region | * | briton       # Wales, Dumnonia, the Brigantian north, beyond the Wall
 ireland_region | * | irish
 
 # ---- Gaul and the Rhine ----
@@ -79,18 +90,22 @@ south_german_region | * | roman_culture  # Raetia and Noricum
 balkan_region | albanian | albanian      # the Illyrian hills
 balkan_region | romanyoti | romanyoti
 # the Illyrian highlands: Dardania, Praevalitana and the Dalmatian hinterland (albanian reads "Illyrian")
+durres | * | roman_culture          # Dyrrachium, Latin colony on the Via Egnatia
 albania_area | * | albanian
 kosovo_province | * | albanian
 zeta_province | * | albanian
 raska_province | * | albanian
 podrinje_province | * | albanian
 hum_province | * | albanian
+vardar_province | * | roman_culture    # Scupi and Dardania, Justinian's Latin homeland
 bosnia_area | * | roman_culture
 croatia_area | * | roman_culture
 slavonia_area | * | roman_culture
 slovenia_area | * | roman_culture
 serbia_area | * | roman_culture
 bulgaria_area | * | roman_culture
+rhodopes_province | * | thracian        # the Bessi
+pirin_province | * | thracian
 balkan_region | * | greek_culture
 
 # ---- Anatolia ----
@@ -125,19 +140,52 @@ shirvan_area | * | lezgin_culture
 caucasus_region | * | armenian_culture
 
 # ---- Syria and Mesopotamia: Aramaic speakers under Rome and Persia ----
+crescent_region | mizrahi | mizrahi
+safed | * | mizrahi                    # Galilee of the Patriarchs at Tiberias
+nablus | * | samaritan_culture         # Neapolis and Mount Gerizim
+beirut | * | roman_culture             # Berytus: Latin colony and the Empire's law school
+antioch | * | greek_culture            # the Greek cities of Syria, Phoenicia, Palestine and the Decapolis
+arsuz | * | greek_culture
+latakia | * | greek_culture
+jableh | * | greek_culture
+tartus | * | greek_culture
+hama | * | greek_culture               # Epiphania
+sidon | * | greek_culture
+tripoli_syria | * | greek_culture
+acre | * | greek_culture               # Ptolemais
+jaffa | * | greek_culture              # Joppa and Caesarea
+gaza | * | greek_culture
+majdal | * | greek_culture             # Ascalon
+jerusalem | * | greek_culture          # Aelia, the pilgrims' city
+irbid | * | greek_culture             # Gadara and Scythopolis
+amman | * | greek_culture              # Philadelphia
+bosra | * | greek_culture              # Bostra
+azraq | * | bedouin_culture            # the Arab tribes of the Hauran and the Negev steppe
+salkhad | * | bedouin_culture
+suwayda | * | bedouin_culture
+mountain_druze | * | bedouin_culture
+sharat_province | * | bedouin_culture
+levant_area | burghers:* | greek_culture   # a Greek-speaking upper class over Aramaic villages
+levant_area | nobles:* | greek_culture
 crescent_region | armenian_culture | armenian_culture
 crescent_region | kurdish_culture | kurdish_culture
 crescent_region | lur_culture | lur_culture
 crescent_region | bedouin_culture | bedouin_culture
 crescent_region | mandean_culture | mandean_culture
-crescent_region | mizrahi | mizrahi
 crescent_region | * | syriac_culture
 
 # ---- Egypt ----
+egypt_region | mizrahi | mizrahi       # Alexandria's Jews, until 414
 alexandria | * | greek_culture
+tinnis | * | greek_culture             # Pelusium
+faiyum | * | greek_culture             # Arsinoe, the Ptolemies' veteran colonies
+el_bahnasa | * | greek_culture         # Oxyrhynchus
+ashmunayn | * | greek_culture          # Hermopolis and Antinoopolis
+akhmim | * | greek_culture             # Panopolis of Nonnus
 cyrenaica_area | * | greek_culture      # the Pentapolis
 sinai_area | bedouin_culture | bedouin_culture
-egypt_region | mizrahi | mizrahi
+egypt_region | burghers:* | greek_culture
+egypt_region | nobles:* | greek_culture
 egypt_region | * | coptic_culture
 nubia_region | sudanese_arab | nubian
 nubia_region | upper_egyptian_culture | coptic_culture

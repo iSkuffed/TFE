@@ -10,7 +10,8 @@ CULTURES = b.MOD / "in_game/common/cultures/tfe_cultures.txt"
 LOC = b.MOD / "main_menu/localization/english/tfe_cultures_l_english.yml"
 REPLACE = b.MOD / "main_menu/localization/english/replace/tfe_cultures_replace_l_english.yml"
 NEW = {"gallo_roman", "hispano_roman", "afro_roman", "briton", "pictish", "frankish", "alamannic", "suebian",
-       "vandal", "tfe_burgundian", "hunnic", "venedi"}
+       "vandal", "tfe_burgundian", "hunnic", "venedi", "romano_british", "thracian"}
+GROUPS = b.MOD / "in_game/common/culture_groups/tfe_culture_groups.txt"
 
 
 def vanilla_text(folder):
@@ -28,7 +29,7 @@ def test_new_cultures_are_defined_from_vanilla_parts():
     defs = blocks(text)
     assert set(defs) == NEW
     languages = vanilla_text("languages")
-    groups = set(blocks(vanilla_text("culture_groups")))
+    groups = set(blocks(vanilla_text("culture_groups"))) | set(blocks(GROUPS.read_text(encoding="utf-8-sig")))
     for name, body in defs.items():
         lang = re.search(r"language = (\w+)", body).group(1)
         assert re.search(rf"^\s*{lang}\s*=\s*\{{", languages, re.M), (name, lang)
@@ -124,9 +125,9 @@ def test_tags_and_characters_use_395_cultures():
 
 def test_the_empires_accept_their_provincials():
     text = (b.MOD / "main_menu/setup/start/10_countries.txt").read_text(encoding="utf-8")
-    for tag, people in (("WRE", {"gallo_roman", "hispano_roman", "afro_roman", "briton"}),
+    for tag, people in (("WRE", {"gallo_roman", "hispano_roman", "afro_roman", "romano_british", "briton", "albanian"}),
                         ("EAR", {"roman_culture", "syriac_culture", "coptic_culture", "armenian_culture",
-                                 "cappadocian_greek_culture", "pontic_greek_culture"})):
+                                 "cappadocian_greek_culture", "pontic_greek_culture", "albanian"})):
         block = text[text.index(f"\t\t{tag} = {{"):].split("\n\t\t}\n")[0]
         accepted = re.search(r"accepted_cultures = \{([^}]*)\}", block)
         assert accepted and set(accepted.group(1).split()) == people, tag
@@ -172,3 +173,89 @@ def test_the_illyrian_highlands():
     for loc in ("dubrovnik", "pola", "belgrad", "sabac"):
         assert top(loc) == "roman_culture", loc
     assert re.search(r'^ albanian: "Illyrian"$', REPLACE.read_text(encoding="utf-8-sig"), re.M)
+
+
+def effective_groups():
+    # REPLACE: blocks in tfe_cultures.txt win over vanilla and TFE definitions
+    text = CULTURES.read_text(encoding="utf-8-sig")
+    defs = {**blocks(vanilla_text("cultures")), **blocks(text),
+            **{m.group(1): m.group(2) for m in re.finditer(r"^REPLACE:(\w+) = \{(.*?)^\}", text, re.M | re.S)}}
+    return {k: set(re.findall(r"\w+", re.search(r"culture_groups = \{(.*?)\}", v, re.S).group(1)))
+            for k, v in defs.items() if "culture_groups" in v}
+
+
+def test_the_roman_and_greek_groups():
+    # vanilla greek_group is shown as "Roman": the Latin provincials join it; Greek-speakers get their own group,
+    # tfe_hellenic_group ("Greek"); Greek proper sits in both. The Goths of 395 are no Romans.
+    assert GROUPS.read_bytes().startswith(b"\xef\xbb\xbf")
+    assert "tfe_hellenic_group" in blocks(GROUPS.read_text(encoding="utf-8-sig"))
+    loc = LOC.read_text(encoding="utf-8-sig")
+    assert re.search(r'^ tfe_hellenic_group: "Greek"$', loc, re.M) and re.search(r'^ romano_british: "Romano-British"$', loc, re.M)
+    g = effective_groups()
+    for c in ("roman_culture", "greek_culture", "gallo_roman", "hispano_roman", "afro_roman", "romano_british"):
+        assert "greek_group" in g[c], c
+    for c in ("greek_culture", "cappadocian_greek_culture", "pontic_greek_culture", "griko_culture", "romanyoti", "thracian"):
+        assert "tfe_hellenic_group" in g[c], c
+    for c in ("cappadocian_greek_culture", "pontic_greek_culture", "griko_culture", "romanyoti", "gothic_culture"):
+        assert "greek_group" not in g[c], c
+    assert "german_group" in g["gothic_culture"] and "jewish_group" in g["romanyoti"]
+
+
+def test_replaced_cultures_keep_vanilla_looks():
+    text = CULTURES.read_text(encoding="utf-8-sig")
+    vanilla = blocks(vanilla_text("cultures"))
+    for name, body in re.findall(r"^REPLACE:(\w+) = \{(.*?)^\}", text, re.M | re.S):
+        for key in ("language", "color"):
+            assert re.search(rf"{key} = (\S+)", body).group(1) == re.search(rf"{key} = (\S+)", vanilla[name]).group(1), (name, key)
+        tags = lambda s: set(re.search(r"tags = \{(.*?)\}", s).group(1).split())
+        assert tags(body) == tags(vanilla[name]), name
+
+
+def test_rules_can_pick_a_social_class():
+    anc = {"here": ("asia", "near_east", "egypt_region", "lower_egypt_area", "cairo_province")}
+    text = "here = {\n\tdefine_pop = { type = peasants size = 1 culture = coptic_culture religion = x }\n" \
+           "\tdefine_pop = { type = burghers size = 1 culture = coptic_culture religion = x }\n}\n"
+    rules = [("egypt_region", "burghers:*", "greek_culture"), ("egypt_region", "*", "coptic_culture")]
+    assert re.findall(r"culture = (\w+)", b.pop_cultures(text, {}, anc, rules)) == ["coptic_culture", "greek_culture"]
+
+
+def test_greeks_of_the_east():
+    by = pops_cultures()
+    def top(loc):
+        return max(set(by[loc]), key=by[loc].count)
+    for loc in ("antioch", "latakia", "hama", "sidon", "acre", "jaffa", "gaza", "majdal", "jerusalem", "irbid", "amman",
+                "bosra", "tinnis", "faiyum", "el_bahnasa", "ashmunayn", "akhmim"):
+        assert top(loc) == "greek_culture", loc
+    assert top("beirut") == "roman_culture"                      # Berytus, Latin colony and law school
+    assert top("safed") == "mizrahi"                             # Galilee of the Patriarchs
+    assert top("nablus") == "samaritan_culture"
+    assert "mizrahi" in by["alexandria"]
+    text = POPS.read_text(encoding="utf-8")
+    anc = b.load_hierarchy()
+    for m in re.finditer(r"^(\w+) = \{(.*?)^\}", text, re.M | re.S):
+        if anc[m.group(1)][3] in ("levant_area", "lower_egypt_area", "upper_egypt_area"):
+            for c in re.findall(r"type = (?:burghers|nobles)\s+size = [\d.]+\s+culture = (\w+)", m.group(2)):
+                assert c in ("greek_culture", "roman_culture", "mizrahi", "samaritan_culture", "armenian_culture",
+                             "bedouin_culture"), (m.group(1), c)
+
+
+def test_balkans_and_britain():
+    by = pops_cultures()
+    def top(loc):
+        return max(set(by[loc]), key=by[loc].count)
+    for loc in ("skopje", "shtip", "durres"):
+        assert top(loc) == "roman_culture", loc
+    for loc in ("smolyan", "bansko", "melnik"):
+        assert top(loc) == "thracian", loc
+    for loc in ("london", "colchester", "st_albans", "cirencester", "bath", "leicester", "york"):
+        assert top(loc) == "romano_british", loc
+    for loc in ("exeter", "truro", "cardiff", "carlisle", "leeds"):
+        assert top(loc) == "briton", loc
+    for loc in ("pembroke", "carmarthen", "anglesey", "carnarvon"):
+        assert top(loc) == "irish", loc
+    text = (b.MOD / "main_menu/setup/start/10_countries.txt").read_text(encoding="utf-8")
+    for tag in ("WRE", "EAR"):
+        block = text[text.index(f"\t\t{tag} = {{"):].split("\n\t\t}\n")[0]
+        accepted = set(re.search(r"accepted_cultures = \{([^}]*)\}", block).group(1).split())
+        assert "albanian" in accepted, tag
+    assert "romano_british" in set(b.ACCEPTED_CULTURES["WRE"])

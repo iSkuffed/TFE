@@ -1,0 +1,7 @@
+﻿# TFE 395: the Greek-speaking world. Vanilla greek_group is shown as "Roman" and holds the Latin peoples and
+# Greek proper; the other Greek-speakers sit here (and Greek in both).
+tfe_hellenic_group = {
+	goods_demand_modifier = {
+		olives = 1.2
+	}
+}

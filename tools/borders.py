@@ -415,9 +415,9 @@ MED_BOX = (-15, 18, 55, 62)  # lon0, lat0, lon1, lat1 for the Mediterranean prev
 
 
 ACCEPTED_CULTURES = {   # without these the empires' own provincials are "discriminated": less control and tax
-    "WRE": ("gallo_roman", "hispano_roman", "afro_roman", "briton"),
+    "WRE": ("gallo_roman", "hispano_roman", "afro_roman", "romano_british", "briton", "albanian"),
     "EAR": ("roman_culture", "syriac_culture", "coptic_culture", "armenian_culture", "cappadocian_greek_culture",
-            "pontic_greek_culture")}
+            "pontic_greek_culture", "albanian")}
 
 
 def emit_countries(tags, owned, caps, ranks=None, discovered=None, governments=None, country_types=None):
@@ -588,11 +588,14 @@ def load_culture_rules(path, scopes, cultures):
 
 
 def pop_cultures(text, owner, anc, rules):
+    # from: a culture, *, or a social class qualifier (burghers:*, nobles:greek_culture)
     def repl(m):
         where = {owner.get(m.group(1)), m.group(1), *anc[m.group(1)]}
-        def pick(c):
-            return next((to for scope, frm, to in rules if scope in where and frm in ("*", c.group(1))), c.group(1))
-        return re.sub(r"(?<=culture = )(\w+)", pick, m.group(0))
+        def pick(p):
+            kind, c = re.search(r"type = (\w+)", p.group(0)).group(1), re.search(r"culture = (\w+)", p.group(0)).group(1)
+            to = next((to for scope, frm, to in rules if scope in where and frm in ("*", c, f"{kind}:*", f"{kind}:{c}")), c)
+            return re.sub(r"(?<=culture = )\w+", to, p.group(0))
+        return re.sub(r"define_pop = \{[^}]*\}", pick, m.group(0))
     return re.sub(r"^(\w+) = \{(.*?)^\}", repl, text, flags=re.M | re.S)
 
 

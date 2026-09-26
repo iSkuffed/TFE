@@ -1,35 +1,42 @@
 ﻿# TFE 395: peoples the 1337 culture list lacks. Languages, gfx tags and groups are vanilla's; tools/cultures.txt
 # decides which pops speak what.
 
-# ---- Roman provincials: Latin-speaking, kin to Rome and to each other ----
+# ---- Roman provincials: kin to Rome and to each other, in the Roman group (vanilla greek_group, shown "Roman") ----
 gallo_roman = {
 	language = roman_dialect
 	color = rgb { 178 74 96 }
 	tags = { occitan_gfx french_gfx west_mediterranean_gfx mediterranean_gfx western_european_gfx european_gfx }
-	opinions = { roman_culture = kindred hispano_roman = kindred afro_roman = kindred }
-	culture_groups = { french_group italian_group }
+	opinions = { roman_culture = kindred hispano_roman = kindred afro_roman = kindred romano_british = kindred }
+	culture_groups = { greek_group french_group }
 }
 hispano_roman = {
 	language = roman_dialect
 	color = rgb { 204 128 72 }
 	tags = { castilian_gfx iberian_gfx west_mediterranean_gfx mediterranean_gfx western_european_gfx european_gfx }
-	opinions = { roman_culture = kindred gallo_roman = kindred afro_roman = kindred }
-	culture_groups = { iberian_group italian_group }
+	opinions = { roman_culture = kindred gallo_roman = kindred afro_roman = kindred romano_british = kindred }
+	culture_groups = { greek_group iberian_group }
 }
 afro_roman = {
 	language = roman_dialect
 	color = rgb { 196 160 96 }
 	tags = { roman_gfx west_mediterranean_gfx mediterranean_gfx european_gfx }
-	opinions = { roman_culture = kindred gallo_roman = kindred hispano_roman = kindred }
-	culture_groups = { maghrebi_group italian_group }
+	opinions = { roman_culture = kindred gallo_roman = kindred hispano_roman = kindred romano_british = kindred }
+	culture_groups = { greek_group maghrebi_group }
 }
 
 # ---- Celts ----
+romano_british = {	# the villa and town country of the lowland civitates: Brittonic speech, Latin letters
+	language = welsh_dialect
+	color = rgb { 150 96 124 }
+	tags = { welsh_gfx celtic_gfx british_gfx western_european_gfx european_gfx }
+	opinions = { roman_culture = kindred gallo_roman = kindred hispano_roman = kindred afro_roman = kindred briton = kindred }
+	culture_groups = { greek_group british_group }
+}
 briton = {
 	language = welsh_dialect
 	color = rgb { 72 132 92 }
 	tags = { welsh_gfx celtic_gfx british_gfx western_european_gfx european_gfx }
-	opinions = { pictish = negative }
+	opinions = { pictish = negative romano_british = kindred }
 	culture_groups = { celtic_group british_group }
 }
 pictish = {
@@ -105,6 +112,7 @@ REPLACE:roman_culture = {
 		gallo_roman = kindred
 		hispano_roman = kindred
 		afro_roman = kindred
+		romano_british = kindred
 	}
 
 	culture_groups = {
@@ -112,4 +120,129 @@ REPLACE:roman_culture = {
 	}
 
 	active = yes
+}
+
+# ---- the Balkans ----
+thracian = {	# the Bessi of the Rhodopes, still speaking Thracian in the 6th century; Albanian stands in for a Paleo-Balkan tongue
+	language = albanian_language
+	color = rgb { 150 112 60 }
+	tags = { east_mediterranean_gfx mediterranean_gfx eastern_european_gfx european_gfx }
+	opinions = { greek_culture = positive albanian = positive }
+	culture_groups = { tfe_hellenic_group }
+}
+
+# ---- the Greek group (tfe_culture_groups.txt): Greek proper is Roman and Greek, the other Greek-speakers only Greek ----
+REPLACE:greek_culture = {
+	language = greek_language
+	color = map_BYZ
+	tags = { greek_gfx east_mediterranean_gfx mediterranean_gfx eastern_european_gfx european_gfx }
+
+	opinions = {
+		cappadocian_greek_culture = positive
+		griko_culture = positive
+		pontic_greek_culture = positive
+		gothic_culture = positive
+		roman_culture = kindred
+		turkish_culture = negative
+	}
+
+	culture_groups = {
+		greek_group tfe_hellenic_group
+	}
+}
+
+REPLACE:cappadocian_greek_culture = {
+	language = greek_language
+	color = color_culture_cappadocian_greek
+	tags = { greek_gfx east_mediterranean_gfx mediterranean_gfx eastern_european_gfx european_gfx }
+
+	opinions = {
+		greek_culture = positive
+		griko_culture = positive
+		pontic_greek_culture = positive
+		gothic_culture = positive
+	}
+
+	culture_groups = {
+		tfe_hellenic_group
+	}
+}
+
+REPLACE:pontic_greek_culture = {
+	language = greek_language
+	color = map_FEO
+	tags = { greek_gfx east_mediterranean_gfx mediterranean_gfx eastern_european_gfx european_gfx }
+
+	opinions = {
+		greek_culture = positive
+		griko_culture = positive
+		cappadocian_greek_culture = positive
+		gothic_culture = positive
+	}
+
+	culture_groups = {
+		tfe_hellenic_group
+	}
+}
+
+REPLACE:griko_culture = {
+	language = greek_language
+	color = color_culture_griko
+	tags = { greek_gfx east_mediterranean_gfx mediterranean_gfx eastern_european_gfx european_gfx }
+
+	opinions = {
+		cappadocian_greek_culture = positive
+		pontic_greek_culture = positive
+		gothic_culture = positive
+		neapolitan = positive
+	}
+
+	culture_groups = {
+		tfe_hellenic_group
+	}
+}
+
+REPLACE:romanyoti = {	# Greek-speaking Jews
+	language = greek_language
+	color = map_romanyoti
+	tags = { jewish_gfx greek_gfx east_mediterranean_gfx mediterranean_gfx european_gfx }
+
+	opinions = {
+		ashkenazi = kindred
+		beyte_yisrael = kindred
+		gurji = kindred
+		italki = kindred
+		kalimi = kindred
+		kochini = kindred
+		mizrahi = kindred
+		mustaarabi = kindred
+		qayfengi = kindred
+		sephardi = kindred
+		teimani = kindred
+	}
+
+	culture_groups = {
+		jewish_group
+		tfe_hellenic_group
+	}
+
+	use_patronym = yes
+}
+
+# vanilla files its (Crimean) Goths with the Romans; in 395 they are the Germanic people at the gates
+REPLACE:gothic_culture = {
+	language = gothic_language
+	color = color_culture_gothic
+	tags = { gothic_gfx greek_gfx east_mediterranean_gfx mediterranean_gfx eastern_european_gfx european_gfx }
+
+	opinions = {
+		greek_culture = positive
+		griko_culture = positive
+		cappadocian_greek_culture = positive
+		pontic_greek_culture = positive
+	}
+
+	culture_groups = {
+		german_group
+	}
 }

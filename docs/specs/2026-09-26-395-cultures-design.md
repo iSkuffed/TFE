@@ -83,3 +83,20 @@ The Roman variants are `kindred` to roman_culture and to each other. `roman_cult
 - Countries: every tags.txt culture exists; WRE/EAR accepted cultures emitted.
 - In game: culture map mode across the TFE core; Roman pops present and roman_culture shown as "Roman" and
   active; WRE budget still near -30/month at default sliders; no culture errors in error.log.
+
+## Addendum 2026-09-26: groups, the Greek East, the Balkans, Britain
+
+Approved in chat ("all the Romano cultures need to become part of the Roman culture group ... Cappadocian and so on
+can just become part of the Greek culture group").
+
+- Groups: vanilla `greek_group` is displayed "Roman" and keeps its Byzantine advances; it now holds roman_culture,
+  greek_culture and the Latin provincials (gallo/hispano/afro_roman, romano_british). New `tfe_hellenic_group`
+  ("Greek") holds greek_culture, cappadocian, pontic, griko, romanyoti and thracian. gothic_culture leaves the
+  Roman group for german_group. Overrides use `REPLACE:` with vanilla language, color and tags kept.
+- Rules may name a social class: `levant_area | burghers:* | greek_culture` (from = culture, `*`, `class:*` or
+  `class:culture`). Syria, Palestine and Egypt get Greek burghers and nobles, Greek cities, Latin Berytus, Jewish
+  Galilee, Samaritan Samaria, Arab Hauran and Negev.
+- Balkans: Scupi/Vardar and Dyrrachium Latin, Thracian (new; Albanian language as a Paleo-Balkan stand-in) in the
+  Rhodopes and Pirin; both empires accept Illyrians (albanian).
+- Britain: Romano-British (new) in the lowland civitates and York, Briton in Wales, Dumnonia and the north, Irish
+  in Dyfed, Anglesey and Caernarfon; WRE accepts Romano-British.
