@@ -251,3 +251,16 @@ def test_emit_countries_pop_based_hold_pops_not_land():
 def test_landed_locations_exclude_pop_based_countries():
     owner = {"l1": "AAA", "l2": "BBB", "l3": "none"}
     assert b.landed_locations(owner, {"BBB"}) == {"l1"}
+
+
+def test_pop_society_pops_become_the_tribe():
+    # the game drops a Society of Pops whose locations hold no tribesmen of its own culture (game.log: "no valid pops")
+    vanilla = ("locations={\n\nl1 = {\n\tdefine_pop = {\ttype = peasants\tsize = 20.000\tculture = hungarian\treligion = catholic }\n"
+               "\tdefine_pop = {\ttype = clergy\tsize = 4.000\tculture = hungarian\treligion = catholic }\n}\n"
+               "l2 = {\n\tdefine_pop = {\ttype = peasants\tsize = 1.000\tculture = x\treligion = y }\n}\n}\n")
+    out = b.pop_society_pops(vanilla, {"l1": ("gothic_culture", "catholic"), "l3": ("gothic_culture", "catholic")})
+    l1 = re.search(r"^l1 = \{(.*?)^\}", out, re.M | re.S).group(1)
+    assert "hungarian" not in l1 and re.search(r"type = tribesmen\s+size = 6\.000\s+culture = gothic_culture", l1)
+    assert "culture = x" in out                                   # other locations untouched
+    assert re.search(r"^l3 = \{\s*define_pop = \{\s*type = tribesmen", out, re.M)   # a location with no vanilla pops
+    assert out.count("{") == out.count("}")

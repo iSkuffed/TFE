@@ -57,3 +57,10 @@ def test_setup_creates_the_io_with_both_landed_empires_and_mutual_access():
     dip = code(START / "12_diplomacy.txt")
     for a, c in (("WRE", "EAR"), ("EAR", "WRE")):
         assert re.search(rf"scripted_oneway = \{{ first = {a} second = {c} type = military_access \}}", dip)
+
+
+def test_io_has_member_opinion_and_diplomatic_status():
+    # error.log: "needs an opinion of other members, add io_opinion_tfe_roman_empire in /biases/"
+    bias = b.MOD / "in_game/common/biases/tfe_biases.txt"
+    assert bias.read_bytes().startswith(b"\xef\xbb\xbf") and re.search(r"io_opinion_tfe_roman_empire = \{\s*value = \d+", code(bias))
+    assert {"diplomatic_status_tfe_roman_empire_name", "diplomatic_status_tfe_roman_empire_tooltip"} <= loc_keys()

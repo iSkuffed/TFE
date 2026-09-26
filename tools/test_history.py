@@ -117,3 +117,10 @@ def test_vandals_are_a_society_of_pops(state):
     block = text[text.index("\t\tHAS = {"):].split("\n\t\t}\n")[0]
     assert "type = pop" in block and "add_pops_from_locations" in block and "own_control_core" not in block
     assert "HAS" in state["pop_based"] and "debrecen" not in b.landed_locations(state["owner"], state["pop_based"])
+
+
+def test_vandal_locations_hold_vandal_tribesmen(state):
+    text = (b.MOD / "main_menu/setup/start/06_pops.txt").read_text(encoding="utf-8")
+    block = re.search(r"^debrecen = \{(.*?)^\}", text, re.M | re.S).group(1)
+    culture = state["tags"]["HAS"]["culture"]
+    assert "type = tribesmen" in block and f"culture = {culture}" in block and "hungarian" not in block

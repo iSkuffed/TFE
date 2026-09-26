@@ -1,0 +1,4 @@
+﻿# TFE: members of the Imperium Romanum regard each other as one Empire
+io_opinion_tfe_roman_empire = {
+	value = 25
+}
