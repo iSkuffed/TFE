@@ -606,6 +606,39 @@ def pop_cultures(text, owner, anc, rules, field="culture"):
     return re.sub(r"^(\w+) = \{(.*?)^\}", repl, text, flags=re.M | re.S)
 
 
+LATE_FAITHS = {   # born after 395: Islam, the Druze and Yazidis, the Latin and medieval churches, Tibetan Buddhism
+    "sunni", "shia", "ibadi", "druzism", "yazidism", "sikhism", "catholic", "miaphysite", "bogomilism", "paulicianism",
+    "catharism", "waldensian", "bosnian_church", "hussite", "lollardy", "lutheran", "calvinist", "anglican",
+    "strigolniki", "tibetan_buddhism"}
+
+
+def purge_late_faiths(text, anc):
+    # a pop whose faith is not yet born takes the commonest older faith of its culture in the region, else of its
+    # area, else of its region; returns the text and the locations left with no older faith nearby
+    pop_re = r"(type = \w+\s+size = ([\d.]+)\s+culture = (\w+)\s+religion = )(\w+)"
+    weight = {}
+    for loc, body in re.findall(r"^(\w+) = \{(.*?)^\}", text, re.M | re.S):
+        for _, size, c, r in re.findall(pop_re, body):
+            if r not in LATE_FAITHS:
+                for k in (("rc", anc[loc][2], c), ("a", anc[loc][3]), ("r", anc[loc][2])):
+                    w = weight.setdefault(k, {})
+                    w[r] = w.get(r, 0) + float(size)
+    lost = []
+    def repl(m):
+        loc = m.group(1)
+        def pick(p):
+            if p.group(4) not in LATE_FAITHS:
+                return p.group(0)
+            for k in (("rc", anc[loc][2], p.group(3)), ("a", anc[loc][3]), ("r", anc[loc][2])):
+                if weight.get(k):
+                    return p.group(1) + max(weight[k], key=weight[k].get)
+            lost.append(loc)
+            return p.group(0)
+        return re.sub(pop_re, pick, m.group(0))
+    out = re.sub(r"^(\w+) = \{(.*?)^\}", repl, text, flags=re.M | re.S)
+    return out, sorted(set(lost))
+
+
 def splice_dynasties(vanilla, ours):
     # keep vanilla dynasties (in-game scripts reference them) and add ours inside dynasty_manager
     end = vanilla.rindex("}")
@@ -762,6 +795,9 @@ def build():
     pops = pop_cultures(pops, s["owner"], s["anc"], rules)
     pops = pop_cultures(pops, s["owner"], s["anc"], load_culture_rules(TOOLS / "religions.txt", scopes | {"*"},
                                                                       known_religions()), field="religion")
+    pops, lost = purge_late_faiths(pops, s["anc"])
+    if lost:
+        sys.exit(f"no faith of 395 near {lost[:20]}: add a rule to tools/religions.txt")
     pops = region_pops(pops, s["owner"], s["anc"])
     (MOD / "main_menu/setup/start/06_pops.txt").write_text(pops, encoding="utf-8")
     formables = "in_game/common/formable_countries/00_formable_countries.txt"

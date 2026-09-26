@@ -157,7 +157,7 @@ BMY = { # Blemmyes
 	color = rgb { 160 120 90 }
 	color2 = rgb { 80 60 45 }
 	culture_definition = beja_culture # PLACEHOLDER
-	religion_definition = hellenism_religion # PLACEHOLDER
+	religion_definition = kushite_religion # PLACEHOLDER
 	description_category = administrative
 	difficulty = 3
 }
@@ -166,7 +166,7 @@ NOB = { # Nobatia
 	color = rgb { 130 90 50 }
 	color2 = rgb { 65 45 25 }
 	culture_definition = nubian # PLACEHOLDER
-	religion_definition = hellenism_religion # PLACEHOLDER
+	religion_definition = kushite_religion # PLACEHOLDER
 	description_category = administrative
 	difficulty = 3
 }

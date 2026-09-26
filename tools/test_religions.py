@@ -114,3 +114,43 @@ def test_mixed_places():
     assert any(r == "celtic_paganism" for k, c, r in p["london"] if k == "peasants")
     assert {r for ps in p.values() for _, c, r in ps if c == "venedi"} == {"slavic_paganism"}
     assert any(r == "arabian_paganism" for _, c, r in p["mecca"])
+
+
+def test_late_faiths_fall_to_the_neighbours():
+    # culture in the region first, then the area, then the region
+    anc = {"a": ("x", "y", "r1", "area1", "p1"), "b": ("x", "y", "r1", "area2", "p2"), "c": ("x", "y", "r1", "area2", "p3")}
+    text = ("a = {\n\tdefine_pop = { type = peasants size = 1 culture = cx religion = sunni }\n}\n"
+            "b = {\n\tdefine_pop = { type = peasants size = 1 culture = cx religion = hindu }\n"
+            "\tdefine_pop = { type = peasants size = 1 culture = cy religion = sunni }\n}\n"
+            "c = {\n\tdefine_pop = { type = peasants size = 5 culture = cz religion = bantu_religion }\n}\n")
+    out, lost = b.purge_late_faiths(text, anc)
+    assert re.findall(r"religion = (\w+)", out) == ["hindu", "hindu", "bantu_religion", "bantu_religion"]
+    assert not lost
+    out, lost = b.purge_late_faiths("a = {\n\tdefine_pop = { type = peasants size = 1 culture = cx religion = sunni }\n}\n", anc)
+    assert lost == ["a"]
+
+
+def test_no_faith_born_after_395_anywhere():
+    late = {(loc, r) for loc, ps in pops().items() for _, _, r in ps if r in b.LATE_FAITHS}
+    assert not late, sorted(late)[:20]
+    assert {"sunni", "shia", "catholic", "miaphysite", "tibetan_buddhism"} <= b.LATE_FAITHS
+    assert not {d["religion"] for d in b.load_tags(b.TOOLS / "tags.txt").values()} & b.LATE_FAITHS
+    chars = (b.MOD / "main_menu/setup/start/05_characters.txt").read_text(encoding="utf-8-sig")
+    assert not set(re.findall(r"religion = (\w+)", chars)) & b.LATE_FAITHS
+
+
+def test_kush_and_aksum():
+    assert "kushite_religion" in blocks(RELIGIONS.read_text(encoding="utf-8-sig"))
+    assert re.search(r'^ kushite_religion: "Kushite Religion"$', LOC.read_text(encoding="utf-8-sig"), re.M)
+    assert (b.MOD / "main_menu/gfx/interface/icons/religion/kushite_religion.dds").exists()
+    tags = b.load_tags(b.TOOLS / "tags.txt")
+    assert tags["NOB"]["religion"] == tags["BMY"]["religion"] == "kushite_religion"
+    assert tags["AXU"]["religion"] == "orthodox"
+    own = b.owned_by_tag(b.compute()["owner"])
+    p = pops()
+    nubia = [r for l in own["NOB"] for _, _, r in p.get(l, [])]
+    assert max(set(nubia), key=nubia.count) == "kushite_religion"
+    aksum = [(k, r) for l in own["AXU"] for k, _, r in p.get(l, [])]
+    assert {r for k, r in aksum if k == "nobles"} == {"orthodox"}
+    assert "arabian_paganism" in {r for k, r in aksum if k == "peasants"}   # Almaqah and Mahrem
+    assert {r for _, _, r in p["lhasa"]} == {"bon"} if "lhasa" in p else True

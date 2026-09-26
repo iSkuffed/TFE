@@ -114,3 +114,15 @@ REPLACE:hellenism_religion = {	# vanilla waits for 9999 and a Byzantine revival;
 		hellenism_gfx folk_european_gfx pagan_gfx
 	}
 }
+
+kushite_religion = {	# the gods of Meroë: Amun of Napata, the lion Apedemak, Isis of Philae
+	color = rgb { 176 120 70 }
+	group = folk_african_group
+
+	definition_modifier = {
+		global_max_literacy = 5
+		global_defensive = 0.1
+	}
+
+	tags = { pagan_gfx }
+}

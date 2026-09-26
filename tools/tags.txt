@@ -17,8 +17,8 @@ DMN | Damnonii | Damnonian | - | gaelic_tribe | briton | celtic_paganism | 120 1
 SAS | Sasanian Empire | Sasanian | baghdad | eastern_european_monarchy | farsi_culture | zoroastrian | 60 150 100   # Ctesiphon lies beside Baghdad
 HIM | Himyar | Himyarite | - | eastern_european_monarchy | yemeni_culture | judaism | 150 170 90
 AXU | Aksum | Aksumite | axum | subsaharan_monarchy | tigrinya | orthodox | 175 130 40
-BMY | Blemmyes | Blemmyan | - | subsaharan_tribe | beja_culture | hellenism_religion | 160 120 90
-NOB | Nobatia | Nobadian | - | subsaharan_monarchy | nubian | hellenism_religion | 130 90 50
+BMY | Blemmyes | Blemmyan | - | subsaharan_tribe | beja_culture | kushite_religion | 160 120 90
+NOB | Nobatia | Nobadian | - | subsaharan_monarchy | nubian | kushite_religion | 130 90 50
 GUP | Gupta Empire | Gupta | patna | indian_hindu_monarchy | bhojpuri_culture | hindu | 230 150 30
 KDB | Kadamba | Kadamba | - | indian_hindu_monarchy | kannadiga | hindu | 200 90 40
 PLV | Pallava | Pallava | - | indian_hindu_monarchy | tamil | hindu | 170 60 30

@@ -23,6 +23,12 @@ The pops, countries and characters of 395 get the faiths of the day after Theodo
   - A Jewish court in Himyar over a pagan people.
 - **Pagan pockets:** Harran, Baalbek, Gaza, Philae (Aswan), Laconia, Athens' nobles, Panopolis' nobles, the Anaunians
   of Trentino, and the Vascones.
+- **Nubia and Aksum:** a new `kushite_religion` (Amun, Apedemak, Isis) for the Nobades and Blemmyes. Aksum has a
+  Nicene court, clergy and burghers over peasants who keep Almaqah and Mahrem (`arabian_paganism`).
+- **The wider world:** no pop anywhere keeps a faith born after 395 (`LATE_FAITHS` in borders.py: Islam, the Latin
+  and medieval churches, Miaphysitism, Tibetan Buddhism). `purge_late_faiths` gives such a pop the commonest older
+  faith of its culture in the region, else of its area, else of its region. Rules cover the places where nothing older
+  is near: Bön for Tibet, Waaq for Somalia, Buddhism for the Tarim oases, Germanic paganism for the North Atlantic.
 - **Result:** the WRE is about two thirds Nicene; the EAR is about 95% Nicene.
 
 ## Later

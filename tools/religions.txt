@@ -161,9 +161,21 @@ arabia_region | * | arabian_paganism
 * | vepsian | muinaisusko
 * | ingrian | muinaisusko
 
-# ---- Nubia: the Isis of Philae ----
-* | nubian | hellenism_religion
-* | beja_culture | hellenism_religion
+# ---- Nubia and the Red Sea: Meroë's gods, Aksum's new church ----
+AXU | nobles:* | orthodox                 # Ezana's court, baptised by Frumentius
+AXU | clergy:* | orthodox
+AXU | burghers:* | orthodox                # Adulis and the Red Sea trade
+* | nubian | kushite_religion
+* | beja_culture | kushite_religion       # the Blemmyes, Isis' pilgrims
+NOB | * | kushite_religion
+BMY | * | kushite_religion
+AXU | * | arabian_paganism                 # Almaqah, Astar and Mahrem, gods shared with Saba
+
+# ---- the wider world: faiths not yet born give way to what came before ----
+tibet_region | * | bon                      # Buddhism reaches Tibet under Songtsen Gampo
+somalia_region | * | waaqeffanna_religion   # the Cushitic sky-god Waaq
+xinjiang_region | * | mahayana              # Khotan, Kucha and Turfan: the Buddhist oases
+north_atlantic_islands_region | * | norse
 
 # ---- the Roman world: one Nicene church ----
 * | roman_culture | orthodox
@@ -176,4 +188,3 @@ arabia_region | * | arabian_paganism
 * | coptic_culture | orthodox
 * | albanian | orthodox
 * | thracian | orthodox                     # the Bessi, baptised by Nicetas of Remesiana
-* | tigrinya | orthodox                     # Aksum, since Frumentius
