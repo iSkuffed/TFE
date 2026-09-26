@@ -2,6 +2,6 @@
 # Empires: the two Roman courts, Sasanian Iran, Gupta India, Eastern Jin China.
 rank_empire = WRE EAR SAS GUP JIN
 # Kingdoms: established monarchies and the great steppe confederations.
-rank_kingdom = HNS RRN LYN LLI KDB PLV LKA HIM AXU GOG BAE SIL TTH TKL
+rank_kingdom = HNS RRN LYN LLI KDB PLV LKA HIM AXU GOG BAE SIL TTH TKL ASK IBR
 # Duchies: large tribal confederations, Irish over-kingdoms, lesser monarchies.
-rank_duchy = VIS FRK ALM SAX QAD MKM CAL GEP SVE GEA BGD LGB TGI SLX HAS AES PKT MRX BAQ NRW DAX CQT ULD LAI MUM GYK MOC ZPT NOB GMT IAZ RUG
+rank_duchy = VIS FRK ALM SAX QAD MKM CAL GEP SVE GEA BGD LGB TGI SLX HAS AES PKT MRX BAQ NRW DAX CQT ULD LAI MUM GYK MOC ZPT NOB GMT IAZ RUG LZC AGV MSQ

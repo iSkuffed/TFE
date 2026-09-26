@@ -584,3 +584,93 @@ GMT = { # Garamantes
 	description_category = administrative
 	difficulty = 3
 }
+
+IBR = { # Iberia
+	color = rgb { 170 70 70 }
+	color2 = rgb { 85 35 35 }
+	culture_definition = georgian_culture # PLACEHOLDER
+	religion_definition = orthodox # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+ASK = { # Armenia
+	color = rgb { 190 110 60 }
+	color2 = rgb { 95 55 30 }
+	culture_definition = armenian_culture # PLACEHOLDER
+	religion_definition = orthodox # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+LZC = { # Lazica
+	color = rgb { 90 150 150 }
+	color2 = rgb { 45 75 75 }
+	culture_definition = mingrelian_culture # PLACEHOLDER
+	religion_definition = orthodox # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+AGV = { # Caucasian Albania
+	color = rgb { 120 170 190 }
+	color2 = rgb { 60 85 95 }
+	culture_definition = lezgin_culture # PLACEHOLDER
+	religion_definition = orthodox # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+ABG = { # Abasgia
+	color = rgb { 80 120 60 }
+	color2 = rgb { 40 60 30 }
+	culture_definition = abkhazian_culture # PLACEHOLDER
+	religion_definition = khabzeism # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+SUA = { # Svaneti
+	color = rgb { 150 150 190 }
+	color2 = rgb { 75 75 95 }
+	culture_definition = svan_culture # PLACEHOLDER
+	religion_definition = khabzeism # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+MSQ = { # Maskut
+	color = rgb { 180 160 100 }
+	color2 = rgb { 90 80 50 }
+	culture_definition = alan_culture # PLACEHOLDER
+	religion_definition = alan_paganism # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+SRR = { # Sarir
+	color = rgb { 200 170 60 }
+	color2 = rgb { 100 85 30 }
+	culture_definition = avar_culture # PLACEHOLDER
+	religion_definition = lezgin_paganism # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+LPN = { # Lpink
+	color = rgb { 140 100 150 }
+	color2 = rgb { 70 50 75 }
+	culture_definition = lezgin_culture # PLACEHOLDER
+	religion_definition = lezgin_paganism # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+DZR = { # Dzurdzuks
+	color = rgb { 100 80 60 }
+	color2 = rgb { 50 40 30 }
+	culture_definition = nakh_culture # PLACEHOLDER
+	religion_definition = vainakh_paganism # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}

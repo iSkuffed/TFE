@@ -106,6 +106,7 @@ arabia_region | * | arabian_paganism
 * | georgian_culture | orthodox
 * | mingrelian_culture | orthodox
 * | laz_culture | orthodox
+lezgistan_province | * | lezgin_paganism    # Lpink: the highlands stay pagan
 * | lezgin_culture | orthodox              # Caucasian Albania, Christian since Urnayr
 * | svan_culture | khabzeism
 * | abkhazian_culture | khabzeism

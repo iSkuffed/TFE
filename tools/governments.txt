@@ -53,3 +53,5 @@ SIL = ruler = tfe_naemul
 
 TTH = ruler = tfe_spearthrower_owl
 TKL = ruler = tfe_yax_nuun_ahiin
+IBR = ruler = tfe_trdat
+ASK = ruler = tfe_vramshapuh

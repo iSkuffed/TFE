@@ -106,6 +106,17 @@ Goguryeo, Baekje, Silla, Gaya, Yamato. SE Asia: Funan, Linyi, Pyu, Tarumanagara,
 Americas: Teotihuacan, Monte Albán, major Maya city-states, Moche, Nazca. All hunter-gatherer /
 culture-complex polygons → unowned.
 
+## Caucasus (`tools/overrides/30_caucasus.txt`, curated)
+
+The 387 partition: Rome keeps Theodosiopolis (Erzurum), Sophene (Harput) and Apsaros (Batumi).
+Persian vassals: Arsacid Armenia (ASK, Vramshapuh at Artaxata, r. 389-414), Chosroid Iberia (IBR,
+Trdat at Mtskheta, r. 394-406, with Gugark, Klarjeti and Tusheti), Caucasian Albania (AGV, Qabala,
+with Artsakh, Utik and Shirvan). Roman vassal: Lazica (LZC, Colchis, Zan-speaking). Tribes, some
+names later than 395: Abasgia (ABG), Svaneti (SUA), the Maskut Massagetae at the Gates (MSQ,
+Sanesan's kingdom of the 330s), Sarir of the Avars (SRR, attested 6th c.), Lpink (LPN), the Nakh
+Dzurdzuks (DZR); Koban and the upper Terek go to the Alans. The Tats (adhari) of Shirvan arrive
+with Khosrow I, so in 395 they are Albanians.
+
 ## Placeholders
 
 Each tag gets the nearest vanilla culture/religion, marked `# PLACEHOLDER`. WRE `catholic`, ERE

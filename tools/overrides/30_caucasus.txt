@@ -1,0 +1,56 @@
+# The Caucasus in 395: Rome and Persia split Armenia and Iberia in 387; client kings and mountain peoples between them.
+# Loaded after the foederati, so these win. Mountain tribes are partly anachronistic names for peoples who were there.
+!scope caucasus_region
+# Rome: Theodosiopolis, the satrapies of Sophene
+erzurum = EAR
+erzincan = EAR
+harput_province = EAR
+# Arsacid Armenia, Persian client after 387: Vramshapuh at Artaxata and Dvin
+ani_province = ASK
+syunik_province = ASK
+yerevan_province = ASK
+kars_province = ASK
+malazgirt_province = ASK
+van_province = ASK
+bitlis_province = ASK
+tortum = ASK                    # Tayk
+oltu = ASK
+panaskerti = ASK
+# Iberia (Kartli), Chosroid kings at Mtskheta, Persian client; Gugark fell to it in 387
+kartli_province = IBR
+kakheti_province = IBR
+samtskhe_province = IBR
+tashir_province = IBR
+artanuji = IBR                  # Klarjeti
+savsat = IBR
+khikhani = IBR
+# Lazica, Roman client kingdom in old Colchis; the Svans and Abasgians under their own chiefs
+samegrelo_province = LZC
+imereti_province = LZC
+batumi = EAR                    # Apsaros stays a Roman fort
+lentekhi = SUA
+tsageri = SUA
+ushguli = SUA
+abkhazia_province = ABG
+# Caucasian Albania, Christian since Urnayr; Persian client; Artsakh and Utik given to it in 387
+shaki_province = AGV
+arran_province = AGV
+kachen_province = AGV
+hereti_province = AGV
+baku_province = AGV
+shirvan_province = AGV
+# the Maskut: Massagetae kings north of the Gates (Sanesan's realm, a generation earlier)
+derbent = MSQ
+quba = MSQ
+shabran = MSQ
+niyazabad = MSQ
+tarki_province = MSQ
+# the mountain peoples: Sarir of the Avars, Lpink of the Lezgins, the Nakh Dzurdzuks, the Alans
+avaria_province = SRR
+lezgistan_province = LPN
+simsir = DZR
+targim = DZR
+tsontaroy_kala = DZR
+omalo = IBR                     # Tusheti, Georgian highlanders
+koban = CAL
+jariekhi = CAL

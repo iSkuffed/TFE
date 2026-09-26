@@ -125,3 +125,56 @@ def test_vandal_locations_hold_vandal_tribesmen(state):
     block = re.search(r"^debrecen = \{(.*?)^\}", text, re.M | re.S).group(1)
     culture = state["tags"]["HAS"]["culture"]
     assert "type = tribesmen" in block and f"culture = {culture}" in block and "hungarian" not in block
+
+
+CAUCASUS = [
+    ("mtskheta", "IBR", "Mtskheta, seat of the Chosroid kings of Iberia"),
+    ("tbilisi", "IBR", "Tbilisi: an Iberian fortress, capital only from the 6th century"),
+    ("lori", "IBR", "Gugark (Tashir): Iberian march since the 387 partition"),
+    ("kutaisi", "LZC", "Kutatisi, Lazica: Roman client kingdom of Colchis"),
+    ("poti_caucasus", "LZC", "Phasis"),
+    ("ushguli", "SUA", "Svaneti: the Svans under their own princes"),
+    ("anacopia", "ABG", "Abasgia: mountain clans on the Roman shore"),
+    ("batumi", "EAR", "Apsaros, a Roman fort"),
+    ("erzurum", "EAR", "Theodosiopolis: Roman Armenia from the 387 partition"),
+    ("harput", "EAR", "Sophene: the Roman satrapies"),
+    ("khor_virap", "ASK", "Artaxata: Arsacid Armenia under Vramshapuh, Persian client"),
+    ("van", "ASK", "Vaspurakan"),
+    ("tortum", "ASK", "Tayk"),
+    ("qabala", "AGV", "Kabalaka, capital of Caucasian Albania"),
+    ("shusha", "AGV", "Artsakh, given to Albania in 387"),
+    ("derbent", "MSQ", "the Gates: the Maskut kingdom of the Massagetae"),
+    ("tarki", "MSQ", "the Caspian plain north of the Gates"),
+    ("khunzakh", "SRR", "Avaria: Sarir, the Throne of Gold"),
+    ("kurakh", "LPN", "Lpink, the Lezgin highlanders"),
+    ("simsir", "DZR", "the Nakh Dzurdzuks"),
+    ("koban", "CAL", "the Alans of the Terek"),
+]
+
+
+@pytest.mark.parametrize("loc,tag,why", CAUCASUS)
+def test_caucasus(state, loc, tag, why):
+    assert state["owner"].get(loc) == tag, f"{loc}: {why}; trail {state['trail'].get(loc)}"
+
+
+def test_the_caucasus_has_no_empty_land(state):
+    empty = [l for l in state["land"] if state["anc"][l][2] == "caucasus_region" and l not in state["owner"]]
+    assert not empty, empty
+
+
+def test_caucasian_clients(state):
+    text = re.sub(r"#[^\n]*", "", (b.MOD / "main_menu/setup/start/12_diplomacy.txt").read_text(encoding="utf-8"))
+    pairs = set(re.findall(r"first\s*=\s*(\w+)\s+second\s*=\s*(\w+)", text))
+    assert {("SAS", "ASK"), ("SAS", "IBR"), ("SAS", "AGV"), ("EAR", "LZC")} <= pairs
+
+
+@pytest.mark.parametrize("tag", ["IBR", "ASK", "LZC", "AGV", "ABG", "SUA", "MSQ", "SRR", "LPN", "DZR"])
+def test_caucasian_peasants_share_their_rulers_culture(state, tag):
+    # the game warns when a country's biggest peasant culture is one it discriminates against
+    text = (b.MOD / "main_menu/setup/start/06_pops.txt").read_text(encoding="utf-8")
+    pops = dict(re.findall(r"^(\w+) = \{(.*?)^\}", text, re.M | re.S))
+    size = {}
+    for loc in b.owned_by_tag(state["owner"])[tag]:
+        for n, c in re.findall(r"type = peasants\s+size = ([\d.]+)\s+culture = (\w+)", pops.get(loc, "")):
+            size[c] = size.get(c, 0) + float(n)
+    assert not size or max(size, key=size.get) == b.load_tags(b.TOOLS / "tags.txt")[tag]["culture"], size

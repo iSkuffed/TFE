@@ -157,3 +157,8 @@ def test_portrait_modifiers_target_defined_characters(chars):
     refs = set(re.findall(r"character:(\w+)", text))
     assert "tfe_honorius" in refs and refs <= {cid for cid, _ in chars}, refs - {cid for cid, _ in chars}
     assert text.count("{") == text.count("}")
+
+
+def test_caucasian_kings(chars):
+    govs, _ = b.load_governments(b.TOOLS / "governments.txt", b.load_tags())
+    assert "ruler = tfe_trdat" in govs["IBR"] and "ruler = tfe_vramshapuh" in govs["ASK"]

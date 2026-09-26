@@ -4,6 +4,11 @@ diplomacy_manager = {
 	dependency = { first = EAR second = VIS subject_type = vassal start_date = 382.10.3 }
 	# Baquates, Western client in Tingitana (treaty altars at Volubilis, 3rd c.)
 	dependency = { first = WRE second = BAQ subject_type = vassal }
+	# The Caucasus after the partition of 387: Persia takes Armenia's king and Iberia; Rome keeps Lazica
+	dependency = { first = SAS second = ASK subject_type = vassal start_date = 389.1.1 }	# Vramshapuh, crowned by Bahram IV's leave
+	dependency = { first = SAS second = IBR subject_type = vassal start_date = 387.1.1 }
+	dependency = { first = SAS second = AGV subject_type = vassal start_date = 387.1.1 }
+	dependency = { first = EAR second = LZC subject_type = vassal start_date = 387.1.1 }	# Lazic kings invested by the emperor
 	# Roads of the one Empire stay open; closing them costs Unity
 	scripted_oneway = { first = WRE second = EAR type = military_access }
 	scripted_oneway = { first = EAR second = WRE type = military_access }

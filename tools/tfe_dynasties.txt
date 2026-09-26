@@ -42,3 +42,11 @@
 		name = { name = silla_kim_dynasty }
 		home = gyeongju
 	}
+	chosroid_dynasty = {
+		name = { name = chosroid_dynasty }
+		home = mtskheta
+	}
+	arsacid_dynasty = {
+		name = { name = arsacid_dynasty }
+		home = khor_virap
+	}

@@ -29,6 +29,10 @@ SCR | * | gothic_culture
 RUG | * | gothic_culture
 VIS | * | gothic_culture
 CAL | * | alan_culture
+DZR | * | nakh_culture          # the Nakh of the upper Terek
+SUA | * | svan_culture
+LZC | georgian_culture | mingrelian_culture   # Colchis spoke Zan, the tongue of Mingrelians and Laz
+MSQ | * | alan_culture          # the Massagetae of the Caspian plain
 IAZ | * | alan_culture
 SAX | * | saxon
 AGL | * | saxon
@@ -132,6 +136,7 @@ caucasus_region | avar_culture | avar_culture
 caucasus_region | dargin_culture | dargin_culture
 caucasus_region | lak_culture | lak_culture
 caucasus_region | lezgin_culture | lezgin_culture   # the Caucasian Albanians
+shirvan_area | adhari_culture | lezgin_culture   # the Tats come with Khosrow I
 caucasus_region | adhari_culture | adhari_culture
 caucasus_region | alan_culture | alan_culture
 georgia_area | * | georgian_culture

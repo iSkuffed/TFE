@@ -703,4 +703,25 @@ character_db = {
 		father = tfe_spearthrower_owl
 		tag = TKL
 	}
+	tfe_trdat = { # Trdat of Iberia, r. 394-406, Chosroid, Persian client; approx
+		first_name = { name = name_trdat }
+		culture = georgian_culture
+		religion = orthodox
+		adm = 45 dip = 50 mil = 40
+		birth_date = 345.1.1
+		birth = mtskheta
+		dynasty = chosroid_dynasty
+		tag = IBR
+	}
+	tfe_vramshapuh = { # Vramshapuh of Armenia, r. 389-414, patron of Mesrop's alphabet; approx
+		first_name = { name = name_vramshapuh }
+		culture = armenian_culture
+		religion = orthodox
+		adm = 60 dip = 55 mil = 40
+		birth_date = 365.1.1
+		birth = khor_virap
+		dynasty = arsacid_dynasty
+		ruler_trait = scholar
+		tag = ASK
+	}
 }

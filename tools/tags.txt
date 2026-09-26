@@ -67,3 +67,13 @@ MRX | Mauri | Mauri | - | subsaharan_tribe | kabyle | godala_religion | 190 150 
 BAQ | Baquates | Baquatian | volubilis | subsaharan_tribe | masmuda | godala_religion | 170 120 80
 AUS | Austuriani | Austurian | - | subsaharan_tribe | eastern_amazigh | godala_religion | 200 170 120
 GMT | Garamantes | Garamantian | - | subsaharan_tribe | tuareg | godala_religion | 150 100 60
+IBR | Iberia | Iberian | mtskheta | eastern_european_monarchy | georgian_culture | orthodox | 170 70 70
+ASK | Armenia | Armenian | khor_virap | eastern_european_monarchy | armenian_culture | orthodox | 190 110 60
+LZC | Lazica | Lazic | kutaisi | eastern_european_monarchy | mingrelian_culture | orthodox | 90 150 150
+AGV | Caucasian Albania | Albanian | qabala | eastern_european_monarchy | lezgin_culture | orthodox | 120 170 190
+ABG | Abasgia | Abasgian | anacopia | eurasian_tribe | abkhazian_culture | khabzeism | 80 120 60
+SUA | Svaneti | Svan | ushguli | eurasian_tribe | svan_culture | khabzeism | 150 150 190
+MSQ | Maskut | Maskut | derbent | eurasian_tribe | alan_culture | alan_paganism | 180 160 100
+SRR | Sarir | Sariri | khunzakh | eurasian_tribe | avar_culture | lezgin_paganism | 200 170 60
+LPN | Lpink | Lpinian | kurakh | eurasian_tribe | lezgin_culture | lezgin_paganism | 140 100 150
+DZR | Dzurdzuks | Dzurdzuk | simsir | eurasian_tribe | nakh_culture | vainakh_paganism | 100 80 60
