@@ -137,8 +137,9 @@ nubia_region | upper_egyptian_culture | coptic_culture
 nubia_region | hijazi_culture | beja_culture
 
 # ---- Africa: Latin cities on the coast, Berbers beyond ----
-tunis_area | * | afro_roman            # Proconsularis and Byzacena
-tripolitania_area | * | afro_roman
+habat_province | * | afro_roman        # Tingitana: Tingis, Septem
+hodna_province | * | afro_roman        # Sitifensis
+# the Moors of Kabylia, the Aures and the Nafusa stay Moors, Roman subjects or not (Gildo's Africa)
 maghreb_region | zenati | zenati
 maghreb_region | kabyle | kabyle
 maghreb_region | chaoui | chaoui
@@ -147,6 +148,8 @@ maghreb_region | masmuda | masmuda
 maghreb_region | mozabite | mozabite
 maghreb_region | eastern_amazigh | eastern_amazigh
 maghreb_region | tuareg | tuareg
+tunis_area | * | afro_roman            # Proconsularis and Byzacena
+tripolitania_area | * | afro_roman
 algiers_area | * | afro_roman          # Caesariensis
 atlas_high_plateau | * | chaoui        # Numidia
 morocco_area | * | masmuda
@@ -197,13 +200,12 @@ quhestan_area | * | khorasani_culture
 persia_region | * | farsi_culture
 
 # ---- Central Asia: Iranian oases, Hunnic steppe ----
-khorasan_region | khorezmian_culture | khorezmian_culture
 khorasan_region | tajik_culture | tajik_culture
 khorasan_region | pamiri_culture | pamiri_culture
 khorasan_region | khorasani_culture | khorasani_culture
 desht_kipchak_area | * | hunnic
 zhetysu_area | * | hunnic
-khwarazm_area | * | khorezmian_culture
+khwarazm_area | * | khorasani_culture   # the Chorasmians were Iranian; vanilla khorezmian is Turkic
 western_khorasan_area | * | khorasani_culture
 khorasan_region | * | tajik_culture
 
@@ -271,4 +273,6 @@ scandinavian_region | vepsian | vepsian
 denmark_area | * | danish
 skaneland_area | * | danish
 finland_area | * | tavastian
+karelia_area | * | karelian
+kola_area | * | sapmi
 scandinavian_region | * | swedish

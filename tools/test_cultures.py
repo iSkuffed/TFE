@@ -142,3 +142,20 @@ def test_roman_is_a_living_culture():
     assert "color = map_ROM" in body and "language = roman_dialect" in body
     for c in ("greek_culture", "gallo_roman", "hispano_roman", "afro_roman"):
         assert re.search(rf"{c} = kindred", body), c
+
+
+def test_review_spot_checks():
+    # Berbers inland keep Amazigh cultures even inside Roman areas; Roman ports stay Afro-Roman;
+    # Khwarazm is Iranian in 395 (vanilla khorezmian_culture is Turkic); Karelians are no Swedes
+    by = pops_cultures()
+    def top(loc):
+        return max(set(by[loc]), key=by[loc].count)
+    assert top("kuku") == "kabyle"
+    assert top("nalut") == "eastern_amazigh"
+    for loc in ("tangier", "ceuta"):
+        assert top(loc) == "afro_roman", loc
+    for loc in ("khiva", "kath", "urgench"):
+        assert top(loc) == "khorasani_culture", loc
+    assert top("korela") == "karelian"
+    assert "swedish" not in {c for l, a in b.load_hierarchy().items() if len(a) > 3 and a[3] in ("karelia_area", "kola_area")
+                             for c in by.get(l, ())}
