@@ -10,6 +10,21 @@ matrega_area | circassian_culture | circassian_culture      # the Zygii
 matrega_area | abazin_culture | abazin_culture
 matrega_area | abkhazian_culture | abkhazian_culture
 
+# ---- Dacia: the subject peoples under Gepid and Hunnic lords (the Huns have only just come) ----
+transylvania_area | nobles:* | gothic_culture                  # the Gepid lords
+transylvania_area | * | dacian 60 gothic_culture 40             # the Carpi and the free Dacians
+north_oltenia_province | * | taifal 70 dacian 15 hunnic 15      # the Taifali of the Olt
+south_oltenia_province | * | taifal 70 dacian 15 hunnic 15
+north_muntenia_province | * | taifal 60 roxolan 25 hunnic 15
+west_muntenia_province | * | roxolan 65 taifal 20 hunnic 15   # the Roxolani of the Danube plain
+south_muntenia_province | * | roxolan 55 alan_culture 30 hunnic 15
+east_muntenia_province | * | alan_culture 65 hunnic 20 roxolan 15
+barlad_province | * | alan_culture 60 hunnic 25 gothic_culture 15
+basarabia_province | * | gothic_culture 55 alan_culture 25 hunnic 20   # the Greuthungi who stayed
+orhei_province | * | gothic_culture 50 hunnic 30 alan_culture 20
+moldavia_area | * | dacian 55 gothic_culture 25 hunnic 20     # the Carpi and Costoboci of the north
+east_banat_province | * | roxolan 60 iazyges 40
+
 # ---- barbarian land: the people who hold it ----
 FRK | * | frankish
 SLF | * | frankish
@@ -27,13 +42,13 @@ RRN | * | mongolian_culture
 GEP | * | gothic_culture
 SCR | * | gothic_culture
 RUG | * | gothic_culture
-VIS | * | gothic_culture
+VIS | * | gothic_culture 60 thraco_roman 40   # Moesia: Alaric's Goths among the provincials
 CAL | * | alan_culture
 DZR | * | nakh_culture          # the Nakh of the upper Terek
 SUA | * | svan_culture
 LZC | georgian_culture | mingrelian_culture   # Colchis spoke Zan, the tongue of Mingrelians and Laz
 MSQ | * | alan_culture          # the Massagetae of the Caspian plain
-IAZ | * | alan_culture
+IAZ | * | iazyges
 SAX | * | saxon
 AGL | * | saxon
 TGI | * | saxon
@@ -86,44 +101,76 @@ italy_region | griko_culture | griko_culture
 italy_region | italki | italki
 italy_region | * | roman_culture
 slovakia_area | * | suebian             # Quadi country
-transdanubia_area | * | roman_culture    # Pannonia
+transdanubia_area | * | illyro_roman 75 gothic_culture 15 alan_culture 10   # Pannonia; Alatheus' and Saphrax' federates, 380
 carpathia_region | * | gothic_culture
 south_german_region | * | roman_culture  # Raetia and Noricum
 
-# ---- the Balkans: Latin north of the Jirecek line, Greek south of it ----
-durres | * | roman_culture          # Dyrrachium, Latin colony on the Via Egnatia
+# ---- the Balkans: Latin north of the Jirecek line, Greek south of it, Illyrian in the mountains ----
+durres | * | illyro_roman 50 albanian 30 greek_culture 20   # Dyrrachium, Latin colony on the Via Egnatia
 balkan_region | albanian | albanian      # the Illyrian hills
 balkan_region | romanyoti | romanyoti
 # the Illyrian highlands: Dardania, Praevalitana and the Dalmatian hinterland (albanian reads "Illyrian")
-albania_area | * | albanian
-kosovo_province | * | albanian
-zeta_province | * | albanian
-raska_province | * | albanian
-podrinje_province | * | albanian
-hum_province | * | albanian
-vardar_province | * | roman_culture    # Scupi and Dardania, Justinian's Latin homeland
-bosnia_area | * | roman_culture
-croatia_area | * | roman_culture
-slavonia_area | * | roman_culture
-slovenia_area | * | roman_culture
-serbia_area | * | roman_culture
-bulgaria_area | * | roman_culture
-rhodopes_province | * | thracian        # the Bessi
-pirin_province | * | thracian
+albania_area | * | albanian 75 greek_culture 15 illyro_roman 10
+kosovo_province | * | albanian 70 thraco_roman 30   # Ulpiana
+zeta_province | * | albanian 70 illyro_roman 30      # Doclea
+raska_province | * | albanian 80 illyro_roman 20
+podrinje_province | * | albanian 80 illyro_roman 20
+zlatibor_province | * | albanian 75 illyro_roman 25
+hum_province | * | albanian 70 illyro_roman 30        # Narona's hinterland
+bosnia_province | * | albanian 70 illyro_roman 30     # the Daesitiates; the silver of Domavia
+donji_kraji_province | * | albanian 75 illyro_roman 25
+usora_and_soli_province | * | albanian 60 illyro_roman 40
+una_sana_province | * | illyro_roman 55 albanian 45
+# the Latin coast and the Save: Salona, Iader, Siscia, Sirmium
+north_dalmatia_province | * | illyro_roman 60 albanian 40
+south_dalmatia_province | * | illyro_roman 60 albanian 40
+croatia_area | * | illyro_roman 80 albanian 20      # Istria and Liburnia
+slavonia_area | * | illyro_roman 85 gothic_culture 15
+slovenia_area | * | illyro_roman
+macva_province | * | illyro_roman 70 albanian 30
+# Moesia and inland Thrace: the Latin of the Danube provinces
+serbia_area | * | thraco_roman 85 albanian 15       # Singidunum, Viminacium, Naissus
+bulgaria_area | * | thraco_roman 80 gothic_culture 20   # Goths settled in Moesia since Ulfilas
+vardar_province | * | thraco_roman 70 albanian 15 greek_culture 15   # Scupi, Justinian's Latin homeland
+zagore_province | * | thraco_roman 50 thracian 25 greek_culture 25  # Philippopolis
+sliven_province | * | thraco_roman 60 greek_culture 25 thracian 15
+rhodopes_province | * | thracian 75 greek_culture 25   # the Bessi
+pirin_province | * | thracian 75 greek_culture 25
+prilep_province | * | greek_culture 55 albanian 30 thraco_roman 15   # Lychnidus and Heraclea on the Via Egnatia
 balkan_region | * | greek_culture
 
-# ---- Anatolia ----
+# ---- Anatolia: Greek coasts; Phrygian, Galatian and Cappadocian uplands ----
 anatolia_region | armenian_culture | armenian_culture
 anatolia_region | pontic_greek_culture | pontic_greek_culture
 anatolia_region | laz_culture | laz_culture
 anatolia_region | syriac_culture | syriac_culture
 anatolia_region | romanyoti | romanyoti
-cappadocia_area | * | cappadocian_greek_culture
+kutahya_province | * | phrygian 60 greek_culture 30 gothic_culture 10   # Cotyaeum; Tribigild's Greuthungi, 386
+karahisar_province | * | phrygian 65 greek_culture 25 gothic_culture 10
+usak_province | * | phrygian 65 greek_culture 35
+sultanonu_province | * | phrygian 55 greek_culture 45      # Dorylaeum
+beysehir_province | * | phrygian 55 greek_culture 45       # Philomelium and Pisidian Antioch
+hamid_province | * | phrygian 55 greek_culture 45
+ankara_province | * | galatian 60 greek_culture 25 phrygian 15   # Ancyra of the Tectosages
+cankiri_province | * | galatian 65 greek_culture 20 phrygian 15
+sivrihisar_province | * | galatian 55 phrygian 30 greek_culture 15   # Pessinus of the Tolistobogii
+bozok_province | * | galatian 55 cappadocian_greek_culture 45   # Tavium of the Trocmi
+konya_province | * | greek_culture 70 cappadocian_greek_culture 30   # Lycaonia and Isauria
+larende_province | * | greek_culture 70 cappadocian_greek_culture 30
+sivas_province | * | cappadocian_greek_culture 60 armenian_culture 40   # Armenia Minor
+divrigi_province | * | armenian_culture 60 cappadocian_greek_culture 40
+malatya_province | * | armenian_culture 50 syriac_culture 25 greek_culture 25   # Melitene
+cappadocia_area | * | cappadocian_greek_culture 85 armenian_culture 15
 central_anatolia_area | * | cappadocian_greek_culture
 pontus_area | * | pontic_greek_culture
 anatolia_region | * | greek_culture
 
 # ---- the Caucasus ----
+arran_province | * | arranian 65 armenian_culture 35   # Utik and Artsakh: Partaw, Albanian and Armenian
+shaki_province | * | arranian                          # Gabala, the Albanian kings' seat
+mughan_province | * | caspian 70 arranian 30           # the Caspii of the Kura mouth
+baku_province | * | caspian 60 arranian 40
+shirvan_province | * | lezgin_culture 60 arranian 40   # Derbent and the Lpink
 caucasus_region | armenian_culture | armenian_culture
 caucasus_region | georgian_culture | georgian_culture
 caucasus_region | mingrelian_culture | mingrelian_culture
@@ -136,12 +183,10 @@ caucasus_region | avar_culture | avar_culture
 caucasus_region | dargin_culture | dargin_culture
 caucasus_region | lak_culture | lak_culture
 caucasus_region | lezgin_culture | lezgin_culture   # the Caucasian Albanians
-shirvan_area | adhari_culture | lezgin_culture   # the Tats come with Khosrow I
 caucasus_region | adhari_culture | adhari_culture
 caucasus_region | alan_culture | alan_culture
 georgia_area | * | georgian_culture
 northern_caucasus_area | * | alan_culture
-shirvan_area | * | lezgin_culture
 caucasus_region | * | armenian_culture
 
 # ---- Syria and Mesopotamia: Aramaic speakers under Rome and Persia ----
@@ -169,14 +214,24 @@ azraq | * | bedouin_culture            # the Arab tribes of the Hauran and the N
 salkhad | * | bedouin_culture
 suwayda | * | bedouin_culture
 mountain_druze | * | bedouin_culture
-sharat_province | * | bedouin_culture
+sharat_province | * | nabataean 65 bedouin_culture 35   # Petra, Hegra's kin
 levant_area | burghers:* | greek_culture   # a Greek-speaking upper class over Aramaic villages
 levant_area | nobles:* | greek_culture
 crescent_region | armenian_culture | armenian_culture
-crescent_region | kurdish_culture | kurdish_culture
-crescent_region | lur_culture | lur_culture
 crescent_region | bedouin_culture | bedouin_culture
 crescent_region | mandean_culture | mandean_culture
+ar_ruha_province | * | syriac_culture       # Edessa and Roman Osrhoene: the Aramean west
+raqqa_province | * | syriac_culture 75 bedouin_culture 25   # Callinicum
+furat_province | * | assyrian 55 bedouin_culture 45
+hasankeyf_province | * | armenian_culture 60 assyrian 40   # Arzanene, an Armenian satrapy
+jazira_area | * | assyrian 85 bedouin_culture 15             # Nisibis, Beth Arabaye, Nineveh
+safhat_jibal_province | * | assyrian 85 parthian 15          # Adiabene and Beth Garmai: Arbela, Karka
+garmian_province | * | parthian 60 assyrian 40
+hulwan_province | * | parthian 70 chaldean 30
+kufa_province | * | chaldean 50 bedouin_culture 35 mizrahi 15   # al-Hira of the Lakhmids
+basra_province | * | chaldean 65 bedouin_culture 35             # Mesene
+iraq_arabi_area | nobles:* | farsi_culture                        # the King of Kings' court at Ctesiphon
+iraq_arabi_area | * | chaldean 75 mizrahi 15 farsi_culture 10     # Sura, Pumbedita and the canal villages
 crescent_region | * | syriac_culture
 
 # ---- Egypt ----
@@ -188,7 +243,7 @@ el_bahnasa | * | greek_culture         # Oxyrhynchus
 ashmunayn | * | greek_culture          # Hermopolis and Antinoopolis
 akhmim | * | greek_culture             # Panopolis of Nonnus
 cyrenaica_area | * | greek_culture      # the Pentapolis
-sinai_area | bedouin_culture | bedouin_culture
+sinai_area | * | nabataean 60 bedouin_culture 40
 egypt_region | burghers:* | greek_culture
 egypt_region | nobles:* | greek_culture
 egypt_region | * | coptic_culture
@@ -235,9 +290,6 @@ arabia_region | * | najdi_culture
 # ---- Iran ----
 persia_region | farsi_culture | farsi_culture
 persia_region | achomi_culture | achomi_culture
-persia_region | lur_culture | lur_culture
-persia_region | kurdish_culture | kurdish_culture
-persia_region | adhari_culture | adhari_culture
 persia_region | armenian_culture | armenian_culture
 persia_region | syriac_culture | syriac_culture
 persia_region | baloch_culture | baloch_culture
@@ -254,8 +306,18 @@ persia_region | talysh_culture | talysh_culture
 persia_region | semnani_culture | semnani_culture
 persia_region | kalimi | kalimi        # Persia's Jews
 persia_region | sindhi | sindhi
-azerbaijan_area | * | adhari_culture
-khuzestan_area | * | lur_culture
+azerbaijan_area | * | parthian 75 armenian_culture 15 farsi_culture 10   # Atropatene, the fire of Adur Gushnasp
+kordestan_area | * | parthian 80 farsi_culture 20
+hamadan_province | * | parthian 80 farsi_culture 20 # Media: Ecbatana
+qazvin_province | * | parthian 80 farsi_culture 20
+zanjan_province | * | parthian 80 farsi_culture 20
+rey_province | * | parthian 75 farsi_culture 25     # Rhagae, the Mihrans' seat
+qom_province | * | parthian 70 farsi_culture 30
+mazandaran_area | * | parthian                        # Hyrcania and Comisene
+ahvaz_province | * | elymaean 50 chaldean 30 farsi_culture 20
+dezful_province | * | elymaean 45 syriac_culture 30 farsi_culture 25   # Gundeshapur of Shapur's Roman captives
+ramhormoz_province | * | elymaean 70 farsi_culture 30
+izeh_province | * | elymaean 70 farsi_culture 30      # Elymais of the mountain shrines
 quhestan_area | * | khorasani_culture
 persia_region | * | farsi_culture
 
@@ -265,8 +327,8 @@ khorasan_region | pamiri_culture | pamiri_culture
 khorasan_region | khorasani_culture | khorasani_culture
 desht_kipchak_area | * | hunnic
 zhetysu_area | * | hunnic
-khwarazm_area | * | khorasani_culture   # the Chorasmians were Iranian; vanilla khorezmian is Turkic
-western_khorasan_area | * | khorasani_culture
+khwarazm_area | * | chorasmian   # the Chorasmians were Iranian; vanilla khorezmian is Turkic
+western_khorasan_area | * | parthian 70 khorasani_culture 30   # Parthava: Nisa and Merv
 khorasan_region | * | tajik_culture
 
 # ---- the Pontic steppe ----

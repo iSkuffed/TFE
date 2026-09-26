@@ -415,9 +415,11 @@ MED_BOX = (-15, 18, 55, 62)  # lon0, lat0, lon1, lat1 for the Mediterranean prev
 
 
 ACCEPTED_CULTURES = {   # without these the empires' own provincials are "discriminated": less control and tax
-    "WRE": ("gallo_roman", "hispano_roman", "afro_roman", "romano_british", "briton", "albanian"),
+    "WRE": ("gallo_roman", "hispano_roman", "afro_roman", "romano_british", "briton", "albanian", "illyro_roman",
+            "thraco_roman"),
     "EAR": ("roman_culture", "syriac_culture", "coptic_culture", "armenian_culture", "cappadocian_greek_culture",
-            "pontic_greek_culture", "albanian")}
+            "pontic_greek_culture", "albanian", "illyro_roman", "thraco_roman", "phrygian", "galatian"),
+    "SAS": ("parthian",)}   # the great houses of the north, Karen, Suren and Mihran
 
 
 def emit_countries(tags, owned, caps, ranks=None, discovered=None, governments=None, country_types=None):

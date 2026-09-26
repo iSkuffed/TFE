@@ -61,7 +61,7 @@ HAS | Hasding Vandals | Vandal | - | eurasian_tribe | vandal | arianism | 210 13
 SLX | Siling Vandals | Siling | - | eurasian_tribe | vandal | norse | 230 170 70
 LGB | Lombards | Lombard | - | eurasian_tribe | suebian | norse | 90 120 90
 RUG | Rugii | Rugian | - | eurasian_tribe | gothic_culture | arianism | 150 120 170
-IAZ | Iazyges | Sarmatian | - | eurasian_tribe | alan_culture | alan_paganism | 170 170 130
+IAZ | Iazyges | Sarmatian | - | eurasian_tribe | iazyges | alan_paganism | 170 170 130
 AES | Aesti | Aestian | - | eurasian_tribe | pruthenian | romuva | 110 110 60
 MRX | Mauri | Mauri | - | subsaharan_tribe | kabyle | godala_religion | 190 150 110
 BAQ | Baquates | Baquatian | volubilis | subsaharan_tribe | masmuda | godala_religion | 170 120 80
@@ -70,7 +70,7 @@ GMT | Garamantes | Garamantian | - | subsaharan_tribe | tuareg | godala_religion
 IBR | Iberia | Iberian | mtskheta | eastern_european_monarchy | georgian_culture | orthodox | 170 70 70
 ASK | Armenia | Armenian | khor_virap | eastern_european_monarchy | armenian_culture | orthodox | 190 110 60
 LZC | Lazica | Lazic | kutaisi | eastern_european_monarchy | mingrelian_culture | orthodox | 90 150 150
-AGV | Caucasian Albania | Albanian | qabala | eastern_european_monarchy | lezgin_culture | orthodox | 120 170 190
+AGV | Caucasian Albania | Albanian | qabala | eastern_european_monarchy | arranian | orthodox | 120 170 190
 ABG | Abasgia | Abasgian | anacopia | eurasian_tribe | abkhazian_culture | khabzeism | 80 120 60
 SUA | Svaneti | Svan | ushguli | eurasian_tribe | svan_culture | khabzeism | 150 150 190
 MSQ | Maskut | Maskut | derbent | eurasian_tribe | alan_culture | alan_paganism | 180 160 100
@@ -140,7 +140,7 @@ AZN | Azania | Azanian | mogadishu | subsaharan_tribe | somali_culture | waaqeff
 KDT | Kidarites | Kidarite | balkh | eurasian_horde_no_muslim | tajik_culture | mahayana | 195 105 55
 ALK | Alkhon | Alkhon | kabul | eurasian_horde_no_muslim | afghan_culture | tengri | 130 80 110
 SGD | Sogdia | Sogdian | samarkand | eastern_european_monarchy | tajik_culture | zoroastrian | 210 140 70
-KHW | Khwarazm | Khwarazmian | kath | eastern_european_monarchy | khorasani_culture | zoroastrian | 75 150 145
+KHW | Khwarazm | Khwarazmian | kath | eastern_european_monarchy | chorasmian | zoroastrian | 75 150 145
 FRG | Ferghana | Ferghanan | fergana | eastern_european_monarchy | tajik_culture | zoroastrian | 160 180 90
 KNJ | Kangju | Kangju | chach | eurasian_tribe | tajik_culture | tengri | 140 120 170
 WSN | Wusun | Wusun | barskoon | eurasian_horde_no_muslim | hunnic | tengri | 110 170 200

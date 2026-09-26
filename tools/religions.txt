@@ -60,6 +60,10 @@ tunis_area | peasants:afro_roman | orthodox 45 donatism 35 religio_romana 10 man
 transylvania_area | peasants:* | zalmoxism 65 arianism 35      # the Carpi and the free Dacians under the Gepids
 wallachia_area | peasants:gothic_culture | zalmoxism 55 arianism 45
 moldavia_area | peasants:gothic_culture | zalmoxism 55 arianism 45
+* | dacian | zalmoxism 80 arianism 20
+* | taifal | norse 60 arianism 40         # Taifali pagans; Athanaric's persecution fell on Gothic Christians
+* | roxolan | alan_paganism
+* | iazyges | alan_paganism
 
 # ---- the Arians: Ulfilas' Goths and their neighbours ----
 crimea_area | gothic_culture | orthodox   # the Goths of Gothia sent a bishop to Nicaea
@@ -72,6 +76,7 @@ HAS | * | arianism
 
 # ---- Syria, Egypt and Mesopotamia: the sun of Emesa, Dushara of Petra, Mani's churches, the Euchites ----
 * | bedouin_culture | arabian_paganism
+* | nabataean | arabian_paganism 60 orthodox 40   # Dushara and al-Uzza
 levant_area | clergy:* | orthodox
 levant_area | burghers:* | orthodox 75 hellenism_religion 15 manichaeism 10
 hims_province | * | hellenism_religion 60 orthodox 40      # Elagabal's black stone at Emesa
@@ -86,11 +91,14 @@ levant_area | * | orthodox 70 hellenism_religion 20 manichaeism 10
 upper_egypt_area | peasants:coptic_culture | orthodox 65 hellenism_religion 25 manichaeism 10   # Lycopolis, Kellis and the old temples
 egypt_region | peasants:coptic_culture | orthodox 75 hellenism_religion 15 manichaeism 10
 egypt_region | nobles:* | orthodox 75 hellenism_religion 25       # Hypatia's Alexandria
-jazira_area | syriac_culture | nestorianism 45 messalianism 30 zoroastrian 15 hellenism_religion 10
-iraq_arabi_area | syriac_culture | nestorianism 45 manichaeism 20 zoroastrian 20 hellenism_religion 15   # Mani's Babylon
+jazira_area | assyrian | nestorianism 45 messalianism 30 zoroastrian 15 hellenism_religion 10
+iraq_arabi_area | chaldean | nestorianism 45 manichaeism 20 zoroastrian 20 hellenism_religion 15   # Mani's Babylon
 
 # ---- Persia: the fire temples, the Church of the East, Buddhist Bactria ----
 SAS | syriac_culture | nestorianism 70 zoroastrian 15 manichaeism 15
+* | assyrian | nestorianism 70 zoroastrian 15 manichaeism 15
+* | chaldean | nestorianism 55 zoroastrian 25 manichaeism 20
+* | elymaean | zoroastrian 50 nestorianism 30 manichaeism 20   # Beth Huzaye, a see of the Church of the East
 * | syriac_culture | orthodox 80 hellenism_religion 20
 SAS | armenian_culture | zoroastrian 55 orthodox 45   # Persarmenia: the Mazdean nakharars
 * | armenian_culture | orthodox 70 zoroastrian 30
@@ -103,6 +111,9 @@ khorasan_region | tajik_culture | zoroastrian
 khorasan_region | khorasani_culture | zoroastrian
 khorasan_region | pamiri_culture | zoroastrian
 * | kurdish_culture | zoroastrian
+* | parthian | zoroastrian 90 manichaeism 10
+* | farsi_culture | zoroastrian
+* | chorasmian | zoroastrian
 * | lur_culture | zoroastrian
 * | adhari_culture | zoroastrian
 
@@ -120,6 +131,8 @@ arabia_region | * | arabian_paganism
 * | laz_culture | orthodox
 lezgistan_province | * | lezgin_paganism    # Lpink: the highlands stay pagan
 * | lezgin_culture | orthodox              # Caucasian Albania, Christian since Urnayr
+* | arranian | orthodox 70 zoroastrian 30
+* | caspian | zoroastrian 60 orthodox 40
 * | svan_culture | khabzeism
 * | abkhazian_culture | khabzeism
 * | abazin_culture | khabzeism
@@ -209,6 +222,8 @@ italy_region | nobles:* | orthodox 60 religio_romana 40
 france_region | nobles:* | orthodox 60 religio_romana 40
 iberia_region | nobles:* | orthodox 60 religio_romana 40
 * | burghers:roman_culture | orthodox 80 religio_romana 20
+* | burghers:illyro_roman | orthodox 80 religio_romana 20
+* | burghers:thraco_roman | orthodox 85 religio_romana 15
 * | burghers:gallo_roman | orthodox 80 religio_romana 20
 * | burghers:hispano_roman | orthodox 80 religio_romana 20
 * | burghers:greek_culture | orthodox 80 hellenism_religion 20
@@ -361,6 +376,10 @@ cilicia_area | * | orthodox 65 hellenism_religion 35
 
 # ---- the Roman world: one Nicene church, and the old gods in every town ----
 * | roman_culture | orthodox 85 religio_romana 15
+* | illyro_roman | orthodox 75 religio_romana 25
+* | thraco_roman | orthodox 85 religio_romana 15
+* | phrygian | orthodox 55 hellenism_religion 30 montanism 15
+* | galatian | celtic_paganism 50 orthodox 35 hellenism_religion 15
 * | greek_culture | orthodox 85 hellenism_religion 15
 * | gallo_roman | orthodox 80 religio_romana 20
 * | hispano_roman | orthodox 80 religio_romana 20

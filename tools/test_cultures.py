@@ -10,7 +10,9 @@ CULTURES = b.MOD / "in_game/common/cultures/tfe_cultures.txt"
 LOC = b.MOD / "main_menu/localization/english/tfe_cultures_l_english.yml"
 REPLACE = b.MOD / "main_menu/localization/english/replace/tfe_cultures_replace_l_english.yml"
 NEW = {"gallo_roman", "hispano_roman", "afro_roman", "briton", "pictish", "frankish", "alamannic", "suebian",
-       "vandal", "tfe_burgundian", "hunnic", "venedi", "romano_british", "thracian"}
+       "vandal", "tfe_burgundian", "hunnic", "venedi", "romano_british", "thracian", "illyro_roman", "thraco_roman", "dacian",
+       "taifal", "roxolan", "iazyges", "phrygian", "galatian", "arranian", "caspian", "nabataean", "assyrian", "chaldean",
+       "elymaean", "parthian", "chorasmian"}
 GROUPS = b.MOD / "in_game/common/culture_groups/tfe_culture_groups.txt"
 
 
@@ -89,13 +91,13 @@ def test_unknown_scopes_and_cultures_are_refused(tmp_path):
 
 def test_every_rule_target_exists():
     known = set(blocks(vanilla_text("cultures"))) | NEW
-    targets = {to for _, _, to in b.load_culture_rules(RULES, None, None)}
+    targets = {c for _, _, to in b.load_culture_rules(RULES, None, None) for c, _ in b.mix(to)}
     assert targets and targets <= known, targets - known
 
 
 def test_the_core_has_no_1337_cultures_left():
     anc = b.load_hierarchy()
-    targets = {to for _, _, to in b.load_culture_rules(RULES, None, None)}
+    targets = {c for _, _, to in b.load_culture_rules(RULES, None, None) for c, _ in b.mix(to)}
     left = {}
     for loc, cults in pops_cultures().items():
         if anc[loc][2] in b.CULTURE_REGIONS:
@@ -108,8 +110,8 @@ def test_spot_checks():
     own = {l: t for t, locs in b.owned_by_tag(b.compute()["owner"]).items() for l in locs}
     by = pops_cultures()
     def only(loc, culture):   # the dominant people; minorities (Jews, Griko...) may stay
-        assert max(set(by[loc]), key=by[loc].count) == culture, (loc, by[loc])
-    for loc, culture in (("toledo", "hispano_roman"), ("konya", "cappadocian_greek_culture"),
+        assert top(loc) == culture, (loc, by[loc])
+    for loc, culture in (("toledo", "hispano_roman"), ("konya", "greek_culture"),
                          ("tunis", "afro_roman"), ("aleppo", "syriac_culture"), ("rome", "roman_culture"),
                          ("paris", "gallo_roman"), ("alexandria", "greek_culture")):
         only(loc, culture)
@@ -134,9 +136,8 @@ def test_tags_and_characters_use_395_cultures():
 
 def test_the_empires_accept_their_provincials():
     text = (b.MOD / "main_menu/setup/start/10_countries.txt").read_text(encoding="utf-8")
-    for tag, people in (("WRE", {"gallo_roman", "hispano_roman", "afro_roman", "romano_british", "briton", "albanian"}),
-                        ("EAR", {"roman_culture", "syriac_culture", "coptic_culture", "armenian_culture",
-                                 "cappadocian_greek_culture", "pontic_greek_culture", "albanian"})):
+    for tag, people in b.ACCEPTED_CULTURES.items():
+        people = set(people)
         block = text[text.index(f"\t\t{tag} = {{"):].split("\n\t\t}\n")[0]
         accepted = re.search(r"accepted_cultures = \{([^}]*)\}", block)
         assert accepted and set(accepted.group(1).split()) == people, tag
@@ -163,7 +164,7 @@ def test_review_spot_checks():
     for loc in ("tangier", "ceuta"):
         assert top(loc) == "afro_roman", loc
     for loc in ("khiva", "kath", "urgench"):
-        assert top(loc) == "khorasani_culture", loc
+        assert top(loc) == "chorasmian", loc
     assert top("korela") == "karelian"
     assert "swedish" not in {c for l, a in b.load_hierarchy().items() if len(a) > 3 and a[3] in ("karelia_area", "kola_area")
                              for c in by.get(l, ())}
@@ -175,8 +176,9 @@ def test_the_illyrian_highlands():
     by = pops_cultures()
     for loc in ("peja", "podgorica", "mostar", "pljevlja", "brskovo"):
         assert top(loc) == "albanian", loc
-    for loc in ("dubrovnik", "pola", "belgrad", "sabac"):
-        assert top(loc) == "roman_culture", loc
+    for loc in ("dubrovnik", "pola", "sabac"):
+        assert top(loc) == "illyro_roman", loc
+    assert top("belgrad") == "thraco_roman"
     assert re.search(r'^ albanian: "Illyrian"$', REPLACE.read_text(encoding="utf-8-sig"), re.M)
 
 
@@ -244,8 +246,9 @@ def test_greeks_of_the_east():
 
 def test_balkans_and_britain():
     by = pops_cultures()
-    for loc in ("skopje", "shtip", "durres"):
-        assert top(loc) == "roman_culture", loc
+    for loc in ("skopje", "shtip"):
+        assert top(loc) == "thraco_roman", loc
+    assert top("durres") == "illyro_roman"
     for loc in ("smolyan", "bansko", "melnik"):
         assert top(loc) == "thracian", loc
     for loc in ("london", "colchester", "st_albans", "cirencester", "bath", "leicester", "york"):

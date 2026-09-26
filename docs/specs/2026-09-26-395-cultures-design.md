@@ -100,3 +100,27 @@ can just become part of the Greek culture group").
   Rhodopes and Pirin; both empires accept Illyrians (albanian).
 - Britain: Romano-British (new) in the lowland civitates and York, Briton in Wales, Dumnonia and the north, Irish
   in Dyfed, Anglesey and Caernarfon; WRE accepts Romano-British.
+
+## The East after the reference culture map (2026-09-26)
+
+The user gave a Fallen Eagle culture map of the East as the baseline. Sixteen new cultures, all built from vanilla parts;
+rules use the `a 60 b 40` mix syntax so most places carry minorities (the map hatches them).
+
+- Balkans: Illyro-Roman (dalmatian_dialect, Roman group) in Pannonia, Savia, Istria and the Dalmatian cities;
+  Illyrian (albanian) holds the Dinaric hinterland, Dardania and Praevalitana; Thraco-Roman (romanian_language)
+  in Moesia, Scupi and inland Thrace; Greek south of the Jirecek line; Thracian Bessi stay in the Rhodopes.
+  Visigothic Moesia is Gothic 60 / Thraco-Roman 40; Pannonia carries the 380 Goth-Alan federates.
+- Dacia: Dacian (Carpi, free Dacians) under Gepid lords in Transylvania and in north Moldavia; Taifal on the Olt;
+  Roxolan on the Danube plain and in the Banat; Alan in east Muntenia; Gothic (the Greuthungi who stayed) in
+  Bessarabia; Iazygian (Sarmatian) on the Tisza. Hunnic minorities of 15-30% under the Horde.
+- Anatolia: Phrygian (Greek language stand-in) around Cotyaeum, Dorylaeum and Pisidia with Tribigild's Goths;
+  Galatian (breton_dialect; brythonic_language itself fails to load) at Ancyra, Pessinus and Tavium; Lycaonia Greek;
+  Armenians in Armenia Minor and Melitene.
+- Caucasus: Arranian (Caucasian Albanians) in Arran and Shaki, Caspian at the Kura mouth, Lezgin at Derbent.
+- Syria and Mesopotamia: syriac_culture is displayed "Aramean" (Roman Syria, Osrhoene); Nabataean at Petra and in
+  Sinai; Assyrian in the Jazira and Adiabene; Chaldean in Babylonia with Jewish and Persian minorities and a
+  Persian nobility; the vanilla Kurds and Lurs (later peoples) are gone.
+- Iran: Parthian (adharic_language) in Atropatene, Media, Hyrcania and Parthava; Elymaean in Khuzestan, with
+  Gundeshapur's Roman captives; Persian elsewhere; Chorasmian on the lower Oxus.
+- Accepted cultures: WRE and EAR take Illyro- and Thraco-Romans, EAR also Phrygians and Galatians; SAS accepts
+  the Parthians. AGV, KHW and IAZ get Arranian, Chorasmian and Iazygian as primary cultures.
