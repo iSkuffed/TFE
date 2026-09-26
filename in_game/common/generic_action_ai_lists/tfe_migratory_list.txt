@@ -3,7 +3,6 @@
 		country_type = army
 	}
 	actions = {
-		tfe_make_camp
-		tfe_raise_warband
+		tfe_start_migration
 	}
 }

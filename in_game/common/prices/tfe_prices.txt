@@ -1,7 +1,0 @@
-﻿# TFE: migratory peoples (tunable)
-tfe_make_camp = {
-	gold = 10
-}
-tfe_raise_warband = {
-	gold = 30
-}

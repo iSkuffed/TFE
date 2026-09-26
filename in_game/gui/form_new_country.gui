@@ -251,11 +251,11 @@ lateralview = {
 						layoutpolicy_horizontal = expanding
 						size = { -1 40 }
 						actor = "[Player]"
-						left_click_and_hold_action = { action_name = "tfe_make_camp" }
+						left_click_and_hold_action = { action_name = "tfe_start_migration" }
 						tooltipwidget = {
 							ContextualTooltipType = {
 								blockoverride "title_text" {
-									text = "tfe_make_camp"
+									text = "tfe_start_migration"
 								}
 								blockoverride "concept_link" {
 									text = "[migration|e]"
@@ -267,35 +267,11 @@ lateralview = {
 						}
 						text_single = {
 							layoutpolicy_horizontal = expanding
-							text = "[GetGenericAction('tfe_make_camp').GetNameWithNoTooltip]"
+							text = "[GetGenericAction('tfe_start_migration').GetNameWithNoTooltip]"
 							parentanchor = center
 						}
 					}
 
-					action_button_regular = {
-						layoutpolicy_horizontal = expanding
-						size = { -1 40 }
-						actor = "[Player]"
-						left_click_and_hold_action = { action_name = "tfe_raise_warband" }
-						tooltipwidget = {
-							ContextualTooltipType = {
-								blockoverride "title_text" {
-									text = "tfe_raise_warband"
-								}
-								blockoverride "concept_link" {
-									text = "[migration|e]"
-								}
-								blockoverride "tooltip_content" {
-									using = action_tooltip_inner_content
-								}
-							}
-						}
-						text_single = {
-							layoutpolicy_horizontal = expanding
-							text = "[GetGenericAction('tfe_raise_warband').GetNameWithNoTooltip]"
-							parentanchor = center
-						}
-					}
 					# TFE: end
 					#steppe_horde_to_monarchy
 					action_button_regular = {
