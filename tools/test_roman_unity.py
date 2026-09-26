@@ -86,3 +86,10 @@ def test_the_empires_cannot_form_vanilla_countries_except_rome():
 def test_formables_override_is_regenerated_from_the_current_game():
     vanilla = (b.GAME / FORMABLES).read_text(encoding="utf-8-sig")
     assert (b.MOD / FORMABLES).read_text(encoding="utf-8-sig") == b.bar_empires_from_formables(vanilla)
+
+
+def test_io_panel_override_is_regenerated_from_the_current_game():
+    # the two Augusti head the Imperium's window (leaders in the IO, the union header in the panel)
+    assert "add_to_list = leaders" in code(IO)
+    vanilla = (b.GAME / b.IO_PANEL).read_text(encoding="utf-8-sig")
+    assert (b.MOD / b.IO_PANEL).read_text(encoding="utf-8-sig") == b.augusti_in_io_header(vanilla)

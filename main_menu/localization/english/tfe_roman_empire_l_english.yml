@@ -1,4 +1,6 @@
 ﻿l_english:
+ tfe_roman_empire_LEADER_MALE: "Augustus"
+ tfe_roman_empire_LEADER_FEMALE: "Augusta"
  tfe_roman_empire: "Imperium Romanum"
  tfe_roman_empire_desc: "Though two Augusti rule from Mediolanum and Constantinople, there is still one Roman Empire: one law, one citizenship, one consulship."
  tfe_unity: "Unity"

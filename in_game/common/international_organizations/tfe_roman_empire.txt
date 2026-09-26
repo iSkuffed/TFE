@@ -5,6 +5,17 @@ tfe_roman_empire = {
 	show_on_diplomatic_map = yes
 	member_color = rgb { 120 30 100 }
 
+	# the two Augusti at the top of the window, West then East (the members' order)
+	leader_type = character
+	leader_change_trigger_type = rulerchange
+	leader_title_key = "tfe_roman_empire_LEADER"
+	disband_if_no_leader = no
+	leader = {
+		every_international_organization_member = {
+			ruler ?= { add_to_list = leaders }
+		}
+	}
+
 	show_as_overlord_on_map_trigger = { always = yes }
 	create_visible_trigger = { always = no }
 	invite_visible_trigger = { always = no }
