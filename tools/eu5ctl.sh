@@ -31,6 +31,7 @@ tree() { local p; for p in $(pgrep -P "$1"); do echo "$p"; tree "$p"; done; }
 # after a crash the reporter window takes the input, and a stray Return would submit the report
 crashed() { tree "$(gs_pid)" | xargs -r ps -o comm= -p | grep -qi crash; }
 x() {
+  gs_pid >/dev/null || { echo "eu5ctl: not running" >&2; exit 1; }
   if crashed; then echo "eu5ctl: game crashed (crash reporter open), not sending input" >&2; exit 1; fi
   DISPLAY=$(gs_env DISPLAY) xdotool "$@"
 }
@@ -38,8 +39,10 @@ x() {
 case "${1:-}" in
   start)
     if gs_pid >/dev/null; then echo "already running (pid $(gs_pid))"; exit 0; fi
+    # a game started from Steam shares the Wine prefix; ours would hang waiting for it (and the log would be theirs)
+    if pgrep -f 'binaries\\eu5[.]exe' >/dev/null; then echo "eu5ctl: EU5 is already open outside eu5ctl; close it first" >&2; exit 1; fi
     # a stop during loading leaves this behind, and the next boot then disables mods and un-marks the playset
-    rm -f "$DOCS/.force_disable_mods_sentinel.txt"
+    rm -f "$DOCS/.force_disable_mods_sentinel.txt" "$DOCS/logs/game.log"   # the log: so `wait` sees only this run
     cd "$GAME/binaries"
     STEAM_COMPAT_DATA_PATH="$PREFIX" STEAM_COMPAT_CLIENT_INSTALL_PATH="$STEAM" SteamAppId=3450310 SteamGameId=3450310 \
       nohup gamescope $([[ ${2:-} == --headless ]] && echo --backend headless) -W $W -H $H -w $W -h $H -- \
