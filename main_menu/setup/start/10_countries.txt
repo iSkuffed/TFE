@@ -5,12 +5,12 @@ countries = {
 	countries = {
 		ABG = { # Abasgia
 			own_control_core = {
-				anacopia lata_georgia pitsunda sukhumi
+				anacopia costa lata_georgia pitsunda sukhumi
 			}
 			capital = anacopia
 			discovered_regions = {
-				anatolia_region arabia_region caucasus_region crescent_region khorasan_region persia_region russian_region ruthenia_region
-				steppes_region
+				anatolia_region arabia_region carpathia_region caucasus_region crescent_region khorasan_region persia_region russian_region
+				ruthenia_region steppes_region
 			}
 			include = "eurasian_tribe"
 			country_rank = rank_county

@@ -32,6 +32,7 @@ lentekhi = SUA
 tsageri = SUA
 ushguli = SUA
 abkhazia_province = ABG
+costa = ABG                     # the shore north of Pitsunda (steppes_region in the game)
 # Caucasian Albania, Christian since Urnayr; Persian client; Artsakh and Utik given to it in 387
 shaki_province = AGV
 arran_province = AGV

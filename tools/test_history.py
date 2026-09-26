@@ -135,6 +135,7 @@ CAUCASUS = [
     ("poti_caucasus", "LZC", "Phasis"),
     ("ushguli", "SUA", "Svaneti: the Svans under their own princes"),
     ("anacopia", "ABG", "Abasgia: mountain clans on the Roman shore"),
+    ("costa", "ABG", "the coast north of Pitsunda: Abasgian"),
     ("batumi", "EAR", "Apsaros, a Roman fort"),
     ("erzurum", "EAR", "Theodosiopolis: Roman Armenia from the 387 partition"),
     ("harput", "EAR", "Sophene: the Roman satrapies"),
