@@ -38,8 +38,15 @@ case "${1:-}" in
       "$PROTON" waitforexitandrun "$GAME/binaries/eu5.exe" -debug_mode > "$STATE/gamescope.log" 2>&1 &
     echo $! > "$STATE/pid"; echo "started (pid $!); loading takes a minute or two, watch with: eu5ctl shot" ;;
   stop)
+    # gamescope ignores SIGTERM while its child lives, and Proton leaves winedevice.exe orphans behind:
+    # quit through the console, then kill whatever is left in our own process tree (and nothing else).
     pid=$(gs_pid) || { echo "not running"; exit 0; }
-    kill "$pid"; for _ in $(seq 30); do kill -0 "$pid" 2>/dev/null || break; sleep 1; done
+    tree() { local p; for p in $(pgrep -P "$1"); do echo "$p"; tree "$p"; done; }
+    "$0" cmd quit 2>/dev/null || true
+    for _ in $(seq 30); do tree "$pid" | xargs -r ps -o comm= -p | grep -q eu5 || break; sleep 1; done
+    kids=$(tree "$pid"); kill $kids 2>/dev/null || true; sleep 3; kill -9 $kids 2>/dev/null || true
+    for _ in $(seq 10); do kill -0 "$pid" 2>/dev/null || break; sleep 1; done
+    kill -0 "$pid" 2>/dev/null && kill -9 "$pid"
     rm -f "$STATE/pid"; echo stopped ;;
   status) gs_pid >/dev/null && echo "running (pid $(gs_pid))" || echo "not running" ;;
   shot)
