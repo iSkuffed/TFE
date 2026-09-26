@@ -442,11 +442,10 @@ countries = {
 		}
 		GEP = { # Gepids
 			own_control_core = {
-				aiud alba_iulia baia_de_aries baita bereschany bistrita brasov brody busk cetatea_balta
-				chezdi_osorheiu cincu cluj covasna cristuru_secuiesc dabaca dej deva dubno fagaras
-				felvint gheorgheni gurghiu hateg huedin hunedoara kostopil kremenets medias miercurea_cluc
-				odorhei ostroh peremyl peresopnytsya reghin rivne sebes sfantu_gheorghe sibiu sic
-				sighisoara targu_mures turda tykhomel zbarazh zhovkva
+				aiud alba_iulia baia_de_aries baita bistrita brasov cetatea_balta chezdi_osorheiu cincu cluj
+				covasna cristuru_secuiesc dabaca dej deva fagaras felvint gheorgheni gurghiu hateg
+				huedin hunedoara medias miercurea_cluc odorhei reghin sebes sfantu_gheorghe sibiu sic
+				sighisoara targu_mures turda
 			}
 			capital = aiud
 			discovered_regions = {
@@ -684,7 +683,7 @@ countries = {
 				valuyki vaslui vasylivka vatra_dornei veesky velyka_lepetykha velyka_novosilka velyki_sorochyntsi verkhny_mamon viadineti
 				vilshana vinnytsia viziru voronezh voronizh_chernihiv vosporo vovchansk yahotyn yaroslavka yekaterinovka
 				yelan yelanets yenotayevka zalishchyky zamyany zdvizhen zemlyansk zenzevatka zherdevka zhydachiv
-				zhytomyr zimnicea zimnyatsky zmiiv zolotari zolotonosha zvenyhorod zvenyhorodka
+				zhytomyr zimnicea zimnyatsky zmiiv zolotari zolotonosha zvenyhorodka
 			}
 			capital = adalaga
 			discovered_regions = {
@@ -1687,6 +1686,23 @@ countries = {
 			country_rank = rank_county
 			government = {
 				ruler = tfe_cunedda
+			}
+		}
+		WND = { # Venedi
+			own_control_core = {
+				belz bereschany brody busk chortoryisk dubno grabowiec kostopil kremenets lubaczow
+				lutsk lviv ostroh peremyl peresopnytsya rivne rozhyshche sokal stepan tykhomel
+				volodymyrets yavoriv zbarazh zhovkva zvenyhorod
+			}
+			capital = belz
+			discovered_regions = {
+				anatolia_region balkan_region baltic_region carpathia_region italy_region north_german_region russian_region ruthenia_region
+				scandinavian_region south_german_region steppes_region
+			}
+			include = "eurasian_tribe"
+			country_rank = rank_county
+			government = {
+				ruler = random
 			}
 		}
 		WRE = { # Western Roman Empire

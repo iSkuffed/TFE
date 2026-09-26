@@ -77,3 +77,4 @@ MSQ | Maskut | Maskut | derbent | eurasian_tribe | alan_culture | alan_paganism 
 SRR | Sarir | Sariri | khunzakh | eurasian_tribe | avar_culture | lezgin_paganism | 200 170 60
 LPN | Lpink | Lpinian | kurakh | eurasian_tribe | lezgin_culture | lezgin_paganism | 140 100 150
 DZR | Dzurdzuks | Dzurdzuk | simsir | eurasian_tribe | nakh_culture | vainakh_paganism | 100 80 60
+WND | Venedi | Venedic | - | eurasian_tribe | venedi | slavic_paganism | 150 110 70

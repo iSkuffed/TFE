@@ -18278,8 +18278,8 @@ belz = {
 	define_pop = {	type = peasants	size = 7.380	culture = venedi	religion = slavic_paganism }
 }
 busk = {
-	define_pop = {	type = clergy	size = 0.003	culture = gothic_culture	religion = arianism }
-	define_pop = {	type = peasants	size = 4.889	culture = gothic_culture	religion = arianism }
+	define_pop = {	type = clergy	size = 0.003	culture = venedi	religion = slavic_paganism }
+	define_pop = {	type = peasants	size = 4.889	culture = venedi	religion = slavic_paganism }
 }
 grabowiec = {
 	define_pop = {	type = clergy	size = 0.002	culture = venedi	religion = slavic_paganism }
@@ -18347,23 +18347,23 @@ lviv = {
 	define_pop = {	type = peasants	size = 9.679	culture = venedi	religion = slavic_paganism }
 }
 bereschany = {
-	define_pop = {	type = clergy	size = 0.010	culture = gothic_culture	religion = arianism }
-	define_pop = {	type = peasants	size = 6.034	culture = gothic_culture	religion = arianism }
+	define_pop = {	type = clergy	size = 0.010	culture = venedi	religion = slavic_paganism }
+	define_pop = {	type = peasants	size = 6.034	culture = venedi	religion = slavic_paganism }
 }
 brody = {
-	define_pop = {	type = clergy	size = 0.005	culture = gothic_culture	religion = arianism }
-	define_pop = {	type = peasants	size = 6.895	culture = gothic_culture	religion = arianism }
+	define_pop = {	type = clergy	size = 0.005	culture = venedi	religion = slavic_paganism }
+	define_pop = {	type = peasants	size = 6.895	culture = venedi	religion = slavic_paganism }
 }
 zhovkva = {
-	define_pop = {	type = clergy	size = 0.009	culture = gothic_culture	religion = arianism }
-	define_pop = {	type = peasants	size = 5.199	culture = gothic_culture	religion = arianism }
+	define_pop = {	type = clergy	size = 0.009	culture = venedi	religion = slavic_paganism }
+	define_pop = {	type = peasants	size = 5.199	culture = venedi	religion = slavic_paganism }
 }
 yavoriv = {
 	define_pop = {	type = clergy	size = 0.003	culture = venedi	religion = slavic_paganism }
 	define_pop = {	type = peasants	size = 6.680	culture = venedi	religion = slavic_paganism }
 }
 zvenyhorod = {
-	define_pop = {	type = peasants	size = 4.280	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 4.280	culture = venedi	religion = slavic_paganism }
 }
 przemysl = {
 	define_pop = {	type = clergy	size = 0.002	culture = venedi	religion = slavic_paganism }
@@ -18584,19 +18584,19 @@ ugrovesk = {
 	define_pop = {	type = peasants	size = 2.675	culture = venedi	religion = slavic_paganism }
 }
 kremenets = {
-	define_pop = {	type = clergy	size = 0.003	culture = gothic_culture	religion = arianism }
-	define_pop = {	type = peasants	size = 6.467	culture = gothic_culture	religion = arianism }
+	define_pop = {	type = clergy	size = 0.003	culture = venedi	religion = slavic_paganism }
+	define_pop = {	type = peasants	size = 6.467	culture = venedi	religion = slavic_paganism }
 }
 dubno = {
-	define_pop = {	type = clergy	size = 0.009	culture = gothic_culture	religion = arianism }
-	define_pop = {	type = peasants	size = 4.847	culture = gothic_culture	religion = arianism }
+	define_pop = {	type = clergy	size = 0.009	culture = venedi	religion = slavic_paganism }
+	define_pop = {	type = peasants	size = 4.847	culture = venedi	religion = slavic_paganism }
 }
 zbarazh = {
-	define_pop = {	type = clergy	size = 0.006	culture = gothic_culture	religion = arianism }
-	define_pop = {	type = peasants	size = 6.141	culture = gothic_culture	religion = arianism }
+	define_pop = {	type = clergy	size = 0.006	culture = venedi	religion = slavic_paganism }
+	define_pop = {	type = peasants	size = 6.141	culture = venedi	religion = slavic_paganism }
 }
 tykhomel = {
-	define_pop = {	type = peasants	size = 3.057	culture = gothic_culture	religion = arianism }
+	define_pop = {	type = peasants	size = 3.057	culture = venedi	religion = slavic_paganism }
 }
 lutsk = {
 	define_pop = {	type = clergy	size = 0.002	culture = venedi	religion = slavic_paganism }
@@ -18607,7 +18607,7 @@ chortoryisk = {
 	define_pop = {	type = peasants	size = 4.354	culture = venedi	religion = slavic_paganism }
 }
 peremyl = {
-	define_pop = {	type = peasants	size = 2.253	culture = gothic_culture	religion = arianism }
+	define_pop = {	type = peasants	size = 2.253	culture = venedi	religion = slavic_paganism }
 }
 rozhyshche = {
 	define_pop = {	type = clergy	size = 0.005	culture = venedi	religion = slavic_paganism }
@@ -18621,19 +18621,19 @@ volodymyrets = {
 	define_pop = {	type = peasants	size = 3.604	culture = venedi	religion = slavic_paganism }
 }
 rivne = {
-	define_pop = {	type = clergy	size = 0.004	culture = gothic_culture	religion = arianism }
-	define_pop = {	type = peasants	size = 5.665	culture = gothic_culture	religion = arianism }
+	define_pop = {	type = clergy	size = 0.004	culture = venedi	religion = slavic_paganism }
+	define_pop = {	type = peasants	size = 5.665	culture = venedi	religion = slavic_paganism }
 }
 kostopil = {
-	define_pop = {	type = clergy	size = 0.005	culture = gothic_culture	religion = arianism }
-	define_pop = {	type = peasants	size = 5.067	culture = gothic_culture	religion = arianism }
+	define_pop = {	type = clergy	size = 0.005	culture = venedi	religion = slavic_paganism }
+	define_pop = {	type = peasants	size = 5.067	culture = venedi	religion = slavic_paganism }
 }
 ostroh = {
-	define_pop = {	type = clergy	size = 0.006	culture = gothic_culture	religion = arianism }
-	define_pop = {	type = peasants	size = 5.121	culture = gothic_culture	religion = arianism }
+	define_pop = {	type = clergy	size = 0.006	culture = venedi	religion = slavic_paganism }
+	define_pop = {	type = peasants	size = 5.121	culture = venedi	religion = slavic_paganism }
 }
 peresopnytsya = {
-	define_pop = {	type = peasants	size = 2.675	culture = gothic_culture	religion = arianism }
+	define_pop = {	type = peasants	size = 2.675	culture = venedi	religion = slavic_paganism }
 }
 volodymyr = {
 	define_pop = {	type = clergy	size = 0.003	culture = venedi	religion = slavic_paganism }

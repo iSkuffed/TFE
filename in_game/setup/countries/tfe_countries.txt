@@ -674,3 +674,12 @@ DZR = { # Dzurdzuks
 	description_category = administrative
 	difficulty = 3
 }
+
+WND = { # Venedi
+	color = rgb { 150 110 70 }
+	color2 = rgb { 75 55 35 }
+	culture_definition = venedi # PLACEHOLDER
+	religion_definition = slavic_paganism # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}

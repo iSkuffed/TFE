@@ -370,6 +370,7 @@ locations={
 	# Ruthenia
 	ismail = { rank = town town_setup = ruthenian_town }
 	kyiv = { rank = town 		town_setup = ruthenian_town }	
+	lviv = { rank = town 		town_setup = ruthenian_town }	
 	poltava = { rank = town town_setup = ruthenian_town }
 
 

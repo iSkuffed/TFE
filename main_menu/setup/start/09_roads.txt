@@ -691,6 +691,7 @@ road_network = {
 	dresden = pirna
 	olesnica = wroclaw
 	olesnica = sycow
+	lviv = zhydachiv
 	halych = zhydachiv
 	halych = rohatyn
 	buchach = rohatyn

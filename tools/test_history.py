@@ -61,6 +61,9 @@ WEST = [
     ("nikopol", "VIS", "Alaric's Goths, foederati in Moesia II since 382"),
     ("vidin", "VIS", "Bononia, Dacia Ripensis: Gothic settlement"),
     ("varna", "EAR", "Odessus stayed under Roman administration"),
+    ("rivne", "WND", "Volhynia: the Venedi (Venethi), not a Gepid exclave"),
+    ("zhovkva", "WND", "Red Ruthenia: the Venedi"),
+    ("cluj", "GEP", "the Gepids of 395 hold the upper Tisza and Transylvania"),
 ]
 
 

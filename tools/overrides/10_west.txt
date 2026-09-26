@@ -203,6 +203,12 @@ pozsony_province = QAD          # Quadi: Nitra, Trnava, Bratislava
 transylvania_area = GEP
 wallachia_area = HNS            # Uldin's Huns north of the lower Danube c. 400
 moldavia_area = HNS
+# the dataset puts Gepids in Volhynia a century late; by 395 they are in Dacia. The Venedi (Jordanes' Venethi) hold it
+kremenets_province = WND
+rivne_province = WND
+lutsk_province = WND
+lviv_province = WND
+belz_province = WND
 
 # ---------- Africa: Tingitana, the Mauretanias, Africa, Tripolitania ----------
 # Baquates: WRE client holding the northern band, Atlantic to the Moulouya, incl. Tingitana (user ruling after omniatlas 395)
