@@ -133,26 +133,25 @@ eastern_upper_swabia_province = WRE
 allgau_province = WRE           # Cambodunum
 konstanz = WRE
 bavaria_area = WRE              # Raetia II south of the Danube
-oberpfalzer_wald_province = none
+oberpfalzer_wald_province = BGD  # gap fill: nearest tribe (gameplay)
 ingolstadt = ALM                # Juthungi north of the Danube
 kelheim = ALM
-grafenau = none
-bavaria_regen = none
+grafenau = MKM                  # Bavarian Forest, gap fill
+bavaria_regen = MKM
 franconia_area = BGD
 upper_austria_area = WRE        # Noricum Ripense
 muhlviertel_province = MKM
 austria_area = WRE
-# Marcomanni and Quadi after the omniatlas 395 map (georeferenced, sampled per province); rims without a polity left unowned
+# Marcomanni and Quadi after the omniatlas 395 map (georeferenced, sampled per province);
+# empty rims then given to the nearest tribe so Germany has no blank space (gameplay over accuracy)
 ober_dem_manhartsberg_province = MKM
 unter_dem_manhartsberg_province = QAD   # Weinviertel
 bohemia_area = MKM              # Marcomanni: the Bohemian basin
-chebsko_province = none
-zatecko_province = none
-litomericko_province = none
-boleslavsko_province = none
-hradecko_province = none
+chebsko_province = TGI          # Ore Mountains rim: Thuringians
+litomericko_province = TGI
+boleslavsko_province = TGI
+hradecko_province = SLX         # Königgrätz and Glatz: Silingi
 moravia_area = MKM              # south Moravia
-olomoucko_province = none
 hradistsko_province = QAD       # Quadi
 
 # ---------- North Germany, Scandinavia, Baltic ----------
@@ -160,7 +159,8 @@ holstein_area = SAX
 lower_saxony_area = SAX
 upper_saxony_area = TGI         # Thuringians (Vegetius, c. 400)
 brandenburg_area = LGB          # Lombards on the lower Elbe; approximate
-mecklenburg_area = none         # Varini; too small/obscure to tag yet
+mecklenburg_area = LGB          # Varini folded into the Lombards (gap fill)
+schwerin_province = SAX
 pomerania_area = RUG
 silesia_area = SLX
 prussia_area = AES

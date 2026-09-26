@@ -137,13 +137,13 @@ countries = {
 		}
 		BGD = { # Burgundians
 			own_control_core = {
-				ansbach aschach aschaffenburg backnang bamberg bayreuth beilngries bruckenau coburg crailsheim
-				eichstatt eschenbach forchheim hall hassfurt karlstadt kitzingen konigshofen kronach kulmbach
-				lichtenfels lohr mellrichstadt mergentheim miltenberg neumarkt neustadt nuremberg ohringen parsberg
-				pegnitz rothenburg schesslitz schwabach schweinfurt sulzbach tauberbischofsheim tirschenreuth uffenheim weissenburg
-				wunsiedel wurzburg
+				amberg ansbach aschach aschaffenburg backnang bamberg bayreuth beilngries bruckenau burglengenfeld
+				cham coburg crailsheim eichstatt eschenbach forchheim hall hassfurt karlstadt kitzingen
+				konigshofen kronach kulmbach leuchtenberg lichtenfels lohr mellrichstadt mergentheim miltenberg neumarkt
+				neustadt nuremberg ohringen parsberg pegnitz roding rothenburg schesslitz schwabach schweinfurt
+				sulzbach tauberbischofsheim tirschenreuth uffenheim weissenburg wunsiedel wurzburg
 			}
-			capital = ansbach
+			capital = amberg
 			discovered_regions = {
 				balkan_region baltic_region carpathia_region france_region great_britain_region iberia_region italy_region north_atlantic_islands_region
 				north_german_region scandinavian_region south_german_region
@@ -867,10 +867,10 @@ countries = {
 		LGB = { # Lombards
 			own_control_core = {
 				angermunde beeskow belzig berlin bitterfeld brandenburg calau chojna cottbus freienwalde
-				gardelegen gorzow guben haldensleben havelberg herzfelde juterbog lebus lubben luckau
-				osterburg potsdam prenzlau pritzwalk ruppin salzwedel santok schweinitz soltyn spremberg
-				stendal teltow templin torzym treuenbrietzen wittenberg wittenberge wittstock wolmirstedt zerbst
-				zossen
+				gardelegen gorzow guben gustrow haldensleben havelberg herzfelde juterbog lebus lubben
+				luckau malchin malchow neubrandenburg osterburg parchim potsdam prenzlau pritzwalk ruppin
+				salzwedel santok schweinitz soltyn spremberg stendal strelitz teltow templin torzym
+				treuenbrietzen waren wittenberg wittenberge wittstock wolmirstedt zerbst zossen
 			}
 			capital = angermunde
 			discovered_regions = {
@@ -971,10 +971,11 @@ countries = {
 		}
 		MKM = { # Marcomanni
 			own_control_core = {
-				bechyne benesov beroun bitov brno budejovice caslav chrudim dacice domazlice
-				freistadt hodonin horn husinec j_hradec jihlava klatovy kourim krems krumlov
-				kutna_hora litomysl nemecky_brod perg pernstejn pisek plzen prachen prague rohrbach
-				slany tachov tepla trebon vyskov waidhofen_an_der_thaya znojmo zwettl
+				bavaria_regen bechyne benesov beroun bitov brno budejovice caslav chrudim dacice
+				domazlice freistadt grafenau hodonin horn husinec j_hradec jihlava klatovy kourim
+				krems krumlov kutna_hora litomysl most nemecky_brod olomouc perg pernstejn pisek
+				plzen prachen prague prostejov rakovnik rohrbach slany sumperk tachov tepla
+				trebon vyskov waidhofen_an_der_thaya zabreh zatec znojmo zwettl
 			}
 			capital = prague
 			discovered_regions = {
@@ -1318,15 +1319,15 @@ countries = {
 		SAX = { # Saxons
 			own_control_core = {
 				achim alfeld aschendorf aurich ballenstedt bentheim bernburg bersenbruck bielefeld blankenburg
-				bremen bremervorde brunswick buckeburg burg burgdorf calbe celle cloppenburg dannenberg
-				delmenhorst diepholz duderstadt ebstorf einbeck elsfleth emden eutin fallingbostel friesoythe
-				gandersheim gestenthorpe gifhorn goslar gottingen halberstadt hamburg hamelin hanover harburg
-				heide heiligenhafen helmstedt herzberg hildesheim hofgeismar holzminden hoya isenhagen jerichow
-				jever kiel lauenburg leer lingen lubeck luchow luneburg magdeburg meinersen
-				meppen minden muhlhausen neuhaus neustadt_am_rubenberge nienburg nordhausen oldenburg osnabruck osterholz
-				pinneberg plon quedlinburg ratzeburg rendsburg rheine ritzebuttel sangerhausen segeberg soltau
-				stade steinburg stormarn tecklenburg uelzen vechta verden wernigerode winsen winsen_aller
-				wolfenbuttel zeven
+				bremen bremervorde brunswick buckeburg burg burgdorf butzow calbe celle cloppenburg
+				dannenberg delmenhorst diepholz doberan duderstadt ebstorf einbeck elsfleth emden eutin
+				fallingbostel friesoythe gandersheim gestenthorpe gifhorn goslar gottingen grabow grevesmuhlen hagenow
+				halberstadt hamburg hamelin hanover harburg heide heiligenhafen helmstedt herzberg hildesheim
+				hofgeismar holzminden hoya isenhagen jerichow jever kiel lauenburg leer lingen
+				lubeck luchow luneburg magdeburg meinersen meppen minden muhlhausen neuhaus neustadt_am_rubenberge
+				nienburg nordhausen oldenburg osnabruck osterholz pinneberg plon quedlinburg ratzeburg rendsburg
+				rheine ritzebuttel rostock sangerhausen schwerin segeberg soltau stade steinburg stormarn
+				tecklenburg uelzen vechta verden wernigerode winsen winsen_aller wismar wolfenbuttel zeven
 			}
 			capital = achim
 			discovered_regions = {
@@ -1402,10 +1403,11 @@ countries = {
 		SLX = { # Siling Vandals
 			own_control_core = {
 				bielsko boleslawiec brzeg bytom fryvaldov glogow glubczyce gora grodkow hlucin
-				jawor kamienna_gora kluczbork kozle kozuchow krnov krosno_odrzanskie legnica lubliniec milicz
-				namyslow niemcza niemodlin nysa olawa olesnica olesno opava opole prudnik
-				pszczyna raciborz rychbach siewierz sroda_slaska strzelce_opolskie sulechow swidnica sycow szprotawa
-				tesin toszek trzebnica wolow wroclaw zagan zary ziebice zielona_gora zlotoryja
+				hradec_kralove jawor jicin kamienna_gora klodzko kluczbork kozle kozuchow krnov krosno_odrzanskie
+				legnica lubliniec milicz nachod namyslow niemcza niemodlin nysa olawa olesnica
+				olesno opava opole podebrady prudnik pszczyna raciborz rychbach siewierz sroda_slaska
+				strzelce_opolskie sulechow swidnica sycow szprotawa tesin toszek trzebnica wolow wroclaw
+				zagan zary ziebice zielona_gora zlotoryja
 			}
 			capital = bielsko
 			discovered_regions = {
@@ -1438,11 +1440,12 @@ countries = {
 		}
 		TGI = { # Thuringians
 			own_control_core = {
-				altenburg annaburg apolda arnstadt bautzen beichlingen chemnitz delitzsch dresden eisenach
-				eisenberg eisleben erfurt freiberg freyburg gera glauchau gorlitz gotha grimma
-				halle_an_der_saale hildburghausen hof hoyerswerda langensalza leipzig liebenwerda marienstern meiningen meissen
-				merseburg naumburg ohrdruf pirna plauen rochlitz rothenburg_oberlausitz saalfeld sayda schleiz
-				schleusingen schmalkalden sondershausen torgau weimar weissenfels wurzen zittau zwickau
+				altenburg annaburg apolda arnstadt bautzen beichlingen cheb chemnitz decin delitzsch
+				dresden eisenach eisenberg eisleben erfurt freiberg freyburg frydlant gera glauchau
+				gorlitz gotha grimma halle_an_der_saale hildburghausen hof hoyerswerda jachymov langensalza leipzig
+				liebenwerda litomerice loket marienstern meiningen meissen merseburg mlada_boleslav naumburg ohrdruf
+				pirna plauen rochlitz rothenburg_oberlausitz saalfeld sayda schleiz schleusingen schmalkalden sondershausen
+				torgau turnov usti_nad_labem weimar weissenfels wurzen zittau zwickau
 			}
 			capital = altenburg
 			discovered_regions = {

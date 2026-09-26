@@ -311,7 +311,9 @@ locations={
 	wolgast = { rank = town town_setup = german_coastal_town } #Greifswald
 	hamburg = { rank = city town_setup = hamburg_city }
 	kiel = { rank = town town_setup = german_coastal_town }
+	rostock = { rank = town town_setup = german_coastal_town }
 	stralsund = { rank = town town_setup = german_coastal_town }
+	wismar = { rank = town town_setup = german_coastal_town }
 	stettin = { rank = town town_setup = german_coastal_town }
 
 	kempten = { rank = town town_setup = german_town }
@@ -320,6 +322,7 @@ locations={
 
 	brno = { rank = town town_setup = german_town }
 	kutna_hora = { rank = town town_setup = german_town }
+	olomouc = { rank = town town_setup = german_town }
 	opole = { rank = town town_setup = german_town }
 	plzen = { rank = town town_setup = german_town }
 
