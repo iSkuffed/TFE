@@ -132,3 +132,13 @@ def test_the_empires_accept_their_provincials():
         assert accepted and set(accepted.group(1).split()) == people, tag
         # after the include, which may bring its own
         assert block.index("accepted_cultures") > block.index("include =")
+
+
+def test_roman_is_a_living_culture():
+    # vanilla ships roman_culture dormant (active = no) for the Latin revival; in 395 it has 10M pops
+    text = CULTURES.read_text(encoding="utf-8-sig")
+    body = re.search(r"^REPLACE:roman_culture = \{(.*?)^\}", text, re.M | re.S).group(1)
+    assert re.search(r"^\tactive = yes$", body, re.M)
+    assert "color = map_ROM" in body and "language = roman_dialect" in body
+    for c in ("greek_culture", "gallo_roman", "hispano_roman", "afro_roman"):
+        assert re.search(rf"{c} = kindred", body), c

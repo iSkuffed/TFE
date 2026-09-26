@@ -136,7 +136,7 @@ def test_the_empires_run_an_imperial_fisc():
     trigger = re.search(r"potential_trigger = \{(.*?)\n\t\}", body, re.S).group(1)
     assert set(re.findall(r"has_or_had_tag = (\w+)", trigger)) == set(b.ROMAN_EMPIRES)
     values = dict((k, float(v)) for k, v in re.findall(r"^\t(\w+) = (-?[\d.]+)", body, re.M))
-    assert values["tax_income_efficiency"] > 0 and values["court_spending_efficiency"] > 0
+    assert "tax_income_efficiency" not in values and values["court_spending_efficiency"] > 0   # accepted cultures tax in full
     assert values["diplomatic_spending_cost"] < 0 and values["building_upkeep_efficiency"] > 0
     loc = (b.MOD / "main_menu/localization/english/tfe_roman_economy_l_english.yml").read_text(encoding="utf-8-sig")
     assert "AUTO_MODIFIER_NAME_tfe_roman_fisc:" in loc
