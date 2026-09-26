@@ -1,0 +1,274 @@
+# 395 cultures for the pops of 06_pops.txt (tools/borders.py pop_cultures).
+# scope | from | to    - first match wins. scope: a 395 owner TAG, or a location / province / area / region.
+# from: a 1337 culture or *. An identity rule (x | c | c) keeps a vanilla culture that fits 395.
+# Docs: docs/specs/2026-09-26-395-cultures-design.md
+
+# ---- minorities that outlast any master ----
+crimea_area | pontic_greek_culture | pontic_greek_culture   # the Bosporan Greeks
+crimea_area | gothic_culture | gothic_culture               # the Crimean Goths
+matrega_area | circassian_culture | circassian_culture      # the Zygii
+matrega_area | abazin_culture | abazin_culture
+matrega_area | abkhazian_culture | abkhazian_culture
+
+# ---- barbarian land: the people who hold it ----
+FRK | * | frankish
+SLF | * | frankish
+ALM | * | alamannic
+MKM | * | suebian
+QAD | * | suebian
+LGB | * | suebian
+HAS | * | vandal
+SLX | * | vandal
+BGD | * | tfe_burgundian
+HNS | * | hunnic
+AKA | * | hunnic
+YUB | * | hunnic
+RRN | * | mongolian_culture
+GEP | * | gothic_culture
+SCR | * | gothic_culture
+RUG | * | gothic_culture
+VIS | * | gothic_culture
+CAL | * | alan_culture
+IAZ | * | alan_culture
+SAX | * | saxon
+AGL | * | saxon
+TGI | * | saxon
+FRS | * | frisian
+AES | * | pruthenian
+PKT | * | pictish
+DMN | * | briton
+VOT | * | briton
+NVN | * | briton
+SLG | * | briton
+
+# ---- the British Isles ----
+scottish_highlands_area | * | pictish
+hebrides_area | * | pictish
+great_britain_region | * | briton
+ireland_region | * | irish
+
+# ---- Gaul and the Rhine ----
+gascony_area | basque | basque          # the Aquitani
+france_region | * | gallo_roman
+flanders_area | * | gallo_roman         # Belgica and Germania Inferior
+brabant_area | * | gallo_roman
+wallonia_area | * | gallo_roman
+holland_area | * | gallo_roman
+rhineland_area | * | gallo_roman
+hesse_area | * | gallo_roman
+alsace_area | * | gallo_roman           # Germania Superior
+upper_rhine_area | * | gallo_roman
+western_switzerland_area | * | gallo_roman   # the Helvetii
+north_german_region | * | saxon
+
+# ---- Hispania ----
+iberia_region | basque | basque
+iberia_region | sephardi | sephardi
+iberia_region | * | hispano_roman
+
+# ---- Italy, the Alps and the Danube ----
+italy_region | griko_culture | griko_culture
+italy_region | italki | italki
+italy_region | * | roman_culture
+slovakia_area | * | suebian             # Quadi country
+transdanubia_area | * | roman_culture    # Pannonia
+carpathia_region | * | gothic_culture
+south_german_region | * | roman_culture  # Raetia and Noricum
+
+# ---- the Balkans: Latin north of the Jirecek line, Greek south of it ----
+balkan_region | albanian | albanian      # the Illyrian hills
+balkan_region | romanyoti | romanyoti
+bosnia_area | * | roman_culture
+croatia_area | * | roman_culture
+slavonia_area | * | roman_culture
+slovenia_area | * | roman_culture
+serbia_area | * | roman_culture
+bulgaria_area | * | roman_culture
+balkan_region | * | greek_culture
+
+# ---- Anatolia ----
+anatolia_region | armenian_culture | armenian_culture
+anatolia_region | pontic_greek_culture | pontic_greek_culture
+anatolia_region | laz_culture | laz_culture
+anatolia_region | syriac_culture | syriac_culture
+anatolia_region | romanyoti | romanyoti
+cappadocia_area | * | cappadocian_greek_culture
+central_anatolia_area | * | cappadocian_greek_culture
+pontus_area | * | pontic_greek_culture
+anatolia_region | * | greek_culture
+
+# ---- the Caucasus ----
+caucasus_region | armenian_culture | armenian_culture
+caucasus_region | georgian_culture | georgian_culture
+caucasus_region | mingrelian_culture | mingrelian_culture
+caucasus_region | svan_culture | svan_culture
+caucasus_region | laz_culture | laz_culture
+caucasus_region | abkhazian_culture | abkhazian_culture
+caucasus_region | circassian_culture | circassian_culture
+caucasus_region | nakh_culture | nakh_culture
+caucasus_region | avar_culture | avar_culture
+caucasus_region | dargin_culture | dargin_culture
+caucasus_region | lak_culture | lak_culture
+caucasus_region | lezgin_culture | lezgin_culture   # the Caucasian Albanians
+caucasus_region | adhari_culture | adhari_culture
+caucasus_region | alan_culture | alan_culture
+georgia_area | * | georgian_culture
+northern_caucasus_area | * | alan_culture
+shirvan_area | * | lezgin_culture
+caucasus_region | * | armenian_culture
+
+# ---- Syria and Mesopotamia: Aramaic speakers under Rome and Persia ----
+crescent_region | armenian_culture | armenian_culture
+crescent_region | kurdish_culture | kurdish_culture
+crescent_region | lur_culture | lur_culture
+crescent_region | bedouin_culture | bedouin_culture
+crescent_region | mandean_culture | mandean_culture
+crescent_region | mizrahi | mizrahi
+crescent_region | * | syriac_culture
+
+# ---- Egypt ----
+alexandria | * | greek_culture
+cyrenaica_area | * | greek_culture      # the Pentapolis
+sinai_area | bedouin_culture | bedouin_culture
+egypt_region | mizrahi | mizrahi
+egypt_region | * | coptic_culture
+nubia_region | sudanese_arab | nubian
+nubia_region | upper_egyptian_culture | coptic_culture
+nubia_region | hijazi_culture | beja_culture
+
+# ---- Africa: Latin cities on the coast, Berbers beyond ----
+tunis_area | * | afro_roman            # Proconsularis and Byzacena
+tripolitania_area | * | afro_roman
+maghreb_region | zenati | zenati
+maghreb_region | kabyle | kabyle
+maghreb_region | chaoui | chaoui
+maghreb_region | sanhaja | sanhaja
+maghreb_region | masmuda | masmuda
+maghreb_region | mozabite | mozabite
+maghreb_region | eastern_amazigh | eastern_amazigh
+maghreb_region | tuareg | tuareg
+algiers_area | * | afro_roman          # Caesariensis
+atlas_high_plateau | * | chaoui        # Numidia
+morocco_area | * | masmuda
+sus_area | * | masmuda
+western_sahara_area | * | sanhaja
+maghreb_region | * | zenati
+
+# ---- Arabia ----
+arabia_region | najdi_culture | najdi_culture
+arabia_region | hijazi_culture | hijazi_culture
+arabia_region | yemeni_culture | yemeni_culture
+arabia_region | teimani | teimani      # Himyar's Jews
+arabia_region | hadhrami_culture | hadhrami_culture
+arabia_region | omani_culture | omani_culture
+arabia_region | bahrani_culture | bahrani_culture
+arabia_region | soqotri_culture | soqotri_culture
+arabia_region | mehri_culture | mehri_culture
+arabia_region | dhofari_culture | dhofari_culture
+arabia_region | shihhi_culture | shihhi_culture
+arabia_region | kaliji_culture | bahrani_culture
+arabia_region | * | najdi_culture
+
+# ---- Iran ----
+persia_region | farsi_culture | farsi_culture
+persia_region | achomi_culture | achomi_culture
+persia_region | lur_culture | lur_culture
+persia_region | kurdish_culture | kurdish_culture
+persia_region | adhari_culture | adhari_culture
+persia_region | armenian_culture | armenian_culture
+persia_region | syriac_culture | syriac_culture
+persia_region | baloch_culture | baloch_culture
+persia_region | brahui_culture | brahui_culture
+persia_region | dehwar_culture | dehwar_culture
+persia_region | afghan_culture | afghan_culture
+persia_region | pashayi_culture | pashayi_culture
+persia_region | ormur_culture | ormur_culture
+persia_region | tajik_culture | tajik_culture
+persia_region | khorasani_culture | khorasani_culture
+persia_region | mazanderani_culture | mazanderani_culture
+persia_region | gilak_culture | gilak_culture
+persia_region | talysh_culture | talysh_culture
+persia_region | semnani_culture | semnani_culture
+persia_region | kalimi | kalimi        # Persia's Jews
+persia_region | sindhi | sindhi
+azerbaijan_area | * | adhari_culture
+khuzestan_area | * | lur_culture
+quhestan_area | * | khorasani_culture
+persia_region | * | farsi_culture
+
+# ---- Central Asia: Iranian oases, Hunnic steppe ----
+khorasan_region | khorezmian_culture | khorezmian_culture
+khorasan_region | tajik_culture | tajik_culture
+khorasan_region | pamiri_culture | pamiri_culture
+khorasan_region | khorasani_culture | khorasani_culture
+desht_kipchak_area | * | hunnic
+zhetysu_area | * | hunnic
+khwarazm_area | * | khorezmian_culture
+western_khorasan_area | * | khorasani_culture
+khorasan_region | * | tajik_culture
+
+# ---- the Pontic steppe ----
+lower_yik_area | * | hunnic
+steppes_region | * | alan_culture
+
+# ---- the forest: Venedi, Balts, Finns ----
+ruthenia_region | aukstaitian | aukstaitian
+white_ruthenia_area | * | aukstaitian   # the Dnieper Balts
+black_ruthenia_area | * | sudovian
+ruthenia_region | * | venedi
+baltic_region | latvian | latvian
+baltic_region | estonian | estonian
+baltic_region | liv | liv
+baltic_region | curonian | curonian
+baltic_region | aukstaitian | aukstaitian
+baltic_region | samogitian | samogitian
+baltic_region | sudovian | sudovian
+baltic_region | pruthenian | pruthenian
+baltic_area | * | latvian
+central_poland_area | * | venedi
+greater_poland_area | * | venedi
+lesser_poland_area | * | venedi
+mazovia_area | * | venedi
+baltic_region | * | aukstaitian
+russian_region | merya_culture | merya_culture
+russian_region | erzya_culture | erzya_culture
+russian_region | moksha_culture | moksha_culture
+russian_region | mari_culture | mari_culture
+russian_region | meschera_culture | meschera_culture
+russian_region | vepsian | vepsian
+russian_region | karelian | karelian
+russian_region | ingrian | ingrian
+russian_region | votian | votian
+russian_region | nenets_culture | nenets_culture
+russian_region | bjarmian | bjarmian
+smolensk_area | * | aukstaitian        # Baltic as far as the Golyad of the Moskva
+oka_area | * | aukstaitian
+moscow_area | * | aukstaitian
+tver_area | * | aukstaitian
+ryazan_area | * | moksha_culture
+tambov_area | * | moksha_culture
+samara_area | * | mari_culture
+nizhny_novgorod_area | * | merya_culture
+vladimir_area | * | merya_culture
+suzdal_area | * | merya_culture
+yaroslavl_area | * | merya_culture
+arkhangelsk_area | * | bjarmian
+west_novgorod_area | * | votian
+russian_region | * | vepsian
+
+# ---- Scandinavia ----
+scandinavian_region | danish | danish
+scandinavian_region | swedish | swedish
+scandinavian_region | norwegian | norwegian
+scandinavian_region | gutnish | gutnish
+scandinavian_region | sapmi | sapmi
+scandinavian_region | finnish | finnish
+scandinavian_region | tavastian | tavastian
+scandinavian_region | savonian | savonian
+scandinavian_region | karelian | karelian
+scandinavian_region | kvens | kvens
+scandinavian_region | vepsian | vepsian
+denmark_area | * | danish
+skaneland_area | * | danish
+finland_area | * | tavastian
+scandinavian_region | * | swedish

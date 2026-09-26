@@ -301,7 +301,7 @@ character_db = {
 	}
 	tfe_godigisel = { # d. 406 aged 47
 		first_name = { name = name_godigisel }
-		culture = gothic_culture
+		culture = vandal
 		religion = catholic
 		mil = 60
 		birth_date = 359.1.1
@@ -311,7 +311,7 @@ character_db = {
 	}
 	tfe_gunderic = {
 		first_name = { name = name_gunderic }
-		culture = gothic_culture
+		culture = vandal
 		religion = catholic
 		birth_date = 379.1.1
 		birth = abrahamtelke
@@ -321,7 +321,7 @@ character_db = {
 	}
 	tfe_gaiseric = { # illegitimate; approx
 		first_name = { name = name_gaiseric }
-		culture = gothic_culture
+		culture = vandal
 		religion = catholic
 		birth_date = 389.1.1
 		birth = abrahamtelke
@@ -332,7 +332,7 @@ character_db = {
 	}
 	tfe_gibica = { # Lex Burgundionum; approx
 		first_name = { name = name_gibica }
-		culture = burgundian
+		culture = tfe_burgundian
 		religion = norse
 		birth_date = 355.1.1
 		birth = ansbach
@@ -340,7 +340,7 @@ character_db = {
 	}
 	tfe_gundahar = { # approx
 		first_name = { name = name_gundahar }
-		culture = burgundian
+		culture = tfe_burgundian
 		religion = norse
 		birth_date = 385.1.1
 		birth = ansbach
@@ -349,7 +349,7 @@ character_db = {
 	}
 	tfe_marcomer = { # Frankish dux with Sunno; approx
 		first_name = { name = name_marcomer }
-		culture = lower_saxon
+		culture = frankish
 		religion = norse
 		mil = 60
 		birth_date = 350.1.1
@@ -358,7 +358,7 @@ character_db = {
 	}
 	tfe_sunno = { # approx
 		first_name = { name = name_sunno }
-		culture = lower_saxon
+		culture = frankish
 		religion = norse
 		mil = 55
 		birth_date = 352.1.1
@@ -369,7 +369,7 @@ character_db = {
 	tfe_fritigil = { # queen of the Marcomanni, wrote to Ambrose; approx
 		first_name = { name = name_fritigil }
 		female = yes
-		culture = swabian
+		culture = suebian
 		religion = norse
 		birth_date = 360.1.1
 		birth = balassagyarmat
@@ -377,7 +377,7 @@ character_db = {
 	}
 	tfe_uldin = { # first securely attested Hun king (c. 400); approx
 		first_name = { name = name_uldin }
-		culture = bashkir
+		culture = hunnic
 		religion = tengri
 		mil = 70
 		birth_date = 360.1.1
@@ -386,7 +386,7 @@ character_db = {
 	}
 	tfe_basich = { # led the 395 raid into Persia and Anatolia; approx
 		first_name = { name = name_basich }
-		culture = bashkir
+		culture = hunnic
 		religion = tengri
 		mil = 65
 		birth_date = 355.1.1
@@ -397,7 +397,7 @@ character_db = {
 	}
 	tfe_kursich = { # approx
 		first_name = { name = name_kursich }
-		culture = bashkir
+		culture = hunnic
 		religion = tengri
 		mil = 60
 		birth_date = 355.1.1
@@ -427,7 +427,7 @@ character_db = {
 	}
 	tfe_cunedda = { # Manaw Gododdin; traditional
 		first_name = { name = name_cunedda }
-		culture = welsh
+		culture = briton
 		religion = norse
 		birth_date = 370.1.1
 		birth = edinburgh

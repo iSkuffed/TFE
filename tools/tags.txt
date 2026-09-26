@@ -3,17 +3,17 @@
 WRE | Western Roman Empire | Western Roman | milano | catholic_monarchy | roman_culture | catholic | 150 20 50
 EAR | Eastern Roman Empire | Eastern Roman | constantinople | eastern_european_monarchy | greek_culture | orthodox | 128 36 140
 VIS | Visigoths | Visigothic | tarnovo | eurasian_tribe | gothic_culture | catholic | 200 120 60   # Arian
-HNS | Huns | Hunnic | - | eurasian_horde_no_muslim | bashkir | tengri | 150 110 60
-AKA | Akatziri | Akatziri | - | eurasian_tribe | bashkir | tengri | 175 150 95
+HNS | Huns | Hunnic | - | eurasian_horde_no_muslim | hunnic | tengri | 150 110 60
+AKA | Akatziri | Akatziri | - | eurasian_tribe | hunnic | tengri | 175 150 95
 CAL | Alans | Alanic | - | eurasian_tribe | alan_culture | alan_paganism | 110 140 110
-ALM | Alamanni | Alamannic | - | eurasian_tribe | high_alemannic | norse | 70 120 170
-BGD | Burgundians | Burgundian | - | eurasian_tribe | burgundian | norse | 170 60 90
-FRK | Franks | Frankish | - | eurasian_tribe | lower_saxon | norse | 50 80 160
+ALM | Alamanni | Alamannic | - | eurasian_tribe | alamannic | norse | 70 120 170
+BGD | Burgundians | Burgundian | - | eurasian_tribe | tfe_burgundian | norse | 170 60 90
+FRK | Franks | Frankish | - | eurasian_tribe | frankish | norse | 50 80 160
 GEP | Gepids | Gepid | - | eurasian_tribe | gothic_culture | catholic | 185 155 60   # Arian
 GEA | Geats | Geatish | - | eurasian_tribe | swedish | norse | 95 165 195
 SVE | Svear | Svear | uppsala | eurasian_tribe | swedish | norse | 55 105 175
 SCR | Sciri | Scirian | - | eurasian_tribe | gothic_culture | norse | 140 160 80
-DMN | Damnonii | Damnonian | - | gaelic_tribe | welsh | norse | 120 160 120
+DMN | Damnonii | Damnonian | - | gaelic_tribe | briton | norse | 120 160 120
 SAS | Sasanian Empire | Sasanian | baghdad | eastern_european_monarchy | farsi_culture | zoroastrian | 60 150 100   # Ctesiphon lies beside Baghdad
 HIM | Himyar | Himyarite | - | eastern_european_monarchy | yemeni_culture | judaism | 150 170 90
 AXU | Aksum | Aksumite | axum | subsaharan_monarchy | tigrinya | miaphysite | 175 130 40
@@ -27,7 +27,7 @@ LLI | Later Liang | Later Liang | - | chinese_monarchy | liang_culture | sanjiao
 LYN | Later Yan | Later Yan | - | chinese_monarchy | yan_culture | sanjiao | 140 170 200
 JIN | Eastern Jin | Jin | - | chinese_monarchy | wu_culture | sanjiao | 200 60 60
 RRN | Rouran | Rouran | - | eurasian_horde_no_muslim | mongolian_culture | tengri | 120 100 70
-YUB | Yueban | Yueban | - | eurasian_horde_no_muslim | turkmen_culture | tengri | 150 130 100
+YUB | Yueban | Yueban | - | eurasian_horde_no_muslim | hunnic | tengri | 150 130 100
 GOG | Goguryeo | Goguryeo | - | east_asia_monarchy | korean_culture | mahayana | 90 60 140
 BAE | Baekje | Baekje | - | east_asia_monarchy | korean_culture | mahayana | 60 140 120
 SIL | Silla | Silla | - | east_asia_monarchy | korean_culture | shinto | 200 170 50
@@ -39,11 +39,11 @@ MOC | Moche | Mochica | - | andean_monarchy | chimu_culture | inti | 190 110 50
 NAZ | Nazca | Nazcan | - | andean_monarchy | chincha_culture | inti | 140 70 40
 
 # --- West batch ---
-SLF | Salian Franks | Salian | - | eurasian_tribe | lower_saxon | norse | 80 110 200
-PKT | Picts | Pictish | - | gaelic_tribe | scottish | norse | 60 90 60
-VOT | Votadini | Votadinian | - | gaelic_tribe | welsh | norse | 140 180 110
-NVN | Novantae | Novantian | - | gaelic_tribe | welsh | norse | 100 150 130
-SLG | Selgovae | Selgovian | - | gaelic_tribe | welsh | norse | 160 190 150
+SLF | Salian Franks | Salian | - | eurasian_tribe | frankish | norse | 80 110 200
+PKT | Picts | Pictish | - | gaelic_tribe | pictish | norse | 60 90 60
+VOT | Votadini | Votadinian | - | gaelic_tribe | briton | norse | 140 180 110
+NVN | Novantae | Novantian | - | gaelic_tribe | briton | norse | 100 150 130
+SLG | Selgovae | Selgovian | - | gaelic_tribe | briton | norse | 160 190 150
 CQT | Connachta | Connachtan | - | gaelic_tribe | irish | norse | 40 130 70
 ULD | Ulaid | Ulaid | - | gaelic_tribe | irish | norse | 90 170 60
 LAI | Laigin | Laigin | - | gaelic_tribe | irish | norse | 30 100 50
@@ -55,14 +55,14 @@ JUT | Jutes | Jutish | - | eurasian_tribe | danish | norse | 190 110 110
 DAX | Danes | Danish | - | eurasian_tribe | danish | norse | 180 50 50
 NRW | Norse Petty Kingdoms | Norse | - | eurasian_tribe | norwegian | norse | 110 70 140
 TGI | Thuringians | Thuringian | - | eurasian_tribe | saxon | norse | 100 160 60
-MKM | Marcomanni | Marcomannic | prague | eurasian_tribe | swabian | norse | 190 140 60
-QAD | Quadi | Quadian | nitra | eurasian_tribe | swabian | norse | 150 100 100
-HAS | Hasding Vandals | Vandal | - | eurasian_tribe | gothic_culture | catholic | 210 130 30   # Arian
-SLX | Siling Vandals | Siling | - | eurasian_tribe | gothic_culture | norse | 230 170 70
-LGB | Lombards | Lombard | - | eurasian_tribe | lower_saxon | norse | 90 120 90
-RUG | Rugii | Rugian | - | eurasian_tribe | eastern_pomeranian | norse | 150 120 170
+MKM | Marcomanni | Marcomannic | prague | eurasian_tribe | suebian | norse | 190 140 60
+QAD | Quadi | Quadian | nitra | eurasian_tribe | suebian | norse | 150 100 100
+HAS | Hasding Vandals | Vandal | - | eurasian_tribe | vandal | catholic | 210 130 30   # Arian
+SLX | Siling Vandals | Siling | - | eurasian_tribe | vandal | norse | 230 170 70
+LGB | Lombards | Lombard | - | eurasian_tribe | suebian | norse | 90 120 90
+RUG | Rugii | Rugian | - | eurasian_tribe | gothic_culture | norse | 150 120 170
 IAZ | Iazyges | Sarmatian | - | eurasian_tribe | alan_culture | alan_paganism | 170 170 130
-AES | Aesti | Aestian | - | eurasian_tribe | prussian | norse | 110 110 60
+AES | Aesti | Aestian | - | eurasian_tribe | pruthenian | norse | 110 110 60
 MRX | Mauri | Mauri | - | subsaharan_tribe | kabyle | hellenism_religion | 190 150 110
 BAQ | Baquates | Baquatian | volubilis | subsaharan_tribe | masmuda | hellenism_religion | 170 120 80
 AUS | Austuriani | Austurian | - | subsaharan_tribe | eastern_amazigh | hellenism_religion | 200 170 120

@@ -43,3 +43,92 @@ def test_cultures_are_localized_and_roman_is_roman():
     keys = dict(re.findall(r'^ (\w+): "(.*)"', LOC.read_text(encoding="utf-8-sig"), re.M))
     assert NEW <= set(keys)
     assert re.search(r'^ roman_culture: "Roman"$', REPLACE.read_text(encoding="utf-8-sig"), re.M)
+
+
+RULES = b.TOOLS / "cultures.txt"
+POPS = b.MOD / "main_menu/setup/start/06_pops.txt"
+
+
+def pops_cultures():
+    return {m.group(1): re.findall(r"culture = (\w+)", m.group(2))
+            for m in re.finditer(r"^(\w+) = \{(.*?)^\}", POPS.read_text(encoding="utf-8"), re.M | re.S)}
+
+
+def test_rules_parse_and_first_match_wins():
+    anc = {"here": ("europe", "western_europe", "iberia_region", "castile_area", "toledo_province")}
+    text = "here = {\n\tdefine_pop = { type = peasants size = 1 culture = castilian religion = catholic }\n" \
+           "\tdefine_pop = { type = nobles size = 1 culture = basque religion = catholic }\n}\n"
+    rules = [("VIS", "*", "gothic_culture"), ("iberia_region", "basque", "basque"),
+             ("iberia_region", "*", "hispano_roman")]
+    out = b.pop_cultures(text, {}, anc, rules)
+    assert re.findall(r"culture = (\w+)", out) == ["hispano_roman", "basque"]
+    out = b.pop_cultures(text, {"here": "VIS"}, anc, rules)
+    assert re.findall(r"culture = (\w+)", out) == ["gothic_culture", "gothic_culture"]
+
+
+def test_unknown_scopes_and_cultures_are_refused(tmp_path):
+    for bad in ("nowhere_region | * | roman_culture", "iberia_region | * | klingon"):
+        p = tmp_path / "rules.txt"
+        p.write_text(bad + "\n", encoding="utf-8")
+        try:
+            b.load_culture_rules(p, {"iberia_region"}, {"roman_culture"})
+        except ValueError:
+            continue
+        raise AssertionError(bad)
+
+
+def test_every_rule_target_exists():
+    known = set(blocks(vanilla_text("cultures"))) | NEW
+    targets = {to for _, _, to in b.load_culture_rules(RULES, None, None)}
+    assert targets and targets <= known, targets - known
+
+
+def test_the_core_has_no_1337_cultures_left():
+    anc = b.load_hierarchy()
+    targets = {to for _, _, to in b.load_culture_rules(RULES, None, None)}
+    left = {}
+    for loc, cults in pops_cultures().items():
+        if anc[loc][2] in b.CULTURE_REGIONS:
+            for c in set(cults) - targets:
+                left.setdefault(c, loc)
+    assert not left, sorted(left.items())[:20]
+
+
+def test_spot_checks():
+    own = {l: t for t, locs in b.owned_by_tag(b.compute()["owner"]).items() for l in locs}
+    by = pops_cultures()
+    def only(loc, culture):   # the dominant people; minorities (Jews, Griko...) may stay
+        assert max(set(by[loc]), key=by[loc].count) == culture, (loc, by[loc])
+    for loc, culture in (("toledo", "hispano_roman"), ("konya", "cappadocian_greek_culture"),
+                         ("tunis", "afro_roman"), ("aleppo", "syriac_culture"), ("rome", "roman_culture"),
+                         ("paris", "gallo_roman"), ("alexandria", "greek_culture")):
+        only(loc, culture)
+    for tag, culture in (("FRK", "frankish"), ("HNS", "hunnic")):
+        loc = next(l for l, t in own.items() if t == tag and l in by)
+        only(loc, culture)
+
+
+STAND_INS = {"lower_saxon", "swabian", "high_alemannic", "burgundian", "bashkir", "welsh", "scottish",
+             "eastern_pomeranian", "prussian", "turkmen_culture"}   # 1337 cultures once borrowed for 395 peoples
+
+
+def test_tags_and_characters_use_395_cultures():
+    known = set(blocks(vanilla_text("cultures"))) | NEW
+    tags = b.load_tags()
+    for t, d in tags.items():
+        assert d["culture"] in known and d["culture"] not in STAND_INS, (t, d["culture"])
+    chars = (b.MOD / "main_menu/setup/start/05_characters.txt").read_text(encoding="utf-8-sig")
+    used = set(re.findall(r"culture = (\w+)", chars))
+    assert used <= known and not used & STAND_INS, used & STAND_INS
+
+
+def test_the_empires_accept_their_provincials():
+    text = (b.MOD / "main_menu/setup/start/10_countries.txt").read_text(encoding="utf-8")
+    for tag, people in (("WRE", {"gallo_roman", "hispano_roman", "afro_roman", "briton"}),
+                        ("EAR", {"roman_culture", "syriac_culture", "coptic_culture", "armenian_culture",
+                                 "cappadocian_greek_culture", "pontic_greek_culture"})):
+        block = text[text.index(f"\t\t{tag} = {{"):].split("\n\t\t}\n")[0]
+        accepted = re.search(r"accepted_cultures = \{([^}]*)\}", block)
+        assert accepted and set(accepted.group(1).split()) == people, tag
+        # after the include, which may bring its own
+        assert block.index("accepted_cultures") > block.index("include =")

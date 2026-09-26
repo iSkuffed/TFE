@@ -57,7 +57,7 @@ def game():
                 our_loc=loc_keys([ours]), our_loc_text=ours.read_text(encoding="utf-8"),
                 dynasties={t for i, t in enumerate(dyn[:-1]) if dyn[i + 1] == "{" and t.endswith("_dynasty")},
                 anc=b.load_hierarchy(), traits=traits,
-                cultures=b.vanilla_keys(b.GAME / "in_game/common/cultures"),
+                cultures=b.known_cultures(),
                 religions=b.vanilla_keys(b.GAME / "in_game/common/religions"),
                 landed=set(re.findall(r"^\t\t([A-Z][A-Z0-9]{2}) = \{", countries, re.M)))
 

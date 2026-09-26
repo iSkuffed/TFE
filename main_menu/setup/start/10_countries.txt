@@ -314,6 +314,7 @@ countries = {
 				ruthenia_region sahel_region scandinavian_region south_german_region steppes_region
 			}
 			include = "eastern_european_monarchy"
+			accepted_cultures = { roman_culture syriac_culture coptic_culture armenian_culture cappadocian_greek_culture pontic_greek_culture }
 			country_rank = rank_empire
 			government = {
 				ruler = tfe_arcadius
@@ -1743,6 +1744,7 @@ countries = {
 				ruthenia_region sahel_region scandinavian_region south_german_region steppes_region
 			}
 			include = "catholic_monarchy"
+			accepted_cultures = { gallo_roman hispano_roman afro_roman briton }
 			country_rank = rank_empire
 			government = {
 				ruler = tfe_honorius
