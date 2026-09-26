@@ -23,15 +23,15 @@ GUP | Gupta Empire | Gupta | patna | indian_hindu_monarchy | bhojpuri_culture | 
 KDB | Kadamba | Kadamba | - | indian_hindu_monarchy | kannadiga | hindu | 200 90 40
 PLV | Pallava | Pallava | - | indian_hindu_monarchy | tamil | hindu | 170 60 30
 LKA | Anuradhapura | Anuradhapuran | - | indian_hindu_monarchy | sinhalese | theravada | 220 190 60
-LLI | Later Liang | Later Liang | - | chinese_monarchy | liang_culture | sanjiao | 190 170 120
-LYN | Later Yan | Later Yan | - | chinese_monarchy | yan_culture | sanjiao | 140 170 200
-JIN | Eastern Jin | Jin | - | chinese_monarchy | wu_culture | sanjiao | 200 60 60
+LLI | Later Liang | Later Liang | xiliang | chinese_monarchy | liang_culture | sanjiao | 190 170 120
+LYN | Later Yan | Later Yan | anxi_dingzhou | chinese_monarchy | yan_culture | sanjiao | 140 170 200
+JIN | Eastern Jin | Jin | jiangning | chinese_monarchy | wu_culture | sanjiao | 200 60 60
 RRN | Rouran | Rouran | - | eurasian_horde_no_muslim | mongolian_culture | tengri | 120 100 70
 YUB | Yueban | Yueban | - | eurasian_horde_no_muslim | hunnic | tengri | 150 130 100
-GOG | Goguryeo | Goguryeo | - | east_asia_monarchy | korean_culture | mahayana | 90 60 140
-BAE | Baekje | Baekje | - | east_asia_monarchy | korean_culture | mahayana | 60 140 120
-SIL | Silla | Silla | - | east_asia_monarchy | korean_culture | shamanism | 200 170 50
-GYK | Gaya | Gaya | - | east_asia_monarchy | korean_culture | shamanism | 160 200 140
+GOG | Goguryeo | Goguryeo | ganggye | east_asia_monarchy | korean_culture | mahayana | 90 60 140
+BAE | Baekje | Baekje | namgyeong | east_asia_monarchy | korean_culture | mahayana | 60 140 120
+SIL | Silla | Silla | gyeongju | east_asia_monarchy | korean_culture | shamanism | 200 170 50
+GYK | Gaya | Gaya | dongnae | east_asia_monarchy | korean_culture | shamanism | 160 200 140
 TTH | Teotihuacan | Teotihuacano | - | amerindian_advanced_monarchy_not_nahuatl | nahua_culture | mesoamerican | 170 90 60
 TKL | Tikal | Tikal | - | amerindian_advanced_monarchy_not_nahuatl | yucatec_culture | mayan | 60 150 80
 ZPT | Monte Alban | Zapotec | - | amerindian_advanced_monarchy_not_nahuatl | zapotec_culture | mesoamerican | 150 100 150
@@ -78,3 +78,48 @@ SRR | Sarir | Sariri | khunzakh | eurasian_tribe | avar_culture | lezgin_paganis
 LPN | Lpink | Lpinian | kurakh | eurasian_tribe | lezgin_culture | lezgin_paganism | 140 100 150
 DZR | Dzurdzuks | Dzurdzuk | simsir | eurasian_tribe | nakh_culture | vainakh_paganism | 100 80 60
 WND | Venedi | Venedic | - | eurasian_tribe | venedi | slavic_paganism | 150 110 70
+NWI | Northern Wei | Wei | yunnei | asia_advanced_tribe | mongolian_culture | tengri | 90 90 150
+LQN | Later Qin | Later Qin | jingzhao | chinese_monarchy | qin_culture | sanjiao | 150 110 170
+WQN | Western Qin | Western Qin | lanzhou | chinese_monarchy | liang_culture | sanjiao | 120 170 150
+DIC | Chouchi | Chouchi | chengzhou | chinese_monarchy | qin_culture | sanjiao | 170 150 110
+TYH | Tuyuhun | Tuyuhun | dulan | asia_advanced_tribe | monguor_culture | tengri | 110 150 90
+ZHZ | Zhangzhung | Zhangzhung | khyunglung | asia_advanced_tribe | utsang_culture | bon | 150 70 110
+PUG | Yarlung | Yarlung | nedong | asia_advanced_tribe | utsang_culture | bon | 190 90 70
+SUM | Sumpa | Sumpa | chamdo | asia_tribe | khampa_culture | bon | 140 120 90
+KUC | Kucha | Kuchean | kucha | east_asia_monarchy | uyghur_culture | mahayana | 200 140 110
+KHO | Khotan | Khotanese | khotan | east_asia_monarchy | khorezmian_culture | mahayana | 110 170 110
+SSN | Shanshan | Shanshan | charklik | east_asia_monarchy | uyghur_culture | mahayana | 190 170 120
+SHL | Shule | Shule | kashgar | east_asia_monarchy | khorezmian_culture | mahayana | 160 110 90
+YQI | Yanqi | Yanqi | karasahr | east_asia_monarchy | uyghur_culture | mahayana | 130 130 170
+CNZ | Cuan | Cuan | malong_qujing | chinese_monarchy | yi_culture | bimoism | 170 90 90
+AIL | Ailao | Ailao | yongchang_yongchang | asia_tribe | palaung_culture | palaung_religion | 100 140 80
+LIH | Li | Li | qiongshan | asia_tribe | hlai_culture | satsana_phi | 90 160 130
+KMX | Kumo Xi | Kumo Xi | quanning | asia_advanced_tribe | mongolian_culture | tengri | 160 140 90
+KHI | Khitan | Khitan | linhuang | asia_advanced_tribe | mongolian_culture | tengri | 120 90 70
+SHW | Shiwei | Shiwei | hailar | asia_tribe | daur_culture | tengri | 150 160 110
+BUY | Buyeo | Buyeo | nongan | east_asia_monarchy | korean_culture | shamanism | 120 90 160
+WJI | Wuji | Wuji | mudan_ula | asia_tribe | jurchen_culture | tungusic_shamanism | 90 130 110
+TJR | Tamna | Tamna | tamna | east_asia_monarchy | tamna_culture | shamanism | 80 160 170
+WAK | Yamato | Yamato | nara | japanese_clan | saigoku_culture | shinto | 200 60 90
+KIB | Kibi | Kibi | kaya | japanese_clan | saigoku_culture | shinto | 210 120 120
+IZM | Izumo | Izumo | izumo | japanese_clan | saigoku_culture | shinto | 150 90 150
+KNU | Kenu | Kenu | gunma | japanese_clan | tougoku_culture | shinto | 170 130 70
+TSU | Tsukushi | Tsukushi | hakata | japanese_clan | kyushu_culture | shinto | 110 120 170
+KMS | Kumaso | Kumaso | kagoshima | asia_tribe | kyushu_culture | shinto | 130 100 60
+EMS | Emishi | Emishi | miyagi | asia_tribe | touhoku_culture | shinto | 100 140 100
+AIN | Ainu | Ainu | sapporo | asia_tribe | ainu_culture | ainu_religion | 160 180 190
+LNY | Linyi | Linyi | simhapura | vietnamese_champa_monarchy | cham_culture | hindu | 200 150 60
+FUN | Funan | Funan | vyadhapura | south_east_asia_monarchy | khmer_culture | hindu | 110 60 130
+JNL | Jinlin | Jinlin | suphanburi | south_east_asia_monarchy | mon_culture | theravada | 210 180 80
+TNS | Tun Sun | Tun Sun | chaiya | south_east_asia_monarchy | dambro_culture | hindu | 170 110 60
+LKS | Langkasuka | Langkasukan | pattani | south_east_asia_monarchy | malay_culture | mahayana | 90 150 90
+KDR | Kadaram | Kadaram | bujang | south_east_asia_monarchy | malay_culture | mahayana | 180 90 60
+PYU | Pyu | Pyu | pyay | south_east_asia_monarchy | burmese_culture | theravada | 200 110 150
+RMN | Thaton | Mon | thaton | south_east_asia_monarchy | mon_culture | theravada | 90 110 170
+VSL | Vesali | Vesali | weithali | south_east_asia_monarchy | rakhine_culture | theravada | 140 170 80
+LUA | Lawa | Lawa | chiang_mai | asia_tribe | lawa_culture | theravada | 120 100 140
+KYP | Kuy | Kuy | roi_et | asia_tribe | kuy_culture | satsana_phi | 150 130 80
+TRM | Tarumanagara | Tarumanagaran | pakuan | indonesia_monarchy | sundanese_culture | hindu | 190 70 60
+KTI | Kutai | Kutai | muarakaman | indonesia_monarchy | kutai_culture | hindu | 80 130 60
+KDL | Kantoli | Kantoli | palembang | indonesia_monarchy | malay_culture | mahayana | 170 150 60
+HLT | Holotan | Holotan | mataram | indonesia_monarchy | javanese_culture | hindu | 120 150 170

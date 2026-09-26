@@ -497,10 +497,19 @@ locations={
 	tripoli = { rank = town 	town_setup	 = maghreb_town }
 
 	#Japan and Korea
+	kyoto = { rank = city 		town_setup = japan_city }
+	hata = { rank = town 		town_setup = japan_town }
+	kamakura = { rank = city 	town_setup = japan_city }
+	yoshiki_suou = { rank = town town_setup = japan_town}
+	kagoshima = { rank = town 	town_setup = japan_town }
+	miyagi = { rank = town 		town_setup = japan_town }
+	akita = { rank = town 		town_setup = japan_town }
 
 	kaesong = { rank = city 	town_setup = korea_city }
+	namgyeong = { rank = city 	town_setup = korea_city }
 	gyeongju = { rank = city 	town_setup = korean_city_port }
 	jinju = { rank = city 		town_setup = korea_city }
+	jeonju = { rank = city 		town_setup = korea_city }
 	seogyeong = { rank = city 	town_setup = korea_city }
 	andong = { rank = town		town_setup = korea_town  }
 	seongju = { rank = town 		town_setup = korea_town }
@@ -511,7 +520,9 @@ locations={
 	changsha = { rank = city town_setup = chinese_city }
 	chengdu = { rank = city town_setup = chinese_city }
 	baxian = { rank = city town_setup = chinese_city }
+	taihe_dali = { rank = city town_setup = south_east_asia_town }
 	datong_datong = { rank = city town_setup = chinese_city }
+	gengma = { rank = city town_setup = chinese_city }
 	fuliang = { rank = city town_setup = jingdezhen_city } #Jingdezhen
 	minxian = { rank = city town_setup = chinese_coastal_city }
 	ganzhou = { rank = city town_setup = chinese_city }
@@ -565,6 +576,7 @@ locations={
 	jiangyin = { rank = town town_setup = chinese_coastal_town }
 	xingzhong = { rank = town town_setup = chinese_town }
 	jieyang = { rank = town town_setup = chinese_coastal_town }
+	gengdang = { rank = town town_setup = chinese_town }
 	yuanling = { rank = town town_setup = chinese_town }
 	xiangcheng = { rank = town town_setup = chinese_town }
 	yizhang = { rank = town town_setup = chinese_town }
@@ -672,6 +684,7 @@ locations={
 	chongyi = { rank = town town_setup = chinese_town }
 	xinxing_nanen = { rank = town town_setup = chinese_town }
 	jianchang = { rank = town town_setup = chinese_town }
+	changhua = { rank = town town_setup = chinese_coastal_town }
 	baochang_nanxiong = { rank = town town_setup = chinese_town }
 	biyang = { rank = town town_setup = chinese_town }
 	yinxian = { rank = town town_setup = chinese_coastal_town }
@@ -690,6 +703,7 @@ locations={
 	huanzhou_qingyang = { rank = town town_setup = chinese_town }
 	jinghai = { rank = town town_setup = chinese_town }
 	wuxiang = { rank = town town_setup = chinese_town }
+	wenchang = { rank = town town_setup = chinese_coastal_town }
 	puyin = { rank = town town_setup = chinese_town }
 	anxi = { rank = town town_setup = chinese_town }
 	xian_quzhou = { rank = town town_setup = chinese_town }
@@ -709,6 +723,7 @@ locations={
 	shouchun = { rank = town town_setup = chinese_town }
 	xingtai = { rank = town town_setup = chinese_town }
 	puge = { rank = town town_setup = chinese_town }
+	sime = { rank = town town_setup = chinese_town }
 	linhuai = { rank = town town_setup = chinese_town }
 	huating = { rank = town town_setup = chinese_coastal_town }
 	lushi = { rank = town town_setup = chinese_town }
@@ -728,6 +743,7 @@ locations={
 	lutai = { rank = town town_setup = chinese_coastal_town }
 	haimen = { rank = town town_setup = chinese_coastal_town }
 	hancheng = { rank = town town_setup = chinese_town }
+	ningyuan_wananjun = { rank = town town_setup = chinese_coastal_town }
 	shunsheng = { rank = town town_setup = chinese_town }
 	huixian = { rank = town town_setup = chinese_town }
 	shuangxi = { rank = town town_setup = chinese_coastal_town }
@@ -737,6 +753,7 @@ locations={
 	wenxi = { rank = town town_setup = chinese_town }
 	xunyang = { rank = town town_setup = chinese_town }
 	tongshan = { rank = town town_setup = chinese_town }
+	fuzhou = { rank = town town_setup = chinese_town }
 	putian = { rank = town town_setup = chinese_coastal_town }
 	yixingzhou = { rank = town town_setup = chinese_town }
 	xiangshan_xinhui = { rank = town town_setup = chinese_coastal_town }
@@ -776,16 +793,44 @@ locations={
 	fengdu = { rank = town town_setup = chinese_town }
 	jinjiang = { rank = town 	town_setup = chinese_town }
 
+	kashgar = { rank = city town_setup = central_asian_city }
+	lhasa = { rank = city town_setup = central_asian_city }
+	chamdo = { rank = city town_setup = central_asian_city }
+	leh = { rank = city town_setup = central_asian_city }
 	turpan = { rank = city town_setup = central_asian_city }
+	aksu = { rank = town town_setup = central_asian_town }
+	khotan = { rank = town town_setup = central_asian_town }
+	kurla = { rank = town town_setup = central_asian_town }
+	yarkand = { rank = town town_setup = central_asian_town }
 
 	#Mongolia and Manchuria
 	karakorum = { rank = town town_setup = chinese_town }
 	liaoyang = { rank = city town_setup = chinese_city }
+	ilan_hala = { rank = town 	town_setup = jurchen_town }
 
 	#Southeast Asia
+	ayodhya = { rank = town town_setup = south_east_asia_port_town }
+	lopburi = { rank = town town_setup = south_east_asia_town }
+	suphanburi = { rank = town town_setup = south_east_asia_town }
+	angkor = { rank = city town_setup = south_east_asia_city }
+	lamphun = { rank = city town_setup = south_east_asia_city }
+	martaban = { rank = city town_setup = south_east_asia_port_town }
+	pagan = { rank = city town_setup = south_east_asia_city }
+	pegu = { rank = city town_setup = south_east_asia_town }
+	pinya = { rank = city town_setup = south_east_asia_town }
+	pyay = { rank = city town_setup = south_east_asia_city }
+	sukhothai = { rank = city town_setup = south_east_asia_city }
 	thang_long = { rank = city town_setup = south_east_asia_city }
+	vijaya = { rank = city town_setup = south_east_asia_city }
 
+	longvek = { rank = town town_setup = south_east_asia_town }
+	indrapura_khmer = { rank = town town_setup = south_east_asia_town }
+	vyadhapura = { rank = town town_setup = south_east_asia_town }
 
+	sunda_kelapa = { rank = town town_setup = south_east_asia_port_town }
+	kawali = { rank = town town_setup = south_east_asia_town }
+	palembang = { rank = town town_setup = south_east_asia_town }
+	temasek = { rank = town town_setup = south_east_asia_port_town }
 
 	# Anatolia city
 	amasya = { rank = city		town_setup = tfe_unfortified_anatolian_city }
@@ -976,6 +1021,7 @@ locations={
 	vijayanagar = { rank = city  town_setup = indian_city }
 	sonargaon = { rank = city  town_setup = indian_city }
 
+	chittagong = { rank = city town_setup = chittagong_city }
 	kotte = { rank = town town_setup = indian_town }
 	bangalore = { rank = town town_setup = indian_town }
 	dharmapuri = { rank = town town_setup = indian_town }
@@ -996,6 +1042,7 @@ locations={
 	#Fishing Settlements
 
 	#Majapahit
+	daha = { rank = town town_setup = majapahit_town }
 
 	#Zimbabwe South East Africa
 

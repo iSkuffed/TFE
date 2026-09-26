@@ -724,4 +724,87 @@ character_db = {
 		ruler_trait = scholar
 		tag = ASK
 	}
+	tfe_tuoba_gui = { # Emperor Daowu of Northern Wei, king of Wei from 386; Canhe Slope is fought in December 395
+		first_name = { name = name_gui }
+		culture = mongolian_culture
+		religion = tengri
+		adm = 60 dip = 50 mil = 90
+		birth_date = 371.8.4
+		birth = yunnei
+		dynasty = tuoba_dynasty
+		ruler_trait = conqueror
+		ruler_trait = tactical_genius
+		tag = NWI
+	}
+	tfe_yao_xing = { # Emperor Wenhuan of Later Qin, r. 394-416, who brings Kumarajiva to Chang'an
+		first_name = { name = name_xing }
+		culture = qin_culture
+		religion = sanjiao
+		adm = 65 dip = 55 mil = 55
+		birth_date = 366.1.1
+		birth = jingzhao
+		dynasty = yao_dynasty
+		ruler_trait = pious
+		tag = LQN
+	}
+	tfe_qifu_qiangui = { # Prince Wuyuan of Western Qin, r. 388-400 and 409-412; approx
+		first_name = { name = name_qiangui }
+		culture = liang_culture
+		religion = sanjiao
+		adm = 45 dip = 50 mil = 60
+		birth_date = 350.1.1
+		birth = lanzhou
+		dynasty = qifu_dynasty
+		tag = WQN
+	}
+	tfe_nintoku = { # Ohosazaki, the great king of the largest kofun; traditional reign 313-399; approx
+		first_name = { name = name_nintoku }
+		culture = saigoku_culture
+		religion = shinto
+		adm = 70 dip = 50 mil = 40
+		birth_date = 340.1.1
+		birth = nara
+		dynasty = yamato_dynasty
+		ruler_trait = benevolent
+		tag = WAK
+	}
+	tfe_bhadravarman = { # Bhadravarman I of Linyi (Fan Huda), r. c. 380-413, founder of the shrine at My Son; approx
+		first_name = { name = name_bhadravarman }
+		culture = cham_culture
+		religion = hindu
+		adm = 50 dip = 45 mil = 60
+		birth_date = 355.1.1
+		birth = simhapura
+		ruler_trait = pious
+		tag = LNY
+	}
+	tfe_purnawarman = { # Purnawarman of Tarumanagara, r. 395-434, of the Ciaruteun and Tugu stones; approx
+		first_name = { name = name_purnawarman }
+		culture = sundanese_culture
+		religion = hindu
+		adm = 60 dip = 45 mil = 55
+		birth_date = 370.1.1
+		birth = pakuan
+		ruler_trait = expansionist
+		tag = TRM
+	}
+	tfe_aswawarman = { # Aswawarman of Kutai, son of Kudungga; approx
+		first_name = { name = name_aswawarman }
+		culture = kutai_culture
+		religion = hindu
+		birth_date = 345.1.1
+		birth = muarakaman
+		dynasty = kudungga_dynasty
+		tag = KTI
+	}
+	tfe_mulawarman = { # Mulawarman, whose yupa stones at Muara Kaman are the oldest in Indonesia; approx
+		first_name = { name = name_mulawarman }
+		culture = kutai_culture
+		religion = hindu
+		birth_date = 375.1.1
+		birth = muarakaman
+		dynasty = kudungga_dynasty
+		father = tfe_aswawarman
+		tag = KTI
+	}
 }

@@ -9687,4 +9687,20 @@ dynasty_manager = {
 		name = { name = arsacid_dynasty }
 		home = khor_virap
 	}
+	tuoba_dynasty = {
+		name = { name = tuoba_dynasty }
+		home = yunnei
+	}
+	yao_dynasty = {
+		name = { name = yao_dynasty }
+		home = jingzhao
+	}
+	qifu_dynasty = {
+		name = { name = qifu_dynasty }
+		home = lanzhou
+	}
+	kudungga_dynasty = {
+		name = { name = kudungga_dynasty }
+		home = muarakaman
+	}
 }

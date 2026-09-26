@@ -117,6 +117,24 @@ Sanesan's kingdom of the 330s), Sarir of the Avars (SRR, attested 6th c.), Lpink
 Dzurdzuks (DZR); Koban and the upper Terek go to the Alans. The Tats (adhari) of Shirvan arrive
 with Khosrow I, so in 395 they are Albanians.
 
+## East and South-East Asia (`tools/overrides/40_asia.txt`, curated)
+
+The dataset's single Sixteen Kingdoms blob is split up. Later Yan (Murong Chui) holds the plain up to
+Liaodong. Northern Wei (Tuoba Gui, the year of Canhe Slope) holds the Ordos and the Yin Shan. Later
+Qin (Yao Xing) holds Guanzhong. Western Qin (Qifu Qiangui) sits at Lanzhou and Chouchi (DIC, a Jin
+vassal) at Wudu. Later Liang runs to Turfan and Hami. The Tuyuhun hold Kokonor. On the plateau are
+Zhangzhung, the Yarlung kings (PUG) and the Sumpa. The Tarim oases are Kucha, Khotan, Shanshan, Shule
+and Yanqi. In the south-west are the Cuan of Nanzhong (a Jin vassal), the Ailao, and the Li of Hainan.
+The Rouran hold the Gobi. The Kumo Xi, the Khitan and the Shiwei hold Manchuria's west, the Wuji its
+east, and Buyeo survives as Goguryeo's tributary. In Korea, Gwanggaeto's Goguryeo takes the north,
+with Baekje, Silla (tributary to Goguryeo since 392), Gaya and Tamna to the south. Japan is Yamato
+(Nintoku), with Kibi, Izumo, Kenu and Tsukushi as vassals, the Kumaso in south Kyushu, the Emishi in
+the north and the Ainu on Ezo. On the mainland: Linyi (Bhadravarman I), Funan with Jinlin and Tun
+Sun as tributaries, Pyu, Thaton, Vesali, Lawa, the Kuy, Langkasuka and Kedah. On the islands:
+Tarumanagara (Purnawarman), Kutai (Aswawarman and his son Mulawarman), Kantoli (Palembang) and
+Holotan (central Java). Still empty: the Amur, the Ryukyus, Taiwan, the Philippines, Celebes, east
+Java, Borneo outside Kutai, and north Sumatra.
+
 ## Placeholders
 
 Each tag gets the nearest vanilla culture/religion, marked `# PLACEHOLDER`. WRE `catholic`, ERE

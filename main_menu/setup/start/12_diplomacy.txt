@@ -9,6 +9,19 @@ diplomacy_manager = {
 	dependency = { first = SAS second = IBR subject_type = vassal start_date = 387.1.1 }
 	dependency = { first = SAS second = AGV subject_type = vassal start_date = 387.1.1 }
 	dependency = { first = EAR second = LZC subject_type = vassal start_date = 387.1.1 }	# Lazic kings invested by the emperor
+	# East Asia: Jin's southern and western clients; Goguryeo shelters Buyeo and Silla (Silseong a hostage since 392)
+	dependency = { first = JIN second = CNZ subject_type = vassal }
+	dependency = { first = JIN second = DIC subject_type = vassal }
+	dependency = { first = GOG second = BUY subject_type = tributary }
+	dependency = { first = GOG second = SIL subject_type = tributary start_date = 392.1.1 }
+	# Yamato's great kings over the regional lords of Kibi, Izumo, Kenu and Tsukushi
+	dependency = { first = WAK second = KIB subject_type = vassal }
+	dependency = { first = WAK second = IZM subject_type = vassal }
+	dependency = { first = WAK second = KNU subject_type = vassal }
+	dependency = { first = WAK second = TSU subject_type = vassal }
+	# Funan's tributaries since Fan Shiman's conquests
+	dependency = { first = FUN second = JNL subject_type = tributary }
+	dependency = { first = FUN second = TNS subject_type = tributary }
 	# Roads of the one Empire stay open; closing them costs Unity
 	scripted_oneway = { first = WRE second = EAR type = military_access }
 	scripted_oneway = { first = EAR second = WRE type = military_access }

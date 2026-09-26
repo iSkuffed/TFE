@@ -61,6 +61,7 @@ market_manager = {
 	
 	# East Asia
 	add_market = dadu
+	add_market = kyoto #sakai
 	# add_market = kamakura
 	# add_market = hakata
 	#add_market = souya
@@ -77,13 +78,19 @@ market_manager = {
 	add_market = nanchang
 	add_market = jingzhao
 	add_market = lanzhou
+	add_market = kashgar
+	add_market = lhasa
 	add_market = turpan
+	add_market = chamdo
+	add_market = leh
 	#add_market = nurgan
 	add_market = karakorum
 	add_market = liaoyang
 	#add_market = qiqihar
 	#add_market = ningguta
+	add_market = ilan_hala
 
+	add_market = akita
 
 	#South Asia 
 	add_market = khambat
@@ -92,6 +99,7 @@ market_manager = {
 	
 	#India
 	add_market = delhi
+	add_market = chittagong
 	add_market = varanasi
 	add_market = kataka
 	
@@ -115,8 +123,13 @@ market_manager = {
 	#Oceania
 
 	# Indochina
+	add_market = martaban
+	add_market = temasek
 	add_market = thang_long
+	add_market = vijaya
 
+	add_market = pinya
+	add_market = angkor
 
 	#Missisippian North america
 	#add_market = natchez

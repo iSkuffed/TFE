@@ -182,3 +182,78 @@ def test_caucasian_peasants_share_their_rulers_culture(state, tag):
         for n, c in re.findall(r"type = peasants\s+size = ([\d.]+)\s+culture = (\w+)", pops.get(loc, "")):
             size[c] = size.get(c, 0) + float(n)
     assert not size or max(size, key=size.get) == b.load_tags(b.TOOLS / "tags.txt")[tag]["culture"], size
+
+
+ASIA = [
+    # the north of China after Fei River: Yan, Wei, the two Qins, Liang
+    ("anxi_dingzhou", "LYN", "Zhongshan, Murong Chui's capital"),
+    ("yunnei", "NWI", "Shengle and Yunzhong: Tuoba Gui's Wei, the year of Canhe Slope"),
+    ("jingzhao", "LQN", "Chang'an: Yao Xing's Later Qin"),
+    ("lanzhou", "WQN", "Jincheng: Qifu Qiangui's Western Qin"),
+    ("chengzhou", "DIC", "Chouchi: the Di of the Yang clan, Jin vassals"),
+    ("xiliang", "LLI", "Guzang: Lü Guang's Later Liang"),
+    ("shazhou", "LLI", "Dunhuang"),
+    ("turpan", "LLI", "Gaochang commandery"),
+    ("nanzheng", "JIN", "Hanzhong stays Jin"),
+    ("dulan", "TYH", "Tuyuhun of Kokonor"),
+    ("haeju", "GOG", "Haeseo: Goguryeo since Lelang fell in 313"),
+    ("namgyeong", "BAE", "Hanseong, Baekje's capital"),
+    ("naju", "BAE", "the Mahan of the Yeongsan, under Baekje"),
+    ("jinju", "GYK", "the Gaya league"),
+    ("tamna", "TJR", "Tamna on Jeju"),
+    ("nongan", "BUY", "Buyeo, Goguryeo's ward"),
+    ("hailar", "SHW", "the Shiwei"),
+    ("mudan_ula", "WJI", "Wuji, the later Mohe"),
+    ("quanning", "KMX", "the Kumo Xi on the Laoha"),
+    ("khyunglung", "ZHZ", "Zhangzhung, the land of Bon"),
+    ("nedong", "PUG", "the Yarlung kings"),
+    ("chamdo", "SUM", "the Sumpa"),
+    ("kucha", "KUC", "Kucha of the Bai kings"),
+    ("khotan", "KHO", "Khotan"),
+    ("charklik", "SSN", "Shanshan (Kroraina)"),
+    ("kashgar", "SHL", "Shule"),
+    ("karasahr", "YQI", "Yanqi (Agni)"),
+    ("malong_qujing", "CNZ", "the Cuan of Nanzhong, Jin vassals"),
+    ("yongchang_yongchang", "AIL", "the Ailao"),
+    ("qiongshan", "LIH", "the Li of Hainan"),
+    # Japan in the Kofun age
+    ("nara", "WAK", "Yamato, the great kings of Wa"),
+    ("kaya", "KIB", "Kibi"),
+    ("izumo", "IZM", "Izumo"),
+    ("gunma", "KNU", "Kenu of the Kanto"),
+    ("hakata", "TSU", "Tsukushi"),
+    ("kagoshima", "KMS", "the Kumaso and Hayato"),
+    ("miyagi", "EMS", "the Emishi"),
+    ("sapporo", "AIN", "Hokkaido"),
+    # South-East Asia
+    ("simhapura", "LNY", "Linyi under Bhadravarman"),
+    ("vyadhapura", "FUN", "Funan"),
+    ("suphanburi", "JNL", "Jinlin, Funan's tributary"),
+    ("chaiya", "TNS", "Tun Sun on the isthmus, Funan's tributary"),
+    ("pattani", "LKS", "Langkasuka"),
+    ("bujang", "KDR", "Kadaram of the Bujang valley"),
+    ("pyay", "PYU", "Sri Ksetra of the Pyu"),
+    ("thaton", "RMN", "the Mon of Thaton"),
+    ("weithali", "VSL", "Vesali in Arakan"),
+    ("chiang_mai", "LUA", "the Lawa"),
+    ("roi_et", "KYP", "the Kuy of the Khorat"),
+    ("pakuan", "TRM", "Tarumanagara under Purnawarman"),
+    ("muarakaman", "KTI", "Kutai Martadipura"),
+    ("palembang", "KDL", "Kantoli"),
+    ("mataram", "HLT", "Holotan"),
+]
+
+
+@pytest.mark.parametrize("loc,tag,why", ASIA)
+def test_asia(state, loc, tag, why):
+    assert state["owner"].get(loc) == tag, f"{loc}: {why}; trail {state['trail'].get(loc)}"
+
+
+def test_asian_capitals_and_clients(state):
+    for tag, cap in (("JIN", "jiangning"), ("LYN", "anxi_dingzhou"), ("LLI", "xiliang"), ("GOG", "ganggye"),
+                     ("BAE", "namgyeong"), ("SIL", "gyeongju"), ("WAK", "nara"), ("FUN", "vyadhapura")):
+        assert state["caps"][tag] == cap, (tag, state["caps"][tag])
+    text = re.sub(r"#[^\n]*", "", (b.MOD / "main_menu/setup/start/12_diplomacy.txt").read_text(encoding="utf-8"))
+    pairs = set(re.findall(r"first\s*=\s*(\w+)\s+second\s*=\s*(\w+)", text))
+    assert {("JIN", "CNZ"), ("JIN", "DIC"), ("GOG", "BUY"), ("GOG", "SIL"), ("WAK", "KIB"), ("WAK", "IZM"),
+            ("WAK", "KNU"), ("WAK", "TSU"), ("FUN", "JNL"), ("FUN", "TNS")} <= pairs

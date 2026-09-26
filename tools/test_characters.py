@@ -162,3 +162,11 @@ def test_portrait_modifiers_target_defined_characters(chars):
 def test_caucasian_kings(chars):
     govs, _ = b.load_governments(b.TOOLS / "governments.txt", b.load_tags())
     assert "ruler = tfe_trdat" in govs["IBR"] and "ruler = tfe_vramshapuh" in govs["ASK"]
+
+
+def test_asian_rulers(chars):
+    govs, _ = b.load_governments(b.TOOLS / "governments.txt", b.load_tags())
+    for tag, cid in (("NWI", "tfe_tuoba_gui"), ("LQN", "tfe_yao_xing"), ("WQN", "tfe_qifu_qiangui"), ("WAK", "tfe_nintoku"),
+                     ("LNY", "tfe_bhadravarman"), ("TRM", "tfe_purnawarman"), ("KTI", "tfe_aswawarman")):
+        assert f"ruler = {cid}" in govs[tag], tag
+    assert "heir = tfe_mulawarman" in govs["KTI"]

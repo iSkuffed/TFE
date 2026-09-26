@@ -683,3 +683,408 @@ WND = { # Venedi
 	description_category = administrative
 	difficulty = 3
 }
+
+NWI = { # Northern Wei
+	color = rgb { 90 90 150 }
+	color2 = rgb { 45 45 75 }
+	culture_definition = mongolian_culture # PLACEHOLDER
+	religion_definition = tengri # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+LQN = { # Later Qin
+	color = rgb { 150 110 170 }
+	color2 = rgb { 75 55 85 }
+	culture_definition = qin_culture # PLACEHOLDER
+	religion_definition = sanjiao # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+WQN = { # Western Qin
+	color = rgb { 120 170 150 }
+	color2 = rgb { 60 85 75 }
+	culture_definition = liang_culture # PLACEHOLDER
+	religion_definition = sanjiao # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+DIC = { # Chouchi
+	color = rgb { 170 150 110 }
+	color2 = rgb { 85 75 55 }
+	culture_definition = qin_culture # PLACEHOLDER
+	religion_definition = sanjiao # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+TYH = { # Tuyuhun
+	color = rgb { 110 150 90 }
+	color2 = rgb { 55 75 45 }
+	culture_definition = monguor_culture # PLACEHOLDER
+	religion_definition = tengri # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+ZHZ = { # Zhangzhung
+	color = rgb { 150 70 110 }
+	color2 = rgb { 75 35 55 }
+	culture_definition = utsang_culture # PLACEHOLDER
+	religion_definition = bon # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+PUG = { # Yarlung
+	color = rgb { 190 90 70 }
+	color2 = rgb { 95 45 35 }
+	culture_definition = utsang_culture # PLACEHOLDER
+	religion_definition = bon # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+SUM = { # Sumpa
+	color = rgb { 140 120 90 }
+	color2 = rgb { 70 60 45 }
+	culture_definition = khampa_culture # PLACEHOLDER
+	religion_definition = bon # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+KUC = { # Kucha
+	color = rgb { 200 140 110 }
+	color2 = rgb { 100 70 55 }
+	culture_definition = uyghur_culture # PLACEHOLDER
+	religion_definition = mahayana # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+KHO = { # Khotan
+	color = rgb { 110 170 110 }
+	color2 = rgb { 55 85 55 }
+	culture_definition = khorezmian_culture # PLACEHOLDER
+	religion_definition = mahayana # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+SSN = { # Shanshan
+	color = rgb { 190 170 120 }
+	color2 = rgb { 95 85 60 }
+	culture_definition = uyghur_culture # PLACEHOLDER
+	religion_definition = mahayana # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+SHL = { # Shule
+	color = rgb { 160 110 90 }
+	color2 = rgb { 80 55 45 }
+	culture_definition = khorezmian_culture # PLACEHOLDER
+	religion_definition = mahayana # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+YQI = { # Yanqi
+	color = rgb { 130 130 170 }
+	color2 = rgb { 65 65 85 }
+	culture_definition = uyghur_culture # PLACEHOLDER
+	religion_definition = mahayana # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+CNZ = { # Cuan
+	color = rgb { 170 90 90 }
+	color2 = rgb { 85 45 45 }
+	culture_definition = yi_culture # PLACEHOLDER
+	religion_definition = bimoism # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+AIL = { # Ailao
+	color = rgb { 100 140 80 }
+	color2 = rgb { 50 70 40 }
+	culture_definition = palaung_culture # PLACEHOLDER
+	religion_definition = palaung_religion # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+LIH = { # Li
+	color = rgb { 90 160 130 }
+	color2 = rgb { 45 80 65 }
+	culture_definition = hlai_culture # PLACEHOLDER
+	religion_definition = satsana_phi # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+KMX = { # Kumo Xi
+	color = rgb { 160 140 90 }
+	color2 = rgb { 80 70 45 }
+	culture_definition = mongolian_culture # PLACEHOLDER
+	religion_definition = tengri # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+KHI = { # Khitan
+	color = rgb { 120 90 70 }
+	color2 = rgb { 60 45 35 }
+	culture_definition = mongolian_culture # PLACEHOLDER
+	religion_definition = tengri # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+SHW = { # Shiwei
+	color = rgb { 150 160 110 }
+	color2 = rgb { 75 80 55 }
+	culture_definition = daur_culture # PLACEHOLDER
+	religion_definition = tengri # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+BUY = { # Buyeo
+	color = rgb { 120 90 160 }
+	color2 = rgb { 60 45 80 }
+	culture_definition = korean_culture # PLACEHOLDER
+	religion_definition = shamanism # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+WJI = { # Wuji
+	color = rgb { 90 130 110 }
+	color2 = rgb { 45 65 55 }
+	culture_definition = jurchen_culture # PLACEHOLDER
+	religion_definition = tungusic_shamanism # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+TJR = { # Tamna
+	color = rgb { 80 160 170 }
+	color2 = rgb { 40 80 85 }
+	culture_definition = tamna_culture # PLACEHOLDER
+	religion_definition = shamanism # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+WAK = { # Yamato
+	color = rgb { 200 60 90 }
+	color2 = rgb { 100 30 45 }
+	culture_definition = saigoku_culture # PLACEHOLDER
+	religion_definition = shinto # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+KIB = { # Kibi
+	color = rgb { 210 120 120 }
+	color2 = rgb { 105 60 60 }
+	culture_definition = saigoku_culture # PLACEHOLDER
+	religion_definition = shinto # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+IZM = { # Izumo
+	color = rgb { 150 90 150 }
+	color2 = rgb { 75 45 75 }
+	culture_definition = saigoku_culture # PLACEHOLDER
+	religion_definition = shinto # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+KNU = { # Kenu
+	color = rgb { 170 130 70 }
+	color2 = rgb { 85 65 35 }
+	culture_definition = tougoku_culture # PLACEHOLDER
+	religion_definition = shinto # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+TSU = { # Tsukushi
+	color = rgb { 110 120 170 }
+	color2 = rgb { 55 60 85 }
+	culture_definition = kyushu_culture # PLACEHOLDER
+	religion_definition = shinto # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+KMS = { # Kumaso
+	color = rgb { 130 100 60 }
+	color2 = rgb { 65 50 30 }
+	culture_definition = kyushu_culture # PLACEHOLDER
+	religion_definition = shinto # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+EMS = { # Emishi
+	color = rgb { 100 140 100 }
+	color2 = rgb { 50 70 50 }
+	culture_definition = touhoku_culture # PLACEHOLDER
+	religion_definition = shinto # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+AIN = { # Ainu
+	color = rgb { 160 180 190 }
+	color2 = rgb { 80 90 95 }
+	culture_definition = ainu_culture # PLACEHOLDER
+	religion_definition = ainu_religion # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+LNY = { # Linyi
+	color = rgb { 200 150 60 }
+	color2 = rgb { 100 75 30 }
+	culture_definition = cham_culture # PLACEHOLDER
+	religion_definition = hindu # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+FUN = { # Funan
+	color = rgb { 110 60 130 }
+	color2 = rgb { 55 30 65 }
+	culture_definition = khmer_culture # PLACEHOLDER
+	religion_definition = hindu # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+JNL = { # Jinlin
+	color = rgb { 210 180 80 }
+	color2 = rgb { 105 90 40 }
+	culture_definition = mon_culture # PLACEHOLDER
+	religion_definition = theravada # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+TNS = { # Tun Sun
+	color = rgb { 170 110 60 }
+	color2 = rgb { 85 55 30 }
+	culture_definition = dambro_culture # PLACEHOLDER
+	religion_definition = hindu # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+LKS = { # Langkasuka
+	color = rgb { 90 150 90 }
+	color2 = rgb { 45 75 45 }
+	culture_definition = malay_culture # PLACEHOLDER
+	religion_definition = mahayana # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+KDR = { # Kadaram
+	color = rgb { 180 90 60 }
+	color2 = rgb { 90 45 30 }
+	culture_definition = malay_culture # PLACEHOLDER
+	religion_definition = mahayana # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+PYU = { # Pyu
+	color = rgb { 200 110 150 }
+	color2 = rgb { 100 55 75 }
+	culture_definition = burmese_culture # PLACEHOLDER
+	religion_definition = theravada # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+RMN = { # Thaton
+	color = rgb { 90 110 170 }
+	color2 = rgb { 45 55 85 }
+	culture_definition = mon_culture # PLACEHOLDER
+	religion_definition = theravada # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+VSL = { # Vesali
+	color = rgb { 140 170 80 }
+	color2 = rgb { 70 85 40 }
+	culture_definition = rakhine_culture # PLACEHOLDER
+	religion_definition = theravada # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+LUA = { # Lawa
+	color = rgb { 120 100 140 }
+	color2 = rgb { 60 50 70 }
+	culture_definition = lawa_culture # PLACEHOLDER
+	religion_definition = theravada # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+KYP = { # Kuy
+	color = rgb { 150 130 80 }
+	color2 = rgb { 75 65 40 }
+	culture_definition = kuy_culture # PLACEHOLDER
+	religion_definition = satsana_phi # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+TRM = { # Tarumanagara
+	color = rgb { 190 70 60 }
+	color2 = rgb { 95 35 30 }
+	culture_definition = sundanese_culture # PLACEHOLDER
+	religion_definition = hindu # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+KTI = { # Kutai
+	color = rgb { 80 130 60 }
+	color2 = rgb { 40 65 30 }
+	culture_definition = kutai_culture # PLACEHOLDER
+	religion_definition = hindu # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+KDL = { # Kantoli
+	color = rgb { 170 150 60 }
+	color2 = rgb { 85 75 30 }
+	culture_definition = malay_culture # PLACEHOLDER
+	religion_definition = mahayana # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+HLT = { # Holotan
+	color = rgb { 120 150 170 }
+	color2 = rgb { 60 75 85 }
+	culture_definition = javanese_culture # PLACEHOLDER
+	religion_definition = hindu # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}

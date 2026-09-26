@@ -55,3 +55,11 @@ TTH = ruler = tfe_spearthrower_owl
 TKL = ruler = tfe_yax_nuun_ahiin
 IBR = ruler = tfe_trdat
 ASK = ruler = tfe_vramshapuh
+NWI = ruler = tfe_tuoba_gui
+LQN = ruler = tfe_yao_xing
+WQN = ruler = tfe_qifu_qiangui
+WAK = ruler = tfe_nintoku
+LNY = ruler = tfe_bhadravarman
+TRM = ruler = tfe_purnawarman
+KTI = ruler = tfe_aswawarman
+KTI = heir = tfe_mulawarman

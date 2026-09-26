@@ -1,0 +1,209 @@
+# Asia in 395: the dataset's single "Sixteen Kingdoms" blob split into the states of the north, and the empty
+# east and south-east filled with the kingdoms and tribes of the day. Later lines win. Some tribal names are
+# attested a generation or two after 395 (Wuji, Shiwei, Kantoli, Holotan); the peoples were there.
+
+# ---- North China: Later Yan holds the plain after swallowing Western Yan (394) ----
+beiping_area = LYN
+yannan_area = LYN
+hebei_area = LYN                # Ye and Handan
+huaiqing_province = JIN         # Henei, beside Jin's Luoyang
+shanxi_area = LYN               # Bingzhou and Western Yan's Changzi, taken 394
+datong_province = LYN           # Pingcheng: Wei takes it in 396
+yingzhou_shanxi_province = LYN
+yuzhou_shanxi_province = LYN
+chaoyang_province = LYN         # Longcheng, the old Murong capital in Liaoxi
+xingzhou_province = LYN
+liaodong_area = LYN
+dingliao_province = GOG         # the Yalu: Goguryeo
+# Northern Wei: Tuoba Gui at Shengle; the Tiefu of the Ordos crushed in 391
+hetao_province = NWI
+qingcheng_province = NWI
+jining_shanxi_province = NWI
+ordos_province = NWI
+xinghe_province = NWI
+shangdu_province = NWI
+dorbod_province = NWI
+# Later Qin: Yao Xing at Chang'an, Guanzhong and the Longdong hills
+shaanxi_area = LQN
+maozhou_province = JIN
+hanzhong_province = JIN         # Liangzhou: Jin's since Fei River
+xingan_province = JIN
+yangzhou_shaanxi_province = JIN
+fengzhou_province = JIN
+hexi_area = LQN
+jiazhou_province = NWI      # the Ordos rim stays Wei's
+yulin_province = NWI
+suide_province = NWI
+qinzhou_shaanxi_province = LQN  # Tianshui
+xiezhou_province = LQN          # Hedong, across the Yellow River
+puzhou_shanxi_province = LQN
+# Western Qin: the Qifu Xianbei at Jincheng and Yuanchuan
+gongchang_province = WQN
+lintao_province = WQN
+hezhou_province = WQN
+# Chouchi: the Di of the Yang clan in the Wudu hills
+huizhou_shaanxi_province = DIC
+jiezhou_province = DIC
+minzhou_province = DIC
+# Later Liang: Lü Guang at Guzang, the whole Hexi corridor, Dunhuang and Gaochang
+gansu_area = LLI
+alasha_province = LLI
+turpan_province = LLI
+hami_province = LLI
+# Tuyuhun: Xianbei khans over the Qiang of Kokonor
+amdo_area = TYH
+taozhou_province = TYH
+songpan_province = TYH
+nangchen_province = SUM
+yushu_province = SUM
+
+# ---- the Tibetan plateau: Zhangzhung's Bon, the Yarlung kings, the Sumpa ----
+ngari_area = ZHZ
+changtang_area = ZHZ
+u_area = PUG
+tsang_area = PUG
+kham_area = SUM
+
+# ---- the Tarim oases ----
+aksu_province = KUC
+kurla_province = KUC
+khotan_province = KHO
+yarkand_province = KHO
+karakoram_province = KHO
+lop_nur_province = SSN
+charchan_province = SSN
+kumkol_province = SSN
+kashgar_province = SHL
+sarikol_province = SHL
+taklamakan_province = SHL
+karasahr_province = YQI
+
+# ---- the south-west: the Cuan of Nanzhong, the Ailao beyond them ----
+yunnan_area = CNZ
+dali_area = CNZ
+yongchang_province = AIL
+tengchong_province = AIL
+mangshi_province = AIL
+mengding_province = AIL
+menglian_province = AIL
+lanzhou_province = AIL
+kachin_area = AIL
+shan_highland_area = AIL
+nanningjun_province = LIH       # the Li of Hainan
+qiongzhou_province = LIH
+wananjun_province = LIH
+
+# ---- the steppe edge and Manchuria ----
+eastern_gobi_province = RRN
+tuva_area = RRN
+western_gobi_area = RRN
+khara_khoto_province = RRN
+erenkhot_province = RRN
+shilingol_province = RRN
+sharangad_province = RRN
+quanning_province = KMX         # Kumo Xi and Khitan, parted from each other in 388
+daning_province = KMX
+xiliao_province = KHI
+taoer_province = KHI
+argun_area = SHW                # the Shiwei of the Nen and the Argun
+kerulen_province = RRN
+shilkari_area = SHW
+upper_onon_province = RRN
+nuomin_province = SHW
+upper_non_province = SHW
+lower_non_province = SHW
+chol_province = SHW
+middle_songhua_province = BUY   # Buyeo, a remnant under Goguryeo's wing
+lalin_province = BUY
+upper_songhua_province = GOG
+hulan_province = WJI            # Wuji (the Sushen, later Mohe)
+mudan_province = WJI
+tangwang_province = WJI
+ussuri_area = WJI
+tumen_province = GOG            # Okjeo, Goguryeo's
+
+# ---- Korea: Gwanggaeto's Goguryeo, Baekje, Silla, Gaya, Tamna ----
+gwanseo_area = GOG
+haeseo_area = GOG
+gwanbuk_area = GOG
+kaesong_province = GOG
+cheorwon_province = GOG
+gangneung_province = GOG        # the Ye of the east coast
+hanseong_province = BAE
+hoseo_area = BAE
+honam_area = BAE
+chuncheon_province = BAE
+tamna_province = TJR
+gyeongju_province = SIL
+jinju_province = GYK
+dongnae_province = GYK          # Geumgwan Gaya at Gimhae
+
+# ---- Japan in the age of the great kofun ----
+kinai_area = WAK
+nankaidou_area = WAK
+sanyoudou_area = WAK
+sanindou_area = WAK
+toukaidou_area = WAK
+tousandou_area = WAK
+hokurikudou_area = WAK
+bizen_province = KIB
+bicchuu_province = KIB
+bingo_province = KIB
+mimasaka_province = KIB
+izumo_province = IZM
+houki_province = IZM
+inaba_province = IZM
+iwami_province = IZM
+kouzuke_province = KNU
+shimotsuke_province = KNU
+musashi_province = KNU
+hitachi_province = KNU
+shimousa_province = KNU
+kazusa_province = KNU
+saikaidou_area = TSU
+higo_province = KMS
+hyuuga_province = KMS
+oosumi_province = KMS
+satsuma_province = KMS
+ou_area = EMS
+ezo_area = AIN
+
+# ---- mainland South-East Asia ----
+champa_area = LNY
+lower_mekong_area = FUN
+chao_phraya_area = JNL
+rayong_province = FUN
+phetchaburi_province = TNS
+east_kra_province = TNS
+west_kra_province = TNS
+thammarat_province = LKS
+kelantan_province = LKS
+trengganu_province = LKS
+pahang_province = LKS
+kedah_province = KDR
+perak_province = KDR
+johor_province = KDR
+irrawady_area = PYU
+irrawady_delta_area = RMN
+arakhan_area = VSL
+northern_tai_highland_area = LUA
+xam_neua_province = JIN
+khorat_plateau_area = KYP
+buriram_province = FUN         # the southern Khorat and Wat Phu: Funan
+phimai_province = FUN
+khukhan_province = FUN
+champasak_province = FUN
+
+# ---- the islands: Taruma, Kutai, Kantoli, Holotan ----
+banten_province = TRM
+kawali_province = TRM
+cirebon_province = TRM
+demak_province = HLT
+mataram_province = HLT
+pajang_province = HLT
+lower_mahakam_province = KTI
+upper_mahakam_province = KTI
+karangan_province = KTI
+lower_musi_province = KDL
+ogan_province = KDL
+lower_jambi_province = KDL

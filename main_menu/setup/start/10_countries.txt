@@ -68,6 +68,51 @@ countries = {
 				ruler = random
 			}
 		}
+		AIL = { # Ailao
+			own_control_core = {
+				adeqiu chibwe gengma gongshan hkamti hsenwi hsipaw htamanthi htigyaing hukawng
+				injangyang katha kehsi kengkham kengtawng kengtung kongwei kyaukme lahe lai_hka
+				lanzhou_lanzhou lashio lawksawk longchuan luchuan_mangshi lujiang luzhang mabein maingkwan mangshi
+				manmaw matman mawkmai mengding mengdong menglei mengmeng minsin mong_hpayak mong_hsat
+				mong_yai mong_yang mong_yawng monghsu mongkawng mongkung monglong mongmit mongnai mongnawng
+				mongpai mongping mongtung mongyang monhyin mulian muse musuo myedu myitkyina
+				nam_thing namhkan namhsan nandan_tengcheng nandian ngasingu pangyang phakant putao rouyuan
+				shidian shwegu siri_do suamprabon ta_shwe_htan takawng tamu tarung taunggyi tengchong
+				thaungdut tizu wadian waingmaw wetwin wuntho yawnghwe yinshaluo yongchang_yongchang yongping_yongchang
+				zalon_taung zhenkang zhenxi zhiziluo zhuluo
+			}
+			capital = yongchang_yongchang
+			discovered_regions = {
+				bengal_region east_china_region hindustan_region indochina_region indonesia_region south_china_region tibet_region west_china_region
+				xinjiang_region
+			}
+			include = "asia_tribe"
+			country_rank = rank_county
+			government = {
+				ruler = random
+			}
+		}
+		AIN = { # Ainu
+			own_control_core = {
+				abashiri abuta akan_loc akkeshi ashoro atsuta chitose esashi_hokkaido etorofu fukushima
+				furubetsu furubira futoro hanasaki hiroo hiyama_hokkaido ishikari isoya iwanai kameda
+				kamiiso kasai katou kawakami_hokkaido kayabe kitakamikawa kitanakagawa kunashiri kushiro minamiabashiri
+				minamikamikawa minaminakagawa monbetsu nakakamikawa nemuro niikappu nishi notsuke onnekotan paramushiru
+				rishiri rumoi samani sapporo saru setana shana shari shibetoro shibetsu
+				shimamaki shimushiru shiranuka shiraoi shizunai shumushu sorachi souya suttsu teshio
+				tokachi tokoro tomamae toubui urakawa uruppu uryuu yamakoshi yoichi yuubari
+				yuufutsu
+			}
+			capital = sapporo
+			discovered_regions = {
+				east_siberia_region japan_region korea_region manchuria_region
+			}
+			include = "asia_tribe"
+			country_rank = rank_county
+			government = {
+				ruler = random
+			}
+		}
 		AKA = { # Akatziri
 			own_control_core = {
 				bashtanka bereznehuvate oleshia tavan velyka_oleksandrivka vithold_hammami
@@ -153,9 +198,13 @@ countries = {
 		}
 		BAE = { # Baekje
 			own_control_core = {
-				aju
+				aju boryeong boseong cheonan cheongju chungju chunju danyang_korea eumseong gimje
+				goeju gokseong gongju gwangju haenam hansan heungyang hongcheon hongju hwasun
+				icheon imsil inje jangheung jecheon jeongeup jeonju jinan jindo jinjam
+				muan mupung musong naju namgyeong namwon nangcheon seosan suncheon suwon
+				yanggu yeongdong yeonggam yeonggwang yeonsan
 			}
-			capital = aju
+			capital = namgyeong
 			discovered_regions = {
 				east_china_region japan_region korea_region manchuria_region mongolia_region north_china_region
 			}
@@ -217,6 +266,21 @@ countries = {
 				ruler = random
 			}
 		}
+		BUY = { # Buyeo
+			own_control_core = {
+				boduna changchun girin_ula gongjiang_jurchen hulawen itu_jilin nongan shangjing shulan yushu
+				zhaozhou_jurchen
+			}
+			capital = nongan
+			discovered_regions = {
+				east_china_region east_siberia_region japan_region korea_region manchuria_region mongolia_region north_china_region
+			}
+			include = "east_asia_monarchy"
+			country_rank = rank_county
+			government = {
+				ruler = random
+			}
+		}
 		CAL = { # Alans
 			own_control_core = {
 				adyukh akhtar alexandrovskoye alkhan_kala argun arkhyz armavir arzgir azok bagayevskaya
@@ -235,6 +299,31 @@ countries = {
 				russian_region ruthenia_region steppes_region ural_region
 			}
 			include = "eurasian_tribe"
+			country_rank = rank_duchy
+			government = {
+				ruler = random
+			}
+		}
+		CNZ = { # Cuan
+			own_control_core = {
+				ami anning bangban baodian baotong bazhai beisheng binchuan boai chenggong
+				dadandang daolong dayao dingbian_shunning dingyuan_chuxiong fumin fuzhou_guangnan gengdang guangnan guangxi
+				heqing hequ_wuding heyang jiaha jianchuan jiangchuan jianshui jiaohua jinglong jinshajiang
+				jujin juque kainan kedu kunming kunyang langqiong langqu lihua linxi
+				lufeng luliang lunan luokong luoshan_qujing luoxiong luquan malong_qujing malongtalang mengban_jihong
+				mengban_weiyuan mengding_mengzi menghai menghua mengla mengtong mengzi midu mile muong_te
+				nalou nanan nanlang nanning ningfan niuwu nixi phong_tho pingdian puri_simao
+				qiubei rende shiping shizong shunning sime situo songming taihe_dali talang
+				tongan_lijiang tongguan_yuanjiang tonghai weichu weimo weiyuan wucao wujing xiaodandang xie
+				xinxing xisa xisha yangbei yaozhou yiliang yimen yongning_baisheng yot_ou youdian
+				yuanjiang_yuanjiang yuanmou yunlong yunnan zhanyi zhehong zheledian zhennan
+			}
+			capital = malong_qujing
+			discovered_regions = {
+				bengal_region east_china_region indochina_region indonesia_region north_china_region south_china_region tibet_region west_china_region
+				xinjiang_region
+			}
+			include = "chinese_monarchy"
 			country_rank = rank_duchy
 			government = {
 				ruler = random
@@ -268,6 +357,21 @@ countries = {
 			}
 			include = "eurasian_tribe"
 			country_rank = rank_duchy
+			government = {
+				ruler = random
+			}
+		}
+		DIC = { # Chouchi
+			own_control_core = {
+				baimaguan chengzhou huizhou jiezhou liangdang lidian minzhou tanchang wenxian_gongchang xigu
+				xihe_huizhou
+			}
+			capital = chengzhou
+			discovered_regions = {
+				bengal_region east_china_region indochina_region mongolia_region north_china_region south_china_region tibet_region west_china_region
+			}
+			include = "chinese_monarchy"
+			country_rank = rank_county
 			government = {
 				ruler = random
 			}
@@ -386,6 +490,26 @@ countries = {
 				ruler_term = { character = tfe_theodosius_i start_date = 379.1.19 end_date = 395.1.17 regnal_number = 1 }
 			}
 		}
+		EMS = { # Emishi
+			own_control_core = {
+				adachi akita asaka date_loc esashi hanawa hienuki higashiokitama hinai hiraka_aomori
+				hiyama inaka isawa iwai iwaki iwase iwate kami kamihei kamikita
+				kamiura katta kawanuma kazuno kesen kikuta kitaaizu kitahei kitamogami kuji
+				kurihara kurokawa minamiaizu minamimogami miyagi motoyoshi murayama namekata naraha natori
+				nishiokitama nukanobu oonuma oshika shimohei shimokita shineha shinobu shirakawa shiwa
+				tagawa takano tamura tome toshima uda_mutsu waga yama_jap yamamoto yuri
+				yuza
+			}
+			capital = miyagi
+			discovered_regions = {
+				japan_region korea_region manchuria_region micronesia_region
+			}
+			include = "asia_tribe"
+			country_rank = rank_county
+			government = {
+				ruler = random
+			}
+		}
 		FRK = { # Franks
 			own_control_core = {
 				ahaus alsfeld altena altenkirchen apeldoorn arnhem arnsberg attendorn berleburg bochum
@@ -418,6 +542,27 @@ countries = {
 			}
 			include = "eurasian_tribe"
 			country_rank = rank_county
+			government = {
+				ruler = random
+			}
+		}
+		FUN = { # Funan
+			own_control_core = {
+				angkor angkor_borei angkor_knong ban_phone banlung banon banteay_chhmar battambang beng_mealea buriram
+				champasak chhmuoh_thmei damrey_trom doh_kromum dong_si_maha_phot idkabue indrapura_khmer ishanapura kampong_roessei kampong_saom
+				khorat khukhan koh_ker koh_kong kracheh kramuon_sa longvek lumphat muang_khuan_kra_buri muang_mang
+				muang_tam mueng_thung_yai nokor_reach_seyma or_keo peam phanat phanom_rung phimai phnom_penh phnom_santuk
+				phnom_srok phsar_dek phutthaisong pouthi_loeu prasat_andet prasat_don_an prasat_don_kau prasat_pram_lovet prasat_thong_lang prathai_saman
+				preah_khan_kompong_svay preah_ko preah_vihear prey_nokor pursat rattanaburi rayong rong_damrel sa_kaeo sampheak_borak
+				samxay sandan sangkha sdok_kok_thom srey_sarchhor srok_khleang stung_treng suwannaphum tboung_khmum thung_samrit
+				toek_khmau tonle_kong tuol_ta_mouk vat_phou vyadhapura
+			}
+			capital = vyadhapura
+			discovered_regions = {
+				bengal_region indochina_region indonesia_region south_china_region
+			}
+			include = "south_east_asia_monarchy"
+			country_rank = rank_kingdom
 			government = {
 				ruler = random
 			}
@@ -474,13 +619,17 @@ countries = {
 		}
 		GOG = { # Goguryeo
 			own_control_core = {
-				baekcheon bukcheong chosan dancheon deokju deungju ganggye gapsan geumseong gilju
-				goju gokju golmin_salggiyan gyeongseong hamheung hoeyang huicheon huifacheng huju hwaju
-				ichon inju jangjin kaesong linjiang_jurchen munju musan myeongcheon north_jeongju pyeonggang
-				pyeongju samsu seongcheon suan sunju tongcheon tosan unju wanggika yangam
-				yeongwon
+				anak baekcheon bongju bukcheong buryeong cheongsong chosan dancheon dandong deokju
+				deungju dingliao donggo dongju gaeju ganggye gapsan gapyeong geumseong gilju
+				goju gokju golmin_salggiyan goseong gwiju gyeongseong haeju hamheung helong heoryeong
+				hoeyang hoifa huicheon huifacheng huju huncun hwaju hwangju ichon ingnyeong
+				inju jaeryeong jangjin jangyeon jeongju_jeongju jeungsan jipyeong junghwa juxeri kaesong
+				kahari kuandian lefu linjiang_jurchen longjing munju musan myeongcheon myeongju north_jeongju
+				ongjin onseong papyeong pocheon pungcheon pyeonggang pyeongju sakju samcheok samhwa
+				samsu seogyeong seongcheon seonju suan sukju sunggari sunju tongcheon tosan
+				tulazi uiju uljin unju wanggika yangam yangju yenji yeongwon
 			}
-			capital = baekcheon
+			capital = ganggye
 			discovered_regions = {
 				east_china_region japan_region korea_region manchuria_region mongolia_region north_china_region
 			}
@@ -540,31 +689,31 @@ countries = {
 				mathura mau_jaunpur mauganj mayuragiri mehkar mehsi merta milwat mir_garh_qila mirat
 				mithankot modasa mohan monghyr morangi morvi motupalli muktagacha muktsar multan
 				mungra murwara mymensingh nabagram nadia nadol nagahrada nagarkot nagaur naggar
-				nagina nagnes nagod nahan nahil nainital nainpur nako nandapur nandgram
-				nandod nandurbar naogaon narhat narnaul narsinghpur narwar nasik nawagarh nawakot
-				nayagarh nellore nilagiri nilakamberu nowrangapur nurpur nuzvid omerkot orchha osian
-				pabna pachora paddar paikmal pakpattan pal_lahara palamau palampur palanpur pali
-				pali_uttar_pradesh palitana pallakolu pandua pandua_adina pangi panipat panna paralkot parlakimidi
-				pasrur patan pathankot patharkandi patna patna_garjat pazhaverkadu peddapalli pendra phalvardhika
-				phulbani phulia pilak pilibhit pindi_bhattian pipli piran_i_kaliyar pithapuram pokhran porahat
-				pottapi prayag pugal puri purnia qasba rabkob radhanpur raebareli rahatgarh
-				rahon raigadh raighar raikot raipur raipur_bengal rairangpur raisin rajamahendry rajgir
-				rajim rajmahal rajnagar rakni ramgad ramgar ramgiri ramkola ramnagar ramnagar_bihar
-				rampa rampur_boalla rampura ranchi rander rangamati rangpur_bengal ranpur ranthambore rasyal
-				rath ratlam ratnagiri ratnapura rawatsar rayagada redhakhol rekapalle rewa roh
-				rohtak rohtas rudrapur rudrapur_kumaon ruga sabalgarh sadhaura saharanpur saharsa saintala
-				sakti salagiri salianah salumbar samana_india samasingha samastipur sambalpur sambhal sambhar
-				sarahan sarangarh sarangpur sardarshahar sargadwari sarsuti sasaram satgaon savar sehore
-				seohara shahabad shahabad_uttar_pradesh shaharpara shahbazpur shahjadpur shahjahanpur shahpur shankargah sheohar
-				sheopur shergarh shishgarh shorkot shravasti sialkot sidhi sidhmukh sihor sikar
-				sillanwali sindkedh singorgarh sinnar sipri sirhind sirohi sironj sitakunda sitamarhi
-				sitapur sitpur siwana sohagpur sohra somnath sonargaon sonepur sonepur_bihar sonhat
-				soonpur sreepur srinagar_garhwal sripura sugaur sui suket sukhma sultanpur sultanpur_uttar_pradesh
-				sultanwind sunam sundergarh surat suratgarh sutnga sylhet tajpur talwandi tamluk
-				tarakanda taranagar tarhasi tehri teliagarhi tendukheda thalisain thalner thanesar thawe
-				tilda tirupati tulamba tulsipur tummana tuni uch udamphur udasar udayagiri
-				udayagiri_kotagad ujargarh ujjain undrugonda unnao untari urda uttarkashi varanasi vijaygarh
-				vinukonda virkgarh visakhapatnam vizianagaram wazirabad west_sundarban
+				nagina nagnes nagod nahan nahil nainital nainpur nandapur nandgram nandod
+				nandurbar naogaon narhat narnaul narsinghpur narwar nasik nawagarh nawakot nayagarh
+				nellore nilagiri nilakamberu nowrangapur nurpur nuzvid omerkot orchha osian pabna
+				pachora paddar paikmal pakpattan pal_lahara palamau palampur palanpur pali pali_uttar_pradesh
+				palitana pallakolu pandua pandua_adina pangi panipat panna paralkot parlakimidi pasrur
+				patan pathankot patharkandi patna patna_garjat pazhaverkadu peddapalli pendra phalvardhika phulbani
+				phulia pilak pilibhit pindi_bhattian pipli piran_i_kaliyar pithapuram pokhran porahat pottapi
+				prayag pugal puri purnia qasba rabkob radhanpur raebareli rahatgarh rahon
+				raigadh raighar raikot raipur raipur_bengal rairangpur raisin rajamahendry rajgir rajim
+				rajmahal rajnagar rakni ramgad ramgar ramgiri ramkola ramnagar ramnagar_bihar rampa
+				rampur_boalla rampura ranchi rander rangamati rangpur_bengal ranpur ranthambore rasyal rath
+				ratlam ratnagiri ratnapura rawatsar rayagada redhakhol rekapalle rewa roh rohtak
+				rohtas rudrapur rudrapur_kumaon ruga sabalgarh sadhaura saharanpur saharsa saintala sakti
+				salagiri salianah salumbar samana_india samasingha samastipur sambalpur sambhal sambhar sarahan
+				sarangarh sarangpur sardarshahar sargadwari sarsuti sasaram satgaon savar sehore seohara
+				shahabad shahabad_uttar_pradesh shaharpara shahbazpur shahjadpur shahjahanpur shahpur shankargah sheohar sheopur
+				shergarh shishgarh shorkot shravasti sialkot sidhi sidhmukh sihor sikar sillanwali
+				sindkedh singorgarh sinnar sipri sirhind sirohi sironj sitamarhi sitapur sitpur
+				siwana sohagpur sohra somnath sonargaon sonepur sonepur_bihar sonhat soonpur sreepur
+				srinagar_garhwal sripura sugaur sui suket sukhma sultanpur sultanpur_uttar_pradesh sultanwind sunam
+				sundergarh surat suratgarh sutnga sylhet tajpur talwandi tamluk tarakanda taranagar
+				tarhasi tehri teliagarhi tendukheda thalisain thalner thanesar thawe tilda tirupati
+				tulamba tulsipur tummana tuni uch udamphur udasar udayagiri udayagiri_kotagad ujargarh
+				ujjain undrugonda unnao untari urda uttarkashi varanasi vijaygarh vinukonda virkgarh
+				visakhapatnam vizianagaram wazirabad west_sundarban
 			}
 			capital = patna
 			discovered_regions = {
@@ -582,9 +731,10 @@ countries = {
 		}
 		GYK = { # Gaya
 			own_control_core = {
-				sacheon
+				dongnae geochang geoje hadong hapcheon jinju miryang namhae sacheon uian
+				ulju
 			}
-			capital = sacheon
+			capital = dongnae
 			discovered_regions = {
 				east_china_region japan_region korea_region manchuria_region north_china_region
 			}
@@ -639,6 +789,21 @@ countries = {
 				ruler = tfe_malkikarib
 				heir = tfe_abikarib
 				designated_heir_reason = corruler
+			}
+		}
+		HLT = { # Holotan
+			own_control_core = {
+				bagaluhan borobudur daha demak dieng jagaraga jepara matahun mataram pacitan
+				pajang pandansalas pati pekalongan purwalingga semarang tulungagung wengker
+			}
+			capital = mataram
+			discovered_regions = {
+				australia_region indian_ocean_region indochina_region indonesia_region
+			}
+			include = "indonesia_monarchy"
+			country_rank = rank_county
+			government = {
+				ruler = random
 			}
 		}
 		HNS = { # Huns
@@ -731,149 +896,146 @@ countries = {
 				ruler = tfe_trdat
 			}
 		}
+		IZM = { # Izumo
+			own_control_core = {
+				aimi hino houmi iishi izumo kanoashi kume_houki mino naka_iwami nima
+				nita oki oochi ou takakusa
+			}
+			capital = izumo
+			discovered_regions = {
+				east_china_region japan_region korea_region manchuria_region micronesia_region north_china_region
+			}
+			include = "japanese_clan"
+			country_rank = rank_county
+			government = {
+				ruler = random
+			}
+		}
 		JIN = { # Eastern Jin
 			own_control_core = {
-				ami anbang anding_mashan andong_huaian anfu_jian anfu_li anhua_anhua anhua_huanjiang anji anlong
-				anlu annan anning anqiu anren anren_raozhou anxi anxiang anyang anyi
-				anyuan_dingnan anyuan_lianzhou anyue anzhou bac_thai_nguyen bada badong bafan baicang baihekou
-				baima baima_daming baimaguan baini baise baishan baishui baling bama banan
-				bangban banpu banqiao bao_lac baoan_dongguan baochang_nanxiong baofeng baoji baojing baokang
-				baoning baoning_maozhou baoying baurang baxian bazhai bazhai_duyun beihai beiliu beishe
-				beisheng binchuan binh_lam binh_nguyen bishan biyang bo_hai_khau boai bobai bochuan
-				boluo bomoping boxing bozhou cam_hoa cangwu cangxi caoni ceheng cengtai
-				cenxi chaling changan changge changguo changle changle_fujian changle_xunzhou changlin changning
-				changning_anyuan changning_changning changqing changsha changshan changshe changshi changshou_changshou changshou_pingjiang changshu
-				changtai changtan changting changxing changyang changyi changyuan chaocheng chaoxian chaoyang
-				chengbu chengcheng chengdu chengfu chenggong chenggu chengji chengshan chengwu chengxiang
-				chengzhou chenxi chenyang chi_la chiping chongan chongde chongming chongren chongshan
-				chongyang chongyi chunan chunhua chuqiu cili cixi co_dang conghua da_giang
-				daan dadandang dafang dagu_shunyuan daguan dai_man dancheng dangshan dangtu dangyang
-				daning_kuizhou danleng dantu danyang dartsedo dasong datian datian_shizhou daxue dayao
-				dayaoshan daye dayi dayong dayu dazhu dazu dean dechang dehua
-				dehua_jiujiang dejiang dengfeng deqing dexing deyang dianbai dianjiang diaomen dien_chau
-				dingcheng dinghai dingnan dingnan_anshun dingtao dingyuan dingyuan_chuxiong dingyuan_fengyang dizhai dongan
-				dongan_yongzhou dongchuan donge dongguan donglan dongliu dongming dongping dongxiang dongxiang_dazhou
-				dongyang doukang duanshi duanxi duchang ducheng duling duoshui durgyeling dushan
-				duyang duyun emei enping fanchang fancheng fangcheng fangling fanxian feicheng
-				feixian fengcheng fengcheng_fengcheng fengchuan fengdu fengfu fenghua fengjie fengle fengqiu
-				fengxi fengxian fengxiang fengxin fenning fenyi foping fuan fuchuan fufeng
-				fugou fuliang fumin funing_huaian fuping_xian fuqing fushan_jiaozhou fushan_muping fushui fushun
-				futian fuyang fuyang_hangzhou fuzhou_guangnan fuzhou_sichuan fuzhou_songpan ganxian ganyu gaoan gaocheng_suizhou
-				gaomi gaoming gaoping gaoqiao gaoyang gaoyao gaoyou gegou gongan gongcheng
-				gongxian goupingguan guancheng guancheng_zhengzhou guanfu guangchang guangde guanghai guanghua guangji
-				guangnan guangning_zhaoqing guangping guangshan guangsuoling guangxi guangze guangzhou guanyang guanzhou
-				gucheng gucheng_xi guichi guidong guihua guiling guiping guishan guishun guixi_guangxin
-				guiyang_chenzhou guiyang_hengyang guizhou_guizhou guizhou_xunzhou guliang gulin guochuan gushi gutian guwan
-				guzhang guzhen guzhou haifeng haikang hailing haimen haining haiyan haiyang
-				hancheng hanchuan hanguang hangzhou hanshan hanyang hanyin hanyuan hechi hedong
-				hefei heizhang hejiang hejin henei hengshan hengyang heping hepu heqing
-				hequ_wuding heyang heyang_xian heyuan hezhou_he hoan_chau hong_chau hongxian houguan huacheng
-				huafeng huaihua huaiji huaining huaiyuan huaiyuan_rongzhou huangan huangcaoba huanggang huanglong
-				huangmei huangpi huangping huangxian huangyan huarong huating huayin huaying huayuan
-				huayuantou huazhou huguan huian huichang huichuan_dechang huilai huili huiqi huitong
-				huixian huizhou hukou huoqiu huoshan huozhu huxian jiachuan jiading jiaha
-				jiajiang jianan jianchang jianchang_sichuan jiande jiangan jiangchuan jiangdu jianghua jiangjin
-				jiangle jiangling jiangning jiangshan jiangshan_laiyang jiangxia jiangxian jiangyin jiangyou jianli
-				jianning jianping jianshi jianshui jianyang jianzhou jiaohua jiaoshui jiaoxi jiaxian
-				jiaxiang jiaxing jiayu jieyang jiezhou jimo jincheng_zezhou jingan jingde jinghai_tongzhou
-				jingling jingshan jingxian jingyan jingyang jingzhao jinhua jinji jinjiang jinkang
-				jinkou jinshajiang jintan jintang jinxi jinxian jinxiang jinxiangping jinyuan jinyun
-				jinzhu jinzhuping jishan jishui jixi_huizhou jixian jiyin jiyuan juancheng juegang
-				juque jurong juxian juye kaifeng kaihua kaili kaizhou kangzuo kaocheng
-				kedu keutkeut kheong khet_theu khoai_chau khuzhupai kunming kunshan kunyang kuozhou
-				ky_son lai_chau laian laian_tianzhou laibin laiwu laiyang lang_giang lang_son langning
-				langqu langzhong lankou lanling lanshan lantian lantu lanxi lanyang lean
-				lean_fuzhou lechang leibo leiyang lemin lengshuitan leping lezhi lhagang liancheng
-				liangdang liangquan liangshan liangxian liangxian_ruzhou lianjiang liannan lianping lianshan lianzhou
-				liaocheng libo licheng licheng_yizhou lichuan lidian lihua liling linan linchuan
-				lingbao lingbi lingchuan lingchuan_zezhou lingfang lingling lingshan lingshanwei lingui lingxian
-				linhai linhe linhuai linhuan linjiang linjin linqu linshui lintong linwu
-				linxiang linyi linying linyou linzhang linzhou liping lipu liquan lishan_pingle
-				lishan_xinyang lishui lishui_yingtian liuba liucheng liujiang liupu liuyang liuzhai liyang
-				liyang_lizhou lizhou_mahu loc_chau longan longchang longchuan_xunzhou longhui longli longmen longnan
-				longping_pingle longquan longquan_taihe longquanping longxi longyan longyang longyou longyou_jiading longzhou_fengxiang
-				longzhou_longzhou loudi luan luanchuan lucheng luchuan_rongzhou lueyang lufeng lufeng_haifeng lugu
-				luhe lujiang_luzhou lukou luliang luling lunan luocheng luodian luoji luojiao
-				luonan luorong luoshan luoshan_qujing luotian luoxiong luoxiu luoyang luoyang_wenzhou luoyuan
-				luozuoguan luquan lushan lushan_yazhou lushi lutoudian luxi luxiang luyang luyi
-				luzhou mabian mabu machang macheng madi_yuanling mahu mala malong_qujing mang_viet
-				mangbu maoming maping mat_chau maxia mayang meiqiu meixian meizhou mengcheng
-				mengding_mengzi mengjin mengli mengxian mengyin mengzi mianchi miangu mianzhou mianzhu
-				midu mile minggang minghe mingshan mingtong mingxi mingyi mingying minqing
-				minxian mixian muang_et muang_kham muang_lang muang_sam_tai muchuan muli muong muong_cha
-				muong_luan muping nadi nalou nam_sach nanan_quanzhou nanbu nanchang nancheng nanchong
-				nanchuan nandan nandun nanfeng nanhai nanhui nanjiang nankang nanlang nanle
-				nanling nanliu nanning nanping nansheng nanxi nanyang nanzhang nanzhao nanzheng
-				naxi neihuang neijiang neixiang nga_lac nghe_ann ngoc_ma nhat_nam ningde ningdu
-				ningfan ningguo ninghai ninghua_tingzhou ningling ningpu ningshan ningxiang ningyang ningyuan
-				ouning panqiao pantian panyu peixian penglai pengshan pengshui pengxi pengze
-				pengzhou phon_nha phong_tho pingba pingchuan pinghe pingjiang pingle pingli pinglu
-				pingnan pingshan_huiyang pingwu pingxiang pingxiang_pingxiang pingyang pingyang_guiyang pingyin pingyu pingyuan_mei
-				pingyue pingzhu pixian poyang puan puan_puan pucheng pucheng_jianning puding puge
-				pujiang pujiang_qiongzhou puning puning_rongzhou puqi putian puyang qianhua qianjiang qianjiang_binzhou
-				qianjiang_shaoqing qianlong qianlong_siming qianshan qianwei qianyang qianyang_yuanzhou qianyou qianzhou qiaojia
-				qiaokou qiaoxian qichun qidong qihe qijiang qimen qingchuan qingdao qingfeng
-				qingfu qinghe_huaian qingjiang qingjiang_liping qingliu qingliu_chuzhou qingshen qingtai qingtian qingxiang
-				qingyang qingyang_luan qingyuan qingyuan_chuzhou qinjiang qinshui qiongbu qiongshui qiongzhou qishan
-				qishui qiubei qixia qixian qixian_tongchuan qiyang qizhou quan_da_chau quang_uyen quang_yen
-				quanjiao queshan qufu qujiang qujiang_guangan qushan quwo quy_chau quy_hoa quynh_lam
-				rangxian rencheng rende renhua renhuai renshou rinpung rizhao rongchang rongcheng
-				rongjing rongmei rongshan rongshui rongxian rongzhou rugao ruian ruichang ruicheng
-				ruijin runyan rushan ruxi ruyang ruyuan sancha sanhe_chaozhou sanmao sanrao
-				sanshui sanshui_binzhou sanyao sanyuan shagou shahe_bobai shangcai shangcheng shangdang shanggao
-				shanghai shanghang shangjin shanglin shangluo shangnan shangrao shangshui shangsi shangxi
-				shangyou shangyu shangyuan shangzhou shansu shanxian shanyang shanyang_huaian shaowu shaoxing
-				shaoyang shaxi shaxian shayang shehong shengxian shenqiu shenxian shexian shicheng
-				shicheng_ningdu shidai shifang shilong shimen shimen_poyang shimian shinan shipai shiping
-				shiqian shiquan shiquan_maozhou shishou shixi shixing shizhao shizhou shizhu shizilu
-				shizong shouchun shouguang shouzhang shuangliu shuangshui shuangxi shucheng shuicheng shuihu
-				shuitejiang shuixi shunchang shunde shunyang shuyang sicheng sien sienzhou sihui
-				siming sishui son_la songming songxi songyang songzhou_songzhou songzi suian suichang
-				suidong suining suining_jing suining_pizhou suiping suixi suixian suiyang suiyang_guide suqian
-				susong suxi suzhou suzhou_fengyang taigong taihe taihe_taihe taihu taikang taining
-				taipengruodong taiping taiping_ningguo taixing tam_dai tanchang tancheng tangcheng tangdan tanghe
-				tangxing tangyi tangyin tanjin taoyuan taoyuan_huaian tengdong tengxian thai_binh thai_nguyen
-				thang_long thanh_hoa that_nguyen thien_quan thien_truong tho_hoang thu_vat thuan_chau thuy_vi tianchang
-				tianping tiantai tianzhou tianzhu tixi tongan tongan_lijiang tongbai tongcheng_anqing tongcheng_wuchang
-				tongchuan_dazhou tongdao tongdao_rongzhou tonggu tonggu_liping tongguan_tongchuan tonghai tongjiang tongle tongliang
-				tongling tonglu tongren tongshan tongxu tongzhou trang_an tunxi tuyen_hoa tuyen_quang
-				van_ban van_don van_kiep vo_nhai vu_ninh waerhdje wanan wangjiang wangmu wannian
-				wanqiu wanquan wanzai wanzhou watang weichu weihai weimo weinan weiqing
-				weishi weixian weiyuan_jiading wenchuan wendeng wengshui wengyuan wenling wenshang wenxi
-				wenxian wenxian_gongchang wenxiang wucao wuchang wuchuan_huazhou wuchuan_sinan wudang wufeng wugang
-				wuhe wuhu wujiang wujiang_bozhou wujiang_yingtian wujin wulian wuling wulong wuluo
-				wumeng wuning wuping wusa wushan wutun wuwei wuxi wuxian wuxian_liuzhou
-				wuxing wuyang wuyi_jinhua wuyuan_huizhou wuyuan_nanning wuzhai wuzhi xam_neua xiacai xiajiang
-				xiakou xian_quzhou xiangcheng xiangcheng_kaifeng xiangru xiangshan xiangshan_xinhui xiangtan xiangxiang xiangyang
-				xiangyi xiangyin xianju xianning xianning_xian xianyang xianyou xianzhu xiaodandang xiaodong
-				xiaogan xiaoshan xiaoxi xiaoxian xiaozhenan xiapi xiaxian xiayi xibao xicheng
-				xichong xichuan xiexian xigu xihe_huizhou xihua xilin xilong xinan xincai
-				xinchang xinchang_yifeng xincheng xincheng_annan xincheng_jianchang xincheng_jinan xincheng_xincheng xindi xindu xinfeng
-				xinfeng_panyu xingan xingan_linjiang xingguo xinghua xingning xingshan xingyang xingzi xinhua
-				xinhua_guizhou xinhui xinjian xinning_chen xinning_dazhou xinning_wugang xinping xintai xintian xinxiang
-				xinxing xinxing_annan xinxing_nanen xinyang xinye xinyi xinyi_gaozhou xinyu xinzheng xiping
-				xisa xisha xiuning xiushan xiuwu xixi xixia xixiang xiyan xizhou
-				xuancheng xuanhua xuanhua_nanning xucheng xunxian xunyang xupu xuwen xuyi xuzhou
-				yancheng yancheng_kaifeng yandao yangcheng yangchun yangdi yanggu_yanzhou yangjiang yangshan yangshou
-				yangshuo yangyuan yangzhou yangzi yanhe yanjin yanling yanshan_guangxin yanshen yanshi
-				yanting yaoshan yaozhou yexian yexian_laizhou yibin yicheng yicheng_pingyang yichun yidu
-				yidu_qingzhou yihuang yijun yiliang yiling yilong yimen yingcheng yingdao yingde
-				yingshan yingshan_luan yingshan_shunqing yingshang yingshui yingzhou yining yinjiang yinxian yique
-				yishan yishui yiwu yixian yixing yiyang yiyang_changsha yiyang_guangxin yiyang_songzhou yiyuan
-				yizhang yizhou_tengzhou yongan_sha yongan_youzhou yongcheng yongchuan yongchun yongcong yongding_shanghang yongfeng
-				yongfeng_jian yongfeng_xiangxiang yongfu yongfu_fuzhou yongjia yongkang yongming yongning yongning_baisheng yongning_hengzhou
-				yongning_shanzhou yongning_taihe yongping yongshan yongshou yongshun yongshun_yongshun yongxin yongxing yongxing_xingguo
-				youxi youyang youzhou yuanan yuancheng yuanjiang yuanling yuanmou yuannan yuanqu
-				yuanyang yucheng_kaifeng yudu yuechi yueqing yuexi yugan yuhang yun yuncheng
-				yunhe yunlian yunmeng yunnan yunxi yunyang yusha yushan_guangxin yutai yuyao
-				zaoyang zengkou zhanchuan zhangming zhangping zhangpu zhangqiu zhanyi zhaoan zhaoban
-				zhaohua zhaoxin zhaoyuan zhecheng zhehai zhehong zhenan zhenan_guishun zhenfeng zhengan
-				zhengcheng zhenghe zhengping zhennan zhenning zhenping zhenxi_lizhou zhenyang zhenyuan_sizhou zhenzhou
-				zhijiang zhijin zhishan zhongjiang zhongli zhonglu zhongmu zhongxiang zhouzhi zhucheng
+				anbang anding_mashan andong_huaian anfu_jian anfu_li anhua_anhua anhua_huanjiang anji anlong anlu
+				annan anqiu anren anren_raozhou anxi anxiang anyi anyuan_dingnan anyuan_lianzhou anyue
+				anzhou bac_thai_nguyen bada badong bafan baicang baihekou baima baini baise
+				baishan baling bama banan banpu banqiao bao_lac baoan_dongguan baochang_nanxiong baofeng
+				baojing baokang baoning baoning_maozhou baoying baxian bazhai_duyun beihai beiliu beishe
+				binh_lam binh_nguyen bishan biyang bo_hai_khau bobai bochuan boluo bomoping boxing
+				bozhou cam_hoa cangwu cangxi caoni ceheng cengtai cenxi chaling changan
+				changge changguo changle changle_fujian changle_xunzhou changlin changning changning_anyuan changning_changning changqing
+				changsha changshan changshe changshi changshou_changshou changshou_pingjiang changshu changtai changtan changting
+				changxing changyang changyi chaocheng chaoxian chaoyang chengbu chengdu chengfu chenggu
+				chengshan chengwu chengxiang chenxi chenyang chi_la chiping chongan chongde chongming
+				chongren chongshan chongyang chongyi chunan chuqiu cili cixi co_dang conghua
+				da_giang daan dafang dagu_shunyuan daguan dai_man dancheng dangshan dangtu dangyang
+				daning_kuizhou danleng dantu danyang dasong datian datian_shizhou daxue dayaoshan daye
+				dayi dayong dayu dazhu dazu dean dechang dehua dehua_jiujiang dejiang
+				dengfeng deqing dexing deyang dianbai dianjiang diaomen dien_chau dingcheng dinghai
+				dingnan dingnan_anshun dingtao dingyuan dingyuan_fengyang dizhai dongan dongan_yongzhou dongchuan donge
+				dongguan donglan dongliu dongping dongxiang dongxiang_dazhou dongyang doukang duanxi duchang
+				ducheng duling duoshui dushan duyang duyun emei enping fanchang fancheng
+				fangcheng fangling fanxian feicheng feixian fengcheng fengcheng_fengcheng fengchuan fengdu fengfu
+				fenghua fengjie fengle fengqiu fengxi fengxian fengxin fenning fenyi foping
+				fuan fuchuan fugou fuliang funing_huaian fuqing fushan_jiaozhou fushan_muping fushui fushun
+				futian fuyang_hangzhou fuzhou_sichuan ganxian ganyu gaoan gaocheng_suizhou gaomi gaoming gaoqiao
+				gaoyang gaoyao gaoyou gegou gongan gongcheng gongxian goupingguan guancheng guancheng_zhengzhou
+				guanfu guangchang guangde guanghai guanghua guangji guangning_zhaoqing guangshan guangsuoling guangze
+				guangzhou guanyang guanzhou gucheng gucheng_xi guichi guidong guihua guiling guiping
+				guishan guishun guixi_guangxin guiyang_chenzhou guiyang_hengyang guizhou_guizhou guizhou_xunzhou guliang gulin guochuan
+				gushi gutian guwan guzhang guzhen guzhou haifeng haikang hailing haimen
+				haining haiyan haiyang hanchuan hanguang hangzhou hanshan hanyang hanyin hanyuan
+				hechi hefei heizhang hejiang henei hengshan hengyang heping hepu heyuan
+				hezhou_he hoan_chau hong_chau hongxian houguan huacheng huafeng huaihua huaiji huaining
+				huaiyuan huaiyuan_rongzhou huangan huangcaoba huanggang huanglong huangmei huangpi huangping huangxian
+				huangyan huarong huating huaying huayuantou huian huichang huichuan_dechang huilai huili
+				huiqi huitong hukou huoqiu huoshan huozhu jiachuan jiading jiajiang jianan
+				jianchang jianchang_sichuan jiande jiangan jiangdu jianghua jiangjin jiangle jiangling jiangning
+				jiangshan jiangshan_laiyang jiangxia jiangyin jiangyou jianli jianning jianping jianshi jianyang
+				jianzhou jiaoshui jiaoxi jiaxian jiaxiang jiaxing jiayu jieyang jimo jingan
+				jingde jinghai_tongzhou jingling jingshan jingxian jingyan jinhua jinji jinjiang jinkang
+				jinkou jintan jintang jinxi jinxian jinxiang jinxiangping jinyuan jinyun jinzhu
+				jinzhuping jishui jixi_huizhou jiyin jiyuan juancheng juegang jurong juxian juye
+				kaifeng kaihua kaili kaizhou kangzuo kaocheng khet_theu khoai_chau khuzhupai kunshan
+				kuozhou ky_son lai_chau laian laian_tianzhou laibin laiwu laiyang lang_giang lang_son
+				langning langzhong lankou lanling lanshan lantu lanxi lanyang lean lean_fuzhou
+				lechang leibo leiyang lemin lengshuitan leping lezhi liancheng liangquan liangshan
+				liangxian liangxian_ruzhou lianjiang liannan lianping lianshan lianzhou liaocheng libo licheng
+				licheng_yizhou lichuan liling linan linchuan lingbao lingbi lingchuan lingfang lingling
+				lingshan lingshanwei lingui lingxian linhai linhe linhuai linhuan linjiang linqu
+				linshui linwu linxiang linyi linying liping lipu lishan_pingle lishan_xinyang lishui
+				lishui_yingtian liuba liucheng liujiang liupu liuyang liuzhai liyang liyang_lizhou lizhou_mahu
+				loc_chau longchang longchuan_xunzhou longhui longli longmen longnan longping_pingle longquan longquan_taihe
+				longquanping longxi longyan longyang longyou longyou_jiading longzhou_longzhou loudi luan luanchuan
+				lucheng luchuan_rongzhou lueyang lufeng_haifeng lugu luhe lujiang_luzhou lukou luling luocheng
+				luodian luoji luojiao luorong luoshan luotian luoxiu luoyang luoyang_wenzhou luoyuan
+				luozuoguan lushan lushan_yazhou lushi lutoudian luxi luxiang luyang luyi luzhou
+				mabian mabu machang macheng madi_yuanling mahu mala mang_viet mangbu maoming
+				maping mat_chau maxia mayang meiqiu meizhou mengcheng mengjin mengli mengxian
+				mengyin mianchi miangu mianzhou mianzhu minggang minghe mingshan mingtong mingxi
+				mingyi mingying minqing minxian mixian muang_et muang_kham muang_lang muang_sam_tai muchuan
+				muong muong_cha muong_luan muping nadi nam_sach nanan_quanzhou nanbu nanchang nancheng
+				nanchong nanchuan nandan nandun nanfeng nanhai nanhui nanjiang nankang nanling
+				nanliu nanping nansheng nanxi nanyang nanzhang nanzhao nanzheng naxi neijiang
+				neixiang nga_lac nghe_ann nhat_nam ningde ningdu ningguo ninghai ninghua_tingzhou ningling
+				ningpu ningshan ningxiang ningyang ningyuan ouning panqiao pantian panyu peixian
+				penglai pengshan pengshui pengxi pengze pengzhou pingba pingchuan pinghe pingjiang
+				pingle pingli pingnan pingshan_huiyang pingwu pingxiang pingxiang_pingxiang pingyang pingyang_guiyang pingyin
+				pingyu pingyuan_mei pingyue pingzhu pixian poyang puan puan_puan pucheng_jianning puding
+				puge pujiang pujiang_qiongzhou puning puning_rongzhou puqi putian qianhua qianjiang qianjiang_binzhou
+				qianjiang_shaoqing qianlong qianlong_siming qianshan qianwei qianyang_yuanzhou qiaojia qiaokou qiaoxian qichun
+				qidong qihe qijiang qimen qingchuan qingdao qingfu qinghe_huaian qingjiang qingjiang_liping
+				qingliu qingliu_chuzhou qingshen qingtai qingtian qingxiang qingyang qingyuan qingyuan_chuzhou qinjiang
+				qiongbu qiongshui qiongzhou qishui qixia qixian qixian_tongchuan qiyang quan_da_chau quang_uyen
+				quang_yen quanjiao queshan qufu qujiang qujiang_guangan qushan quy_chau quy_hoa quynh_lam
+				rangxian rencheng renhua renhuai renshou rizhao rongchang rongcheng rongjing rongmei
+				rongshan rongshui rongxian rongzhou rugao ruian ruichang ruijin runyan rushan
+				ruxi ruyang ruyuan sanhe_chaozhou sanmao sanrao sanshui shagou shahe_bobai shangcai
+				shangcheng shanggao shanghai shanghang shangjin shanglin shangrao shangshui shangsi shangxi
+				shangyou shangyu shangyuan shansu shanxian shanyang_huaian shaowu shaoxing shaoyang shaxi
+				shaxian shayang shehong shengxian shenqiu shenxian shexian shicheng shicheng_ningdu shidai
+				shifang shilong shimen shimen_poyang shimian shinan shipai shiqian shiquan shiquan_maozhou
+				shishou shixi shixing shizhao shizhou shizhu shizilu shouchun shouguang shouzhang
+				shuangliu shuangshui shuangxi shucheng shuicheng shuihu shuitejiang shuixi shunchang shunde
+				shunyang shuyang sicheng sien sienzhou sihui siming sishui son_la songxi
+				songyang songzhou_songzhou songzi suian suichang suidong suining suining_jing suining_pizhou suiping
+				suixi suixian suiyang suiyang_guide suqian susong suxi suzhou suzhou_fengyang taigong
+				taihe taihe_taihe taihu taikang taining taipengruodong taiping taiping_ningguo taixing tam_dai
+				tancheng tangcheng tangdan tanghe tangxing tangyi tanjin taoyuan taoyuan_huaian tengdong
+				tengxian thai_binh thai_nguyen thang_long thanh_hoa that_nguyen thien_quan thien_truong tho_hoang thu_vat
+				thuan_chau thuy_vi tianchang tianping tiantai tianzhou tianzhu tixi tongan tongbai
+				tongcheng_anqing tongcheng_wuchang tongchuan_dazhou tongdao tongdao_rongzhou tonggu tonggu_liping tongjiang tongle tongliang
+				tongling tonglu tongren tongshan tongxu trang_an tunxi tuyen_hoa tuyen_quang van_ban
+				van_don van_kiep vo_nhai vu_ninh wanan wangjiang wangmu wannian wanqiu wanzai
+				wanzhou watang weihai weiqing weishi weiyuan_jiading wenchuan wendeng wengshui wengyuan
+				wenling wenshan wenshang wenxian wenxiang wuchang wuchuan_huazhou wuchuan_sinan wudang wufeng
+				wugang wuhe wuhu wujiang wujiang_bozhou wujiang_yingtian wujin wulian wuling wulong
+				wuluo wumeng wuning wuping wusa wushan wutun wuwei wuxi wuxian
+				wuxian_liuzhou wuxing wuyang wuyi_jinhua wuyuan_huizhou wuyuan_nanning wuzhai wuzhi xam_neua xiacai
+				xiajiang xiakou xian_quzhou xiangcheng xiangcheng_kaifeng xiangru xiangshan xiangshan_xinhui xiangtan xiangxiang
+				xiangyang xiangyi xiangyin xianju xianning xianyou xianzhu xiaodong xiaogan xiaoshan
+				xiaoxi xiaoxian xiaozhenan xiapi xiayi xibao xicheng xichong xichuan xihua
+				xilin xilong xinan xincai xinchang xinchang_yifeng xincheng xincheng_annan xincheng_jianchang xincheng_jinan
+				xincheng_xincheng xindi xindu xinfeng xinfeng_panyu xingan xingan_linjiang xingguo xinghua xingning
+				xingshan xingyang xingzi xinhua xinhua_guizhou xinhui xinjian xinning_chen xinning_dazhou xinning_wugang
+				xintai xintian xinxing_annan xinxing_nanen xinyang xinye xinyi xinyi_gaozhou xinyu xinzheng
+				xiping xiuning xiushan xiuwu xixi xixia xixiang xiyan xizhou xuancheng
+				xuanhua xuanhua_nanning xucheng xunyang xupu xuwen xuyi xuzhou yancheng yancheng_kaifeng
+				yandao yangchun yangdi yanggu_yanzhou yangjiang yangshan yangshou yangshuo yangyuan yangzhou
+				yangzi yanhe yanjin yanling yanshan_guangxin yanshen yanshi yanting yaoshan yexian
+				yexian_laizhou yibin yicheng yichun yidu yidu_qingzhou yihuang yiling yilong yingcheng
+				yingdao yingde yingshan yingshan_luan yingshan_shunqing yingshang yingshui yingzhou yining yinjiang
+				yinxian yique yishan yishui yiwu yixian yixing yiyang yiyang_changsha yiyang_guangxin
+				yiyang_songzhou yiyuan yizhang yizhou_tengzhou yongan_sha yongan_youzhou yongcheng yongchuan yongchun yongcong
+				yongding_shanghang yongfeng yongfeng_jian yongfeng_xiangxiang yongfu yongfu_fuzhou yongjia yongkang yongming yongning
+				yongning_hengzhou yongning_shanzhou yongning_taihe yongping yongshan yongshun yongshun_yongshun yongxin yongxing yongxing_xingguo
+				youxi youyang youzhou yuanan yuanjiang yuanling yuannan yuanyang yucheng_kaifeng yudu
+				yuechi yueqing yuexi yugan yuhang yun yuncheng yunhe yunlian yunmeng
+				yunxi yunyang yusha yushan_guangxin yutai yuyao zaoyang zengkou zhanchuan zhangming
+				zhangping zhangpu zhangqiu zhaoan zhaoban zhaohua zhaoxin zhaoyuan zhecheng zhehai
+				zhenan_guishun zhenfeng zhengan zhengcheng zhenghe zhenning zhenping zhenxi_lizhou zhenyang zhenyuan_sizhou
+				zhenzhou zhijiang zhijin zhishan zhongjiang zhongli zhonglu zhongmu zhongxiang zhucheng
 				zhugao zhuji zhushan zhuxi zhuyang zichuan zigui zitong zixian ziyang
 				ziyang_xingan ziyang_zizhong zizhou zongyang zouping zouxian zuokeng zuosuo
 			}
-			capital = ami
+			capital = jiangning
 			discovered_regions = {
 				bengal_region east_china_region indochina_region indonesia_region japan_region korea_region manchuria_region mongolia_region
 				north_china_region south_china_region tibet_region west_china_region
@@ -883,6 +1045,22 @@ countries = {
 			government = {
 				ruler = tfe_sima_yao
 				heir = tfe_sima_dezong
+			}
+		}
+		JNL = { # Jinlin
+			own_control_core = {
+				ayodhya ban_pa_la_ta chai_nat chaisri chakangrao dong_lakhon kanchanaburi lopburi mae_sot mueng_bang_yom
+				mueng_rat nakhon_chum nakhon_sawan nakhon_thai phayuhakhiri phraek phuenchapura prachinburi ratchaburi saraburi
+				song_khwae sra_luang sri_satchanalai sri_thep sukhothai suphanburi tak wang_pho
+			}
+			capital = suphanburi
+			discovered_regions = {
+				bengal_region indochina_region indonesia_region south_china_region
+			}
+			include = "south_east_asia_monarchy"
+			country_rank = rank_county
+			government = {
+				ruler = random
 			}
 		}
 		JUT = { # Jutes
@@ -930,6 +1108,178 @@ countries = {
 				ruler = tfe_bhagiratha
 			}
 		}
+		KDL = { # Kantoli
+			own_control_core = {
+				batang_tembesi berbak buluranriding bumi_ayu jambi komering lalan lebonghitam lematang lubai
+				lumpur muara_sabak musi_hilir palembang perbatasan pesagi prabumulih rantau_benar tenggulang tungkal
+			}
+			capital = palembang
+			discovered_regions = {
+				indian_ocean_region indochina_region indonesia_region
+			}
+			include = "indonesia_monarchy"
+			country_rank = rank_county
+			government = {
+				ruler = random
+			}
+		}
+		KDR = { # Kadaram
+			own_control_core = {
+				beruas bujang gelanggi gerik johor_lama kajang kedah klang malacca manjung
+				muar perlis rantau_panjang temasek
+			}
+			capital = bujang
+			discovered_regions = {
+				indian_ocean_region indochina_region indonesia_region
+			}
+			include = "south_east_asia_monarchy"
+			country_rank = rank_county
+			government = {
+				ruler = random
+			}
+		}
+		KHI = { # Khitan
+			own_control_core = {
+				chaghankhot gorlos haihaer huolin kailu linhuang qingzhou_mongol taluhe tuliemao wafang
+				xinkai zhengjiatun
+			}
+			capital = linhuang
+			discovered_regions = {
+				east_china_region east_siberia_region japan_region korea_region manchuria_region mongolia_region north_china_region west_china_region
+			}
+			include = "asia_advanced_tribe"
+			country_rank = rank_county
+			government = {
+				ruler = random
+			}
+		}
+		KHO = { # Khotan
+			own_control_core = {
+				amtogor guma karakax kargilik keriya khotan lop murgo poskam qira
+				raskam sanju yarkand zarafshan
+			}
+			capital = khotan
+			discovered_regions = {
+				bengal_region central_india_region hindustan_region khorasan_region persia_region tibet_region west_siberia_region western_india_region
+				xinjiang_region
+			}
+			include = "east_asia_monarchy"
+			country_rank = rank_duchy
+			government = {
+				ruler = random
+			}
+		}
+		KIB = { # Kibi
+			own_control_core = {
+				aita aka asakuchi ashida eso joutou kameshi katou_bicchuu kaya kume
+				mashima miyoshi nuka sera tomata tsudaka wake
+			}
+			capital = kaya
+			discovered_regions = {
+				east_china_region japan_region korea_region manchuria_region micronesia_region
+			}
+			include = "japanese_clan"
+			country_rank = rank_county
+			government = {
+				ruler = random
+			}
+		}
+		KMS = { # Kumaso
+			own_control_core = {
+				akita_kumamoto amakusa ashikita aso gomu higashiusuki hishikari ibusuki izumi_satsuma kagoshima
+				kimotsuki kitamorokata koushi koyu kuma kumage_oosumi kuwabara mashiki minamimorokata miyazaki
+				naka_hyuuga nishimorokata nishiusuki oosumi satsuma soo tamana yatsushiro_higo
+			}
+			capital = kagoshima
+			discovered_regions = {
+				east_china_region japan_region korea_region manchuria_region micronesia_region north_china_region
+			}
+			include = "asia_tribe"
+			country_rank = rank_county
+			government = {
+				ruler = random
+			}
+		}
+		KMX = { # Kumo Xi
+			own_control_core = {
+				daning_pingquan enhua fushu hezhong huihe naiman pingdisonglin pingquan quanning songzhou
+				wuping_daning yingchang
+			}
+			capital = quanning
+			discovered_regions = {
+				east_china_region japan_region korea_region manchuria_region mongolia_region north_china_region west_china_region
+			}
+			include = "asia_advanced_tribe"
+			country_rank = rank_county
+			government = {
+				ruler = random
+			}
+		}
+		KNU = { # Kenu
+			own_control_core = {
+				adachi_kanto agatsuma ashikaga_loc awa chiba chichibu gunma haga hanzawa hiki
+				ibaraki ichihara isumi kanra kashima katori katsushika kawachi kuji_kanto makuda
+				musa naka nasu niihari nitta saitama seta shioya souma tachibana
+				taga tama tone toshima_kanto tsuga tsukuba usui
+			}
+			capital = gunma
+			discovered_regions = {
+				japan_region korea_region manchuria_region micronesia_region
+			}
+			include = "japanese_clan"
+			country_rank = rank_county
+			government = {
+				ruler = random
+			}
+		}
+		KTI = { # Kutai
+			own_control_core = {
+				belayan bengalon hulu_mahakam hulu_telen jembayan julau_kutai karangan kedang_pahu kelinjau kutai_lama
+				mahakam muarakaman sandaran sangata sepinang telen tenggarong tuyuk
+			}
+			capital = muarakaman
+			discovered_regions = {
+				indochina_region indonesia_region
+			}
+			include = "indonesia_monarchy"
+			country_rank = rank_county
+			government = {
+				ruler = tfe_aswawarman
+				heir = tfe_mulawarman
+			}
+		}
+		KUC = { # Kucha
+			own_control_core = {
+				aksu bai_xinjiang bugur kucha kuerchu kumtura kurla qumbash shayar uqturpan
+			}
+			capital = kucha
+			discovered_regions = {
+				hindustan_region khorasan_region mongolia_region persia_region tibet_region west_china_region west_siberia_region xinjiang_region
+			}
+			include = "east_asia_monarchy"
+			country_rank = rank_duchy
+			government = {
+				ruler = random
+			}
+		}
+		KYP = { # Kuy
+			own_control_core = {
+				ban_khon bolikham chaiyaphum chiang_khan dan_sai kaset_sombun keutkeut kham_muang khamkeut khon_kaen
+				khon_san kut_ling loei mahaxay mancha_khiri muang_khemarat muang_nakhon muang_nong_han_luang muang_phalan muang_phin
+				muang_phuan muang_ta_oi mueng_fa_daet mukdahan ngoc_ma nong_bok nong_bua_lamphu nong_khay pak_huei_lang phon_hong
+				phonsavan phu_wiang roi_et savannakhet sayniabuli sepon thakhek that_phanom thoulakhom thuan_binh
+				udon_thani vang_vieng vientiane yasothon
+			}
+			capital = roi_et
+			discovered_regions = {
+				bengal_region east_china_region indochina_region indonesia_region south_china_region west_china_region
+			}
+			include = "asia_tribe"
+			country_rank = rank_county
+			government = {
+				ruler = random
+			}
+		}
 		LAI = { # Laigin
 			own_control_core = {
 				ardagh athy ballymore carlow cullahill daingean dublin dunamase ferns fingal
@@ -965,6 +1315,21 @@ countries = {
 				ruler = random
 			}
 		}
+		LIH = { # Li
+			own_control_core = {
+				changhua chengmai dingan ganen lehui limushan lingao lingshui ningyuan_wananjun qiongshan
+				shuihui wanan_wananjun wenchang yande yilun
+			}
+			capital = qiongshan
+			discovered_regions = {
+				east_china_region indochina_region indonesia_region south_china_region west_china_region
+			}
+			include = "asia_tribe"
+			country_rank = rank_county
+			government = {
+				ruler = random
+			}
+		}
 		LKA = { # Anuradhapura
 			own_control_core = {
 				anuradhapura badulla devanagara digavapi galle gampola hambantota hatthigiripura jaffna kandy
@@ -981,19 +1346,54 @@ countries = {
 				ruler = tfe_upatissa_i
 			}
 		}
+		LKS = { # Langkasuka
+			own_control_core = {
+				bera dungun jerantut kampung_buloh kelantan kuala_lipis kuantan mardelong menara pahang
+				paka pattani pulai satingpura singgora thammarat trang trengganu yala
+			}
+			capital = pattani
+			discovered_regions = {
+				indian_ocean_region indochina_region indonesia_region south_china_region
+			}
+			include = "south_east_asia_monarchy"
+			country_rank = rank_county
+			government = {
+				ruler = random
+			}
+		}
 		LLI = { # Later Liang
 			own_control_core = {
-				alxa chijin ganzhou gaotai hongshui jinchang kuyu_shazhou liyuan qidaban qilian
-				shandan suzhou_gansu yongchang_ganzhou
+				alxa anding_suzhou anyuan bagh baiting bayankhot bayannurhong chijin dangcheng datong_xining
+				ganzhou gaotai geziyandun guazhou gulang gushan hami haomen hongshui jinchang
+				jinta kuyu_shazhou liyuan lukchun nazhi nianbo niuquanzi pichan qidaban qilian
+				qocho shandan shazhou suzhou_gansu toksun turpan urad xiliang xining yangguan
+				yongchang_ganzhou zhenfan zhuanglang
 			}
-			capital = alxa
+			capital = xiliang
 			discovered_regions = {
-				east_china_region mongolia_region north_china_region tibet_region west_china_region xinjiang_region
+				bengal_region east_china_region khorasan_region mongolia_region north_china_region south_china_region tibet_region west_china_region
+				west_siberia_region xinjiang_region
 			}
 			include = "chinese_monarchy"
 			country_rank = rank_kingdom
 			government = {
 				ruler = tfe_lu_guang
+			}
+		}
+		LNY = { # Linyi
+			own_control_core = {
+				amaravati amarendrapura apui aryaru bal_cattinon ban_don bang_keng bong_son camp_po_thit cat_tien
+				chan_bo dak_lak di_dinh dien_ban ha_va_nguon ia indrapura kampong_sraka_trey kauthara kon_klor
+				kon_tum panduranga phon_nha samriddhipuri simhapura song_be vijaya visnupura vrddha_ratnapura
+			}
+			capital = simhapura
+			discovered_regions = {
+				east_china_region indochina_region indonesia_region south_china_region
+			}
+			include = "vietnamese_champa_monarchy"
+			country_rank = rank_duchy
+			government = {
+				ruler = tfe_bhadravarman
 			}
 		}
 		LPN = { # Lpink
@@ -1010,53 +1410,86 @@ countries = {
 				ruler = random
 			}
 		}
+		LQN = { # Later Qin
+			own_control_core = {
+				anding anhua ansai baimachen baishui baoan baoji chengcheng chengji chongxin
+				chunhua dingyuan_lingzhou fengxiang fucheng fuchuan_ningxia fufeng fuping_xian fushi fuzhou_yanan ganquan
+				guangan hancheng hedong hejin heshui heyang_xian huachi huanzhou_qingyang huating_pingliang huayin
+				huayuan huazhou huxian jingchuan jingning jingyang jingzhao jizhou kaicheng_guyuan lantian
+				lingtai lingwu lingzhou linjin lintong linyou liquan longan longde longzhou_fengxiang
+				luochuan luonan meixian mingsha ningxia ningzhou pingliang pinglu pucheng qianyang
+				qianyou qianzhou qinan qingshui qishan ruicheng sancha sanchuan sanshui_binzhou sanyao
+				sanyuan shangluo shangnan shangzhou shanyang shuiluo tongguan_tongchuan tongzhou wanquan weinan
+				wenxi xiangning xianning_xian xianyang xianzhou xiaxian xiexian xinping yanchang yanchi
+				yanchuan yichuan yijun yingli yongshou zhenan zhenning_qingyang zhenrong zhenyuan zhongbu
+				zhouzhi
+			}
+			capital = jingzhao
+			discovered_regions = {
+				bengal_region east_china_region indochina_region manchuria_region mongolia_region north_china_region south_china_region tibet_region
+				west_china_region
+			}
+			include = "chinese_monarchy"
+			country_rank = rank_kingdom
+			government = {
+				ruler = tfe_yao_xing
+			}
+		}
+		LUA = { # Lawa
+			own_control_core = {
+				ban_luang_cheng chiang_dao chiang_khong chiang_mai chiang_rai chiang_saen chom_khao_maneerat hongsa hot lampang
+				lamphun mae_hong_son muang_jam muang_luang_phukha muang_ngao muang_sing muang_sua muang_thaeng muang_wang muang_xay
+				muang_yuam mueng_thoen nam_xuang nan omkoi phayao phongsali phrae pua sariang
+				thung_yang vieng_phouka wiang_fang
+			}
+			capital = chiang_mai
+			discovered_regions = {
+				bengal_region east_china_region indochina_region indonesia_region south_china_region tibet_region west_china_region
+			}
+			include = "asia_tribe"
+			country_rank = rank_county
+			government = {
+				ruler = random
+			}
+		}
 		LYN = { # Later Yan
 			own_control_core = {
-				aerzhai anak anbian ande anding anhua anping ansai ansu anxi_dingzhou
-				anyuan baideng baimachen baitan baiting banbishan baoan baoan_baoan baode baodi
-				bathahalak bayankhot bayannur bohai bongju boye chabcha chahar changli changping
-				cheongsong chongxin dacheng dadu dagu daizhou dalinghe dandong daning datong_datong
-				datong_xining daxing deping didao dingbian dinghu dingliao dingqiang dingrong dingxi
-				dingxiang dingxing dingyuan_lingzhou dongan_shuntian donggo dongguang dongsheng dushikou enzhou erdao
-				fangshan fangshan_lishi fanyang feihu fengrun fengzhou fenxi fucheng fucheng_hejian fuchuan_ningxia
-				fugu funing fuping fuqiang fushan fushi fushun_liaoyang fuxin fuzhou_liaoyang fuzhou_yanan
-				gaeju gaizhou ganquan gaocheng gaotang gaoyang_baoding gaoyuan gaoyuan_jinan gecheng guan
-				guangan guangling guangning guangzong guantao gucheng_jingzhou gucheng_zhending guide guixin gulang
-				guozhou gushan gwiju haeju haizhou_liaoyang handan haomen hebin hehe hejian
-				hengshui hequ heshui heshun hetu_ala hezhong hezhou hongtong huachi huaian
-				huailai huairen huairou huaiyuan_mizhi huanzhou_qingyang huating_pingliang huichuan huizhou_gongchang hunyuan huolu
-				huoyi hwangju jabiyan jaeryeong jangyeon jeongju_jeongju jeungsan jianzhou_daizhou jiaocheng jiaohe
-				jiazhou jiexiu jincheng jingan_shenzhou jingbian jingchuan jinghai jingle jingning jingxing
-				jining jinzhou_dalian jinzhou_liaoyang jishi jishi_anze jiyang jizhou julu junghwa kaicheng
-				kaicheng_guyuan kaiguang kangu kedang kehu kelan kuandian kuanhe_xingzhou laishui lanzhou
-				lanzhou_kelan laoling laoting leping_pingding leshou liangcheng liaoshan liaoyang licheng_luan liguo
-				lijin limin lincheng linfen lingqiu lingshi lingshou lingtai lingwu lingxian_shanxi
-				lingzhou lingzhou_dezhou linqing linxian linyi_jinan lishi lizhou longde longmen_chicheng longping_zhaozhou
-				longqing longshan longwangmiao longxi_gongchang loufan luanyang lucheng_luan luchuan lulong luochuan
-				lutai lutang luxian macheng_luanzhou mancheng mingsha mingshui minzhou miyun mizhi
-				nangong nanpi neiqiu nianbo ningbian ninghua ningjin ningjin_zhaozhou ningxia ningxiang_shizhou
-				ningyuan_gongchang ningyuan_jinzhou ningzhou niushan ongjin ordos otog piantouguan pingdi pingding
-				pinggu pingji pingjin pingliang pingquan pingshan_zhending pingyao pingyuan_jinan pungcheon puxian
-				puyin qianan qiantun qinan qingchi qinghe qingjian qingshui qingyuan_baoding qingyun
-				qinhe qinyuan qiuxian qixian_taiyuan quyang quzhou renqiu renxian sakju samhwa
-				sanchakou sanchuan sanhe_tongzhou seogyeong seonju shahe shanghe shanyang_yingzhou shanyin shenmu
-				shenshui shenwu shenyang shexian_cizhou shicheng_jizhou shilou shouyang shuiluo shulu shunsheng
-				shunyi suide sukju suning taigu taiping_jiangzhou taizhou tangxian tiancheng tiaoxian
-				tongdi tongwancheng tongwei tunliu uiju urad uraqai wangping wanping wanzhou_baoding
-				weining weiyuan_lintao wenan wenquan wenshui wuan wuchuan wudi wuji wuqiao
-				wuqing wuxiang wuyi wuzhou xiabancheng xiajin xianghe xiangning xiangyuan xiankang
-				xianzhou xiaoyi xichuan_xizhou xihe xiliang xincheng_baoding xindu_jizhou xingtai xingtang xingxian
-				xingzhong xinhure xining xinle xiurong xiuyan xuande xuanning xuanping xugou
-				yanchang yanchi yanchuan yanci yangqu yangxin yanshan yichuan yifeng yijin
-				yingli yinshan yixian_yizhou yixingzhou yizhou_jinzhou yizhou_jurchen yonghe yongnian yongqing yuanshi_zhending
-				yucheng yuci yueyang_anze yulin yulin_datong yunchuan yunnei yunzhou yushe yutian
-				yuyang yuzhou zanhuang zaoqiang zhangxian zhangzi zhanhua zhending zhenfan zhenning_qingyang
-				zhenrong zhenwu zhenyuan zhigu zhongbu zhongdu zhongling zhuanghe zhuanglang zunhua
+				ande anping ansu anxi_dingzhou anyang baideng baima_daming baitan banbishan baoan_baoan
+				baode baodi bohai boye changli changping changyuan chuanzhou dacheng dadu
+				dagu daizhou dalinghe daning datong_datong daxing deping dinghu dingxiang dingxing
+				dongan_shuntian dongguang dongming duanshi dushikou enzhou fangshan fangshan_lishi fanyang feihu
+				fengrun fenxi fucheng_hejian funing fuping fushan fushun_liaoyang fuxin fuyang fuzhou_liaoyang
+				gaizhou gaocheng gaoping gaotang gaoyang_baoding gaoyuan_jinan gecheng guan guangling guangning
+				guangping guangzong guantao gucheng_jingzhou gucheng_zhending guixin guozhou haizhou_liaoyang handan hehe
+				hejian hengshui hequ heshun hetu_ala hongtong huaian huailai huairen huairou
+				huguan huichuan huixian hunyuan huolu huoyi jabiyan jiangxian jianzhou_daizhou jiaocheng
+				jiaohe jiexiu jincheng jincheng_zezhou jingan_shenzhou jinghai jingle jingxing jinzhou_dalian jinzhou_liaoyang
+				jishan jishi_anze jixian jiyang julu kaicheng kaiyuan_jurchen kehu kelan kuanhe_xingzhou
+				laishui lanzhou_kelan laoling laoting leping_pingding leshou liaoshan liaoyang licheng_luan liguo
+				lijin limin lincheng linfen lingchuan_zezhou lingqiu lingshi lingshou lingxian_shanxi lingzhou_dezhou
+				linqing linxian linyi_jinan linzhang linzhou lishi liuyuan lizhou longmen_chicheng longping_zhaozhou
+				longqing longshan longwangmiao loufan luanyang lucheng_luan luchuan lulong lutai luxian
+				macheng_luanzhou mancheng mingshui miyun nangong nanle nanpi neihuang neiqiu ningchang
+				ninghua ningjin ningjin_zhaozhou ningxiang_shizhou ningyuan_jinzhou niushan piantouguan pingding pinggu pingji
+				pingjin pingshan_zhending pingyao pingyuan_jinan puxian puyang puyin qianan qiantun qingchi
+				qingfeng qinghe qingyang_luan qingyuan_baoding qingyun qinhe qinshui qinyuan qiuxian qixian_taiyuan
+				qizhou quwo quyang quzhou renqiu renxian sanchakou sanhe_tongzhou shahe shangdang
+				shanghe shanyang_yingzhou shanyin shenshui shenwu shenyang shexian_cizhou shicheng_jizhou shilou shouyang
+				shulu shunsheng shunyi suning taigu taiping_jiangzhou taipingzhuang taizhou tangxian tangyin
+				tiancheng tiaoxian tieling tongdi tongliao tunliu wangping wanping wanzhou_baoding weixian
+				wenan wenquan wenshui wuan wudi wuji wuqiao wuqing wuxiang wuyi
+				wuzhou xiabancheng xiajin xianghe xiangyuan xiankang xiaoyi xichuan_xizhou xihe xincheng_baoding
+				xindu_jizhou xingtai xingtang xingxian xingzhong xinle xinxiang xiurong xiuyan xuande
+				xuanning xuanping xugou xunxian yanci yangcheng yangqu yangxin yanshan yehe
+				yicheng_pingyang yifeng yijin yixian_yizhou yixingzhou yizhou_jinzhou yizhou_jurchen yonghe yongnian yongqing
+				yuancheng yuanqu yuanshi_zhending yucheng yuci yueyang_anze yulin_datong yunchuan yunzhou yushe
+				yutian yuyang yuzhou zanhuang zaoqiang zhangsanying zhangzi zhanhua zhending zhengping
+				zhigu zhongling zhuanghe zunhua
 			}
-			capital = aerzhai
+			capital = anxi_dingzhou
 			discovered_regions = {
-				bengal_region east_china_region indochina_region japan_region korea_region manchuria_region mongolia_region north_china_region
-				south_china_region tibet_region west_china_region xinjiang_region
+				east_china_region japan_region korea_region manchuria_region mongolia_region north_china_region south_china_region tibet_region
+				west_china_region
 			}
 			include = "chinese_monarchy"
 			country_rank = rank_kingdom
@@ -1229,6 +1662,25 @@ countries = {
 				ruler = random
 			}
 		}
+		NWI = { # Northern Wei
+			own_control_core = {
+				aerzhai anbian baochang bathahalak bayannur chagannur chahar dingbian dingrong dongliangting
+				dongsheng erdao fengzhou fugu fuzhou gaoyuan hebin huaiyuan_mizhi huanzhou jiazhou
+				jingbian jingzhou_dorbod jining kaiguang liangcheng mizhi muumyangan ningbian ordos otog
+				pingdi qingjian shangdu shenmu suide tongwancheng ulan_hua ulanchab uraqai weining
+				wuchuan xinhure yinshan yulin yunnei zhenwu zhongdu
+			}
+			capital = yunnei
+			discovered_regions = {
+				east_china_region korea_region manchuria_region mongolia_region north_china_region south_china_region tibet_region west_china_region
+				west_siberia_region
+			}
+			include = "asia_advanced_tribe"
+			country_rank = rank_kingdom
+			government = {
+				ruler = tfe_tuoba_gui
+			}
+		}
 		PKT = { # Picts
 			own_control_core = {
 				aberdeen aberfeldy arbroath ardtornish arran badenoch banff buchan clackmannan cowal
@@ -1270,6 +1722,42 @@ countries = {
 				ruler = random
 			}
 		}
+		PUG = { # Yarlung
+			own_control_core = {
+				buchu chikchar chorten_nyima daklha_gampo damzhung densatil dingri drigung galo ganden_delingshar
+				gonga_chode gongkar gonpatsi gyama gyamda gyantse jonang lhadrak lhasa lho_taklung
+				lhodrak metog namling nedong nenying ngamring nyalam nyemo pelmo ralung
+				rigyal rinpung_yarlung sakya samye shigatse tagmo_lingkha taklung tirkong tragor trigu
+				tropu tsangdram tsora tsurphu zangchen zhokha
+			}
+			capital = nedong
+			discovered_regions = {
+				bengal_region central_india_region hindustan_region indochina_region south_china_region tibet_region west_china_region western_india_region
+				xinjiang_region
+			}
+			include = "asia_advanced_tribe"
+			country_rank = rank_county
+			government = {
+				ruler = random
+			}
+		}
+		PYU = { # Pyu
+			own_control_core = {
+				amyint butalin dhipaesyin htilin kale kanna kyaukse laungshe lewe magway
+				mindon mingin moksobo myede ngape nwamethin nyaungyan pagan pakokku paungde
+				pindale pinle pinya pyay pyinmana sagaing sagu salay salin saw
+				talok taungdwingyi taungoo thandaunggyi tharrawaddy thayet
+			}
+			capital = pyay
+			discovered_regions = {
+				bengal_region hindustan_region indian_ocean_region indochina_region indonesia_region south_china_region tibet_region west_china_region
+			}
+			include = "south_east_asia_monarchy"
+			country_rank = rank_duchy
+			government = {
+				ruler = random
+			}
+		}
 		QAD = { # Quadi
 			own_control_core = {
 				bratislava ganserndorf hlohovec holic hollabrunn hradiste korneuburg mistelbach nitra prerov
@@ -1286,30 +1774,49 @@ countries = {
 				ruler = random
 			}
 		}
+		RMN = { # Thaton
+			own_control_core = {
+				dagon dala danubyu donwun haungtharaw hinthada hmawbi hpa_an ingapu kawliya
+				kawthaung kyainseikgyi kyaukkyi martaban maubin mawlamyine mergui myanaung myaungmya myitta
+				naungyo ngaputaw papun pathein pegu phyu singkhon sittaung tavoy tenasserim
+				thanlyin thaton thayetchaung twante ye
+			}
+			capital = thaton
+			discovered_regions = {
+				bengal_region hindustan_region indian_ocean_region indochina_region indonesia_region south_china_region tibet_region west_china_region
+			}
+			include = "south_east_asia_monarchy"
+			country_rank = rank_county
+			government = {
+				ruler = random
+			}
+		}
 		RRN = { # Rouran
 			own_control_core = {
 				achit_nuur airag_nuur almaliq altan_gadas altayn_ovor_gobi alyanbulag amarbayas_galang anaa arkat ashchyozek
-				atanuul avraga ayagoz baibalyk baidrag bakanas baldan_bereeven balj balyktyg barkul
-				bars_khot bayan bayantsagaan beshbalik biger bishreit bodonch bogd boontsagaan bornuur
-				bortala boyauli bugat bulgan bureen buren_khem burqin busiyn charyn cheremkhovo
-				chikhan_agui chinggil chit chono choyrin_datsan chuluutyn chundzha dagandely dahra_sasykkol delger_moron
-				den_terek doloodyn_gobi dungene dunla dzaigil emin eringiin eroo erzin espe
-				gazrin_chuluu gimpil_darjaalan gonganbao guchung gulja haerhhana hoboksar hunguy huysiyn ider
-				ikh_narttin_chuluu ilanbalyk ilibalyk ingedei irkutsk jeminay jing kaa kandysu kara_irtysh
-				karakorum karamergen kayalyk kedun khadanzaa khadat khalzan_shireg khan_khentii khangal khar_balgas
-				khar_bukhyn kharkhul kharuukh khatgal khemchik kherlen khilgo khilgoson khimni khovd
-				khudan khurbe khurgan khyargas_nuur kokpekty koksala koktal koktuma kurchum kurty
-				kutubi kuytun kyakhta kyra lavar lepsy lower_ulz manas manzushir matad
-				mori mori_baridag naomao naran narat narhata nazhi nilka ogomoor ongiin_khiid
-				onguday onon orkhon orog oskemen otegu_qulan pichan qanbalik qocho qorqonaq_yubur
-				rahsaan_khad sagabuyen saikhandulaan santokhe sarybulak sayak selenge shaazan_khot shaazan_tolgoi shar
-				sharga_uul shargyn_gobi shengeldy slyudyanka sulkhari sumtiin suriig tahiltyn_khotgot takhilyn tansyk
-				targabatay tarvagatai tavan_tolgoi teel tekeli telemba telmen tes tevsh_uul toksun
-				toli tsagaan_agui tsagaan_usun tsetserleg tsogt tsokh tuin tura turpan turuum
-				tuul ude_baikal uguumur ukhaa_khudag ulaagchiin ulaamgom ulaan ulan_us ulenkhe uliastai
-				ulug ulungur ulziit undurkhaan ung upper_ulz urga urghtbulaq urumqi ust_barguzin
-				ust_koksa usu_xinjiang utbulaq uur yakhi yangjibaliq yuanhu yulduz zagzuugiin_balgas zara_uul
-				zavkhan zed zelterijin zhanaarka zhekdeliq zuun_garyn_gobi zyryan
+				atanuul avga avnagar avraga ayagoz baganuur baibalyk baidrag bakanas baldan_bereeven
+				balj balyktyg banzart_khairkhan barkul bayan beshbalik biger bii bishreit bodonch
+				bogd boontsagaan bornuur bortala boyauli bugat bulgan bureen buren_khem burqin
+				busiyn charyn cheremkhovo chikhan_agui chinggil choigan chono choyrin_datsan chuluutyn chundzha
+				dagandely dahra_sasykkol dalay del_khad delger_moron den_terek doloodyn_gobi dungene dunla dzaigil
+				emin erenkhot eringiin eroo erzin espe galbyn_gobi gaxun_gobi gazrin_chuluu gimpil_darjaalan
+				gonganbao guchung gulja haerhhana hoboksar hunguy huysiyn ider ikh_narttin_chuluu ilanbalyk
+				ilibalyk irkutsk jeminay jing kaa kandysu kara_irtysh karakorum karamergen kayalyk
+				kedun khadanzaa khadat khalzan_shireg khan_khentii khangal khar_balgas khar_bukhyn khara_khoto kharkhul
+				kharuukh khatanbulag khatgal khemchik kherlen khilgo khilgoson khimni khobootsar khovd
+				khudan khurbe khurgan khuuchid khyargas_nuur kokpekty koksala koktal koktuma kurchum
+				kurty kutubi kuytun kyakhta kyra lavar lepsy manas manzushir matad
+				mori mori_baridag naomao naraan_chilaun naran narat narhata nilka noyon_uul ogomoor
+				oiyin_korken ongiin_khiid onguday onon ooshiyn_gobi orkhon orog oskemen otegu_qulan qanbalik
+				rahsaan_khad sagabuyen saikhandulaan sangiin_dalai santokhe sarybulak sayak selenge shaazan_khot shaazan_tolgoi
+				shar sharga_uul shargyn_gobi shengeldy shira_qulusun shuluun_khoboot_tsagaan slyudyanka sonod sorin_nuur sulkhari
+				sumtiin suriig systyg tahiltyn_khotgot takhilyn tansyk targabatay tarvagatai tavan_tolgoi teel
+				tekeli telemba telmen tes tevsh_uul toli tost_uul tsagaan_agui tsagaan_usun tsetserleg
+				tsogt tsokh tuin turuum tuul ude_baikal uguumur ukhaa_khudag ulaagchiin ulaamgom
+				ulaan ulaanbadrakh ulan_us ulenkhe ulgain uliastai ulug ulungur ulziit undurkhaan
+				ung urga urghtbulaq urumqi ust_barguzin ust_koksa usu_xinjiang usun utbulaq uur
+				uzemchin yangjibaliq yuanhu zag_suujiyn_gobi zagzuugiin_balgas zara_uul zavkhan zed zelterijin zhanaarka
+				zhavklant_khairkhan zhekdeliq zuun_garyn_gobi zyryan
 			}
 			capital = achit_nuur
 			discovered_regions = {
@@ -1470,13 +1977,49 @@ countries = {
 				ruler = random
 			}
 		}
+		SHL = { # Shule
+			own_control_core = {
+				akto artush barchuk kashgar kizilsu maralbexi mazar_tagh payzawat sarikol tikenliq
+				tokkuzak yingisar yopurga
+			}
+			capital = kashgar
+			discovered_regions = {
+				hindustan_region khorasan_region mongolia_region persia_region tibet_region west_china_region west_siberia_region western_india_region
+				xinjiang_region
+			}
+			include = "east_asia_monarchy"
+			country_rank = rank_county
+			government = {
+				ruler = random
+			}
+		}
+		SHW = { # Shiwei
+			own_control_core = {
+				abagaita aga arun bars_khot barun_xiabaer baruun_tar_nuur bayan_tumen bayan_ula bayantsagaan bila
+				boorj buir_nuur buteha chit chol dalai_nuur dalaiketun dobkuri enhe_hada gan
+				gegen hailar hasar hulun hurle ingedei jiliu kara_shilka khalkh khirkhira
+				kuenga kuile laha lower_gazimur lower_ulz menen menlu merelka mergen nemeri
+				nibuchu non nuomin nurchuu qiqihar qorqonaq_yubur sart silkari taizhou_jurchen talaha
+				talman_boorj tamsabulag tsagaan tura uldurga unda upper_gazimur upper_ulz urov uryum
+				xuguit yakhi yilaha yimin zhalong zyyn_tar_nuur
+			}
+			capital = hailar
+			discovered_regions = {
+				east_siberia_region korea_region manchuria_region mongolia_region north_china_region west_china_region west_siberia_region
+			}
+			include = "asia_tribe"
+			country_rank = rank_county
+			government = {
+				ruler = random
+			}
+		}
 		SIL = { # Silla
 			own_control_core = {
-				andong bonghwa boseongbu chungju danyang_korea dongnae gaeryeong gyeongju hoengcheon hongcheon
-				ingnyeong jecheon jeongseon jinju miryang mungyeong pyeongchang samcheok sangju seongju
-				seonsan taegu uian uiseong ulju wonju yeongcheon yeongju yeongwol yeongyang
+				andong bonghwa boseongbu gaeryeong gyeongju hoengcheon jeongseon mungyeong pyeongchang sangju
+				seongju seonsan taegu uiseong wonju yeongcheon yeongdeok yeongil yeongju yeongwol
+				yeongyang
 			}
-			capital = andong
+			capital = gyeongju
 			discovered_regions = {
 				east_china_region japan_region korea_region manchuria_region mongolia_region north_china_region
 			}
@@ -1549,6 +2092,22 @@ countries = {
 				ruler = random
 			}
 		}
+		SSN = { # Shanshan
+			own_control_core = {
+				bailongdui charchan charklik dashahai jingyu kumkol loulan miran niya qietai
+				tatrang waxxari yalingkuo
+			}
+			capital = charklik
+			discovered_regions = {
+				bengal_region hindustan_region khorasan_region mongolia_region tibet_region west_china_region west_siberia_region western_india_region
+				xinjiang_region
+			}
+			include = "east_asia_monarchy"
+			country_rank = rank_county
+			government = {
+				ruler = random
+			}
+		}
 		SUA = { # Svaneti
 			own_control_core = {
 				lentekhi tsageri ushguli
@@ -1559,6 +2118,29 @@ countries = {
 				steppes_region
 			}
 			include = "eurasian_tribe"
+			country_rank = rank_county
+			government = {
+				ruler = random
+			}
+		}
+		SUM = { # Sumpa
+			own_control_core = {
+				barom batang baurang biru chamdo chodrak chodrak_kham chumdo daoba dartsedo
+				dawu derge drayab durgyeling dzagyal dzamtang dzingcho dzogang dzogon ganze
+				gechak gegong geshitsa gonjo jang_tana jomda jyekundo karma_densa katok kazhi
+				khamgar khana kharak kheong khordong lab lhagang lhakhang lhari litang
+				longtang lungsho mangge manigango markham mengung muli nakchu nangchen nubzur
+				nyachukha nyarong pasho pelme pema pembar pome rahor rima riwoche
+				rongpo samda sampheling sangacho sangme serkar sershul serta shar_yelpuk sho
+				shopando shukden shukjung sibda sok tangkya tengchen tromge trotsang tsakhalkho
+				waerhdje walong wara_kham yangdzong yungdrung zhanggu zurmang_namgyaltse
+			}
+			capital = chamdo
+			discovered_regions = {
+				bengal_region central_india_region east_china_region hindustan_region indochina_region mongolia_region north_china_region south_china_region
+				tibet_region west_china_region xinjiang_region
+			}
+			include = "asia_tribe"
 			country_rank = rank_county
 			government = {
 				ruler = random
@@ -1602,6 +2184,20 @@ countries = {
 				ruler = random
 			}
 		}
+		TJR = { # Tamna
+			own_control_core = {
+				seongwi tamna
+			}
+			capital = tamna
+			discovered_regions = {
+				east_china_region japan_region korea_region manchuria_region north_china_region
+			}
+			include = "east_asia_monarchy"
+			country_rank = rank_county
+			government = {
+				ruler = random
+			}
+		}
 		TKL = { # Tikal
 			own_control_core = {
 				acasaguastlan altun_ha atitlan_guatemala baak bakhalal calkini campin ceibal chacchoben chactemal
@@ -1625,6 +2221,52 @@ countries = {
 				ruler = tfe_yax_nuun_ahiin
 			}
 		}
+		TNS = { # Tun Sun
+			own_control_core = {
+				chaiya chumphon ko_samui krabi kraburi muang_na_rang phetchaburi prasong sichon takua_pa
+				tha_tong thalang wiang_sa
+			}
+			capital = chaiya
+			discovered_regions = {
+				bengal_region indian_ocean_region indochina_region indonesia_region south_china_region
+			}
+			include = "south_east_asia_monarchy"
+			country_rank = rank_county
+			government = {
+				ruler = random
+			}
+		}
+		TRM = { # Tarumanagara
+			own_control_core = {
+				banten cianjur cibadak cibuaya cimanuk cirebon kandangwesi kawali pakuan pangandaran
+				pangguyangan pulasari sindangkasih sumedang sunda_kelapa tegal wangung
+			}
+			capital = pakuan
+			discovered_regions = {
+				indian_ocean_region indochina_region indonesia_region
+			}
+			include = "indonesia_monarchy"
+			country_rank = rank_duchy
+			government = {
+				ruler = tfe_purnawarman
+			}
+		}
+		TSU = { # Tsukushi
+			own_control_core = {
+				amabe asakura hakata hayami higashimatsuura higashisonogi hita kamiagata kamitsuma kishima
+				kunisaki kusu mii mikasa mike minamimatsuura nakatsu naoiri nishimatsuura nishisonogi
+				onga ooita oono_bungo saga shimoagata takaki usa
+			}
+			capital = hakata
+			discovered_regions = {
+				east_china_region japan_region korea_region manchuria_region micronesia_region north_china_region
+			}
+			include = "japanese_clan"
+			country_rank = rank_county
+			government = {
+				ruler = random
+			}
+		}
 		TTH = { # Teotihuacan
 			own_control_core = {
 				acambaro axocopan azcapotzalco cadereyta cuauhtitlan culhuacan ixtachichimecapan ixtlahuaca kerhiretarhu maravatio
@@ -1639,6 +2281,26 @@ countries = {
 			country_rank = rank_kingdom
 			government = {
 				ruler = tfe_spearthrower_owl
+			}
+		}
+		TYH = { # Tuyuhun
+			own_control_core = {
+				amchok amnye_machen balgatai bayan_har buha caka chabcha chogyal_khar darlag dartang
+				dazhasi drichu droge dsun dulan dungkar_amdo duolundu fuzhou_songpan gashun guolimu
+				gurkyang heishui hoh_xil hongyuan jilibulake kedang kunlun kuntokling liulin lungkya
+				madoi maerkang metsang muge muxihe nalinggele qardam qiongxi quge qumarleb
+				rinpung sailahai sangqu sanjiaocheng sharu songzhou_songpan takden taktsang temirlik tewo
+				tsaidam tso_gon yuka zeku
+			}
+			capital = dulan
+			discovered_regions = {
+				bengal_region east_china_region hindustan_region indochina_region khorasan_region mongolia_region north_china_region south_china_region
+				tibet_region west_china_region west_siberia_region xinjiang_region
+			}
+			include = "asia_advanced_tribe"
+			country_rank = rank_duchy
+			government = {
+				ruler = random
 			}
 		}
 		ULD = { # Ulaid
@@ -1688,6 +2350,69 @@ countries = {
 				ruler = tfe_cunedda
 			}
 		}
+		VSL = { # Vesali
+			own_control_core = {
+				akyab ann chakaria chakma chittagong gwa kaptai karpus_mahal launggyet maungdaw
+				minbya mrauk_u ramree ramu sitakunda talak_burma taungup thandwe weithali
+			}
+			capital = weithali
+			discovered_regions = {
+				bengal_region central_india_region deccan_region hindustan_region indian_ocean_region indochina_region indonesia_region south_china_region
+				tibet_region west_china_region
+			}
+			include = "south_east_asia_monarchy"
+			country_rank = rank_county
+			government = {
+				ruler = random
+			}
+		}
+		WAK = { # Yamato
+			own_control_core = {
+				abe abu agawa aichi aikou akashi aki aki_shikoku akou asa
+				ashigara awa_shikoku awaji aya azai azumi chiisagata echi ena fuchi
+				fugeshi fuji funai futakata fuwa_mino gamou gujou hata hekikai hidaka
+				higashikanbara higashikubiki higashimuro hikami hoi ichishi iga ihara ikaruga ikeda
+				imadate imizu iwafune iyo izumi kaga kaifu kaisou kamakura kami_shikoku
+				kamiina kamioono kamo kamo_izu kamo_mikawa kariwa kasa katagata kawabe keta_tajima
+				kiso kita_shikoku kitamuro kitauonuma kitou koma_kai koshi kouka kuga kumage
+				kurita kuse kuwada kyoto mashita mie miki mima minamimuro minamiuonuma
+				minochi minokamo mitoyo miyoshi_shikoku mugi muko naga nagaoka naka_shikoku nakajima
+				nakaoono nakata nara nei nii niikawa nishikanbara nishikubiki nishimuro niwa
+				nomi noto_jap nutari nyuu ochi onyuu ootsu osaka saba saeki
+				sakai_echizen saku sarashina sawata shida shikama shima shimoina shisou shitara
+				shuuchi suntou suwa suzu suzuka tagata taka takai takaichi takaoka
+				takashima takata taki toki tonami tosa toyoda toyota toyoura tsukama
+				tsuno tsuru tsuruga ukena uwa watarai yabu yamagata yamanashi yatsushiro
+				yosa yoshiki yoshiki_suou yoshino
+			}
+			capital = nara
+			discovered_regions = {
+				east_china_region japan_region korea_region manchuria_region micronesia_region north_china_region
+			}
+			include = "japanese_clan"
+			country_rank = rank_kingdom
+			government = {
+				ruler = tfe_nintoku
+			}
+		}
+		WJI = { # Wuji
+			own_control_core = {
+				alchan anchun anju_nurgan bayan_susu bikinka chalin dongning futi hailang hailun
+				hulan hulin hvlan ilan_hala imanka jixi juru_hoton kaiyuan_warka katen lahasusu
+				malong mishan mudan_ula mulun namunka ningguta nogule noto_ussuri nuoluo odoli
+				ougen shili shuangyashan taowen tulguur vaka wanhufu wehe xunka yiman
+				yongmingcheng
+			}
+			capital = mudan_ula
+			discovered_regions = {
+				east_china_region east_siberia_region japan_region korea_region manchuria_region mongolia_region north_china_region
+			}
+			include = "asia_tribe"
+			country_rank = rank_county
+			government = {
+				ruler = random
+			}
+		}
 		WND = { # Venedi
 			own_control_core = {
 				belz bereschany brody busk chortoryisk dubno grabowiec kostopil kremenets lubaczow
@@ -1703,6 +2428,22 @@ countries = {
 			country_rank = rank_county
 			government = {
 				ruler = random
+			}
+		}
+		WQN = { # Western Qin
+			own_control_core = {
+				didao dingqiang dingxi fuqiang guide hezhou huizhou_gongchang jishi kangu lanzhou
+				longxi_gongchang lutang ningyuan_gongchang tongwei weiyuan_lintao zhangxian
+			}
+			capital = lanzhou
+			discovered_regions = {
+				bengal_region east_china_region indochina_region mongolia_region north_china_region south_china_region tibet_region west_china_region
+				xinjiang_region
+			}
+			include = "chinese_monarchy"
+			country_rank = rank_duchy
+			government = {
+				ruler = tfe_qifu_qiangui
 			}
 		}
 		WRE = { # Western Roman Empire
@@ -1915,6 +2656,20 @@ countries = {
 				regnal_numbers = { name_valentinian = 2 }
 			}
 		}
+		YQI = { # Yanqi
+			own_control_core = {
+				bosten karasahr kumux yulduz
+			}
+			capital = karasahr
+			discovered_regions = {
+				khorasan_region mongolia_region tibet_region west_china_region west_siberia_region xinjiang_region
+			}
+			include = "east_asia_monarchy"
+			country_rank = rank_county
+			government = {
+				ruler = random
+			}
+		}
 		YUB = { # Yueban
 			own_control_core = {
 				kashkanteniz kyzylsay moiynty mukur tokrau
@@ -1925,6 +2680,26 @@ countries = {
 			}
 			include = "eurasian_horde_no_muslim"
 			country_rank = rank_county
+			government = {
+				ruler = random
+			}
+		}
+		ZHZ = { # Zhangzhung
+			own_control_core = {
+				bairab baryang cemar charasa cozha dagze dargyeling dogai dorsotung drangtse
+				dungkar dzongkar gartok gerze_tibet gonkri gyanema hanle kargil karpokhar khaplu
+				khyunglung lamayuru leh lo_mustang mendong nako namtso_doring ormogang padum phuktal
+				purang rala ronglung rutok samten selephu serzhik shantsa shey shigar
+				skardu tabo tashigang tokchen toling tradun tsaparang tsedzong tsherlung tsorub
+				yurba zagya zangdan zangla
+			}
+			capital = khyunglung
+			discovered_regions = {
+				bengal_region central_india_region deccan_region hindustan_region indochina_region khorasan_region mongolia_region persia_region
+				south_china_region tibet_region west_china_region western_india_region xinjiang_region
+			}
+			include = "asia_advanced_tribe"
+			country_rank = rank_duchy
 			government = {
 				ruler = random
 			}
