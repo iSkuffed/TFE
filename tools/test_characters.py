@@ -147,6 +147,7 @@ def test_key_rulers_and_their_ages(chars):
     db = {cid: fields(body) for cid, body in chars}
     govs, _ = b.load_governments(b.TOOLS / "governments.txt", b.load_tags())
     assert "ruler = tfe_honorius" in govs["WRE"] and "active_regent = tfe_stilicho" in govs["WRE"]
+    assert "heir = tfe_eucherius" in govs["WRE"]   # not Arcadius by blood: an heir ruling the East makes a union
     assert "ruler = tfe_arcadius" in govs["EAR"] and "ruler = tfe_alaric" in govs["VIS"]
     assert db["tfe_honorius"]["birth_date"] == ["384.9.9"]      # 10 at the start: minor under Stilicho
     assert db["tfe_arcadius"]["birth_date"][0].startswith("377")

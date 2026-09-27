@@ -3081,6 +3081,7 @@ countries = {
 				ruler = tfe_honorius
 				regency = nobles_estate_regency
 				active_regent = tfe_stilicho
+				heir = tfe_eucherius
 				start_regency_date = 395.1.17
 				end_regency_date = 400.9.9
 				regnal_numbers = { name_valentinian = 2 }

@@ -5,6 +5,9 @@
 WRE = ruler = tfe_honorius
 WRE = regency = nobles_estate_regency
 WRE = active_regent = tfe_stilicho
+# Honorius is childless: his heir by blood is Arcadius, and a foreign ruler as heir makes the halves a union.
+# Stilicho's son Eucherius instead - suspected of being groomed for the purple, betrothed to Galla Placidia
+WRE = heir = tfe_eucherius
 WRE = start_regency_date = 395.1.17
 WRE = end_regency_date = 400.9.9
 WRE = regnal_numbers = { name_valentinian = 2 }
