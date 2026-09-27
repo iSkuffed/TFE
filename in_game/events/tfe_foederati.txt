@@ -1,0 +1,44 @@
+﻿namespace = tfe_foederati
+
+# The foedus has lapsed: its other party is dead (on_action/tfe_foederati.txt)
+tfe_foederati.1 = {
+	type = country_event
+	title = tfe_foederati.1.title
+	desc = tfe_foederati.1.desc
+	outcome = neutral
+
+	image = "gfx/interface/illustrations/event/backgrounds/exterior/soldiers/north_german_soldiers_exterior.dds"
+
+	trigger = { is_subject_type = tfe_foederati }
+
+	immediate = {
+		overlord = { save_scope_as = tfe_foedus_lord }
+	}
+
+	# swear anew to the living
+	option = {
+		name = tfe_foederati.1.a
+		remove_variable = tfe_sworn_to_theodosius
+		add_prestige = 5
+		ai_chance = { base = 2 }
+	}
+
+	# take what was promised: the foedus is broken and the Empire owes us land
+	option = {
+		name = tfe_foederati.1.b
+		historical_option = yes
+		remove_variable = tfe_sworn_to_theodosius
+		scope:tfe_foedus_lord = { cancel_subject = root }
+		set_variable = { name = tfe_foedus_broken value = scope:tfe_foedus_lord years = 5 }
+		add_casus_belli = { target = scope:tfe_foedus_lord type = casus_belli:cb_tfe_foedus_broken years = 5 }
+		ai_chance = {
+			base = 1
+			# Alaric, 395: the Goths march on Constantinople the spring after Theodosius dies
+			modifier = {
+				factor = 20
+				tag = VIS
+				has_variable = tfe_sworn_to_theodosius
+			}
+		}
+	}
+}

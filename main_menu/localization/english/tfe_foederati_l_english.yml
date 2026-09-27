@@ -1,0 +1,11 @@
+﻿l_english:
+ tfe_foederati: "Foederati"
+ tfe_foederati_desc: "Foederati are a people sworn by treaty, a foedus, to fight for an Augustus. They pay no tribute: the Empire pays them the annona, and they march in all of its wars. The foedus binds two rulers, not two peoples, and lapses when either of them dies."
+ tfe_foederati_subject_opinion: "Our Foedus Lord"
+ tfe_foederati_overlord_opinion: "Our Foederati"
+ tfe_foederati.1.title: "The Oath Is Dead"
+ tfe_foederati.1.desc: "Our foedus was sworn between two men, not two peoples, and one of them is dead. The annona still comes, for now, but nothing binds us to [tfe_foedus_lord.GetName] any longer. We may swear the oath anew to the living, or take by the sword what the dead promised us."
+ tfe_foederati.1.a: "Swear the oath anew"
+ tfe_foederati.1.b: "Take what was promised"
+ cb_tfe_foedus_broken: "Broken Foedus"
+ cb_tfe_foedus_broken_desc: "The foedus died with the man who swore it. Now the Empire will pay what it owes in land."

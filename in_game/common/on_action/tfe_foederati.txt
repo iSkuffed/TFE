@@ -1,0 +1,32 @@
+﻿# TFE: a foedus (subject_types/tfe_foederati.txt) is sworn between two rulers and dies with either of them.
+# Theodosius died on 17 January 395, the day before the game starts: every foedus opens already lapsed.
+on_game_start = {
+	on_actions = { tfe_on_start_theodosius_dead }
+}
+
+tfe_on_start_theodosius_dead = {
+	effect = {
+		every_country = {
+			limit = { is_subject_type = tfe_foederati }
+			set_variable = tfe_sworn_to_theodosius	# read by the event's AI weights, cleared by its options
+			trigger_event_non_silently = tfe_foederati.1
+		}
+	}
+}
+
+on_ruler_death = {
+	on_actions = { tfe_on_ruler_death_foedus_lapses }
+}
+
+tfe_on_ruler_death_foedus_lapses = {
+	effect = {
+		if = {
+			limit = { is_subject_type = tfe_foederati }
+			trigger_event_non_silently = tfe_foederati.1
+		}
+		every_subject = {
+			limit = { is_subject_type = tfe_foederati }
+			trigger_event_non_silently = tfe_foederati.1
+		}
+	}
+}

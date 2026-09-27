@@ -1,7 +1,7 @@
 # TFE 395: subject relations
 diplomacy_manager = {
-	# Alaric's Goths, foederati of the East under the foedus of 3 Oct 382
-	dependency = { first = EAR second = VIS subject_type = vassal start_date = 382.10.3 }
+	# Alaric's Goths, foederati of the East under the foedus of 3 Oct 382, sworn to Theodosius: it lapses at start
+	dependency = { first = EAR second = VIS subject_type = tfe_foederati start_date = 382.10.3 }
 	# Baquates, Western client in Tingitana (treaty altars at Volubilis, 3rd c.)
 	dependency = { first = WRE second = BAQ subject_type = vassal }
 	# The Caucasus after the partition of 387: Persia takes Armenia's king and Iberia; Rome keeps Lazica
@@ -25,7 +25,7 @@ diplomacy_manager = {
 	# Arabia: Persia's Lakhmids and Azd, Rome's Salihids, Himyar's Kinda and Ma'add
 	dependency = { first = SAS second = LKM subject_type = vassal }
 	dependency = { first = SAS second = AZD subject_type = tributary }
-	dependency = { first = EAR second = SLH subject_type = vassal }
+	dependency = { first = EAR second = SLH subject_type = tfe_foederati }
 	dependency = { first = HIM second = KIN subject_type = vassal }
 	dependency = { first = HIM second = KZA subject_type = tributary }
 	# Aksum's Agaw tributaries

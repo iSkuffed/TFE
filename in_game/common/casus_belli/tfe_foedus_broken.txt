@@ -1,0 +1,15 @@
+﻿# TFE: the foederati who would not swear anew (events/tfe_foederati.txt) march for what the dead ruler promised.
+cb_tfe_foedus_broken = {
+	create_visible = {
+		has_variable = tfe_foedus_broken
+	}
+	create_enabled = {
+		scope:target = {
+			this = root.var:tfe_foedus_broken	# only against the lord of the dead oath
+			any_owned_location = { always = yes }
+		}
+	}
+	speed = 100
+
+	war_goal_type = superiority_tfe_migration	# land, cheaply: wargoals/tfe_migration.txt
+}

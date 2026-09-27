@@ -2,3 +2,11 @@
 io_opinion_tfe_roman_empire = {
 	value = 25
 }
+
+# TFE: foederati are paid allies (subject_types/tfe_foederati.txt), not a conquered people
+tfe_foederati_subject_opinion = {
+	value = 0
+}
+tfe_foederati_overlord_opinion = {
+	value = 50
+}
