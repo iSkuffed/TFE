@@ -30,6 +30,8 @@ def test_everything_shown_is_localized():
     keys = set(re.findall(r"^\s*([\w.]+):\d*\s", LOC.read_text(encoding="utf-8-sig"), re.M))
     wanted = {"tfe_foederati", "tfe_foederati_desc", "tfe_foederati_subject_opinion", "tfe_foederati_overlord_opinion",
               "cb_tfe_foedus_broken", "cb_tfe_foedus_broken_desc"}
+    # the diplomacy panel lists a subject type's offer/cancel under these (raw keys showed in game)
+    wanted |= {f"{a}_tfe_foederati{k}" for a in ("OFFER", "CANCEL") for k in ("_CATEGORY", "TITLE", "_DESC")}
     wanted |= set(re.findall(r"(?:title|desc|name) = (tfe_foederati\.[\w.]+)", code(EVENT)))
     assert not wanted - keys, sorted(wanted - keys)
     for key in ("tfe_foederati_subject_opinion", "tfe_foederati_overlord_opinion"):

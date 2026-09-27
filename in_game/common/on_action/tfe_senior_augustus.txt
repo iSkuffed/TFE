@@ -1,0 +1,39 @@
+﻿# TFE: seniority goes to the Augustus who has reigned longest (international_organization_special_statuses/tfe_roman_empire.txt).
+on_game_start = {
+	on_actions = { tfe_on_start_senior_augustus }
+}
+
+# Arcadius has been Augustus since 383, Honorius only since 393
+tfe_on_start_senior_augustus = {
+	effect = {
+		international_organization:tfe_roman_empire ?= {
+			international_organization_add_special_status = { type = special_status:tfe_senior_augustus country = c:EAR }
+		}
+	}
+}
+
+on_ruler_death = {
+	on_actions = { tfe_on_ruler_death_seniority_passes }
+}
+
+# A new ruler has reigned shortest of all: the surviving Augustus becomes Senior
+tfe_on_ruler_death_seniority_passes = {
+	effect = {
+		if = {
+			limit = {
+				has_special_status_in_international_organization = { type = special_status:tfe_senior_augustus international_organization = international_organization:tfe_roman_empire }
+			}
+			international_organization:tfe_roman_empire = {
+				random_international_organization_member = {
+					limit = { NOT = { this = root } }
+					save_scope_as = tfe_new_senior
+				}
+				if = {
+					limit = { exists = scope:tfe_new_senior }
+					international_organization_remove_special_status = { type = special_status:tfe_senior_augustus country = root }
+					international_organization_add_special_status = { type = special_status:tfe_senior_augustus country = scope:tfe_new_senior }
+				}
+			}
+		}
+	}
+}

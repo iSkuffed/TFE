@@ -1,0 +1,84 @@
+﻿# TFE: an edict of the Senior Augustus binds both halves of the Empire. Decreeing one spends 5 Unity, needs Unity 50,
+# and binds for 5 years before another can replace it. One benefit, one cost each.
+tfe_edicts_law = {
+	type = international_organization
+	requires_vote = no	# the Senior Augustus decrees; the default is a vote
+	law_category = administrative
+	potential = { international_organization_type = international_organization_type:tfe_roman_empire }
+	allow = {
+		international_organization:tfe_roman_empire = {
+			var:tfe_unity >= 50
+			NOT = { has_variable = tfe_edict_binds }
+		}
+	}
+
+	# Cunctos populos (380): all peoples shall hold the faith of Nicaea
+	tfe_edict_fide_policy = {
+		on_activate = {
+			international_organization:tfe_roman_empire = {
+				change_variable = { name = tfe_unity add = -5 }
+				set_variable = { name = tfe_edict_binds years = 5 }
+			}
+		}
+		country_modifier = {
+			global_pop_conversion_speed_modifier = 0.2
+			tolerance_heretic = -1
+		}
+	}
+
+	# The emperors' constitutions gathered into one code, as Theodosius II would in 438
+	tfe_edict_codificatio_policy = {
+		on_activate = {
+			international_organization:tfe_roman_empire = {
+				change_variable = { name = tfe_unity add = -5 }
+				set_variable = { name = tfe_edict_binds years = 5 }
+			}
+		}
+		country_modifier = {
+			global_monthly_control = 0.005
+			clergy_estate_target_satisfaction = -0.05
+		}
+	}
+
+	# The imperial post: couriers between both courts, horses paid for by the provincials
+	tfe_edict_cursus_publicus_policy = {
+		on_activate = {
+			international_organization:tfe_roman_empire = {
+				change_variable = { name = tfe_unity add = -5 }
+				set_variable = { name = tfe_edict_binds years = 5 }
+			}
+		}
+		country_modifier = {
+			diplomatic_reputation = 1
+			tax_income_efficiency = -0.05
+		}
+	}
+
+	# Deserted fields given to whoever will till them, their taxes laid on the neighbouring landowners
+	tfe_edict_agri_deserti_policy = {
+		on_activate = {
+			international_organization:tfe_roman_empire = {
+				change_variable = { name = tfe_unity add = -5 }
+				set_variable = { name = tfe_edict_binds years = 5 }
+			}
+		}
+		country_modifier = {
+			global_population_growth = 0.1
+			nobles_estate_target_satisfaction = -0.05
+		}
+	}
+
+	# Bread for the cities, from the provinces' grain
+	tfe_edict_annona_policy = {
+		on_activate = {
+			international_organization:tfe_roman_empire = {
+				change_variable = { name = tfe_unity add = -5 }
+				set_variable = { name = tfe_edict_binds years = 5 }
+			}
+		}
+		country_modifier = {
+			burghers_estate_target_satisfaction = 0.05
+			global_monthly_food_modifier = -0.1
+		}
+	}
+}

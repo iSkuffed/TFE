@@ -1,0 +1,14 @@
+﻿# TFE: the Senior Augustus, the one who has reigned longest, leads the Imperium Romanum and decrees its edicts (laws/tfe_edicts.txt).
+# Bestowed by on_action/tfe_senior_augustus.txt: the East at start (Arcadius, Augustus since 383), then the survivor whenever a Senior Augustus dies.
+tfe_senior_augustus = {
+	max_countries = 1
+	priority = 10
+	modifier = { monthly_prestige = 0.05 }
+	can_bestow_trigger = { is_member_of_international_organization = scope:recipient }
+	auto_bestowal_trigger = { always = no }
+	auto_rescind_trigger = { NOT = { is_member_of_international_organization = scope:recipient } }
+	on_bestowed_effect = {
+		scope:recipient = { set_leader_country = root }
+	}
+	map_color = define:NMapColors|INTERNATIONAL_ORGANIZATION_LEADER_COLOR
+}

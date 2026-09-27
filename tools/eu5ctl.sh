@@ -2,6 +2,7 @@
 # Drive EU5 inside gamescope: a window on the desktop to watch, or hidden with --headless (Novum's QA way).
 # Menu path (1280x720 shot coords): New Game 176,292 -> click the country on the map -> move the mouse away
 # (its tooltip hides the button) -> "Play as" 640,592. The console opens with the grave key (-debug_mode).
+# Observe + `tag X` leaves you an observer: console effects work, but your UI commands (diplomacy, IO laws) are dropped.
 #   eu5ctl start [--headless] | wait | stop | status   (wait: until loading or new-game generation is done)
 #   eu5ctl shot [name]            -> prints a 1280x720 jpg path (click coordinates use this space)
 #   eu5ctl click X Y [button]     eu5ctl hover X Y     eu5ctl key KEY...     eu5ctl type TEXT
