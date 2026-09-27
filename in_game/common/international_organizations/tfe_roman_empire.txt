@@ -28,7 +28,6 @@ tfe_roman_empire = {
 			min = 0
 			max = 100
 			monthly_change = {
-				subtract = { desc = "TFE_UNITY_DRIFT" value = 0.1 }
 				add = {
 					if = {
 						limit = { c:WRE ?= { ruler ?= { dynasty ?= c:EAR.ruler.dynasty } } }
@@ -39,7 +38,35 @@ tfe_roman_empire = {
 						add = { desc = "TFE_UNITY_COMMON_ENEMY" value = 0.15 }
 					}
 				}
+				# No blind drift: every loss has a cause the player can see and act on
 				subtract = {
+					# Latin West, Greek East: the courts no longer speak one tongue
+					if = {
+						limit = { c:WRE ?= { NOT = { court_language = c:EAR.court_language } } }
+						add = { desc = "TFE_UNITY_TWO_TONGUES" value = 0.1 }
+					}
+					# A boy Augustus: the regent's court, not the emperor's, faces the other half (Stilicho in 395)
+					if = {
+						limit = { c:WRE ?= { has_regent = yes } }
+						add = { desc = "TFE_UNITY_WEST_REGENCY" value = 0.1 }
+					}
+					if = {
+						limit = { c:EAR ?= { has_regent = yes } }
+						add = { desc = "TFE_UNITY_EAST_REGENCY" value = 0.1 }
+					}
+					if = {
+						limit = {
+							OR = {
+								c:WRE ?= { is_rival_of = c:EAR }
+								c:EAR ?= { is_rival_of = c:WRE }
+							}
+						}
+						add = { desc = "TFE_UNITY_RIVALS" value = 0.2 }
+					}
+					if = {
+						limit = { c:WRE ?= { NOT = { religion = c:EAR.religion } } }
+						add = { desc = "TFE_UNITY_CREEDS" value = 0.2 }
+					}
 					if = {
 						limit = { c:WRE ?= { opinion = { target = c:EAR value < 0 } } }
 						add = { desc = "TFE_UNITY_WEST_RESENTS" value = 0.1 }

@@ -48,6 +48,15 @@ def test_unity_thresholds_match_the_design():
     assert "cb_tfe_war_of_the_augusti = {" in code(CB) and "var:tfe_unity < 50" in code(CB)
 
 
+def test_unity_never_moves_without_a_cause():
+    # TFE (CK3) retired its blind decay meter: every monthly term must sit behind a condition
+    monthly = re.search(r"monthly_change = \{(.*?)\n\t\t\t\}\n\t\t\}", code(IO), re.S).group(1)
+    terms = re.findall(r'desc = "(\w+)"', monthly)
+    assert terms and "TFE_UNITY_DRIFT" not in terms
+    assert len(terms) == monthly.count("if = {"), terms
+    assert {"TFE_UNITY_TWO_TONGUES", "TFE_UNITY_WEST_REGENCY", "TFE_UNITY_RIVALS", "TFE_UNITY_CREEDS"} <= set(terms)
+
+
 def test_setup_creates_the_io_with_both_landed_empires_and_mutual_access():
     countries = (START / "10_countries.txt").read_text(encoding="utf-8")
     landed = set(re.findall(r"^\t\t([A-Z][A-Z0-9]{2}) = \{", countries, re.M))
