@@ -1,0 +1,223 @@
+﻿namespace = tfe_opening
+
+# 395: Stilicho says the dying Theodosius gave him both sons to guard (on_action/tfe_opening.txt, game start)
+tfe_opening.1 = {
+	type = country_event
+	title = tfe_opening.1.title
+	desc = tfe_opening.1.desc
+	outcome = neutral
+
+	image = "gfx/interface/illustrations/event/backgrounds/exterior/byz_soldiers_exterior.dds"
+
+	trigger = { character:tfe_stilicho ?= { is_alive = yes } }
+
+	# send the Eastern legions home under Gainas
+	option = {
+		name = tfe_opening.1.a
+		historical_option = yes
+		international_organization:tfe_roman_empire ?= { change_variable = { name = tfe_unity add = 5 } }
+		ai_chance = { base = 3 }
+	}
+
+	# the guardianship of the East too: march on Constantinople's prefect
+	option = {
+		name = tfe_opening.1.b
+		add_prestige = 10
+		set_variable = tfe_stilicho_claims_the_east	# read by 2 and 4: the East remembers
+		international_organization:tfe_roman_empire ?= { change_variable = { name = tfe_unity add = -10 } }
+		ai_chance = { base = 1 }
+	}
+}
+
+# 27 November 395: Gainas's Goths cut Rufinus down on the Campus Martius at Constantinople
+tfe_opening.2 = {
+	type = country_event
+	title = tfe_opening.2.title
+	desc = tfe_opening.2.desc
+	outcome = neutral
+
+	image = "gfx/interface/illustrations/event/backgrounds/exterior/byz_soldiers_exterior.dds"
+
+	trigger = { character:tfe_rufinus ?= { is_alive = yes } }
+
+	immediate = {
+		kill_character = character:tfe_rufinus
+		remove_country_modifier = tfe_rufinus_prefecture
+		# Stilicho's hand is seen in it
+		if = {
+			limit = { c:WRE ?= { has_variable = tfe_stilicho_claims_the_east } }
+			international_organization:tfe_roman_empire ?= { change_variable = { name = tfe_unity add = -5 } }
+		}
+	}
+
+	# the chamberlain holds the Augustus now
+	option = {
+		name = tfe_opening.2.a
+		historical_option = yes
+		trigger = { character:tfe_eutropius ?= { is_alive = yes } }
+		add_country_modifier = { modifier = tfe_eutropius_chamber years = 4 }	# to his fall in 399
+		ai_chance = { base = 3 }
+	}
+
+	# Arcadius will rule for himself
+	option = {
+		name = tfe_opening.2.b
+		add_legitimacy = 10
+		add_stability = -10
+		ai_chance = { base = 1 }
+	}
+}
+
+# Autumn 397: Gildo, count of Africa, holds back Rome's grain and offers Africa to the East
+tfe_opening.3 = {
+	type = country_event
+	title = tfe_opening.3.title
+	desc = tfe_opening.3.desc
+	outcome = negative
+
+	image = "gfx/interface/illustrations/event/backgrounds/exterior/nobles/syrian_nobles_exterior.dds"
+
+	trigger = {
+		character:tfe_gildo ?= { is_alive = yes }
+		location:tunis = { owner ?= root }
+	}
+
+	immediate = {
+		character:tfe_gildo = { save_scope_as = tfe_usurper_ruler }
+		location:tunis = {
+			create_country_from_location = {
+				define_unique_country_tag = GILDO
+				change_country_name = TFE_GILDO
+				change_country_adjective = TFE_GILDO_ADJ
+				change_country_color = map_gutnish
+				change_country_flag = TFE_GILDO
+				set_country_rank = country_rank:rank_kingdom
+				change_government_type = government_type:monarchy
+				add_gold = 200	# Africa's taxes, kept back from Italy
+				set_new_ruler = scope:tfe_usurper_ruler
+				set_variable = { name = tfe_usurper_against value = root years = 10 }
+				save_scope_as = tfe_usurper
+			}
+		}
+		every_owned_location = {
+			limit = { region = region:maghreb_region }
+			change_location_owner = scope:tfe_usurper
+		}
+		set_variable = { name = tfe_usurper value = scope:tfe_usurper years = 10 }
+		c:EAR ?= { trigger_event_non_silently = tfe_opening.4 }
+	}
+
+	# his brother Mascezel knows Africa and hates him: send him
+	option = {
+		name = tfe_opening.3.a
+		historical_option = yes
+		declare_war_with_cb = { target = scope:tfe_usurper type = casus_belli:cb_tfe_suppress_usurper }
+		ai_chance = { base = 3 }
+	}
+
+	# Italy can go hungry a season; the war can wait
+	option = {
+		name = tfe_opening.3.b
+		add_prestige = -10
+		ai_chance = { base = 1 }
+	}
+}
+
+# The East is offered the diocese of Africa (fired by 3)
+tfe_opening.4 = {
+	type = country_event
+	title = tfe_opening.4.title
+	desc = tfe_opening.4.desc
+	outcome = neutral
+
+	image = "gfx/interface/illustrations/event/backgrounds/interior/byz_nobles_interior.dds"
+
+	trigger = { c:WRE ?= { has_variable = tfe_usurper } }
+
+	immediate = {
+		c:WRE.var:tfe_usurper = { save_scope_as = tfe_usurper }
+	}
+
+	# accept it: Africa's grain now sails for Constantinople
+	option = {
+		name = tfe_opening.4.a
+		historical_option = yes
+		scope:tfe_usurper ?= { make_subject_of = { target = root type = subject_type:vassal } }
+		international_organization:tfe_roman_empire ?= { change_variable = { name = tfe_unity add = -15 } }
+		ai_chance = {
+			base = 1
+			modifier = {
+				factor = 3
+				c:WRE ?= { has_variable = tfe_stilicho_claims_the_east }
+			}
+		}
+	}
+
+	# one empire: send his envoys back to Carthage in chains
+	option = {
+		name = tfe_opening.4.b
+		international_organization:tfe_roman_empire ?= { change_variable = { name = tfe_unity add = 5 } }
+		ai_chance = { base = 1 }
+	}
+}
+
+# Early 407: Britain's army makes and unmakes Marcus and Gratian, then crowns a common soldier for his name
+tfe_opening.5 = {
+	type = country_event
+	title = tfe_opening.5.title
+	desc = tfe_opening.5.desc
+	outcome = negative
+
+	image = "gfx/interface/illustrations/event/backgrounds/exterior/soldiers/north_german_soldiers_exterior.dds"
+
+	trigger = { location:london = { owner ?= root } }
+
+	immediate = {
+		location:london = {
+			create_country_from_location = {
+				define_unique_country_tag = CONST
+				change_country_name = TFE_CONSTANTINE
+				change_country_adjective = TFE_CONSTANTINE_ADJ
+				change_country_color = map_lombard
+				change_country_flag = TFE_CONSTANTINE
+				set_country_rank = country_rank:rank_empire	# an Augustus, whatever Ravenna says
+				change_government_type = government_type:monarchy
+				add_gold = 200
+				create_character = {
+					first_name = name_constantine
+					culture = culture:roman_culture
+					religion = religion:orthodox
+					estate = estate_type:nobles_estate
+					age = 40
+					mil = 55
+					save_scope_as = tfe_usurper_ruler
+				}
+				set_new_ruler = scope:tfe_usurper_ruler
+				set_variable = { name = tfe_usurper_against value = root years = 10 }
+				save_scope_as = tfe_usurper
+			}
+		}
+		every_owned_location = {
+			limit = { region = region:great_britain_region }
+			change_location_owner = scope:tfe_usurper
+		}
+		set_variable = { name = tfe_usurper value = scope:tfe_usurper years = 10 }
+	}
+
+	# a soldier in the purple is a rebel: he will be hunted down
+	option = {
+		name = tfe_opening.5.a
+		add_prestige = 5
+		ai_chance = { base = 1 }
+	}
+
+	# with Alaric in Italy, better a colleague in Gaul than an enemy (409)
+	option = {
+		name = tfe_opening.5.b
+		historical_option = yes
+		add_prestige = -10
+		remove_variable = tfe_usurper
+		scope:tfe_usurper = { remove_variable = tfe_usurper_against }
+		ai_chance = { base = 1 }
+	}
+}

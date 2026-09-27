@@ -1,0 +1,24 @@
+﻿# TFE: a usurper holds a Roman province (events/tfe_opening.txt). Each side's variable names the other for 10 years.
+# The Augustus hunts the usurper down
+cb_tfe_suppress_usurper = {
+	create_visible = {
+		has_variable = tfe_usurper
+	}
+	create_enabled = {
+		scope:target = { this = root.var:tfe_usurper }
+	}
+	speed = 100
+	war_goal_type = superiority_tfe_migration	# the lost land comes back cheaply
+}
+
+# The usurper marches on the Augustus's lands
+cb_tfe_claim_the_purple = {
+	create_visible = {
+		has_variable = tfe_usurper_against
+	}
+	create_enabled = {
+		scope:target = { this = root.var:tfe_usurper_against }
+	}
+	speed = 100
+	war_goal_type = superiority_tfe_migration
+}

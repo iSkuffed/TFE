@@ -1,0 +1,22 @@
+﻿# TFE: the regimes of 395 (on_action/tfe_opening.txt, events/tfe_opening.txt)
+# Stilicho, magister of both services, rules for the boy Honorius: a strong regency
+tfe_stilicho_regency = {
+	game_data = { category = country }
+	land_morale_modifier = 0.1
+	global_nobles_estate_power = 0.2
+}
+
+# Rufinus, praetorian prefect, rules Arcadius's court: a weak and greedy one
+tfe_rufinus_prefecture = {
+	game_data = { category = country }
+	tax_income_efficiency = 0.1
+	global_estate_target_satisfaction = -0.05
+	monthly_legitimacy = -0.05
+}
+
+# Eutropius, the eunuch chamberlain, after Rufinus
+tfe_eutropius_chamber = {
+	game_data = { category = country }
+	tax_income_efficiency = 0.05
+	land_morale_modifier = -0.05
+}

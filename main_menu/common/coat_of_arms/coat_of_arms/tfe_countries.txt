@@ -2113,3 +2113,32 @@ NAZ = {
 		instance = { position = { 0.5 0.5 } scale = { 0.65 0.65 } }
 	}
 }
+
+# Usurpers spawned by events/tfe_opening.txt
+TFE_GILDO = {
+	pattern = "pattern_solid.dds"
+	color1 = "yellow"
+	color2 = "red"
+	color3 = "white"
+	colored_emblem = {
+		texture = "ce_chi_rho.dds"
+		color1 = color2
+		color2 = color3
+		color3 = color1
+		instance = { position = { 0.5 0.5 } scale = { 0.55 0.55 } }
+	}
+}
+
+TFE_CONSTANTINE = {
+	pattern = "pattern_solid.dds"
+	color1 = "purple"
+	color2 = "yellow"
+	color3 = "red"
+	colored_emblem = {
+		texture = "ce_roman_aquila.dds"
+		color1 = color2
+		color2 = color3
+		color3 = color1
+		instance = { position = { 0.5 0.5 } scale = { 0.85 0.85 } }
+	}
+}
