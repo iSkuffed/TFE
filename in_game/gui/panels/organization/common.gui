@@ -188,10 +188,41 @@ types OrganizationPanel
 					size = { -1 220 }
 				}
 
-				# TFE: the Unity of the Imperium Romanum, beneath the Augusti
-				ios_information_header = {
-					blockoverride "ios_information_header_visible" {
-						visible = "[EqualTo_string(InternationalOrganizationsView.GetInternationalOrganization.GetType.GetNameKey,'tfe_roman_empire')]"
+				# TFE: the Unity of the Imperium Romanum, a bar beneath the Augusti
+				widget = {
+					visible = "[EqualTo_string(InternationalOrganizationsView.GetInternationalOrganization.GetType.GetNameKey,'tfe_roman_empire')]"
+					layoutpolicy_horizontal = expanding
+					size = { -1 48 }
+					using = bg_paper_card
+					using = bg_cabinet_card_frame
+					hbox = {
+						margin = { 14 0 }
+						datamodel = "[InternationalOrganizationsView.GetInternationalOrganization.GetType.GetVariables]"
+						item = {
+							hbox = {
+								layoutpolicy_horizontal = expanding
+								spacing = 8
+								tooltipwidget = {
+									using = IOVariableTooltip
+								}
+								icon = {
+									size = { 25 25 }
+									texture = "[InternationalOrganizationsView.GetInternationalOrganization.GetVariableIcon(InternationalOrganizationTypeVariable.GetTag)]"
+								}
+								progressbar = {
+									layoutpolicy_horizontal = expanding
+									size = { -1 14 }
+									using = progress_bar_green_red_alt
+									min = "[FixedPointToFloat(InternationalOrganizationTypeVariable.GetMin)]"
+									max = "[FixedPointToFloat(InternationalOrganizationTypeVariable.GetMax)]"
+									value = "[FixedPointToFloat(InternationalOrganizationsView.GetInternationalOrganization.GetVariable(InternationalOrganizationTypeVariable.GetTag))]"
+								}
+								text_single = {
+									autoresize = yes
+									text = "[InternationalOrganizationsView.GetInternationalOrganization.GetVariableText(InternationalOrganizationTypeVariable.GetTag)]"
+								}
+							}
+						}
 					}
 				}
 

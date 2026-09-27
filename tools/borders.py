@@ -679,6 +679,47 @@ def bar_empires_from_formables(vanilla):
 IO_PANEL = "in_game/gui/panels/organization/common.gui"
 
 
+# the Imperium's Unity as a bar beneath the Augusti: green what holds, red what is lost (tooltip as vanilla's)
+UNITY_BAR = """
+				# TFE: the Unity of the Imperium Romanum, a bar beneath the Augusti
+				widget = {
+					visible = "[OURS]"
+					layoutpolicy_horizontal = expanding
+					size = { -1 48 }
+					using = bg_paper_card
+					using = bg_cabinet_card_frame
+					hbox = {
+						margin = { 14 0 }
+						datamodel = "[InternationalOrganizationsView.GetInternationalOrganization.GetType.GetVariables]"
+						item = {
+							hbox = {
+								layoutpolicy_horizontal = expanding
+								spacing = 8
+								tooltipwidget = {
+									using = IOVariableTooltip
+								}
+								icon = {
+									size = { 25 25 }
+									texture = "[InternationalOrganizationsView.GetInternationalOrganization.GetVariableIcon(InternationalOrganizationTypeVariable.GetTag)]"
+								}
+								progressbar = {
+									layoutpolicy_horizontal = expanding
+									size = { -1 14 }
+									using = progress_bar_green_red_alt
+									min = "[FixedPointToFloat(InternationalOrganizationTypeVariable.GetMin)]"
+									max = "[FixedPointToFloat(InternationalOrganizationTypeVariable.GetMax)]"
+									value = "[FixedPointToFloat(InternationalOrganizationsView.GetInternationalOrganization.GetVariable(InternationalOrganizationTypeVariable.GetTag))]"
+								}
+								text_single = {
+									autoresize = yes
+									text = "[InternationalOrganizationsView.GetInternationalOrganization.GetVariableText(InternationalOrganizationTypeVariable.GetTag)]"
+								}
+							}
+						}
+					}
+				}
+"""
+
 def augusti_in_io_header(vanilla):
     # the Imperium Romanum shows both Augusti with the union's two-portrait header, and its Unity beneath them
     key = "InternationalOrganizationsView.GetInternationalOrganization.GetType.GetNameKey"
@@ -687,8 +728,7 @@ def augusti_in_io_header(vanilla):
               f"[And5(Not(InternationalOrganizationsView.GetInternationalOrganization.GetType.ShowStrengthComparisonWithTarget),Not({ours}),"),
              (f"[Or(EqualTo_string({key},'union'),EqualTo_string({key},'marriage_union'))]\"\n\t\t\t\t\tlayoutpolicy_horizontal = expanding\n\t\t\t\t\tsize = {{ -1 220 }}\n\t\t\t\t}}\n",
               f"[Or3(EqualTo_string({key},'union'),EqualTo_string({key},'marriage_union'),{ours})]\"\n\t\t\t\t\tlayoutpolicy_horizontal = expanding\n\t\t\t\t\tsize = {{ -1 220 }}\n\t\t\t\t}}\n"
-              f"\n\t\t\t\t# TFE: the Unity of the Imperium Romanum, beneath the Augusti\n\t\t\t\tios_information_header = {{\n"
-              f"\t\t\t\t\tblockoverride \"ios_information_header_visible\" {{\n\t\t\t\t\t\tvisible = \"[{ours}]\"\n\t\t\t\t\t}}\n\t\t\t\t}}\n"))
+              + UNITY_BAR.replace("OURS", ours)))
     for old, new in swaps:
         assert vanilla.count(old) == 1, f"vanilla {IO_PANEL} changed: redo augusti_in_io_header"
         vanilla = vanilla.replace(old, new)
