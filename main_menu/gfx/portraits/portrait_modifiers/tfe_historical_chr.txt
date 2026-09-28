@@ -13,6 +13,12 @@ tfe_historical_characters = {
 				template = no_beard
 				range = { 0 1 } # For the randomness to work correctly
 			}
+			morph = {	# stubble is its own gene, rolled by ethnicity: no_beard alone leaves it
+				mode = replace
+				gene = gene_stubble
+				template = template_1
+				value = 0
+			}
 		}
 		weight = {
 			base = 0
@@ -32,6 +38,12 @@ tfe_historical_characters = {
 				gene = beards
 				template = no_beard
 				range = { 0 1 } # For the randomness to work correctly
+			}
+			morph = {	# stubble is its own gene, rolled by ethnicity: no_beard alone leaves it
+				mode = replace
+				gene = gene_stubble
+				template = template_1
+				value = 0
 			}
 		}
 		weight = {
@@ -53,6 +65,12 @@ tfe_historical_characters = {
 				template = no_beard
 				range = { 0 1 } # For the randomness to work correctly
 			}
+			morph = {	# stubble is its own gene, rolled by ethnicity: no_beard alone leaves it
+				mode = replace
+				gene = gene_stubble
+				template = template_1
+				value = 0
+			}
 		}
 		weight = {
 			base = 0
@@ -72,6 +90,12 @@ tfe_historical_characters = {
 				gene = beards
 				template = no_beard
 				range = { 0 1 } # For the randomness to work correctly
+			}
+			morph = {	# stubble is its own gene, rolled by ethnicity: no_beard alone leaves it
+				mode = replace
+				gene = gene_stubble
+				template = template_1
+				value = 0
 			}
 		}
 		weight = {
@@ -93,6 +117,12 @@ tfe_historical_characters = {
 				template = no_beard
 				range = { 0 1 } # For the randomness to work correctly
 			}
+			morph = {	# stubble is its own gene, rolled by ethnicity: no_beard alone leaves it
+				mode = replace
+				gene = gene_stubble
+				template = template_1
+				value = 0
+			}
 		}
 		weight = {
 			base = 0
@@ -112,6 +142,12 @@ tfe_historical_characters = {
 				gene = beards
 				template = no_beard
 				range = { 0 1 } # For the randomness to work correctly
+			}
+			morph = {	# stubble is its own gene, rolled by ethnicity: no_beard alone leaves it
+				mode = replace
+				gene = gene_stubble
+				template = template_1
+				value = 0
 			}
 		}
 		weight = {
@@ -133,6 +169,12 @@ tfe_historical_characters = {
 				template = no_beard
 				range = { 0 1 } # For the randomness to work correctly
 			}
+			morph = {	# stubble is its own gene, rolled by ethnicity: no_beard alone leaves it
+				mode = replace
+				gene = gene_stubble
+				template = template_1
+				value = 0
+			}
 		}
 		weight = {
 			base = 0
@@ -152,6 +194,12 @@ tfe_historical_characters = {
 				gene = beards
 				template = no_beard
 				range = { 0 1 } # For the randomness to work correctly
+			}
+			morph = {	# stubble is its own gene, rolled by ethnicity: no_beard alone leaves it
+				mode = replace
+				gene = gene_stubble
+				template = template_1
+				value = 0
 			}
 		}
 		weight = {
@@ -173,6 +221,12 @@ tfe_historical_characters = {
 				template = no_beard
 				range = { 0 1 } # For the randomness to work correctly
 			}
+			morph = {	# stubble is its own gene, rolled by ethnicity: no_beard alone leaves it
+				mode = replace
+				gene = gene_stubble
+				template = template_1
+				value = 0
+			}
 		}
 		weight = {
 			base = 0
@@ -192,6 +246,12 @@ tfe_historical_characters = {
 				gene = beards
 				template = no_beard
 				range = { 0 1 } # For the randomness to work correctly
+			}
+			morph = {	# stubble is its own gene, rolled by ethnicity: no_beard alone leaves it
+				mode = replace
+				gene = gene_stubble
+				template = template_1
+				value = 0
 			}
 		}
 		weight = {
