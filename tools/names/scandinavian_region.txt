@@ -1,0 +1,89 @@
+scandinavian_region = Scandia  # p: Pliny NH 4.104 and Ptolemy 2.11 Skandia; Jordanes' Scandza, womb of nations
+
+denmark_area = the Cimbric Chersonese  # p: Ptolemy 2.11 Kimbrike Chersonesos, Pliny's Cimbric peninsula; Jutland and its islands
+eastern_jutland_province = the Eudoses  # p: Tacitus Germ. 40, a Nerthus people, often taken for the later Jutes of east Jutland
+funen_province = the Lesser Scandiae  # p: Ptolemy 2.11.16, the three small Skandiai islands east of the Chersonese (Funen, Lolland, Falster)
+norrejylland_province = the Cimbri  # p: Ptolemy's Kimbroi, northernmost of the Chersonese; Himmerland keeps their name
+slesvig_province = the Angles  # p: Tacitus Germ. 40 Anglii; Angeln in Schleswig
+sonderjylland_province = the Sabalingii  # p: Ptolemy 2.11 Sabalingioi, southern Chersonese below the Cimbri
+vendsyssel_thy_province = the Cimbrian Promontory  # p: Pliny NH 2.167, 4.97 promunturium Cimbrorum; the Skaw
+western_jutland_province = the Harudes  # p: Ptolemy Charoudes, Caesar Harudes; Hardsyssel of west Jutland
+zealand_province = the Isle of Nerthus  # p: Tacitus Germ. 40, the goddess's sacred grove on an island of the Ocean, usually Zealand
+
+finland_area = the Fenni  # p: Tacitus Germ. 46 Fenni; Ptolemy's Phinnoi
+finland_province = the Gentle Finni  # p: Jordanes Get. 3.22 Finni mitissimi, gentlest of Scandza's peoples; Finland proper
+nyland_province = the Southern Fennic Shore  # d: Gulf coast of the Fenni, no ancient name
+satakunta_province = the Western Fennic Shore  # d: Bothnian coast and Kokemaki valley, no ancient name
+savolax_province = the Eastern Fennic Lakes  # d: inland lake country, no ancient name
+sodra_osterbotten_province = the Southern Sitones  # p: Tacitus Germ. 45 Sitones, woman-ruled; read as the Kvens of Ostrobothnia
+tavastland_province = the Western Fennic Lakes  # d: Hame lake country, no ancient name
+vyborg_province = the Fennic Isthmus  # d: Kymi valley and the Karelian isthmus, no ancient name
+
+gotaland_area = the Gautae  # p: Ptolemy 2.11 Goutai of southern Skandia; Procopius' Gautoi
+dalsland_province = the Western Lakeshore  # d: west shore of Lake Vanern, no ancient people placed here
+gotland_province = the Vagoth  # p: Jordanes Get. 3.22 Vagoth, often read as the Gotlanders
+ostergotland_province = the Ostrogothae  # p: Jordanes Get. 3.23 Ostrogothae of Scandza; Ostergotland
+ostra_smaland_province = the Theustes  # p: Jordanes Get. 3.22 Theustes; Tjust in eastern Smaland
+tioharad_province = the Finnaithae  # p: Jordanes Get. 3.22 Finnaithae; Finnveden of western Smaland
+vastergotland_province = the Gauthigoth  # p: Jordanes Get. 3.22 Gauthigoth; Vastergotland
+
+karelia_area = the Kareotae  # p: Ptolemy 3.5.22 Kareotai, far north of Sarmatia, linked with the Karelians
+aunus_karelia_province = the Vasinabroncae  # p: Jordanes Get. 23.116, Ermanaric's subjects, read as the Ves (Veps) of the Onega-Ladoga land
+inner_aunus_karelia_province = the Northern Lake Forests  # d: forest north of Lake Onega, no ancient name
+inner_white_karelia_province = the White Sea Forests  # d: inland forest behind the White Sea coast, no ancient name
+korela_province = the Salli  # p: Ptolemy 3.5.22 Salloi, beside the Kareotai; Ladoga shore
+white_karelia_province = the Karbones  # p: Ptolemy 3.5.22 Karbones, northernmost people of Sarmatia by the Ocean
+
+kola_area = Hyperborea  # p: Pliny NH 4.89, the land beyond the north wind at the world's hinge
+north_kola_province = the Amalchian Shore  # p: Pliny NH 4.94 (Hecataeus), Amalchium, the frozen northern ocean
+south_kola_province = the Cronian Shore  # p: Pliny NH 4.104 mare Cronium, the congealed sea beyond Thule
+western_kola_province = the Hyperborean Fells  # d: inland fells of the Kola, no ancient name
+
+nord_norge_area = Northern Scandza  # p: Jordanes Get. 3.19-21 Scandza, its far north of the Adogit and midsummer light; Procopius calls it Thule
+finnmark_province = the Rubean Promontory  # p: Pliny NH 4.95 promunturium Rubeas, where the frozen sea begins; perhaps the North Cape
+jamtland_province = the Inland Fells  # d: upland east of the Keel, no ancient name
+nor_trondelag_province = the Eunixi  # p: Jordanes Get. 3.24 Eunixi, perhaps the Eynir of Inderoy (Eynafylki)
+nordland_province = the Adogit  # p: Jordanes Get. 3.19 Adogit, 40 days of unbroken light at midsummer; Halogaland
+romsdalen_province = the Western Fjords  # d: More and Romsdal fjords, no ancient name
+sor_trondelag_province = the Great Northern Fjord  # d: Trondheimsfjord and its dales, no ancient name
+troms_province = the Arctic Skerries  # d: isles and coast of Troms, no ancient name
+
+norrland_area = the Screrefennae  # p: Jordanes Get. 3.21 Screrefennae; Procopius' Skrithiphinoi, the hunting Finns of the north
+angermanland_province = the Favonae  # p: Ptolemy 2.11 Phauonai, in the east of Skandia
+halsingland_province = the Firaesi  # p: Ptolemy 2.11 Phiraisoi, in the east of Skandia
+kajanaland_province = the Eastern Wilds  # d: Kainuu forests, no ancient name
+kemi_lappmark_province = the Northern Wilds  # d: Inari and Kemi fells, no ancient name
+lule_lappmark_province = the High Fells  # d: Sarek and the Lule fells, no ancient name
+norra_osterbotten_province = the Sitones  # p: Tacitus Germ. 45 Sitones, ruled by a woman; read as the Kvens of Kvenland
+pite_lappmark_province = the Western Fells  # d: Arjeplog fells, no ancient name
+torne_lappmark_province = the Scrithiphini  # p: Procopius Wars 6.15 Skrithiphinoi, hunters without wine or tilled land
+ume_lappmark_province = the Southern Fells  # d: Ume and Angerman fells, no ancient name
+vasterbotten_province = the Northern Gulf Shore  # d: coast at the head of the Bothnian gulf, no ancient name
+
+skaneland_area = the Dauciones  # p: Ptolemy 2.11 Daukiones, beside the Gautae in southern Skandia
+blekinge_province = the Southern Skerries  # d: Blekinge coast and archipelago, no ancient name
+gonge_province = the Scanian Uplands  # d: wooded inland Scania, no ancient name
+halland_province = the Hallin  # p: Jordanes Get. 3.22 Hallin; Halland
+malmohus_province = the Liothida  # p: Jordanes Get. 3.22 Liothida, perhaps Luggude of western Scania
+
+svealand_area = the Suiones  # p: Tacitus Germ. 44, the Suiones strong in ships in the Ocean itself
+dalarna_province = the Dales  # d: Dalarna means the Dales, no ancient name
+gastrikland_province = the Northern Shore of the Suiones  # d: Gastrikland coast, no ancient name
+nerike_province = the Plain of Nerike  # d: Narke plain, no ancient name
+sodermanland_province = the Suetidi  # p: Jordanes Get. 3.23 Suetidi, tallest of the Scandza peoples
+uppland_province = the Suehans  # p: Jordanes Get. 3.21 Suehans, famed for horses; the Svear of Uppsala
+varmland_province = the Western Woodlands  # d: Varmland forests, no ancient name
+vastmanland_province = the Levoni  # p: Ptolemy 2.11 Leuonoi, in the middle of Skandia
+
+syd_norge_area = Nerigos  # p: Pliny NH 4.104 Nerigos, largest of the northern isles, whence one sails to Thule; Norway
+agder_province = the Augandzi  # p: Jordanes Get. 3.24 Augandzi; Agder
+akershus_province = the Raumarici  # p: Jordanes Get. 3.23 Raumarici; Romerike
+bergenhus_province = the Arochi  # p: Jordanes Get. 3.24 Arochi; Hordaland
+bohus_province = the Ranii  # p: Jordanes Get. 3.24 Ranii of King Rodulf; Ranrike (Bohuslan)
+buskerud_province = the Ragnaricii  # p: Jordanes Get. 3.23 (Ae)ragnaricii; Ringerike
+hedmark_province = the Chaedini  # p: Ptolemy 2.11 Chaideinoi, west of Skandia; the Heinir of Hedmark
+oppland_province = Mount Saevo  # p: Pliny NH 4.96 mons Saevo, immense, no smaller than the Rhipaean; the Norwegian highlands
+ostfold_province = the Vinoviloth  # p: Jordanes Get. 3.23 Vinoviloth, sometimes placed in Vingulmark
+rogaland_province = the Rugi  # p: Jordanes Get. 3.24 Rugi of Scandza; the Rygir of Rogaland
+sogn_province = the Great Fjord  # d: Sognefjord and Fjordane, no ancient name
+vestfold_province = the Grannii  # p: Jordanes Get. 3.24 Grannii; Grenland

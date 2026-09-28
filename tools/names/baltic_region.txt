@@ -1,0 +1,89 @@
+baltic_region = the Suebic Sea  # p: Tacitus Germ. 45 mare Suebicum, whose right shore the Aestii hold; the Baltic lands
+
+baltic_area = the Thiudi  # p: Jordanes Get. 23.116 Thiudos, Ermanaric's subjects, the Chud (Finnic peoples of the eastern Baltic)
+courland_province = the Curonian Coast  # d: Courland coast, no ancient name
+estonia_province = the Northern Thiudi  # p: Jordanes' Thiudi (Chud); north Estonian coast
+inner_livonia_province = the Livonian Uplands  # d: Gauja uplands of Vidzeme, no ancient name
+latgalia_province = the Upper Rubo  # p: Ptolemy 3.5 Rhoubon river, usually the Daugava; its upper course
+north_livonia_province = the Western Thiudi  # p: Jordanes' Thiudi (Chud); Parnu and Viljandi
+rotalia_province = the Ossii  # p: Ptolemy 3.5.22 Osioi, north of the Veltae; Osel (Saaremaa)
+selonia_province = the Middle Rubo  # p: Ptolemy's Rhoubon (Daugava); its middle course
+semigalia_province = the Turuntes  # p: Ptolemy 3.5 Tourountes river, perhaps the Lielupe
+south_livonia_province = the Mouth of the Rubo  # p: Ptolemy's Rhoubon (Daugava) mouth, site of Riga
+tartu_province = the Southern Thiudi  # p: Jordanes' Thiudi (Chud); south Estonia
+
+central_poland_area = the Diduni  # p: Ptolemy 2.11 Lougoi Didounoi, Lugian people between the Omani and the mountains
+dobrzyn_province = the Sulones  # p: Ptolemy 3.5 Soulones, east of the Vistula below the Gythones
+kuyavia_province = Ascaucalis  # p: Ptolemy 2.11 Askaukalis, placed near Bydgoszcz on the Amber Road
+leczyca_province = the Bzura Plain  # d: Leczyca and Lodz plain, no ancient name
+sieradz_province = the Upper Warta  # d: Sieradz and Piotrkow on the upper Warta, no ancient name
+wielun_province = the Prosna Valley  # d: Wielun border land, no ancient name
+
+greater_poland_area = the Lugii  # p: Tacitus Germ. 43 Lugiorum nomen, a league of many civitates; Ptolemy's Lougoi
+arnskrone_province = the Drawa Lakeland  # d: Walcz and Czaplinek lakes; the Lemovii of Tacitus are named in Pomerania (north_german)
+gniezno_province = the Manimi  # p: Tacitus Germ. 43 Manimi; Ptolemy's Lougoi Omanoi
+kalisz_province = Calisia  # p: Ptolemy 2.11 Kalisia, the Amber Road station at Kalisz
+konin_province = Setidava  # p: Ptolemy 2.11 Setidava, Amber Road station, placed near Konin or Klodawa
+koscian_province = the Helisii  # p: Tacitus Germ. 43 Helisii, a Lugian civitas
+naklo_province = the Notec Valley  # d: Naklo and Wyrzysk; the Helvecones of Tacitus are named in Pomerania (north_german)
+poznan_province = the Harii  # p: Tacitus Germ. 43 Harii, the night-fighting Lugian civitas
+pyzdry_province = the Middle Warta  # d: Sroda and Pyzdry on the middle Warta, no ancient name
+znin_province = the Northern Lakeland  # d: Znin and Szubin lakes, no ancient name
+
+lesser_poland_area = the Upper Vistula  # p: Pliny NH 4.81, Ptolemy Vistula (Ouistoulas); its upper basin
+checiny_province = the Iron Hills  # d: Holy Cross mountains, the great Roman-age iron-smelting field, no ancient name
+czestochowa_province = the Jura Heights  # d: Krakow-Czestochowa upland, no ancient name
+krakow_province = the Lugi Buri  # p: Ptolemy 2.11 Lougoi Bouroi, toward the sources of the Vistula
+lublin_province = the Ombrones  # p: Ptolemy 3.5.21 Ombrones, east of the Vistula below the Avarini
+nowy_sacz_province = the Biessi  # p: Ptolemy 3.5.21 Biessoi, below the Carpathian mountain
+pilzno_province = the Arsietae  # p: Ptolemy 3.5.21 Arsietai, east of the upper Vistula
+radom_province = the Burgiones  # p: Ptolemy 3.5.21 Bourgiones, along the middle Vistula
+sandomierz_province = the Anartophracti  # p: Ptolemy 3.5.21 Anartophraktoi, east of the upper Vistula
+szczyrzyc_province = the Avarini  # p: Ptolemy 3.5.20 Auarinoi, at the sources of the Vistula
+
+lithuania_area = the Stavani  # p: Ptolemy 3.5.21 Stauanoi, east of the Sudini, reaching to the Alani
+ashmyany_province = the Ashmyany Heights  # d: Ashmyany upland, no ancient name
+breslauja_province = the Braslaw Lakes  # d: Braslaw lake country, no ancient name
+kaunas_province = the Upper Chronus  # p: Ptolemy 3.5 Chronos river, usually the Neman; Kaunas reach
+lida_province = the Southern Stavani  # p: Ptolemy's Stauanoi; Lida and the upper Neman
+suwalki_province = the Sudini  # p: Ptolemy 3.5.21 Soudinoi, the later Sudovians of Suwalki
+svir_province = the Narach Lakes  # d: Myadzyel and Svir lakes, no ancient name
+trakai_province = the Eastern Sudini  # p: Ptolemy's Soudinoi; Trakai, Merkine and Lazdijai
+upyte_province = the Nevezis Plain  # d: Panevezys plain, no ancient name
+vilkmerge_province = the Sventoji Valley  # d: Ukmerge and Utena, no ancient name
+vilnius_province = the Neris Valley  # d: Vilnius and Kernave on the Neris, no ancient name
+
+mazovia_area = the Venedi  # p: Tacitus Germ. 46 Venethi; Ptolemy's Ouenedai, greatest nation of Sarmatia east of the Vistula
+ciechanow_province = the Northern Venedi  # p: Tacitus' Venethi; north Mazovian plain
+czersk_province = the Southern Venedi  # p: Tacitus' Venethi; Czersk and Garwolin
+lomza_province = the Southern Galindae  # p: Ptolemy's Galindai; the Narew borderland
+plock_province = the Phrugundiones  # p: Ptolemy 3.5.20 Phrougoundiones, east of the Vistula below the Sulones
+podlasie_province = the Igylliones  # p: Ptolemy 3.5.21 Igylliones, south of the Sudini and Stavani
+rawa_province = the Rawka Valley  # d: Rawa and Sochaczew, no ancient name
+warsaw_province = the Middle Vistula  # p: Ptolemy's Vistula; Warsaw reach
+
+prussia_area = the Aestii  # p: Tacitus Germ. 45, amber gatherers of the Suebic Sea; Jordanes' Aesti under Ermanaric
+chelmno_province = the Eastern Gutones  # p: Ptolemy 3.5.20 Gythones east of the Vistula; Chelmno land
+danzig_province = Gothiscandza  # p: Jordanes Get. 4.26, where the Goths landed from Scandza at the Vistula mouth
+lithuania_minor_province = the Lower Chronus  # p: Ptolemy 3.5 Chronos river, usually the Neman; its mouth and lagoon
+lower_prussia_province = the Amber Coast  # d: Sambia, heart of Tacitus' amber trade, no ancient name for the peninsula
+masuria_province = the Galindae  # p: Ptolemy 3.5.21 Galindai; Galindia in the Masurian lakes
+tuchola_province = the Gutones  # p: Tacitus Germ. 44 Gotones, Pliny Gutones; the Wielbark heartland of Tuchola forest
+upper_prussia_province = the Ulmerugi  # p: Jordanes Get. 4.26 Ulmerugi, on the Ocean shore where the Goths landed; the Vistula delta
+warmia_province = the Western Galindae  # p: Ptolemy's Galindai; Warmia west of Galindia
+
+samogitia_area = the Veltae  # p: Ptolemy 3.5.22 Ouelltai, beyond the Venedic Gulf along the Ocean
+medininkai_province = the Coast of the Veltae  # p: Ptolemy's Veltae; Palanga coast
+raseiniai_province = the Middle Chronus  # p: Ptolemy's Chronos (Neman); Jurbarkas and Kedainiai
+siauliai_province = the Inland Veltae  # p: Ptolemy's Veltae; Siauliai plain
+
+silesia_area = the Silingi  # p: Ptolemy 2.11 Silingai, Vandal people who gave Silesia its name
+glogow_province = the Middle Viadua  # p: Ptolemy 2.11 Ouiadouas river, usually the Oder; Glogow reach
+legnica_province = Lugidunum  # p: Ptolemy 2.11 Lougidounon, a Lugian town often placed at Legnica
+olesnica_province = the Barycz Marshes  # d: Milicz and Olesnica, no ancient name
+opavsko_province = the Moravian Gate  # d: Opava and Krnov, the Amber Road pass, no ancient name
+opole_province = the Upper Viadua  # p: Ptolemy's Ouiadouas (Oder); Opole reach
+swidnica_province = the Corconti  # p: Ptolemy 2.11 Korkontoi, by the Giant Mountains (Karkonosze)
+tesin_province = the Beskid Foothills  # d: Cieszyn, Raciborz and Bytom, no ancient name
+wroclaw_province = the Naharvali  # p: Tacitus Germ. 43 Naharvali, keepers of the grove of the Alcis, placed at Mount Sleza
+zagan_province = the Bober Valley  # d: Zagan and Zary, no ancient name

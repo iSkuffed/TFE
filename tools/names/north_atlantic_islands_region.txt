@@ -1,0 +1,16 @@
+north_atlantic_islands_region = Ultima Thule  # p: Virgil Georgics 1.30, Tacitus Agricola 10; the farthest north
+
+greenland_area = the Cronian Sea  # p: Pliny 4.104 mare Cronium, the frozen sea a day beyond Thule
+gardr_province = the Great Fjords  # d: no ancient name; Eriksfjord and Einarsfjord
+herjolfnes_province = the Southern Cape  # d: no ancient name; the Cape Farewell coast
+middle_settlement = the Middle Fjords  # d: no ancient name; the Ivittuut and Arsuk fjords
+vestribygd = the Northern Fjords  # d: no ancient name; the Nuuk fjord
+
+iceland_area = Thule  # p: Pytheas via Strabo and Pliny, six days north of Britain
+east_farthing = East Thule  # d: eastern quarter of Thule
+north_farthing = North Thule  # d: northern quarter of Thule
+south_farthing = South Thule  # d: southern quarter of Thule
+west_farthing = West Thule  # d: western quarter of Thule
+
+northern_isles_area = the Orcades  # p: Mela, Pliny, Tacitus, Ptolemy
+northern_isles_province = the Orcades  # p: Orkney, with Shetland (Pliny's Acmodae) and the Faroes

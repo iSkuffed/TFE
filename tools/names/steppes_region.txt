@@ -1,0 +1,81 @@
+# The Pontic and Caspian steppe in 395: Huns and Alans (the Tanaitae of the Don subdued in 375), the Bosporan
+# Kingdom and Chersonesus in Crimea, Maeotian peoples of the Kuban. Herodotus' Scythia gives the old names.
+steppes_region = Scythia  # p: Herodotus IV, Ammianus XXXI.2; the steppe of the Huns and Alans (not Scythia Minor)
+
+astrakhan_area = the Rha  # p: Ptolemy V.9, Rha, the Volga (Ammianus XXII.8.28); the lower river, land of the Aorsi (Strabo XI.5.8)
+astrakhan_province = the Mouths of the Rha  # p: Ptolemy V.9, Rha, the Volga; Ammianus XXII.8.28
+bolkhuny_province = the Eastern Aorsi  # p: Strabo XI.5.8; Akhtuba and Zhanybek east of the Volga
+chyorny_yar_province = the Middle Rha  # p: Ptolemy V.9, Rha; Chyorny Yar between Volgograd and Astrakhan
+dardeling_province = the Western Aorsi  # p: Strabo XI.5.8; the Kalmyk steppe
+pologoye_zaymishche_province = the Upper Aorsi  # p: Strabo XI.5.8, the Upper Aorsi; Srednyaya Akhtuba and Elton
+priyutnoye_province = the Southern Aorsi  # p: Strabo XI.5.8; Elista and the Ergeni hills
+zamyany_province = the Lower Rha  # p: Ptolemy V.9, Rha; Yenotayevka and Zamyany
+
+azov_area = the Lower Tanais  # p: Tanais, the Don, and its delta on the Maeotis
+azov_province = the Iaxamatae  # p: Ptolemy V.9.16, by the Tanais mouth (Mela's Ixamatae); Azov and the Yeya steppe
+luhan_province = the Lower Hyrgis  # p: Herodotus IV.57, Hyrgis, the Donets; Luhansk and Belaya Kalitva
+semikarakorsk_province = the Southern Tanaitae  # a: Ammianus XXXI.3.1, Tanaite Alans; the Sal and Manych
+tana_province = the Territory of Tanais  # a: Greek emporion Tanais at Nedvigovka, rebuilt in the 4th c.
+ust_tsimla_province = the Ophlones  # p: Ptolemy III.5.10, at the bend of the Tanais with the Tanaitae
+
+crimea_area = Taurica  # a: Chersonesus Taurica (Ptolemy III.6); Bosporan Kingdom and Chersonesus
+cafa_province = the Cimmerian Bosporus  # a: Bosporus Cimmerius, the Bosporan Kingdom of Panticapaeum and Theodosia
+gothia_province = the Territory of Chersonesus  # a: Chersonesus (Sevastopol), free city allied to Rome; Tauric hills
+or_qapi_province = the Tauroscythae  # p: Ptolemy III.5.11; steppe Crimea of Scythian Neapolis and Kerkinitis
+
+kursk_area = the Melanchlaeni  # p: Herodotus IV.20,107; Ammianus XXXI.2.15; north of the Royal Scythians
+alexeyevka_province = the Eastern Melanchlaeni  # p: Herodotus IV.107; Valuyki and the Oskol
+belgorod_province = the Southern Melanchlaeni  # p: Herodotus IV.107; Belgorod and Oboyan
+kursk_province = the Western Melanchlaeni  # p: Herodotus IV.107; Kursk on the Seym
+voronezh_province = the Upper Tanais  # p: Tanais, the Don; Voronezh and Ostrogozhsk
+yelets_province = the Northern Melanchlaeni  # p: Herodotus IV.107; Yelets and Livny
+
+lower_don_area = the Tanaitae  # a: Ammianus XXXI.3.1, Tanaite Alans of the Don; Ptolemy III.5.10
+beljamen_province = the Rha Bend  # p: Ptolemy V.9, the Rha's bend toward the Tanais; Sarai al-Jadid
+borisoglebsk_province = the Northern Tanaitae  # a: Ammianus XXXI.3.1; the Khopyor
+kashary_province = the Western Tanaitae  # a: Ammianus XXXI.3.1; Boguchar and Kashary
+kremenskaya_province = the Tanais Bend  # p: Ptolemy III.5.10, bend of the Tanais; Kletskaya and Nizhny Chir
+mikhaylovka_province = the Eastern Tanaitae  # a: Ammianus XXXI.3.1; the Medveditsa
+yelan_province = the Sauromatae  # p: Herodotus IV.21,57; east of the Tanais toward the Volga (Kamyshin)
+
+lower_yik_area = the Daix  # p: Ptolemy VI.14, Daix, the Ural river; Menander's Daich
+kalmyk_province = the Western Daix  # p: Ptolemy VI.14, Daix; Oral and the steppe west of the Ural river
+mechetnaya_province = the Thyssagetae  # p: Herodotus IV.22,123; beyond the Budini; placement conjectural
+piterka_province = the Oarus  # p: Herodotus IV.123-124, Oarus, often the Volga; Pokrovsk and Krasny Kut
+ryn_province = the Lower Daix  # p: Ptolemy VI.14; Sarayjuk and the Ryn sands
+taskala_province = the Iyrcae  # p: Herodotus IV.22, hunters beside the Thyssagetae; placement conjectural
+
+majar_area = the Siraces  # p: Strabo XI.5.8; Tacitus Annals XII.15-17 (Siraci of King Zorsines)
+majar_province = the Udon  # p: Ptolemy V.9, Udon, the Kuma
+privolnoye_province = the Achardeus  # p: Strabo XI.5.8, river of the Siraces; the Yegorlyk and Manych
+stavropol_province = the Western Siraces  # p: Strabo XI.5.8; the Stavropol upland
+terek_province = the Alonta  # p: Ptolemy V.9, Alonta, the Terek; Kizlyar
+
+matrega_area = the Maeotae  # p: Strabo XI.2.4, Maeotian peoples of the Kuban
+akhtar_province = the Dandarii  # a: Tacitus Annals XII.15, Strabo XI.2.11; the Kuban delta
+labinsk_province = the Middle Vardanes  # p: Ptolemy V.9, Vardanes, the Kuban; Armavir and the Laba
+taman_province = Sindica  # a: Strabo XI.2.10; Sindike with Gorgippia and Phanagoria, the Asian Bosporus
+tuapse_province = the Kerketae  # p: Strabo XI.2.14, coast people about Tuapse, with Maykop inland
+
+pryazovia_area = the Roxolani  # p: Strabo VII.3.17, Ptolemy III.5.7; along the Maeotis
+bakhmut_province = the Northern Roxolani  # p: Strabo VII.3.17; Bakhmut and Lysychansk
+berda_province = the Lycus  # p: Herodotus IV.57,123, river into the Maeotis; the Molochna or Berda
+kalmius_province = Kremnoi  # p: Herodotus IV.20,110, the Cliffs, port on the Maeotis; Taganrog
+
+sloboda_ukraine_area = the Hyrgis  # p: Herodotus IV.57,123, Hyrgis/Syrgis, the Donets
+bielska_sloboda_province = the Eastern Hyrgis  # p: Herodotus IV.57; the Aydar
+donetsk_province = the Upper Hyrgis  # p: Herodotus IV.57; Chuhuiv and Zmiiv
+izium_province = the Middle Hyrgis  # p: Herodotus IV.57; Izium and Sloviansk
+sumy_province = the Eastern Budini  # p: Herodotus IV.108; Sumy on the Psel near Gelonus
+
+yedisan_area = the Callipidae  # p: Herodotus IV.17, Hellenic Scythians about Olbia
+boh_province = the Territory of Olbia Pontica  # a: Olbia (Borysthenes) at the Hypanis mouth, near Ochakiv
+khadjibey_province = the Axiaces  # p: Pliny IV.82, Ptolemy III.5.6; the Tylihul, Odessa coast
+oleshia_province = Hylaea  # p: Herodotus IV.18,54, the Woodland by the Borysthenes mouth (Oleshky sands)
+qalancak_province = the Lower Borysthenes  # p: Borysthenes, the Dnieper; Kakhovka and Velyka Lepetykha
+
+zaporizhzhia_area = the Royal Scythians  # p: Herodotus IV.20,71; kurgans by the Borysthenes rapids
+karlivka_province = the Southern Budini  # p: Herodotus IV.108; the Orel and Samara near Gelonus
+kodaky_province = Gerrhus  # p: Herodotus IV.53,71, royal burial land (Chertomlyk, Tomakivka)
+yelanets_province = the Pantikapes  # p: Herodotus IV.54, river of the Scythian nomads; the Ingulets, conjectural
+zaporizhzhia_province = the Nomad Scythians  # p: Herodotus IV.19,55; east of the Dnieper toward the Gerrhus

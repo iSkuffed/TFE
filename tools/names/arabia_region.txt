@@ -1,0 +1,76 @@
+# Arabia in 395: Himyar ruling Saba and Hadramawt, the Lakhmids on the Gulf, Kinda in Najd, the Salihids for Rome,
+# Sasanian Mazun in Oman; Ptolemy's peoples where no city or district fits
+arabia_region = Arabia Felix  # p: Ptolemy 6.7, Arabia Felix, the whole peninsula south of Arabia Deserta
+
+bahrein_area = the Gerrhaei  # p: Ptolemy 6.7 Gerraei, Strabo 16.3.3 Gerrhaeans; Lakhmid and Sasanian Bahrayn
+al_ahsa_province = Gerrha  # a: Strabo, Pliny; Gerrha by al-Uqair and Hofuf, with Qatif and Tylos (Bahrain)
+batin_province = the Orcheni  # p: Ptolemy 5.19, Arabia Deserta on the Persian Gulf (Kuwait, Hafar al-Batin)
+nita_province = Chattenia  # a: Polybius 13.9, the Gerrhaean hinterland; Thaj
+qatar_province = Catara  # p: Ptolemy's Katara, Pliny's Catharrei; Qatar
+yabrin_province = the Iobaritae  # p: Ptolemy 6.7 Iobaritae, often placed at Yabrin (Jabrin)
+
+hail_area = Arabia Deserta  # p: Ptolemy 5.19, north Arabian desert with Dumaetha
+hail_province = the Tayyi  # a: Tayyi of Aja and Salma (Syriac Tayyaye), Hail
+jawf_province = Dumatha  # p: Ptolemy's Dumaetha, Assyrian Adumatu, Dumat al-Jandal
+nafud_province = Thaema  # p: Ptolemy's Thaema, Tayma
+sirhan_province = the Salihids  # a: Banu Salih, Roman foederati, Wadi Sirhan
+zubala_province = the Agraei  # p: Ptolemy 5.19, Strabo 16.4.2 Agraeans, north Najd toward Iraq
+
+hedjaz_area = the Hejaz  # a: al-Hijaz of pre-Islamic poetry; Ptolemy's Thamydeni and Cinaedocolpitae
+dhalam_province = the Eastern Hejaz  # d: the Najd road east of Taif (Zalim, Muwayh)
+duba_province = the Thamydeni  # p: Ptolemy 6.7, Diodorus 3.44 Thamudeni of the northern coast (Duba, al-Wajh)
+hinakiyah_province = the Hejaz Goldfields  # d: Ma'din Bani Sulaym and Rabadha mines
+khaybar_province = Khaybar  # a: Jewish oasis of Khaybar, Nabonidus' Hibra
+khulays_province = the Cinaedocolpitae  # p: Ptolemy 6.7 Kinaidokolpitai, coast north of Jeddah
+madian_province = Midian  # a: Ptolemy's Modiana (Madiama) at al-Bad; Leuke Kome at Aynuna
+mecca_province = Macoraba  # p: Ptolemy 6.7 Makoraba, Mecca
+medina_province = Yathrib  # a: Ptolemy's Iathrippa, Nabonidus' Yatribu
+qura_province = Hegra  # a: Ptolemy's Egra, Nabataean and Roman Hegra (Mada'in Salih), Dedan (al-Ula)
+tabuk_province = Thapaua  # p: Ptolemy's Thapaua, Tabuk
+taif_province = Taif  # a: pre-Islamic Taif (Wajj) of the Thaqif
+umluj_province = Leuke Kome  # a: Periplus 19, the White Village, at al-Hawra in the older identification
+yanbu_province = Iambia  # p: Ptolemy 6.7 Iambia, Yanbu
+
+najd_area = Najd  # a: al-Najd of pre-Islamic poetry; Kinda, Tamim and Tayyi lands
+afif_province = Dariyya  # a: pre-Islamic Hima Dariyya, Afif
+al_hisu_province = the Nuqra Plain  # d: an-Nuqrah and al-Hisu
+ar_rayn_province = Masal  # a: Ma'sal al-Jumh, Himyarite inscription of Abikarib As'ad (c. 420); al-Quway'iyah
+arid_province = Hajr  # a: Hajr al-Yamama (Riyadh) of the Banu Hanifa
+dawasir_province = the Kinda  # a: Kinda, capital Qaryat Dhat Kahl (Qaryat al-Faw)
+east_qassim_province = Eastern Qassim  # d: Unaizah, Buraydah, an-Nibaj
+fadak_province = Fadak  # a: Nabonidus' Padakku, oasis of Fadak
+laila_province = the Aflaj  # d: al-Aflaj oases, Laila
+sudair_province = the Tamim  # a: Banu Tamim, Sudair and the Dahna
+udakh_province = Central Najd  # d: the steppe between Afif and al-Washm
+washm_province = the Washm  # d: al-Washm, Shaqra
+west_qassim_province = Western Qassim  # d: ar-Rass and the western Qassim
+yamama_province = Yamama  # a: al-Yamama (Jaww), al-Kharj
+
+north_yemen_area = Saba  # a: Saba, Ptolemy's Sabaei; the northern highlands and Asir, under Himyar
+abha_province = Tabala  # a: pre-Islamic Tabala, shrine of Dhu l-Khalasa; Asir highlands
+hali_province = the Cassanitae  # p: Ptolemy 6.7 Kassanitai, Periplus 20; the Tihama coast south of the Cinaedocolpitae
+hirda_province = the Hashid  # a: Hashid of the Sabaic inscriptions, Hajjah and Khamir
+jazan_province = Ferresan  # a: Portus Ferresani, Latin inscription of 144 on Farasan; the Jazan coast
+ranyah_province = the Bisha Valley  # d: Wadi Bisha and Ranyah
+sana_province = the Minaei  # p: Ptolemy 6.7 Minaei; Ma'in, Najran (Strabo's Negrana), Sa'da and Sanaa
+tathlith_province = the Wadi Tathlith  # d: Tathlith and Khaybar al-Janub
+turbah_province = the Turabah Valley  # d: Wadi Turabah
+
+oman_area = Mazun  # a: Sasanian Mazun (Shapur I's inscription), Oman under Persia
+batina_province = Omana  # a: Pliny 6.149 Omana, the Batinah port (Sohar)
+julfar_province = the Asabi  # p: Ptolemy 6.7 Asabi by Cape Asabon (Musandam); Julfar, ed-Dur, Mleiha
+masqat_province = the Omanitae  # p: Ptolemy 6.7 Omanitae, the coast of Muscat and Sur
+nizwa_province = Maka  # a: Achaemenid Maka (Behistun), the Omani interior
+
+south_yemen_area = the Homeritae  # a: Himyar, Philostorgius 3.4 (embassy of Theophilus); capital Zafar
+aden_province = Eudaemon Arabia  # a: Periplus 26 Eudaimon Arabia, Aden
+birali_province = Cane  # a: Periplus 27 Kane, the incense port of Hadramawt at Bir Ali
+dathina_province = Ausan  # a: Awsan kingdom, Periplus' Ausanitic coast; Dathina and the Abyan coast
+hadramawt_province = Hadramaut  # a: Hadramawt, Ptolemy's Chatramotitae; Shibam, Tarim
+hudaida_province = the Northern Tihama  # a: qualifier; Sabaic Tihamat, al-Hudaydah
+ibb_province = Sapphar  # a: Ptolemy's Sapphar metropolis, Zafar, the Himyarite capital
+mahra_province = Sachalites  # a: Periplus 29-32 Sachalites, frankincense land of Dhofar with Moscha (Khor Rori)
+marib_province = Mariaba  # a: Strabo, Pliny; Marib, the Sabaean capital and dam
+sayhad_province = Cattabania  # a: Strabo 16.4.2 Kattabania, Qataban (Timna in Bayhan) with Shabwa
+taizz_province = Muza  # a: Periplus 21 Mouza, al-Mukha, with Taizz
+zabid_province = the Southern Tihama  # a: qualifier; Sabaic Tihamat, Zabid
