@@ -108,7 +108,7 @@ before it goes in: spelling and forms consistent across groups, no duplicate nam
 - Every vanilla per-language province name in scope is overridden.
 - The generated files match the tables and start with a UTF-8 BOM.
 
-In game: the map labels at region, area and province zoom (Diocese of Gaul, Second Lugdunensis, the Parisii);
+In game: the map labels at region, area and province zoom (Diocese of Gaul, Second Lugdunensis, Parisii);
 Carthage reads Carthago; the East's provinces read English, not Greek. And a probe: does a town's name follow its
 pops' language or its owner's? That decides what a Roman town shows once the Goths hold it.
 
