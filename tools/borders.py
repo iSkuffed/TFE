@@ -8,6 +8,7 @@
   uv run tools/borders.py explain LOC  show how LOC got its owner
 """
 import json
+import os
 import zlib
 import re
 import sys
@@ -18,7 +19,10 @@ from PIL import Image
 
 Image.MAX_IMAGE_PIXELS = None
 
-GAME = Path.home() / ".local/share/Steam/steamapps/common/Europa Universalis V/game"
+# vanilla EU5: EU5_GAME if set, else Steam's default place on Linux, then Windows
+_GAMES = [s / "steamapps/common/Europa Universalis V/game" for s in (Path.home() / ".local/share/Steam",
+                                                                     Path("C:/Program Files (x86)/Steam"))]
+GAME = Path(os.environ.get("EU5_GAME") or next((g for g in _GAMES if g.exists()), _GAMES[0]))
 MAP = GAME / "in_game/map_data"
 MOD = Path(__file__).resolve().parent.parent
 TOOLS = MOD / "tools"
