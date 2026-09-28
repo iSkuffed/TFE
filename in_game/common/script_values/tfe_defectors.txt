@@ -1,0 +1,19 @@
+﻿# TFE: the share of a migrating host's strength restored by each Roman town it takes (on_action/tfe_defectors.txt).
+# Scope: the town's Roman owner. Each of the West's burdens drives more men to the host.
+tfe_defectors_share = {
+	value = 0.05
+	if = {
+		limit = { has_reform = government_reform:tfe_senatorial_immunities }
+		add = 0.025
+	}
+	if = {
+		limit = { has_reform = government_reform:tfe_patrocinium }
+		add = 0.025
+	}
+}
+
+# the men the empire loses: 0.5 manpower for every 5% of strength the host regains
+tfe_defectors_manpower = {
+	value = tfe_defectors_share
+	multiply = -10
+}
