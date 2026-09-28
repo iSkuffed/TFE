@@ -4,11 +4,11 @@ cappadocia_area = Cappadocia  # a: Cappadocia, split 371 into Prima (Caesarea) a
 amasya_province = Helenopontus  # a: province Helenopontus, capital Amaseia
 bozok_province = Trocmi  # a: Galatian people of Tavium
 corum_province = Diacopene  # a: Strabo's Diakopene by Amaseia, Euchaita
-divrigi_province = Second Armenia  # a: Armenia Secunda, Arabrakes and Argaous by its capital Melitene
-kayseri_province = First Cappadocia  # a: Cappadocia Prima, capital Caesarea
+divrigi_province = Armenia Secunda  # a: Armenia Secunda, Arabrakes and Argaous by its capital Melitene
+kayseri_province = Cappadocia Prima  # a: Cappadocia Prima, capital Caesarea
 kirsehir_province = Morimene  # a: Strabo's strategia of Venasa, Nyssa, Mokissos
-nigde_province = Second Cappadocia  # a: Cappadocia Secunda, capital Tyana (Bor), Nazianzus
-sivas_province = First Armenia  # a: Armenia Prima, capital Sebasteia
+nigde_province = Cappadocia Secunda  # a: Cappadocia Secunda, capital Tyana (Bor), Nazianzus
+sivas_province = Armenia Prima  # a: Armenia Prima, capital Sebasteia
 tokat_province = Pontus Polemoniacus  # a: province Pontus Polemoniacus, capital Neocaesarea, Comana
 
 central_anatolia_area = Galatia  # a: province Galatia, capital Ancyra
@@ -27,8 +27,8 @@ cyprus_province = Cyprus  # a: province Cyprus, capital Constantia (Salamis)
 icel_province = Isauria  # a: province Isauria, capital Seleucia on the Calycadnus
 malatya_province = Commagene  # a: old kingdom of Samosata, in Euphratensis
 marash_province = Cataonia  # a: Strabo's Cataonia, Arabissus, Cucusus, Comana
-sis_province = Second Cilicia  # a: Cilicia Secunda, capital Anazarbus
-tarsus_province = First Cilicia  # a: Cilicia Prima, capital Tarsus
+sis_province = Cilicia Secunda  # a: Cilicia Secunda, capital Anazarbus
+tarsus_province = Cilicia Prima  # a: Cilicia Prima, capital Tarsus
 
 marmara_area = Bithynia  # a: province Bithynia, capital Nicomedia
 biga_province = Hellespont  # a: province Hellespontus, capital Cyzicus, the Troad

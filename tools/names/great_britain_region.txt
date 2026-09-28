@@ -18,7 +18,7 @@ buckinghamshire_province = Magiovinium  # a: Roman town at Fenny Stratford on Wa
 hampshire_province = Belgae  # a: civitas Belgarum, Venta Belgarum; with Vectis
 kent_province = Cantiaci  # a: civitas Cantiacorum, Durovernum
 middlesex_province = Londinium  # a: Londinium, renamed Augusta (Ammianus), seat of the vicarius
-oxfordshire_province = Upper Thames  # a: Tamesis (Caesar, Tacitus); Dorchester and Alchester reach
+oxfordshire_province = Tamesis  # a: Tamesis (Caesar BG 5.11, Tacitus); Dorchester and Alchester reach
 surrey_province = Forest of Anderida  # a: Silva Anderida (Andredesweald), the Weald
 sussex_province = Regni  # a: civitas Regnorum, Noviomagus Reginorum
 
@@ -34,7 +34,7 @@ staffordshire_province = Letocetum  # a: Roman town at Wall near Lichfield (Anto
 warwickshire_province = Manduessedum  # a: Roman town at Mancetter on Watling Street (Antonine Itinerary)
 worcestershire_province = Salinae  # a: brine town at Droitwich (Ravenna), northern Dobunni
 
-northumbria_area = Second Britain  # a: Britannia Secunda, capital Eboracum
+northumbria_area = Britannia Secunda  # a: Britannia Secunda, capital Eboracum
 cheshire_province = Deva  # a: legionary fortress Deva (Legio XX Valeria Victrix)
 cumberland_province = Carvetii  # a: civitas Carvetiorum, Luguvalium (inscriptions)
 durham_province = Vinovia  # a: fort at Binchester (Ptolemy Vinovium, Antonine Itinerary)
@@ -61,14 +61,14 @@ perthshire_province = Maeatae  # p: Cassius Dio 76.12, beside the Antonine Wall 
 strathclyde_province = Damnonii  # p: Ptolemy, the Clyde (not the Dumnonii of Devon)
 teviotdale_province = Selgovae  # p: Ptolemy, the upper Tweed and Teviot
 
-wales_area = Western First Britain  # a: Britannia Prima, its western uplands; qualifier to split it from the West Country
+wales_area = Isca Augusta  # a: Isca Augusta (Caerleon), Ravenna Cosmography, fortress of Legio II Augusta commanding the western uplands of Britannia Prima
 brecon_province = Cicucium  # a: fort at Brecon Gaer (Ravenna)
 deheubarth_province = Demetae  # a: civitas Demetarum, Moridunum
 glamorgan_province = Silures  # a: civitas Silurum, Venta Silurum
 gwynedd_province = Ordovices  # a: Tacitus, Ptolemy; Segontium and Mona, with the Deceangli
-powys_province = Upper Severn  # a: Sabrina (Tacitus Annals 12.31); Caersws and Forden Gaer
+powys_province = Sabrina Valley  # a: Sabrina (Tacitus Annals 12.31); Caersws and Forden Gaer
 
-west_country_area = First Britain  # a: Britannia Prima, capital Corinium
+west_country_area = Britannia Prima  # a: Britannia Prima, capital Corinium
 cornwall_province = Belerium  # p: Diodorus's Belerion, Ptolemy's Bolerium, the Cornish peninsula
 devon_province = Dumnonii  # a: civitas Dumnoniorum, Isca Dumnoniorum
 dorset_province = Durotriges  # a: civitas Durotrigum, Durnovaria

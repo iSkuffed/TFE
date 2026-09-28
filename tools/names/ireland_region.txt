@@ -1,19 +1,19 @@
 ireland_region = Hibernia  # a: Caesar, Tacitus; Ptolemy's Iouernia
 
-connaught_area = Western Hibernia  # p: Ptolemy's Hibernia, west coast; qualifier
+connaught_area = Ausoba  # p: Ptolemy 2.2.2, river of the west coast at Galway Bay
 breifne_province = Erdini  # p: Ptolemy, the upper Erne
 galway_province = Auteini  # p: Ptolemy, Galway Bay
 mayo_province = Nagnatae  # p: Ptolemy, Mayo and Sligo (city Nagnata)
 roscommon_province = Rhaeba  # p: Ptolemy's inland town Rhaiba, placed near Lough Ree and Cruachan
 
-leinster_area = Eastern Hibernia  # p: Ptolemy's Hibernia, east coast; qualifier
+leinster_area = Cauci  # p: Ptolemy 2.2.8, people of the east coast between the Eblani and Manapii
 dublin_province = Eblani  # p: Ptolemy, Dublin (Eblana)
 kildare_province = Coriondi  # p: Ptolemy, inland Leinster
 # kilkenny: province and town share this key in vanilla, so it keeps the town's name (tools/test_place_names.py)
 meath_province = Buvinda  # p: Ptolemy's river Boyne; Navan, Trim and Kells lie on it
 wexford_province = Manapii  # p: Ptolemy, Wexford (Manapia); not the Gallic Menapii
 
-munster_area = Southern Hibernia  # p: Ptolemy's Hibernia, south coast; qualifier
+munster_area = Dabrona  # p: Ptolemy 2.2.4, river of the south coast, the Munster Blackwater
 clare_province = Gangani  # p: Ptolemy, Clare and the Shannon mouth
 cork_province = Iverni  # p: Ptolemy, Cork (city Ivernis)
 desmond_province = Vellabori  # p: Ptolemy, Kerry
@@ -21,7 +21,7 @@ limerick_province = Senus  # p: Ptolemy's river Shannon, Limerick and its estuar
 tipperary_province = Regia Altera  # p: Ptolemy's second royal seat, inland south (Cashel)
 waterford_province = Usdiae  # p: Ptolemy, south coast between the Iverni and the Brigantes
 
-ulster_area = Northern Hibernia  # p: Ptolemy's Hibernia, north coast; qualifier
+ulster_area = Logia  # p: Ptolemy 2.2.5, river of the north-east coast, the Lagan
 antrim_province = Darini  # p: Ptolemy, Antrim
 derry_province = Robogdii  # p: Ptolemy, north coast (Rhobogdium promontory)
 donegal_province = Vennicnii  # p: Ptolemy, Donegal (Vennicnium promontory)

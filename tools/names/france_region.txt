@@ -1,16 +1,16 @@
 france_region = Diocese of Gaul  # a: Dioecesis Galliarum with the Seven Provinces (Viennensis) of the south
 
-anjou_area = Third Lugdunensis  # a: Lugdunensis III, the Andecavi, Cenomani and Diablintes; metropolis Turones next door
+anjou_area = Lugdunensis Tertia  # a: Lugdunensis III, the Andecavi, Cenomani and Diablintes; metropolis Turones next door
 anjou_province = Andecavi  # a: civitas Andecavorum, Juliomagus (Angers)
 lower_maine_province = Diablintes  # a: civitas Diablintum, Noviodunum (Jublains by Mayenne), Lug. III
 perche_province = Sagii  # a: civitas Saiorum, Lug. II; Belleme and Mortagne lay in their diocese
 upper_maine_province = Cenomani  # a: Aulerci Cenomani, civitas Cenomannorum, Vindinum (Le Mans)
 
-auvergne_area = First Aquitanica  # a: Aquitanica I, the Arverni and their neighbours; metropolis Avaricum
+auvergne_area = Aquitanica Prima  # a: Aquitanica I, the Arverni and their neighbours; metropolis Avaricum
 bourbon_province = Elaver Valley  # a: Elaver (Allier), Caesar BG 7.34; Bituriges, Arverni and Aedui met here
 combraille_province = Cambiovicenses  # a: Tabula Peutingeriana, by Chambon/Evaux; gave Combraille its name
 lower_auvergne_province = Arverni  # a: civitas Arvernorum, Augustonemetum (Clermont)
-upper_auvergne_province = Upper Arverni  # a: Arverni of the Cantal uplands (qualifier)
+upper_auvergne_province = Triobris Valley  # a: Triobris (Truyere), Sidonius Carm. 24; Saint-Flour and the Cantal uplands of the Arverni
 
 brittany_area = Armorica  # a: Armorica, tractus Armoricanus of the Notitia; western Lug. III
 cornouaille_province = Coriosopiti  # a: civitas Coriosopitum (Quimper), Notitia Galliarum Lug. III
@@ -20,13 +20,13 @@ rennais_province = Redones  # a: civitas Redonum, Condate (Rennes)
 tregor_province = Osismii  # a: civitas Ossismorum, capital Vorgium; Leon and Tregor
 vannetais_province = Veneti  # a: civitas Venetum, Darioritum (Vannes)
 
-burgundy_area = Northern First Lugdunensis  # a: Lugdunensis I, the Aedui and Lingones (qualifier; metropolis in the Lyonnais)
+burgundy_area = Augustodunum  # a: Augustodunum (Autun), chief city of the Aedui; Lugdunensis I with the Lingones
 autunnais_province = Aedui  # a: civitas Aeduorum, Augustodunum (Autun)
 auxerrois_province = Autessiodurum  # a: civitas Autessiodurum (Auxerre), Notitia Galliarum Senonia
 dijonnais_province = Cabillonum  # a: castrum Cabillonense (Chalon), Notitia Galliarum Lug. I; Divio too
-nevernais_province = Western Aedui  # a: Aeduan land west of the Morvan, Noviodunum (Nevers) (qualifier)
+nevernais_province = Nevirnum  # a: Nevirnum (Nevers), Antonine Itinerary and Tabula; Aeduan land west of the Morvan
 
-champagne_area = Senonian Lugdunensis  # a: Lugdunensis Senonia, metropolis Agedincum (Sens); the Remi of Belgica II too
+champagne_area = Lugdunensis Senonia  # a: Lugdunensis Senonia, metropolis Agedincum (Sens); the Remi of Belgica II too
 bassigny_province = Lingones  # a: civitas Lingonum, Andematunnum (Langres)
 brie_champenois_province = Meldi  # a: civitas Meldorum, Iatinum (Meaux)
 champagne_province = Tricasses  # a: civitas Tricassium, Augustobona (Troyes)
@@ -36,7 +36,7 @@ rethelois_province = Axona Valley  # a: Axona (Aisne), Caesar BG 2.5; Rethel and
 senonais_province = Senones  # a: civitas Senonum, Agedincum (Sens)
 
 franche_comte_area = Maxima Sequanorum  # a: Maxima Sequanorum, metropolis Vesontio
-amont_province = Northern Sequani  # a: Sequani of Luxovium and Epamanduodurum (qualifier)
+amont_province = Luxovium  # a: Luxovium (Luxeuil), Sequanian spa town; with Epamanduodurum (Mandeure)
 aval_province = Jura  # a: mons Iura, Caesar BG 1.2; Ariolica and Salinae
 millieu_province = Sequani  # a: civitas Vesontiensium, Vesontio (Besancon)
 
@@ -47,7 +47,7 @@ bearn_bigorre_province = Benarnenses  # a: civitas Benarnensium, Notitia Galliar
 comminges_province = Convenae  # a: civitas Convenarum, Lugdunum Convenarum
 tursan_province = Tarbelli  # a: civitas Aquensium, Aquae Tarbellicae (Dax)
 
-guyenne_area = Second Aquitanica  # a: Aquitanica II, metropolis Burdigala; with Cadurci and Ruteni of Aq. I
+guyenne_area = Aquitanica Secunda  # a: Aquitanica II, metropolis Burdigala; with Cadurci and Ruteni of Aq. I
 agenais_province = Nitiobriges  # a: Nitiobriges, civitas Agennensium, Aginnum (Agen)
 bazadais_province = Vasates  # a: civitas Vasatica, Cossium (Bazas), Novempopulana
 bordelais_province = Bituriges Vivisci  # a: Bituriges Vivisci, Burdigala (Bordeaux)
@@ -55,15 +55,15 @@ perigord_province = Petrocorii  # a: civitas Petrocoriorum, Vesunna (Perigueux)
 quercy_province = Cadurci  # a: civitas Cadurcorum, Divona (Cahors)
 rouergue_province = Ruteni  # a: civitas Rutenorum, Segodunum (Rodez)
 
-ile_de_france_area = Northern Senonia  # a: Lugdunensis Senonia, Parisii and Melun, with Belgica II civitates (qualifier)
+ile_de_france_area = Lutetia  # a: Lutetia (Paris) of the Parisii, Julian's winter seat; with Melodunum and the Belgic civitates
 beauvaisis_province = Bellovaci  # a: civitas Bellovacorum, Caesaromagus (Beauvais); Silvanectes too
-gatinais_province = Northern Senones  # a: Senones of Melodunum (Melun) (qualifier)
+gatinais_province = Melodunum  # a: Melodunum (Melun), Caesar BG 7.58, oppidum of the Senones
 pays_france_province = Parisii  # a: civitas Parisiorum, Lutetia (Paris)
 soissonais_province = Suessiones  # a: civitas Suessionum, Augusta Suessionum (Soissons)
 
-languedoc_area = First Narbonensis  # a: Narbonensis I, metropolis Narbo
+languedoc_area = Narbonensis Prima  # a: Narbonensis I, metropolis Narbo
 castres_province = Albigenses  # a: civitas Albigensium, Albiga (Albi), Aq. I
-foix_province = Southern Tolosates  # a: Tolosate land of the Ariege (qualifier)
+foix_province = Aurigera Valley  # a: Aurigera, Latin name of the Ariege; Tolosate land of Foix and Pamiers
 gevaudan_province = Gabali  # a: civitas Gabalum, Anderitum (Javols)
 narbonnais_province = Narbo  # a: Narbo Martius with Baeterrae, Agatha and Luteva
 nimois_province = Volcae Arecomici  # a: Volcae Arecomici, Nemausus (Nimes)
@@ -73,10 +73,10 @@ vivarais_province = Helvii  # a: Helvii, Alba Helviorum (Viviers); Vellavi of An
 
 # limousin_province is the area key and a province key at once; one name serves both
 limousin_province = Lemovices  # a: civitas Lemovicum, Augustoritum (Limoges), Aq. I
-la_marche_province = Northern Lemovices  # a: Lemovices of Gueret and Aubusson (qualifier)
-turenne_province = Southern Lemovices  # a: Lemovices of Tulle and Ussel (qualifier)
+la_marche_province = Acitodunum  # a: Acitodunum (Ahun), Tabula Peutingeriana; Lemovices of Gueret and Aubusson
+turenne_province = Uxellodunum  # a: Uxellodunum (Puy d'Issolud), Hirtius BG 8.32-44, in the later viscounty of Turenne; with Tulle and Ussel
 
-lorraine_area = First Belgica  # a: Belgica I, the Mediomatrici, Leuci and Verodunenses; metropolis Treveri to the north
+lorraine_area = Belgica Prima  # a: Belgica I, the Mediomatrici, Leuci and Verodunenses; metropolis Treveri to the north
 barrois_province = District of Nasium  # a: Nasium (Naix), Ptolemy's town of the Leuci
 pays_messin_province = Mediomatrici  # a: civitas Mediomatricorum, Divodurum (Metz)
 pays_nancy_province = Leuci  # a: civitas Leucorum, Tullum (Toul)
@@ -84,41 +84,41 @@ sarregueminois_province = Saravus Valley  # a: Saravus (Saar), Ausonius Mosella;
 verdunois_province = Verodunenses  # a: civitas Verodunensium, Virodunum (Verdun)
 vosges_province = Vosegus  # a: Vosegus mons, Caesar BG 4.10
 
-lyonnais_area = First Lugdunensis  # a: Lugdunensis I, metropolis Lugdunum
-beaujolais_province = Northern Segusiavi  # a: Segusiavi of Beaujeu with Ambarri of the Dombes (qualifier)
+lyonnais_area = Lugdunensis Prima  # a: Lugdunensis I, metropolis Lugdunum
+beaujolais_province = Lunna  # a: Lunna (Belleville on the Saone), Antonine Itinerary between Lugdunum and Matisco
 bresse_province = Ambarri  # a: Ambarri, Caesar BG 1.11; Bresse and the Ain
 lyonnais_province = Segusiavi  # a: Segusiavi, Forum Segusiavorum (Feurs); colonia Lugdunum
 
-normandy_area = Second Lugdunensis  # a: Lugdunensis II, metropolis Rotomagus
+normandy_area = Lugdunensis Secunda  # a: Lugdunensis II, metropolis Rotomagus
 caennais_province = Baiocasses  # a: civitas Baiocassium, Augustodurum (Bayeux)
 caux_province = Caleti  # a: civitas Caletorum, Juliobona
 cotentin_province = Unelli  # a: Unelli, civitas Constantia (Coutances); Abrincatui too
 ebroicien_province = Eburovices  # a: Aulerci Eburovices, Mediolanum (Evreux)
 rouennais_province = Veliocasses  # a: civitas Veliocassium, Rotomagus (Rouen)
 
-orleanais_area = Western Senonia  # a: Lugdunensis Senonia, Carnutes and Aureliani, with Bituriges and Turones (qualifier)
-blois_province = Southern Carnutes  # a: Carnutes of Blois, Dunum and Vindocinum (qualifier)
+orleanais_area = Aurelianum  # a: civitas Aurelianorum, Cenabum (Orleans); with the Carnutes, Bituriges and Turones
+blois_province = Blesenses  # a: the men of castrum Blesense (Blois), Gregory of Tours HF 7.2; with Dunum and Vindocinum
 chartrain_province = Carnutes  # a: civitas Carnotum, Autricum (Chartres)
-lower_berry_province = Southern Bituriges  # a: Bituriges Cubi of Exodunum (Issoudun) (qualifier)
+lower_berry_province = Argentomagus  # a: Argentomagus (Argenton), Antonine Itinerary; southern Bituriges Cubi with Exodunum
 orleanais_province = Aureliani  # a: civitas Aurelianorum, Cenabum (Orleans), Senonia
 touraine_province = Turones  # a: civitas Turonum, Caesarodunum (Tours), metropolis of Lug. III
 upper_berry_province = Bituriges Cubi  # a: Bituriges Cubi, Avaricum (Bourges), metropolis of Aq. I
 
-picardy_area = Second Belgica  # a: Belgica II, all its western civitates; metropolis Remi
+picardy_area = Belgica Secunda  # a: Belgica II, all its western civitates; metropolis Remi
 amienois_province = Ambiani  # a: civitas Ambianensium, Samarobriva (Amiens)
 lower_artois_province = Atrebates  # a: civitas Atrebatum, Nemetacum (Arras); Camaracum too
 ponthieu_province = Bononienses  # a: civitas Bononiensium, Bononia (Boulogne), Notitia Galliarum Belgica II
-thierache_province = Northern Remi  # a: Remi land later the diocese of Laon (qualifier)
+thierache_province = Verbinum  # a: Verbinum (Vervins), Antonine Itinerary on the Durocortorum-Bagacum road; Remi land
 upper_artois_province = Morini  # a: civitas Morinorum, Tarvenna (Therouanne)
 vermandois_province = Veromandui  # a: civitas Veromanduorum, Augusta Veromanduorum (St-Quentin)
 
-poitou_area = Northern Second Aquitanica  # a: Aquitanica II, Pictones, Santones and Ecolisma (qualifier)
+poitou_area = Limonum  # p: Limonum (Poitiers), Ptolemy 2.7, chief city of the Pictones; with the Santones and Ecolisma
 angouleme_province = Ecolismenses  # a: civitas Ecolismensium, Iculisma (Angouleme)
-lower_poitou_province = Western Pictones  # a: Pictones of the Bocage and coast (qualifier)
+lower_poitou_province = Theifalia  # a: Theifalia, Gregory HF 5.7, the Poitevin pagus of the Taifali settled by Rome (Notitia Occ. 42.65); Tiffauges and the Bocage
 saintonge_province = Santones  # a: civitas Santonum, Mediolanum (Saintes)
 upper_poitou_province = Pictones  # a: civitas Pictavorum, Limonum (Poitiers)
 
-provence_area = Second Narbonensis  # a: Narbonensis II, metropolis Aquae Sextiae
+provence_area = Narbonensis Secunda  # a: Narbonensis II, metropolis Aquae Sextiae
 aquisextain_province = Salluvii  # a: Salluvii (Salyes), Aquae Sextiae founded on their land; Massilia and Arelate
 avignonnais_province = Cavares  # a: Cavares, Strabo 4.1.11; Avenio, Arausio
 dignois_province = Bodiontici  # a: Bodiontici, Pliny 3.37, Dinia (Digne), Alpes Maritimae

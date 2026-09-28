@@ -7,7 +7,7 @@ huelva_province = Turdetani  # a: Ptolemy lists Onoba and Ilipla among the Turde
 jaen_province = Castulo  # a: Castulo, Oretanian mining city, with Tucci, Aurgi, Iliturgi, Baesucci
 sevilla_province = Hispalis  # a: Hispalis, conventus Hispalensis, with Carmo, Astigi, Urso
 
-aragon_area = Upper Tarraconensis  # a: inland Ebro valley of Tarraconensis, conventus Caesaraugustanus
+aragon_area = Sedetania  # a: Sedetania of Livy and Pliny 3.24, the middle Ebro around Caesaraugusta
 alcaniz_province = Sedetani  # a: Livy's Sedetani of the lower Aragon, between the Ebro and the Iberian range
 barbastro_province = Ilergetes  # a: Ilergetes of the Cinca and Segre, Monzon, Fraga
 calatayud_province = Celtiberi  # a: Celtiberia of the Jalon, Bilbilis, Segeda, Arcobriga
@@ -18,7 +18,7 @@ zaragoza_province = Caesaraugusta  # a: Colonia Caesaraugusta, conventus capital
 balearics_area = Balearic Isles  # a: Insulae Balearum, province split from Carthaginiensis c. 385
 mallorca_province = Balearis Maior  # a: Pliny's Balearis Maior, Palma and Pollentia; with Minor and Ebusus
 
-castile_area = Western Tarraconensis  # a: conventus Cluniensis of Tarraconensis; its west edge disputed with Gallaecia
+castile_area = Durius  # a: Durius (Duero), Strabo and Pliny; the upper basin of the conventus Cluniensis
 avila_province = Vettones  # a: Vettones, Abula/Obila, land of the verracos
 burgos_province = Virovesca  # a: Virovesca of the Autrigones, with Tritium and Vareia of the Berones
 lerma_province = Clunia  # a: Clunia Sulpicia, conventus capital, near Aranda and Silos
@@ -50,7 +50,7 @@ lugo_province = Lucus Augusti  # a: Lucus Augusti, conventus Lucensis capital
 ourense_province = Limici  # a: Limici, Forum Limicorum at Ginzo de Limia; Aquae Originis, Auria
 santiago_province = Iria Flavia  # a: Iria Flavia, with Tude and the Nerii of Finisterre
 
-granada_area = Eastern Baetica  # a: eastern Baetica with Carthaginiensis' Acci, Basti and Urci
+granada_area = Bastetania  # a: Bastetania of Strabo 3.4 and Pliny, Basti, Acci and Urci
 almeria_province = Bastetani  # a: Bastetani, Basti, Urci
 granada_province = Iliberis  # a: Iliberis, Council of Elvira c. 305, with Acci and Sexi
 malaga_province = Malaca  # a: Malaca, with Anticaria and Arunda
@@ -70,27 +70,27 @@ albacete_province = Saltigi  # a: Saltigi of It. Ant. at Chinchilla
 hellin_province = Deitani  # a: Pliny's Deitania, inland Murcia, Ilunum
 murcia_province = Carthago Nova  # a: Carthago Nova, provincial capital
 
-navarre_area = Northern Tarraconensis  # a: northern Tarraconensis, Vascones and the Basque coast
+navarre_area = Cantabria  # a: Cantabria, the northern coast and mountains of Tarraconensis, with the Vascones
 alava_province = Caristii  # a: Caristii, Veleia and Suessatium
 biscay_province = Autrigones  # a: Autrigones west of the Nervion, Flaviobriga; Durango was Caristian
 gipuzkoa_province = Varduli  # a: Varduli, Oiasso
 navarre_province = Vascones  # a: Vascones, Pompaelo, Cascantum
 
-north_portugal_area = Northern Lusitania  # a: Lusitania north of the Tagus, with southern Gallaecia (Bracara)
+north_portugal_area = Mons Herminius  # a: Mons Herminius (Serra da Estrela), Caesar's and Dio's Lusitanian highland; with Bracara's Gallaecia
 beira_alta_province = Lusitani  # a: Lusitani of Mons Herminius, heart of old Lusitania
 beira_baixa_province = Igaeditani  # a: Civitas Igaeditanorum, Idanha-a-Velha
 beira_litoral_province = Conimbriga  # a: Conimbriga, with Aeminium, Collippo, Talabriga
 minho_province = Bracara  # a: Bracara Augusta, conventus Bracarensis, capital of Gallaecia
 tras_os_montes = Aquae Flaviae  # a: municipium Aquae Flaviae, Chaves
 
-south_portugal_area = Southern Lusitania  # a: Lusitania south of the Tagus, conventus Pacensis and Scallabitanus
+south_portugal_area = Cuneus  # a: Cuneus (Strabo 3.1.4, Pliny 4.116), the southern wedge of Lusitania
 algarve_province = Ossonoba  # a: Ossonoba, with Balsa and Lacobriga
 alto_alentejo_province = Ebora  # a: Liberalitas Iulia Ebora, with Ammaia
 baixo_alentejo_province = Pax Iulia  # a: Pax Iulia, conventus Pacensis, with Myrtilis
 estremadura_province = Olisipo  # a: Felicitas Iulia Olisipo, with Salacia and Caetobriga
 ribatejo_province = Scalabis  # a: Scallabis Praesidium Iulium, conventus Scallabitanus
 
-toledo_area = Inner Carthaginiensis  # a: the meseta of Carthaginiensis, Toletum, Complutum, Segobriga
+toledo_area = Celtiberia  # a: Celtiberia of Strabo and Pliny, the meseta of Toletum, Complutum, Segobriga
 alarcon_province = Olcades  # a: Polybius and Livy's Olcades of the upper Jucar; Egelesta
 cuenca_province = Ercavica  # a: Ercavica, with Valeria and Opta
 east_mancha_province = Libisosa  # a: Colonia Libisosa, with Laminium and Mentesa Oretana
@@ -100,7 +100,7 @@ ocana_province = Carpetani  # a: Carpetani, Consabura, with Segobriga
 toledo_province = Toletum  # a: Toletum, with Caesarobriga
 west_mancha_province = Oretani  # a: Oretani, Oretum near Calatrava, Sisapo's mercury
 
-valencia_area = Coast of Carthaginiensis  # a: coastal Carthaginiensis, Valentia, Saetabis, Ilici
+valencia_area = Contestania  # a: Contestania of Pliny 3.19, coast of Valentia, Saetabis and Ilici
 castellon_province = Ilercavones  # a: Ilercavones, hinterland of Dertosa, in Tarraconensis
 jativa_province = Saetabis  # a: Saetabis, with Dianium
 orihuela_province = Contestani  # a: Contestani, Ilici, Lucentum

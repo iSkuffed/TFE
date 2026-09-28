@@ -81,12 +81,17 @@ A table key that is not a real region, area, province or location, or a line wit
   Persia); areas are Roman provinces or tribal lands (Second Lugdunensis, Valeria, Caledonia); provinces are
   civitates, peoples, districts or city territories (Parisii, Treveri, Cyrrhestica, Carthago).
 - Best fit, not exact fit: each name goes to the EU5 unit covering most of that ground. A Roman province split over
-  two EU5 areas uses the Romans' own division where one existed (First and Second Belgica), else a geographic
-  qualifier (Northern Tarraconensis).
+  two EU5 areas uses the Romans' own division where one existed (Belgica Prima and Secunda), else the ancient name
+  of the part (Cantabria, Contestania).
 - No two regions, no two areas and no two provinces share a name.
 - No leading article, on the map it crowds the label: Parisii, Ruteni, Caucasus, not the Parisii. A city territory
   is the city's Latin name (Carthago, Roma, Mediolanum), not "the Territory of Carthage". (Changed 2026-09-29
   after the in-game test.)
+- No direction or qualifier prefix either (Northern, Eastern, Upper, Inner, Coast of...): each unit gets its own
+  ancient name, from a people, district, chief town (in Latin) or river (Contestania, Lutetia, Aurelianum), and only
+  where nothing ancient exists a plain descriptive one. Numbered Roman provinces are written in Latin order, as the
+  Romans did: Belgica Prima, Germania Secunda, Lugdunensis Tertia, Armenia Maior. (Changed 2026-09-29 after the
+  second in-game test.)
 - English classical spelling: the conventional English form where one exists (Thrace, Cappadocia, Parisii),
   otherwise the Latin form without long-vowel marks (Lugdunensis).
 - Towns stay in their language, Latin in the West and Greek in the East, like vanilla's.

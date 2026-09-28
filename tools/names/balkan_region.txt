@@ -13,7 +13,7 @@ albania_province = Taulantii  # a: people of Dyrrachium's hinterland, with Scamp
 illyria_province = Praevalitana  # a: provincia Praevalitana, capital Scodra, Lissus
 north_epirus_province = Chaonia  # a: land of the Chaones, Buthrotum, Aulon, Hadrianopolis
 
-bosnia_area = Inner Dalmatia  # a: inland Dalmatia (qualifier), Bistua, Delminium, mines of the interior
+bosnia_area = Bistua  # a: Bistua (Zenica), municipium and later bishopric of inland Dalmatia; Delminium and the mines of the interior
 bosnia_province = Daesitiates  # a: Pliny, central Bosnia, Bistua Nova
 donji_kraji_province = Dalmatae  # a: Delminium, Salvium, Bariduum
 hum_province = Daorsi  # a: Daorson by Stolac, hinterland of Narona
@@ -21,7 +21,7 @@ podrinje_province = Pirustae  # a: Pliny, upper Drina and Lim, municipium at Kom
 una_sana_province = Iapydes  # a: Strabo, Raetinium on the Una
 usora_and_soli_province = Breuci  # a: people of the Sava valley, lower Bosna
 
-bulgaria_area = Second Moesia  # a: Moesia II, capital Marcianopolis (with Scythia and eastern Dacia Ripensis)
+bulgaria_area = Moesia Secunda  # a: Moesia II, capital Marcianopolis (with Scythia and eastern Dacia Ripensis)
 north_dobruja_province = Scythia Minor  # a: provincia Scythia, capital Tomis
 pleven_province = Triballi  # a: people of the Oescus, colonia Oescus
 preslav_province = Marcianopolis  # a: capital of Moesia II, Abritus, Odessus
@@ -42,7 +42,7 @@ chalkidiki_province = Chalcidice  # a: Thessalonica, Cassandrea, Athos
 lower_macedonia_province = Edonis  # a: land of the Edoni, Philippi, Neapolis, Amphipolis
 pirin_province = Maedi  # a: Thracian people of the middle Strymon, Nicopolis ad Nestum nearby
 prilep_province = Pelagonia  # a: Heraclea Lyncestis, Lychnidus, Styberra
-upper_macedonia_province = Upper Macedonia  # a: Elimiotis, Orestis, Eordaea, Celetrum
+upper_macedonia_province = Elimiotis  # a: Elimiotis (Thucydides 2.99, Strabo), Aiani and Servia; with Orestis and Eordaea
 vardar_province = Paeonia  # a: Stobi, Astibus, Bylazora, Scupi
 
 morea_area = Peloponnese  # a: Peloponnesus, southern half of Achaea, capital Corinth
@@ -62,7 +62,7 @@ neopatras_province = Phthiotis  # a: Hypata, Lamia, Heraclea Trachinia
 south_epirus_province = Old Epirus  # a: Epirus Vetus, capital Nicopolis
 thessaly_province = Thessaly  # a: provincia Thessalia, capital Larissa
 
-serbia_area = First Moesia  # a: Moesia I, capital Viminacium, Singidunum, Margum
+serbia_area = Moesia Prima  # a: Moesia I, capital Viminacium, Singidunum, Margum
 branicevo_province = Viminacium  # a: capital of Moesia I, legio VII Claudia
 kosovo_province = Dardania  # a: provincia Dardania, Ulpiana, Theranda
 macva_province = Scordisci  # a: people of the lower Sava opposite Sirmium
@@ -75,7 +75,7 @@ zlatibor_province = Autariatae  # a: Strabo, upper Drina and Lim, Capedunum
 
 slavonia_area = Savia  # a: provincia Savia, capital Siscia
 bjelovar_province = Andizetes  # a: Pliny, people of the Drava
-vukovar_syrmia_province = Second Pannonia  # a: Pannonia II, capital Sirmium, Mursa, Cibalae
+vukovar_syrmia_province = Pannonia Secunda  # a: Pannonia II, capital Sirmium, Mursa, Cibalae
 zagreb_province = Colapiani  # a: Pliny, people of the Colapis, Siscia, Andautonia
 
 slovenia_area = Julian Alps  # a: Alpes Iuliae, Claustra Alpium Iuliarum, Emona to Tergeste

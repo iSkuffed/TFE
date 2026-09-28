@@ -22,5 +22,5 @@ asyut_province = Lycopolite Nome  # a: Lycopolites, Lycopolis (Asyut); with Pano
 bahnasa_province = Oxyrhynchite Nome  # a: Oxyrhynchites, Oxyrhynchus (el-Bahnasa), in Arcadia; with Heracleopolis and the Fayum
 minya_province = Hermopolite Nome  # a: Hermopolites, Hermopolis Magna (Ashmunayn); Antinoopolis across the Nile
 oasis_province = Oases  # a: Oasis Magna (Kharga), Oasis Parva (Bahariyya), Ammonium (Siwa)
-qusiyya_province = Upper Thebaid  # a: Ano Thebais (Strabo), Diospolis Parva to Syene; Coptos, Thebes
+qusiyya_province = Coptite Nome  # a: Koptites, Coptos on the Red Sea road; with Thebes, Latopolis, Apollonopolis and Syene
 red_sea_coast_province = Mons Porphyrites  # a: imperial porphyry quarries (Gebel Dokhan); Leukos Limen, Philotera, the desert of Anthony
