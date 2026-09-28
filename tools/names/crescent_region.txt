@@ -1,0 +1,36 @@
+crescent_region = Diocese of the East  # a: Dioecesis Orientis, with Persian Mesopotamia beyond
+
+iraq_arabi_area = Asoristan  # a: Sasanian province Asoristan, capital Ctesiphon
+baghdad_province = the Territory of Ctesiphon  # a: Ctesiphon and Seleucia, the Sasanian capital
+basra_province = Mesene  # a: Mesene (Characene), Sasanian Meshan
+bataih_province = Chaldaea  # p: Ptolemy's Chaldaea by the marshes
+garmian_province = Adiabene  # a: Adiabene, the hills between the Zabs, Sasanian Nod-Ardashiragan
+hulwan_province = Chalonitis  # a: Strabo and Polybius' Chalonitis, Chala (Hulwan)
+kufa_province = Babylonia  # a: Babylon (Hillah) and Lakhmid Hira on the desert edge
+safhat_jibal_province = Beth Garmai  # a: Sasanian Garmekan, Karka d-Beth Slokh (Kirkuk), Arbela
+samarra_province = the Territory of Pirisabora  # a: Ammianus' Pirisabora (Anbar), Diacira (Hit), Sumere
+wasit_province = Kashkar  # a: Sasanian district and see of Kashkar
+
+jazira_area = Mesopotamia  # a: province Mesopotamia, capital Amida, and Persian Mesopotamia
+ar_ruha_province = Osrhoene  # a: province Osrhoene, capital Edessa, Carrhae, Batnae
+diyarbekir_province = the Territory of Amida  # a: Amida, capital of Roman Mesopotamia
+furat_province = Parapotamia  # a: Strabo's Parapotamia on the middle Euphrates, Anatha
+hasankeyf_province = Arzanene  # a: Arzanene, ceded to Persia 363, Tigranocerta, Martyropolis
+mardin_province = Gauzanitis  # p: Ptolemy's Gauzanitis on the upper Khabur, Resaina, Maride
+mosul_province = Beth Arabaye  # a: Sasanian Beth Arabaye, Singara and the Tigris west bank
+nusaybin_province = Mygdonia  # a: Mygdonia, Nisibis (Antioch in Mygdonia), ceded 363
+raqqa_province = the Territory of Callinicum  # a: Callinicum and Circesium, Osrhoene
+
+levant_area = Syria  # a: Syria in its wide sense, from Commagene to Arabia
+antakya_province = First Syria  # a: Syria Prima, capital Antioch
+ayntab_province = Cyrrhestica  # a: Cyrrhestica of Strabo and Ptolemy, Doliche, Cyrrhus
+deir_province = Palmyrene  # p: Ptolemy's Palmyrene, Oriza and Sura
+filastin_province = First Palestine  # a: Palaestina Prima, capital Caesarea, Jerusalem
+halab_province = Chalybonitis  # p: Ptolemy's Chalybonitis, Beroea (Aleppo) to the Euphrates
+hawran_province = Arabia  # a: province Arabia, capital Bostra
+hims_province = Second Syria  # a: Syria Secunda, Epiphania, Emesa's neighbours
+latakia_province = Laodicene  # a: Laodicene of Strabo and Ptolemy, Laodicea, Gabala
+lebanon_province = Phoenice  # a: province Phoenice, Berytus, Sidon, Tripolis
+shaam_province = Damascene  # a: Strabo's Damascene, territory of Damascus
+sharat_province = Third Palestine  # a: Palaestina Tertia (Salutaris), Petra, Aila
+tadmur_province = Phoenice Libanensis  # a: province Phoenice Libanensis, Palmyra, Nazala

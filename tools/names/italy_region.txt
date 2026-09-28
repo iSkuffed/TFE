@@ -1,0 +1,96 @@
+# Italy in 395: the Diocese of Italy, Italia Annonaria (north) and Italia Suburbicaria (south and the islands)
+italy_region = Diocese of Italy  # a: Dioecesis Italiciana, vicariates of Italia Annonaria and Suburbicaria
+
+abruzzo_area = Samnium  # a: late province of Samnium, from Teate and the Paeligni to Bovianum; west edge in Valeria and Picenum Suburbicarium
+abruzzo_citra_province = the Frentani  # a: Frentani of Anxanum and Histonium (Pliny); Teate of the Marrucini at the north edge
+abruzzo_ultra_province = the Vestini  # a: Vestini of Amiternum, Aveia and Angulum; also holds the Praetutii, Marsi and Paeligni
+molise_province = the Pentri  # a: Pentri Samnites of Bovianum, Aesernia and Terventum
+
+apulia_area = Apulia and Calabria  # a: Apulia et Calabria, capital Canusium
+bari_province = Peucetia  # a: land of the Peucetii, Barium (Strabo, Pliny)
+capitanata_province = Daunia  # a: land of the Daunii, Luceria and Sipontum (Strabo, Pliny)
+otranto_province = Calabria  # a: Roman Calabria, the heel: Tarentum, Brundisium, Lupiae (Messapia of the Greeks)
+
+basilicata_area = Lucania and Bruttium  # a: Lucania et Bruttii, seat at Regium
+basilicata_province = Lucania  # a: Lucania, Potentia and Acheruntia (Venusia country at the north edge)
+calabria_citra_province = the Bruttii  # a: Bruttii, capital Consentia
+calabria_ultra_province = the Territory of Rhegium  # a: Regium Iulium and the Greek cities Croton, Locri, Hipponium
+
+campania_area = Campania  # a: late province of Campania, consularis at Capua; also takes Latium south of the Tiber
+lavoro_province = Campania Felix  # a: Campania Felix (Pliny), Capua, Neapolis, Nola; Laborini campi gave Terra di Lavoro
+principato_citra_province = the Picentini  # a: Picentini of Salernum and Picentia (Strabo, Pliny); Cilento was Lucanian
+principato_ultra_province = the Hirpini  # a: Hirpini Samnites of Beneventum and Abellinum
+
+emilia_area = Aemilia  # a: province of Aemilia, Placentia to Bononia; Romagna and Urbino belonged to Flaminia
+bologna_province = the Territory of Bononia  # a: city territory of Bononia
+ferrara_province = the Mouths of the Padus  # a: Ostia Padi and the Padusa marshes (Pliny); no Roman city here
+modena_province = the Territory of Mutina  # a: city territory of Mutina
+parma_province = the Territory of Parma  # a: city territory of Parma, with Fidentia
+piacenza_province = the Territory of Placentia  # a: city territory of Placentia
+reggioem_province = the Territory of Regium Lepidi  # a: city territory of Regium Lepidi
+romagna_province = Flaminia  # a: Flaminia of Ravenna, Ariminum and Faventia (Flaminia et Picenum)
+urbino_province = the Ager Gallicus  # a: ager Gallicus of the old Senones (Polybius, Pliny): Pisaurum, Urbinum
+
+lazio_area = Latium  # a: Regio I Latium; in 395 the City of Rome and northern Campania, with south Tuscia
+campagna_province = Old Latium  # a: Latium Vetus: Tibur, Praeneste, with the Hernici of Anagnia and Sabine edge
+marittima_province = the Territory of Rome  # a: Urbs Roma under the urban prefect, with Velitrae and Tarracina
+patrimonio_province = the Territory of Tarquinii  # a: city territory of Tarquinii, southern Etruria with Centumcellae
+
+liguria_area = Corsica  # a: province of Corsica, larger than the Ligurian coast (coast was Alpes Cottiae in 395)
+cismonte_province = the Territory of Aleria  # a: Aleria, Roman colony and chief city of Corsica
+levante_province = the Territory of Genua  # a: city territory of Genua, from Tigullia to Luna
+pumonte_province = the Titiani  # a: Titiani of southwest Corsica, Portus Titianus (Ptolemy)
+punente_province = the Ingauni  # a: Ingauni of Albingaunum, with the Intemelii and Sabates (Pliny)
+
+lombardy_area = Transpadana  # a: Regio XI Transpadana, corrector Italiae Transpadanae (c. 290); Mediolanum, Comum, Bergomum
+bergamo_province = the Territory of Bergomum  # a: city territory of Bergomum
+brescia_province = the Territory of Brixia  # a: city territory of Brixia, with the Camunni of Val Camonica
+cremona_province = the Territory of Cremona  # a: city territory of Cremona, with Laus Pompeia
+mantua_province = the Territory of Mantua  # a: city territory of Mantua, with Hostilia
+milano_province = the Territory of Mediolanum  # a: Mediolanum, capital of Liguria and seat of Honorius in 395
+monza_province = the Territory of Comum  # a: city territory of Comum, with Modicia and Leucum
+pavia_province = the Territory of Ticinum  # a: city territory of Ticinum
+ticino_province = the Lepontii  # a: Lepontii of the upper Ticinus valleys (Caesar, Pliny)
+valtellina_province = the Vennonetes  # a: Vennones/Vennonetes of the upper Addua (Strabo, Pliny), with Clavenna
+
+marche_area = Picenum  # a: Flaminia et Picenum and Picenum Suburbicarium; Umbria at its west
+marche_province = the Picentes  # a: Picentes of Ancona, Firmum and Asculum
+perugia_province = the Territory of Perusia  # a: city territory of Perusia, with Tifernum Tiberinum
+spoleto_province = Umbria  # a: Umbria of Spoletium, Asisium, Tuder, Narnia; Reate was Sabine
+
+piemonte_area = Liguria  # a: late province of Liguria (capital Mediolanum), Taurini to Hasta; Dertona and Segusium in Alpes Cottiae
+alessandria_province = the Territory of Dertona  # a: city territory of Dertona, in Alpes Cottiae in 395
+aosta_province = the Salassi  # a: Salassi of Augusta Praetoria
+mondovi_province = the Territory of Alba Pompeia  # a: city territory of Alba Pompeia, with Ceba
+monferrato_province = the Statielli  # a: Statielli of Aquae Statiellae, with Hasta and Vardacate
+novara_province = the Territory of Vercellae  # a: city territory of Vercellae, with Novaria and the Ossola
+saluzzo_province = the Vagienni  # a: Ligures Vagienni, in whose lands the Padus rises at Vesulus (Pliny)
+torino_province = the Taurini  # a: Taurini of Augusta Taurinorum, with Segusium and Eporedia
+
+sardinia_area = Sardinia  # a: province of Sardinia, capital Carales
+arborea_province = the Territory of Tharros  # a: Tharros and Othoca, with Uselis and Forum Traiani
+cagliari_province = the Territory of Carales  # a: city territory of Carales
+gallura_province = the Territory of Olbia  # a: city territory of Olbia
+logudoro_province = the Territory of Turris Libisonis  # a: colonia Iulia Turris Libisonis, with Bosa
+
+sicily_area = Sicily  # a: province of Sicilia, consularis at Syracuse
+demena_province = the Territory of Catana  # a: city territory of Catana, with Messana and Tyndaris
+girgenti_province = the Territory of Agrigentum  # a: city territory of Agrigentum, with the two Thermae
+mazara_province = the Territory of Panormus  # a: city territory of Panormus, with Drepanum and Lilybaeum country
+noto_province = the Territory of Syracuse  # a: city territory of Syracusae, with Melita
+
+tuscany_area = Tuscia  # a: Tuscia et Umbria, the Tuscian half
+arezzo_province = the Territory of Arretium  # a: city territory of Arretium, with Cortona
+florence_province = the Territory of Florentia  # a: city territory of Florentia, with Pistoria
+grosseto_province = the Territory of Rusellae  # a: city territory of Rusellae, with Populonia
+lucca_province = the Territory of Luca  # a: city territory of Luca
+pisa_province = the Territory of Pisae  # a: city territory of Pisae, with Volaterrae
+siena_province = the Territory of Clusium  # a: city territory of Clusium, with Saena
+
+veneto_area = Venetia  # a: Venetia et Histria, capital Aquileia (Histria lies outside this area)
+belluno_province = the Territory of Bellunum  # a: city territory of Bellunum, with Feltria
+friuli_province = the Territory of Aquileia  # a: Aquileia, capital of Venetia et Histria, with Forum Iulii
+padua_province = the Territory of Patavium  # a: city territory of Patavium, with Ateste
+venice_province = the Territory of Altinum  # a: Altinum and Tarvisium, the lagoon coast
+verona_province = the Territory of Verona  # a: city territory of Verona
+vicenza_province = the Territory of Vicetia  # a: city territory of Vicetia
