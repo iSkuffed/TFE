@@ -1,0 +1,102 @@
+# Persia in 395: the Sasanian Empire of Bahram IV (388-399), its shahrs in classical English form
+persia_region = Persia  # a: the Sasanian Empire, Eranshahr; Persis and its provinces
+
+azerbaijan_area = Media Atropatene  # a: Strabo 11.13, Sasanian Adurbadagan
+ardabil_province = Eastern Atropatene  # d: the Sabalan uplands of Atropatene (Ardabil, Ahar)
+barza_province = Gazaca  # a: Strabo/Ptolemy Gazaca, Ganzak, fire of Adur Gushnasp (Takht-e Soleyman)
+khoy_province = Artaz  # a: Armenian canton of Artaz (Maku) with Her (Khoy); Persian after 387
+miyaneh_province = Southern Atropatene  # d: the Qizil Uzun country of Atropatene (Miyaneh, Khalkhal)
+tabriz_province = Phraaspa  # a: Plutarch Antony 38, royal seat of Atropatene; placed at Maragheh
+urmia_province = Matiene  # a: Herodotus/Strabo, Lake Matiane (Urmia) and its shores
+
+baluchistan_area = Gedrosia  # a: Arrian/Ptolemy 6.21, Sasanian Makuran
+bampur_province = Pura  # a: Arrian Anabasis 6.24, royal seat of Gedrosia (Bampur)
+bannajbur_province = the Parsidae  # p: Ptolemy 6.21, people of inner Gedrosia (Panjgur)
+bela_province = the Oritae  # a: Arrian Anabasis 6.21, Las Bela
+gwadar_province = the Ichthyophagi  # a: Arrian Indica 26, the Fish-Eaters of the Makran coast
+kharan_province = the Gedrosian Desert  # a: Arrian Anabasis 6.22-26, Strabo 15.2
+khash_province = the Taftan Highlands  # d: volcanic uplands between Gedrosia and Drangiana
+qasr_qand_province = the Musarnaei  # p: Ptolemy 6.21; Nearchus' Mosarna, the western Makran
+quetta_province = Southern Arachosia  # a: the southern fringe of Arachosia (Pishin, Quetta, Kalat)
+qusdar_province = the Arabitae  # a: Arrian Anabasis 6.21, people of the Arabis river
+tiz_province = the Carmanian Shore  # p: Arrian Indica 32, Carmania's coast from Badis (Jask)
+
+fars_area = Persis  # a: Persis, Sasanian Pars, cradle of the dynasty
+abarkuh_province = Upper Persis  # d: the northern Persian highland (Abarkuh, Abadeh, Eqlid)
+behbahan_province = the Uxii  # a: Arrian 3.17, between Susiana and Persis; Sasanian Arrajan
+darab_province = Darabgerd  # a: Darabgerd, Sasanian kura and city
+firuzabad_province = Ardashir-Khwarrah  # a: Sasanian kura founded by Ardashir I at Gor (Firuzabad)
+gamrun_province = Organa  # p: Arrian Indica 37, Nearchus' island Organa (Jarun/Hormuz) and its coast
+harat_province = Eastern Persis  # d: the Persian marches toward Carmania (Harat, Shahr-e Babak)
+istakhr_province = Istakhr  # a: Stakhr, Sasanian dynastic seat by Persepolis and Pasargadae
+jahrom_province = Pasa  # a: Middle Persian Pasa (Fasa), town of the Darabgerd kura
+kariyan_province = Kariyan  # a: Kariyan, seat of the Adur Farnbag fire (Istakhri)
+kazerun_province = Shapur-Khwarrah  # a: Sasanian kura of Bishapur, founded by Shapur I
+lar_province = Irahistan  # a: Middle Persian Erahistan, the hot coastal hinterland of Persis
+qala_safid_province = Taoce  # a: Arrian Indica 39, Ptolemy 6.4, Taoke on the coast of Persis
+shiraz_province = Shiraz  # a: Elamite Tirazish; Sasanian Shiraz on the Qasr-i Abu Nasr bullae
+siraf_province = Cataea  # a: Arrian Indica 37, Cataea (Kish), sacred isle off the Persian coast
+
+iraq_ajam_area = Media  # a: Media Magna, Sasanian Mah; Ecbatana, Rhagae, Aspadana
+ardestan_province = the Edge of the Salt Desert  # d: Ardestan, Nain and Natanz on the Dasht-e Kavir rim
+golpayegan_province = Southern Media  # d: Median uplands of Golpayegan, Khomeyn, Mahallat
+hamadan_province = Ecbatana  # a: Ecbatana, Median capital (Hamadan)
+isfahan_province = Aspadana  # a: Ptolemy 6.4, Isfahan; Sasanian Spahan
+qazvin_province = Northern Media  # d: the plain of Qazvin, Abhar and Takestan
+qom_province = Choromithrene  # p: Ptolemy 6.2, the Median district south of Rhagiana (Qom, Kashan, Saveh)
+qumisha_province = Gabiene  # a: Diodorus 19.34, Gabae and its plain south of Isfahan
+rey_province = Rhagiana  # a: Isidore of Charax 7, Rhagae (Rey)
+yazd_province = Isatis  # p: Ptolemy 6.6, Isatis (Yazd) in Carmania Deserta
+zanjan_province = the Median Marches  # d: Zanjan and Soltaniyeh between Media and Atropatene
+
+kerman_area = Carmania  # a: Strabo 15.2.14, Ptolemy 6.8; Sasanian Kerman
+bam_province = the Camelobosci  # p: Ptolemy 6.8, camel-herders of inland Carmania (Bam, Narmashir)
+jiroft_province = the Halil Valley  # d: the Halil Rud valley (Jiroft)
+kahnuj_province = Lower Carmania  # d: southern Carmania above the Strait (Kahnuj, Qaleh Ganj)
+kerman_province = Carmana  # a: Ptolemy 6.8, metropolis of Carmania (Kerman)
+minab_province = Harmozia  # a: Arrian Indica 33, Harmozeia on the Anamis (Minab)
+rafsanjan_province = Veh-Ardashir  # a: Sasanian capital of Kerman founded by Ardashir I (Bardsir)
+sirjan_province = Sirgan  # a: Middle Persian Sirgan, chief town of western Carmania (Sirjan)
+zarand_province = Carmania Deserta  # a: Ptolemy 6.6, desert Carmania on the Lut edge (Zarand, Ravar, Bafq)
+
+khuzestan_area = Susiana  # a: Strabo 15.3, Sasanian Khuzistan; with Elymais and the Cossaean hills
+ahvaz_province = Hormizd-Ardashir  # a: Sasanian refoundation of Ahvaz, Syriac bishopric
+borujerd_province = the Cossaei  # a: Strabo 11.13.6, Arrian 7.15, the Zagros hill people (Luristan)
+deh_kord_province = Paraetacene  # a: Strabo 15.3.12, highland between Persis, Media and Elymais
+dezful_province = Susa  # a: Susa, with Gundeshapur and Shushtar; Sasanian Eran-Khwarrah-Shapur
+izeh_province = Elymais  # a: Strabo 16.1.18, Elymaean heartland (Izeh/Malamir)
+khorramabad_province = Shapur-Khwast  # a: Sasanian Shapurkhwast at Khorramabad
+ramhormoz_province = Ram-Hormizd  # a: Sasanian Ram-Hormizd-Ardashir, founded by Hormizd I
+
+kordestan_area = the Zagros  # p: Zagrus mons, Strabo 11.12.4, Ptolemy 6.2; western Media
+bijar_province = the Median Highlands  # d: the uplands of Bijar, Qorveh and Divandarreh
+kermanshah_province = Cambadene  # a: Isidore of Charax 5, the district of Bagistana (Kermanshah)
+nahavand_province = the Nisaean Plain  # a: Herodotus 7.40, Strabo 11.13.7, the royal horse pastures
+sahrazur_province = Shahrazur  # a: Sasanian Shahrazur, Syriac Siarzur (Sulaymaniyah, Marivan)
+
+mazandaran_area = Hyrcania  # a: Hyrcania, Old Persian Varkana; the Caspian shore south of the sea
+damghan_province = Comisene  # a: Isidore 11, Ptolemy 6.5, Qumis; Hecatompylos
+daylam_province = the Daylamites  # a: Procopius/Agathias Dolomitae, Middle Persian Delam
+gilan_province = the Gelae  # a: Strabo 11.5.1, Pliny 6.48; Gilan
+gorgan_province = Zadracarta  # a: Arrian 3.23, capital of Hyrcania (Gorgan)
+rustamdar_province = the Amardi  # a: Strabo 11.8.8, Amardi/Mardi; Amol keeps their name
+tabaristan_province = the Tapuri  # a: Strabo 11.8.8, Ptolemy 6.2; Tabaristan keeps their name
+talish_province = the Cadusii  # a: Strabo 11.13.3, Pliny 6.48, mountaineers of the Caspian shore
+
+quhestan_area = Southern Parthia  # p: Ptolemy 6.5, Parthia south to Tabiene; Sasanian Kuhistan
+birjand_province = the Birjand Hills  # d: the eastern hills of Kuhistan (Birjand, Khusf)
+gonabad_province = the Gonabad Plain  # d: qanat plain of Gonabad and Roshtkhar
+qaen_province = Kuhistan  # d: Middle Persian Kohistan, the Mountain Land; chief town Qayen
+tabas_al_tamr_province = Tabiene  # p: Ptolemy 6.5, southern district of Parthia (Tabas)
+turaythith_province = Kishmar  # a: Kishmar, Zoroaster's sacred cypress (Kashmar, Turshiz)
+
+sistan_area = Sakastan  # a: Isidore 18 Sacastane, Sasanian Sagastan; Drangiana and Arachosia
+adraskan_province = Southern Aria  # a: Aria south of Herat (Adraskan, Shindand)
+bost_province = the Upper Etymander  # p: Ptolemy 6.19, Etymandrus (Helmand); Bost and Uruzgan
+farah_province = Anauon  # a: Isidore 16, Anauon of Aria with Phra (Farah)
+garmsir_province = the Lower Etymander  # p: the Helmand below Bost (Garmsir, Maiwand)
+ghazni_province = the Parsyetae  # p: Ptolemy 6.18, people of the southern Paropamisadae (Ghazni)
+kabul_province = Ortospana  # a: Strabo 15.2.8, Ptolemy 6.18 Kabura/Ortospana (Kabul)
+kandahar_province = Arachosia  # a: Isidore 19, metropolis Alexandropolis (Kandahar)
+zabol_province = the Arian Lake  # p: Ptolemy 6.19, Areia palus (the Hamun)
+zaranj_province = Drangiana  # a: Isidore 16 Zarangiane, Zarin (Zaranj)

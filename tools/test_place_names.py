@@ -89,3 +89,7 @@ def test_generated_files_match_the_tables(name, build):
     f = REPLACE / name
     assert f.read_bytes().startswith(b"\xef\xbb\xbf"), name
     assert f.read_text(encoding="utf-8-sig") == getattr(pn, build)(), "rerun tools/place_names.py"
+
+
+def test_all_regions_in_scope_have_tables():
+    assert {f.stem for f in (b.TOOLS / "names").glob("*_region.txt")} == set(pn.SCOPE)

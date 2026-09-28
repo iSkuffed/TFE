@@ -1,0 +1,30 @@
+ireland_region = Hibernia  # a: Caesar, Tacitus; Ptolemy's Iouernia
+
+connaught_area = Western Hibernia  # p: Ptolemy's Hibernia, west coast; qualifier
+breifne_province = the Erdini  # p: Ptolemy, the upper Erne
+galway_province = the Auteini  # p: Ptolemy, Galway Bay
+mayo_province = the Nagnatae  # p: Ptolemy, Mayo and Sligo (city Nagnata)
+roscommon_province = Rhaeba  # p: Ptolemy's inland town Rhaiba, placed near Lough Ree and Cruachan
+
+leinster_area = Eastern Hibernia  # p: Ptolemy's Hibernia, east coast; qualifier
+dublin_province = the Eblani  # p: Ptolemy, Dublin (Eblana)
+kildare_province = the Coriondi  # p: Ptolemy, inland Leinster
+kilkenny = the Hibernian Brigantes  # p: Ptolemy's Brigantes of the Suir and Barrow (not Britain's)
+meath_province = the Buvinda  # p: Ptolemy's river Boyne; Navan, Trim and Kells lie on it
+wexford_province = the Manapii  # p: Ptolemy, Wexford (Manapia); not the Gallic Menapii
+
+munster_area = Southern Hibernia  # p: Ptolemy's Hibernia, south coast; qualifier
+clare_province = the Gangani  # p: Ptolemy, Clare and the Shannon mouth
+cork_province = the Iverni  # p: Ptolemy, Cork (city Ivernis)
+desmond_province = the Vellabori  # p: Ptolemy, Kerry
+limerick_province = the Senus  # p: Ptolemy's river Shannon, Limerick and its estuary
+tipperary_province = Regia Altera  # p: Ptolemy's second royal seat, inland south (Cashel)
+waterford_province = the Usdiae  # p: Ptolemy, south coast between the Iverni and the Brigantes
+
+ulster_area = Northern Hibernia  # p: Ptolemy's Hibernia, north coast; qualifier
+antrim_province = the Darini  # p: Ptolemy, Antrim
+derry_province = the Robogdii  # p: Ptolemy, north coast (Rhobogdium promontory)
+donegal_province = the Vennicnii  # p: Ptolemy, Donegal (Vennicnium promontory)
+down_province = the Voluntii  # p: Ptolemy, Down; the later Ulaid
+oriel_province = Isamnium  # p: Ptolemy's Isamnium promontory, Dundalk Bay and Armagh
+tyrone_province = Regia  # p: Ptolemy's inland royal seat, placed at Clogher
