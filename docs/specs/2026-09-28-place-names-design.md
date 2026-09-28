@@ -49,7 +49,7 @@ Americas; town names outside the Empire; languages other than Latin and Greek.
 ```
 france_region = Diocese of Gaul                    # a: Dioecesis Galliarum
 normandy_area = Second Lugdunensis                 # a: Lugdunensis II, capital Rotomagus
-caux_province = the Caleti                         # a: civitas Caletorum
+caux_province = Caleti                             # a: civitas Caletorum
 upper_rhine_valley_province = Upper Rhine Valley   # d: no ancient unit fits
 ```
 
@@ -79,12 +79,15 @@ A table key that is not a real region, area, province or location, or a line wit
 
 - Layer to layer: regions are dioceses or the great lands beyond (Diocese of Gaul, Free Germania, Sarmatia,
   Persia); areas are Roman provinces or tribal lands (Second Lugdunensis, Valeria, Caledonia); provinces are
-  civitates, peoples or districts (the Parisii, the Treveri, Cyrrhestica).
+  civitates, peoples, districts or city territories (Parisii, Treveri, Cyrrhestica, Carthago).
 - Best fit, not exact fit: each name goes to the EU5 unit covering most of that ground. A Roman province split over
   two EU5 areas uses the Romans' own division where one existed (First and Second Belgica), else a geographic
   qualifier (Northern Tarraconensis).
 - No two regions, no two areas and no two provinces share a name.
-- English classical spelling: the conventional English form where one exists (Thrace, Cappadocia, the Parisii),
+- No leading article, on the map it crowds the label: Parisii, Ruteni, Caucasus, not the Parisii. A city territory
+  is the city's Latin name (Carthago, Roma, Mediolanum), not "the Territory of Carthage". (Changed 2026-09-29
+  after the in-game test.)
+- English classical spelling: the conventional English form where one exists (Thrace, Cappadocia, Parisii),
   otherwise the Latin form without long-vowel marks (Lugdunensis).
 - Towns stay in their language, Latin in the West and Greek in the East, like vanilla's.
 

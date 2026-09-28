@@ -124,3 +124,9 @@ def test_a_constructed_town_name_repeats_no_other_town():
             if basis == "d":
                 others = sorted(k for k, v in names.items() if v == name and k != key)
                 assert not others, f"{table}.txt:{no}: {key} = {name} repeats {others}"
+
+
+def test_names_carry_no_article_or_territory_prefix():
+    # on the map a leading "the" crowds the label (the Ruteni); a city territory is the city's Latin name (Carthago)
+    bad = {k: n for k, n in pn.load_places().items() if n.startswith("the ") or "Territory of" in n}
+    assert not bad, sorted(bad.items())[:10]

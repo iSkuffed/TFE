@@ -1,10 +1,10 @@
-macaronesia_region = the Fortunate Isles  # a: Insulae Fortunatae (Pliny 6.202-205, Ptolemy's prime meridian)
+macaronesia_region = Fortunate Isles  # a: Insulae Fortunatae (Pliny 6.202-205, Ptolemy's prime meridian)
 
-azores_area = the Hesperides  # p: Hesperides insulae of Pliny 6.201, the far Atlantic isles; the Azores were unknown to Rome
-azores_province = the Isles of the Outer Ocean  # d: no ancient name for the Azores
+azores_area = Hesperides  # p: Hesperides insulae of Pliny 6.201, the far Atlantic isles; the Azores were unknown to Rome
+azores_province = Isles of the Outer Ocean  # d: no ancient name for the Azores
 
-canary_islands_area = the Canarian Isles  # a: from Canaria (Pliny 6.205), Juba's account of the Fortunate Isles
+canary_islands_area = Canarian Isles  # a: from Canaria (Pliny 6.205), Juba's account of the Fortunate Isles
 canary_islands_province = Canaria  # a: Pliny 6.205, named for its dogs; with Ninguaria, Junonia, Capraria and the Purpurariae
 
-south_macaronesia_area = the Atlantic Islands  # a: Plutarch Sertorius 8, two isles 10,000 stadia off Africa (Madeira and Porto Santo)
-madeira_province = the Purple Islands  # p: Pliny's Purpurariae, placed at Madeira by older scholars (others: Mogador, Lanzarote)
+south_macaronesia_area = Atlantic Islands  # a: Plutarch Sertorius 8, two isles 10,000 stadia off Africa (Madeira and Porto Santo)
+madeira_province = Purple Islands  # p: Pliny's Purpurariae, placed at Madeira by older scholars (others: Mogador, Lanzarote)
