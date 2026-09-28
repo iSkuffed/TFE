@@ -1,4 +1,5 @@
 """Place names of 395: regions, areas and provinces in English classical forms, towns in Latin and Greek."""
+import re
 import sys
 from pathlib import Path
 
@@ -61,6 +62,7 @@ def test_every_region_area_and_province_with_a_table_is_named():
         p = anc[l]
         if p[2] in done:
             need |= {p[2], p[3], p[4]}
+    need -= set(anc)   # a province sharing its key with its town keeps the town's name (kilkenny)
     assert not need - set(names), sorted(need - set(names))[:20]
 
 
@@ -93,3 +95,32 @@ def test_generated_files_match_the_tables(name, build):
 
 def test_all_regions_in_scope_have_tables():
     assert {f.stem for f in (b.TOOLS / "names").glob("*_region.txt")} == set(pn.SCOPE)
+
+
+def test_no_named_place_is_also_a_town():
+    # vanilla gives one key to both the province and its town (kilkenny): naming the province renames the town
+    towns = set(b.load_hierarchy())
+    assert not set(pn.load_places()) & towns, sorted(set(pn.load_places()) & towns)
+
+
+def test_town_tables_only_fill_gaps():
+    # never override a vanilla Latin or Greek name, never name a town outside the Empire
+    have = pn.load_towns()
+    for lang, want in pn.wanted_towns().items():
+        assert not set(have[lang]) - want, (lang, sorted(set(have[lang]) - want)[:10])
+
+
+def test_a_constructed_town_name_repeats_no_other_town():
+    # attested homonyms are genuine (two Brigantiums, several Constantias); a d name we made up must be unique
+    have, per = pn.load_towns(), {}
+    for lang in have:
+        for f in (b.GAME / "main_menu/localization/english/location_names").glob("*.yml"):
+            for k, v in re.findall(rf'^\s*(\w+)\.{lang}:\d*\s*"(.*?)"', f.read_text(encoding="utf-8-sig", errors="replace"),
+                                   re.M):
+                per.setdefault(lang, {})[k.lower()] = v
+    for lang, table in (("latin_language", "towns_latin"), ("greek_language", "towns_greek")):
+        names = {**per.get(lang, {}), **have[lang]}
+        for no, key, name, basis in pn.parse_table(b.TOOLS / f"names/{table}.txt"):
+            if basis == "d":
+                others = sorted(k for k, v in names.items() if v == name and k != key)
+                assert not others, f"{table}.txt:{no}: {key} = {name} repeats {others}"
