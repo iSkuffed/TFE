@@ -32,6 +32,7 @@ These decide how items below get built. Test with `tools/eu5ctl.sh`.
 - [x] Can an army-based country be a **subject**? Yes: landed or landless, and the relation survives ticks (2026-09-27). A foedus can be struck on the march. (IO membership still untested.)
 - [ ] Can a religion be **enabled mid-game**? Decides how councils split faiths (#8).
 - [ ] Can a new **government type** be added by script alone? Decides #6's shape.
+- [ ] Can **migration** be steered by script (a location modifier on migration attraction, or an effect that moves pops)? Decides #18.
 
 ## Tier 1: make 395 play like TFE's opening
 
@@ -47,6 +48,18 @@ These decide how items below get built. Test with `tools/eu5ctl.sh`.
 7. **Arian kings over Nicene Romans.** Minority-policy law (Accepted / Tolerated / Unwelcomed, the last unlocking an expel action). A "Germanic Overlords" reform or privilege: more tax from Roman pops, levies from the ruler's own culture.
 8. **Church councils.** A situation with voters and a resolution, cloned from vanilla `council_of_trent`. The outcome remaps pop religion by region; seat-holders choose between paying to stay in communion and breaking away. Near our start: Carthage 411 (Donatists), Ephesus 431 (Nestorius), then Chalcedon 451.
 9. **Romanization and divergence.** A movement spreading regional Roman cultures while a Roman-group country holds the land; an "Assimilate a Province" action; a late dated event splits Romano-cultures into Romance successors. Makes losing land costly.
+
+### Why the provincials stopped fighting
+
+The West fell partly because its own people no longer thought it worth defending. The sources: Salvian of Marseille (*De gubernatione Dei*, 440s: Romans flee to the barbarians and the Bagaudae to escape the tax collector), Priscus's Greek merchant among the Huns (449), and Valentinian III's *Novel 9* (440). Not Gibbon's "degenerate Romans": each cause below is named and visible, and each has a reform. Beware two popular claims: late veterans still got land and tax exemptions (CTh 7.20), and gladiatorial games ended in both halves around 400, so neither explains the East's survival. Built as separate PRs; 20 and 21 are the causes that feed 17 and 18.
+
+16. **The Right to Bear Arms.** A West law: *Arms Forbidden* at start (small local levies, poorly armed rebels) or *Provincials Armed*, unlocked by crisis as Valentinian III's *Novel 9* did against Vandal raids in 440 (more levies and local defence, stronger risings). Pairs with Patrocinium in explaining why the West cannot raise men.
+17. **The Bagaudae.** Where Roman peasants are angry (heavy tax, low satisfaction, Senatorial Immunities in force), a rising in Armorica, the Alps or Tarraconensis releases a Bagaudae rebel country, on the pattern of Constantine III's Britain (#3). Holding them costs troops; ignoring them costs control. The sister of the usurpation disaster (#5).
+18. **Fleeing to the barbarians.** Roman pops beside foederati and barbarian kingdoms drift to them ("a lighter yoke"), the more so the worse the West's taxes and justice. A slow cost to the burdens, and it Romanises the kingdoms (#9). Needs the migration test above.
+19. **Faith in the generals.** A tracked value for each empire, like Unity: defeats and cowardly commanders lower it, victories raise it. Low faith shrinks levies and makes risings (#17) likelier.
+20. **Two kinds of justice.** The late-Roman split between *honestiores* and *humiliores*, who faced different penalties for the same crime, as a legal-code law: nobles content, peasants resentful, feeding #17 and #18. The reform is Valentinian I's *defensor civitatis* (368), created to protect the poor from the powerful.
+21. **The tax collector and the sale of offices.** *Suffragium* as a named modifier: part of the West's tax never reaches the Fisc. Reformed as Anastasius later did in the East.
+22. **The East reforms, the West does not.** The East starts with lighter versions of 16–21 and an easier path out of them, so the halves diverge as they did. Tuning across 16–21, done last.
 
 ## Tier 3: theatre set pieces
 
