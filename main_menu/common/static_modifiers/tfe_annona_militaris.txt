@@ -1,0 +1,7 @@
+﻿# TFE: a template modifier (tools/location_templates.py). Its one effect badges the goods marker in the raw-material
+# map mode: wheat with a minus (modifier_icons/tfe_modifier_icons.txt).
+# Italia Annonaria paid its land tax in grain to the court and army at Milan, so less of it reached the market
+tfe_annona_militaris = {
+	game_data = { category = location }
+	local_wheat_output_modifier = -0.2
+}

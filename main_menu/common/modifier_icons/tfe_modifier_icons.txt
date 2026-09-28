@@ -9,3 +9,8 @@ REPLACE:local_manpower_modifier = {
 	positive = "gfx/interface/icons/modifier_types/tfe_manpower_positive.dds"
 	negative = "gfx/interface/icons/modifier_types/global_manpower_modifier.dds"
 }
+
+REPLACE:local_wheat_output_modifier = {	# vanilla maps only the plus; Italy's wheat maluses show the minus
+	positive = "gfx/interface/icons/modifier_types/wheat_positive.dds"
+	negative = "gfx/interface/icons/modifier_types/wheat_negative.dds"
+}

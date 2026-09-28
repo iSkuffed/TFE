@@ -1,0 +1,7 @@
+﻿# TFE: a template modifier (tools/location_templates.py). Its one effect badges the goods marker in the raw-material
+# map mode: wheat with a minus (modifier_icons/tfe_modifier_icons.txt).
+# Italia Suburbicaria, fed by the dole: the villas let grain land go to vines and herds, and Rome's bread came by sea
+tfe_latifundia = {
+	game_data = { category = location }
+	local_wheat_output_modifier = -0.4
+}

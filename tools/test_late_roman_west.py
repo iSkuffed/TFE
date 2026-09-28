@@ -15,7 +15,8 @@ FRONTIER = b.MOD / "in_game/common/building_types/tfe_frontier.txt"
 EFFECTS = b.MOD / "in_game/common/scripted_effects/tfe_lands.txt"
 ON_ACTION = b.MOD / "in_game/common/on_action/tfe_lands.txt"
 MODS = tuple(b.MOD / f"main_menu/common/static_modifiers/{m}.txt"
-             for m in ("tfe_granary_of_rome", "tfe_pannonian_recruiting_grounds"))
+             for m in ("tfe_granary_of_rome", "tfe_pannonian_recruiting_grounds", "tfe_latifundia",
+                       "tfe_annona_militaris"))
 ICONS = b.MOD / "main_menu/gfx/interface/icons"
 ICON_MAP = b.MOD / "main_menu/common/modifier_icons/tfe_modifier_icons.txt"
 COUNTRIES = b.MOD / "main_menu/setup/start/10_countries.txt"
@@ -50,12 +51,19 @@ def test_everything_shown_is_localized_and_has_an_icon():
     wanted |= {f"STATIC_MODIFIER_{k}_{m}" for m in blocks(*MODS) for k in ("NAME", "DESC")}
     wanted |= set(re.findall(r"text = (\w+)", code(PRIVILEGES)))
     assert not wanted - keys, sorted(wanted - keys)
-    # the map badge of a template modifier is one of its effects' icons, so each has one effect, with a plus icon
-    ours = dict(re.findall(r'^REPLACE:(\w+) = \{\s*positive = "gfx/interface/icons/(\S+)"', code(ICON_MAP), re.M))
+    # the map badge of a template modifier is one of its effects' icons, so each has one effect: a bonus shows a plus,
+    # a malus a minus (vanilla maps only the plus for most effects)
+    icons = {k: dict(re.findall(r'(positive|negative) = "(\S+)"', body))
+             for k, body in re.findall(r"^REPLACE:(\w+) = \{(.*?)^\}", code(ICON_MAP), re.M | re.S)}
+    def found(path):
+        return any((root / "main_menu" / path).exists() for root in (b.MOD, b.GAME))
     for p in MODS:
-        effects = re.findall(r"^\t(\w+) = -?[\d.]+", blocks(p)[p.stem], re.M)
+        effects = re.findall(r"^\t(\w+) = (-?[\d.]+)", blocks(p)[p.stem], re.M)
         assert len(effects) == 1, (p.name, effects)
-        assert effects[0] in ("local_wheat_output_modifier",) or (ICONS / ours[effects[0]]).exists(), effects[0]
+        effect, value = effects[0][0], float(effects[0][1])
+        side = "negative" if value < 0 else "positive"
+        vanilla_plus = effect == "local_wheat_output_modifier" and side == "positive"
+        assert vanilla_plus or found(icons.get(effect, {}).get(side, "missing")), (p.name, effect, side)
     for n in blocks(FRONTIER):   # a building's icon is named for it
         assert (ICONS / f"buildings/{n}.dds").exists(), n
 
@@ -122,6 +130,23 @@ def test_italy_gave_a_fifth_of_its_wheat_land_to_the_villas():
     assert after < before and round(len(before) * 0.2) == len(before - after) == len(lt.ITALIAN_VILLAS)
     assert "rome" in after   # the Po valley, Sicily and Sardinia keep theirs too
     assert not {anc[l][3] for l in before - after} & {"lombardy_area", "sicily_area", "sardinia_area"}
+
+
+def test_italys_remaining_wheat_yields_less_so_african_grain_sells_there():
+    # graded: the dole-fed centre and south lose more than the north, whose grain went to the court and army in kind
+    anc = b.load_hierarchy()
+    ours = (b.MOD / "in_game/map_data/location_templates.txt").read_text(encoding="utf-8-sig")
+    wheat = {l: m for l, m in re.findall(r"^(\w+) = \{ (?:modifier = (\w+) )?[^\n]*raw_material = wheat\b", ours, re.M)
+             if anc[l][2] == "italy_region"}
+    islands = {l for l in wheat if anc[l][3] in ("sicily_area", "sardinia_area")}
+    north = {l for l in wheat if anc[l][3] in lt.ITALIA_ANNONARIA}
+    south = set(wheat) - north - islands
+    assert "rome" in south and "milano" in north and len(north) > 20 and south
+    assert {wheat[l] for l in south} == {"tfe_latifundia"} and {wheat[l] for l in north} == {"tfe_annona_militaris"}
+    assert not any(wheat[l] for l in islands)
+    value = {m: float(re.search(r"local_wheat_output_modifier = (-[\d.]+)", blocks(p)[m]).group(1))
+             for p in MODS for m in blocks(p) if m in ("tfe_latifundia", "tfe_annona_militaris")}
+    assert value["tfe_latifundia"] < value["tfe_annona_militaris"] < 0
 
 
 def test_the_frontier_works_hold_a_zone_of_control_on_roman_frontier_land():
