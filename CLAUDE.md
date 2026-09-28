@@ -28,9 +28,11 @@ accuracy) decide close calls, and its items are the work queue.
 - The tools find vanilla EU5 in Steam's default folder on Linux or Windows. Elsewhere, set `EU5_GAME` to the game's
   `game` folder (the one holding `in_game` and `main_menu`).
 - Script and localisation files start with a UTF-8 BOM. Localisation lives in `main_menu/localization/english/`.
-- Vanilla's own script docs are written by the game into `Documents/Paradox Interactive/Europa Universalis V/docs/`
-  (`effects.log`, `triggers.log`, `modifiers.log`, `on_actions.log`). Check them and vanilla's files before guessing
-  syntax.
+- In the Python tools, always pass `encoding="utf-8"` (or `"utf-8-sig"`) to `read_text`/`write_text`/`open`. Linux
+  defaults to UTF-8 but Windows doesn't: without it, "Monte Albán" in `world_400.geojson` misses its `tag_map` entry.
+- Vanilla's own script docs (`effects.log`, `triggers.log`, `modifiers.log`, `on_actions.log`) are written into
+  `Documents/Paradox Interactive/Europa Universalis V/docs/` only when you run `script_docs` in the game's console;
+  run it once if the folder is missing. Check them and vanilla's files before guessing syntax.
 
 ## Testing in game
 
@@ -73,3 +75,8 @@ been seen working in game, or you say plainly that it hasn't.
   `.../government_reforms/illustrations/<name>.dds`. Buildings use `.../icons/buildings/<name>.dds`.
 - Buildings placed at start and never buildable (`country_potential = { always = no }`) also need
   `is_indestructible = yes`, or a demolition loses them for good.
+- A location's own modifier (`modifier =` in its template) badges its goods marker in the raw-material map mode, but
+  the badge is one of the modifier's effects' icons (`main_menu/common/modifier_icons/`), not an icon of its own. Give
+  such a modifier exactly one effect. Vanilla maps most effects to a plus icon only, so a malus shows a plus unless
+  `modifier_icons/tfe_modifier_icons.txt` gives it a `negative` icon.
+- A location has no base manpower: `local_manpower_modifier` alone does nothing. Use flat `local_manpower`.
