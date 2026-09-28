@@ -1,5 +1,5 @@
 ﻿# TFE: the regimes of 395 (on_action/tfe_opening.txt, events/tfe_opening.txt)
-# Stilicho, magister of both services, rules for the boy Honorius: a strong regency
+# Stilicho, Magister Militum, rules for the boy Honorius: a strong regency
 tfe_stilicho_regency = {
 	game_data = { category = country }
 	land_morale_modifier = 0.1

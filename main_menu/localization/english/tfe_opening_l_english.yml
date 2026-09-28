@@ -1,6 +1,6 @@
 ﻿l_english:
  tfe_opening.1.title: "Guardian of Both Sons"
- tfe_opening.1.desc: "Theodosius is dead at Mediolanum, and his sons are a boy of ten in the West and a youth of seventeen in the East. Stilicho, magister of both services, husband of the emperor's niece, swears that with his last breath Theodosius gave him both boys to guard.\n\nThe armies of East and West are still camped together in Italy. In Constantinople, the prefect Rufinus holds Arcadius and does not mean to share him."
+ tfe_opening.1.desc: "Theodosius is dead at Mediolanum, and his sons are a boy of ten in the West and a youth of seventeen in the East. Stilicho, Magister Militum, husband of the emperor's niece, swears that with his last breath Theodosius gave him both boys to guard.\n\nThe armies of East and West are still camped together in Italy. In Constantinople, the prefect Rufinus holds Arcadius and does not mean to share him."
  tfe_opening.1.a: "Send the Eastern legions home under Gainas"
  tfe_opening.1.b: "The East is mine to guard as well"
  tfe_opening.2.title: "Murder on the Campus Martius"
@@ -28,7 +28,7 @@
  cb_tfe_claim_the_purple: "Claim the Purple"
  cb_tfe_claim_the_purple_desc: "We have been proclaimed Augustus. The rest of the Empire must be won."
  STATIC_MODIFIER_NAME_tfe_stilicho_regency: "Stilicho's Regency"
- STATIC_MODIFIER_DESC_tfe_stilicho_regency: "The magister of both services rules for the boy Honorius. The army is his and the great houses follow him."
+ STATIC_MODIFIER_DESC_tfe_stilicho_regency: "The Magister Militum rules for the boy Honorius. The army is his and the great houses follow him."
  STATIC_MODIFIER_NAME_tfe_rufinus_prefecture: "Rufinus's Prefecture"
  STATIC_MODIFIER_DESC_tfe_rufinus_prefecture: "The praetorian prefect Rufinus rules Arcadius's court, sells its offices and squeezes its provinces."
  STATIC_MODIFIER_NAME_tfe_eutropius_chamber: "Rule of the Chamberlain"
