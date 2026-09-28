@@ -1,6 +1,6 @@
 balkan_region = Illyricum  # a: praefectura praetorio per Illyricum (Dacia, Macedonia), with western Illyricum and Thrace
 
-aegean_archipelago_area = Islands  # a: provincia Insularum, capital Rhodes (with Crete and Euboea)
+aegean_archipelago_area = Insulae  # a: provincia Insularum, capital Rhodes (with Crete and Euboea)
 chios_province = Chios  # a: Chios with Samos and Icaria
 crete_province = Crete  # a: provincia Creta, capital Gortyn
 euboea_province = Euboea  # a: Euboea, Chalcis, part of Achaea
@@ -8,7 +8,7 @@ lemnos_province = Lesbos  # a: Lesbos (Mytilene, Methymna) with Lemnos and Imbro
 naxos_province = Cyclades  # a: Cyclades, Naxos, Andros, Melos
 rodos_province = Rhodes  # a: Rhodus with Cos and Carpathus
 
-albania_area = New Epirus  # a: Epirus Nova, capital Dyrrachium
+albania_area = Epirus Nova  # a: Epirus Nova, capital Dyrrachium
 albania_province = Taulantii  # a: people of Dyrrachium's hinterland, with Scampa and Byllis
 illyria_province = Praevalitana  # a: provincia Praevalitana, capital Scodra, Lissus
 north_epirus_province = Chaonia  # a: land of the Chaones, Buthrotum, Aulon, Hadrianopolis
@@ -59,7 +59,7 @@ aetolia_province = Aetolia  # a: Aetolia with Acarnania and Ozolian Locris, Naup
 attica_province = Attica and Boeotia  # a: Athens, Thebes, Megara
 ionian_islands_province = Corcyra  # a: Corcyra with Leucas, Cephallenia, Zacynthus
 neopatras_province = Phthiotis  # a: Hypata, Lamia, Heraclea Trachinia
-south_epirus_province = Old Epirus  # a: Epirus Vetus, capital Nicopolis
+south_epirus_province = Epirus Vetus  # a: Epirus Vetus, capital Nicopolis
 thessaly_province = Thessaly  # a: provincia Thessalia, capital Larissa
 
 serbia_area = Moesia Prima  # a: Moesia I, capital Viminacium, Singidunum, Margum

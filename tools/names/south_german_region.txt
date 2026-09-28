@@ -1,4 +1,4 @@
-south_german_region = Raetia and Noricum  # a: the two Raetias and two Noricums of the Alps and upper Danube, with the Swiss, Rhine and barbarian lands beside them
+south_german_region = Raetia et Noricum  # a: the two Raetias and two Noricums of the Alps and upper Danube, with the Swiss, Rhine and barbarian lands beside them
 
 alsace_area = Germania Prima  # a: Germania Prima, Argentoratum; capital Moguntiacum lies north in Hesse
 lower_alsace_province = Triboci  # a: civitas Tribocorum, later Argentoratensium (Notitia Galliarum)

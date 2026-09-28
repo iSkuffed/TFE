@@ -139,3 +139,12 @@ def test_names_lead_with_the_name_not_a_direction_or_ordinal():
                       r"Lesser|Far|Near|First|Second|Third|Fourth|Senonian)\b")
     bad = {k: n for k, n in pn.load_places().items() if lead.match(n)}
     assert not bad, (len(bad), sorted(bad.items())[:10])
+
+
+def test_roman_provinces_read_as_rome_wrote_them():
+    # Epirus Nova, not New Epirus; Apulia et Calabria, not Apulia and Calabria (as Belgica Prima, not First Belgica)
+    anc, names = b.load_hierarchy(), pn.load_places()
+    areas = {p[3] for p in anc.values() if len(p) > 3}
+    bad = {k: n for k, n in names.items() if re.match(r"^(New|Old) ", n) or (k in areas and " and " in n)}
+    assert not bad, sorted(bad.items())
+    assert names["aegean_archipelago_area"] == "Insulae"

@@ -6,12 +6,12 @@ abruzzo_citra_province = Frentani  # a: Frentani of Anxanum and Histonium (Pliny
 abruzzo_ultra_province = Vestini  # a: Vestini of Amiternum, Aveia and Angulum; also holds the Praetutii, Marsi and Paeligni
 molise_province = Pentri  # a: Pentri Samnites of Bovianum, Aesernia and Terventum
 
-apulia_area = Apulia and Calabria  # a: Apulia et Calabria, capital Canusium
+apulia_area = Apulia et Calabria  # a: Apulia et Calabria, capital Canusium
 bari_province = Peucetia  # a: land of the Peucetii, Barium (Strabo, Pliny)
 capitanata_province = Daunia  # a: land of the Daunii, Luceria and Sipontum (Strabo, Pliny)
 otranto_province = Calabria  # a: Roman Calabria, the heel: Tarentum, Brundisium, Lupiae (Messapia of the Greeks)
 
-basilicata_area = Lucania and Bruttium  # a: Lucania et Bruttii, seat at Regium
+basilicata_area = Lucania et Bruttii  # a: Lucania et Bruttii, seat at Regium
 basilicata_province = Lucania  # a: Lucania, Potentia and Acheruntia (Venusia country at the north edge)
 calabria_citra_province = Bruttii  # a: Bruttii, capital Consentia
 calabria_ultra_province = Rhegium  # a: Regium Iulium and the Greek cities Croton, Locri, Hipponium
@@ -32,7 +32,7 @@ romagna_province = Flaminia  # a: Flaminia of Ravenna, Ariminum and Faventia (Fl
 urbino_province = Ager Gallicus  # a: ager Gallicus of the old Senones (Polybius, Pliny): Pisaurum, Urbinum
 
 lazio_area = Latium  # a: Regio I Latium; in 395 the City of Rome and northern Campania, with south Tuscia
-campagna_province = Old Latium  # a: Latium Vetus: Tibur, Praeneste, with the Hernici of Anagnia and Sabine edge
+campagna_province = Latium Vetus  # a: Latium Vetus: Tibur, Praeneste, with the Hernici of Anagnia and Sabine edge
 marittima_province = Roma  # a: Urbs Roma under the urban prefect, with Velitrae and Tarracina
 patrimonio_province = Tarquinii  # a: city territory of Tarquinii, southern Etruria with Centumcellae
 

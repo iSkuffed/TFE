@@ -90,7 +90,7 @@ A table key that is not a real region, area, province or location, or a line wit
 - No direction or qualifier prefix either (Northern, Eastern, Upper, Inner, Coast of...): each unit gets its own
   ancient name, from a people, district, chief town (in Latin) or river (Contestania, Lutetia, Aurelianum), and only
   where nothing ancient exists a plain descriptive one. Numbered Roman provinces are written in Latin order, as the
-  Romans did: Belgica Prima, Germania Secunda, Lugdunensis Tertia, Armenia Maior. (Changed 2026-09-29 after the
+  Romans did: Belgica Prima, Germania Secunda, Lugdunensis Tertia, Armenia Maior, Epirus Nova, Apulia et Calabria. (Changed 2026-09-29 after the
   second in-game test.)
 - English classical spelling: the conventional English form where one exists (Thrace, Cappadocia, Parisii),
   otherwise the Latin form without long-vowel marks (Lugdunensis).
