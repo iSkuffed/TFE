@@ -1,0 +1,33 @@
+﻿# TFE: Salvian's Romans who "flee to the barbarians". When a migrating host (generic_actions/tfe_migratory.txt) takes a
+# Roman town, some of its men join it: every regiment of the host regains strength, and the empire loses them. The
+# West's burdens (government_reforms/tfe_late_roman_west.txt) drive more to go. A town gives men once a decade.
+on_siege_won = {
+	on_actions = { tfe_on_host_takes_roman_town }
+}
+on_location_occupied = {
+	on_actions = { tfe_on_host_takes_roman_town }
+}
+
+# root = the occupier, scope:target = the location
+tfe_on_host_takes_roman_town = {
+	trigger = {
+		has_variable = tfe_migrating
+		NOT = { has_variable = tfe_settled }	# on_action/tfe_migratory.txt
+		scope:target = {
+			NOT = { has_location_modifier = tfe_fled_to_the_host }
+			owner ?= { OR = { has_or_had_tag = WRE has_or_had_tag = EAR } }
+		}
+	}
+	effect = {
+		scope:target = {
+			add_location_modifier = { modifier = tfe_fled_to_the_host years = 10 }
+			owner = {
+				save_scope_value_as = { name = tfe_defectors value = tfe_defectors_share }
+				add_manpower = tfe_defectors_manpower
+			}
+		}
+		every_army = {
+			every_sub_unit = { add_subunit_strength_percentage = scope:tfe_defectors }
+		}
+	}
+}

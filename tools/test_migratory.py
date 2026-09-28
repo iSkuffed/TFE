@@ -140,3 +140,26 @@ def test_host_actions_have_buttons_in_the_settle_panel():
     # the override is vanilla plus our one block, so a game patch that changes the file shows up here
     start, end = text.index(GUI_BEGIN), text.index(GUI_END) + len(GUI_END)
     assert text[:start] + text[end:] == (b.GAME / "in_game/gui/form_new_country.gui").read_text(encoding="utf-8")
+
+
+def test_roman_towns_taken_by_a_host_send_it_men():
+    # on_action/tfe_defectors.txt: the host regains strength, Rome loses manpower, the town is marked for a decade
+    defect = COMMON / "on_action/tfe_defectors.txt"
+    values = COMMON / "script_values/tfe_defectors.txt"
+    modifier = b.MOD / "main_menu/common/static_modifiers/tfe_defectors.txt"
+    loc = b.MOD / "main_menu/localization/english/tfe_defectors_l_english.yml"
+    for p in (defect, values, modifier, loc):
+        assert p.read_bytes().startswith(b"\xef\xbb\xbf"), p.name
+        assert code(p).count("{") == code(p).count("}"), p.name
+    on_action = code(defect)
+    for hook in ("on_siege_won", "on_location_occupied"):   # forts and open towns
+        assert re.search(rf"^{hook} = \{{\s*on_actions = \{{ tfe_on_host_takes_roman_town \}}", on_action, re.M), hook
+    assert "has_variable = tfe_migrating" in on_action and "NOT = { has_variable = tfe_settled }" in on_action
+    assert "NOT = { has_location_modifier = tfe_fled_to_the_host }" in on_action   # once per town per decade
+    assert "modifier = tfe_fled_to_the_host years = 10" in on_action
+    assert set(top_keys(modifier)) == {"tfe_fled_to_the_host"}
+    text = loc.read_text(encoding="utf-8-sig")
+    assert all(f"STATIC_MODIFIER_{k}_tfe_fled_to_the_host:" in text for k in ("NAME", "DESC"))
+    # each of the West's burdens drives more men to the host
+    burdens = set(top_keys(COMMON / "government_reforms/tfe_late_roman_west.txt")) - {"tfe_coinage_reform"}
+    assert set(re.findall(r"has_reform = government_reform:(\w+)", code(values))) == burdens
