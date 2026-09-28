@@ -60,7 +60,6 @@ character_db = {
 		dynasty = theodosian_dynasty
 		father = tfe_theodosius_i
 		mother = tfe_aelia_flaccilla
-		ruler_trait = unsuited_for_country_ruling
 		tag = WRE
 	}
 	tfe_galla_placidia = { # Galla Placidia; born 388-393

@@ -83,3 +83,8 @@ been seen working in game, or you say plainly that it hasn't.
   such a modifier exactly one effect. Vanilla maps most effects to a plus icon only, so a malus shows a plus unless
   `modifier_icons/tfe_modifier_icons.txt` gives it a `negative` icon.
 - A location has no base manpower: `local_manpower_modifier` alone does nothing. Use flat `local_manpower`.
+- A child ruler under a regency goes in `heir =` with no `ruler =` (vanilla DAN, RSO). A regency ends by crowning its
+  heir, so a `ruler =` under a regent never takes power. `unsuited_for_country_ruling` is vanilla's blind/mad trait and
+  blocks a character for life, not until majority.
+- A heir set in `on_regency_end` is overwritten: the game picks the new ruler's heir after it fires. From
+  `on_new_ruler`, fire an event with `delay = { days = 1 }` (`tfe_opening.6`).

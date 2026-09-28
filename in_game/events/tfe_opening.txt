@@ -221,3 +221,20 @@ tfe_opening.5 = {
 		ai_chance = { base = 1 }
 	}
 }
+
+# 400: Honorius comes of age. His heir by blood is Arcadius, and a foreign ruler as heir makes the halves a union:
+# Stilicho's son Eucherius instead, suspected of being groomed for the purple, betrothed to Galla Placidia
+tfe_opening.6 = {
+	type = country_event
+	hidden = yes
+	fire_only_once = yes
+
+	trigger = {
+		ruler ?= character:tfe_honorius
+		character:tfe_eucherius ?= { is_alive = yes employer ?= root }
+	}
+
+	immediate = {
+		set_as_designated_heir = character:tfe_eucherius
+	}
+}

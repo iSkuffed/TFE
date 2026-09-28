@@ -15,7 +15,7 @@ tfe_roman_empire = {
 	disband_if_no_leader = no
 	leader = {
 		every_international_organization_member = {
-			ruler ?= { add_to_list = leaders }
+			ruler_or_heir_if_regent ?= { add_to_list = leaders }	# the boy Augustus, not his regent
 		}
 	}
 
@@ -35,7 +35,7 @@ tfe_roman_empire = {
 			monthly_change = {
 				add = {
 					if = {
-						limit = { c:WRE ?= { ruler ?= { dynasty ?= c:EAR.ruler.dynasty } } }
+						limit = { c:WRE ?= { ruler_or_heir_if_regent ?= { dynasty ?= c:EAR.ruler_or_heir_if_regent.dynasty } } }
 						add = { desc = "TFE_UNITY_ONE_DYNASTY" value = 0.1 }
 					}
 					if = {
