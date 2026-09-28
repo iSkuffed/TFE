@@ -1,0 +1,6 @@
+﻿l_english:
+ # Vanilla calls every Greek-group emperor Basileus; in 395 both halves are ruled by Augusti
+ rank_empire_byzantine_ruler_male: "Augustus"
+ rank_empire_byzantine_ruler_female: "Augusta"
+ rank_empire_byzantine_ruler_male.short: "Aug."
+ rank_empire_byzantine_ruler_female.short: "Aug."
