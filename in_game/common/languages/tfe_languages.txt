@@ -1,0 +1,59 @@
+﻿# Vanilla latin_language without its Greek fallback: vanilla lets a Latin Byzantium keep Greek names, but in 395
+# it turned the West's own emperor into "Onórios". Names with no Latin form now use their base (Latin/English) one.
+# Resync with vanilla in_game/common/languages/00_italy.txt after an EU5 patch.
+REPLACE:latin_language = {
+
+	color = religion_catholic
+	family = romance_language_family
+
+
+	male_names = {
+		name_aeneas Appius Agrippa name_aulus Caelus name_chrysogonos name_decimus name_decius Drusus name_faustus name_gaius name_gnaeus name_lucius Mamercus name_manius name_mark Mettius Opiter 
+		name_publius Postumus Proculus name_quintus name_secundus Septimus name_servius name_sextus name_spurius Tertius name_titus name_tiberius Volero Volumnius name_octavius
+		Statius Tullus Volesus Vopiscus Caeso Paullus Hostus Numerius Sertor Potitus Vibius Cossus Arruns Camillus name_august
+	}
+	female_names = {
+		name_agrippina Appia Aula Caesula Decima name_fausta Gaia Gnaea Hosta name_lucia Maio Mamerca Mania name_marcia Maxima Mettia Mino Nona Numeria
+		name_octavia Paulla Postuma Prima Procula Publia Quarta Quinta Secunda Septima Servia Sexta Spuria Statia Tertia Titia
+		Tiberia Tulla Vibia Volusa Vopisca
+	}
+	dynasty_names = {
+		name_helios name_anthony name_cassius name_claude name_cornelius Fabius name_flavius name_julius name_livius name_marius name_octavius Pompeius Sempronius name_valerius
+	}
+	lowborn = {
+		Vorenius Pullo
+		Aburius Accius Acilius Acutius Aebutius Aemilius Alienus Anicius Annius
+		Antius Antistius Appuleius Apronius Aquillius name_attilio Atius Aufidius Aulius
+		Blossius name_aurelius Caecinus Caecilius Calavius Calpurnius Cantius Carvilius Catius Centenius Cilnius Cispius Cloelius Cominius
+		Coruncanius Curiatius Curtius Curius name_decius Domitius name_fabrice Foslius Fulcinius Fulvius Furius Funius
+		Gabinius name_galerius Gracchus Geganius Gellius Herminius name_horatius Hortensius Hostilius
+		Junius Juventius Laetorius Lartius name_licinius name_lucius Lucretius Maelius Maenius Mamilius Manlius name_marcius
+		Memmius Messius Metilius Minucius Mummius Nigidius Ninnius Nonius Numicius Numisius
+		Ofilius Ogulnius Opimius Oppius Octacilius Ovidius Papirius Pinarius Plautius Plinius Postumius Pompilius 	
+		Pomponius Popillius Porcius Publilius Pupius Quintilius Quinctius Rabirius Resius Romilius Salonius Salvius Scribonius
+		name_sergius Sertorius Servilius Sestius Sextius Sextilius Sicinius Silius Sulpicius Titius Tremulus Tullius Ulpius
+		Verginius Veturius Vesuvius Villius Viridius Volumnius
+	}
+
+	patronym_prefix_son = "patronym_prefix_latin_son"
+	patronym_prefix_daughter = "patronym_prefix_latin_daughter"
+
+	dialects = {
+		church_dialect = {}
+		roman_dialect = {
+			male_names = {
+				# Praenomen
+				name_lucius name_gaius name_mark
+				name_publius name_quintus name_titus name_aulus
+				name_sextus name_gnaeus name_spurius
+				name_decimus name_servius name_manius name_tiberius
+			}
+			use_female_birth_order_names = yes
+			first_name_format = secondary
+			last_name_format = primary
+			nickname_name_format = primary
+		}
+	}
+
+	location_suffix = "location_suffix_latin"
+}
