@@ -2,10 +2,7 @@
 # Granary of Rome modifier come from its template (tools/location_templates.py).
 tfe_work_granary_to_the_limit = {
 	while = {
-		count = 10
-		if = {
-			limit = { is_full_expanded_rgo = no }
-			change_max_raw_material_workers = 1
-		}
+		limit = { is_full_expanded_rgo = no }
+		change_max_raw_material_workers = 1
 	}
 }
