@@ -92,7 +92,7 @@ def load_centroids():
     png = (MAP / "locations.png").stat()
     sig = f"#sig {png.st_size} {png.st_mtime_ns} {zlib.crc32(repr(sorted(colors.items())).encode())}"
     if cache.exists():
-        head, *lines = cache.read_text().splitlines()
+        head, *lines = cache.read_text(encoding="utf-8").splitlines()
         if head == sig:
             return {n: (float(x), float(y)) for n, x, y in (l.split("\t") for l in lines)}
     keys = np.array(sorted(colors), dtype=np.uint32)
@@ -111,7 +111,7 @@ def load_centroids():
         sy += np.bincount(i, weights=np.broadcast_to(ys, p.shape)[ok], minlength=len(keys))
     cent = {colors[int(k)]: (sx[j] / cnt[j], sy[j] / cnt[j]) for j, k in enumerate(keys) if cnt[j]}
     OUT.mkdir(exist_ok=True)
-    cache.write_text(sig + "\n" + "".join(f"{n}\t{x:.1f}\t{y:.1f}\n" for n, (x, y) in cent.items()))
+    cache.write_text(sig + "\n" + "".join(f"{n}\t{x:.1f}\t{y:.1f}\n" for n, (x, y) in cent.items()), encoding="utf-8")
     return cent
 
 
@@ -276,7 +276,7 @@ def load_overrides(files):
 
 def load_dataset():
     from shapely.geometry import shape
-    feats = json.loads((TOOLS / "world_400.geojson").read_text())["features"]
+    feats = json.loads((TOOLS / "world_400.geojson").read_text(encoding="utf-8"))["features"]
     return [shape(f["geometry"]) for f in feats], [f["properties"].get("NAME") or "" for f in feats]
 
 
