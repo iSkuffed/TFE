@@ -1,0 +1,43 @@
+# The Caucasus in 395: Iberia, Lazica, Caucasian Albania, Armenia divided (c. 387), the Alans and Huns beyond the range
+caucasus_region = the Caucasus  # a: Caucasus mons; Armenia, Iberia, Lazica, Albania and the peoples north of the range
+
+armenia_area = Persarmenia  # a: Procopius; the Persian share of Armenia after c. 387, Ayrarat, Syunik, Gugark, Artsakh
+ani_province = Shirak  # a: Shirak canton of Ayrarat (Ani, Kumayri, Amberd)
+kachen_province = Orchistene  # a: Strabo 11.14.4, Armenian Artsakh; given to Albania after 387
+syunik_province = Syunik  # a: Siunia/Sisakan, Faustus of Byzantium; Armenian nakharar house of Syunik
+tashir_province = Gogarene  # a: Strabo 11.14.4, Armenian Gugark; passed to Iberia after 387
+yerevan_province = Ayrarat  # a: the royal province of Armenia, Artaxata (Khor Virap) and Dvin
+
+armenian_highlands_area = Greater Armenia  # a: Armenia Maior, the highland cantons from Karin to Van and Corduene
+amadiya_province = Corduene  # a: Gordyene/Corduene, Ammianus 25.7; ceded back to Persia in 363
+bitlis_province = Taron  # a: Taraunitis/Taron, Mush; with Moxoene (Mokk) to the south
+erzurum_province = Armenia Interior  # a: the Roman share of 387, Karin, Acilisene, Xerxene; capital Theodosiopolis
+harput_province = Sophene  # a: Strabo 11.14.2, capital Carcathiocerta (Harput); with Anzitene
+kars_province = Vanand  # a: Vanand canton of Ayrarat (Kars), with Arsharunik (Kagizman)
+malazgirt_province = Apahunik  # a: Armenian canton of Turuberan, chief fort Manzikert
+van_province = Vaspurakan  # a: Armenian Vaspurakan, Tosp (Van) and the north shore of Lake Van
+
+georgia_area = Iberia  # a: Caucasian Iberia, capital Mtskheta (Ptolemy Mestleta); with Lazica on the coast
+abkhazia_province = the Abasgi  # a: Arrian, Periplus 11; Procopius, Abasgoi; Pityus (Pitsunda)
+hereti_province = Cambysene  # a: Strabo 11.4.1, the Alazani-Iori lands between Iberia and Albania
+imereti_province = Colchis  # a: the inland heart of old Colchis, Kutaia (Kutaisi) and Sarapana (Shorapani)
+kakheti_province = Kakheti  # a: Kakheti/Kukheti, eastern saeristavo of Iberia, Georgian chronicles
+kartli_province = Kartli  # a: Kartli, Iberia proper; Mtskheta and Harmozica (Armazi)
+meskheti_province = the Taochi  # a: Xenophon, Anabasis 4.7; Tao and Klarjeti, Artanissa (Artanuji)
+samegrelo_province = Lazica  # a: kingdom of the Lazi, Phasis (Poti) and Archaeopolis; Apsarus (Batumi) Roman
+samtskhe_province = the Moschi  # a: Strabo 11.2.18, Moschike; Georgian Meskheti/Samtskhe
+
+northern_caucasus_area = Caucasian Sarmatia  # p: Ptolemy's Sarmatia Asiatica below the Caucasus; Alans in 395
+alania_province = the Alans  # a: Alani, Ammianus 31.2; the central north Caucasus (Koban, Chegem)
+avaria_province = the Diduri  # p: Ptolemy 5.9, Tusci et Diduri between the Ceraunian mountains and the Caspian
+lezgistan_province = the Legae  # p: Strabo 11.5.1, Plutarch Pompey 35; the Lezgins
+north_caucasus_province = the Upper Hypanis  # p: Hypanis (Kuban), Strabo 11.2.9; its upper valley (Arkhyz)
+simsir_province = the Gargarians  # p: Strabo 11.5.1, foothill people north of the Caucasus; the Nakh
+tarki_province = the Caspian Massagetae  # a: the Maskut kingdom of Faustus of Byzantium, Caspian Daghestan
+
+shirvan_area = Caucasian Albania  # a: Albania, Strabo 11.4; capital Cabalaca, later Partav
+arran_province = Otene  # a: Strabo/Ptolemy, Armenian Utik; Albanian after 387, Partav (Barda)
+baku_province = Lower Albania  # d: the Albanian lowland to the Caspian (Shamakhi, Baku)
+mughan_province = Caspiane  # a: Strabo 11.4.5, Armenian Kaspk/Paytakaran; Sasanian Balasagan
+shaki_province = Cabalaca  # a: Pliny 6.29, Albania's capital (Qabala)
+shirvan_province = the Albanian Gates  # a: Ptolemy 5.12, Albaniae Pylae, the pass at Derbent

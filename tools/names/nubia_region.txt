@@ -1,0 +1,25 @@
+nubia_region = Ethiopia below Egypt  # a: Aethiopia sub Aegypto (Ptolemy 4.7), the Nile lands of Kush after Meroe's fall
+
+butana_area = the Island of Meroe  # a: Meroe insula (Herodotus, Strabo, Pliny), between the Nile, Astaboras and Astapus
+atbai_province = the Megabari  # p: Megabari/Megabarri (Strabo 17.1.2, Pliny 6.35), desert folk east of the Nile akin to the Blemmyes
+lower_butana_province = Meroe  # a: Meroe, royal city of Kush on the Shendi reach, sacked by Aksum c. 350
+lower_gezira_province = the Sembritae  # p: Sembritae (Strabo 17.1.2, Pliny 6.191), on the island above Meroe
+upper_butana_province = the Astaboras  # p: Astaboras, the Atbara river country (Strabo, Ptolemy)
+upper_gezira_province = the Astapus  # p: Astapus, the Blue Nile (Eratosthenes via Strabo, Ptolemy)
+
+darfur_area = Inner Ethiopia  # p: Aethiopia interior (Ptolemy 4.8), the unknown lands west and south of Meroe
+kordofan_province = the Nuba Hills  # d: no ancient unit; named for the Nubae who give Kordofan's hills their name
+north_darfur_province = the Marra Mountains  # d: Jebel Marra and its northern plateau, nothing ancient
+south_darfur_province = the Western Savanna  # d: grasslands of southern Darfur, nothing ancient
+
+equatoria_area = the Sources of the Nile  # p: caput Nili sought by Nero's centurions (Seneca NQ 6.8, Pliny 6.181), Ptolemy's Nile lakes
+bahr_al_jabal_province = the Astasobas  # p: Astasobas (Strabo 17.1.2), the Sobat and White Nile
+bahr_el_ghazal_province = the Great Marshes  # p: immensae paludes reached by Nero's explorers (Seneca NQ 6.8), the Sudd
+equatoria_province = the Mountains of the Moon  # p: Lunae Montes (Ptolemy 4.8), the far south where the Nile rises
+
+nubia_proper_area = Nobadia  # a: land of the Nobades/Nobatae (Silko inscription at Talmis, Procopius), Lower and Middle Nubia
+bayuda_province = the Nubae  # p: Nubae west of the Nile from Meroe to the bends of the river (Strabo 17.1.2), the Bayuda
+erg_selima_province = the Selima Sands  # d: the waterless desert west of the Nile, nothing ancient
+makuria_province = Napata  # a: Napata (Strabo, Pliny, Ptolemy), old royal city at Jebel Barkal, sacked by Petronius 24 BC
+nobatia_province = the Triacontaschoenus  # a: Triacontaschoenus (Gallus' Philae stele), Lower Nubia above the Dodecaschoenus; Talmis, Primis, held by Blemmyes and Nobatae
+suakin_province = Troglodytica  # a: Troglodytica (Strabo, Pliny, Ptolemy), the Red Sea hills and coast of the Blemmyes

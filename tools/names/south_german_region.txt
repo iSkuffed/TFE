@@ -1,0 +1,103 @@
+south_german_region = Raetia and Noricum  # a: the two Raetias and two Noricums of the Alps and upper Danube, with the Swiss, Rhine and barbarian lands beside them
+
+alsace_area = First Germania  # a: Germania Prima, Argentoratum; capital Moguntiacum lies north in Hesse
+lower_alsace_province = the Triboci  # a: civitas Tribocorum, later Argentoratensium (Notitia Galliarum)
+upper_alsace_province = Argentovaria  # a: Horbourg by Colmar, Gratian's victory over the Lentienses in 378 (Ammianus 31.10)
+
+austria_area = Eastern Noricum Ripense  # a: Noricum Ripense east of the Enns, with First Pannonia's Vindobona and the north bank
+ober_dem_manhartsberg_province = the Teracatriae  # p: Ptolemy 2.11, on the north bank of the Danube east of the Adrabaecampi
+ober_dem_wienerwald_province = Cetium  # a: municipium Aelium Cetium (St Poelten), with Comagenis and Arelape
+unter_dem_manhartsberg_province = the Racatae  # p: Ptolemy 2.11, north-bank Danubian people facing Carnuntum
+unter_dem_wienerwald_province = Vindobona  # a: legionary fortress of First Pannonia, with Aquae and Carnuntum's west
+
+bavaria_area = Second Raetia  # a: Raetia Secunda, the Vindelician lowland; capital Augusta Vindelicum
+alpenvorland_province = the Licates  # p: Ptolemy's Likattioi and the Tropaeum Alpium's Licates of the Lech foothills
+bayerischer_wald_province = the Gabreta Forest  # p: Ptolemy's Gabreta Hyle, the forest above Batavis and Sorviodurum
+chiemgau_province = the Alauni  # p: Ptolemy's Alaunoi of western Noricum; Alounae cult at Chieming, Bedaium, Pons Aeni
+donau_moos_province = Castra Regina  # a: Regensburg, fortress of Legio III Italica, with Abusina and Vallatum
+gauboden_province = the Runicates  # p: Ptolemy's Rounikatai of northern Vindelicia by the Danube
+munchner_schotterebene_province = Vindelicia  # a: land of the Vindelici (Tacitus, Ptolemy), the plain between Lech and Inn
+oberpfalzer_wald_province = the Naristi  # a: Tacitus Germania 42, beside the Marcomanni in the Upper Palatinate
+
+bohemia_area = Boiohaemum  # a: Tacitus Germania 28, Velleius 2.109; the Marcomannic homeland
+bechinsko_province = the Upper Vltava  # d: Budejovice and Trebon basins below the Gabreta; Ptolemy's Sudini here share their name with the Baltic Sudini
+boleslavsko_province = the Asciburgian Mountains  # p: Ptolemy's Askibourgion oros, the Jizera and Giant mountains above Turnov and Frydlant
+chebsko_province = the Upper Egra  # d: the upper Ohre (Egra) basin of Cheb and Loket under the Ore mountains; no ancient unit
+chrudimsko_province = the Luna Forest  # p: Ptolemy's Louna Hyle below the Quadi, often set on the Bohemian-Moravian heights
+hradecko_province = the Batini  # p: Ptolemy 2.11, beside the Baenochaemae under the Asciburgian mountains, by the upper Albis
+litomericko_province = the Baenochaemae  # p: Ptolemy's Bainochaimai beside the Albis
+plzensko_province = the Marcomanni  # p: Ptolemy places them beneath the Gabreta forest, west Bohemia
+prachensko_province = the Boii  # a: Tacitus Germania 28, the Celtic Boii who named Boiohaemum; oppida Nevezice, Hrazany
+prague_province = Marobudum  # p: Ptolemy's Maroboudon, royal seat of Maroboduus
+zatecko_province = the Lower Egra  # d: the lower Ohre (Egra) basin of Zatec and Most; no ancient unit
+
+carinthia_area = Noricum Mediterraneum  # a: Inland Noricum, capital Virunum (later Teurnia)
+lower_carinthia_province = Virunum  # a: municipium Claudium Virunum on the Zollfeld, provincial capital
+upper_carinthia_province = Teurnia  # a: municipium Teurnia on the upper Drava, with Aguntum and Santicum
+
+central_switzerland_area = Eastern Maxima Sequanorum  # a: Maxima Sequanorum's Aare lands about Vindonissa, with the Vallenses of the Pennine Alps
+aargau_province = Vindonissa  # a: castrum Vindonissense (Notitia Galliarum), with Aquae Helveticae
+bern_province = the Upper Aare  # d: Helvetian Aare valley and Oberland about Brenodurum (Bern) and Thun; no civitas of its own
+oberwallis_province = the Vallenses  # a: civitas Vallensium, Octodurus and Sedunum (Notitia Galliarum, Alpes Poeninae)
+
+eastern_switzerland_area = First Raetia  # a: Raetia Prima, capital Curia; with Turicum across the border in Maxima Sequanorum
+graubunden_province = Curia  # a: Curia Raetorum, capital of First Raetia
+thurgau_province = Turicum  # a: statio Turicensis, with Vitudurum, Ad Fines and Arbor Felix
+waldstatte_province = the Helvetian Alps  # d: the Alpine uplands of Uri, Schwyz and Glarus between Helvetii and Raeti; no ancient unit
+
+franconia_area = the Burgundians  # a: Burgundii on the Main beyond the Alamanni (Ammianus 18.2, 28.5)
+franconian_alb_province = the Juthungi  # a: Iuthungi of the Altmuehl beyond the Raetian limes (Ammianus 17.6)
+frankenwald_province = Menosgada  # p: Ptolemy's Menosgada on the Main, the Staffelberg by Lichtenfels
+frankische_schweiz_province = the Southern Hermunduri  # a: Tacitus Germania 41, Hermunduri of the upper Main who traded at Augusta Vindelicum
+main_franconia_province = Segodunum  # p: Ptolemy's Segodounon on the Main, often set at Wuerzburg
+ries_province = the Radantia Basin  # d: Rednitz-Regnitz basin about Nuremberg (Radantia is Carolingian); no ancient unit
+tauberfranken_province = the Salinae  # a: the salt springs Burgundians and Alamanni fought over (Ammianus 28.5.11), set at Schwaebisch Hall
+
+moravia_area = the Quadi  # a: Quadi of the Marus (Tacitus, Ammianus), Valentinian's enemies of 374-375
+brnensko_province = Eburodunum  # p: Ptolemy's Eburodounon, set at Brno
+hradistsko_province = the Marus Valley  # d: the middle Morava (Marus, Tacitus Ann. 2.63), Vannius's kingdom
+olomoucko_province = the Baemi  # p: Ptolemy's Baimoi below the Luna forest, the Hana plain
+znojemsko_province = the Thaya Uplands  # d: the upper Thaya and Jihlava hills; no ancient unit
+
+salzburg_area = the Norican Alps  # a: Alpes Noricae (Pliny, Tacitus), Noricum Ripense's Alpine west about Iuvavum
+pinzgau_province = the Ambisontes  # a: Tropaeum Alpium and Ptolemy's Ambisontioi of the upper Salzach
+pongau_province = the Tauern Passes  # d: the Salzach gorge and Radstadt Tauern road (In Alpe, Immurium); no ancient unit
+salzburger_land_province = Iuvavum  # a: municipium Claudium Iuvavum (Salzburg)
+
+styria_area = Eastern Noricum Mediterraneum  # a: Inland Noricum's east about Flavia Solva and Celeia, with First Pannonia's Poetovio fringe
+eastern_styria_province = the Upper Arrabo  # d: the upper Raab (Arrabo) and Pitten hills of First Pannonia; no ancient unit
+lower_styria_province = Celeia  # a: municipium Claudia Celeia, with Poetovio and Colatio
+middle_styria_province = Flavia Solva  # a: municipium Flavia Solva by Leibnitz
+upper_styria_province = the Upper Mur  # d: upper Mur and Enns valleys, Noricum's iron country; no ancient unit
+
+swabia_area = Alamannia  # a: Alamannia (Ammianus, Panegyrici), the lost Agri Decumates and Upper Swabia; Augusta Vindelicum on its edge
+allgau_province = the Estiones  # a: Strabo 4.6.8, Cambodunum of the Estiones
+eastern_upper_swabia_province = Augusta Vindelicum  # a: Augsburg, capital of Second Raetia, with Guntia on the Danube
+hegau_province = Constantia  # a: late Roman fort at the Rhine outlet of the lake, with Tasgaetium
+hohenloher_ebene_province = the Raetovarii  # a: Notitia Dignitatum's Raetovarii, Alamanni of the Ries behind the old limes
+neckar_province = Sumelocenna  # a: civitas Sumelocennensis (Rottenburg am Neckar), lost in the 260s
+swabian_alb_province = the Helvetian Desert  # p: Ptolemy's Heloueton Eremos north of the upper Danube
+western_upper_swabia_province = the Lentienses  # a: Alamanni north of Lake Constance (Ammianus 15.4, 31.10)
+
+tirol_area = the Raetian Alps  # a: Raeticae Alpes (Tacitus Germania 1), First Raetia's Inn and Adige valleys with Tridentum
+oberinntal_province = the Genauni  # a: Horace Odes 4.14 and Tropaeum Alpium, Inn valley people
+south_tirol_province = the Isarci  # a: Tropaeum Alpium, of the Isarcus (Eisack), about Pons Drusi and Sabiona
+trentino_province = Tridentum  # a: municipium Tridentum, Venetia et Histria
+unterinntal_province = the Breuni  # a: Tropaeum Alpium, Horace; Breones still named by Cassiodorus; Veldidena
+vorarlberg_province = the Brigantii  # a: Strabo 4.6.8, Brigantium of the Brigantii
+
+upper_austria_area = Noricum Ripense  # a: Riverside Noricum, capital Ovilava, legion at Lauriacum
+muhlviertel_province = the Adrabaecampi  # p: Ptolemy 2.11, along the Danube's north bank below the Sudini
+schaunberg_province = Lentia  # a: Linz, equites sagittarii Lentiae (Notitia Dignitatum)
+traungau_province = Ovilava  # a: colonia Aurelia Antoniniana Ovilava (Wels), capital of Noricum Ripense
+
+upper_rhine_area = the Agri Decumates  # a: decumates agri (Tacitus Germania 29), lost in the 260s, with the Nemetes' left bank
+kraichgau_province = the Alisinenses  # a: civitas Alisinensium (Wimpfen by Heilbronn)
+odenwald_province = the Suebi Nicrenses  # a: civitas Ulpia Sueborum Nicrensium (Lopodunum), the lower Neckar
+palatinate_province = the Nemetes  # a: civitas Nemetum, Noviomagus (Speyer), First Germania
+rhine_valley_province = the Brisigavi  # a: Alamanni of the Breisgau (Notitia Dignitatum, Brisigavi seniores)
+schwarzwald_province = the Marcian Forest  # a: silva Marciana (Tabula Peutingeriana, Ammianus 21.8)
+
+western_switzerland_area = Southern Maxima Sequanorum  # a: Maxima Sequanorum's Helvetian and Rauracan lands, Lake Geneva to Basilia
+neuchatel_province = the Rauraci  # a: Augusta Raurica, Castrum Rauracense and civitas Basiliensium, with the Jura foot
+vaud_province = the Helvetii  # a: civitas Helvetiorum, Aventicum, with the Equestres of Noviodunum
