@@ -168,3 +168,16 @@ def test_the_frontier_works_hold_a_zone_of_control_on_roman_frontier_land():
         assert "propagating_zone_of_control = yes" in body and "local_defensive = " in body, name
         assert re.search(r"country_potential = \{\s*always = no\s*\}", body), name   # placed at start, never built
         assert "is_indestructible = yes" in body, name   # so never lost either
+
+
+def test_every_location_with_our_modifier_tells_its_story():
+    # the goods marker's tooltip shows the location's own flavour text (<location>_desc) under the modifier; vanilla's
+    # 1337 texts for Rome, Carthage and the Po towns are replaced, so the file lives in localization/english/replace/
+    flavor = b.MOD / "main_menu/localization/english/replace/tfe_location_flavor_l_english.yml"
+    assert flavor.read_bytes().startswith(b"\xef\xbb\xbf")
+    assert flavor.read_text(encoding="utf-8-sig") == lt.flavor(), "rerun tools/location_templates.py"
+    ours = (b.MOD / "in_game/map_data/location_templates.txt").read_text(encoding="utf-8-sig")
+    tagged = set(re.findall(r"^(\w+) = \{ modifier = tfe_\w+ ", ours, re.M))
+    keys = dict(re.findall(r'^ (\w+)_desc: "(.+)"$', flavor.read_text(encoding="utf-8-sig"), re.M))
+    assert set(keys) == tagged, sorted(set(keys) ^ tagged)
+    assert "Carthage" in keys["tunis"] and "Papacy" not in keys["rome"]
