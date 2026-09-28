@@ -9,8 +9,6 @@ import borders as b
 # our copy: (its vanilla original, the original's sha256 prefix when we last synced)
 COPIES = {
     "in_game/common/languages/tfe_languages.txt": ("in_game/common/languages/00_italy.txt", "41fea717f67c83bc"),
-    "in_game/gui/country_header.gui": ("in_game/gui/country_header.gui", "6ea5a73e99e5e4fa"),
-    "in_game/gui/multiplayer_lobby.gui": ("in_game/gui/multiplayer_lobby.gui", "74eb3ae699cfb193"),
 }
 
 
