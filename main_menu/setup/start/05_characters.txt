@@ -76,7 +76,7 @@ character_db = {
 		child_trait = child_gifted
 		tag = WRE
 	}
-	tfe_stilicho = { # magister utriusque militiae; Vandal father; approx
+	tfe_stilicho = { # Magister Militum (utriusque militiae); Vandal father; approx
 		first_name = { name = name_stilicho }
 		culture = roman_culture
 		religion = orthodox
