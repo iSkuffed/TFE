@@ -17,3 +17,12 @@ tfe_on_start_opening = {
 		}
 	}
 }
+
+# Honorius comes of age and takes the throne; the next day Eucherius is named his heir (events/tfe_opening.txt).
+# A day's delay: the game picks a new ruler's heir after crowning him, over any heir set at once.
+on_new_ruler = {
+	events = {
+		delay = { days = 1 }
+		tfe_opening.6
+	}
+}

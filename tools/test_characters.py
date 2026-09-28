@@ -148,8 +148,13 @@ def test_governments_reference_living_characters_of_that_country(chars):
 def test_key_rulers_and_their_ages(chars):
     db = {cid: fields(body) for cid, body in chars}
     govs, _ = b.load_governments(b.TOOLS / "governments.txt", b.load_tags())
-    assert "ruler = tfe_honorius" in govs["WRE"] and "active_regent = tfe_stilicho" in govs["WRE"]
-    assert "heir = tfe_eucherius" in govs["WRE"]   # not Arcadius by blood: an heir ruling the East makes a union
+    # a regency ends by crowning its heir: with Honorius as ruler it waited for the heir instead, and he never ruled
+    assert "heir = tfe_honorius" in govs["WRE"] and "active_regent = tfe_stilicho" in govs["WRE"]
+    assert not any(line.startswith("ruler =") for line in govs["WRE"])
+    assert "unsuited_for_country_ruling" not in db["tfe_honorius"].get("ruler_trait", [])   # blocks him for life
+    # crowned, his heir is Eucherius, not Arcadius by blood: an heir ruling the East makes a union
+    events = (b.MOD / "in_game/events/tfe_opening.txt").read_text(encoding="utf-8-sig")
+    assert "set_as_designated_heir = character:tfe_eucherius" in events
     assert "ruler = tfe_arcadius" in govs["EAR"] and "ruler = tfe_alaric" in govs["VIS"]
     assert db["tfe_honorius"]["birth_date"] == ["384.9.9"]      # 10 at the start: minor under Stilicho
     assert db["tfe_arcadius"]["birth_date"][0].startswith("377")

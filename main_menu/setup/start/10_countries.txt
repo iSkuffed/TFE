@@ -3078,10 +3078,9 @@ countries = {
 			accepted_cultures = { gallo_roman hispano_roman afro_roman romano_british briton albanian illyro_roman thraco_roman }
 			country_rank = rank_empire
 			government = {
-				ruler = tfe_honorius
 				regency = nobles_estate_regency
 				active_regent = tfe_stilicho
-				heir = tfe_eucherius
+				heir = tfe_honorius
 				start_regency_date = 395.1.17
 				end_regency_date = 400.9.9
 				regnal_numbers = { name_valentinian = 2 }
