@@ -1,0 +1,29 @@
+﻿l_english:
+ tfe_senatorial_immunities: "Senatorial Immunities"
+ tfe_senatorial_immunities_desc: "The clarissimi are spared the sordid burdens, their arrears are remitted by every new emperor, and their estates are never entered on the census at their true worth. The land tax falls on everyone else."
+ tfe_patrocinium: "Patrocinium"
+ tfe_patrocinium_desc: "The coloni shelter under a great landlord. He hides them from the recruiting officer and pays gold in their place, so the legions must be filled with barbarians."
+ tfe_peraequatio_done_tt: "The [ShowGovernmentReformName('tfe_peraequatio_reform')] reform has been carried through"
+ tfe_dilectus_done_tt: "The [ShowGovernmentReformName('tfe_dilectus_reform')] reform has been carried through"
+
+ tfe_peraequatio_reform: "Peraequatio"
+ tfe_peraequatio_reform_desc: "A new census of the land. The senators' estates are entered on the registers at their true worth, and once it is in force their immunities can be revoked."
+ tfe_dilectus_reform: "Dilectus Restored"
+ tfe_dilectus_reform_desc: "Every landlord owes recruits from his coloni, and no gold is taken in their place. Once it is in force, Patrocinium can be revoked."
+ tfe_coinage_reform: "Reform of the Coinage"
+ tfe_coinage_reform_desc: "The debased nummus is called in and the soldiers are paid in full-weight metal. Once it is in force, the Debased Coinage ends."
+
+ AUTO_MODIFIER_NAME_tfe_comitatenses: "Comitatenses"
+ AUTO_MODIFIER_DESC_tfe_comitatenses: "The field armies of the West are paid professionals, drilled and kept under arms in peace and war."
+ AUTO_MODIFIER_NAME_tfe_debased_coinage: "Debased Coinage"
+ AUTO_MODIFIER_DESC_tfe_debased_coinage: "The soldiers' stipend and donatives are owed in gold, and the copper and silver that buys it is worth less every year."
+
+ STATIC_MODIFIER_NAME_tfe_granary_of_rome: "Granary of Rome"
+ STATIC_MODIFIER_DESC_tfe_granary_of_rome: "Africa's wheat fills the annona of Rome. Every field that can be sown is sown."
+ STATIC_MODIFIER_NAME_tfe_pannonian_recruiting_grounds: "Pannonian Recruiting Grounds"
+ STATIC_MODIFIER_DESC_tfe_pannonian_recruiting_grounds: "The Danube provinces gave the legions their best recruits and most of their emperors."
+
+ tfe_hadrians_wall: "Hadrian's Wall"
+ tfe_hadrians_wall_desc: "Eighty Roman miles of stone from the Tyne to the Solway, with a fort every few miles and a milecastle at every mile. Nobody crosses into Britannia without the garrison knowing."
+ tfe_limes: "Limes"
+ tfe_limes_desc: "The river frontier of the Empire: forts on the bank, watchtowers between them and the limitanei who hold them. Raiders who cross the Rhine or the Danube must first get past them."

@@ -1,0 +1,11 @@
+﻿# TFE: more manpower in a location shows soldiers with a green plus, as vanilla's goods do (wheat_positive);
+# less keeps vanilla's icon. It badges the Pannonian Recruiting Grounds on the map.
+REPLACE:local_manpower = {
+	positive = "gfx/interface/icons/modifier_types/tfe_manpower_positive.dds"
+	negative = "gfx/interface/icons/modifier_types/global_manpower_modifier.dds"
+}
+
+REPLACE:local_manpower_modifier = {
+	positive = "gfx/interface/icons/modifier_types/tfe_manpower_positive.dds"
+	negative = "gfx/interface/icons/modifier_types/global_manpower_modifier.dds"
+}

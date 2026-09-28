@@ -1,0 +1,7 @@
+﻿# TFE: a template modifier (tools/location_templates.py). Its one effect gives the badge on the goods marker in the
+# raw-material map mode: soldiers with a green plus (modifier_icons/tfe_modifier_icons.txt).
+# Pannonia and Savia: the Danube provinces that gave the legions their best recruits and most of their emperors
+tfe_pannonian_recruiting_grounds = {
+	game_data = { category = location }
+	local_manpower = 0.025	# flat: a location has no base manpower for a percentage to raise
+}

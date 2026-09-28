@@ -772,6 +772,18 @@ ROMAN_GOVERNORS = {
     "WRE": ("rome", "tunis", "sevilla", "marseille", "metz", "london", "buda"),
     "EAR": ("thessaloniki", "smyrna", "kayseri", "antioch", "alexandria"),
 }
+# the frontier works between those castles (building_types/tfe_frontier.txt): Hadrian's Wall, and the ripa of the Rhine
+# and the Danube, where the land across the river is not Roman. The Goths hold the Danube from Vidin to Ruse.
+ROMAN_FRONTIER = {
+    "tfe_hadrians_wall": {"WRE": ("newcastle", "hexham")},
+    "tfe_limes": {
+        "WRE": ("nijmegen", "kleve", "neuss", "bonn", "coblenz", "worms", "speyer", "basel", "konstanz",   # Rhine
+                "kempten", "gunzburg", "straubing", "passau",                                           # Raetia
+                "linz", "tulln",                                                                        # Noricum
+                "bruck_leitha", "gyor", "komarom", "esztergom", "adony", "mohacs", "vukovar", "petrovaradin"),
+        "EAR": ("belgrad", "branicevo", "drastar", "cernavoda", "isaccea"),                            # Moesia, Scythia
+    },
+}
 FORT_TYPES = ("stockade", "castle", "bastion", "star_fort", "fortress", "city_walls", "coastal_fort")
 
 
@@ -804,8 +816,8 @@ def roman_town_setups(text, owner, twins):
 
 def roman_buildings():
     L = ["building_manager = {"]
-    for kind, places in (("castle", ROMAN_FORTS), ("local_governor", ROMAN_GOVERNORS)):
-        L += [f"\t{kind} = {{ tag = {t} level = 1 location = {l} }}" for t in ROMAN_EMPIRES for l in places[t]]
+    for kind, places in (("castle", ROMAN_FORTS), ("local_governor", ROMAN_GOVERNORS), *ROMAN_FRONTIER.items()):
+        L += [f"\t{kind} = {{ tag = {t} level = 1 location = {l} }}" for t in ROMAN_EMPIRES for l in places.get(t, ())]
     return "\n".join(L) + "\n}\n"
 
 

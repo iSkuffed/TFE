@@ -130,6 +130,8 @@ def test_governments_reference_living_characters_of_that_country(chars):
     db = {cid: fields(body) for cid, body in chars}
     problems = []
     for no, tag, line in b.parse_kv_file(b.TOOLS / "governments.txt"):
+        if line.startswith("privilege"):   # estate privileges, not people (test_late_roman_west.py)
+            continue
         for ref in re.findall(r"\btfe_\w+", line):
             if ref not in db:
                 problems.append(f"governments.txt:{no}: {ref} undefined")

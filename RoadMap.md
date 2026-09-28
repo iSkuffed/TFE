@@ -21,6 +21,9 @@ Background research: `reports/Fallen Eagle ideas for EU5.md` (notes in `research
 - [x] Imperium Romanum IO (`tfe_roman_empire.txt`): Unity with named drivers, the Augusti's portraits, Unity bar
 - [x] War of the Augusti CB below Unity 50 (`tfe_war_of_the_augusti.txt`)
 - [x] Army-based migratory hosts: Start Migration action and migration CB against WRE/EAR
+- [x] The West's burdens (`tfe_late_roman_west.txt` in estate_privileges, government_reforms, auto_modifiers): WRE starts with Senatorial Immunities (nobles −25% max tax) and Patrocinium (peasant levies −50%, manpower −25%), neither revocable until its reform (Peraequatio, Dilectus Restored) is in force. Comitatenses (+5% discipline) are paid in a Debased Coinage (−25% army maintenance efficiency) until the Reform of the Coinage.
+- [x] The land in 395 (`tools/location_templates.py` writes `in_game/map_data/location_templates.txt`; rerun after a patch): Carthage and ten Proconsularis/Byzacena towns are Granaries of Rome (wheat, +75% wheat output, RGO expanded at start by `on_action/tfe_lands.txt`); Transdanubia and Slavonia are Pannonian Recruiting Grounds (+0.025 local manpower each, flat: locations have no base manpower to raise). As template modifiers they badge the goods marker in the raw-material map mode with their one effect's icon (soldiers with a plus: `modifier_icons/tfe_modifier_icons.txt`). Italy gave a fifth of its wheat land (9 of 44, all south of the Po) to the villas' vines, herds and flocks, so Rome lives on African grain.
+- [x] Frontier works (`building_types/tfe_frontier.txt`, placed by `borders.py` ROMAN_FRONTIER): Hadrian's Wall at Newcastle and Hexham, the Limes on the Rhine, in Raetia and Noricum, on the ripa Pannonica and the lower Danube. Fort level 1 with a zone of control, +fort defense, never built anew. First step on #13.
 
 ## Before building: in-game tests
 
@@ -50,7 +53,7 @@ These decide how items below get built. Test with `tools/eu5ctl.sh`.
 10. **The Hunnic storm.** A situation cloned from `rise_of_timur`; a tribute IO (Tatar Yoke pattern) for subject Goths, Alans and Gepids; a break-up after Attila. The Huns push hosts into Start Migration.
 11. **Rome and Persia.** A phased rivalry situation (Contention → Cold War → Total War), a once-per-ruler Great War CB, Persian noble houses as estates (the Seven Houses).
 12. **Restoration and fun formables.** Reunite the Empire when the IO disbands, regional restorations, and at least one deliberately silly one (TFE has a Pirate Empire of Illyria). Adapt vanilla ROM_f / BYZ_f.
-13. **The limes.** Frontier location modifiers or buildings on the Rhine, Danube and eastern frontier that decay unless maintained.
+13. **The limes.** Frontier location modifiers or buildings on the Rhine, Danube and eastern frontier that decay unless maintained. ✅ v1 in the West and on the Danube (`tfe_frontier.txt`). Still to do: the eastern frontier (Euphrates, Arabia), decay into a ruined tier as the Great Wall of China has, and letting a strong emperor restore them.
 14. **Great events and ages.** Justinianic Plague copied from the Black Death situation and disease. Replace `age/00_default.txt` (e.g. 395 / ~527 / ~600) so age-gated content works. Low priority until campaigns reach the 6th century.
 15. **Presentation.** Latinised names, loading-screen quotes, dated flavour for holy sites. Cheap and high-impact.
 
