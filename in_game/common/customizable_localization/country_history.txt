@@ -1,0 +1,157 @@
+﻿# TFE: replaces vanilla's file of the same name, whose histories are all of 1337 (Italy's city-states, Renaissance
+# Europe). One text per 395 country, in tfe_country_history_l_english.yml; countries born in play get the fallback.
+country_history = {
+	type = country
+
+	text = { localization_key = tfe_history_ABG trigger = { tag = ABG } } # Abasgia
+	text = { localization_key = tfe_history_AES trigger = { tag = AES } } # Aesti
+	text = { localization_key = tfe_history_AGA trigger = { tag = AGA } } # Agaw
+	text = { localization_key = tfe_history_AGL trigger = { tag = AGL } } # Angles
+	text = { localization_key = tfe_history_AGV trigger = { tag = AGV } } # Caucasian Albania
+	text = { localization_key = tfe_history_AIL trigger = { tag = AIL } } # Ailao
+	text = { localization_key = tfe_history_AIN trigger = { tag = AIN } } # Ainu
+	text = { localization_key = tfe_history_AKA trigger = { tag = AKA } } # Akatziri
+	text = { localization_key = tfe_history_ALK trigger = { tag = ALK } } # Alkhon
+	text = { localization_key = tfe_history_ALM trigger = { tag = ALM } } # Alamanni
+	text = { localization_key = tfe_history_ASK trigger = { tag = ASK } } # Armenia
+	text = { localization_key = tfe_history_AUS trigger = { tag = AUS } } # Austuriani
+	text = { localization_key = tfe_history_AXU trigger = { tag = AXU } } # Aksum
+	text = { localization_key = tfe_history_AZD trigger = { tag = AZD } } # Azd
+	text = { localization_key = tfe_history_AZN trigger = { tag = AZN } } # Azania
+	text = { localization_key = tfe_history_BAE trigger = { tag = BAE } } # Baekje
+	text = { localization_key = tfe_history_BAQ trigger = { tag = BAQ } } # Baquates
+	text = { localization_key = tfe_history_BBS trigger = { tag = BBS } } # Barbara
+	text = { localization_key = tfe_history_BGD trigger = { tag = BGD } } # Burgundians
+	text = { localization_key = tfe_history_BLR trigger = { tag = BLR } } # Bolor
+	text = { localization_key = tfe_history_BMY trigger = { tag = BMY } } # Blemmyes
+	text = { localization_key = tfe_history_BUY trigger = { tag = BUY } } # Buyeo
+	text = { localization_key = tfe_history_CAL trigger = { tag = CAL } } # Alans
+	text = { localization_key = tfe_history_CNZ trigger = { tag = CNZ } } # Cuan
+	text = { localization_key = tfe_history_CQT trigger = { tag = CQT } } # Connachta
+	text = { localization_key = tfe_history_DAX trigger = { tag = DAX } } # Danes
+	text = { localization_key = tfe_history_DIC trigger = { tag = DIC } } # Chouchi
+	text = { localization_key = tfe_history_DMN trigger = { tag = DMN } } # Damnonii
+	text = { localization_key = tfe_history_DMT trigger = { tag = DMT } } # Damot
+	text = { localization_key = tfe_history_DZR trigger = { tag = DZR } } # Dzurdzuks
+	text = { localization_key = tfe_history_EAR trigger = { tag = EAR } } # Eastern Roman Empire
+	text = { localization_key = tfe_history_EMS trigger = { tag = EMS } } # Emishi
+	text = { localization_key = tfe_history_FRG trigger = { tag = FRG } } # Ferghana
+	text = { localization_key = tfe_history_FRK trigger = { tag = FRK } } # Franks
+	text = { localization_key = tfe_history_FRS trigger = { tag = FRS } } # Frisians
+	text = { localization_key = tfe_history_FUN trigger = { tag = FUN } } # Funan
+	text = { localization_key = tfe_history_GEA trigger = { tag = GEA } } # Geats
+	text = { localization_key = tfe_history_GEP trigger = { tag = GEP } } # Gepids
+	text = { localization_key = tfe_history_GMT trigger = { tag = GMT } } # Garamantes
+	text = { localization_key = tfe_history_GOG trigger = { tag = GOG } } # Goguryeo
+	text = { localization_key = tfe_history_GUP trigger = { tag = GUP } } # Gupta Empire
+	text = { localization_key = tfe_history_GYK trigger = { tag = GYK } } # Gaya
+	text = { localization_key = tfe_history_HAS trigger = { tag = HAS } } # Hasding Vandals
+	text = { localization_key = tfe_history_HIM trigger = { tag = HIM } } # Himyar
+	text = { localization_key = tfe_history_HLT trigger = { tag = HLT } } # Holotan
+	text = { localization_key = tfe_history_HNS trigger = { tag = HNS } } # Huns
+	text = { localization_key = tfe_history_IAZ trigger = { tag = IAZ } } # Iazyges
+	text = { localization_key = tfe_history_IBR trigger = { tag = IBR } } # Iberia
+	text = { localization_key = tfe_history_IZM trigger = { tag = IZM } } # Izumo
+	text = { localization_key = tfe_history_JIN trigger = { tag = JIN } } # Eastern Jin
+	text = { localization_key = tfe_history_JNL trigger = { tag = JNL } } # Jinlin
+	text = { localization_key = tfe_history_JUT trigger = { tag = JUT } } # Jutes
+	text = { localization_key = tfe_history_KDB trigger = { tag = KDB } } # Kadamba
+	text = { localization_key = tfe_history_KDL trigger = { tag = KDL } } # Kantoli
+	text = { localization_key = tfe_history_KDR trigger = { tag = KDR } } # Kadaram
+	text = { localization_key = tfe_history_KDT trigger = { tag = KDT } } # Kidarites
+	text = { localization_key = tfe_history_KGL trigger = { tag = KGL } } # Kangleipak
+	text = { localization_key = tfe_history_KHI trigger = { tag = KHI } } # Khitan
+	text = { localization_key = tfe_history_KHO trigger = { tag = KHO } } # Khotan
+	text = { localization_key = tfe_history_KHW trigger = { tag = KHW } } # Khwarazm
+	text = { localization_key = tfe_history_KIB trigger = { tag = KIB } } # Kibi
+	text = { localization_key = tfe_history_KIN trigger = { tag = KIN } } # Kinda
+	text = { localization_key = tfe_history_KMR trigger = { tag = KMR } } # Kamarupa
+	text = { localization_key = tfe_history_KMS trigger = { tag = KMS } } # Kumaso
+	text = { localization_key = tfe_history_KMX trigger = { tag = KMX } } # Kumo Xi
+	text = { localization_key = tfe_history_KNJ trigger = { tag = KNJ } } # Kangju
+	text = { localization_key = tfe_history_KNU trigger = { tag = KNU } } # Kenu
+	text = { localization_key = tfe_history_KSM trigger = { tag = KSM } } # Kashmir
+	text = { localization_key = tfe_history_KTI trigger = { tag = KTI } } # Kutai
+	text = { localization_key = tfe_history_KTP trigger = { tag = KTP } } # Kartripura
+	text = { localization_key = tfe_history_KUC trigger = { tag = KUC } } # Kucha
+	text = { localization_key = tfe_history_KYP trigger = { tag = KYP } } # Kuy
+	text = { localization_key = tfe_history_KZA trigger = { tag = KZA } } # Khuza'a
+	text = { localization_key = tfe_history_LAI trigger = { tag = LAI } } # Laigin
+	text = { localization_key = tfe_history_LCV trigger = { tag = LCV } } # Nepala
+	text = { localization_key = tfe_history_LGB trigger = { tag = LGB } } # Lombards
+	text = { localization_key = tfe_history_LIH trigger = { tag = LIH } } # Li
+	text = { localization_key = tfe_history_LKA trigger = { tag = LKA } } # Anuradhapura
+	text = { localization_key = tfe_history_LKM trigger = { tag = LKM } } # Lakhmids
+	text = { localization_key = tfe_history_LKS trigger = { tag = LKS } } # Langkasuka
+	text = { localization_key = tfe_history_LLI trigger = { tag = LLI } } # Later Liang
+	text = { localization_key = tfe_history_LNY trigger = { tag = LNY } } # Linyi
+	text = { localization_key = tfe_history_LPN trigger = { tag = LPN } } # Lpink
+	text = { localization_key = tfe_history_LQN trigger = { tag = LQN } } # Later Qin
+	text = { localization_key = tfe_history_LUA trigger = { tag = LUA } } # Lawa
+	text = { localization_key = tfe_history_LYN trigger = { tag = LYN } } # Later Yan
+	text = { localization_key = tfe_history_LZC trigger = { tag = LZC } } # Lazica
+	text = { localization_key = tfe_history_MDV trigger = { tag = MDV } } # Maldives
+	text = { localization_key = tfe_history_MKM trigger = { tag = MKM } } # Marcomanni
+	text = { localization_key = tfe_history_MOC trigger = { tag = MOC } } # Moche
+	text = { localization_key = tfe_history_MRX trigger = { tag = MRX } } # Mauri
+	text = { localization_key = tfe_history_MSQ trigger = { tag = MSQ } } # Maskut
+	text = { localization_key = tfe_history_MUM trigger = { tag = MUM } } # Mumu
+	text = { localization_key = tfe_history_MYL trigger = { tag = MYL } } # Monyul
+	text = { localization_key = tfe_history_NAZ trigger = { tag = NAZ } } # Nazca
+	text = { localization_key = tfe_history_NOB trigger = { tag = NOB } } # Nobatia
+	text = { localization_key = tfe_history_NRW trigger = { tag = NRW } } # Norse Petty Kingdoms
+	text = { localization_key = tfe_history_NVN trigger = { tag = NVN } } # Novantae
+	text = { localization_key = tfe_history_NWI trigger = { tag = NWI } } # Northern Wei
+	text = { localization_key = tfe_history_PKT trigger = { tag = PKT } } # Picts
+	text = { localization_key = tfe_history_PLV trigger = { tag = PLV } } # Pallava
+	text = { localization_key = tfe_history_PUG trigger = { tag = PUG } } # Yarlung
+	text = { localization_key = tfe_history_PYU trigger = { tag = PYU } } # Pyu
+	text = { localization_key = tfe_history_QAD trigger = { tag = QAD } } # Quadi
+	text = { localization_key = tfe_history_RMN trigger = { tag = RMN } } # Thaton
+	text = { localization_key = tfe_history_RRN trigger = { tag = RRN } } # Rouran
+	text = { localization_key = tfe_history_RUG trigger = { tag = RUG } } # Rugii
+	text = { localization_key = tfe_history_SAS trigger = { tag = SAS } } # Sasanian Empire
+	text = { localization_key = tfe_history_SAX trigger = { tag = SAX } } # Saxons
+	text = { localization_key = tfe_history_SCR trigger = { tag = SCR } } # Sciri
+	text = { localization_key = tfe_history_SGD trigger = { tag = SGD } } # Sogdia
+	text = { localization_key = tfe_history_SHL trigger = { tag = SHL } } # Shule
+	text = { localization_key = tfe_history_SHW trigger = { tag = SHW } } # Shiwei
+	text = { localization_key = tfe_history_SIL trigger = { tag = SIL } } # Silla
+	text = { localization_key = tfe_history_SLF trigger = { tag = SLF } } # Salian Franks
+	text = { localization_key = tfe_history_SLG trigger = { tag = SLG } } # Selgovae
+	text = { localization_key = tfe_history_SLH trigger = { tag = SLH } } # Salihids
+	text = { localization_key = tfe_history_SLX trigger = { tag = SLX } } # Siling Vandals
+	text = { localization_key = tfe_history_SRR trigger = { tag = SRR } } # Sarir
+	text = { localization_key = tfe_history_SSN trigger = { tag = SSN } } # Shanshan
+	text = { localization_key = tfe_history_SUA trigger = { tag = SUA } } # Svaneti
+	text = { localization_key = tfe_history_SUM trigger = { tag = SUM } } # Sumpa
+	text = { localization_key = tfe_history_SVE trigger = { tag = SVE } } # Svear
+	text = { localization_key = tfe_history_TAY trigger = { tag = TAY } } # Tayy
+	text = { localization_key = tfe_history_TGI trigger = { tag = TGI } } # Thuringians
+	text = { localization_key = tfe_history_TJR trigger = { tag = TJR } } # Tamna
+	text = { localization_key = tfe_history_TKL trigger = { tag = TKL } } # Tikal
+	text = { localization_key = tfe_history_TMM trigger = { tag = TMM } } # Tamim
+	text = { localization_key = tfe_history_TNS trigger = { tag = TNS } } # Tun Sun
+	text = { localization_key = tfe_history_TRM trigger = { tag = TRM } } # Tarumanagara
+	text = { localization_key = tfe_history_TSU trigger = { tag = TSU } } # Tsukushi
+	text = { localization_key = tfe_history_TTH trigger = { tag = TTH } } # Teotihuacan
+	text = { localization_key = tfe_history_TYH trigger = { tag = TYH } } # Tuyuhun
+	text = { localization_key = tfe_history_ULD trigger = { tag = ULD } } # Ulaid
+	text = { localization_key = tfe_history_VIS trigger = { tag = VIS } } # Visigoths
+	text = { localization_key = tfe_history_VOT trigger = { tag = VOT } } # Votadini
+	text = { localization_key = tfe_history_VSL trigger = { tag = VSL } } # Vesali
+	text = { localization_key = tfe_history_WAK trigger = { tag = WAK } } # Yamato
+	text = { localization_key = tfe_history_WJI trigger = { tag = WJI } } # Wuji
+	text = { localization_key = tfe_history_WND trigger = { tag = WND } } # Venedi
+	text = { localization_key = tfe_history_WQN trigger = { tag = WQN } } # Western Qin
+	text = { localization_key = tfe_history_WRE trigger = { tag = WRE } } # Western Roman Empire
+	text = { localization_key = tfe_history_WSN trigger = { tag = WSN } } # Wusun
+	text = { localization_key = tfe_history_YQI trigger = { tag = YQI } } # Yanqi
+	text = { localization_key = tfe_history_YTB trigger = { tag = YTB } } # Yathrib
+	text = { localization_key = tfe_history_YUB trigger = { tag = YUB } } # Yueban
+	text = { localization_key = tfe_history_ZHZ trigger = { tag = ZHZ } } # Zhangzhung
+	text = { localization_key = tfe_history_ZOT trigger = { tag = ZOT } } # Zo
+	text = { localization_key = tfe_history_ZPT trigger = { tag = ZPT } } # Monte Alban
+
+	text = { localization_key = tfe_history_fallback fallback = yes }
+}
