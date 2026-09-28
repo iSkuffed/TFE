@@ -2,7 +2,7 @@ anatolia_region = Asia Minor  # a: Asia Minor (Orosius), the Dioceses of Asiana 
 
 cappadocia_area = Cappadocia  # a: Cappadocia, split 371 into Prima (Caesarea) and Secunda (Tyana)
 amasya_province = Helenopontus  # a: province Helenopontus, capital Amaseia
-bozok_province = the Trocmi  # a: Galatian people of Tavium
+bozok_province = Trocmi  # a: Galatian people of Tavium
 corum_province = Diacopene  # a: Strabo's Diakopene by Amaseia, Euchaita
 divrigi_province = Second Armenia  # a: Armenia Secunda, Arabrakes and Argaous by its capital Melitene
 kayseri_province = First Cappadocia  # a: Cappadocia Prima, capital Caesarea
@@ -13,13 +13,13 @@ tokat_province = Pontus Polemoniacus  # a: province Pontus Polemoniacus, capital
 
 central_anatolia_area = Galatia  # a: province Galatia, capital Ancyra
 aksaray_province = Garsauritis  # a: Strabo's strategia, Archelais (Garsaura)
-ankara_province = the Tectosages  # a: Galatian people of Ancyra
+ankara_province = Tectosages  # a: Galatian people of Ancyra
 beysehir_province = Paroreia  # a: Strabo's Phrygia Paroreios, Antioch of Pisidia and Philomelium
-cankiri_province = the Territory of Gangra  # a: Gangra (Germanicopolis), metropolis of Paphlagonia
+cankiri_province = Gangra  # a: Gangra (Germanicopolis), metropolis of Paphlagonia
 karahisar_province = Phrygia Salutaris  # a: province Phrygia Salutaris, capital Synnada, Amorium
 konya_province = Lycaonia  # a: province Lycaonia, capital Iconium
 larende_province = Antiochiana  # p: Ptolemy's prefecture of Laranda and Derbe
-sivrihisar_province = the Tolistobogii  # a: Galatian people of Pessinus
+sivrihisar_province = Tolistobogii  # a: Galatian people of Pessinus
 
 cilicia_area = Cilicia  # a: Cilicia, divided into Prima (Tarsus) and Secunda (Anazarbus)
 adana_province = Cilicia Pedias  # a: Strabo's Level Cilicia, Adana, Aegae, Alexandria by Issus
@@ -32,24 +32,24 @@ tarsus_province = First Cilicia  # a: Cilicia Prima, capital Tarsus
 
 marmara_area = Bithynia  # a: province Bithynia, capital Nicomedia
 biga_province = Hellespont  # a: province Hellespontus, capital Cyzicus, the Troad
-hudavendigar_province = the Territory of Nicaea  # a: Nicaea and Prusa, cities of Bithynia
+hudavendigar_province = Nicaea  # a: Nicaea and Prusa, cities of Bithynia
 karasi_province = Mysia  # a: Mysia of Strabo and Ptolemy, Pergamum, Adramyttium
-kocaeli_province = the Territory of Nicomedia  # a: Nicomedia and Chalcedon
+kocaeli_province = Nicomedia  # a: Nicomedia and Chalcedon
 kutahya_province = Phrygia Epictetus  # a: Strabo's Phrygia Epictetus, Cotyaeum, Aezani
-sultanonu_province = the Territory of Dorylaeum  # a: Dorylaeum, Phrygia Salutaris
+sultanonu_province = Dorylaeum  # a: Dorylaeum, Phrygia Salutaris
 
 pontus_area = Pontus  # a: the Pontic provinces, Helenopontus and Pontus Polemoniacus
 bolu_province = Honorias  # a: province Honorias, Claudiopolis and Heraclea Pontica
 canik_province = Themiscyra  # a: Strabo's plain of Themiscyra, Cotyora, Cerasus
 kastamonu_province = Paphlagonia  # a: province Paphlagonia, Pompeiopolis, Ionopolis
-safranbolu_province = the Territory of Amastris  # a: Amastris, Cytorus and Cratia
+safranbolu_province = Amastris  # a: Amastris, Cytorus and Cratia
 sinop_province = Sinopitis  # a: Strabo's Sinopitis, Sinope and Amisus
-trebizond_province = the Territory of Trapezus  # a: Trapezus, Pontus Polemoniacus
+trebizond_province = Trapezus  # a: Trapezus, Pontus Polemoniacus
 
 west_anatolia_area = Asiana  # a: Dioecesis Asiana, its southern and western provinces
 alaiye_province = Pamphylia  # a: province Pamphylia, Side, Aspendus
 antalya_province = Lycia  # a: province Lycia, Phoenicus, Antiphellus
-aydin_province = the Maeander Valley  # a: Strabo's Maeander plain, Tralles, Nysa, Miletus
+aydin_province = Maeander Valley  # a: Strabo's Maeander plain, Tralles, Nysa, Miletus
 hamid_province = Pisidia  # a: province Pisidia, Apamea, Sozopolis, Baris
 mugla_province = Caria  # a: province Caria, Halicarnassus, Caunus
 saruhan_province = Lydia  # a: province Lydia, Thyatira, Magnesia by Sipylus

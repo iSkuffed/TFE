@@ -1,26 +1,26 @@
 egypt_region = Diocese of Egypt  # a: Dioecesis Aegypti under the Augustal Prefect at Alexandria
 
 cyrenaica_area = Libya Superior  # a: Libya Superior (Pentapolis), metropolis Ptolemais
-al_bayda_province = the Territory of Cyrene  # a: Cyrene, with Balagrae (Bayda), Darnis, Antipyrgos
-barca_province = the Territory of Barca  # a: Barca and its port Ptolemais; Berenice (Benghazi), Automalax
-jebel_akhdar_province = the Asbystae  # p: Asbystae inland of Cyrene (Herodotus 4.170, Ptolemy 4.4)
+al_bayda_province = Cyrene  # a: Cyrene, with Balagrae (Bayda), Darnis, Antipyrgos
+barca_province = Barca  # a: Barca and its port Ptolemais; Berenice (Benghazi), Automalax
+jebel_akhdar_province = Asbystae  # p: Asbystae inland of Cyrene (Herodotus 4.170, Ptolemy 4.4)
 
 lower_egypt_area = Egypt  # a: provincia Aegyptus (Alexandria, western Delta); the eastern Delta was Augustamnica
-alexandria_province = the Mareotic Nome  # a: Mareotes nome around Alexandria; Paraetonium beyond, in Libya Inferior
-buhayra_province = the Nitriote Nome  # a: Nitriotes (Strabo 17.1.23), Wadi Natrun of the monks; Hermopolis Parva, Bolbitine
-cairo_province = the Memphite Nome  # a: Memphites, Memphis and Babylon; with Heliopolis and Aphroditopolis
-dakahliyya_province = the Mendesian Nome  # a: Mendesios, capital Thmuis near Mansoura; Tamiathis, Tanis
-gharbiyya_province = the Sebennyte Nome  # a: Sebennytes, capital Sebennytos (Samanoud)
-sharqiyya_province = the Arabian Nome  # a: Arabia nome, capital Phakusa (Faqus); Clysma on the gulf
+alexandria_province = Mareotic Nome  # a: Mareotes nome around Alexandria; Paraetonium beyond, in Libya Inferior
+buhayra_province = Nitriote Nome  # a: Nitriotes (Strabo 17.1.23), Wadi Natrun of the monks; Hermopolis Parva, Bolbitine
+cairo_province = Memphite Nome  # a: Memphites, Memphis and Babylon; with Heliopolis and Aphroditopolis
+dakahliyya_province = Mendesian Nome  # a: Mendesios, capital Thmuis near Mansoura; Tamiathis, Tanis
+gharbiyya_province = Sebennyte Nome  # a: Sebennytes, capital Sebennytos (Samanoud)
+sharqiyya_province = Arabian Nome  # a: Arabia nome, capital Phakusa (Faqus); Clysma on the gulf
 
 sinai_area = Sinai  # a: Mount Sina (Egeria, c. 383); north coast in Augustamnica, south in Palaestina Salutaris
-al_jifar_province = the Territory of Rhinocorura  # a: Rhinocorura (El Arish), with Ostracine and Gerrhon
+al_jifar_province = Rhinocorura  # a: Rhinocorura (El Arish), with Ostracine and Gerrhon
 tih_province = Pharan  # a: Pharan (Feiran), bishopric of the south Sinai; Raithou (El Tor), the Holy Mountain
 
-upper_egypt_area = the Thebaid  # a: Thebais, capital Antinoopolis
-asyut_province = the Lycopolite Nome  # a: Lycopolites, Lycopolis (Asyut); with Panopolis
-bahnasa_province = the Oxyrhynchite Nome  # a: Oxyrhynchites, Oxyrhynchus (el-Bahnasa), in Arcadia; with Heracleopolis and the Fayum
-minya_province = the Hermopolite Nome  # a: Hermopolites, Hermopolis Magna (Ashmunayn); Antinoopolis across the Nile
-oasis_province = the Oases  # a: Oasis Magna (Kharga), Oasis Parva (Bahariyya), Ammonium (Siwa)
-qusiyya_province = the Upper Thebaid  # a: Ano Thebais (Strabo), Diospolis Parva to Syene; Coptos, Thebes
+upper_egypt_area = Thebaid  # a: Thebais, capital Antinoopolis
+asyut_province = Lycopolite Nome  # a: Lycopolites, Lycopolis (Asyut); with Panopolis
+bahnasa_province = Oxyrhynchite Nome  # a: Oxyrhynchites, Oxyrhynchus (el-Bahnasa), in Arcadia; with Heracleopolis and the Fayum
+minya_province = Hermopolite Nome  # a: Hermopolites, Hermopolis Magna (Ashmunayn); Antinoopolis across the Nile
+oasis_province = Oases  # a: Oasis Magna (Kharga), Oasis Parva (Bahariyya), Ammonium (Siwa)
+qusiyya_province = Upper Thebaid  # a: Ano Thebais (Strabo), Diospolis Parva to Syene; Coptos, Thebes
 red_sea_coast_province = Mons Porphyrites  # a: imperial porphyry quarries (Gebel Dokhan); Leukos Limen, Philotera, the desert of Anthony
