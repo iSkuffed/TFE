@@ -19,9 +19,9 @@ accuracy) decide close calls, and its items are the work queue.
   - `tools/borders.py` writes `main_menu/setup/start/10_countries.txt`, `07_cities_and_buildings.txt` and more (see its
     output line). Its inputs are the tables in `borders.py` and the `tools/*.txt` files.
   - `tools/location_templates.py` writes `in_game/map_data/location_templates.txt`. Rerun it after every EU5 patch.
-- **Vanilla copies need resyncing after every EU5 patch.** These are whole vanilla files with a few `TFE` changes:
-  diff each against its vanilla original and carry the patch's changes over. `in_game/common/languages/tfe_languages.txt`
-  (from `00_italy.txt`), `in_game/gui/country_header.gui`, `in_game/gui/multiplayer_lobby.gui`.
+- **Vanilla copies need resyncing after an EU5 patch.** Some mod files are whole vanilla files with a few `TFE`
+  changes, listed in `tools/test_vanilla_copies.py`. It fails when a patch changes an original: diff it against ours,
+  carry the patch's changes over, update the hash. Add any new vanilla copy to that list.
 - Commit subjects are one evocative line about what changed in the game world (see `git log`), then a short body.
 
 ## Checks
