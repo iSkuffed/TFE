@@ -9,7 +9,7 @@ roscommon_province = Rhaeba  # p: Ptolemy's inland town Rhaiba, placed near Loug
 leinster_area = Eastern Hibernia  # p: Ptolemy's Hibernia, east coast; qualifier
 dublin_province = the Eblani  # p: Ptolemy, Dublin (Eblana)
 kildare_province = the Coriondi  # p: Ptolemy, inland Leinster
-kilkenny = the Hibernian Brigantes  # p: Ptolemy's Brigantes of the Suir and Barrow (not Britain's)
+# kilkenny: province and town share this key in vanilla, so it keeps the town's name (tools/test_place_names.py)
 meath_province = the Buvinda  # p: Ptolemy's river Boyne; Navan, Trim and Kells lie on it
 wexford_province = the Manapii  # p: Ptolemy, Wexford (Manapia); not the Gallic Menapii
 
