@@ -2953,9 +2953,9 @@ coast_languedoc = { topography = inland_sea climate = mediterranean}
 mouths_rhone = { topography = inland_sea climate = mediterranean}
 cape_sicie = { topography = inland_sea climate = mediterranean}
 ligurian_sea_location_1 = { topography = inland_sea climate = mediterranean}
-chieti = { topography = flatland vegetation = farmland climate = subtropical religion = catholic culture = neapolitan raw_material = wheat natural_harbor_suitability = 0.00}
+chieti = { modifier = tfe_latifundia topography = flatland vegetation = farmland climate = subtropical religion = catholic culture = neapolitan raw_material = wheat natural_harbor_suitability = 0.00}
 lanciano = { topography = hills vegetation = woods climate = subtropical religion = catholic culture = neapolitan raw_material = salt natural_harbor_suitability = 0.00}
-vasto = { topography = flatland vegetation = grasslands climate = subtropical religion = catholic culture = neapolitan raw_material = wheat natural_harbor_suitability = 0.00}
+vasto = { modifier = tfe_latifundia topography = flatland vegetation = grasslands climate = subtropical religion = catholic culture = neapolitan raw_material = wheat natural_harbor_suitability = 0.00}
 central_apennines7 = { topography = mountain_wasteland vegetation = sparse climate = continental}
 aquila = { topography = mountains vegetation = forest climate = oceanic religion = catholic culture = median raw_material = saffron}
 atri = { topography = hills vegetation = grasslands climate = subtropical religion = catholic culture = neapolitan raw_material = salt natural_harbor_suitability = 0.00}
@@ -3031,7 +3031,7 @@ santangelo = { topography = plateau vegetation = woods climate = oceanic religio
 bologna = { topography = flatland vegetation = farmland climate = subtropical religion = catholic culture = emilian raw_material = silk}
 medicina = { topography = flatland vegetation = grasslands climate = subtropical religion = catholic culture = emilian raw_material = medicaments}
 vergato = { topography = hills vegetation = woods climate = oceanic religion = catholic culture = emilian raw_material = wool}
-ferrara = { topography = wetlands vegetation = grasslands climate = subtropical religion = catholic culture = emilian raw_material = wheat}
+ferrara = { modifier = tfe_annona_militaris topography = wetlands vegetation = grasslands climate = subtropical religion = catholic culture = emilian raw_material = wheat}
 argenta = { topography = wetlands vegetation = grasslands climate = subtropical religion = catholic culture = emilian raw_material = fiber_crops}
 comacchio = { topography = wetlands vegetation = grasslands climate = subtropical religion = catholic culture = emilian raw_material = salt natural_harbor_suitability = 0.50}
 ficarolo = { topography = wetlands vegetation = grasslands climate = subtropical religion = catholic culture = emilian raw_material = fruit}
@@ -3039,8 +3039,8 @@ rovigo = { topography = wetlands vegetation = grasslands climate = subtropical r
 lagoon_of_comacchio = { topography = lakes climate = subtropical}
 modena = { topography = flatland vegetation = grasslands climate = subtropical religion = catholic culture = emilian raw_material = wine}
 frassinoro = { topography = hills vegetation = woods climate = oceanic religion = catholic culture = emilian raw_material = wool}
-nonantola = { topography = flatland vegetation = farmland climate = subtropical religion = catholic culture = emilian raw_material = wheat}
-mirandola = { topography = wetlands vegetation = farmland climate = subtropical religion = catholic culture = emilian raw_material = wheat}
+nonantola = { modifier = tfe_annona_militaris topography = flatland vegetation = farmland climate = subtropical religion = catholic culture = emilian raw_material = wheat}
+mirandola = { modifier = tfe_annona_militaris topography = wetlands vegetation = farmland climate = subtropical religion = catholic culture = emilian raw_material = wheat}
 parma = { topography = flatland vegetation = grasslands climate = subtropical religion = catholic culture = emilian raw_material = livestock}
 berceto = { topography = mountains vegetation = forest climate = oceanic religion = catholic culture = emilian raw_material = lumber}
 sandonnino = { topography = flatland vegetation = grasslands climate = subtropical religion = catholic culture = emilian raw_material = wine}
@@ -3060,12 +3060,12 @@ ravenna = { topography = wetlands vegetation = forest climate = subtropical reli
 urbino = { topography = hills vegetation = grasslands climate = subtropical religion = catholic culture = romagnol raw_material = beeswax}
 gubbio = { topography = hills vegetation = woods climate = oceanic religion = catholic culture = median raw_material = wool}
 montefeltro = { topography = hills vegetation = grasslands climate = oceanic religion = catholic culture = romagnol raw_material = wool}
-pesaro = { topography = flatland vegetation = grasslands climate = subtropical religion = catholic culture = romagnol raw_material = wheat natural_harbor_suitability = 0.00}
+pesaro = { modifier = tfe_annona_militaris topography = flatland vegetation = grasslands climate = subtropical religion = catholic culture = romagnol raw_material = wheat natural_harbor_suitability = 0.00}
 anagni = { topography = hills vegetation = grasslands climate = mediterranean religion = catholic culture = median raw_material = livestock}
 palestrina = { topography = hills vegetation = farmland climate = mediterranean religion = catholic culture = median raw_material = wine}
 sabina = { topography = hills vegetation = farmland climate = mediterranean religion = catholic culture = median raw_material = fruit}
 tivoli = { topography = hills vegetation = farmland climate = mediterranean religion = catholic culture = median raw_material = marble}
-rome = { topography = flatland vegetation = farmland climate = mediterranean religion = catholic culture = median raw_material = wheat natural_harbor_suitability = 0.00}
+rome = { modifier = tfe_latifundia topography = flatland vegetation = farmland climate = mediterranean religion = catholic culture = median raw_material = wheat natural_harbor_suitability = 0.00}
 terracina = { topography = wetlands vegetation = grasslands climate = mediterranean religion = catholic culture = median raw_material = sand natural_harbor_suitability = 0.00}
 velletri = { topography = wetlands vegetation = farmland climate = mediterranean religion = catholic culture = median raw_material = olives natural_harbor_suitability = 0.00}
 bracciano = { topography = flatland vegetation = farmland climate = mediterranean religion = catholic culture = median raw_material = iron natural_harbor_suitability = 0.00}
@@ -3089,11 +3089,11 @@ sartene = { topography = hills vegetation = woods climate = mediterranean religi
 vico = { topography = mountains vegetation = woods climate = mediterranean religion = catholic culture = corsican raw_material = beeswax natural_harbor_suitability = 0.00}
 corsican_mountains = { topography = mountain_wasteland vegetation = sparse climate = oceanic}
 albenga = { topography = mountains vegetation = woods climate = mediterranean religion = catholic culture = ligurian raw_material = lumber natural_harbor_suitability = 0.25}
-cairo_montenotte = { topography = hills vegetation = forest climate = mediterranean religion = catholic culture = piedmontese raw_material = wheat}
+cairo_montenotte = { modifier = tfe_annona_militaris topography = hills vegetation = forest climate = mediterranean religion = catholic culture = piedmontese raw_material = wheat}
 finalborgo = { topography = hills vegetation = forest climate = mediterranean religion = catholic culture = ligurian raw_material = wool natural_harbor_suitability = 0.00}
 savona = { topography = hills vegetation = farmland climate = mediterranean religion = catholic culture = ligurian raw_material = olives natural_harbor_suitability = 0.25}
 ventimiglia = { topography = mountains vegetation = forest climate = mediterranean religion = catholic culture = ligurian raw_material = olives natural_harbor_suitability = 0.00}
-bergamo = { topography = flatland vegetation = farmland climate = oceanic religion = catholic culture = lombard raw_material = wheat}
+bergamo = { modifier = tfe_annona_militaris topography = flatland vegetation = farmland climate = oceanic religion = catholic culture = lombard raw_material = wheat}
 cortenuova = { topography = flatland vegetation = farmland climate = oceanic religion = catholic culture = lombard raw_material = livestock}
 clusone = { topography = mountains vegetation = forest climate = continental religion = catholic culture = lombard raw_material = iron}
 zogno = { topography = mountains vegetation = forest climate = continental religion = catholic culture = lombard raw_material = lead}
@@ -3106,27 +3106,27 @@ salo_ita = { topography = hills vegetation = forest climate = subtropical religi
 breno = { topography = mountains vegetation = forest climate = continental religion = catholic culture = lombard raw_material = iron}
 nozza = { topography = mountains vegetation = forest climate = continental religion = catholic culture = lombard raw_material = iron}
 lake_garda = { topography = lakes climate = subtropical}
-cremona = { topography = flatland vegetation = grasslands climate = subtropical religion = catholic culture = lombard raw_material = wheat}
-casalmaggiore = { topography = flatland vegetation = grasslands climate = subtropical religion = catholic culture = lombard raw_material = wheat}
+cremona = { modifier = tfe_annona_militaris topography = flatland vegetation = grasslands climate = subtropical religion = catholic culture = lombard raw_material = wheat}
+casalmaggiore = { modifier = tfe_annona_militaris topography = flatland vegetation = grasslands climate = subtropical religion = catholic culture = lombard raw_material = wheat}
 soncino = { topography = flatland vegetation = grasslands climate = subtropical religion = catholic culture = lombard raw_material = clay}
-lodi = { topography = wetlands vegetation = farmland climate = subtropical religion = catholic culture = lombard raw_material = wheat}
-mantova = { topography = wetlands vegetation = grasslands climate = subtropical religion = catholic culture = emilian raw_material = wheat}
+lodi = { modifier = tfe_annona_militaris topography = wetlands vegetation = farmland climate = subtropical religion = catholic culture = lombard raw_material = wheat}
+mantova = { modifier = tfe_annona_militaris topography = wetlands vegetation = grasslands climate = subtropical religion = catholic culture = emilian raw_material = wheat}
 goito = { topography = flatland vegetation = grasslands climate = subtropical religion = catholic culture = lombard raw_material = livestock}
 ostiglia = { topography = wetlands vegetation = grasslands climate = subtropical religion = catholic culture = emilian raw_material = clay}
-milano = { modifier = milan_weaponry_base topography = flatland vegetation = farmland climate = subtropical religion = catholic culture = lombard raw_material = wheat}
-legnano = { topography = flatland vegetation = farmland climate = subtropical religion = catholic culture = lombard raw_material = wheat}
+milano = { modifier = tfe_annona_militaris topography = flatland vegetation = farmland climate = subtropical religion = catholic culture = lombard raw_material = wheat}
+legnano = { modifier = tfe_annona_militaris topography = flatland vegetation = farmland climate = subtropical religion = catholic culture = lombard raw_material = wheat}
 rho = { topography = flatland vegetation = farmland climate = subtropical religion = catholic culture = lombard raw_material = livestock}
 varese = { topography = hills vegetation = forest climate = oceanic religion = catholic culture = lombard raw_material = fruit}
-monza = { topography = flatland vegetation = farmland climate = oceanic religion = catholic culture = lombard raw_material = wheat}
+monza = { modifier = tfe_annona_militaris topography = flatland vegetation = farmland climate = oceanic religion = catholic culture = lombard raw_material = wheat}
 lecco = { topography = mountains vegetation = forest climate = continental religion = catholic culture = lombard raw_material = lumber}
 treviglio = { topography = flatland vegetation = farmland climate = subtropical religion = catholic culture = lombard raw_material = livestock}
 como = { topography = hills vegetation = forest climate = oceanic religion = catholic culture = lombard raw_material = livestock}
 lake_como = { topography = lakes climate = oceanic}
 rhaetian_alps5 = { topography = mountain_wasteland vegetation = sparse climate = arctic}
-pavia = { topography = flatland vegetation = grasslands climate = subtropical religion = catholic culture = lombard raw_material = wheat}
+pavia = { modifier = tfe_annona_militaris topography = flatland vegetation = grasslands climate = subtropical religion = catholic culture = lombard raw_material = wheat}
 lomello = { topography = flatland vegetation = grasslands climate = subtropical religion = catholic culture = lombard raw_material = rice}
 voghera = { topography = wetlands vegetation = grasslands climate = subtropical religion = catholic culture = emilian raw_material = legumes}
-tresivio = { topography = plateau vegetation = woods climate = continental religion = catholic culture = lombard raw_material = wheat}
+tresivio = { modifier = tfe_annona_militaris topography = plateau vegetation = woods climate = continental religion = catholic culture = lombard raw_material = wheat}
 bormio = { topography = mountains vegetation = woods climate = continental religion = catholic culture = lombard raw_material = livestock}
 chiavenna = { topography = mountains vegetation = woods climate = continental religion = catholic culture = lombard raw_material = lumber}
 rhaetian_alps2 = { topography = mountain_wasteland vegetation = sparse climate = oceanic}
@@ -3150,7 +3150,7 @@ assisi = { topography = plateau vegetation = grasslands climate = subtropical re
 narni = { topography = hills vegetation = woods climate = mediterranean religion = catholic culture = median raw_material = lumber}
 rieti = { topography = hills vegetation = woods climate = oceanic religion = catholic culture = median raw_material = dyes}
 todi = { topography = hills vegetation = grasslands climate = subtropical religion = catholic culture = median raw_material = clay}
-alessandria = { topography = flatland vegetation = grasslands climate = subtropical religion = catholic culture = piedmontese raw_material = wheat}
+alessandria = { modifier = tfe_annona_militaris topography = flatland vegetation = grasslands climate = subtropical religion = catholic culture = piedmontese raw_material = wheat}
 novi = { topography = flatland vegetation = woods climate = oceanic religion = catholic culture = ligurian raw_material = stone}
 rovegno = { topography = mountains vegetation = forest climate = continental religion = catholic culture = ligurian raw_material = wool}
 tortona = { topography = flatland vegetation = grasslands climate = subtropical religion = catholic culture = emilian raw_material = dyes}
@@ -3172,16 +3172,16 @@ domodossola = { topography = mountains vegetation = woods climate = continental 
 varallo = { topography = mountains vegetation = forest climate = continental religion = catholic culture = piedmontese raw_material = lumber}
 vercelli = { topography = flatland vegetation = grasslands climate = subtropical religion = catholic culture = piedmontese raw_material = rice}
 lake_maggiore = { topography = lakes climate = oceanic}
-turin = { topography = flatland vegetation = farmland climate = oceanic religion = catholic culture = piedmontese raw_material = wheat}
-ivrea = { topography = flatland vegetation = farmland climate = oceanic religion = catholic culture = piedmontese raw_material = wheat}
+turin = { modifier = tfe_annona_militaris topography = flatland vegetation = farmland climate = oceanic religion = catholic culture = piedmontese raw_material = wheat}
+ivrea = { modifier = tfe_annona_militaris topography = flatland vegetation = farmland climate = oceanic religion = catholic culture = piedmontese raw_material = wheat}
 lanzo = { topography = hills vegetation = woods climate = oceanic religion = catholic culture = piedmontese raw_material = livestock}
 pinerolo = { topography = hills vegetation = forest climate = oceanic religion = catholic culture = piedmontese raw_material = livestock}
 susa = { topography = mountains vegetation = forest climate = oceanic religion = catholic culture = piedmontese raw_material = marble}
 graian_alps2 = { topography = mountain_wasteland vegetation = sparse climate = arctic}
 saluzzo = { topography = flatland vegetation = woods climate = oceanic religion = catholic culture = piedmontese raw_material = fruit}
-carmagnola = { topography = flatland vegetation = grasslands climate = oceanic religion = catholic culture = piedmontese raw_material = wheat}
-chieri = { topography = flatland vegetation = farmland climate = subtropical religion = catholic culture = piedmontese raw_material = wheat}
-cuneo = { topography = hills vegetation = woods climate = continental religion = catholic culture = piedmontese raw_material = wheat}
+carmagnola = { modifier = tfe_annona_militaris topography = flatland vegetation = grasslands climate = oceanic religion = catholic culture = piedmontese raw_material = wheat}
+chieri = { modifier = tfe_annona_militaris topography = flatland vegetation = farmland climate = subtropical religion = catholic culture = piedmontese raw_material = wheat}
+cuneo = { modifier = tfe_annona_militaris topography = hills vegetation = woods climate = continental religion = catholic culture = piedmontese raw_material = wheat}
 cottian_alps2 = { topography = mountain_wasteland vegetation = sparse climate = arctic}
 cottian_alps3 = { topography = mountain_wasteland vegetation = sparse climate = arctic}
 oristano = { topography = flatland vegetation = grasslands climate = mediterranean religion = catholic culture = sardinian raw_material = wool natural_harbor_suitability = 0.50}
@@ -3255,7 +3255,7 @@ pescia = { topography = flatland vegetation = farmland climate = mediterranean r
 north_apennines = { topography = mountain_wasteland vegetation = forest climate = continental}
 pisa = { topography = flatland vegetation = grasslands climate = mediterranean religion = catholic culture = tuscan raw_material = silk natural_harbor_suitability = 0.50}
 livorno = { topography = wetlands vegetation = farmland climate = mediterranean religion = catholic culture = tuscan raw_material = salt natural_harbor_suitability = 0.25}
-pontedera = { topography = flatland vegetation = grasslands climate = mediterranean religion = catholic culture = tuscan raw_material = wheat}
+pontedera = { modifier = tfe_latifundia topography = flatland vegetation = grasslands climate = mediterranean religion = catholic culture = tuscan raw_material = wheat}
 volterra = { topography = hills vegetation = grasslands climate = mediterranean religion = catholic culture = tuscan raw_material = alum}
 siena = { topography = flatland vegetation = grasslands climate = mediterranean religion = catholic culture = tuscan raw_material = marble}
 chiusi = { topography = hills vegetation = grasslands climate = oceanic religion = catholic culture = tuscan raw_material = mercury}
@@ -3273,21 +3273,21 @@ gemona = { topography = hills vegetation = grasslands climate = oceanic religion
 tolmezzo = { topography = mountains vegetation = forest climate = continental religion = catholic culture = friulian raw_material = copper}
 pordenone = { topography = flatland vegetation = woods climate = subtropical religion = catholic culture = friulian raw_material = lumber}
 spilimbergo = { topography = flatland vegetation = grasslands climate = oceanic religion = catholic culture = friulian raw_material = livestock}
-udine = { topography = flatland vegetation = grasslands climate = subtropical religion = catholic culture = friulian raw_material = wheat natural_harbor_suitability = 0.00}
+udine = { modifier = tfe_annona_militaris topography = flatland vegetation = grasslands climate = subtropical religion = catholic culture = friulian raw_material = wheat natural_harbor_suitability = 0.00}
 padova = { topography = flatland vegetation = farmland climate = subtropical religion = catholic culture = venetian raw_material = medicaments}
-este = { topography = flatland vegetation = farmland climate = subtropical religion = catholic culture = venetian raw_material = wheat}
+este = { modifier = tfe_annona_militaris topography = flatland vegetation = farmland climate = subtropical religion = catholic culture = venetian raw_material = wheat}
 monselice = { topography = flatland vegetation = farmland climate = subtropical religion = catholic culture = venetian raw_material = livestock}
 venice = { modifier = venice_glass_base topography = wetlands vegetation = grasslands climate = subtropical religion = catholic culture = venetian raw_material = fish natural_harbor_suitability = 1.00}
 mestre = { topography = wetlands vegetation = grasslands climate = subtropical religion = catholic culture = venetian raw_material = fish natural_harbor_suitability = 0.75}
-treviso = { topography = flatland vegetation = farmland climate = subtropical religion = catholic culture = venetian raw_material = wheat}
+treviso = { modifier = tfe_annona_militaris topography = flatland vegetation = farmland climate = subtropical religion = catholic culture = venetian raw_material = wheat}
 castelfranco = { topography = flatland vegetation = farmland climate = subtropical religion = catholic culture = venetian raw_material = clay}
 ceneda = { topography = hills vegetation = farmland climate = subtropical religion = catholic culture = venetian raw_material = wool}
 chioggia = { topography = wetlands vegetation = farmland climate = subtropical religion = catholic culture = venetian raw_material = salt natural_harbor_suitability = 0.75}
 conegliano = { topography = flatland vegetation = grasslands climate = subtropical religion = catholic culture = venetian raw_material = livestock}
 verona = { topography = hills vegetation = farmland climate = subtropical religion = catholic culture = venetian raw_material = wine}
-legnago = { topography = flatland vegetation = grasslands climate = subtropical religion = catholic culture = venetian raw_material = wheat}
+legnago = { modifier = tfe_annona_militaris topography = flatland vegetation = grasslands climate = subtropical religion = catholic culture = venetian raw_material = wheat}
 peschiera = { topography = flatland vegetation = grasslands climate = subtropical religion = catholic culture = venetian raw_material = olives}
-vicenza = { topography = flatland vegetation = farmland climate = subtropical religion = catholic culture = venetian raw_material = wheat}
+vicenza = { modifier = tfe_annona_militaris topography = flatland vegetation = farmland climate = subtropical religion = catholic culture = venetian raw_material = wheat}
 bassano = { topography = flatland vegetation = woods climate = subtropical religion = catholic culture = venetian raw_material = livestock}
 schio = { topography = hills vegetation = woods climate = continental religion = catholic culture = venetian raw_material = lumber}
 coast_lazio = { topography = inland_sea climate = mediterranean}

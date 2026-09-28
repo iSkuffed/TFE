@@ -27,3 +27,7 @@
  tfe_hadrians_wall_desc: "Eighty Roman miles of stone from the Tyne to the Solway, with a fort every few miles and a milecastle at every mile. Nobody crosses into Britannia without the garrison knowing."
  tfe_limes: "Limes"
  tfe_limes_desc: "The river frontier of the Empire: forts on the bank, watchtowers between them and the limitanei who hold them. Raiders who cross the Rhine or the Danube must first get past them."
+ STATIC_MODIFIER_NAME_tfe_latifundia: "Latifundia"
+ STATIC_MODIFIER_DESC_tfe_latifundia: "The great villas turned the grain fields over to vines and herds. The dole feeds Rome with African bread, so there is little profit in growing Italian wheat."
+ STATIC_MODIFIER_NAME_tfe_annona_militaris: "Annona Militaris"
+ STATIC_MODIFIER_DESC_tfe_annona_militaris: "The land tax is paid in grain, gathered into the state granaries for the court and army at Milan. Much of the harvest never reaches the market."
