@@ -816,7 +816,9 @@ def roman_town_setups(text, owner, twins):
 
 def roman_buildings():
     L = ["building_manager = {"]
-    for kind, places in (("castle", ROMAN_FORTS), ("local_governor", ROMAN_GOVERNORS), *ROMAN_FRONTIER.items()):
+    for kind, places in (("castle", ROMAN_FORTS), ("local_governor", ROMAN_GOVERNORS)):
+        L += [f"\t{kind} = {{ tag = {t} level = 1 location = {l} }}" for t in ROMAN_EMPIRES for l in places[t]]
+    for kind, places in ROMAN_FRONTIER.items():   # sparse: not every empire holds every kind of frontier
         L += [f"\t{kind} = {{ tag = {t} level = 1 location = {l} }}" for t in ROMAN_EMPIRES for l in places.get(t, ())]
     return "\n".join(L) + "\n}\n"
 

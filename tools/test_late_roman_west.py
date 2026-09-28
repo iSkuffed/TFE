@@ -64,8 +64,12 @@ def test_everything_shown_is_localized_and_has_an_icon():
         side = "negative" if value < 0 else "positive"
         vanilla_plus = effect == "local_wheat_output_modifier" and side == "positive"
         assert vanilla_plus or found(icons.get(effect, {}).get(side, "missing")), (p.name, effect, side)
-    for n in blocks(FRONTIER):   # a building's icon is named for it
+    for n in blocks(FRONTIER):   # a building's icon is named for it, and so are privileges' and reforms'
         assert (ICONS / f"buildings/{n}.dds").exists(), n
+    for n in blocks(PRIVILEGES):
+        assert (ICONS / f"privileges/{n}.dds").exists(), n
+    for n in blocks(REFORMS):
+        assert (ICONS / f"government_reforms/illustrations/{n}.dds").exists(), n
 
 
 def test_every_privilege_gives_its_estate_power():
@@ -163,3 +167,4 @@ def test_the_frontier_works_hold_a_zone_of_control_on_roman_frontier_land():
     for name, body in blocks(FRONTIER).items():
         assert "propagating_zone_of_control = yes" in body and "local_defensive = " in body, name
         assert re.search(r"country_potential = \{\s*always = no\s*\}", body), name   # placed at start, never built
+        assert "is_indestructible = yes" in body, name   # so never lost either

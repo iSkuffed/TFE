@@ -9,6 +9,7 @@ tfe_hadrians_wall = {
 	is_foreign = no
 	pop_type = soldiers
 	max_levels = 1
+	is_indestructible = yes	# nothing can rebuild it
 
 	employment_size = stockade_employment
 	category = defense_category
@@ -46,6 +47,7 @@ tfe_limes = {
 	is_foreign = no
 	pop_type = soldiers
 	max_levels = 1
+	is_indestructible = yes	# nothing can rebuild it
 
 	employment_size = stockade_employment
 	category = defense_category
