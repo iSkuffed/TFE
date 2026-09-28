@@ -11,8 +11,8 @@ WRE = heir = tfe_eucherius
 WRE = start_regency_date = 395.1.17
 WRE = end_regency_date = 400.9.9
 WRE = regnal_numbers = { name_valentinian = 2 }
-# the West's burdens: tax-free senators and a hidden levy (estate_privileges/tfe_late_roman_west.txt)
-WRE = privilege = { tfe_senatorial_immunities tfe_patrocinium }
+# the West's burdens are locked reforms; each carries its own slot
+WRE = reforms = { tfe_senatorial_immunities tfe_patrocinium }
 
 EAR = ruler = tfe_arcadius
 EAR = ruler_term = { character = tfe_theodosius_i start_date = 379.1.19 end_date = 395.1.17 regnal_number = 1 }

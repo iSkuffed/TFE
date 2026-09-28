@@ -1,45 +1,38 @@
-﻿# TFE: the West's way out of its burdens (estate_privileges and auto_modifiers/tfe_late_roman_west.txt). Each reform
-# is done once: when it is fully in force it sets a variable that stays, so it can then be dropped for its slot.
+﻿# TFE: the West's burdens in 395. Two reforms WRE starts with (10_countries) and cannot drop: each brings its own slot,
+# so the crown keeps its usual free ones. The Reform of the Coinage ends the Debased Coinage (auto_modifiers).
 
-# A new census of the land: the senators' estates entered on the registers at their true worth
-tfe_peraequatio_reform = {
+# The clarissimi: senators excused the sordid munera, their land-tax arrears remitted, their estates beyond the census
+tfe_senatorial_immunities = {
 	potential = {
 		has_or_had_tag = WRE
-		has_estate_privilege = estate_privilege:tfe_senatorial_immunities
-		NOT = { has_variable = tfe_peraequatio_done }
 	}
-	allow = {
-		has_regent = no		# not while a regent rules with the senate's backing
-		stability >= 25
+	locked = {
+		always = yes	# a way to lift the burdens is still to be designed
 	}
 	country_modifier = {
-		nobles_estate_target_satisfaction = -0.1
+		global_nobles_estate_power = 0.5
+		nobles_estate_target_satisfaction = medium_privilege_target_satisfaction
+		nobles_estate_max_tax = -0.25
+		government_reform_slots = 1
 	}
-	on_fully_activated = {
-		set_variable = { name = tfe_peraequatio_done }	# Senatorial Immunities can now be revoked
-	}
-	years = 2
 }
 
-# The levy restored: every landlord owes recruits from his coloni, and no gold in their place
-tfe_dilectus_reform = {
+# Patrocinium: coloni shelter under a great landlord, who hides them from the recruiting officer and pays gold instead
+tfe_patrocinium = {
 	potential = {
 		has_or_had_tag = WRE
-		has_estate_privilege = estate_privilege:tfe_patrocinium
-		NOT = { has_variable = tfe_dilectus_done }
 	}
-	allow = {
-		at_war = no
-		stability >= 25
+	locked = {
+		always = yes	# a way to lift the burdens is still to be designed
 	}
 	country_modifier = {
-		nobles_estate_target_satisfaction = -0.05
-		peasants_estate_target_satisfaction = -0.05
+		global_peasants_estate_power = 0.25
+		global_nobles_estate_power = 0.25	# the patron is a great landlord
+		peasants_estate_target_satisfaction = medium_privilege_target_satisfaction
+		peasants_estate_levy_size = -0.5
+		global_manpower_modifier = -0.25
+		government_reform_slots = 1
 	}
-	on_fully_activated = {
-		set_variable = { name = tfe_dilectus_done }	# Patrocinium can now be revoked
-	}
-	years = 2
 }
 
 # A sound coin again: the debased nummus called in and the soldiers paid in full-weight metal
