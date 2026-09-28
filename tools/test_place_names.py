@@ -130,3 +130,12 @@ def test_names_carry_no_article_or_territory_prefix():
     # on the map a leading "the" crowds the label (the Ruteni); a city territory is the city's Latin name (Carthago)
     bad = {k: n for k, n in pn.load_places().items() if n.startswith("the ") or "Territory of" in n}
     assert not bad, sorted(bad.items())[:10]
+
+
+def test_names_lead_with_the_name_not_a_direction_or_ordinal():
+    # "Northern Senonia" and "First Belgica" read as clutter on the map: a unit gets its own ancient name, and the
+    # Roman numbered provinces are written as the Romans did (Belgica Prima, Germania Secunda)
+    lead = re.compile(r"^(Northern|Southern|Eastern|Western|Upper|Lower|Inner|Outer|Central|Middle|Coast of|Greater|"
+                      r"Lesser|Far|Near|First|Second|Third|Fourth|Senonian)\b")
+    bad = {k: n for k, n in pn.load_places().items() if lead.match(n)}
+    assert not bad, (len(bad), sorted(bad.items())[:10])

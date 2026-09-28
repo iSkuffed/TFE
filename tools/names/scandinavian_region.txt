@@ -2,7 +2,7 @@ scandinavian_region = Scandia  # p: Pliny NH 4.104 and Ptolemy 2.11 Skandia; Jor
 
 denmark_area = Cimbric Chersonese  # p: Ptolemy 2.11 Kimbrike Chersonesos, Pliny's Cimbric peninsula; Jutland and its islands
 eastern_jutland_province = Eudoses  # p: Tacitus Germ. 40, a Nerthus people, often taken for the later Jutes of east Jutland
-funen_province = Lesser Scandiae  # p: Ptolemy 2.11.16, the three small Skandiai islands east of the Chersonese (Funen, Lolland, Falster)
+funen_province = Scandian Isles  # p: Ptolemy 2.11.16, the three small Skandiai islands east of the Chersonese (Funen, Lolland, Falster)
 norrejylland_province = Cimbri  # p: Ptolemy's Kimbroi, northernmost of the Chersonese; Himmerland keeps their name
 slesvig_province = Angles  # p: Tacitus Germ. 40 Anglii; Angeln in Schleswig
 sonderjylland_province = Sabalingii  # p: Ptolemy 2.11 Sabalingioi, southern Chersonese below the Cimbri
@@ -12,15 +12,15 @@ zealand_province = Isle of Nerthus  # p: Tacitus Germ. 40, the goddess's sacred 
 
 finland_area = Fenni  # p: Tacitus Germ. 46 Fenni; Ptolemy's Phinnoi
 finland_province = Gentle Finni  # p: Jordanes Get. 3.22 Finni mitissimi, gentlest of Scandza's peoples; Finland proper
-nyland_province = Southern Fennic Shore  # d: Gulf coast of the Fenni, no ancient name
-satakunta_province = Western Fennic Shore  # d: Bothnian coast and Kokemaki valley, no ancient name
-savolax_province = Eastern Fennic Lakes  # d: inland lake country, no ancient name
-sodra_osterbotten_province = Southern Sitones  # p: Tacitus Germ. 45 Sitones, woman-ruled; read as the Kvens of Ostrobothnia
-tavastland_province = Western Fennic Lakes  # d: Hame lake country, no ancient name
+nyland_province = Eningia  # p: Pliny NH 4.96 Aeningia, reported no smaller than Scatinavia, often taken for Finland; the Gulf coast
+satakunta_province = Vagus  # p: Jordanes Get. 3.17 river Vagus, flowing from a vast lake in the east of Scandza into the Ocean; here the Kokemaki
+savolax_province = Saimaa Lakes  # d: Kuopio, Mikkeli and Savonlinna lake country, no ancient name
+sodra_osterbotten_province = Kvarken Shore  # d: Vaasa, Lapua and Kokkola coast by the Kvarken narrows, no ancient name
+tavastland_province = Paijanne Lakes  # d: Hame lake country of Hameenlinna and Jyvaskyla, no ancient name
 vyborg_province = Fennic Isthmus  # d: Kymi valley and the Karelian isthmus, no ancient name
 
 gotaland_area = Gautae  # p: Ptolemy 2.11 Goutai of southern Skandia; Procopius' Gautoi
-dalsland_province = Western Lakeshore  # d: west shore of Lake Vanern, no ancient people placed here
+dalsland_province = Vanern Shore  # d: west shore of Lake Vanern, no ancient people placed here
 gotland_province = Vagoth  # p: Jordanes Get. 3.22 Vagoth, often read as the Gotlanders
 ostergotland_province = Ostrogothae  # p: Jordanes Get. 3.23 Ostrogothae of Scandza; Ostergotland
 ostra_smaland_province = Theustes  # p: Jordanes Get. 3.22 Theustes; Tjust in eastern Smaland
@@ -29,7 +29,7 @@ vastergotland_province = Gauthigoth  # p: Jordanes Get. 3.22 Gauthigoth; Vasterg
 
 karelia_area = Kareotae  # p: Ptolemy 3.5.22 Kareotai, far north of Sarmatia, linked with the Karelians
 aunus_karelia_province = Vasinabroncae  # p: Jordanes Get. 23.116, Ermanaric's subjects, read as the Ves (Veps) of the Onega-Ladoga land
-inner_aunus_karelia_province = Northern Lake Forests  # d: forest north of Lake Onega, no ancient name
+inner_aunus_karelia_province = Inaunxis  # p: Jordanes Get. 23.116 Inaunxis, beside the Thiudi and Vasinabroncae, often read as the people of Aunus; north of Lake Onega
 inner_white_karelia_province = White Sea Forests  # d: inland forest behind the White Sea coast, no ancient name
 korela_province = Salli  # p: Ptolemy 3.5.22 Salloi, beside the Kareotai; Ladoga shore
 white_karelia_province = Karbones  # p: Ptolemy 3.5.22 Karbones, northernmost people of Sarmatia by the Ocean
@@ -39,40 +39,40 @@ north_kola_province = Amalchian Shore  # p: Pliny NH 4.94 (Hecataeus), Amalchium
 south_kola_province = Cronian Shore  # p: Pliny NH 4.104 mare Cronium, the congealed sea beyond Thule
 western_kola_province = Hyperborean Fells  # d: inland fells of the Kola, no ancient name
 
-nord_norge_area = Northern Scandza  # p: Jordanes Get. 3.19-21 Scandza, its far north of the Adogit and midsummer light; Procopius calls it Thule
+nord_norge_area = Thulitae  # p: Procopius Wars 6.15, the Thulitae of his Thule (Scandinavia), where the sun does not set for forty days at midsummer
 finnmark_province = Rubean Promontory  # p: Pliny NH 4.95 promunturium Rubeas, where the frozen sea begins; perhaps the North Cape
 jamtland_province = Inland Fells  # d: upland east of the Keel, no ancient name
 nor_trondelag_province = Eunixi  # p: Jordanes Get. 3.24 Eunixi, perhaps the Eynir of Inderoy (Eynafylki)
 nordland_province = Adogit  # p: Jordanes Get. 3.19 Adogit, 40 days of unbroken light at midsummer; Halogaland
-romsdalen_province = Western Fjords  # d: More and Romsdal fjords, no ancient name
+romsdalen_province = Romsdal Fjords  # d: More and Romsdal fjords, no ancient name
 sor_trondelag_province = Great Northern Fjord  # d: Trondheimsfjord and its dales, no ancient name
 troms_province = Arctic Skerries  # d: isles and coast of Troms, no ancient name
 
 norrland_area = Screrefennae  # p: Jordanes Get. 3.21 Screrefennae; Procopius' Skrithiphinoi, the hunting Finns of the north
 angermanland_province = Favonae  # p: Ptolemy 2.11 Phauonai, in the east of Skandia
 halsingland_province = Firaesi  # p: Ptolemy 2.11 Phiraisoi, in the east of Skandia
-kajanaland_province = Eastern Wilds  # d: Kainuu forests, no ancient name
-kemi_lappmark_province = Northern Wilds  # d: Inari and Kemi fells, no ancient name
+kajanaland_province = Kainuu Forests  # d: Kajaani, Kuhmo and Kuusamo forests, no ancient name
+kemi_lappmark_province = Kemi Fells  # d: Inari and Kemi fells, no ancient name
 lule_lappmark_province = High Fells  # d: Sarek and the Lule fells, no ancient name
 norra_osterbotten_province = Sitones  # p: Tacitus Germ. 45 Sitones, ruled by a woman; read as the Kvens of Kvenland
-pite_lappmark_province = Western Fells  # d: Arjeplog fells, no ancient name
+pite_lappmark_province = Pite Fells  # d: Arjeplog and Sorsele fells, no ancient name
 torne_lappmark_province = Scrithiphini  # p: Procopius Wars 6.15 Skrithiphinoi, hunters without wine or tilled land
-ume_lappmark_province = Southern Fells  # d: Ume and Angerman fells, no ancient name
-vasterbotten_province = Northern Gulf Shore  # d: coast at the head of the Bothnian gulf, no ancient name
+ume_lappmark_province = Ume Valley  # d: Lycksele, Asele and Tarna on the Ume, no ancient name
+vasterbotten_province = Bothnian Bay  # d: Umea to Tornea and Rovaniemi at the head of the Bothnian gulf, no ancient name
 
 skaneland_area = Dauciones  # p: Ptolemy 2.11 Daukiones, beside the Gautae in southern Skandia
-blekinge_province = Southern Skerries  # d: Blekinge coast and archipelago, no ancient name
+blekinge_province = Oeonae  # p: Pliny NH 4.95 and Mela 3.56 Oeonae, isles of the northern sea whose folk live on birds' eggs and oats; the Blekinge skerries
 gonge_province = Scanian Uplands  # d: wooded inland Scania, no ancient name
 halland_province = Hallin  # p: Jordanes Get. 3.22 Hallin; Halland
 malmohus_province = Liothida  # p: Jordanes Get. 3.22 Liothida, perhaps Luggude of western Scania
 
 svealand_area = Suiones  # p: Tacitus Germ. 44, the Suiones strong in ships in the Ocean itself
 dalarna_province = Dales  # d: Dalarna means the Dales, no ancient name
-gastrikland_province = Northern Shore of the Suiones  # d: Gastrikland coast, no ancient name
+gastrikland_province = Gavle Bay  # d: Gavle, Hamrange and Ockelbo coast, no ancient name
 nerike_province = Plain of Nerike  # d: Narke plain, no ancient name
 sodermanland_province = Suetidi  # p: Jordanes Get. 3.23 Suetidi, tallest of the Scandza peoples
 uppland_province = Suehans  # p: Jordanes Get. 3.21 Suehans, famed for horses; the Svear of Uppsala
-varmland_province = Western Woodlands  # d: Varmland forests, no ancient name
+varmland_province = Klaralven Valley  # d: Varmland forests along the Klaralven, no ancient name
 vastmanland_province = Levoni  # p: Ptolemy 2.11 Leuonoi, in the middle of Skandia
 
 syd_norge_area = Nerigos  # p: Pliny NH 4.104 Nerigos, largest of the northern isles, whence one sails to Thule; Norway

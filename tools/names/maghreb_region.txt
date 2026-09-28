@@ -15,7 +15,7 @@ ksour_province = Gaetuli  # p: Gaetulian nomads of the Saharan Atlas, beyond the
 laghouat_province = Dimmidi  # a: Castellum Dimmidi (Messaad), Severan outpost given up c. 238
 titteri_province = Nova Praetentura  # a: Severan forward frontier of Caesariensis, Columnata, Cohors Breucorum, Ala Miliaria (Tiaret area)
 
-desert_area = Inner Libya  # p: Libya Interior of Ptolemy 4.6, the Sahara beyond the provinces
+desert_area = Libya Interior  # p: Libya Interior of Ptolemy 4.6, the Sahara beyond the provinces
 central_sahara = Melanogaetuli  # p: Ptolemy 4.6 Black Gaetuli of inner Libya; Cidamus (Ghadames) on its edge
 east_fezzan_province = Augila  # a: Augila oasis (Awjila), Herodotus 4.172, Ptolemy; date harvest of the Nasamones
 fezzan_province = Garamantes  # a: Garamantes, capital Garama (Germa), Pliny 5.36, Tacitus, Ptolemy

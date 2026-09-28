@@ -2,9 +2,9 @@ north_atlantic_islands_region = Ultima Thule  # p: Virgil Georgics 1.30, Tacitus
 
 greenland_area = Cronian Sea  # p: Pliny 4.104 mare Cronium, the frozen sea a day beyond Thule
 gardr_province = Great Fjords  # d: no ancient name; Eriksfjord and Einarsfjord
-herjolfnes_province = Southern Cape  # d: no ancient name; the Cape Farewell coast
-middle_settlement = Middle Fjords  # d: no ancient name; the Ivittuut and Arsuk fjords
-vestribygd = Northern Fjords  # d: no ancient name; the Nuuk fjord
+herjolfnes_province = Cape Farewell  # d: no ancient name; the southern cape coast of Greenland
+middle_settlement = Arsuk Fjords  # d: no ancient name; the Ivittuut and Arsuk fjords
+vestribygd = Nuuk Fjords  # d: no ancient name; the Nuuk and Ameralik fjords
 
 iceland_area = Thule  # p: Pytheas via Strabo and Pliny, six days north of Britain
 east_farthing = East Thule  # d: eastern quarter of Thule

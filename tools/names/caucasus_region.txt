@@ -8,7 +8,7 @@ syunik_province = Syunik  # a: Siunia/Sisakan, Faustus of Byzantium; Armenian na
 tashir_province = Gogarene  # a: Strabo 11.14.4, Armenian Gugark; passed to Iberia after 387
 yerevan_province = Ayrarat  # a: the royal province of Armenia, Artaxata (Khor Virap) and Dvin
 
-armenian_highlands_area = Greater Armenia  # a: Armenia Maior, the highland cantons from Karin to Van and Corduene
+armenian_highlands_area = Armenia Maior  # a: Armenia Maior, the highland cantons from Karin to Van and Corduene
 amadiya_province = Corduene  # a: Gordyene/Corduene, Ammianus 25.7; ceded back to Persia in 363
 bitlis_province = Taron  # a: Taraunitis/Taron, Mush; with Moxoene (Mokk) to the south
 erzurum_province = Armenia Interior  # a: the Roman share of 387, Karin, Acilisene, Xerxene; capital Theodosiopolis
@@ -31,13 +31,13 @@ northern_caucasus_area = Caucasian Sarmatia  # p: Ptolemy's Sarmatia Asiatica be
 alania_province = Alans  # a: Alani, Ammianus 31.2; the central north Caucasus (Koban, Chegem)
 avaria_province = Diduri  # p: Ptolemy 5.9, Tusci et Diduri between the Ceraunian mountains and the Caspian
 lezgistan_province = Legae  # p: Strabo 11.5.1, Plutarch Pompey 35; the Lezgins
-north_caucasus_province = Upper Hypanis  # p: Hypanis (Kuban), Strabo 11.2.9; its upper valley (Arkhyz)
+north_caucasus_province = Coraxic Mountains  # p: Ptolemy 5.9 Coraxici montes, the western Caucasus; upper Kuban and Arkhyz
 simsir_province = Gargarians  # p: Strabo 11.5.1, foothill people north of the Caucasus; the Nakh
 tarki_province = Caspian Massagetae  # a: the Maskut kingdom of Faustus of Byzantium, Caspian Daghestan
 
 shirvan_area = Caucasian Albania  # a: Albania, Strabo 11.4; capital Cabalaca, later Partav
 arran_province = Otene  # a: Strabo/Ptolemy, Armenian Utik; Albanian after 387, Partav (Barda)
-baku_province = Lower Albania  # d: the Albanian lowland to the Caspian (Shamakhi, Baku)
+baku_province = Camachia  # p: Ptolemy 5.12 Kamachia (Chemachia), Shamakhi; with Baku and Qobustan
 mughan_province = Caspiane  # a: Strabo 11.4.5, Armenian Kaspk/Paytakaran; Sasanian Balasagan
 shaki_province = Cabalaca  # a: Pliny 6.29, Albania's capital (Qabala)
 shirvan_province = Albanian Gates  # a: Ptolemy 5.12, Albaniae Pylae, the pass at Derbent

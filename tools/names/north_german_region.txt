@@ -9,7 +9,7 @@ loon_province = Tungri  # a: civitas Tungrorum, capital Atuatuca Tungrorum (Tong
 
 brandenburg_area = Suebia  # p: Tacitus Germ. 41-45, Suebia, heartland of the Semnones between Albis and Viadua
 altmark_province = Suebian Angili  # p: Ptolemy 2.11.8, Suebi Angili east of the Langobardi on the middle Albis
-flaming_province = Southern Semnones  # p: Ptolemy, Suebi Semnones reaching south toward the Elbe
+flaming_province = Semnonian Heath  # d: the Flaming heath of Wittenberg and Juterbog, southern edge of the Semnones (Ptolemy 2.11)
 mittelmark_province = Semnones  # p: Tacitus Germ. 39, oldest of the Suebi, sacred grove on the Havel-Spree
 neumark_province = Burgundiones  # p: Ptolemy 2.11.8, Burgundiones between the Suebos and the Vistula
 niederlausitz_province = Spree Forest  # d: no ancient people securely placed here
@@ -23,9 +23,9 @@ west_flanders_province = Menapii  # a: civitas Menapiorum, capital Castellum Men
 
 friesland_area = Frisia  # p: Tacitus Germ. 34, land of the Frisii, Rhine mouths to the Ems
 drenthe_province = Tubantes  # p: Tacitus Ann. 1.51, between IJssel and Ems (Twente-Drenthe)
-east_friesland_province = Lesser Chauci  # p: Ptolemy 2.11.7, Chauci Minores between Ems and Weser
-friesland_province = Greater Frisii  # p: Tacitus Germ. 34, Frisii maiores
-ommelanden_province = Eastern Frisii  # p: Frisii east of the Lauwers to the Ems (Tacitus, Ptolemy)
+east_friesland_province = Chauci Minores  # p: Ptolemy 2.11.7, Pliny 16.2; lesser Chauci between Ems and Weser
+friesland_province = Frisii Maiores  # p: Tacitus Germ. 34, greater Frisii east of the Flevo
+ommelanden_province = Amisia  # a: Tacitus Ann. 1.60, 2.8, the Ems whose estuary bounds the Frisii east of the Lauwers
 overijssel_province = Chamavi  # a: Ammianus 17.8, Tabula Peutingeriana Chamavi qui et Franci; Hamaland on the IJssel
 
 hesse_area = Chatti  # a: Tacitus Germ. 30; still under Marcomer in 392 (Sulpicius Alexander)
@@ -38,7 +38,7 @@ wetterau_province = Taunenses  # a: civitas Taunensium, capital Nida (Frankfurt-
 
 holland_area = Batavia  # a: Insula Batavorum, the Batavian island of the Rhine mouths
 gelderland_province = Batavi  # a: civitas Batavorum, Ulpia Noviomagus (Nijmegen)
-north_holland_province = Lesser Frisii  # p: Tacitus Germ. 34, Frisii minores north of the Rhine
+north_holland_province = Frisii Minores  # p: Tacitus Germ. 34, lesser Frisii north of the Rhine
 south_holland_province = Cananefates  # a: civitas Cananefatium, Forum Hadriani (Voorburg)
 
 holstein_area = Cimbric Neck  # p: Ptolemy 2.11.7, the Saxones on the neck of the Cimbric Chersonese
@@ -48,10 +48,10 @@ lubeck_province = Chalusus  # p: Ptolemy 2.11.1, river Chalusus (the Trave) and 
 lower_saxony_area = Saxons  # a: Ammianus 26.4, 28.5; by 395 the Saxon league held the Weser-Elbe lands
 aller_province = Fosi  # p: Tacitus Germ. 36, neighbours of the Cherusci on the Fuhse by Celle
 brunswick_province = Dulgubnii  # p: Tacitus Germ. 34, Ptolemy 2.11.9, below the Langobardi
-elbmarch_province = Greater Chauci  # p: Ptolemy 2.11.7, Chauci Maiores between Weser and Elbe
+elbmarch_province = Chauci Maiores  # p: Ptolemy 2.11.7, Pliny 16.2; greater Chauci between Weser and Elbe
 hanover_province = Cherusci  # p: Tacitus Germ. 36, Arminius' people on the Weser and Leine
 harz_province = Mount Melibocus  # p: Ptolemy 2.11.5, Melibokon oros, the Harz
-leine_province = Southern Cherusci  # p: Cherusci of the upper Leine, march of the Chatti
+leine_province = Visurgis  # a: Velleius, Tacitus Ann. 2.9-17, the Weser; its upper course and the Leine, march of Cherusci and Chatti
 luneburger_heide_province = Langobardi  # p: Tacitus Germ. 40, Ann. 2.45; seat on the lower Elbe (Bardengau)
 magdeburger_borde_province = Calucones  # p: Ptolemy 2.11.9, on both banks of the Albis north of Melibocus
 
@@ -66,7 +66,7 @@ stettin_province = Viadua Estuary  # p: Ptolemy 2.11.1, river Viadua (the Oder) 
 stolp_province = Lemovii  # p: Tacitus Germ. 44, with the Rugii by the Ocean
 vorpommern_province = Sidini  # p: Ptolemy 2.11.7, coast between the Suebos and the Viadua
 
-rhineland_area = Second Germania  # a: Germania Secunda, capital Colonia Agrippina (Notitia)
+rhineland_area = Germania Secunda  # a: Germania Secunda, capital Colonia Agrippina (Notitia)
 bergisches_land_province = Sugambri  # p: Caesar, Strabo, between Sieg and Ruhr; Claudian's Sygambri for the Franks
 eifel_province = Caeroesi  # a: Caesar BG 2.4, Germani cisrhenani of the Eifel (Carosgau by Prum)
 hunsruck_province = Treveri  # a: civitas Treverorum, Augusta Treverorum, imperial capital
@@ -76,10 +76,10 @@ niederrhein_province = Cugerni  # a: civitas Traianensium, Colonia Ulpia Traiana
 westerwald = Tencteri  # p: Tacitus Germ. 32, right bank of the Rhine above the Sieg; Confluentes
 
 upper_saxony_area = Thuringi  # a: Vegetius Mulomedicina c. 400, Thoringi, heirs of the Hermunduri
-elbtal_province = Upper Albis Valley  # p: Albis (Elbe) of Tacitus and Ptolemy
+elbtal_province = Albis  # p: Tacitus Germ. 41, Ptolemy 2.11; the Elbe valley of Pirna, Meissen and Torgau
 erzgebirge_province = Sudeta Mountains  # p: Ptolemy 2.11.5, Soudeta ore, the Ore Mountains
-leipziger_bucht_province = Eastern Hermunduri  # p: Hermunduri reaching to the Elbe (Tacitus Germ. 41)
-oberlausitz_province = Western Lugii  # p: Tacitus Germ. 43, Lugian peoples west of the Silingi
+leipziger_bucht_province = Hermundurian Plain  # d: Leipzig lowland of the Mulde and Pleisse, the Hermunduri reaching to the Elbe (Tacitus Germ. 41)
+oberlausitz_province = Lugi Omani  # p: Ptolemy 2.11.10, westernmost Lugian people below the Burgundiones
 saale_province = Teuriochaemae  # p: Ptolemy 2.11.10, below the Sudeta, forerunners of the Thuringi
 thuringer_becken_province = Hermunduri  # p: Tacitus Germ. 41, Ptolemy; core of later Thuringia
 thuringer_wald_province = Bacenis Forest  # p: Caesar BG 6.10, silva Bacenis between Cherusci and Suebi

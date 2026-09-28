@@ -7,10 +7,10 @@ lower_gezira_province = Sembritae  # p: Sembritae (Strabo 17.1.2, Pliny 6.191), 
 upper_butana_province = Astaboras  # p: Astaboras, the Atbara river country (Strabo, Ptolemy)
 upper_gezira_province = Astapus  # p: Astapus, the Blue Nile (Eratosthenes via Strabo, Ptolemy)
 
-darfur_area = Inner Ethiopia  # p: Aethiopia interior (Ptolemy 4.8), the unknown lands west and south of Meroe
+darfur_area = Darfur  # d: the land of the Fur, no ancient name fits; no ancient name fits (was Ethiopia Interior, which southern_ethiopia_area keeps); Aethiopia interior (Ptolemy 4.8), the unknown lands west and south of Meroe
 kordofan_province = Nuba Hills  # d: no ancient unit; named for the Nubae who give Kordofan's hills their name
 north_darfur_province = Marra Mountains  # d: Jebel Marra and its northern plateau, nothing ancient
-south_darfur_province = Western Savanna  # d: grasslands of southern Darfur, nothing ancient
+south_darfur_province = Darfur Savanna  # d: grasslands of southern Darfur, nothing ancient
 
 equatoria_area = Sources of the Nile  # p: caput Nili sought by Nero's centurions (Seneca NQ 6.8, Pliny 6.181), Ptolemy's Nile lakes
 bahr_al_jabal_province = Astasobas  # p: Astasobas (Strabo 17.1.2), the Sobat and White Nile

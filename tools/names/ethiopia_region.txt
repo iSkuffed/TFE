@@ -1,12 +1,12 @@
 ethiopia_region = Kingdom of Aksum  # a: the Axomites (Periplus 4-5), Ezana king of the Aksumites c. 350
 
 central_ethiopia_area = Athagaus  # a: Athagaus (Monumentum Adulitanum), Atagau of Ezana: the Agaw highlands
-amhara_province = Northern Highlands  # d: Amhara Sayint plateau, nothing ancient fits
-argobba_province = Southern Escarpment  # d: the rift escarpment of Ankober and Kombolcha
+amhara_province = Sayint Plateau  # d: the Amhara Sayint plateau, nothing ancient fits
+argobba_province = Ankober Escarpment  # d: the rift escarpment of Ankober and Kombolcha
 begemder_province = Lake Psebo  # p: Psebo, great lake above Meroe (Strabo 17.2.3), Lake Tana
-dobea_province = Northern Escarpment  # d: the Raya escarpment and the Afar salt lakes below it
+dobea_province = Afrera Salt Lakes  # d: the Raya escarpment and the Afar salt lakes below it
 lasta_province = Lasine  # a: Lasine (Monumentum Adulitanum), beyond the Takazze; possibly Lasta
-mora_province = Lower Awash  # d: the Awash delta of Aussa, nothing ancient
+mora_province = Rausi  # a: Monumentum Adulitanum (Cosmas), barbarians of the wide waterless plains; the Aussa lowland
 semien_province = Sameni  # a: Sameni (Monumentum Adulitanum), people of the snowy mountains beyond the Takazze
 wej_province = High Plateau  # d: the plateau of northern Shewa, nothing ancient
 
@@ -21,12 +21,12 @@ hamasien_province = Gaze  # a: Gaze (Monumentum Adulitanum), first people north 
 serae_province = Coloe  # a: Coloe (Periplus 4, Ptolemy), inland market at Qohaito near Senafe
 tigray_province = Aksum  # a: Axomis, the royal city and its land (Periplus 4)
 
-southern_ethiopia_area = Southern Highlands  # d: lands beyond Aksum's reach, south of the Agaw, nothing ancient
-damot_province = Western Plateau  # d: south of the Blue Nile gorge, nothing ancient
+southern_ethiopia_area = Ethiopia Interior  # p: Ptolemy 4.8 Aethiopia interior, lands beyond Aksum's reach south of the Agaw
+damot_province = Astapus Bend  # p: the Blue Nile (Ptolemy's Astapus) loop, Damot south of the gorge
 ennarea_province = Southwestern Forests  # d: the Gibe forests, nothing ancient
 gojjam_province = Springs of the Astapus  # p: Astapus from Ptolemy's lake Coloe, the Blue Nile loop of Gojjam
 hadiya_province = Rift Lakes  # d: the lakes of the southern rift, nothing ancient
-metekel_province = Western Lowlands  # d: the Beles lowlands toward the Sudan, nothing ancient
-shewa_province = Central Highlands  # d: central Shewa and Zuqualla, nothing ancient
+metekel_province = Beles Valley  # d: the Beles lowlands toward the Sudan, nothing ancient
+shewa_province = Mount Zuqualla  # d: the sacred volcano of central Shewa, nothing ancient
 sidamo_province = Omo Valley  # d: the Omo and southern highlands, nothing ancient
 wellega_province = Sasu  # a: Sasu, gold country far south of Aksum (Cosmas Indicopleustes), Wellega and Fazughli
