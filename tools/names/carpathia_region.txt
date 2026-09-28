@@ -1,0 +1,63 @@
+# Carpathia in 395: Roman Valeria west of the Danube; beyond it the Sarmatians of the Tisza plain, the Hasding
+# Vandals and Victohali of the upper Tisza, the Quadi, and old Dacia (given up c. 271) under Gepids, Huns and Goths.
+carpathia_region = Dacia  # a: Trajan's Dacia and Ptolemy III.8, Tisza to Dniester; Valeria on its western edge
+
+moldavia_area = the Carpi  # a: Carpi of Moldavia, 3rd-c. foes of Rome; Carpodaces beside the Huns in 381 (Zosimus IV.34)
+bacau_province = Petrodava  # p: Ptolemy III.8.4, Dacian town at Piatra Neamt (Piatra lui Craciun)
+balti_moldova_province = the Tyragetae  # p: Strabo VII.3.17, Ptolemy III.10; Getae of the middle Tyras (Soroca, Hotin)
+barlad_province = Piroboridava  # p: Ptolemy III.8.4, Dacian town at Poiana by Tecuci
+basarabia_province = the Peucini  # p: Strabo VII.3.15, Ptolemy III.5.7; Bastarnae of the Danube delta (Budjak)
+dorohei_province = the Middle Pyretus  # p: Pyretus/Porata, the Prut (Herodotus IV.48); Chernivtsi to Stefanesti
+iasi_province = the Carpodaces  # a: Zosimus IV.34.6, Carpi who crossed with Huns and Sciri in 381; Prut-Barlad hills
+orhei_province = the Danastius  # a: Ammianus XXXI.3.3, the Dniester where Athanaric awaited the Huns (Tighina)
+suceava_province = the Bastarnae  # p: Ptolemy III.5.7, above Dacia; Poienesti-Lucaseuca culture of Bukovina
+
+north_alfold_area = the Hasdingi  # a: Hasding Vandals of the upper Tisza (Dio LXXI.12, Jordanes Getica 113)
+bihar_province = the Grisia  # a: Jordanes Getica 113, Vandal land on the Marisia and Grisia (the Cris)
+heves_province = the Northern Iazyges  # p: Iazyges Metanastae (Ptolemy III.7) up to the Matra and Bukk foothills
+kraszna_province = the Territory of Porolissum  # a: municipium Septimium Porolissum at Moigrad by Zalau
+pest_province = the Argaragantes  # a: Jerome, Chronicle a.334; free Sarmatians of the Danube-Tisza plain opposite Aquincum
+szabolcs_province = the Victohali  # a: Eutropius VIII.2, holders of old Dacia with Taifali and Tervingi; upper Tisza
+szatmar_province = the Anartes  # p: Ptolemy III.8.3 north-west Dacia, Caesar BG VI.25; Somes and upper Tisza
+szolnok_province = the Limigantes  # a: Ammianus XVII.13, Sarmatian former serfs of the Tisza plain
+
+slovakia_area = the Carpates  # p: Ptolemy III.5.5 and III.8.1, the Carpathian range; Quadi, Cotini and Vandals
+hont_province = the Granua  # a: Marcus Aurelius, Meditations I, written among the Quadi on the Granua (the Hron)
+maramaros_province = the Teurisci  # p: Ptolemy III.8.3, northern Dacia; placed on the upper Tisza
+nograd_province = the Osi  # p: Tacitus Germania 43, Pannonian-speaking people north of Pannonia
+pozsony_province = the Eastern Quadi  # a: Quadi of the lower Vah and Nitra (Ammianus XVII.12), east of their Moravian core; QAD in 395
+szepes_province = the Piengitae  # p: Ptolemy III.5.10, by the Carpathian slopes; placed about the Pieniny
+trencsen_province = the Cotini  # p: Tacitus Germania 43, iron-working Cotini (Puchov culture of the Vah)
+zemplen_province = the Upper Parthiscus  # p: Parthiscus, the Tisza (Ammianus XVII.13.4); Uzhhorod to Beregovo
+
+south_alfold_area = the Iazyges  # a: Iazyges Metanastae, Ptolemy III.7; Sarmatians of the Tisza plain, IAZ in 395
+bacs_province = the Amicenses  # a: Ammianus XVII.13.19, Limigantes near Acumincum and the Tisza mouth
+csanad_province = the Lower Maris  # p: Maris, the Mures (Herodotus IV.49); its mouth at Mako and Csanad
+csongrad_province = Partiscum  # p: Ptolemy III.7.2, town of the Iazyges at Szeged
+east_banat_province = the Territory of Tibiscum  # a: municipium Tibiscum at Jupa by Caransebes, Roman Dacia
+west_banat_province = the Picenses  # a: Ammianus XVII.13.19, Limigantes named for lands near Moesia
+zarand_hun_province = Ziridava  # p: Ptolemy III.8.4, Dacian town at Pecica by Arad
+
+transdanubia_area = Valeria  # a: Pannonia Valeria, capital Sopianae; west part in First Pannonia
+baranya_province = the Territory of Sopianae  # a: Sopianae (Pecs), capital of Valeria
+buda_province = the Azali  # a: Pliny III.148, Ptolemy II.16; civitas about Brigetio and Solva
+fejer_province = the Eravisci  # a: civitas Eraviscorum, Aquincum to Gorsium (Alba Regia)
+somogy_province = the Hercuniates  # a: Pliny III.148, Ptolemy II.16; by Lake Pelso
+sopron_province = the Territory of Scarbantia  # a: municipium Flavium Scarbantia (Sopron), with Arrabona
+vas_province = the Territory of Savaria  # a: colonia Claudia Savaria, capital of First Pannonia
+zala_province = the Territory of Salla  # a: municipium Salla at Zalalovo
+
+transylvania_area = Dacia Apulensis  # a: Dacia Apulensis, capital Apulum; Gepid-held in 395
+doboka_province = the Gepids  # a: Gepidae (Jordanes Getica 94-100), north of old Dacia in the 4th c.; Somes valley
+feher_province = the Territory of Apulum  # a: Apulum (Alba Iulia), legio XIII Gemina, with Sarmizegetusa
+kiralyfold_province = the Upper Alutus  # a: Alutus, the Olt; Cedonia (Sibiu) and the Fagaras land
+szekelyfold_province = Angustia  # a: Ptolemy III.8.4, Roman fort at Bretcu, eastern gate of Dacia
+torda_province = the Territory of Potaissa  # a: colonia Septimia Potaissa (Turda), legio V Macedonica, with Napoca
+
+wallachia_area = the Tervingi  # a: Ammianus XXXI.3-4, Athanaric's Goths north of the Danube until 376
+east_muntenia_province = the Musaeus  # a: Passio S. Sabae, the Buzau where Sabas was drowned in 372
+north_muntenia_province = the Ordessus  # p: Herodotus IV.48, the Arges
+north_oltenia_province = the Buridavenses  # p: Ptolemy III.8.3; Buridava at Ocnele Mari by Ramnicu Valcea
+south_muntenia_province = the Naparis  # p: Herodotus IV.48, the Ialomita
+south_oltenia_province = the Taifali  # a: Ammianus XVII.13.19, XXXI.9; Eutropius VIII.2; Oltenia in the 4th c.
+west_muntenia_province = the Lower Alutus  # a: Alutus, the Olt; limes Transalutanus and Sucidava's hinterland
