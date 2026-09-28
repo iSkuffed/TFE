@@ -1,0 +1,77 @@
+great_britain_region = Diocese of the Britains  # a: Dioecesis Britanniarum, vicarius at Londinium
+
+east_anglia_area = the Saxon Shore  # a: Litus Saxonicum (Notitia); Branodunum, Gariannonum, Othona; province between Maxima and Flavia uncertain
+cambridgeshire_province = Durolipons  # a: Roman town at Cambridge (Antonine Itinerary), fen-edge district
+essex_province = the Trinovantes  # a: civitas Trinovantum, Camulodunum
+hertfordshire_province = the Catuvellauni  # a: civitas Catuvellaunorum, Verulamium
+norfolk_province = the Iceni  # a: civitas Icenorum, Venta Icenorum
+suffolk_province = Combretovium  # a: Roman town at Baylham near Ipswich (Antonine Itinerary), Iceni-Trinovantes border
+
+hebrides_area = the Hebudes  # p: Pliny 4.103 Hebudes, Ptolemy's Ebudae
+inner_hebrides_province = Malaeus  # p: Ptolemy's Maleos (Mull), largest of the southern isles; with Arran, Islay and Mona (Man)
+outer_hebrides_province = Dumna  # p: Ptolemy's Dumna, the Long Island (Lewis and Harris)
+
+home_counties_area = Maxima Caesariensis  # a: capital Londinium (Verona List, Notitia)
+bedfordshire_province = Durocobrivae  # a: Durocobrivis at Dunstable (Antonine Itinerary), Catuvellaunian land
+berkshire_province = Calleva  # a: civitas Atrebatum, capital Calleva on the Berkshire border
+buckinghamshire_province = Magiovinium  # a: Roman town at Fenny Stratford on Watling Street (Antonine Itinerary)
+hampshire_province = the Belgae  # a: civitas Belgarum, Venta Belgarum; with Vectis
+kent_province = the Cantiaci  # a: civitas Cantiacorum, Durovernum
+middlesex_province = Londinium  # a: Londinium, renamed Augusta (Ammianus), seat of the vicarius
+oxfordshire_province = the Upper Thames  # a: Tamesis (Caesar, Tacitus); Dorchester and Alchester reach
+surrey_province = the Forest of Anderida  # a: Silva Anderida (Andredesweald), the Weald
+sussex_province = the Regni  # a: civitas Regnorum, Noviomagus Reginorum
+
+midlands_area = Flavia Caesariensis  # a: capital Lindum (Verona List, Notitia)
+derbyshire_province = Lutudarum  # a: lead-mining district of the Peak, stamped on lead pigs
+herefordshire_province = Ariconium  # a: iron town near Ross (Antonine Itinerary), gave its name to Archenfield
+leicestershire_province = the Corieltauvi  # a: civitas Corieltauvorum, Ratae
+lincolnshire_province = Lindum  # a: colonia Lindum, capital of Flavia Caesariensis
+northamptonshire_province = Lactodorum  # a: Roman town at Towcester (Antonine Itinerary)
+nottinghamshire_province = Margidunum  # a: Roman town on the Fosse Way near Bingham (Antonine Itinerary)
+shropshire_province = the Cornovii  # a: civitas Cornoviorum, Viroconium
+staffordshire_province = Letocetum  # a: Roman town at Wall near Lichfield (Antonine Itinerary)
+warwickshire_province = Manduessedum  # a: Roman town at Mancetter on Watling Street (Antonine Itinerary)
+worcestershire_province = Salinae  # a: brine town at Droitwich (Ravenna), northern Dobunni
+
+northumbria_area = Second Britain  # a: Britannia Secunda, capital Eboracum
+cheshire_province = Deva  # a: legionary fortress Deva (Legio XX Valeria Victrix)
+cumberland_province = the Carvetii  # a: civitas Carvetiorum, Luguvalium (inscriptions)
+durham_province = Vinovia  # a: fort at Binchester (Ptolemy Vinovium, Antonine Itinerary)
+east_riding_province = the Parisi  # a: Ptolemy's Parisi, Petuaria (British, not the Gallic Parisii)
+lancashire_province = the Setantii  # p: Ptolemy's Portus Setantiorum on the Lancashire coast
+north_riding_province = Eboracum  # a: colonia Eboracum, capital of Second Britain, seat of the dux Britanniarum
+northumberland_province = the Wall  # a: Notitia item per lineam valli; Hadrian's Wall garrisons
+west_riding_province = the Brigantes  # a: civitas Brigantum, Isurium Brigantum
+westmorland_province = Verteris  # a: fort at Brough under Stainmore (Notitia, Antonine Itinerary)
+
+scottish_highlands_area = Caledonia  # p: Tacitus, Ptolemy; land of the Caledonii and Picts
+argyll_province = the Epidii  # p: Ptolemy, Kintyre (Epidium promontory)
+moray_province = the Verturiones  # p: Ammianus 27.8, Pictish people of Fortriu
+ross_province = the Decantae  # p: Ptolemy, Easter Ross
+sutherland_province = the Smertae  # p: Ptolemy, inland Sutherland
+
+scottish_lowlands_area = Valentia  # a: province named by Count Theodosius in 369 (Ammianus 28.3), traditionally placed between the Walls
+aberdeenshire_province = the Taexali  # p: Ptolemy, Aberdeenshire (Taexalorum promontory)
+angus_province = the Horesti  # p: Tacitus Agricola 38, north of the Tay
+fife_province = the Venicones  # p: Ptolemy, Fife
+galloway_province = the Novantae  # p: Ptolemy, Galloway (Novantarum promontory)
+lothian_province = the Votadini  # p: Ptolemy, Lothian and the Tweed
+perthshire_province = the Maeatae  # p: Cassius Dio 76.12, beside the Antonine Wall (Dumyat)
+strathclyde_province = the Damnonii  # p: Ptolemy, the Clyde (not the Dumnonii of Devon)
+teviotdale_province = the Selgovae  # p: Ptolemy, the upper Tweed and Teviot
+
+wales_area = Western First Britain  # a: Britannia Prima, its western uplands; qualifier to split it from the West Country
+brecon_province = Cicucium  # a: fort at Brecon Gaer (Ravenna)
+deheubarth_province = the Demetae  # a: civitas Demetarum, Moridunum
+glamorgan_province = the Silures  # a: civitas Silurum, Venta Silurum
+gwynedd_province = the Ordovices  # a: Tacitus, Ptolemy; Segontium and Mona, with the Deceangli
+powys_province = the Upper Severn  # a: Sabrina (Tacitus Annals 12.31); Caersws and Forden Gaer
+
+west_country_area = First Britain  # a: Britannia Prima, capital Corinium
+cornwall_province = Belerium  # p: Diodorus's Belerion, Ptolemy's Bolerium, the Cornish peninsula
+devon_province = the Dumnonii  # a: civitas Dumnoniorum, Isca Dumnoniorum
+dorset_province = the Durotriges  # a: civitas Durotrigum, Durnovaria
+gloucestershire_province = the Dobunni  # a: civitas Dobunnorum, Corinium
+somerset_province = Aquae Sulis  # a: Aquae Sulis (Bath), spa town on the Dobunni-Belgae border
+wiltshire_province = Cunetio  # a: walled 4th-century town at Mildenhall (Antonine Itinerary)

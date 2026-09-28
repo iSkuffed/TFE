@@ -1,0 +1,107 @@
+iberia_region = Diocese of the Spains  # a: Dioecesis Hispaniarum, vicarius at Emerita
+
+andalusia_area = Baetica  # a: Baetica, consularis at Hispalis/Corduba; the Guadalquivir valley
+cadiz_province = the Territory of Gades  # a: Gades and conventus Gaditanus, with Asido, Asta Regia, Traducta, Calpe
+cordoba_province = the Territory of Corduba  # a: Colonia Patricia Corduba, conventus Cordubensis
+huelva_province = the Turdetani  # a: Ptolemy lists Onoba and Ilipla among the Turdetani
+jaen_province = the Territory of Castulo  # a: Castulo, Oretanian mining city, with Tucci, Aurgi, Iliturgi, Baesucci
+sevilla_province = the Territory of Hispalis  # a: Hispalis, conventus Hispalensis, with Carmo, Astigi, Urso
+
+aragon_area = Upper Tarraconensis  # a: inland Ebro valley of Tarraconensis, conventus Caesaraugustanus
+alcaniz_province = the Sedetani  # a: Livy's Sedetani of the lower Aragon, between the Ebro and the Iberian range
+barbastro_province = the Ilergetes  # a: Ilergetes of the Cinca and Segre, Monzon, Fraga
+calatayud_province = the Celtiberi  # a: Celtiberia of the Jalon, Bilbilis, Segeda, Arcobriga
+huesca_province = the Territory of Osca  # a: Osca, Sertorius' city, with Iacca of the Iacetani and the Suessetani
+teruel_province = the Lobetani  # p: Ptolemy's Lobetani, Lobetum = Albarracin
+zaragoza_province = the Territory of Caesaraugusta  # a: Colonia Caesaraugusta, conventus capital
+
+balearics_area = the Balearic Isles  # a: Insulae Balearum, province split from Carthaginiensis c. 385
+mallorca_province = Balearis Maior  # a: Pliny's Balearis Maior, Palma and Pollentia; with Minor and Ebusus
+
+castile_area = Western Tarraconensis  # a: conventus Cluniensis of Tarraconensis; its west edge disputed with Gallaecia
+avila_province = the Vettones  # a: Vettones, Abula/Obila, land of the verracos
+burgos_province = the Territory of Virovesca  # a: Virovesca of the Autrigones, with Tritium and Vareia of the Berones
+lerma_province = the Territory of Clunia  # a: Clunia Sulpicia, conventus capital, near Aranda and Silos
+montana_province = the Cantabri  # a: Cantabri, Portus Victoriae, Iuliobriga
+palencia_province = the Territory of Pallantia  # a: Pallantia, chief city of the Vaccaei
+segovia_province = the Territory of Segovia  # a: Segovia of the Arevaci, the aqueduct city
+soria_province = the Arevaci  # a: Arevaci and Pelendones, Numantia, Uxama, Calagurris
+valladolid_province = the Vaccaei  # a: Vaccaei, Septimanca, Pintia, Intercatia
+
+catalonia_area = Tarraconensis  # a: Tarraconensis, capital Tarraco
+barcelona_province = the Laietani  # a: Laietani, Barcino, Egara, Baetulo
+girona_province = the Indigetes  # a: Indigetes, Emporiae, Gerunda
+new_catalonia_province = the Territory of Tarraco  # a: Colonia Tarraco, provincial capital, with Dertosa and Ilerda
+osona_province = the Ausetani  # a: Ausetani, Ausa = Vic
+rosello_province = the Sordones  # a: Mela and Pliny's Sordones of Ruscino; Roussillon lay in First Narbonensis
+urgell_province = the Cerretani  # a: Pliny's Ceretani of the Pyrenees, Urgell, Andorra, Pallars
+
+extremadura_area = Lusitania  # a: Lusitania, capital Emerita Augusta
+badajoz_province = Baeturia  # a: Pliny's Baeturia Celticorum south of the Anas, Nertobriga, Segida
+caceres_province = the Territory of Norba  # a: Colonia Norba Caesarina
+merida_province = the Territory of Emerita  # a: Emerita Augusta, seat of the vicarius Hispaniarum
+plasencia_province = the Territory of Capera  # a: Capera of the Vettones, Caparra on the Via de la Plata
+trujillo_province = the Territory of Turgalium  # a: Turgalium, praefectura of Emerita
+villanueva_de_la_serena_province = the Territory of Metellinum  # a: Colonia Metellinensis, with Iulipa (Zalamea)
+
+galicia_area = Gallaecia  # a: Gallaecia, Diocletian's province, conventus Lucensis
+coruna_province = the Artabri  # a: Artabri of Strabo and Pliny, Brigantium
+lugo_province = the Territory of Lucus Augusti  # a: Lucus Augusti, conventus Lucensis capital
+ourense_province = the Limici  # a: Limici, Forum Limicorum at Ginzo de Limia; Aquae Originis, Auria
+santiago_province = the Territory of Iria Flavia  # a: Iria Flavia, with Tude and the Nerii of Finisterre
+
+granada_area = Eastern Baetica  # a: eastern Baetica with Carthaginiensis' Acci, Basti and Urci
+almeria_province = the Bastetani  # a: Bastetani, Basti, Urci
+granada_province = the Territory of Iliberis  # a: Iliberis, Council of Elvira c. 305, with Acci and Sexi
+malaga_province = the Territory of Malaca  # a: Malaca, with Anticaria and Arunda
+
+leon_area = Asturia  # a: Pliny's Asturia, conventus Asturum within Gallaecia
+astorga_province = the Territory of Asturica  # a: Asturica Augusta, conventus capital, Bierzo gold mines
+benavente_province = the Zoelae  # a: Pliny's Zoelae of Aliste and Sanabria, with Brigaecium
+ciudad_rodrigo_province = the Territory of Mirobriga  # a: Mirobriga Vettonum, with Caurium
+east_asturias_province = the Astures  # a: Astures Transmontani, Luggones and Orgenomesci
+leon_province = the Territory of Legio  # a: fortress of Legio VII Gemina
+salamanca_province = the Territory of Salmantica  # a: Salmantica of the Vettones
+west_asturias_province = the Paesici  # a: Pliny's Paesici, Flavionavia
+zamora_province = the Territory of Ocelodurum  # a: Ocelodurum of It. Ant. at Zamora, with Toro
+
+murcia_area = Carthaginiensis  # a: Carthaginiensis, capital Carthago Nova
+albacete_province = the Territory of Saltigi  # a: Saltigi of It. Ant. at Chinchilla
+hellin_province = the Deitani  # a: Pliny's Deitania, inland Murcia, Ilunum
+murcia_province = the Territory of New Carthage  # a: Carthago Nova, provincial capital
+
+navarre_area = Northern Tarraconensis  # a: northern Tarraconensis, Vascones and the Basque coast
+alava_province = the Caristii  # a: Caristii, Veleia and Suessatium
+biscay_province = the Autrigones  # a: Autrigones west of the Nervion, Flaviobriga; Durango was Caristian
+gipuzkoa_province = the Varduli  # a: Varduli, Oiasso
+navarre_province = the Vascones  # a: Vascones, Pompaelo, Cascantum
+
+north_portugal_area = Northern Lusitania  # a: Lusitania north of the Tagus, with southern Gallaecia (Bracara)
+beira_alta_province = the Lusitani  # a: Lusitani of Mons Herminius, heart of old Lusitania
+beira_baixa_province = the Igaeditani  # a: Civitas Igaeditanorum, Idanha-a-Velha
+beira_litoral_province = the Territory of Conimbriga  # a: Conimbriga, with Aeminium, Collippo, Talabriga
+minho_province = the Territory of Bracara  # a: Bracara Augusta, conventus Bracarensis, capital of Gallaecia
+tras_os_montes = the Territory of Aquae Flaviae  # a: municipium Aquae Flaviae, Chaves
+
+south_portugal_area = Southern Lusitania  # a: Lusitania south of the Tagus, conventus Pacensis and Scallabitanus
+algarve_province = the Territory of Ossonoba  # a: Ossonoba, with Balsa and Lacobriga
+alto_alentejo_province = the Territory of Ebora  # a: Liberalitas Iulia Ebora, with Ammaia
+baixo_alentejo_province = the Territory of Pax Iulia  # a: Pax Iulia, conventus Pacensis, with Myrtilis
+estremadura_province = the Territory of Olisipo  # a: Felicitas Iulia Olisipo, with Salacia and Caetobriga
+ribatejo_province = the Territory of Scalabis  # a: Scallabis Praesidium Iulium, conventus Scallabitanus
+
+toledo_area = Inner Carthaginiensis  # a: the meseta of Carthaginiensis, Toletum, Complutum, Segobriga
+alarcon_province = the Olcades  # a: Polybius and Livy's Olcades of the upper Jucar; Egelesta
+cuenca_province = the Territory of Ercavica  # a: Ercavica, with Valeria and Opta
+east_mancha_province = the Territory of Libisosa  # a: Colonia Libisosa, with Laminium and Mentesa Oretana
+guadalajara_province = the Territory of Segontia  # a: Segontia, with Arriaca
+madrid_province = the Territory of Complutum  # a: Complutum, city of Justus and Pastor
+ocana_province = the Carpetani  # a: Carpetani, Consabura, with Segobriga
+toledo_province = the Territory of Toletum  # a: Toletum, with Caesarobriga
+west_mancha_province = the Oretani  # a: Oretani, Oretum near Calatrava, Sisapo's mercury
+
+valencia_area = the Coast of Carthaginiensis  # a: coastal Carthaginiensis, Valentia, Saetabis, Ilici
+castellon_province = the Ilercavones  # a: Ilercavones, hinterland of Dertosa, in Tarraconensis
+jativa_province = the Territory of Saetabis  # a: Saetabis, with Dianium
+orihuela_province = the Contestani  # a: Contestani, Ilici, Lucentum
+valencia_province = the Territory of Valentia  # a: Valentia, with Edeta of the Edetani and Saguntum

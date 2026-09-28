@@ -1,0 +1,94 @@
+balkan_region = Illyricum  # a: praefectura praetorio per Illyricum (Dacia, Macedonia), with western Illyricum and Thrace
+
+aegean_archipelago_area = the Islands  # a: provincia Insularum, capital Rhodes (with Crete and Euboea)
+chios_province = Chios  # a: Chios with Samos and Icaria
+crete_province = Crete  # a: provincia Creta, capital Gortyn
+euboea_province = Euboea  # a: Euboea, Chalcis, part of Achaea
+lemnos_province = Lesbos  # a: Lesbos (Mytilene, Methymna) with Lemnos and Imbros
+naxos_province = the Cyclades  # a: Cyclades, Naxos, Andros, Melos
+rodos_province = Rhodes  # a: Rhodus with Cos and Carpathus
+
+albania_area = New Epirus  # a: Epirus Nova, capital Dyrrachium
+albania_province = the Taulantii  # a: people of Dyrrachium's hinterland, with Scampa and Byllis
+illyria_province = Praevalitana  # a: provincia Praevalitana, capital Scodra, Lissus
+north_epirus_province = Chaonia  # a: land of the Chaones, Buthrotum, Aulon, Hadrianopolis
+
+bosnia_area = Inner Dalmatia  # a: inland Dalmatia (qualifier), Bistua, Delminium, mines of the interior
+bosnia_province = the Daesitiates  # a: Pliny, central Bosnia, Bistua Nova
+donji_kraji_province = the Dalmatae  # a: Delminium, Salvium, Bariduum
+hum_province = the Daorsi  # a: Daorson by Stolac, hinterland of Narona
+podrinje_province = the Pirustae  # a: Pliny, upper Drina and Lim, municipium at Komini
+una_sana_province = the Iapydes  # a: Strabo, Raetinium on the Una
+usora_and_soli_province = the Breuci  # a: people of the Sava valley, lower Bosna
+
+bulgaria_area = Second Moesia  # a: Moesia II, capital Marcianopolis (with Scythia and eastern Dacia Ripensis)
+north_dobruja_province = Scythia Minor  # a: provincia Scythia, capital Tomis
+pleven_province = the Triballi  # a: people of the Oescus, colonia Oescus
+preslav_province = the Territory of Marcianopolis  # a: capital of Moesia II, Abritus, Odessus
+south_dobruja_province = the Territory of Durostorum  # a: legio XI Claudia, Transmarisca, Callatis
+sredets_province = Dacia Mediterranea  # a: capital Serdica, Pautalia, Germania
+tarnovo_province = the Territory of Novae  # a: legio I Italica, Nicopolis ad Istrum, Sexaginta Prista
+vidin_province = Dacia Ripensis  # a: capital Ratiaria, Bononia, Castra Martis, Montana
+
+croatia_area = Dalmatia  # a: provincia Dalmatia, capital Salona
+istria_province = Istria  # a: Histria, Pola, Parentium (of Venetia et Histria)
+lika_province = Liburnia  # a: Tarsatica, Senia, Curicum, Arupium
+north_dalmatia_province = the Territory of Iader  # a: colonia Iader, Scardona, Burnum
+south_dalmatia_province = the Territory of Salona  # a: Salona, Narona, Epidaurum
+
+macedonia_area = Macedonia  # a: provincia Macedonia, capital Thessalonica
+central_macedonia_province = Emathia  # a: Beroea, Edessa, Pella
+chalkidiki_province = Chalcidice  # a: Thessalonica, Cassandrea, Athos
+lower_macedonia_province = Edonis  # a: land of the Edoni, Philippi, Neapolis, Amphipolis
+pirin_province = the Maedi  # a: Thracian people of the middle Strymon, Nicopolis ad Nestum nearby
+prilep_province = Pelagonia  # a: Heraclea Lyncestis, Lychnidus, Styberra
+upper_macedonia_province = Upper Macedonia  # a: Elimiotis, Orestis, Eordaea, Celetrum
+vardar_province = Paeonia  # a: Stobi, Astibus, Bylazora, Scupi
+
+morea_area = the Peloponnese  # a: Peloponnesus, southern half of Achaea, capital Corinth
+achaea_province = Achaea  # a: Achaea proper, Patrae, Aegium
+arcadia_province = Arcadia  # a: Arcadia, Tegea, Megalopolis
+argolis_province = Argolis  # a: Argos, Nauplia, Hermione
+corinthia_province = Corinthia  # a: Corinth, capital of Achaea
+ilia_province = Elis  # a: Elis, Olympia
+laconia_province = Laconia  # a: Sparta, Cythera
+messenia_province = Messenia  # a: Messene, Methone, Cyparissia
+
+northern_greece_area = Hellas  # a: Hellas, late name of Achaea (Hierocles), here with Thessaly and Old Epirus
+aetolia_province = Aetolia  # a: Aetolia with Acarnania and Ozolian Locris, Naupactus
+attica_province = Attica and Boeotia  # a: Athens, Thebes, Megara
+ionian_islands_province = Corcyra  # a: Corcyra with Leucas, Cephallenia, Zacynthus
+neopatras_province = Phthiotis  # a: Hypata, Lamia, Heraclea Trachinia
+south_epirus_province = Old Epirus  # a: Epirus Vetus, capital Nicopolis
+thessaly_province = Thessaly  # a: provincia Thessalia, capital Larissa
+
+serbia_area = First Moesia  # a: Moesia I, capital Viminacium, Singidunum, Margum
+branicevo_province = the Territory of Viminacium  # a: capital of Moesia I, legio VII Claudia
+kosovo_province = Dardania  # a: provincia Dardania, Ulpiana, Theranda
+macva_province = the Scordisci  # a: people of the lower Sava opposite Sirmium
+nis_province = the Territory of Naissus  # a: Naissus, Dacia Mediterranea, Remesiana
+raska_province = the Dardanian Mines  # a: metalla Dardanica, Trajan's coins, Ibar and Ras
+sumadija_province = the Territory of Singidunum  # a: legio IV Flavia, Singidunum, Margum
+toplica_province = the Margus Valley  # a: Margus = Morava, Horreum Margi, Ad Octavum
+zeta_province = the Docleatae  # a: Pliny, Doclea, Acruvium
+zlatibor_province = the Autariatae  # a: Strabo, upper Drina and Lim, Capedunum
+
+slavonia_area = Savia  # a: provincia Savia, capital Siscia
+bjelovar_province = the Andizetes  # a: Pliny, people of the Drava
+vukovar_syrmia_province = Second Pannonia  # a: Pannonia II, capital Sirmium, Mursa, Cibalae
+zagreb_province = the Colapiani  # a: Pliny, people of the Colapis, Siscia, Andautonia
+
+slovenia_area = the Julian Alps  # a: Alpes Iuliae, Claustra Alpium Iuliarum, Emona to Tergeste
+gorizia_province = the Territory of Tergeste  # a: colonia Tergeste, Venetia et Histria
+lower_carniola_province = the Latobici  # a: Neviodunum, Praetorium Latobicorum
+upper_carniola_province = the Territory of Emona  # a: colonia Iulia Emona, Carnium
+
+thrace_area = Thrace  # a: Thracia, diocese of Thrace (Europa, Rhodope, Thracia, Haemimontus)
+burgas_province = the Territory of Anchialus  # a: Anchialus, Apollonia, Develtus, Haemimontus
+constantinople_province = Europa  # a: provincia Europa, Constantinople, Heraclea, Selymbria
+dardanelles_province = the Thracian Chersonese  # a: Chersonesus Thracica, Callipolis, Aenus
+edirne_province = Haemimontus  # a: provincia Haemimontus, capital Hadrianopolis
+evros_province = Rhodope  # a: provincia Rhodope, capital Traianopolis
+rhodopes_province = the Bessi  # a: Thracian people of the Rhodope, still named in the 4th c
+sliven_province = the Odrysae  # a: Odrysian heartland on the Tonzus, Cabyle, Diospolis
+zagore_province = the Territory of Philippopolis  # a: capital of provincia Thracia, Seuthopolis
