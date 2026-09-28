@@ -3085,7 +3085,7 @@ countries = {
 				start_regency_date = 395.1.17
 				end_regency_date = 400.9.9
 				regnal_numbers = { name_valentinian = 2 }
-				privilege = { tfe_senatorial_immunities tfe_patrocinium }
+				reforms = { tfe_senatorial_immunities tfe_patrocinium }
 			}
 		}
 		WSN = { # Wusun

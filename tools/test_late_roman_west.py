@@ -1,4 +1,4 @@
-"""The West's burdens (tax-free senators, a hidden levy, a debased coin) and the reforms that lift them; Africa's grain,
+"""The West's locked reform burdens and separate debased coinage; Africa's grain,
 Pannonia's recruits and the frontier works of Britain, the Rhine and the Danube."""
 import re
 import sys
@@ -8,7 +8,6 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import borders as b
 import location_templates as lt
 
-PRIVILEGES = b.MOD / "in_game/common/estate_privileges/tfe_late_roman_west.txt"
 REFORMS = b.MOD / "in_game/common/government_reforms/tfe_late_roman_west.txt"
 AUTO = b.MOD / "in_game/common/auto_modifiers/tfe_late_roman_west.txt"
 FRONTIER = b.MOD / "in_game/common/building_types/tfe_frontier.txt"
@@ -22,7 +21,7 @@ ICON_MAP = b.MOD / "main_menu/common/modifier_icons/tfe_modifier_icons.txt"
 COUNTRIES = b.MOD / "main_menu/setup/start/10_countries.txt"
 CITIES = b.MOD / "main_menu/setup/start/07_cities_and_buildings.txt"
 LOC = b.MOD / "main_menu/localization/english/tfe_late_roman_west_l_english.yml"
-SCRIPTS = (PRIVILEGES, REFORMS, AUTO, FRONTIER, EFFECTS, ON_ACTION) + MODS
+SCRIPTS = (REFORMS, AUTO, FRONTIER, EFFECTS, ON_ACTION) + MODS
 
 
 def code(p):
@@ -38,6 +37,7 @@ def wre():
 
 
 def test_files_are_balanced_and_bom_prefixed():
+    assert not (b.MOD / "in_game/common/estate_privileges/tfe_late_roman_west.txt").exists()
     for p in SCRIPTS + (LOC,):
         assert p.read_bytes().startswith(b"\xef\xbb\xbf"), p.name
     for p in SCRIPTS:
@@ -46,10 +46,9 @@ def test_files_are_balanced_and_bom_prefixed():
 
 def test_everything_shown_is_localized_and_has_an_icon():
     keys = set(re.findall(r"^\s*([\w.]+):\d*\s", LOC.read_text(encoding="utf-8-sig"), re.M))
-    wanted = {k for n in blocks(PRIVILEGES, REFORMS, FRONTIER) for k in (n, f"{n}_desc")}
+    wanted = {k for n in blocks(REFORMS, FRONTIER) for k in (n, f"{n}_desc")}
     wanted |= {f"AUTO_MODIFIER_{k}_{m}" for m in blocks(AUTO) for k in ("NAME", "DESC")}
     wanted |= {f"STATIC_MODIFIER_{k}_{m}" for m in blocks(*MODS) for k in ("NAME", "DESC")}
-    wanted |= set(re.findall(r"text = (\w+)", code(PRIVILEGES)))
     assert not wanted - keys, sorted(wanted - keys)
     # the map badge of a template modifier is one of its effects' icons, so each has one effect: a bonus shows a plus,
     # a malus a minus (vanilla maps only the plus for most effects)
@@ -64,39 +63,59 @@ def test_everything_shown_is_localized_and_has_an_icon():
         side = "negative" if value < 0 else "positive"
         vanilla_plus = effect == "local_wheat_output_modifier" and side == "positive"
         assert vanilla_plus or found(icons.get(effect, {}).get(side, "missing")), (p.name, effect, side)
-    for n in blocks(FRONTIER):   # a building's icon is named for it, and so are privileges' and reforms'
+    for n in blocks(FRONTIER):   # a building's icon is named for it
         assert (ICONS / f"buildings/{n}.dds").exists(), n
-    for n in blocks(PRIVILEGES):
-        assert (ICONS / f"privileges/{n}.dds").exists(), n
     for n in blocks(REFORMS):
         assert (ICONS / f"government_reforms/illustrations/{n}.dds").exists(), n
 
 
-def test_every_privilege_gives_its_estate_power():
-    # else the game logs "The privilege '...' has no power set"
-    for name, body in blocks(PRIVILEGES).items():
-        estate = re.search(r"estate = (\w+)_estate", body).group(1)
-        assert f"global_{estate}_estate_power = " in body, name
+def country_modifier(body):
+    match = re.search(r"country_modifier = \{(.*?)^\t\}", body, re.M | re.S)
+    assert match, body
+    return dict(re.findall(r"^\t\t(\w+) = ([^\s#]+)", match.group(1), re.M))
+
+
+def test_both_burdens_are_locked_reforms_with_their_original_effects_and_slots():
+    reforms = blocks(REFORMS)
+    assert set(reforms) == {"tfe_senatorial_immunities", "tfe_patrocinium", "tfe_coinage_reform"}
+    expected = {
+        "tfe_senatorial_immunities": {
+            "global_nobles_estate_power": "0.5",
+            "nobles_estate_target_satisfaction": "medium_privilege_target_satisfaction",
+            "nobles_estate_max_tax": "-0.25",
+            "government_reform_slots": "1",
+        },
+        "tfe_patrocinium": {
+            "global_peasants_estate_power": "0.25",
+            "global_nobles_estate_power": "0.25",
+            "peasants_estate_target_satisfaction": "medium_privilege_target_satisfaction",
+            "peasants_estate_levy_size": "-0.5",
+            "global_manpower_modifier": "-0.25",
+            "government_reform_slots": "1",
+        },
+    }
+    for name, effects in expected.items():
+        body = reforms[name]
+        assert re.search(r"potential = \{\s*has_or_had_tag = WRE\s*\}", body)
+        assert re.search(r"locked = \{\s*always = yes\s*\}", body), name
+        assert country_modifier(body) == effects, name
+        assert "on_fully_activated" not in body and "on_deactivate" not in body, name
 
 
 def test_the_west_starts_with_both_burdens():
-    govs = [l.split(" = ", 1)[1] for l in (b.TOOLS / "governments.txt").read_text(encoding="utf-8").splitlines()
-            if l.startswith("WRE = privilege = ")]
-    assert govs == [f"privilege = {{ {' '.join(blocks(PRIVILEGES))} }}"]
-    assert f"\t\t\t\t{govs[0]}" in wre().replace("\r", "")   # 10_countries is borders.py's output
+    expected = "reforms = { tfe_senatorial_immunities tfe_patrocinium }"
+    govs = [line.split(" = ", 1)[1] for line in (b.TOOLS / "governments.txt").read_text(encoding="utf-8").splitlines()
+            if line.startswith("WRE = reforms = ")]
+    assert govs == [expected]
+    assert f"\t\t\t\t{expected}" in wre().replace("\r", "")   # 10_countries is borders.py's output
 
 
-def test_each_burden_is_locked_until_its_reform_and_never_returns():
+def test_peraequatio_and_dilectus_are_gone_and_coinage_still_ends_debasement():
     reforms = blocks(REFORMS)
-    for name, body in blocks(PRIVILEGES).items():
-        done = re.search(r"can_revoke = \{.*?has_variable = (\w+)", body, re.S).group(1)
-        assert any(f"set_variable = {{ name = {done} }}" in r for r in reforms.values()), name
-        assert f"set_variable = {{ name = {name}_revoked }}" in body, name
-        assert f"NOT = {{ has_variable = {name}_revoked }}" in body, name
+    assert "tfe_peraequatio_reform" not in reforms
+    assert "tfe_dilectus_reform" not in reforms
     coin = re.search(r"NOT = \{ has_variable = (\w+) \}", blocks(AUTO)["tfe_debased_coinage"]).group(1)
-    assert any(f"set_variable = {{ name = {coin} }}" in r for r in reforms.values())
-    for name, body in reforms.items():   # done once, so the slot can be freed afterwards
-        assert "on_fully_activated" in body and "NOT = { has_variable" in body, name
+    assert f"set_variable = {{ name = {coin} }}" in reforms["tfe_coinage_reform"]
 
 
 def owned():

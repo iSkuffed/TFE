@@ -3,13 +3,7 @@
  tfe_senatorial_immunities_desc: "The clarissimi are spared the sordid burdens, their arrears are remitted by every new emperor, and their estates are never entered on the census at their true worth. The land tax falls on everyone else."
  tfe_patrocinium: "Patrocinium"
  tfe_patrocinium_desc: "The coloni shelter under a great landlord. He hides them from the recruiting officer and pays gold in their place, so the legions must be filled with barbarians."
- tfe_peraequatio_done_tt: "The [ShowGovernmentReformName('tfe_peraequatio_reform')] reform has been carried through"
- tfe_dilectus_done_tt: "The [ShowGovernmentReformName('tfe_dilectus_reform')] reform has been carried through"
 
- tfe_peraequatio_reform: "Peraequatio"
- tfe_peraequatio_reform_desc: "A new census of the land. The senators' estates are entered on the registers at their true worth, and once it is in force their immunities can be revoked."
- tfe_dilectus_reform: "Dilectus Restored"
- tfe_dilectus_reform_desc: "Every landlord owes recruits from his coloni, and no gold is taken in their place. Once it is in force, Patrocinium can be revoked."
  tfe_coinage_reform: "Reform of the Coinage"
  tfe_coinage_reform_desc: "The debased nummus is called in and the soldiers are paid in full-weight metal. Once it is in force, the Debased Coinage ends."
 
