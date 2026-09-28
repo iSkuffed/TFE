@@ -1,0 +1,7 @@
+﻿# TFE: a template modifier (tools/location_templates.py). Its one effect gives the badge on the goods marker in the
+# raw-material map mode: the badge is an effect's modifier-type icon (vanilla's wheat with a green plus).
+# Africa's grain filled the annona of Rome
+tfe_granary_of_rome = {
+	game_data = { category = location }
+	local_wheat_output_modifier = 0.75
+}

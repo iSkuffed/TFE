@@ -1108,4 +1108,34 @@ building_manager = {
 	local_governor = { tag = EAR level = 1 location = kayseri }
 	local_governor = { tag = EAR level = 1 location = antioch }
 	local_governor = { tag = EAR level = 1 location = alexandria }
+	tfe_hadrians_wall = { tag = WRE level = 1 location = newcastle }
+	tfe_hadrians_wall = { tag = WRE level = 1 location = hexham }
+	tfe_limes = { tag = WRE level = 1 location = nijmegen }
+	tfe_limes = { tag = WRE level = 1 location = kleve }
+	tfe_limes = { tag = WRE level = 1 location = neuss }
+	tfe_limes = { tag = WRE level = 1 location = bonn }
+	tfe_limes = { tag = WRE level = 1 location = coblenz }
+	tfe_limes = { tag = WRE level = 1 location = worms }
+	tfe_limes = { tag = WRE level = 1 location = speyer }
+	tfe_limes = { tag = WRE level = 1 location = basel }
+	tfe_limes = { tag = WRE level = 1 location = konstanz }
+	tfe_limes = { tag = WRE level = 1 location = kempten }
+	tfe_limes = { tag = WRE level = 1 location = gunzburg }
+	tfe_limes = { tag = WRE level = 1 location = straubing }
+	tfe_limes = { tag = WRE level = 1 location = passau }
+	tfe_limes = { tag = WRE level = 1 location = linz }
+	tfe_limes = { tag = WRE level = 1 location = tulln }
+	tfe_limes = { tag = WRE level = 1 location = bruck_leitha }
+	tfe_limes = { tag = WRE level = 1 location = gyor }
+	tfe_limes = { tag = WRE level = 1 location = komarom }
+	tfe_limes = { tag = WRE level = 1 location = esztergom }
+	tfe_limes = { tag = WRE level = 1 location = adony }
+	tfe_limes = { tag = WRE level = 1 location = mohacs }
+	tfe_limes = { tag = WRE level = 1 location = vukovar }
+	tfe_limes = { tag = WRE level = 1 location = petrovaradin }
+	tfe_limes = { tag = EAR level = 1 location = belgrad }
+	tfe_limes = { tag = EAR level = 1 location = branicevo }
+	tfe_limes = { tag = EAR level = 1 location = drastar }
+	tfe_limes = { tag = EAR level = 1 location = cernavoda }
+	tfe_limes = { tag = EAR level = 1 location = isaccea }
 }

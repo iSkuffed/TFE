@@ -1,0 +1,62 @@
+﻿# TFE: the West's way out of its burdens (estate_privileges and auto_modifiers/tfe_late_roman_west.txt). Each reform
+# is done once: when it is fully in force it sets a variable that stays, so it can then be dropped for its slot.
+
+# A new census of the land: the senators' estates entered on the registers at their true worth
+tfe_peraequatio_reform = {
+	potential = {
+		has_or_had_tag = WRE
+		has_estate_privilege = estate_privilege:tfe_senatorial_immunities
+		NOT = { has_variable = tfe_peraequatio_done }
+	}
+	allow = {
+		has_regent = no		# not while a regent rules with the senate's backing
+		stability >= 25
+	}
+	country_modifier = {
+		nobles_estate_target_satisfaction = -0.1
+	}
+	on_fully_activated = {
+		set_variable = { name = tfe_peraequatio_done }	# Senatorial Immunities can now be revoked
+	}
+	years = 2
+}
+
+# The levy restored: every landlord owes recruits from his coloni, and no gold in their place
+tfe_dilectus_reform = {
+	potential = {
+		has_or_had_tag = WRE
+		has_estate_privilege = estate_privilege:tfe_patrocinium
+		NOT = { has_variable = tfe_dilectus_done }
+	}
+	allow = {
+		at_war = no
+		stability >= 25
+	}
+	country_modifier = {
+		nobles_estate_target_satisfaction = -0.05
+		peasants_estate_target_satisfaction = -0.05
+	}
+	on_fully_activated = {
+		set_variable = { name = tfe_dilectus_done }	# Patrocinium can now be revoked
+	}
+	years = 2
+}
+
+# A sound coin again: the debased nummus called in and the soldiers paid in full-weight metal
+tfe_coinage_reform = {
+	potential = {
+		has_or_had_tag = WRE
+		NOT = { has_variable = tfe_coinage_restored }
+	}
+	allow = {
+		at_war = no
+		stability >= 25
+	}
+	country_modifier = {
+		tax_income_efficiency = -0.1
+	}
+	on_fully_activated = {
+		set_variable = { name = tfe_coinage_restored }	# ends the Debased Coinage
+	}
+	years = 3
+}
