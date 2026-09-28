@@ -140,3 +140,10 @@ def test_the_empires_run_an_imperial_fisc():
     assert values["diplomatic_spending_cost"] < 0 and values["building_upkeep_efficiency"] > 0
     loc = (b.MOD / "main_menu/localization/english/tfe_roman_economy_l_english.yml").read_text(encoding="utf-8-sig")
     assert "AUTO_MODIFIER_NAME_tfe_roman_fisc:" in loc
+
+
+def test_rome_not_naples_is_the_market_of_southern_italy():
+    # the annona and the Senate's wealth landed at Portus: Rome, the West's greatest city, holds the market
+    markets = re.findall(r"^\s*add_market = (\w+)", (START / "03_markets.txt").read_text(encoding="utf-8-sig"), re.M)
+    assert "rome" in markets and "naples" not in markets
+    assert b.move_markets("\tadd_market = naples\n\tadd_market = venice\n") == "\tadd_market = rome\n\tadd_market = venice\n"

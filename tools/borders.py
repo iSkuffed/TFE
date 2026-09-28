@@ -788,6 +788,9 @@ ROMAN_FRONTIER = {
         "EAR": ("belgrad", "branicevo", "drastar", "cernavoda", "isaccea"),                            # Moesia, Scythia
     },
 }
+# 1337 markets moved to their 395 centre: Rome, not Naples, is southern Italy's market, where the annona and the
+# Senate's wealth landed at Portus
+MARKET_MOVES = {"naples": "rome"}
 FORT_TYPES = ("stockade", "castle", "bastion", "star_fort", "fortress", "city_walls", "coastal_fort")
 
 
@@ -827,6 +830,10 @@ def roman_buildings():
     return "\n".join(L) + "\n}\n"
 
 
+def move_markets(text):
+    return re.sub(r"(add_market = )(\w+)", lambda m: m.group(1) + MARKET_MOVES.get(m.group(2), m.group(2)), text)
+
+
 def region_pops(text, owner, anc):
     # each Roman region is scaled to ROMAN_POPULATION_M, the rest of each region to WORLD_POPULATION_M; vanilla's
     # spread between locations is kept. Regions in neither table keep vanilla's numbers.
@@ -856,6 +863,8 @@ def emit_filtered_start(anc, owner, pop_based):
         text = (GAME / f"main_menu/setup/start/{name}.txt").read_text(encoding="utf-8-sig")
         if name == "07_cities_and_buildings":   # its buildings are 1337 tag-owned
             text = roman_town_setups(text[:text.index("building_manager")], owner, twins) + roman_buildings()
+        if name == "03_markets":
+            text = move_markets(text)
         (MOD / f"main_menu/setup/start/{name}.txt").write_text(filter_unowned(text, set(anc), owned), encoding="utf-8")
 
 
