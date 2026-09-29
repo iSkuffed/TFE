@@ -15,7 +15,9 @@ tfe_opening.1 = {
 	option = {
 		name = tfe_opening.1.a
 		historical_option = yes
+		set_variable = tfe_gainas_returned	# read by 2: the Goths are already in Constantinople
 		custom_tooltip = tfe_unity_up_5_tt
+		custom_tooltip = tfe_opening.1.a.tt
 		hidden_effect = { international_organization:tfe_roman_empire ?= { change_variable = { name = tfe_unity add = 5 } } }
 		ai_chance = { base = 3 }
 	}
@@ -23,10 +25,14 @@ tfe_opening.1 = {
 	# the guardianship of the East too: march on Constantinople's prefect
 	option = {
 		name = tfe_opening.1.b
-		add_prestige = 10
 		set_variable = tfe_stilicho_claims_the_east	# read by 2 and 4: the East remembers
-		custom_tooltip = tfe_unity_down_10_tt
-		hidden_effect = { international_organization:tfe_roman_empire ?= { change_variable = { name = tfe_unity add = -10 } } }
+		# the Eastern legions stay in Italy, free of any recruitment cost
+		location:milano = {
+			create_num_sub_unit_of_category = { count = 4 category = sub_unit_category:army_heavy_infantry }
+			create_num_sub_unit_of_category = { count = 2 category = sub_unit_category:army_heavy_cavalry }
+		}
+		custom_tooltip = tfe_unity_down_15_tt
+		hidden_effect = { international_organization:tfe_roman_empire ?= { change_variable = { name = tfe_unity add = -15 } } }
 		ai_chance = { base = 1 }
 	}
 }
@@ -50,6 +56,12 @@ tfe_opening.2 = {
 			limit = { c:WRE ?= { has_variable = tfe_stilicho_claims_the_east } }
 			custom_tooltip = tfe_unity_down_5_tt
 			hidden_effect = { international_organization:tfe_roman_empire ?= { change_variable = { name = tfe_unity add = -5 } } }
+		}
+		# Gainas's Goths were already inside the walls
+		if = {
+			limit = { c:WRE ?= { has_variable = tfe_gainas_returned } }
+			custom_tooltip = tfe_unity_up_5_tt
+			hidden_effect = { international_organization:tfe_roman_empire ?= { change_variable = { name = tfe_unity add = 5 } } }
 		}
 	}
 
