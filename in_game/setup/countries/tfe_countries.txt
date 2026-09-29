@@ -1340,3 +1340,201 @@ MDV = { # Maldives
 	description_category = administrative
 	difficulty = 3
 }
+
+SUD = { # Sudovians
+	color = rgb { 125 145 90 }
+	color2 = rgb { 62 72 45 }
+	culture_definition = sudovian # PLACEHOLDER
+	religion_definition = romuva # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+AUK = { # Aukstaitians
+	color = rgb { 105 135 75 }
+	color2 = rgb { 52 67 37 }
+	culture_definition = aukstaitian # PLACEHOLDER
+	religion_definition = romuva # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+CUR = { # Curonians
+	color = rgb { 176 146 70 }
+	color2 = rgb { 88 73 35 }
+	culture_definition = curonian # PLACEHOLDER
+	religion_definition = romuva # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+LTG = { # Latgalians
+	color = rgb { 140 115 65 }
+	color2 = rgb { 70 57 32 }
+	culture_definition = latvian # PLACEHOLDER
+	religion_definition = romuva # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+EST = { # Estonians
+	color = rgb { 80 125 155 }
+	color2 = rgb { 40 62 77 }
+	culture_definition = estonian # PLACEHOLDER
+	religion_definition = muinaisusko # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+LUG = { # Lugii
+	color = rgb { 140 95 75 }
+	color2 = rgb { 70 47 37 }
+	culture_definition = venedi # PLACEHOLDER
+	religion_definition = slavic_paganism # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+ANE = { # Antes
+	color = rgb { 105 140 85 }
+	color2 = rgb { 52 70 42 }
+	culture_definition = venedi # PLACEHOLDER
+	religion_definition = slavic_paganism # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+DBL = { # Dnieper Balts
+	color = rgb { 75 135 125 }
+	color2 = rgb { 37 67 62 }
+	culture_definition = aukstaitian # PLACEHOLDER
+	religion_definition = romuva # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+GLJ = { # Golyad
+	color = rgb { 100 130 80 }
+	color2 = rgb { 50 65 40 }
+	culture_definition = aukstaitian # PLACEHOLDER
+	religion_definition = romuva # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+MRY = { # Merya
+	color = rgb { 85 120 110 }
+	color2 = rgb { 42 60 55 }
+	culture_definition = merya_culture # PLACEHOLDER
+	religion_definition = mari_paganism # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+VES = { # Ves
+	color = rgb { 65 125 135 }
+	color2 = rgb { 32 62 67 }
+	culture_definition = vepsian # PLACEHOLDER
+	religion_definition = muinaisusko # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+VOD = { # Vod
+	color = rgb { 95 105 145 }
+	color2 = rgb { 47 52 72 }
+	culture_definition = votian # PLACEHOLDER
+	religion_definition = votian_religion # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+MRD = { # Mordvins
+	color = rgb { 145 115 70 }
+	color2 = rgb { 72 57 35 }
+	culture_definition = erzya_culture # PLACEHOLDER
+	religion_definition = erzya_religion # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+MRO = { # Muroma
+	color = rgb { 95 140 100 }
+	color2 = rgb { 47 70 50 }
+	culture_definition = meschera_culture # PLACEHOLDER
+	religion_definition = moksha_religion # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+MRR = { # Mari
+	color = rgb { 145 155 75 }
+	color2 = rgb { 72 77 37 }
+	culture_definition = mari_culture # PLACEHOLDER
+	religion_definition = mari_paganism # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+UDM = { # Udmurts
+	color = rgb { 110 135 100 }
+	color2 = rgb { 55 67 50 }
+	culture_definition = udmurt # PLACEHOLDER
+	religion_definition = udmurt_paganism # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+KMI = { # Permians
+	color = rgb { 80 110 105 }
+	color2 = rgb { 40 55 52 }
+	culture_definition = komi # PLACEHOLDER
+	religion_definition = komi_paganism # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+IMK = { # Imenkovo
+	color = rgb { 175 145 80 }
+	color2 = rgb { 87 72 40 }
+	culture_definition = chuvash_culture # PLACEHOLDER
+	religion_definition = tengri # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+SRT = { # Ural Ugrians
+	color = rgb { 115 105 75 }
+	color2 = rgb { 57 52 37 }
+	culture_definition = mansi_culture # PLACEHOLDER
+	religion_definition = obian_paganism # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+CRP = { # Carpi
+	color = rgb { 150 95 80 }
+	color2 = rgb { 75 47 40 }
+	culture_definition = dacian # PLACEHOLDER
+	religion_definition = zalmoxism # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+SUO = { # Suomi
+	color = rgb { 120 145 185 }
+	color2 = rgb { 60 72 92 }
+	culture_definition = tavastian # PLACEHOLDER
+	religion_definition = muinaisusko # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}
+
+KRE = { # Korela
+	color = rgb { 75 135 130 }
+	color2 = rgb { 37 67 65 }
+	culture_definition = karelian # PLACEHOLDER
+	religion_definition = muinaisusko # PLACEHOLDER
+	description_category = administrative
+	difficulty = 3
+}

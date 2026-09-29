@@ -36,7 +36,7 @@ WEST = [
     ("neubrandenburg", "LGB", "Mecklenburg lakes: Lombards"),
     ("amberg", "BGD", "Upper Palatinate: Burgundians"),
     ("grafenau", "MKM", "Bavarian Forest: Marcomanni"),
-    ("zilina", "none", "central Slovakia: no polity"),
+    ("zilina", "QAD", "Trencin province in the Quadi's eastern extension"),
     ("antwerp", "SLF", "Toxandria, Salian foederati since 358"),
     ("newcastle", "WRE", "Pons Aelius on Hadrian's Wall"),
     ("alnwick", "VOT", "north of the Wall: Votadini"),
