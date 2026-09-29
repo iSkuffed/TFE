@@ -13,7 +13,9 @@ country_history = {
 	text = { localization_key = tfe_history_AKA trigger = { tag = AKA } } # Akatziri
 	text = { localization_key = tfe_history_ALK trigger = { tag = ALK } } # Alkhon
 	text = { localization_key = tfe_history_ALM trigger = { tag = ALM } } # Alamanni
+	text = { localization_key = tfe_history_ANE trigger = { tag = ANE } } # Antes
 	text = { localization_key = tfe_history_ASK trigger = { tag = ASK } } # Armenia
+	text = { localization_key = tfe_history_AUK trigger = { tag = AUK } } # Aukstaitians
 	text = { localization_key = tfe_history_AUS trigger = { tag = AUS } } # Austuriani
 	text = { localization_key = tfe_history_AXU trigger = { tag = AXU } } # Aksum
 	text = { localization_key = tfe_history_AZD trigger = { tag = AZD } } # Azd
@@ -28,19 +30,24 @@ country_history = {
 	text = { localization_key = tfe_history_CAL trigger = { tag = CAL } } # Alans
 	text = { localization_key = tfe_history_CNZ trigger = { tag = CNZ } } # Cuan
 	text = { localization_key = tfe_history_CQT trigger = { tag = CQT } } # Connachta
+	text = { localization_key = tfe_history_CRP trigger = { tag = CRP } } # Carpi
+	text = { localization_key = tfe_history_CUR trigger = { tag = CUR } } # Curonians
 	text = { localization_key = tfe_history_DAX trigger = { tag = DAX } } # Danes
+	text = { localization_key = tfe_history_DBL trigger = { tag = DBL } } # Dnieper Balts
 	text = { localization_key = tfe_history_DIC trigger = { tag = DIC } } # Chouchi
 	text = { localization_key = tfe_history_DMN trigger = { tag = DMN } } # Damnonii
 	text = { localization_key = tfe_history_DMT trigger = { tag = DMT } } # Damot
 	text = { localization_key = tfe_history_DZR trigger = { tag = DZR } } # Dzurdzuks
 	text = { localization_key = tfe_history_EAR trigger = { tag = EAR } } # Eastern Roman Empire
 	text = { localization_key = tfe_history_EMS trigger = { tag = EMS } } # Emishi
+	text = { localization_key = tfe_history_EST trigger = { tag = EST } } # Estonians
 	text = { localization_key = tfe_history_FRG trigger = { tag = FRG } } # Ferghana
 	text = { localization_key = tfe_history_FRK trigger = { tag = FRK } } # Franks
 	text = { localization_key = tfe_history_FRS trigger = { tag = FRS } } # Frisians
 	text = { localization_key = tfe_history_FUN trigger = { tag = FUN } } # Funan
 	text = { localization_key = tfe_history_GEA trigger = { tag = GEA } } # Geats
 	text = { localization_key = tfe_history_GEP trigger = { tag = GEP } } # Gepids
+	text = { localization_key = tfe_history_GLJ trigger = { tag = GLJ } } # Golyad
 	text = { localization_key = tfe_history_GMT trigger = { tag = GMT } } # Garamantes
 	text = { localization_key = tfe_history_GOG trigger = { tag = GOG } } # Goguryeo
 	text = { localization_key = tfe_history_GUP trigger = { tag = GUP } } # Gupta Empire
@@ -51,6 +58,7 @@ country_history = {
 	text = { localization_key = tfe_history_HNS trigger = { tag = HNS } } # Huns
 	text = { localization_key = tfe_history_IAZ trigger = { tag = IAZ } } # Iazyges
 	text = { localization_key = tfe_history_IBR trigger = { tag = IBR } } # Iberia
+	text = { localization_key = tfe_history_IMK trigger = { tag = IMK } } # Imenkovo
 	text = { localization_key = tfe_history_IZM trigger = { tag = IZM } } # Izumo
 	text = { localization_key = tfe_history_JIN trigger = { tag = JIN } } # Eastern Jin
 	text = { localization_key = tfe_history_JNL trigger = { tag = JNL } } # Jinlin
@@ -65,11 +73,13 @@ country_history = {
 	text = { localization_key = tfe_history_KHW trigger = { tag = KHW } } # Khwarazm
 	text = { localization_key = tfe_history_KIB trigger = { tag = KIB } } # Kibi
 	text = { localization_key = tfe_history_KIN trigger = { tag = KIN } } # Kinda
+	text = { localization_key = tfe_history_KMI trigger = { tag = KMI } } # Permians
 	text = { localization_key = tfe_history_KMR trigger = { tag = KMR } } # Kamarupa
 	text = { localization_key = tfe_history_KMS trigger = { tag = KMS } } # Kumaso
 	text = { localization_key = tfe_history_KMX trigger = { tag = KMX } } # Kumo Xi
 	text = { localization_key = tfe_history_KNJ trigger = { tag = KNJ } } # Kangju
 	text = { localization_key = tfe_history_KNU trigger = { tag = KNU } } # Kenu
+	text = { localization_key = tfe_history_KRE trigger = { tag = KRE } } # Korela
 	text = { localization_key = tfe_history_KSM trigger = { tag = KSM } } # Kashmir
 	text = { localization_key = tfe_history_KTI trigger = { tag = KTI } } # Kutai
 	text = { localization_key = tfe_history_KTP trigger = { tag = KTP } } # Kartripura
@@ -87,13 +97,19 @@ country_history = {
 	text = { localization_key = tfe_history_LNY trigger = { tag = LNY } } # Linyi
 	text = { localization_key = tfe_history_LPN trigger = { tag = LPN } } # Lpink
 	text = { localization_key = tfe_history_LQN trigger = { tag = LQN } } # Later Qin
+	text = { localization_key = tfe_history_LTG trigger = { tag = LTG } } # Latgalians
 	text = { localization_key = tfe_history_LUA trigger = { tag = LUA } } # Lawa
+	text = { localization_key = tfe_history_LUG trigger = { tag = LUG } } # Lugii
 	text = { localization_key = tfe_history_LYN trigger = { tag = LYN } } # Later Yan
 	text = { localization_key = tfe_history_LZC trigger = { tag = LZC } } # Lazica
 	text = { localization_key = tfe_history_MDV trigger = { tag = MDV } } # Maldives
 	text = { localization_key = tfe_history_MKM trigger = { tag = MKM } } # Marcomanni
 	text = { localization_key = tfe_history_MOC trigger = { tag = MOC } } # Moche
+	text = { localization_key = tfe_history_MRD trigger = { tag = MRD } } # Mordvins
+	text = { localization_key = tfe_history_MRO trigger = { tag = MRO } } # Muroma
+	text = { localization_key = tfe_history_MRR trigger = { tag = MRR } } # Mari
 	text = { localization_key = tfe_history_MRX trigger = { tag = MRX } } # Mauri
+	text = { localization_key = tfe_history_MRY trigger = { tag = MRY } } # Merya
 	text = { localization_key = tfe_history_MSQ trigger = { tag = MSQ } } # Maskut
 	text = { localization_key = tfe_history_MUM trigger = { tag = MUM } } # Mumu
 	text = { localization_key = tfe_history_MYL trigger = { tag = MYL } } # Monyul
@@ -122,9 +138,12 @@ country_history = {
 	text = { localization_key = tfe_history_SLH trigger = { tag = SLH } } # Salihids
 	text = { localization_key = tfe_history_SLX trigger = { tag = SLX } } # Siling Vandals
 	text = { localization_key = tfe_history_SRR trigger = { tag = SRR } } # Sarir
+	text = { localization_key = tfe_history_SRT trigger = { tag = SRT } } # Ural Ugrians
 	text = { localization_key = tfe_history_SSN trigger = { tag = SSN } } # Shanshan
 	text = { localization_key = tfe_history_SUA trigger = { tag = SUA } } # Svaneti
+	text = { localization_key = tfe_history_SUD trigger = { tag = SUD } } # Sudovians
 	text = { localization_key = tfe_history_SUM trigger = { tag = SUM } } # Sumpa
+	text = { localization_key = tfe_history_SUO trigger = { tag = SUO } } # Suomi
 	text = { localization_key = tfe_history_SVE trigger = { tag = SVE } } # Svear
 	text = { localization_key = tfe_history_TAY trigger = { tag = TAY } } # Tayy
 	text = { localization_key = tfe_history_TGI trigger = { tag = TGI } } # Thuringians
@@ -136,8 +155,11 @@ country_history = {
 	text = { localization_key = tfe_history_TSU trigger = { tag = TSU } } # Tsukushi
 	text = { localization_key = tfe_history_TTH trigger = { tag = TTH } } # Teotihuacan
 	text = { localization_key = tfe_history_TYH trigger = { tag = TYH } } # Tuyuhun
+	text = { localization_key = tfe_history_UDM trigger = { tag = UDM } } # Udmurts
 	text = { localization_key = tfe_history_ULD trigger = { tag = ULD } } # Ulaid
+	text = { localization_key = tfe_history_VES trigger = { tag = VES } } # Ves
 	text = { localization_key = tfe_history_VIS trigger = { tag = VIS } } # Visigoths
+	text = { localization_key = tfe_history_VOD trigger = { tag = VOD } } # Vod
 	text = { localization_key = tfe_history_VOT trigger = { tag = VOT } } # Votadini
 	text = { localization_key = tfe_history_VSL trigger = { tag = VSL } } # Vesali
 	text = { localization_key = tfe_history_WAK trigger = { tag = WAK } } # Yamato

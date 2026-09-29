@@ -182,6 +182,28 @@ countries = {
 				ruler = random
 			}
 		}
+		ANE = { # Antes
+			own_control_core = {
+				babruysk belaya_soroka bilokorovychi boldyzh bolshie_krugovichi brahin buinovichi chachersk chernihiv chornobyl
+				davyd_haradok dmitriyev dobrush drahichyn drokov dubrovytsia gomel hlusk hlynne horodnia
+				kalinkavichy kapyl khoiniki kholmyech kletsk klintsy kopyshche korosten lakhva lelchytsy
+				liubech liubeshiv luchin luninets malyn mazyr mglin motal narodychi nobel
+				novhorod_siverskyi olevsk ovruch pietrykaw pinsk popowa_gora radogosch rahachow rechytsa ropsk
+				rudobelka sevsk slutsk snovsk sosnytsia starobin starodub_siverskyi staryya_darohi stodolichi stolin
+				streshyn svietlahorsk tereshkovichy trubchevsk turov verba viry volosovichy yemilchyne zhytkavichy
+				znobov
+			}
+			capital = ovruch
+			discovered_regions = {
+				anatolia_region balkan_region baltic_region carpathia_region caucasus_region north_german_region russian_region ruthenia_region
+				scandinavian_region south_german_region steppes_region
+			}
+			include = "eurasian_tribe"
+			country_rank = rank_duchy
+			government = {
+				ruler = random
+			}
+		}
 		ASK = { # Armenia
 			own_control_core = {
 				ahlat amberd ani artashavan bahcesaray bargiri bitlis bjni catak ercis
@@ -198,6 +220,24 @@ countries = {
 			country_rank = rank_kingdom
 			government = {
 				ruler = tfe_vramshapuh
+			}
+		}
+		AUK = { # Aukstaitians
+			own_control_core = {
+				alytus anyksciai ashmyany astrina birzai braslaw dokshytsy drysvyaty eisiskes ezerenai
+				giedraiciai halshany hieraniony hlybokaye kaunas kernave kreva lazdijai lida linkava
+				maleisiai medininkai_vilna merkine miory myadzyel onushkis panevezys pasvalys punia rokiskis
+				shchuchyn svencionys svir trakai upyte utena vileyka vilkaviskis vilkmerge vilnius
+			}
+			capital = kernave
+			discovered_regions = {
+				anatolia_region balkan_region baltic_region carpathia_region north_german_region russian_region ruthenia_region scandinavian_region
+				south_german_region steppes_region
+			}
+			include = "eurasian_tribe"
+			country_rank = rank_county
+			government = {
+				ruler = random
 			}
 		}
 		AUS = { # Austuriani
@@ -444,6 +484,39 @@ countries = {
 				ruler = tfe_niall
 			}
 		}
+		CRP = { # Carpi
+			own_control_core = {
+				bardejov beregovo cuhea gonc humenne khust kosice levoca lubica mezhorje
+				mukachevo presov rakhiv satoraljaujhely sighet turna uzhorod velikyi_bereznyi zemplin
+			}
+			capital = mukachevo
+			discovered_regions = {
+				anatolia_region balkan_region baltic_region carpathia_region italy_region north_german_region russian_region ruthenia_region
+				scandinavian_region south_german_region steppes_region
+			}
+			include = "eurasian_tribe"
+			country_rank = rank_county
+			government = {
+				ruler = random
+			}
+		}
+		CUR = { # Curonians
+			own_control_core = {
+				bauska dobele dundaga durbe grobina jelgava jurbarkas kandava kedainiai kraziai
+				kuldiga mazeikiai medininkai palanga panemune papile piltene raseiniai rietavas saldus
+				siauliai silale skuodas taurage tendziogala tukums ventspils zagare
+			}
+			capital = grobina
+			discovered_regions = {
+				anatolia_region balkan_region baltic_region carpathia_region italy_region north_german_region russian_region ruthenia_region
+				scandinavian_region south_german_region steppes_region
+			}
+			include = "eurasian_tribe"
+			country_rank = rank_county
+			government = {
+				ruler = random
+			}
+		}
 		DAX = { # Danes
 			own_control_core = {
 				asbo assens bregne falster gladsax halmstad hammershus helsingborg helsingor kalundborg
@@ -454,6 +527,31 @@ countries = {
 			discovered_regions = {
 				balkan_region baltic_region carpathia_region france_region great_britain_region italy_region north_german_region ruthenia_region
 				scandinavian_region south_german_region
+			}
+			include = "eurasian_tribe"
+			country_rank = rank_duchy
+			government = {
+				ruler = random
+			}
+		}
+		DBL = { # Dnieper Balts
+			own_control_core = {
+				andreapol asvieja barysaw begoml belik bely berezhnyany bibirevo bobr bocheikovo
+				bolshevo bryansk byerazino bykhaw chavusy chervyen demensk demidov dorogobuzh drutsk
+				dubrovna dukhovshchina dzisna fomin_gorodok foshnya gorodechnya haradok horki ilya ilyino
+				izdeshkovo izyaslavl jeziarysca kastsyukovichy katyn khlepen kholm_zhirkovsky khotsimsk klichaw knyazhichi
+				koidanova kopys kozlov_vyazma krasnoe krasny krupki krychaw lahoysk luchani lukolm
+				lyepyel lyubashany marjina_horka mikulino minsk mogilev monastyrshchina mozhino mstsislaw nekloch
+				nevel nizhelskoe novy_bykhaw orekhovna orsha pochep pogoreloye polotsk pustosel rakau
+				rasony revny rognedino roslavl rudnya shchuchye_smolensk shoptovo shui shumyachi slawharad
+				smalyavichy smolensk stowbtsy svislach syanno sychyovka toropets trufany tyatseryn ulla
+				ushachy usvyaty velizh verkhovye verzhavsk vetlitsy vitebsk vshchizh vyazma vydreya
+				vydritsa yartsevo yelnya yotkino zabore zaroy zhizhets zhulino
+			}
+			capital = smolensk
+			discovered_regions = {
+				anatolia_region balkan_region baltic_region carpathia_region russian_region ruthenia_region scandinavian_region south_german_region
+				steppes_region
 			}
 			include = "eurasian_tribe"
 			country_rank = rank_duchy
@@ -627,6 +725,22 @@ countries = {
 				ruler = random
 			}
 		}
+		EST = { # Estonians
+			own_control_core = {
+				hapsal kaina karksi kuressaare lihula narva padise paide parnu poltsamaa
+				rakvere rapla saarde st_martin suure_jaani tallinn tartu toolse valjala valka
+				vasknarva vastseliina viljandi vonnu
+			}
+			capital = tartu
+			discovered_regions = {
+				baltic_region carpathia_region north_german_region russian_region ruthenia_region scandinavian_region south_german_region steppes_region
+			}
+			include = "eurasian_tribe"
+			country_rank = rank_county
+			government = {
+				ruler = random
+			}
+		}
 		FRG = { # Ferghana
 			own_control_core = {
 				akhsikath andijan arslanbob asht dakhkat fergana gulcha isfara jalalabad_fergana karasuu
@@ -729,6 +843,29 @@ countries = {
 			discovered_regions = {
 				anatolia_region balkan_region baltic_region carpathia_region crescent_region italy_region maghreb_region north_german_region
 				russian_region ruthenia_region scandinavian_region south_german_region steppes_region
+			}
+			include = "eurasian_tribe"
+			country_rank = rank_duchy
+			government = {
+				ruler = random
+			}
+		}
+		GLJ = { # Golyad
+			own_control_core = {
+				arkhangelskoye belyov bernovo bogoroditsk bogorodskoye bolkhov bor_volgo borovsk brody_tver bronnitsy
+				dmitrov dubna fominichi gorodok kaluga kalyazin karachev kashin kesova_gora khatun
+				kholm_tver khotiml khotoshino khvastovichi kimra klin kolomna kolpny koshira kozelsk
+				kromy ktsyn kurkino kuvshinovo lotoshino lyubun maloyaroslavets masalsk mednoye medyn
+				meshchovsk mikhailovka mikulino_tver molodoi_tud moscow mozhaysk mtsensk mushkov_pogost novosil obolensk
+				odintsovo odoyev ostashkov plavsk pogostishche przemysl_moscow pushkino rogachevo rogozh ruza
+				rzhavets rzhev serpukhov tagin tarusa torzhok tula_russia tver usty vereya
+				vertyazin vetza vokhna volkona volok vorotynsk vorotynsk_novosil vysokoye yukhnov zubtsov
+				zvenigorod zvenihorod_siverskyi
+			}
+			capital = moscow
+			discovered_regions = {
+				anatolia_region balkan_region baltic_region carpathia_region khorasan_region russian_region ruthenia_region scandinavian_region
+				steppes_region ural_region
 			}
 			include = "eurasian_tribe"
 			country_rank = rank_duchy
@@ -941,53 +1078,56 @@ countries = {
 				adalaga adjud aksay aksay_pointic alexandrov_gay alexeyevka alexeyevskaya ananiv anna_russia aqmecit
 				aqmecit_prybuzhzhya argamakli_sarai arges arkadak aslan_horod astrakhan atach atkarsk atzhaksy bacau
 				bakhmach bakhmut bakota balakovo balanda balashov balikley balti bannoye barlad
-				baronsk barvinkove baytak beket_ata beki belaya_kalitva belgorod beljamen berdiansk berdychiv
-				berestyn berezhnovka bershad bielska_sloboda bila_tserkva bilovodsk boguchar bohorodchany bohuslav bokey
-				bokovskaya bol_shaya_martynovka bolekhiv bolkhuny bolshaya_gribanovka borisoglebsk boryspil botkul braila bratslav
-				buchach bucharest bukov buryn buturlinovka buzau buzhskyi bykovo cahul calafat
-				campulung_moldovenesc campulung_muscel caracal cegani cernauti cetatea_alba cetatea_tetina cetateni cherkasy chernyanka
-				chernyye_zemli chertanla chertkovo chet_irgiz chilia chisinau chornukhy chortolisy chudniv chuhuiv
-				chyhyryn chyorny_yar comana corabia cotnari cozia craiova cudalbi danilovka dardeling
-				dashev ded_khulsun dergachi desnyanskyi_horodok dolyna domakha donets_kharkiv dorohoi dragasani drahushiv
-				drohobych dubovskoye dukhovnitskoye dymer elton emba enice fastiv fatezh focsani
-				gaiseni galati ganyushkino gebergeyel giurgiu glavacioc glushkovo gogol goly_karamysh gratia
-				gura_galbenei hadiach halych hangu_romania harbuzynka harlau hlukhiv horodok horodyshche horoshino
-				hotin hovtva hryshyne huliaipole husi iagorlic iasi ichnia ikryanoye ilek
-				ilovlya ingul irek irgiz ishkul ismail ivanteyevka iziaslav izium jurchi
-				kabakty kaffa kaharlyk kalach kalay kalmius kalmyk kalnivka kamenskaya kamianets_podilskyi
-				kamyshin kaniv karabul karasay karatobe karatobe_mangyshlak kargaly_aktobe karlivka kashary kastornoye
-				kaynar kayrakty kenderli_kayasan ketik_kala kezlev khadjibey khaiylmysh khaqmar khmilnyk khorostkiv
-				khosheutovo khotmyzh kichkas kirsanov kisikkamys kiyl kletskaya kobda kodak kolomak
-				kolomyia konski_vody konstantinovka konstantinovsk koptam korocha korostyshiv korsun koshkar_ata koskuduk
-				kosozhichi kotelva kotovo kozelets krasnopillia krasny_kut_pontic krasny_sulin krasny_yar kremenchuk kremenskaya
+				baronsk barvinkove baytak beket_ata beki belaya_kalitva belgorod beljamen beloretsk berdiansk
+				berdychiv berestyn berezhnovka bershad bielska_sloboda bila_tserkva bilovodsk bogatoye boguchar bohorodchany
+				bohuslav bokey bokovskaya bol_shaya_martynovka bol_shoy_uran bolekhiv bolkhuny bolshaya_gribanovka borisoglebsk boryspil
+				botkul braila bratslav buchach bucharest bukov buryn buturlinovka buzau buzhskyi
+				buzuluk bykovo cahul calafat campulung_moldovenesc campulung_muscel caracal cegani cernauti cetatea_alba
+				cetatea_tetina cetateni cherkasy chernyanka chernyye_zemli chertanla chertkovo chet_irgiz chilia chisinau
+				chornukhy chortolisy chudniv chuhuiv chyhyryn chyorny_yar comana corabia cotnari cozia
+				craiova cudalbi danilovka dardeling dashev ded_khulsun dergachi desnyanskyi_horodok dolyna domakha
+				donets_kharkiv donkov dorohoi dragasani drahushiv drohobych dubovskoye dukhovnitskoye dymer elton
+				emba enice fastiv fatezh focsani gaiseni galati ganyushkino gebergeyel giurgiu
+				glavacioc glushkovo gogol goly_karamysh grachevka gratia gura_galbenei hadiach halych hangu_romania
+				harbuzynka harlau hlukhiv horodok horodyshche horoshino hotin hovtva hryshyne huliaipole
+				husi iagorlic iasi ichnia ikryanoye ilek ilovlya ingul irek irgiz
+				ishimbay ishkul ismail ivanteyevka izberdey iziaslav izium jurchi kabakty kaffa
+				kaharlyk kalach kalay kalmius kalmyk kalnivka kamenskaya kamianets_podilskyi kamyshin kaniv
+				kapova_pesera karabul karasay karatobe karatobe_mangyshlak kargaly_aktobe karlivka kashary kastornoye kaynar
+				kayrakty kenderli_kayasan ketik_kala kezlev khadjibey khaiylmysh khaqmar khmilnyk khorostkiv khosheutovo
+				khotmyzh kichkas kirsanov kisikkamys kiyl kletskaya kobda kodak kolomak kolomyia
+				konski_vody konstantinovka konstantinovsk koptam korocha korostyshiv korsun koshkar_ata koskuduk kosozhichi
+				kotelva kotovo kozelets kozlov krasnopillia krasny_kut_pontic krasny_sulin krasny_yar kremenchuk kremenskaya
 				kreminna kryvyi_rih kuchugur kulagin kumak kumylzhenskaya kupiansk kursk kuyanlik kyiv
-				kyrylivka kyzylkala lebedyn letychiv lichiresti lipnic liubar lubny luhansk lusta
-				lutava lypova_dolyna lysychansk lysye_gory machekha mala_vyska malodelskaya malye_derbety manturovo_kursk manysai
-				masat_ata mavliberda mechet mechetnaya melitopol melnya meteleu mezhybozhe mikhaylovka mikhaylovka_pontic
-				millerovo milyutinskaya mityakinskaya mohyliv_podilskyi mokrous mordovo muzhech mychesk mykytyn_rih myrhorod
-				myshuryn_rih nagavskaya namjan nikolskoye_pontic nizhny_chir nizhyn novaya_pokrovka novoaidar novoanninsky novonikolayevsky
-				novopskov nyzhnia_duvanka oancea oblivskaya oboyan okhtyrka oleksandrivka olgov opalkova opishnya
-				or_aktobe or_qapi oral orasul_de_floci ordu_bazar orhei oril oskol oster ostrogozhsk
-				ozinki palada parscov pavlohrad pereiaslav perelyub petrove piatra_lui_craciun piterka pitesti
-				plenita ploesti poenari pohrebyshche pokrovsk pologoye_zaymishche polonne poltava posad pryluky
-				putna putyvl pyriatyn qalancaq qarasuvbazar qirq_yer radovanu rakitnoye ramnicu_sarat ramnicu_valcea
-				rasskazovo rechnoye reni rohat_kermen rohatyn roman romen rossosh rov rovenki
-				rovenky rovnoye rozdory rozkishna rtishchevo rudnya_pontic rusii_de_vede rylsk ryn sadovoye
-				sadovoye_kalmykia sakminskoye_vodokhranilishche samarchyk samoylovka sapara sarai_al_jadid sarata sarayjuk saryadyn savinka
-				sazanbay semidesyatnoye semikarakorsk serdobinskaya severin seyitler shagan shagiz shakhty shatyrlysay
-				sherbiv shikashin shyngyrlau shyrokyne siret skvyra slanic slatina slobozia sloviansk
-				smila sniatyn sofiivka sokilets soldaia solkhat soroca srednyaya_akhtuba stefanesti stepanevka
-				storozhynets stramba strehaia stryi suceava sudzha sumy suyunduk taganrog talitsa_yelets
-				talowski tana tanalyk targoviste targu_bengai targu_jiu targu_lapusnei targu_neamt targu_trotus targul_saratii
-				tas_kichu taskala tatsinskaya tecuci teligol temir temir_baba tenteksor teplyk terbuny
-				terebovlia terekti ternivka ternopil theodoro tighina tokmak tomakivka tormosin troitskoye_na_shchigrakh
-				tsybuliv tulnici turka turki turnu_magurele tutova tuzara tysmenytsia uil uman
-				umanske ungheni uryupin ushkan ushtagan ushytsia usivka usman ust_livny ust_medveditskaya
-				ust_tsimla uvarovo valenii_de_munte valuyki vaslui vasylivka vatra_dornei veesky velyka_lepetykha velyka_novosilka
-				velyki_sorochyntsi verkhny_mamon viadineti vilshana vinnytsia viziru voronezh voronizh_chernihiv vosporo vovchansk
-				yahotyn yaik yaroslavka yekaterinovka yelan yelanets yelets yenotayevka yershov yuldibay
-				zalishchyky zamyany zdvizhen zemlyansk zenzevatka zhaksy_karasay zhanybek zherdevka zhydachiv zhympity
-				zhytomyr zimnicea zimnyatsky zmiiv zolotari zolotonosha zvenyhorodka
+				kyrylivka kyzylkala lebedyn letychiv lichiresti lipetsk lipnic liubar lubny luhansk
+				lusta lutava lypova_dolyna lysychansk lysye_gory machekha mala_vyska malodelskaya malye_derbety malykovka
+				malyy_uran manturovo_kursk manysai masat_ata mavliberda mechet mechetnaya meleuz melitopol melnya
+				meteleu mezhybozhe mikhaylovka mikhaylovka_pontic millerovo milyutinskaya mityakinskaya mohyliv_podilskyi mokrous mordovo
+				muzhech mychesk mykytyn_rih myrhorod myshuryn_rih nagavskaya namjan nikolskoye_pontic nizhny_chir nizhyn
+				novaya_pokrovka novoaidar novoanninsky novonikolayevsky novopskov novye_burasy nyzhnia_duvanka oancea oblivskaya oboyan
+				okhtyrka oleksandrivka olgov opalkova opishnya or_aktobe or_qapi oral orasul_de_floci ordu_bazar
+				orhei oril oskol oster ostrogozhsk ozinki palada parscov pavlohrad pereiaslav
+				perelyub petrove petrovsk piatra_lui_craciun piterka pitesti plenita ploesti poenari pohrebyshche
+				pokrovsk pologoye_zaymishche polonne poltava posad pryluky putna putyvl pyriatyn qalancaq
+				qarasuvbazar qirq_yer radovanu rakitnoye ramnicu_sarat ramnicu_valcea rasskazovo rechnoye reni rohat_kermen
+				rohatyn roman romen rossosh rov rovenki rovenky rovnoye rozdory rozkishna
+				rtishchevo rudnya_pontic rusii_de_vede rylsk ryn s_ezzaja sadak sadovoye sadovoye_kalmykia sakminskoye_vodokhranilishche
+				samarchyk samoylovka sapara sarai_al_jadid sarata sarayjuk saryadyn savinka sazanbay semidesyatnoye
+				semikarakorsk serdobinskaya severin seyitler shagan shagiz shakhty shatyrlysay sherbiv shikashin
+				shyngyrlau shyrokyne siret skvyra slanic slatina slobozia sloviansk smila sniatyn
+				sofiivka sokilets soldaia solkhat soroca sorochinskaya sosnovy_ostrov srednyaya_akhtuba stefanesti stepanevka
+				storozhynets stramba strehaia stryi suceava sudzha sumy suyunduk tabynsky taganrog
+				talitsa_yelets talowski tana tanalyk targoviste targu_bengai targu_jiu targu_lapusnei targu_neamt targu_trotus
+				targul_saratii tas_kichu taskala tatsinskaya tecuci teligol temir temir_baba tenteksor teplyk
+				terbuny terebovlia terekti tereshka ternivka ternopil teshevka theodoro tighina tokmak
+				tomakivka tormosin troitskoye_na_shchigrakh tsybuliv tulnici turka turki turnu_magurele tutova tuzara
+				tysmenytsia uil ukek uman umanske ungheni uryupin ushkan ushtagan ushytsia
+				usivka usman ust_livny ust_medveditskaya ust_stanovykh_ryas ust_tsimla uvarovo valenii_de_munte valuyki vaslui
+				vasylivka vatra_dornei veesky velyka_lepetykha velyka_novosilka velyki_sorochyntsi verkhny_mamon viadineti vilshana vinnytsia
+				viziru voronezh voronizh_chernihiv vosporo vovchansk yahotyn yaik yaroslavka yekaterinovka yelan
+				yelanets yelets yenotayevka yershov yuldibay zalishchyky zamyany zdvizhen zemlyansk zenzevatka
+				zhaksy_karasay zhanybek zherdevka zhydachiv zhympity zhytomyr zimnicea zimnyatsky zmiiv zolotari
+				zolotonosha zvenyhorodka
 			}
 			capital = adalaga
 			discovered_regions = {
@@ -1033,6 +1173,25 @@ countries = {
 			country_rank = rank_kingdom
 			government = {
 				ruler = tfe_trdat
+			}
+		}
+		IMK = { # Imenkovo
+			own_control_core = {
+				abdulino alikovo almetyevsk altyshevo atishchevo atrat aznakayevo batyrevo bavly bilyar
+				bogatye_saby bolghar bolshoy_cheremshan bugulma buguruslan calli chalninsky_pochinok cheboksary chekmagush cherdakly
+				cukataw dobyaz kamyshla kazan khvorostyanka kondurcha koshki kozmodemyansk laish lower_aktanyshbash
+				mamadysh melekess menzelinsk morkvash oli_baraza pestravka poganovka pokrovskoye samara sergiyevsk
+				shigony simbirsk staraya_mayna staryi_amanak stavropol_na_volge sviyazhsk syun tetyushi tsivilsk vasilsursk
+				verkhneyarkeyevo zainsk
+			}
+			capital = laish
+			discovered_regions = {
+				anatolia_region khorasan_region russian_region scandinavian_region steppes_region ural_region west_siberia_region
+			}
+			include = "eurasian_tribe"
+			country_rank = rank_county
+			government = {
+				ruler = random
 			}
 		}
 		IZM = { # Izumo
@@ -1394,6 +1553,24 @@ countries = {
 				ruler = random
 			}
 		}
+		KMI = { # Permians
+			own_control_core = {
+				aspa beryozovka bolshaya_laptyuga chastye cherdyn chernaya chyormoz debyosy dobryanka gayny
+				gubakha karagay kasevo kelich kizel kortkeros kosa_perm koygorodok kudymkar kungur
+				lalsk lupya lysva mezen nyrob nytva obyachevo ochyor okhannoye orda
+				osa perm podosinovets saygatsky siva solikamsk stepanenki suksun tatyshly usolye
+				ust_kishert ust_kulom ust_sysola ust_vym vashka vizinga yanaul yelovo yusva zheshart
+			}
+			capital = cherdyn
+			discovered_regions = {
+				khorasan_region russian_region scandinavian_region steppes_region ural_region west_siberia_region
+			}
+			include = "eurasian_tribe"
+			country_rank = rank_county
+			government = {
+				ruler = random
+			}
+		}
 		KMR = { # Kamarupa
 			own_control_core = {
 				barpeta bengmara bijni bordowa charagua charaideo chisobibra daboka dergaon dhansiri
@@ -1473,6 +1650,24 @@ countries = {
 				japan_region korea_region manchuria_region micronesia_region
 			}
 			include = "japanese_clan"
+			country_rank = rank_county
+			government = {
+				ruler = random
+			}
+		}
+		KRE = { # Korela
+			own_control_core = {
+				beryozovskoye elimaki heinjoki ilomantsi jaskis joensuu juuka karhumagi kinerma kizhi
+				kondpoga konevets korela kurkijoki kymi_fi kyyrola lieksa lindjarvi loimola mohko
+				nadvoitsy nurmes olonets ostrechiny pieninka pryazha puatane repola salmi sellinkyla
+				semcojarvi shuya_karelia shyoltozero sordavala suojarvi valkeasaari vartsila vazhiny veckelax vederlax
+				villmanstrand vyborg
+			}
+			capital = korela
+			discovered_regions = {
+				baltic_region russian_region ruthenia_region scandinavian_region steppes_region
+			}
+			include = "eurasian_tribe"
 			country_rank = rank_county
 			government = {
 				ruler = random
@@ -1767,6 +1962,22 @@ countries = {
 				ruler = tfe_yao_xing
 			}
 		}
+		LTG = { # Latgalians
+			own_control_core = {
+				aizkraukle aluksne cesis daugavpils gulbene jekabpils koknese kraslava limbazi makonkalns
+				pietalava rauna rezekne riga salaspils selpils sigulda straupe valmiera vilaka
+			}
+			capital = pietalava
+			discovered_regions = {
+				anatolia_region baltic_region carpathia_region north_german_region russian_region ruthenia_region scandinavian_region south_german_region
+				steppes_region
+			}
+			include = "eurasian_tribe"
+			country_rank = rank_county
+			government = {
+				ruler = random
+			}
+		}
 		LUA = { # Lawa
 			own_control_core = {
 				ban_luang_cheng chiang_dao chiang_khong chiang_mai chiang_rai chiang_saen chom_khao_maneerat hongsa hot lampang
@@ -1780,6 +1991,28 @@ countries = {
 			}
 			include = "asia_tribe"
 			country_rank = rank_county
+			government = {
+				ruler = random
+			}
+		}
+		LUG = { # Lugii
+			own_control_core = {
+				babimost biala_rawska brzeznica buk bydgoszcz chodziez ciechanow czaplinek czarnkow czersk
+				czlopa dobrzyn gabin garwolin gniezno gostynin grodzisk_wielkopolski grojec inowroclaw kalisz
+				kamieniec kolo konin koscian kowal kozmin lad_konin leczyca lipno liw
+				lodz miedzyrzecz mogilno naklo nur oborniki orlow ostrow_wielkopolski ostrzeszow piotrkow_trybunalski
+				pleszew plock plonsk poznan przasnysz pyzdry radomsko radziejow rawa rawicz
+				rozan rypin sieradz sierpc skwierzyna sochaczew srem sroda_wielkopolska szadek szamotuly
+				szrensk szubin tarczyn trzemeszno turek tuszyn uniejow walcz warsaw wielen
+				wielun wieruszow wloclawek wschowa wyrzysk zakroczym zgierz zlotow znin
+			}
+			capital = kalisz
+			discovered_regions = {
+				anatolia_region balkan_region baltic_region carpathia_region france_region great_britain_region iberia_region italy_region
+				north_german_region russian_region ruthenia_region scandinavian_region south_german_region steppes_region
+			}
+			include = "eurasian_tribe"
+			country_rank = rank_duchy
 			government = {
 				ruler = random
 			}
@@ -1895,6 +2128,57 @@ countries = {
 				ruler = random
 			}
 		}
+		MRD = { # Mordvins
+			own_control_core = {
+				alatyr arzamas bazarny_syzgan bolshoye_boldino bolshoye_murashkino bondari chamzinka chembar gorodishche insar
+				karsun khakhaly krasnoslobodsk kurmysh lukoyanov lunino lyskovo malaya_serdoba mokhcha mokshan
+				morsha nikolskoye nizhny_lomov pavlovo penza perevoz promsa raznezhye russky_kameshkir ruzayevka
+				saransk sarov sasovo sechenovo sergach shatki shemysheyka solovtsovo spasskoye_lyskovo staraya_kulatka
+				staroyuryevo tambov tarbeevka temnikov troitskoye_kuroedovo voskresenskoye zemetchino zubova_polyana
+			}
+			capital = saransk
+			discovered_regions = {
+				anatolia_region khorasan_region russian_region ruthenia_region scandinavian_region steppes_region ural_region
+			}
+			include = "eurasian_tribe"
+			country_rank = rank_county
+			government = {
+				ruler = random
+			}
+		}
+		MRO = { # Muroma
+			own_control_core = {
+				ardatov azeevo dubok gorbatovo kadom karniki kasimov kazari klepiki knyazhoye
+				koponovo lopasnya lyubichi melenki mikhaylov murom perevitska pronsk putyatino rostislavl_ryazansky
+				ryazan ryazhsk serebryanye_prudy shatur shilovo skopin staraya_ryazan starodub_votsky tuma venyov
+			}
+			capital = murom
+			discovered_regions = {
+				anatolia_region baltic_region carpathia_region khorasan_region russian_region ruthenia_region scandinavian_region steppes_region
+				ural_region
+			}
+			include = "eurasian_tribe"
+			country_rank = rank_county
+			government = {
+				ruler = random
+			}
+		}
+		MRR = { # Mari
+			own_control_core = {
+				falenki kabachischi kiknur kilmez kovernino krasnye_baki kutarka morki semyonov sernur
+				sharanga stelty tonshayevo uni ural_nema uren urzhum varnavino vetluga yaransk
+				yoshkar_ola
+			}
+			capital = morki
+			discovered_regions = {
+				khorasan_region russian_region scandinavian_region steppes_region ural_region west_siberia_region
+			}
+			include = "eurasian_tribe"
+			country_rank = rank_county
+			government = {
+				ruler = random
+			}
+		}
 		MRX = { # Mauri
 			own_control_core = {
 				ain_madhi ain_sefra asir_ALG brezina charef djelfa el_abiodh_sidi_cheikh el_bayadh jarawah_abu_al_aysh jerada
@@ -1906,6 +2190,28 @@ countries = {
 				balkan_region france_region iberia_region italy_region maghreb_region sahel_region south_german_region
 			}
 			include = "subsaharan_tribe"
+			country_rank = rank_duchy
+			government = {
+				ruler = random
+			}
+		}
+		MRY = { # Merya
+			own_control_core = {
+				alexandrovskaya_sloboda bogorodskoye_pereyaslavl bolshoye_selo borisogleb buy chukhloma dalneye_konstantinovo danilov demyanovo galich
+				gavrilovskoye gorodets gorodetsk gorokhovets gryazovets ilovna ilyinskoye_khovanskoye ivanovo kadyy kirzhach
+				koi kologriv korenevo kostroma kurba kuzhbal lezhnevo lukh lyubim manturovo
+				meshchersk mologa moshok muromtsevo_murom nerekhta nikolo_dor nizhny_novgorod osovets ostrovskoye palekh
+				parfenyevo pereyaslavl pestyaki petrovsk_rostov poreevo prozorovo pyshchug ramenki rastyapino romanov
+				rostov rozhalovo rozhdestveno shuya sol_galichskaya sol_velikaya spas_na_kholmu starodub_on_the_klyazma sudai sudislavl
+				sudogda suzdal uglich unzha ust_sheksna vasilyeva_sloboda ves_yogonskaya vichuga vladimir vlasovo
+				yakovlevskoye_bolshoye yanovo yaropolch yaroslavl yezsk yuryev_polsky yuryev_povolzhsk zolotkovo
+			}
+			capital = rostov
+			discovered_regions = {
+				anatolia_region baltic_region carpathia_region khorasan_region russian_region ruthenia_region scandinavian_region steppes_region
+				ural_region
+			}
+			include = "eurasian_tribe"
 			country_rank = rank_duchy
 			government = {
 				ruler = random
@@ -2124,13 +2430,15 @@ countries = {
 		}
 		QAD = { # Quadi
 			own_control_core = {
-				bratislava ganserndorf hlohovec holic hollabrunn hradiste korneuburg mistelbach nitra prerov
-				pribor prievidza samorin trnava vizovice
+				balassagyarmat banska_bystrica bratislava ganserndorf gemer hlohovec holic hollabrunn hont hradiste
+				korneuburg kremnica krupina liptovsky_mikulas mistelbach nitra nograd oravsky_podzamok podmuran povazska_bystrica
+				prerov pribor prievidza rimavska_sobota roznava salgotarjan samorin stary_tekov trencin trnava
+				turciansky_svaty_martin vizovice zilina zvolen
 			}
 			capital = nitra
 			discovered_regions = {
 				anatolia_region balkan_region baltic_region carpathia_region great_britain_region iberia_region italy_region north_german_region
-				russian_region ruthenia_region scandinavian_region south_german_region
+				russian_region ruthenia_region scandinavian_region south_german_region steppes_region
 			}
 			include = "eurasian_tribe"
 			country_rank = rank_duchy
@@ -2489,6 +2797,25 @@ countries = {
 				ruler = random
 			}
 		}
+		SRT = { # Ural Ugrians
+			own_control_core = {
+				alapayevsk archit arti askino baltas baykalovo belekes bisert bizhbulyak bolshoy_ik
+				burayevo chelyaba chishmy davlekanovo gari irbit ivdel kalatay kamensky_zavod kamyshlov
+				kaslinsky kataysky krasnaya_gorka krasnoufimsk kushva kyshtym mesyagutovo nizhny_tagil nizhnyaya_salda novaya_lyalya
+				nyazepetrovsk pelym pervouralsk polevskoy ponil rezh sankina sosva sterlibashevo sterlitamak
+				tabory talitsa turinsk turkmenevo turyinskiye_rudniki ufa uktus ulukulevo ust_katav verkhnyaya_sinyachikha
+				verkhoturye yegorshin_povytok zlatoust
+			}
+			capital = ufa
+			discovered_regions = {
+				khorasan_region russian_region steppes_region ural_region west_siberia_region
+			}
+			include = "eurasian_tribe"
+			country_rank = rank_county
+			government = {
+				ruler = random
+			}
+		}
 		SSN = { # Shanshan
 			own_control_core = {
 				bailongdui charchan charklik dashahai jingyu kumkol loulan miran niya qietai
@@ -2520,6 +2847,25 @@ countries = {
 				ruler = random
 			}
 		}
+		SUD = { # Sudovians
+			own_control_core = {
+				bershty biala_podlaska bielsk_podlaski brest_litowsk chernyany dabuchyn drohiczyn dzyatlava goniadz grodek
+				grodno hajnowka kamyenyets kobryn kolno lipsk lomza lyakhavichy lyubcha malaryta
+				masty mielnik novogrudok nyasvizh ostroleka porazava slonim sokolka sokolow suraz
+				suwalki turets tykocin vawkavysk veisiejai vowpa vyada wizna wlodawa zambrow
+				zdzitov
+			}
+			capital = grodno
+			discovered_regions = {
+				anatolia_region balkan_region baltic_region carpathia_region italy_region north_german_region russian_region ruthenia_region
+				scandinavian_region south_german_region steppes_region
+			}
+			include = "eurasian_tribe"
+			country_rank = rank_county
+			government = {
+				ruler = random
+			}
+		}
 		SUM = { # Sumpa
 			own_control_core = {
 				barom batang baurang biru chamdo chodrak chodrak_kham chumdo daoba dartsedo
@@ -2538,6 +2884,24 @@ countries = {
 				tibet_region west_china_region xinjiang_region
 			}
 			include = "asia_tribe"
+			country_rank = rank_county
+			government = {
+				ruler = random
+			}
+		}
+		SUO = { # Suomi
+			own_control_core = {
+				abo birkala bjorneborg ekenas forssa heinola helsinge hollola hvittis idensalmi
+				ikalis itis jamsa janakkala joroinen jyvaskyla kangasniemi karleby kaustby koppo
+				korsholm kuopio lappo laukas liljendal lohja mikkeli nystad olofsborg orivesi
+				pedersore porvoo poytis raumo rautavaara ristiina saarijarvi sastamala sastmola sauvo
+				savonranta sjundea storkyro sysma tavastehus viitasaari vora
+			}
+			capital = abo
+			discovered_regions = {
+				baltic_region north_german_region russian_region ruthenia_region scandinavian_region steppes_region
+			}
+			include = "eurasian_tribe"
 			country_rank = rank_county
 			government = {
 				ruler = random
@@ -2733,6 +3097,22 @@ countries = {
 				ruler = random
 			}
 		}
+		UDM = { # Udmurts
+			own_control_core = {
+				afanasyevo belozerye bolshaya_yakshanga dondykar igra izhevsk kholunitsky kirs kobra koksharov
+				mozhga nagorsk nikolsky omutninsk oparino orlov sarapul slobodskoy suna ust_cheptsa
+				vavozh_mozhga verkhoshizhemye vokhma votkings vyatka vyatskiye_polyany yakshur_bodya yelabuga
+			}
+			capital = sarapul
+			discovered_regions = {
+				khorasan_region russian_region scandinavian_region steppes_region ural_region west_siberia_region
+			}
+			include = "eurasian_tribe"
+			country_rank = rank_county
+			government = {
+				ruler = random
+			}
+		}
 		ULD = { # Ulaid
 			own_control_core = {
 				armagh ballycastle ballymena belcoo belfast carrickfergus carrickmacross clogher coleraine derry
@@ -2744,6 +3124,32 @@ countries = {
 				france_region great_britain_region ireland_region macaronesia_region north_atlantic_islands_region north_atlantic_ocean_region north_german_region scandinavian_region
 			}
 			include = "gaelic_tribe"
+			country_rank = rank_duchy
+			government = {
+				ruler = random
+			}
+		}
+		VES = { # Ves
+			own_control_core = {
+				alferovskaya andomsky_pogost arkhangelskoye_vologda babayevo badozhsky beloe beloozero belye_kresty berezovets bologoye
+				borovichi bronnitsa burga charonda chelmuzhi cherepoves chuzboy demon georgievskoye gorodishna
+				goroditse_megra gruzino iksa ileza ilyinsko_podomskoye izboishchi kargopol khotsy kichmengsky_gorodok kirillov
+				knyazhich_gorodok koloshma konyovo koryazhma krasavino krasny_bor kresttsy kubenskoye kulotino kunozh
+				ledengskoye lipno_nov lodenoye_pole luda lukoves lyakhovichy lyubno lyubytino maksatikha malaya_ilesha
+				malye_oserki maryovo maselga megra megrino mezhutka mikshino moshenskoye nalyuchi nebolchi
+				nikolsk nikolskoye_andoma nikolskoye_kema nizhnyaya_toyma novgorod nyonoksa nyuksenitsa okhona ozerevo pashozero
+				pikalyovo pokrovskoye_yaroslav porog poshekhonye priluky pudoga pyras rakitnya shalskii shangaly
+				shenga_kurya shuyskoye smerdyn soltsy_kirishi spasskoye spirkovo staraya_ladoga sumino svir_beloozero tarnogsky_gorodok
+				tavrenga tervenichi tikhvin totma troshovo udomlya uftyuga ust_kuloy ust_ugla ustye
+				ustyuzhna_zheleznopolskaya valday vashki vekshenga veliky_porog veliky_ustyug velsk verkhnyaya_toyma verkhovazhye vershinino
+				village_onega vinnitsy vodlozero vognema vologda volosovskaya vozhega voznesenskoye voznesenye vyshny_volochyok
+				vytegra vyya yarensk yazhelbitsy yorga zaostrovskoye zhabny
+			}
+			capital = beloozero
+			discovered_regions = {
+				baltic_region carpathia_region khorasan_region russian_region ruthenia_region scandinavian_region steppes_region ural_region
+			}
+			include = "eurasian_tribe"
 			country_rank = rank_duchy
 			government = {
 				ruler = random
@@ -2764,6 +3170,25 @@ countries = {
 			country_rank = rank_duchy
 			government = {
 				ruler = tfe_alaric
+			}
+		}
+		VOD = { # Vod
+			own_control_core = {
+				ashevo bezhanitsy chudovo dolchinyo dubronjo gdov golino gorodets_luga ivangorod izborsk
+				izori kholm khotchino kobyle koporye kosichkoj kuretsk lisino lyady lyuban
+				markovo martyshkino meletovo moloskovitsa neva opochka oreshek ostrov plyussa podberezye
+				porkhov pribuzh prudy pskov rzheva_pustaya sebech slavkovitchi soikino soltsy staraya_russa
+				staropolye svinort tesov toksovo velikiye_luki visokoye vlitsy volodimerets voronich yama
+				zaplyusye
+			}
+			capital = koporye
+			discovered_regions = {
+				baltic_region carpathia_region russian_region ruthenia_region scandinavian_region south_german_region steppes_region
+			}
+			include = "eurasian_tribe"
+			country_rank = rank_county
+			government = {
+				ruler = random
 			}
 		}
 		VOT = { # Votadini
@@ -2845,9 +3270,15 @@ countries = {
 		}
 		WND = { # Venedi
 			own_control_core = {
-				belz bereschany brody busk chortoryisk dubno grabowiec kostopil kremenets lubaczow
-				lutsk lviv ostroh peremyl peresopnytsya rivne rozhyshche sokal stepan tykhomel
-				volodymyrets yavoriv zbarazh zhovkva zvenyhorod
+				belz bereschany biecz brody busk busko_zdroj chelm chortoryisk chrzanow czchow
+				czestochowa debica dubno grabowiec ilza janow_lubelski jaslo kamin kazimierz kielce
+				korets kosiv kostopil kovel krakow krasnystaw kremenets krosno ksiaz_wielki kunow
+				lelow lesko liuboml lubaczow lubartow lublin lukow lutsk lviv melnytsya
+				mstow myslenice novohrad_volynskyi nowy_sacz nowy_targ opatow opoczno ostroh oswiecim peremyl
+				peresopnytsya pilzno piskorowice proszowice przedborz przemysl radom ratne rivne rozhyshche
+				rudnik_poland rzeszow sambir sandomierz sanok shatsk sokal stepan stezyca szydlowiec
+				tarnow turiisk tykhomel ugrovesk urzedow volodymyr volodymyrets wieliczka wislica yaroslav_poland
+				yavoriv zarnow zbarazh zhovkva zvenyhorod zwolen zywiec
 			}
 			capital = belz
 			discovered_regions = {

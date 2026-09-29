@@ -154,3 +154,27 @@ MYL | Monyul | Monpa | - | asia_tribe | ngalop_culture | monpa_religion | 180 15
 KSM | Kashmir | Kashmiri | srinagar | indian_hindu_monarchy_no_coast | kashmiri_culture | hindu | 80 110 170
 BLR | Bolor | Bolori | gilgit | asia_tribe | shina_culture | mahayana | 140 170 170
 MDV | Maldives | Maldivian | male_atoll | indonesia_monarchy_no_mandala | dhivehi_culture | theravada | 60 160 180
+
+# ---- Eastern Europe ----
+SUD | Sudovians | Sudovian | grodno | eurasian_tribe | sudovian | romuva | 125 145 90
+AUK | Aukstaitians | Aukstaitian | kernave | eurasian_tribe | aukstaitian | romuva | 105 135 75
+CUR | Curonians | Curonian | grobina | eurasian_tribe | curonian | romuva | 175 145 65
+LTG | Latgalians | Latgalian | pietalava | eurasian_tribe | latvian | romuva | 140 115 65
+EST | Estonians | Estonian | tartu | eurasian_tribe | estonian | muinaisusko | 80 125 155
+LUG | Lugii | Lugian | kalisz | eurasian_tribe | venedi | slavic_paganism | 140 95 75
+ANE | Antes | Antic | ovruch | eurasian_tribe | venedi | slavic_paganism | 105 140 85
+DBL | Dnieper Balts | Dnieper Baltic | smolensk | eurasian_tribe | aukstaitian | romuva | 75 135 125
+GLJ | Golyad | Golyad | moscow | eurasian_tribe | aukstaitian | romuva | 100 130 80
+MRY | Merya | Meryan | rostov | eurasian_tribe | merya_culture | mari_paganism | 85 120 110
+VES | Ves | Ves | beloozero | eurasian_tribe | vepsian | muinaisusko | 65 125 135
+VOD | Vod | Vodian | koporye | eurasian_tribe | votian | votian_religion | 95 105 145
+MRD | Mordvins | Mordvin | saransk | eurasian_tribe | erzya_culture | erzya_religion | 145 115 70
+MRO | Muroma | Muroman | murom | eurasian_tribe | meschera_culture | moksha_religion | 95 140 100
+MRR | Mari | Mari | morki | eurasian_tribe | mari_culture | mari_paganism | 145 155 75
+UDM | Udmurts | Udmurt | sarapul | eurasian_tribe | udmurt | udmurt_paganism | 110 135 100
+KMI | Permians | Permian | cherdyn | eurasian_tribe | komi | komi_paganism | 80 110 105
+IMK | Imenkovo | Imenkovan | laish | eurasian_tribe | chuvash_culture | tengri | 175 145 80
+SRT | Ural Ugrians | Ural Ugrian | ufa | eurasian_tribe | mansi_culture | obian_paganism | 115 105 75
+CRP | Carpi | Carpian | mukachevo | eurasian_tribe | dacian | zalmoxism | 150 95 80
+SUO | Suomi | Suomi | abo | eurasian_tribe | tavastian | muinaisusko | 120 145 185
+KRE | Korela | Karelian | korela | eurasian_tribe | karelian | muinaisusko | 75 135 130
