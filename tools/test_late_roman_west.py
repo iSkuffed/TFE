@@ -180,9 +180,23 @@ def test_roman_britain_mines_and_herds_rather_than_shears():
     britain = {l for l in goods if anc[l][3] in ("home_counties_area", "midlands_area", "west_country_area",
                                                   "east_anglia_area", "wales_area", "northumbria_area")}
     assert {l for l in britain if goods[l] == "wool"} == {"basingstoke", "amesbury", "penllyn", "egremont", "alnwick"}
-    assert not {l for l in britain if goods[l] in ("alum", "saffron")}   # Whitby's alum 1600, Walden's saffron 1300s
+    assert not {l for l in britain if goods[l] in ("alum", "saffron", "medicaments")}
+    assert {l for l in britain if goods[l] == "coal"} == {"newcastle", "hexham", "swansea"}
     for l, g in lt.BRITANNIA.items():
         assert l in britain and goods[l] == g, l
+
+
+def test_roman_gaul_grows_no_silk_and_the_rhine_bounds_the_vines():
+    anc = b.load_hierarchy()
+    ours = (b.MOD / "in_game/map_data/location_templates.txt").read_text(encoding="utf-8-sig")
+    goods = dict(re.findall(r"^(\w+) = \{[^\n]*raw_material = (\w+)", ours, re.M))
+    gaul = {l for l in goods if anc[l][2] == "france_region" or l in lt.GAUL}
+    assert not {l for l in gaul if goods[l] in ("silk", "saffron", "coal", "dyes")}
+    beyond = set(lt.GAUL) - owned()
+    assert beyond and not {l for l in beyond if goods[l] in ("wine", "olives")}
+    assert goods["arras"] == "wool" and goods["mayen"] == "stone"   # the Atrebates' cloaks; Mayen's millstones
+    for l, g in lt.GAUL.items():
+        assert goods[l] == g, l
 
 
 def test_the_frontier_works_hold_a_zone_of_control_on_roman_frontier_land():

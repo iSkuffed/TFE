@@ -45,8 +45,7 @@ ITALIA_ANNONARIA = ("lombardy_area", "piemonte_area", "veneto_area", "emilia_are
 ITALIAN_ISLANDS = ("sicily_area", "sardinia_area")
 # Britannia fed the Rhine army (Julian's 359 grain fleet), mined, potted and kept cattle; the great wool trade was
 # medieval. Of vanilla's 33 English and Welsh wool towns only five flocks stay: the downs around Venta Belgarum, whose
-# state weaving works made the birrus Britannicus, the Welsh hills, the Cumbrian fells and the Votadini's hills. Vanilla's English Wool Country and
-# Yorkshire Cloth modifiers go everywhere.
+# state weaving works made the birrus Britannicus, the Welsh hills, the Cumbrian fells and the Votadini's hills.
 BRITANNIA = {
     "dunstable": "livestock", "aylesbury": "livestock", "wigmore": "livestock", "bosworth": "livestock",
     "retford": "livestock", "birmingham": "livestock", "bideford": "livestock", "fishguard": "livestock",
@@ -72,8 +71,74 @@ BRITANNIA = {
     "durham": "livestock", "stockton": "livestock", "morpeth": "livestock",
     "whitby": "gems",           # jet, carved at York; the alum works came in 1600
     "scarborough": "fish",
+    # coal burned only near its seams: the Wall forts, Bath's temple of Minerva (Solinus), South Wales
+    "nottingham": "wheat", "manchester": "livestock", "blackburn": "livestock", "darlington": "livestock",
+    "caerphilly": "livestock",
+    "radnor": "livestock", "barnstaple": "livestock",   # no ancient remedies; Combe Martin's silver is medieval
 }
-BRITISH_WOOL = ("england_wool_base", "yorkshire_cloth_base")
+# Gaul in 395: wine from Narbonensis to the Moselle, olives only in the south, grain, pottery, hams and cheese, and
+# Belgica's woollen cloaks (in Diocletian's Price Edict, so its wool stays). Out go silk, saffron, the medieval woad
+# trade, coal, mines opened in the Middle Ages, and wine beyond the Rhine, where Franks and Alamanni keep herds.
+GAUL = {
+    # Aquitania and Novempopulana
+    "allegre": "livestock", "huriel": "livestock", "jaligny": "livestock", "bellac": "livestock",
+    "montflanquin": "livestock", "limeuil": "livestock", "thouars": "livestock", "montmorillon": "livestock",
+    "pau": "livestock", "orthez": "livestock", "saint_lizier": "livestock",   # Pyrenean herds, not medieval wool
+    "rodez": "livestock", "millau": "livestock", "peyrusse": "livestock",     # the Ruteni's uplands
+    "vodable": "iron", "villefranche": "silver",
+    "lisle_jourdain": "wheat", "riberac": "wheat", "aulnay": "wheat",   # Melle's silver was Carolingian
+    "dax": "medicaments",       # Aquae Tarbellicae, a spa Augustus visited
+    "labrit": "lumber",         # the Landes pines
+    "la_teste_de_buch": "fish",
+    "cahors": "fiber_crops",    # Pliny: the Cadurci's linen
+    # Narbonensis and Viennensis
+    "pamiers": "livestock", "chalancon": "livestock", "le_puy": "livestock", "french_ales": "wild_game",
+    "mende": "livestock", "florac": "livestock",   # the Gabali's cheese (Pliny); Cevennes silk is early modern
+    "saint_pons": "iron",       # Montagne Noire
+    "melgueil": "salt",
+    "montpellier": "wine", "carcassonne": "wine", "fenouillet": "wine", "limoux": "wine", "avignon": "wine",
+    "tournon": "wine", "vienne": "wine",   # the Allobroges' pitch-flavoured vinum picatum (Pliny)
+    "die": "wine",              # the Vocontii's sweet wine
+    "uzes": "olives", "marseille": "olives", "grasse": "olives",
+    # the Lauragais grew grain; its woad trade is 15th-century
+    "toulouse": "wheat", "castelnaudary": "wheat", "verdun_sur_garonne": "wheat", "lavaur": "legumes",
+    "perreux": "livestock", "roanne": "livestock",
+    "lyon": "clay",             # Lugdunum's potteries; its silk is 15th-century
+    "tarascon": "livestock",    # the Crau's winter pastures
+    "aix_en_provence": "medicaments", "digne": "medicaments",   # Aquae Sextiae; Digne's springs
+    "frejus": "fish",           # Forum Julii's fish sauce (Pliny)
+    "toulon": "fish",
+    "castellane": "livestock", "sisteron": "livestock", "mevouillon": "livestock", "gap": "livestock",
+    "briancon": "livestock", "faucigny": "livestock",
+    "grenoble": "iron",
+    # Lugdunensis and Belgica
+    "corbeil": "wheat", "amiens": "wheat", "troyes": "wheat", "vesoul": "wheat", "bethune": "wheat",
+    "donzy": "wheat", "meaux": "wheat",
+    "chinon": "wine", "dijon": "wine", "chateau_thierry": "wine",
+    "montmorency": "fruit", "cercy": "lumber", "darney": "lumber", "sable": "stone",
+    "arras": "wool",            # the Atrebates' cloaks
+    "saint_omer": "livestock",  # Menapian hams
+    "louviers": "livestock",    # its cloth boom was 14th-century
+    "clermont_en_argonne": "clay",   # Argonne ware, still made in the 4th century
+    # the Rhine frontier, Roman side
+    "geneve": "wine", "kreuznach": "wine", "oppenheim": "wine", "saarburg": "wine",   # Ausonius's Moselle country
+    "liege": "iron", "diez": "iron", "lichtenberg_veldenz": "iron",
+    "mayen": "stone",           # Mayen basalt millstones, sold across the Empire
+    # the spas of Aquae Granni, Aquae Helveticae and Aquae Aureliae
+    "aachen": "medicaments", "baden_im_aargau": "medicaments", "baden": "medicaments",
+    "prum": "wild_game", "merzig": "lumber", "murbach": "lumber", "colmar": "fruit",
+    "mons": "wheat", "bergheim": "wheat", "duren": "wheat", "bruchsal": "wheat",
+    "bruges": "salt", "the_hague": "livestock",
+    # free Germania: cattle, iron, forest; no vines
+    "biberach": "fiber_crops", "eichstatt": "stone", "ellwangen": "wild_game", "kempten": "livestock",
+    "freiburg": "lumber",       # Schauinsland's silver is 13th-century
+    "bayreuth": "wool", "coburg": "lumber", "calw": "lumber", "essen": "lumber", "darmstadt": "wild_game",
+    "aschaffenburg": "lumber", "bentheim": "stone", "dortmund": "wheat",
+    "osnabruck": "iron", "korbach": "iron",   # the Chatti's iron (Tacitus)
+    "urach": "fruit", "mullheim": "fruit", "heilbronn": "livestock", "hachberg": "lumber", "buchen": "lumber",
+    "wurzburg": "wheat",
+}
+MEDIEVAL_CLOTH = ("england_wool_base", "yorkshire_cloth_base", "flanders_fine_cloth_base")
 
 
 # Flavour text: the goods marker's tooltip shows a location's own description (<location>_desc) under its modifier.
@@ -112,8 +177,8 @@ CITY_FLAVOR = {
 def overrides(anc, topo, unownable, raw, mods):
     out = {l: {"raw_material": "wheat", "modifier": "tfe_granary_of_rome"} for l in GRANARIES}
     out |= {l: {"raw_material": g} for l, g in ITALIAN_VILLAS.items()}
-    out |= {l: {"modifier": None} for l, m in mods.items() if m in BRITISH_WOOL}
-    out |= {l: out.get(l, {}) | {"raw_material": g} for l, g in BRITANNIA.items()}
+    out |= {l: {"modifier": None} for l, m in mods.items() if m in MEDIEVAL_CLOTH}
+    out |= {l: out.get(l, {}) | {"raw_material": g} for l, g in (BRITANNIA | GAUL).items()}
     for l, path in anc.items():
         if len(path) > 3 and path[3] in PANNONIA and topo.get(l) in b.LAND_TOPO and l not in unownable:
             out[l] = {"modifier": "tfe_pannonian_recruiting_grounds"}
