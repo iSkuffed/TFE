@@ -479,14 +479,14 @@ locations={
 	ankara = { rank = city 		town_setup = tfe_unfortified_anatolian_city }
 	antioch = { rank = city	 	town_setup = tfe_unfortified_anatolian_city }
 	bursa = { rank = city 		town_setup = tfe_unfortified_bursa_city }
-	diyarbekir = { rank = city 	town_setup = anatolian_city }
+	diyarbekir = { rank = city 	town_setup = tfe_unfortified_anatolian_city }
 	izmit = { rank = city 		town_setup = tfe_unfortified_anatolian_city }
 	kayseri = { rank = city 	town_setup = tfe_unfortified_anatolian_city }
 	konya = { rank = city 		town_setup = tfe_unfortified_anatolian_city }
 	larnaca = { rank = town 	town_setup = christian_anatolian_town }
 	malatya = { rank = city 	town_setup = tfe_unfortified_anatolian_city }
 	nicosia_cyp = { rank = town town_setup = christian_anatolian_town }
-	urfa = { rank = city 	town_setup = anatolian_city }
+	urfa = { rank = city 	town_setup = tfe_unfortified_anatolian_city }
 	sivas = { rank = city 		town_setup = tfe_unfortified_anatolian_city }
 	smyrna = { rank = city 		town_setup = tfe_unfortified_anatolian_city }
 	tarsus = { rank = town 		town_setup = christian_anatolian_town }
@@ -738,4 +738,15 @@ building_manager = {
 	tfe_limes = { tag = EAR level = 1 location = drastar }
 	tfe_limes = { tag = EAR level = 1 location = cernavoda }
 	tfe_limes = { tag = EAR level = 1 location = isaccea }
+	tfe_limes = { tag = EAR level = 1 location = diyarbekir }
+	tfe_limes = { tag = EAR level = 1 location = mayyafariqin }
+	tfe_limes = { tag = EAR level = 1 location = viransehir }
+	tfe_limes = { tag = EAR level = 1 location = ras_ayn }
+	tfe_limes = { tag = EAR level = 1 location = raqqa }
+	tfe_limes = { tag = EAR level = 1 location = busayrah }
+	tfe_limes = { tag = EAR level = 1 location = kelkit }
+	tfe_limes = { tag = EAR level = 1 location = tadmur }
+	tfe_limes = { tag = EAR level = 1 location = bosra }
+	tfe_limes = { tag = EAR level = 1 location = karak }
+	tfe_limes = { tag = EAR level = 1 location = aqaba }
 }

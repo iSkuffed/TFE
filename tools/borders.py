@@ -842,7 +842,12 @@ ROMAN_FRONTIER = {
                 "kempten", "gunzburg", "straubing", "passau",                                           # Raetia
                 "linz", "tulln",                                                                        # Noricum
                 "bruck_leitha", "gyor", "komarom", "esztergom", "adony", "mohacs", "vukovar", "petrovaradin"),
-        "EAR": ("belgrad", "branicevo", "drastar", "cernavoda", "isaccea"),                            # Moesia, Scythia
+        "EAR": ("belgrad", "branicevo", "drastar", "cernavoda", "isaccea",                             # Moesia, Scythia
+                # against Persia since 363: Amida, Martyropolis, Constantina, Resaina, Callinicum, Circesium; Satala
+                "diyarbekir", "mayyafariqin", "viransehir", "ras_ayn", "raqqa", "busayrah", "kelkit",
+                # the desert limes: the Strata Diocletiana (Palmyra), Bostra (III Cyrenaica), Betthorus by
+                # Charach (IV Martia), Aila (X Fretensis)
+                "tadmur", "bosra", "karak", "aqaba"),
     },
 }
 # 1337 markets moved to their 395 centre: Rome, not Naples, is southern Italy's market, where the annona and the
