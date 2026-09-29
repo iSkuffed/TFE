@@ -2,3 +2,8 @@
 tfe_hunnic_tribute_price = {
 	gold = 1
 }
+
+# The Hunnic Storm's situation actions (generic_actions/tfe_hunnic_storm.txt) scale this by the actor's income
+tfe_hunnic_storm_gold = {
+	gold = 1
+}

@@ -1,0 +1,17 @@
+﻿# TFE: the Hunnic Storm's situation actions (generic_actions/tfe_hunnic_storm.txt), weighed only by those who see it
+tfe_hunnic_storm_list = {
+	potential = {
+		can_see_situation = situation:tfe_hunnic_storm
+	}
+	actions = {
+		tfe_break_the_yoke
+		tfe_take_the_scourge_title
+		tfe_feast_the_subject_kings
+		tfe_demand_greater_tribute
+		tfe_win_the_huns_favour
+		tfe_send_gifts_to_the_hunnic_court
+		tfe_submit_to_the_huns
+		tfe_hire_hunnic_horsemen
+		tfe_pay_the_huns_for_peace
+	}
+}

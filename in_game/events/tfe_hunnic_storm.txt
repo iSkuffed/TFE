@@ -104,6 +104,15 @@ tfe_hunnic_storm.3 = {
 				factor = 5
 				c:HNS = { military_strength < root.military_strength }
 			}
+			# Feast the Subject Kings and Demand Greater Tribute (generic_actions/tfe_hunnic_storm.txt)
+			modifier = {
+				factor = 0.3
+				has_variable = tfe_feasted_by_the_huns
+			}
+			modifier = {
+				factor = 2
+				has_variable = tfe_bled_by_the_huns
+			}
 		}
 	}
 

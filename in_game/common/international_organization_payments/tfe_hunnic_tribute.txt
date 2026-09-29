@@ -33,11 +33,27 @@ tfe_hunnic_tribute = {
 			}
 			multiply = 0.01
 		}
+		# Demand Greater Tribute (generic_actions/tfe_hunnic_storm.txt)
+		if = {
+			limit = { leader_country ?= { has_variable = tfe_greater_tribute } }
+			multiply = {
+				desc = "tfe_demand_greater_tribute"
+				value = 2
+			}
+		}
 	}
 	proportion_for_payer = {
 		add = {
 			desc = "tfe_hunnic_tribute"
 			value = monthly_income_trade_and_tax
+		}
+		# Win the Huns' Favour (generic_actions/tfe_hunnic_storm.txt)
+		if = {
+			limit = { has_variable = tfe_hunnic_favour }
+			multiply = {
+				desc = "tfe_win_the_huns_favour"
+				value = 0.5
+			}
 		}
 	}
 	proportion_for_payee = {
