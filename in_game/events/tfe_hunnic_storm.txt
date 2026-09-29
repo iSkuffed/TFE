@@ -1,0 +1,154 @@
+﻿namespace = tfe_hunnic_storm
+
+# The Scourge: phase 2 of the Hunnic Storm has opened (situations/tfe_hunnic_storm.txt), for everyone who sees it
+tfe_hunnic_storm.1 = {
+	type = country_event
+	category = situation_event
+	title = tfe_hunnic_storm.1.title
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { situation:tfe_hunnic_storm = { has_variable = tfe_storm_by_subsidy } }
+				desc = tfe_hunnic_storm.1.desc.subsidy
+			}
+			triggered_desc = {
+				trigger = { always = yes }
+				desc = tfe_hunnic_storm.1.desc.time
+			}
+		}
+	}
+	outcome = negative
+	image = "gfx/interface/illustrations/situation/tfe_hunnic_storm.dds"
+
+	option = {
+		name = tfe_hunnic_storm.1.a
+		trigger = { tag = HNS }
+		add_prestige = 10
+	}
+	option = {
+		name = tfe_hunnic_storm.1.b
+		trigger = { NOT = { tag = HNS } }
+	}
+}
+
+# The Huns press on the Germanic hosts: take to the road, or stay and risk the Yoke
+tfe_hunnic_storm.2 = {
+	type = country_event
+	category = situation_event
+	title = tfe_hunnic_storm.2.title
+	desc = tfe_hunnic_storm.2.desc
+	outcome = neutral
+	image = "gfx/interface/illustrations/situation/tfe_hunnic_storm.dds"
+
+	trigger = {
+		country_type = army
+		NOT = { has_variable = tfe_migrating }
+	}
+
+	# the road west (generic_actions/tfe_migratory.txt's Start Migration)
+	option = {
+		name = tfe_hunnic_storm.2.a
+		historical_option = yes
+		custom_tooltip = tfe_start_migration_tt
+		hidden_effect = { tfe_start_migration_effect = yes }	# scripted_effects/tfe_migratory.txt
+		ai_chance = { base = 3 }
+	}
+
+	option = {
+		name = tfe_hunnic_storm.2.b
+		add_prestige = 5
+		ai_chance = { base = 1 }
+	}
+}
+
+# The Reckoning: the Scourge is dead, and every people under the Yoke may rise now
+tfe_hunnic_storm.3 = {
+	type = country_event
+	category = situation_event
+	title = tfe_hunnic_storm.3.title
+	desc = tfe_hunnic_storm.3.desc
+	outcome = positive
+	image = "gfx/interface/illustrations/situation/tfe_hunnic_storm.dds"
+
+	trigger = {
+		is_member_of_international_organization = international_organization:tfe_hunnic_yoke
+		NOT = { tag = HNS }
+		country_exists = c:HNS
+	}
+
+	# rise with the others
+	option = {
+		name = tfe_hunnic_storm.3.a
+		trigger = {
+			is_subject = no
+			NOT = { is_at_war_with = c:HNS }
+		}
+		custom_tooltip = tfe_break_the_yoke_tt
+		hidden_effect = {
+			leave_all_wars_with = c:HNS
+			declare_war_with_cb = {
+				target = c:HNS
+				type = casus_belli:cb_tfe_break_the_yoke
+			}
+		}
+		ai_chance = {
+			base = 1
+			# the Huns are weak: no grown heir to hold the Yoke, or a smaller army than ours
+			modifier = {
+				factor = 3
+				c:HNS = {
+					NOT = { heir ?= { is_adult = yes } }
+				}
+			}
+			modifier = {
+				factor = 5
+				c:HNS = { military_strength < root.military_strength }
+			}
+		}
+	}
+
+	# stay loyal
+	option = {
+		name = tfe_hunnic_storm.3.b
+		ai_chance = { base = 2 }
+	}
+}
+
+# The Yoke is broken: Nedao
+tfe_hunnic_storm.4 = {
+	type = country_event
+	category = situation_event
+	title = tfe_hunnic_storm.4.title
+	desc = tfe_hunnic_storm.4.desc
+	outcome = positive
+	image = "gfx/interface/illustrations/situation/tfe_hunnic_storm.dds"
+
+	option = {
+		name = tfe_hunnic_storm.4.a
+		trigger = { NOT = { tag = HNS } }
+	}
+	option = {
+		name = tfe_hunnic_storm.4.b
+		trigger = { tag = HNS }
+	}
+}
+
+# The Huns endure: the Yoke outlived the Reckoning
+tfe_hunnic_storm.5 = {
+	type = country_event
+	category = situation_event
+	title = tfe_hunnic_storm.5.title
+	desc = tfe_hunnic_storm.5.desc
+	outcome = neutral
+	image = "gfx/interface/illustrations/situation/tfe_hunnic_storm.dds"
+
+	option = {
+		name = tfe_hunnic_storm.5.a
+		trigger = { tag = HNS }
+		custom_tooltip = tfe_huns_endure_tt
+	}
+	option = {
+		name = tfe_hunnic_storm.5.b
+		trigger = { NOT = { tag = HNS } }
+	}
+}

@@ -1,0 +1,134 @@
+﻿# TFE: the peace terms of the Hunnic Storm's wars (casus_belli/tfe_hunnic_storm.txt)
+# Submit to the Yoke: the loser joins the Hunnic Yoke (vanilla peace_force_into_jurchen_confederation)
+tfe_force_into_hunnic_yoke = {
+	cost = {
+		add = {
+			desc = "DIPLOREASON_BASE"
+			value = 50
+		}
+	}
+
+	potential = {
+		scope:war = {
+			is_no_cb_war = no
+			casus_belli ?= casus_belli:cb_tfe_submit_to_the_yoke
+		}
+		scope:winner = {
+			is_leader_of_international_organization = international_organization:tfe_hunnic_yoke
+		}
+		scope:loser = {
+			NOT = { is_member_of_international_organization = international_organization:tfe_hunnic_yoke }
+		}
+	}
+	allow = {
+	}
+
+	effect = {
+		international_organization:tfe_hunnic_yoke = {
+			add_country_to_international_organization = scope:loser
+		}
+	}
+
+	ai_force_add = yes
+
+	ai_desire = {
+		value = 1000
+	}
+}
+
+# Grand Raid: the loser pays the Huns a share of its income for 10 years (collected by situations/tfe_hunnic_storm.txt)
+tfe_pay_the_hunnic_subsidy = {
+	cost = {
+		add = {
+			desc = "DIPLOREASON_BASE"
+			value = 50
+		}
+	}
+
+	potential = {
+		scope:war = {
+			is_no_cb_war = no
+			casus_belli ?= casus_belli:cb_tfe_grand_raid
+		}
+		scope:loser = {
+			OR = {
+				tag = WRE
+				tag = EAR
+			}
+			NOT = { has_variable = tfe_hunnic_subsidy }
+		}
+	}
+	allow = {
+	}
+
+	effect = {
+		custom_tooltip = tfe_pay_the_hunnic_subsidy_tt
+		hidden_effect = {
+			scope:loser = {
+				set_variable = { name = tfe_hunnic_subsidy value = scope:winner years = 10 }
+			}
+		}
+	}
+
+	ai_force_add = yes
+
+	ai_desire = {
+		value = 1000
+	}
+}
+
+# Break the Yoke: the winner and its subjects leave the Hunnic Yoke (vanilla break_from_tatar_yoke)
+tfe_break_from_hunnic_yoke = {
+	cost = {
+		add = {
+			desc = "DIPLOREASON_BASE"
+			value = 50
+		}
+	}
+
+	potential = {
+		scope:war = {
+			is_no_cb_war = no
+			casus_belli ?= casus_belli:cb_tfe_break_the_yoke
+		}
+		scope:winner = {
+			is_member_of_international_organization = international_organization:tfe_hunnic_yoke
+		}
+		scope:loser = {
+			OR = {
+				is_leader_of_international_organization = international_organization:tfe_hunnic_yoke
+				any_subject_or_below = {
+					is_leader_of_international_organization = international_organization:tfe_hunnic_yoke
+				}
+			}
+		}
+	}
+	allow = {
+	}
+
+	effect = {
+		international_organization:tfe_hunnic_yoke = {
+			remove_country_from_international_organization = {
+				country = scope:winner
+				reason = WonFreedom
+			}
+		}
+		scope:winner = {
+			every_subject_or_below = {
+				limit = { is_member_of_international_organization = international_organization:tfe_hunnic_yoke }
+				international_organization:tfe_hunnic_yoke = {
+					remove_country_from_international_organization = {
+						country = prev
+						reason = WonFreedom
+					}
+				}
+			}
+		}
+	}
+
+	ai_force_add = yes
+
+	ai_desire = {
+		value = 1000
+	}
+}

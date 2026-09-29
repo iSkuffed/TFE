@@ -1,0 +1,154 @@
+situation_panel = {
+	# TFE: the Hunnic Storm (in_game/common/situations/tfe_hunnic_storm.txt), after vanilla rise_of_timur.gui.
+	# The phase card follows the situation variable tfe_storm_phase (as treaty_of_tordesillas.gui does its phase).
+
+	##################################### TOP HEADER #####################################
+
+	blockoverride "situation_header_left" {
+		country_flag_small = {
+			datacontext = "[GetCountry('HNS')]"
+		}
+		expand = {}
+	}
+
+	##################################### MAIN IMAGE #####################################
+
+	blockoverride "situation_panel_image" {
+		using = one_country_header_template
+
+		blockoverride "one_country_header_background" {
+			background = {
+				texture = "gfx/interface/illustrations/situation/tfe_hunnic_storm.dds"
+				modify_texture = {
+					texture = "gfx/interface/component_masks/mask_fade_horizontal_middle.dds"
+					texture_density = 2
+					spriteType = stretched
+					spriteborder = { 250 250 }
+					blend_mode = alphamultiply
+					alpha = 0.4
+				}
+			}
+		}
+
+		blockoverride "CountryContext" {
+			datacontext = "[GetCountry('HNS')]"
+		}
+		blockoverride "character_portrait_anchor" {
+			parentanchor = bottom|left
+		}
+		blockoverride "character_religion_visibility" {
+			visible = no
+		}
+		blockoverride "character_name_maximumsize" {
+			maximumsize = { 270 -1 }
+		}
+		blockoverride "country_header_extra" {
+			hbox = {
+				layoutpolicy_horizontal = expanding
+				layoutpolicy_vertical = expanding
+				margin = { 10 10 }
+				spacing = 8
+				expand = {}
+			}
+		}
+	}
+
+	##################################### SUBHEADER #####################################
+
+	blockoverride "situation_subheader_content" {
+
+	}
+
+	##################################### MAIN CONTENT #####################################
+
+	blockoverride "situation_panel_main_content" {
+		situation_card_expandable = {
+			blockoverride "header_button_onclick" {
+				onclick = "[LateralView.Vars.Toggle( 'requirements_toggled' )]"
+			}
+			blockoverride "header_text" {
+				text = "END_REQUIREMENTS"
+			}
+			blockoverride "header_icon" {
+				texture = "gfx/interface/icons/disasters/end_requirements_green.dds"
+			}
+			blockoverride "bottom_content" {
+				TooltipRequirementsList = {
+					textcontext = "[SituationView.GetActiveSituation.GetSituation.GetEndConditions]"
+				}
+			}
+			blockoverride "bottom_content_onclick" {
+				visible = "[LateralView.Vars.Exists( 'requirements_toggled' )]"
+			}
+			blockoverride "icon_replace_visible_yes" {
+				visible = "[LateralView.Vars.Exists( 'requirements_toggled' )]"
+			}
+			blockoverride "icon_replace_visible_not" {
+				visible = "[Not(LateralView.Vars.Exists( 'requirements_toggled' ))]"
+			}
+			blockoverride "visible_hint" {}
+			blockoverride "onaction_hint" {}
+		}
+
+		# THE PHASE
+		hbox = {
+			using = bg_scroll_card_header
+			blockoverride "card_header_pattern" {}
+			blockoverride "card_header_shadow" {}
+			layoutpolicy_horizontal = expanding
+
+			vbox = {
+				spacing = 5
+				margin = { 10 10 }
+				layoutpolicy_horizontal = expanding
+
+				text_single = {
+					layoutpolicy_horizontal = expanding
+					align = center|nobaseline
+					default_format = "#yellow_titles"
+					visible = "[EqualTo_float( FixedPointToFloat(SituationView.GetActiveSituation.GetSituation.MakeScope.GetVariable('tfe_storm_phase').GetValue), '(float)1.0')]"
+					text = "TFE_STORM_PHASE_1"
+				}
+				text_single = {
+					layoutpolicy_horizontal = expanding
+					align = center|nobaseline
+					default_format = "#yellow_titles"
+					visible = "[EqualTo_float( FixedPointToFloat(SituationView.GetActiveSituation.GetSituation.MakeScope.GetVariable('tfe_storm_phase').GetValue), '(float)2.0')]"
+					text = "TFE_STORM_PHASE_2"
+				}
+				text_single = {
+					layoutpolicy_horizontal = expanding
+					align = center|nobaseline
+					default_format = "#yellow_titles"
+					visible = "[EqualTo_float( FixedPointToFloat(SituationView.GetActiveSituation.GetSituation.MakeScope.GetVariable('tfe_storm_phase').GetValue), '(float)3.0')]"
+					text = "TFE_STORM_PHASE_3"
+				}
+
+				text_multi = {
+					margin = { 15 0 }
+					layoutpolicy_horizontal = expanding
+					max_width = 400
+					autoresize = yes
+					visible = "[EqualTo_float( FixedPointToFloat(SituationView.GetActiveSituation.GetSituation.MakeScope.GetVariable('tfe_storm_phase').GetValue), '(float)1.0')]"
+					text = "TFE_STORM_PHASE_1_DESC"
+				}
+				text_multi = {
+					margin = { 15 0 }
+					layoutpolicy_horizontal = expanding
+					max_width = 400
+					autoresize = yes
+					visible = "[EqualTo_float( FixedPointToFloat(SituationView.GetActiveSituation.GetSituation.MakeScope.GetVariable('tfe_storm_phase').GetValue), '(float)2.0')]"
+					text = "TFE_STORM_PHASE_2_DESC"
+				}
+				text_multi = {
+					margin = { 15 0 }
+					layoutpolicy_horizontal = expanding
+					max_width = 400
+					autoresize = yes
+					visible = "[EqualTo_float( FixedPointToFloat(SituationView.GetActiveSituation.GetSituation.MakeScope.GetVariable('tfe_storm_phase').GetValue), '(float)3.0')]"
+					text = "TFE_STORM_PHASE_3_DESC"
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,24 @@
+﻿# TFE: the Huns lead the Hunnic Yoke (international_organizations/tfe_hunnic_yoke.txt), as the Golden Horde's
+# tatar_overlord leads the Tatar Yoke. Seeded at start; the Yoke disbands if the Huns ever lose it.
+tfe_hunnic_overlord = {
+	max_countries = 1
+	priority = 10
+
+	modifier = {
+
+	}
+
+	can_bestow_trigger = {
+		root = c:HNS
+	}
+
+	auto_bestowal_trigger = {
+		always = yes
+	}
+
+	on_bestowed_effect = {
+		scope:recipient = { set_leader_country = root }
+	}
+
+	map_color = define:NMapColors|INTERNATIONAL_ORGANIZATION_LEADER_COLOR
+}

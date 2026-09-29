@@ -1,0 +1,6 @@
+﻿# TFE: the Huns held the Yoke through the Reckoning (situations/tfe_hunnic_storm.txt)
+tfe_huns_endure = {
+	game_data = { category = country }
+	monthly_prestige = 0.25
+	monthly_legitimacy = 0.1
+}

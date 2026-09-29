@@ -23,24 +23,7 @@ tfe_start_migration = {
 	effect = {
 		custom_tooltip = tfe_start_migration_tt
 		hidden_effect = {
-			scope:actor = {
-				set_variable = tfe_migrating
-				random_army = { unit_location = { save_scope_as = tfe_muster } }
-				scope:tfe_muster = {
-					while = {
-						count = 24
-						create_sub_unit_with_owner = { type = a_footmen owner = scope:actor origin = scope:tfe_muster }
-					}
-					while = {
-						count = 8
-						create_sub_unit_with_owner = { type = a_tribal_cavalry owner = scope:actor origin = scope:tfe_muster }
-					}
-				}
-				every_owned_location = { scope:actor = { abandon_location = prev } }
-				# a landless host has no neighbours for the game to offer a casus belli against
-				if = { limit = { country_exists = c:WRE } add_casus_belli = { target = c:WRE type = casus_belli:cb_tfe_migration } }
-				if = { limit = { country_exists = c:EAR } add_casus_belli = { target = c:EAR type = casus_belli:cb_tfe_migration } }
-			}
+			scope:actor = { tfe_start_migration_effect = yes }	# scripted_effects/tfe_migratory.txt
 		}
 	}
 

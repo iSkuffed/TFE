@@ -1,0 +1,18 @@
+﻿# TFE: the Hunnic Storm is over (situations/tfe_hunnic_storm.txt, in its scope). can_end alone is checked too
+# rarely, so the situation's on_monthly also ends it by this.
+tfe_hunnic_storm_is_over = {
+	OR = {
+		custom_tooltip = {
+			text = tfe_storm_resolved_tt
+			has_variable = tfe_storm_resolved
+		}
+		NOT = { country_exists = c:HNS }
+		current_date >= 480.1.1
+		# the Yoke fell apart before the Reckoning: nothing is left to break (in the Reckoning on_monthly resolves it)
+		custom_tooltip = {
+			text = tfe_storm_yoke_gone_tt
+			var:tfe_storm_phase < 3
+			NOT = { exists = international_organization:tfe_hunnic_yoke }
+		}
+	}
+}

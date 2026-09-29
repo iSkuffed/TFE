@@ -1,0 +1,64 @@
+﻿# TFE: the wars of the Hunnic Storm (situations/tfe_hunnic_storm.txt). Their treaties: peace_treaties/tfe_hunnic_storm.txt.
+# The Huns bring a neighbour of the Yoke under it
+cb_tfe_submit_to_the_yoke = {
+	create_visible = {
+		tag = HNS
+	}
+	create_enabled = {
+		scope:target = {
+			NOT = { is_member_of_international_organization = international_organization:tfe_hunnic_yoke }
+			NOT = { tag = WRE }
+			NOT = { tag = EAR }
+			any_neighbor_country = { is_member_of_international_organization = international_organization:tfe_hunnic_yoke }
+		}
+	}
+	speed = 100
+	war_goal_type = tfe_submit_to_the_yoke
+}
+
+# The Huns ride into the Empire for gold: the loser pays the Hunnic subsidy
+cb_tfe_grand_raid = {
+	create_visible = {
+		tag = HNS
+	}
+	create_enabled = {
+		scope:target = {
+			OR = {
+				tag = WRE
+				tag = EAR
+			}
+			NOT = { has_variable = tfe_hunnic_subsidy }
+		}
+	}
+	speed = 100
+	war_goal_type = tfe_grand_raid
+}
+
+# A member of the Yoke rises against the Huns: only from the Break the Yoke action or the Reckoning's rising event
+cb_tfe_break_the_yoke = {
+	create_visible = {
+		always = no
+	}
+	create_enabled = {
+		always = no
+	}
+	war_goal_type = superiority
+	additional_war_enthusiasm_attacker = 0.75
+}
+
+# While the Scourge rides, anyone outside the Yoke may take the field against the Huns
+cb_tfe_stand_against_the_scourge = {
+	create_visible = {
+		NOT = { is_member_of_international_organization = international_organization:tfe_hunnic_yoke }
+		situation:tfe_hunnic_storm = {
+			situation_is_active = yes
+			has_variable = tfe_storm_phase
+			var:tfe_storm_phase = 2
+		}
+	}
+	create_enabled = {
+		scope:target = { tag = HNS }
+	}
+	speed = 100
+	war_goal_type = superiority
+}

@@ -102,6 +102,16 @@ tfe_roman_empire = {
 						limit = { c:WRE ?= { is_at_war_with = c:EAR } }
 						add = { desc = "TFE_UNITY_CIVIL_WAR" value = 1 }
 					}
+					# Gold for the Huns: a half buys peace for itself alone (situations/tfe_hunnic_storm.txt)
+					if = {
+						limit = {
+							OR = {
+								c:WRE ?= { has_variable = tfe_hunnic_subsidy }
+								c:EAR ?= { has_variable = tfe_hunnic_subsidy }
+							}
+						}
+						add = { desc = "TFE_UNITY_HUNNIC_SUBSIDY" value = 0.1 }
+					}
 				}
 			}
 		}

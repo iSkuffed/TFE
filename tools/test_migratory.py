@@ -9,6 +9,7 @@ import borders as b
 
 COMMON = b.MOD / "in_game/common"
 ACTIONS = COMMON / "generic_actions/tfe_migratory.txt"
+EFFECT = COMMON / "scripted_effects/tfe_migratory.txt"   # Start Migration's effect, shared with the Hunnic Storm's events
 AUTO = COMMON / "auto_modifiers/tfe_migratory.txt"
 AI_LIST = COMMON / "generic_action_ai_lists/tfe_migratory_list.txt"
 CB = COMMON / "casus_belli/tfe_migration.txt"
@@ -16,7 +17,7 @@ WARGOAL = COMMON / "wargoals/tfe_migration.txt"
 SETTLE = COMMON / "on_action/tfe_migratory.txt"
 LOC = b.MOD / "main_menu/localization/english/tfe_migratory_l_english.yml"
 ARMIES = b.MOD / "main_menu/setup/start/27_armies.txt"
-SCRIPTS = (ACTIONS, AUTO, AI_LIST, CB, WARGOAL, SETTLE)
+SCRIPTS = (ACTIONS, EFFECT, AUTO, AI_LIST, CB, WARGOAL, SETTLE)
 NEW_ACTIONS = ("tfe_start_migration",)
 
 
@@ -43,7 +44,9 @@ def test_start_migration_is_a_one_way_trip_for_hosts():
     assert listed == list(NEW_ACTIONS) and "country_type = army" in code(AI_LIST)
     potential = re.search(r"potential = \{(.*?)\n\t\}", acts, re.S).group(1)
     assert "NOT = { has_variable = tfe_migrating }" in potential   # once only: the host never comes back
-    assert "set_variable = tfe_migrating" in acts and "every_owned_location" in acts and "abandon_location" in acts
+    assert "tfe_start_migration_effect = yes" in acts
+    effect = code(EFFECT)
+    assert "set_variable = tfe_migrating" in effect and "every_owned_location" in effect and "abandon_location" in effect
 
 
 def test_the_host_disbands_back_to_its_old_warband_once_it_takes_land():
@@ -89,7 +92,7 @@ def test_a_landless_host_has_a_cheap_casus_belli_for_new_land():
     visible = re.search(r"create_visible = \{(.*?)\n\t\}", cb, re.S).group(1)
     assert "has_variable = tfe_migrating" in visible and "any_owned_location" in visible   # gone once settled
     # the game never offers it on its own (a landless host has no neighbours to scan), so migrating grants it
-    grants = re.findall(r"add_casus_belli = \{[^}]*target = c:(\w+)[^}]*type = casus_belli:cb_tfe_migration", code(ACTIONS))
+    grants = re.findall(r"add_casus_belli = \{[^}]*target = c:(\w+)[^}]*type = casus_belli:cb_tfe_migration", code(EFFECT))
     assert sorted(grants) == ["EAR", "WRE"], grants
     goal = re.search(r"war_goal_type = (\w+)", cb).group(1)
     assert top_keys(WARGOAL) == [goal] and "type = superiority" in code(WARGOAL)
@@ -101,7 +104,7 @@ def test_warband_units_exist_in_vanilla():
     vanilla = set()
     for p in (b.GAME / "in_game/common/unit_types").glob("*.txt"):
         vanilla |= set(re.findall(r"^(\w+) = \{", p.read_text(encoding="utf-8-sig"), re.M))
-    used = set(re.findall(r"type = (a_\w+)", code(ACTIONS))) | set(re.findall(r"\b(a_\w+) = \{", code(ARMIES)))
+    used = set(re.findall(r"type = (a_\w+)", code(EFFECT))) | set(re.findall(r"\b(a_\w+) = \{", code(ARMIES)))
     assert used and used <= vanilla, used - vanilla
 
 

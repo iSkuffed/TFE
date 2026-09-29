@@ -6,4 +6,13 @@ international_organization_manager = {
 		map_color = hsv360 { 300 60 45 }
 		members = { WRE EAR }
 	}
+	# the Huns and the peoples who paid them tribute in 395 (international_organizations/tfe_hunnic_yoke.txt)
+	add_international_organization = {
+		type = tfe_hunnic_yoke
+		creation_date = 395.1.17
+		members = { HNS ANE CRP MRD IMK SRT }
+		tfe_hunnic_overlord = {
+			HNS
+		}
+	}
 }
