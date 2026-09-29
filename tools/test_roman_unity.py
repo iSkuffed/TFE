@@ -57,6 +57,17 @@ def test_unity_never_moves_without_a_cause():
     assert {"TFE_UNITY_TWO_TONGUES", "TFE_UNITY_WEST_REGENCY", "TFE_UNITY_RIVALS", "TFE_UNITY_CREEDS"} <= set(terms)
 
 
+def test_every_unity_change_shows_its_amount():
+    # change_variable has no tooltip: an event option with nothing else showed its raw loc key to the player
+    for p in ("in_game/events/tfe_opening.txt", "in_game/common/generic_actions/tfe_roman_empire.txt",
+              "in_game/common/laws/tfe_edicts.txt"):
+        text = code(b.MOD / p)
+        amounts = re.findall(r"name = tfe_unity add = (-?\d+)", text)
+        shown = re.findall(r"custom_tooltip = tfe_unity_(up|down)_(\d+)_tt", text)
+        assert sorted(int(n) for n in amounts) == sorted(int(n) * (1 if d == "up" else -1) for d, n in shown), p
+        assert {f"tfe_unity_{d}_{n}_tt" for d, n in shown} <= loc_keys(), p
+
+
 def test_setup_creates_the_io_with_both_landed_empires_and_mutual_access():
     countries = (START / "10_countries.txt").read_text(encoding="utf-8")
     landed = set(re.findall(r"^\t\t([A-Z][A-Z0-9]{2}) = \{", countries, re.M))
