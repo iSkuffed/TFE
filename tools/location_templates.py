@@ -407,10 +407,218 @@ CALEDONIA_HIBERNIA = {
     "iveagh": "livestock",        # Ireland had no tin mines; tin was imported.
     "carrickmacross": "livestock",# No ancient source for this medicaments output.
 }
+# Illyricum: Dalmatian gold and the metalla of Domavia and Dardania; Novo Brdo's Saxon silver and Idrija's
+# mercury (1490) are medieval.
+ILLYRICUM = {
+    "vrhbosna": "goods_gold",     # Vranica-Zeljeznica: Dalmatian gold (Pliny, Florus)
+    "borac": "livestock",         # Bosnia: no ancient medicinal source attested at Borac
+    "zenica": "iron",             # Bistua Nova: central-Bosnian Roman iron district; coal is modern
+    "olovo": "livestock",         # Olovo lead workings are medieval; Roman mining unconfirmed
+    "kljuc": "iron",              # Sana valley ferrariae were Roman iron districts
+    "bihac": "iron",              # Una valley has Roman iron sites; local silver lacks evidence
+    "krupanj": "livestock",       # Krupanj's silver mining is medieval; copper unsupported
+    "pag": "fish",                # Caska was a Roman harbor on Pag; Adriatic fish is plausible
+    "tolmin": "lumber",           # Idrija mercury was first found in 1490; Alpine timber fits
+    "kucevo": "goods_gold",       # Kraku Lu Jordan near Kucevo: late Roman gold washing
+    "novo_brdo": "livestock",     # Novo Brdo's major mine dates to medieval Serbia
+    "pristina": "lead",           # Ulpiana near Pristina: Roman Dardanian lead-silver mining
+    "sabac": "wheat",             # Sava-Macva plain; no Roman coal industry
+    "valjevo": "livestock",       # Gradac: no ancient spa source for Valjevo medicaments
+    "brskovo": "livestock",       # Brskovo mining begins with the 13th-c. Saxon boom
+    "uzice": "livestock",         # No Roman tin district is attested around Uzice
+    "belgrad": "lead",            # Singidunum: nearby Kosmaj was a Roman lead-silver district
+    "kotor": "fish",              # Acruvium: no medicinal spring attested; Adriatic fish fits
+    "gyor": "wheat",              # Arrabona was Roman Pannonian town, not an attested spa
+    "kleisoura_epirus": "livestock",# Epirus Nova: no named Roman medicinal spring
+}
+# Greece and Thrace: Kytheran and Hermionian purple, Lemnian earth, Amorgine linen, island wines. No silk before
+# the monks smuggled the silkworm in c. 552.
+GRAECIA_THRACIA = {
+    "veria": "wine",              # Beroea, Macedonian wine country; cotton is Ottoman-era
+    "servia": "livestock",        # Servia, Macedon hills; saffron unattested, pastoral land
+    "grevena": "lumber",          # Grevena forested highlands; no ancient alum evidence
+    "thebes": "wheat",            # Boeotian grain plain; silk industry is Byzantine (12th c)
+    "tripolitsa": "livestock",    # Arcadian highlands pastoral; silk is medieval Morea trade
+    "pontikokastro": "olives",    # Messenian coast olives; silk is medieval Morea trade
+    "karytaina": "lumber",        # Arcadian mountain forest; saltpeter is gunpowder-era
+    "leuktron": "olives",         # Messenian/Laconian olives; silk is medieval Morea trade
+    "mystras": "livestock",       # Laconia has no tin ore; pastoral hinterland instead
+    "ermioni": "dyes",            # Hermione's murex purple dye, famed since antiquity
+    "kythira": "dyes",            # Kythera = ancient "Porphyrousa", murex purple (Aristotle)
+    "candia": "wine",             # Cretan wine exported since antiquity; cotton is later
+    "hagios_pavlos": "olives",    # Cretan olive oil, ancient staple; sugar is Arab-era
+    "rethymno": "fruit",          # Cretan orchards; saffron treated as anachronistic here
+    "gergeri": "wine",            # Cretan hill vineyards; no ancient Cretan tin source
+    "lemnos": "medicaments",      # Lemnian earth, medicinal clay per Dioscorides/Galen/Pliny
+    "amorgos": "fiber_crops",     # Amorgos flax, the prized "amorgina" cloth (Aristophanes)
+    "rodos": "wine",              # Rhodian wine, widely traded amphorae; saffron is anach.
+    "constantinople": "fish",     # Byzantium's famed fisheries (Strabo); silk is post-552
+    "xanthia": "wine",            # Thracian wine country (Maroneia); cotton is Ottoman-era
+    "haskovo": "livestock",       # Inland Thracian pasture; cotton is Ottoman-era
+    "komotini": "wool",           # Thracian hinterland pasture; alum unattested here
+    "kiyikoy": "fish",            # Salmydessus, Thracian Black Sea coast fishery
+    "oryahovo": "livestock",      # Danubian Moesia pasture (VIS); cotton is Ottoman-era
+    "lyaskovets": "wheat",        # Danube plain grain (VIS); cotton is Ottoman-era
+    "zemlungrad": "lumber",       # Balkan mountain forest; coal is an industrial-era good
+    "kleisoura": "livestock",     # Upper Macedonian pasture: cotton is later
+}
+# The Carpathian barbaricum: Huns, Gepids, Sarmatians and Quadi herd and farm; Dacia's gold left with Rome in 271
+# and the Slovak mining towns are medieval. Turda's salt was worked all along.
+BARBARICUM = {
+    "bihar": "wheat",             # No c.395 wine source; the plain suits grain.
+    "abrahamtelke": "wheat",      # Saltpeter is a gunpowder-era good.
+    "baia_mare": "lumber",        # Maramureș mining is documented from the 13th c.
+    "csanad": "livestock",        # No ancient spa source; steppe stock fits.
+    "syvlyush": "livestock",      # Transcarpathian wine is a later specialty.
+    "balassagyarmat": "livestock",# No ancient spa source; pasture fits.
+    "arad": "wheat",              # Hungarian-period wine; Mureș plain grain fits.
+    "ineu": "livestock",          # No c.395 wine source; pasture suits foothills.
+    "krupina": "lumber",          # Upper Hungarian viticulture is later.
+    "prievidza": "lumber",        # Saffron is medieval here; forests fit.
+    "trnava": "wheat",            # No c.395 wine source; fertile lowland suits grain.
+    "levoca": "lumber",           # Spiš mining is documented from the late 13th c.
+    "gonc": "lumber",             # Nearby Telkibánya gold boom is documented in 1270.
+    "liptovsky_mikulas": "lumber",# Magurka gold mining dates to 1238.
+    "kremnica": "lumber",         # No evidence for its gold workings by 395.
+    "lubica": "lumber",           # Alum working is medieval/early modern.
+    "medias": "wheat",            # Saxon-era wine economy postdates 395.
+    "covasna": "livestock",       # No ancient alum production evidence.
+    "satoraljaujhely": "fruit",   # Tokaj wine is a later regional industry.
+    "gheorgheni": "lumber",       # Gyergyó baths are documented only in 1638.
+    "plenita": "wheat",           # Cotton is anachronistic here.
+    "stramba": "lumber",          # Strâmba spa use is documented only in modern times.
+}
+# Anatolia: Docimian and Proconnesian marble, Milesian and Lycaonian wool, Cappadocian studs, the Asclepieion of
+# Pergamon; saffron only at Corycus (Pliny), the best in the world.
+ANATOLIA = {
+    "ladik_pontus": "wheat",      # Pontic plateau grain; rice is medieval
+    "dinek_keskin": "wool",       # steppe flocks; saffron kept to Korykos
+    "bor_tur": "wheat",           # Cappadocian plain; saltpeter is gunpowder-era
+    "sivas": "livestock",         # Sebasteia grazing; silk is post-552
+    "zile": "wheat",              # Zela plain; saffron kept to Korykos
+    "kayseri": "horses",          # Caesarea Mazaca, Cappadocia's imperial studs
+    "aksaray": "wheat",           # Cappadocian plain; no ancient alum here
+    "karahisar_i_sahib": "marble",# Docimium/Synnada pavonazzetto, near Afyon
+    "konya": "wool",              # Lycaonia's huge flocks (Strabo 12.6.1)
+    "kizilca": "clay",            # interior Phrygia; alum belt is Phocaea/Gediz
+    "ayas": "fish",               # Cilician port; cotton is a later import
+    "larnaca": "salt",            # Cyprus salt lake, ancient salt pans
+    "limassol": "wine",           # Cyprus vine country; sugar is Arab-era
+    "morphou": "olives",          # Cyprus groves; cotton is anachronistic
+    "mut": "lumber",              # Cilicia Trachea timber; cotton anachronistic
+    "anavarza": "fiber_crops",    # Cilicia Campestris flax, not Korykos saffron
+    "hargan": "iron",             # Taurus ore; no ancient Cilician tin
+    "tarsus": "livestock",        # goat-hair cilicium cloth, not Byzantine silk
+    "corycus": "saffron",         # Pliny/Strabo: best crocus from Mt Corycus
+    "bandirma": "marble",         # opposite Proconnesus (Marmara I.), not alum
+    "lapseki": "wine",            # Lampsacus wine, noted by ancient authors
+    "bursa": "lumber",            # Mysian Olympus forest; silk is Ottoman-era
+    "balikesir": "wool",          # inland Mysian sheep country, not cotton
+    "bergama": "medicaments",     # Pergamon's Asclepeion, Galen's healing shrine
+    "nalli": "legumes",           # upper Sakarya valley; rice anachronistic
+    "sogut": "lumber",            # Phrygian/Bithynian hill forest, no attested spa
+    "akyazi": "lumber",           # Sakarya valley Bithynian forest, not silk
+    "eregli": "lumber",           # Heraclea Pontica timber port; coal is C19
+    "giresun": "fruit",           # ancient Cerasus, cherries (Pliny NH 15.102)
+    "safranbolu": "livestock",    # Paphlagonian upland; saffron kept to Korykos
+    "trebizond": "beeswax",       # Trapezus "mad honey" country (Xen. Anab. 4.8)
+    "khupati": "fur",             # eastern Pontic forest frontier, not cotton
+    "alasehir": "wine",           # Philadelphia's vineyards, not Byzantine silk
+    "balat": "wool",              # ancient Miletus, prized Milesian wool
+    "nazilli": "fruit",           # Maeander valley orchards; cotton is modern
+    "isparta": "wool",            # Pisidian highland flocks, not cotton
+    "tavas": "wool",              # Lycus valley sheep country, not Korykos saffron
+    "manisa": "olives",           # Mt Sipylus groves; cotton is modern-era
+    "smyrna": "fruit",            # the famed Smyrna fig, not Korykos-only saffron
+    "ayasuluk": "wine",           # Ephesian wine (named good), not silk
+}
+# Egypt: the annona of Constantinople, Delta linen and papyrus, Wadi Natrun's natron, Aswan granite, Alexandrian
+# glass; cotton only in the oases (the Kellis texts) and Nubia. Rice and sugar came with the Arabs.
+AEGYPTUS = {
+    "alexandria": "sand",         # Alexandrian glass, famed export ware (Strabo, Martial)
+    "wadi_el_natrun": "salt",     # Wadi Natrun natron, embalming/glass salt since Pharaonic era
+    "dakahla": "wheat",           # Delta annona grain; rice is Arab-era, not 4th c.
+    "al_mima": "wheat",           # Delta annona grain; rice anachronistic
+    "menouf": "fiber_crops",      # Delta flax/linen; rice anachronistic
+    "giza": "stone",              # Tura limestone quarries fed Roman-era building; no sugar yet
+    "bilbeis": "wheat",           # Sharqia Delta grain; cotton not a Delta crop in 395
+    "el_mahalla": "fiber_crops",  # Delta flax/linen weaving town; cotton anachronistic here
+    "fuwa": "fish",               # On Rosetta branch/Burullus lagoon; sugar anachronistic
+    "mansoura": "wheat",          # Delta grain; sugar cane arrives with Arab conquest
+    "el_buwit": "wheat",          # Nile valley grain village; sugar anachronistic
+    "akhmim": "fiber_crops",      # Panopolis, ancient flax/linen weaving center
+    "el_bahnasa": "fiber_crops",  # Oxyrhynchus, papyrus/flax; famed papyri finds
+    "aswan": "stone",             # Aswan granite quarries (obelisks, Pompey's Pillar), not iron
+    "esna": "wheat",              # Nile valley grain; sugarcane is medieval Egypt
+    "hiw": "wheat",               # Diospolis Parva, Nile grain; sugar anachronistic
+    "el_qoseir": "incense",       # Myos Hormos-area Red Sea port, incense/spice trade (Periplus)
+    "kharga": "cotton",           # Kellis texts attest 4th c. cotton in Kharga oasis
+    "baris": "fruit",             # Kharga oasis dates; sugar anachronistic
+    "el_qasr": "cotton",          # Dakhla oasis, near Kellis; 4th c. cotton attested
+}
+# The Orient and Mesopotamia: Tyrian and Sidonian purple, Belus glass sand, Gaza wine, the olive boom of the Dead
+# Cities, Hit's bitumen; rice stays in southern Iraq, where the Sasanians grew it.
+ORIENS = {
+    "antioch": "wheat",           # Amuk plain grain; no sericulture in Syria before c.552
+    "arsuz": "fish",              # Cilician-Syrian coast; no ancient cotton here
+    "idlib": "olives",            # heart of the Limestone Massif oil-press boom (Dead Cities)
+    "acre": "sand",               # Belus/Na'aman sand, Pliny's glass-sand source, by Ptolemais
+    "gaza": "wine",               # Gaza jars (LRA4) shipped Gaza wine across the Mediterranean
+    "aleppo": "olives",           # edge of Limestone Massif olive-oil region, no ancient cotton
+    "dabiq": "wheat",             # Aleppo grain plain, no ancient cotton
+    "marrat": "olives",           # Ma'arrat al-Numan, core of the Dead Cities oil region
+    "maskanah": "wheat",          # Euphrates grain plain, no ancient sugar
+    "zardana": "olives",          # Jabal Barisha, Dead Cities oil-press zone
+    "bosra": "wheat",             # Bostra, Hauran "granary of Rome", no ancient cotton
+    "suwayda": "wine",            # Jabal al-Druze, ancient Hauran wine-press remains
+    "latakia": "wine",            # Laodicea's wine, attested by Strabo and exported
+    "deir_qamar": "lumber",       # Mount Lebanon cedar country; no sericulture pre-552
+    "sidon": "dyes",              # Sidonian murex purple, attested since Homer/Pliny
+    "sughar": "fruit",            # Zoara, Dead Sea palm oasis, dates
+    "tadmur": "fruit",            # Palmyra = "palm city", oasis date groves
+    "taybah": "wheat",            # Syria-Euphrates grain, no ancient cotton
+    "urfa": "wheat",              # Edessa plain grain; no sericulture before c.552
+    "siverek": "wheat",           # upper Mesopotamia grain; saffron is an Arab-era crop here
+    "ergani": "copper",           # Ergani Maden, copper worked since antiquity
+    "haditha": "fruit",           # middle-Euphrates palm groves, no ancient sugar
+    "rahba": "fruit",             # Euphrates oasis dates, no ancient sugar
+    "hasankeyf": "wheat",         # Tigris valley grain, no ancient cotton
+    "tunanir": "wheat",           # Khabur valley grain, no ancient cotton
+    "viransehir": "livestock",    # Tektek steppe pasture, no ancient cotton
+    "qayyarah": "medicaments",    # ancient naphtha/bitumen seeps near Nineveh
+    "baghdad": "wheat",           # Mesopotamian alluvium grain, no ancient cotton
+    "balad_ruz": "wheat",         # Diyala grain plain, no ancient cotton
+    "dayr_aqul": "wheat",         # central-Iraq grain; sugar cane is 6th-c. Khuzestan
+    "basra": "rice",              # southern-Iraq marsh rice (Sasanian); sugar is later
+    "samawa": "rice",             # southern Iraq/Euphrates, rice attested in Sasanian era
+    "ilam": "wheat",              # Zagros foothill valley farmland, no glass-sand source
+    "hit": "medicaments",         # Is/Hit bitumen springs, Herodotus, Babylon's walls
+    "kirkuk": "medicaments",      # Baba Gurgur naphtha fires, Herodotus and Plutarch
+    "erbil": "wheat",             # Arbela grain plain, no ancient cotton
+    "samarra": "wheat",           # Tigris grain plain, no ancient cotton
+    "wasit": "rice",              # southern-central Iraq, rice attested in Sasanian era
+    "ayn_tamr": "fruit",          # "spring of dates", ancient palm oasis
+}
+# The Caucasus: Svaneti's fleece-washed gold, Armenian karmir red, Kakhetian wine, Armenia's tribute horses;
+# Shirvan's silk is medieval.
+CAUCASUS = {
+    "ushguli": "goods_gold",      # Soanes/Svaneti: Strabo 11.2.19 gold washing
+    "surmali": "dyes",            # Ararat plain: Armenian scale-insect red in antiquity
+    "ahlat": "wool",              # Armenian highlands: local silk sericulture postdates 395
+    "gremi": "wine",              # Kakheti: ancient wine; Georgian silk is later
+    "shamakhi": "wheat",          # Shirvan: Caspian silk trade is medieval
+    "pertek": "livestock",        # Pertek: no demonstrated Roman-era spa supports medicaments
+    "varsan": "wheat",            # Arran: no ancient spa source supports medicaments
+    "niyazabad": "fish",          # Caspian coast: fish; no ancient medicinal source
+    "qobustan": "livestock",      # Qobustan uplands: grazing fits better than cotton
+    "sotk": "livestock",          # Sotk highlands: grazing fits better than cotton
+    "kars": "horses",             # Armenia: Strabo 11.14.9 records foal tribute
+}
 # Medieval industries, and Sicily's sulfur mines, whose bonus is to gunpowder saltpeter
 MEDIEVAL_MODIFIERS = ("england_wool_base", "yorkshire_cloth_base", "flanders_fine_cloth_base",
                       "toledo_weaponry_base", "milan_weaponry_base", "tuscany_fine_cloth_base", "venice_glass_base",
-                      "kutna_hora_silver_mines_base", "sicily_sulfur_mines")
+                      "kutna_hora_silver_mines_base", "sicily_sulfur_mines", "idrija_base", "kremnica_gold_mines",
+                      "nile_delta_rice_base", "nile_delta_sugar_base", "nile_delta_cotton_base")
 
 
 # Flavour text: the goods marker's tooltip shows a location's own description (<location>_desc) under its modifier.
@@ -450,7 +658,8 @@ def overrides(anc, topo, unownable, raw, mods):
     out = {l: {"raw_material": "wheat", "modifier": "tfe_granary_of_rome"} for l in GRANARIES}
     out |= {l: {"raw_material": g} for l, g in ITALIAN_VILLAS.items()}
     out |= {l: {"modifier": None} for l, m in mods.items() if m in MEDIEVAL_MODIFIERS}
-    roman_world = BRITANNIA | GAUL | HISPANIA | ITALIA | AFRICA | RAETIA_NORICUM | CALEDONIA_HIBERNIA
+    roman_world = (BRITANNIA | GAUL | HISPANIA | ITALIA | AFRICA | RAETIA_NORICUM | CALEDONIA_HIBERNIA | ILLYRICUM
+                   | GRAECIA_THRACIA | BARBARICUM | ANATOLIA | AEGYPTUS | ORIENS | CAUCASUS)
     out |= {l: out.get(l, {}) | {"raw_material": g} for l, g in roman_world.items()}
     for l, path in anc.items():
         if len(path) > 3 and path[3] in PANNONIA and topo.get(l) in b.LAND_TOPO and l not in unownable:
