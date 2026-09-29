@@ -172,6 +172,47 @@ def test_italys_remaining_wheat_yields_less_so_african_grain_sells_there():
     assert value["tfe_latifundia"] < value["tfe_annona_militaris"] < 0
 
 
+def test_roman_britain_mines_and_herds_rather_than_shears():
+    anc = b.load_hierarchy()
+    ours = (b.MOD / "in_game/map_data/location_templates.txt").read_text(encoding="utf-8-sig")
+    assert not re.search(r"\b(england_wool_base|yorkshire_cloth_base)\b", ours)   # medieval: gone everywhere
+    goods = dict(re.findall(r"^(\w+) = \{[^\n]*raw_material = (\w+)", ours, re.M))
+    britain = {l for l in goods if anc[l][3] in ("home_counties_area", "midlands_area", "west_country_area",
+                                                  "east_anglia_area", "wales_area", "northumbria_area")}
+    assert {l for l in britain if goods[l] == "wool"} == {"basingstoke", "amesbury", "penllyn", "egremont", "alnwick"}
+    assert not {l for l in britain if goods[l] in ("alum", "saffron", "medicaments")}
+    assert {l for l in britain if goods[l] == "coal"} == {"newcastle", "hexham", "swansea"}
+    for l, g in lt.BRITANNIA.items():
+        assert l in britain and goods[l] == g, l
+
+
+def test_roman_gaul_grows_no_silk_and_the_rhine_bounds_the_vines():
+    anc = b.load_hierarchy()
+    ours = (b.MOD / "in_game/map_data/location_templates.txt").read_text(encoding="utf-8-sig")
+    goods = dict(re.findall(r"^(\w+) = \{[^\n]*raw_material = (\w+)", ours, re.M))
+    gaul = {l for l in goods if anc[l][2] == "france_region" or l in lt.GAUL}
+    assert not {l for l in gaul if goods[l] in ("silk", "saffron", "coal", "dyes")}
+    beyond = set(lt.GAUL) - owned()
+    assert beyond and not {l for l in beyond if goods[l] in ("wine", "olives")}
+    assert goods["arras"] == "wool" and goods["mayen"] == "stone"   # the Atrebates' cloaks; Mayen's millstones
+    for l, g in lt.GAUL.items():
+        assert goods[l] == g, l
+
+
+def test_hispania_grows_nothing_the_arabs_brought():
+    anc = b.load_hierarchy()
+    ours = (b.MOD / "in_game/map_data/location_templates.txt").read_text(encoding="utf-8-sig")
+    goods = dict(re.findall(r"^(\w+) = \{[^\n]*raw_material = (\w+)", ours, re.M))
+    hispania = {l for l in goods if anc[l][2] == "iberia_region"}
+    arab = ("sugar", "rice", "cotton", "saffron", "silk", "saltpeter", "coal")
+    assert not {l for l in hispania if goods[l] in arab}
+    assert len({l for l in hispania if goods[l] == "wool"}) <= 10   # the Mesta's flocks were medieval
+    assert goods["almaden"] == "mercury" and "almaden_base" in ours   # Sisapo's cinnabar (Pliny)
+    assert "toledo_weaponry_base" not in ours
+    for l, g in lt.HISPANIA.items():
+        assert goods[l] == g, l
+
+
 def test_the_frontier_works_hold_a_zone_of_control_on_roman_frontier_land():
     placed = re.findall(r"^\s*(tfe_\w+) = \{ tag = (\w+) level = 1 location = (\w+) \}",
                         CITIES.read_text(encoding="utf-8-sig"), re.M)
@@ -200,3 +241,39 @@ def test_every_location_with_our_modifier_tells_its_story():
     keys = dict(re.findall(r'^ (\w+)_desc: "(.+)"$', flavor.read_text(encoding="utf-8-sig"), re.M))
     assert set(keys) == tagged, sorted(set(keys) ^ tagged)
     assert "Carthage" in keys["tunis"] and "Papacy" not in keys["rome"]
+
+
+def test_the_rest_of_the_west_loses_what_came_after_rome():
+    anc = b.load_hierarchy()
+    ours = (b.MOD / "in_game/map_data/location_templates.txt").read_text(encoding="utf-8-sig")
+    goods = dict(re.findall(r"^(\w+) = \{[^\n]*raw_material = (\w+)", ours, re.M))
+    regions = ("italy_region", "maghreb_region", "south_german_region", "ireland_region")
+    later = ("sugar", "rice", "cotton", "saffron", "silk", "saltpeter", "coal")
+    assert not {l for l in goods if anc[l][2] in regions and goods[l] in later}
+    for m in ("milan_weaponry_base", "tuscany_fine_cloth_base", "venice_glass_base", "kutna_hora_silver_mines_base",
+              "sicily_sulfur_mines"):
+        assert m not in ours, m
+    assert goods["piombino"] == "iron" and goods["friesach"] == "iron"   # Elban iron at Populonia, ferrum Noricum
+    for l, g in (lt.ITALIA | lt.AFRICA | lt.RAETIA_NORICUM | lt.CALEDONIA_HIBERNIA).items():
+        assert goods[l] == g, l
+
+
+def test_the_east_weaves_no_silk_before_the_monks_bring_the_worm():
+    anc = b.load_hierarchy()
+    ours = (b.MOD / "in_game/map_data/location_templates.txt").read_text(encoding="utf-8-sig")
+    goods = dict(re.findall(r"^(\w+) = \{[^\n]*raw_material = (\w+)", ours, re.M))
+    east = {l for l in goods if anc[l][2] in ("balkan_region", "carpathia_region", "anatolia_region", "egypt_region",
+                                              "nubia_region", "crescent_region", "caucasus_region")}
+    assert not {l for l in east if goods[l] in ("sugar", "silk", "saltpeter", "coal")}
+    assert {l for l in east if goods[l] == "saffron"} == {"corycus"}   # Pliny's best saffron
+    assert {anc[l][3] for l in east if goods[l] == "rice"} == {"iraq_arabi_area"}   # Sasanian rice in the south
+    assert not {l for l in east if goods[l] == "cotton" and anc[l][2] in ("balkan_region", "anatolia_region")}
+    assert goods["tire"] == "mercury"   # Theophrastus' cinnabar above Ephesus
+    for m in ("idrija_base", "kremnica_gold_mines", "nile_delta_rice_base", "nile_delta_sugar_base",
+              "nile_delta_cotton_base"):
+        assert m not in ours, m
+    for m in ("damascus_base", "srebrenica_silver_mines_base", "turda_salt_mines_base"):   # Roman fabrica, Domavia
+        assert m in ours, m
+    for l, g in (lt.ILLYRICUM | lt.GRAECIA_THRACIA | lt.BARBARICUM | lt.ANATOLIA | lt.AEGYPTUS | lt.ORIENS
+                 | lt.CAUCASUS).items():
+        assert goods[l] == g, l

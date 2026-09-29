@@ -2,7 +2,8 @@
 
 TFE is a Europa Universalis V mod starting in 395 AD, at the division of the Empire between Arcadius (East, `EAR`) and
 Honorius (West, `WRE`). It is inspired by the CK3 mod *The Fallen Eagle*. Two people work on it, one on Linux and one on
-Windows 11, each with their own Claude. Both are new to git: explain git steps plainly when you use them.
+Windows 11, each with their own Claude. iSkuffed (Linux) knows git well: don't explain it. MAZZO313 (Windows) is new to git:
+explain git steps plainly when you use them.
 
 Read `RoadMap.md` before building anything: its design rules (decay has a visible cause, pace the chaos, fun over
 accuracy) decide close calls, and its items are the work queue.
