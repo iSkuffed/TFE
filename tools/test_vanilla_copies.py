@@ -11,6 +11,7 @@ COPIES = {
     "in_game/common/languages/tfe_languages.txt": ("in_game/common/languages/00_italy.txt", "41fea717f67c83bc"),
     "in_game/gfx/map/map_modes/00_tfe_map_modes.txt": ("in_game/gfx/map/map_modes/map_modes.txt", "820fb7b409585b79"),
     "in_game/gfx/map/water/water.settings": ("in_game/gfx/map/water/water.settings", "94870c46d5109286"),
+    "main_menu/gfx/map/city_data/templates.txt": ("main_menu/gfx/map/city_data/templates.txt", "5c4ae5b915b3431b"),
 }
 
 
