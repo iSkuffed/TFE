@@ -86,5 +86,8 @@ been seen working in game, or you say plainly that it hasn't.
 - A child ruler under a regency goes in `heir =` with no `ruler =` (vanilla DAN, RSO). A regency ends by crowning its
   heir, so a `ruler =` under a regent never takes power. `unsuited_for_country_ruling` is vanilla's blind/mad trait and
   blocks a character for life, not until majority.
+- Map modes (`in_game/gfx/map/map_modes/`) are first-in-wins: a mod's `political = {...}` only replaces vanilla's from
+  a file that sorts before `map_modes.txt` (`00_tfe_map_modes.txt`). The pre-game lobby opens in a paper-map mode,
+  not Political: press the Political button before judging a change to it.
 - A heir set in `on_regency_end` is overwritten: the game picks the new ruler's heir after it fires. From
   `on_new_ruler`, fire an event with `delay = { days = 1 }` (`tfe_opening.6`).

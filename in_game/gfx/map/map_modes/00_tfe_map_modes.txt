@@ -1,0 +1,103 @@
+﻿# TFE: vanilla's political map mode (map_modes.txt) with a translucent fill, so hills and forests show through the
+# country colours as on Imperator's map. Only the gradients differ from vanilla. The first map mode of a name
+# wins, so this file sorts before map_modes.txt (debug.log: "Duplicated key political will not be created").
+
+political = {
+	color_mode = political
+	small_map_names = location
+	medium_map_names = country
+	large_map_names = overlord
+
+	small_tooltip_context = location
+	medium_tooltip_context = location
+	large_tooltip_context = country
+
+	fill_in_impassable = yes
+	quick_action_slot = 1
+
+	enable_rivers = yes
+	enable_snow = yes
+	use_fow = yes
+
+	enable_water_names = no
+	enable_water_names_through = yes
+
+	pinned_by_default = 2
+	category = government
+	index = 0
+
+	map_markers = {
+		market_marker = no
+		fort_marker = no
+		toll_marker = no
+	}
+
+	gradient_parameters = {	# close to mid zoom: a faint interior, the colour banded along the borders
+		zoom_step = 2
+		gradient_alpha_inside = 0.35
+		gradient_alpha_outside = 0.75
+		gradient_width = 0.08
+		gradient_color_mult = 0.4
+		edge_width = 0.03
+		edge_sharpness = 0
+		edge_alpha = 1
+		edge_color_mult = 0.3
+		before_lighting_blend = 1
+		after_lighting_blend = 0.25
+	}
+	gradient_parameters = {
+		zoom_step = 10
+		gradient_alpha_inside = 0.35
+		gradient_alpha_outside = 0.75
+		gradient_width = 0.08
+		gradient_color_mult = 0.4
+		edge_width = 0.03
+		edge_sharpness = 0
+		edge_alpha = 1
+		edge_color_mult = 0.3
+		before_lighting_blend = 1
+		after_lighting_blend = 0.25
+	}
+	gradient_parameters = {	# zoomed out: a filled, translucent political map (vanilla: 1, 1, width 1)
+		zoom_step = 11
+		gradient_alpha_inside = 0.6
+		gradient_alpha_outside = 0.85
+		gradient_width = 0.3
+		gradient_color_mult = 0.4
+		edge_width = 0.03
+		edge_sharpness = 0
+		edge_alpha = 1
+		edge_color_mult = 0.3
+		before_lighting_blend = 1
+		after_lighting_blend = 0.5
+	}
+	flatmap_gradient_parameters = {
+		zoom_step = 12
+		gradient_alpha_inside = 0.75
+		gradient_alpha_outside = 1
+		gradient_width = 0.25
+		gradient_color_mult = 0.9
+		edge_width = 0.03
+		edge_sharpness = 0.01
+		edge_alpha = 1.0
+		edge_color_mult = 0.7
+		before_lighting_blend = 0.5
+		after_lighting_blend = 0.5
+	}
+	flatmap_gradient_parameters = {
+		zoom_step = 21
+		gradient_alpha_inside = 0.75
+		gradient_alpha_outside = 1
+		gradient_width = 0.875
+		gradient_color_mult = 0.9
+		edge_width = 0.045
+		edge_sharpness = 0.01
+		edge_alpha = 1.0
+		edge_color_mult = 0.7
+		before_lighting_blend = 0.5
+		after_lighting_blend = 0.5
+	}
+
+	color_refresh_counters = { LocationControllerChanged }
+	color_and_names_refresh_counters = { LocationOwnerChanged CountryStatus }
+}
