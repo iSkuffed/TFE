@@ -7,3 +7,8 @@ tfe_hunnic_tribute_price = {
 tfe_hunnic_storm_gold = {
 	gold = 1
 }
+
+# The Grand Raid button (generic_actions/tfe_hunnic_raid.txt), in prestige
+tfe_hunnic_raid_prestige = {
+	prestige = 1
+}

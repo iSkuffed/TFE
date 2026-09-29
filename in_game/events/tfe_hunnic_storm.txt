@@ -71,7 +71,7 @@ tfe_hunnic_storm.3 = {
 	image = "gfx/interface/illustrations/situation/tfe_hunnic_storm.dds"
 
 	trigger = {
-		is_member_of_international_organization = international_organization:tfe_hunnic_yoke
+		tfe_is_under_the_yoke = yes
 		NOT = { tag = HNS }
 		country_exists = c:HNS
 	}
@@ -80,15 +80,32 @@ tfe_hunnic_storm.3 = {
 	option = {
 		name = tfe_hunnic_storm.3.a
 		trigger = {
-			is_subject = no
+			OR = {
+				is_subject = no
+				is_subject_type = tributary
+			}
 			NOT = { is_at_war_with = c:HNS }
 		}
-		custom_tooltip = tfe_break_the_yoke_tt
+		# a tributary of the Huns just stops paying; a free member goes to war
+		custom_tooltip = {
+			text = tfe_break_the_yoke_tt
+			trigger = { is_subject = no }
+		}
+		custom_tooltip = {
+			text = tfe_cast_off_the_tribute_tt
+			trigger = { is_subject_type = tributary }
+		}
 		hidden_effect = {
-			leave_all_wars_with = c:HNS
-			declare_war_with_cb = {
-				target = c:HNS
-				type = casus_belli:cb_tfe_break_the_yoke
+			if = {
+				limit = { is_subject_type = tributary }
+				c:HNS = { cancel_subject = root }
+			}
+			else = {
+				leave_all_wars_with = c:HNS
+				declare_war_with_cb = {
+					target = c:HNS
+					type = casus_belli:cb_tfe_break_the_yoke
+				}
 			}
 		}
 		ai_chance = {

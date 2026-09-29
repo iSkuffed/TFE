@@ -17,8 +17,8 @@ tfe_hunnic_storm = {
 			tag = HNS
 			tag = WRE
 			tag = EAR
-			is_member_of_international_organization = international_organization:tfe_hunnic_yoke
-			any_neighbor_country = { is_member_of_international_organization = international_organization:tfe_hunnic_yoke }
+			tfe_is_under_the_yoke = yes
+			any_neighbor_country = { tfe_is_under_the_yoke = yes }
 		}
 	}
 
@@ -31,16 +31,16 @@ tfe_hunnic_storm = {
 		if = {
 			limit = {
 				var:tfe_storm_phase = 1
-				international_organization:tfe_hunnic_yoke ?= {
-					OR = {
-						AND = {
-							total_members >= 8
+				OR = {
+					AND = {
+						tfe_yoke_size >= 8
+						international_organization:tfe_hunnic_yoke ?= {
 							any_international_organization_member = { OR = { tag = WRE tag = EAR } }
 						}
-						AND = {
-							current_date >= 434.1.1
-							total_members >= 6
-						}
+					}
+					AND = {
+						current_date >= 434.1.1
+						tfe_yoke_size >= 6
 					}
 				}
 			}
@@ -68,8 +68,8 @@ tfe_hunnic_storm = {
 					}
 					country_type = army
 					NOT = { has_variable = tfe_migrating }
-					NOT = { is_member_of_international_organization = international_organization:tfe_hunnic_yoke }
-					any_neighbor_country = { is_member_of_international_organization = international_organization:tfe_hunnic_yoke }
+					NOT = { tfe_is_under_the_yoke = yes }
+					any_neighbor_country = { tfe_is_under_the_yoke = yes }
 				}
 				trigger_event_non_silently = tfe_hunnic_storm.2
 			}
@@ -92,12 +92,13 @@ tfe_hunnic_storm = {
 			# the Yoke is broken once it has lost half its subject peoples: count them now
 			# tfe_reckoning_peoples is also shown on the situation panel: "half of the N subject peoples"
 			set_variable = { name = tfe_reckoning_peoples value = 0 }
-			international_organization:tfe_hunnic_yoke ?= {
-				every_international_organization_member = {
-					limit = { NOT = { tag = HNS } }
-					root = { change_variable = { name = tfe_reckoning_peoples add = 1 } }
-					trigger_event_non_silently = tfe_hunnic_storm.3
+			every_country = {
+				limit = {
+					tfe_is_under_the_yoke = yes
+					NOT = { tag = HNS }
 				}
+				root = { change_variable = { name = tfe_reckoning_peoples add = 1 } }
+				trigger_event_non_silently = tfe_hunnic_storm.3
 			}
 			set_variable = { name = tfe_reckoning_threshold value = var:tfe_reckoning_peoples }
 			change_variable = { name = tfe_reckoning_threshold multiply = 0.5 }
@@ -110,7 +111,7 @@ tfe_hunnic_storm = {
 				var:tfe_storm_phase = 3
 				OR = {
 					NOT = { exists = international_organization:tfe_hunnic_yoke }
-					international_organization:tfe_hunnic_yoke ?= { total_members <= situation:tfe_hunnic_storm.var:tfe_reckoning_threshold }
+					tfe_yoke_size <= situation:tfe_hunnic_storm.var:tfe_reckoning_threshold
 				}
 			}
 			set_variable = { name = tfe_storm_resolved value = yes }
@@ -152,7 +153,7 @@ tfe_hunnic_storm = {
 			custom_tooltip = TFE_STORM_SUBSIDY
 		}
 		else_if = {
-			limit = { owner ?= { is_member_of_international_organization = international_organization:tfe_hunnic_yoke } }
+			limit = { owner ?= { tfe_is_under_the_yoke = yes } }
 			custom_tooltip = TFE_STORM_YOKE
 		}
 	}
@@ -163,7 +164,7 @@ tfe_hunnic_storm = {
 			value = rgb { 90 35 20 }
 		}
 		else_if = {
-			limit = { owner ?= { is_member_of_international_organization = international_organization:tfe_hunnic_yoke } }
+			limit = { owner ?= { tfe_is_under_the_yoke = yes } }
 			value = rgb { 200 140 90 }
 		}
 		else = {

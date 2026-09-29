@@ -1,0 +1,19 @@
+﻿# TFE: the Hunnic Storm. The size of the Huns' realm: the Huns, the Yoke's other members and their tributaries
+# (scripted_triggers/tfe_hunnic_storm.txt). The Scourge and the Reckoning read it. Any scope.
+tfe_yoke_size = {
+	value = 0
+	international_organization:tfe_hunnic_yoke ?= {
+		every_international_organization_member = {
+			add = 1
+		}
+	}
+	c:HNS ?= {
+		every_subject = {
+			limit = {
+				is_subject_type = tributary
+				NOT = { is_member_of_international_organization = international_organization:tfe_hunnic_yoke }
+			}
+			add = 1
+		}
+	}
+}

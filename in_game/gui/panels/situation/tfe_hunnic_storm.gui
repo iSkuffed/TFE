@@ -193,15 +193,29 @@
 						using = Scrollbar_Vertical
 					}
 					scrollwidget = {
-						dynamicgridbox = {
+						vbox = {
 							layoutpolicy_horizontal = expanding
-							flipdirection = yes
-							position = { 10 10 }
-							datamodel_wrap = 14
-							maxhorizontalslots = 14
-							datamodel = "[GetUniqueInternationalOrganization('tfe_hunnic_yoke').GetMembers]"
-							item = {
-								country_flag_small = {}
+							dynamicgridbox = {
+								layoutpolicy_horizontal = expanding
+								flipdirection = yes
+								margin = { 10 5 }
+								datamodel_wrap = 14
+								maxhorizontalslots = 14
+								datamodel = "[GetUniqueInternationalOrganization('tfe_hunnic_yoke').GetMembers]"
+								item = {
+									country_flag_small = {}
+								}
+							}
+							dynamicgridbox = {
+								layoutpolicy_horizontal = expanding
+								flipdirection = yes
+								margin = { 10 5 }
+								datamodel_wrap = 14
+								maxhorizontalslots = 14
+								datamodel = "[GetCountry('HNS').GetDiplomacy.GetSubjects]"
+								item = {
+									country_flag_small = {}
+								}
 							}
 						}
 					}

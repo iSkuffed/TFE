@@ -1,0 +1,78 @@
+﻿# TFE: the Huns' Grand Raid button on the Hunnic Storm's panel (situations/tfe_hunnic_storm.txt). For 10 prestige the
+# Huns pick a neighbour and win a Grand Raid casus belli on it (casus_belli/tfe_hunnic_storm.txt), whose peace treaty
+# (peace_treaties/tfe_hunnic_storm.txt) brings the loser into the Hunnic Yoke.
+tfe_grand_raid = {
+	type = situation
+
+	potential = {
+		scope:actor = { tag = HNS }
+		situation:tfe_hunnic_storm = { situation_is_active = yes }
+	}
+	allow = {
+	}
+
+	price = price:tfe_hunnic_raid_prestige
+	price_modifier = {
+		add = {
+			desc = "tfe_grand_raid_prestige_cost"
+			value = 10
+		}
+	}
+
+	ai_tick = monthly
+	ai_tick_frequency = 12
+	automation_tick = never
+	automation_tick_frequency = 12
+
+	cooldown = {
+		type = tfe_grand_raid
+		years = 1
+	}
+
+	select_trigger = {
+		looking_for_a = country
+		source = actor
+		source_flags = neighbor
+		target_flag = raid_target
+		name = "tfe_grand_raid_choose_country"
+		column = {
+			data = name
+		}
+		visible = {
+			NOT = { tag = HNS }
+			NOT = { tfe_is_under_the_yoke = yes }
+		}
+	}
+
+	effect = {
+		custom_tooltip = tfe_grand_raid_tt
+		scope:actor = {
+			add_casus_belli = {
+				target = scope:raid_target
+				type = casus_belli:cb_tfe_grand_raid
+				years = 5
+			}
+		}
+	}
+
+	ai_will_do = {
+		add = 0
+		# a neighbour the Huns can beat, Rome above all
+		if = {
+			limit = {
+				scope:actor = { NOT = { is_at_war_with = scope:raid_target } }
+				scope:actor.military_strength > scope:raid_target.military_strength
+			}
+			add = 10
+		}
+		if = {
+			limit = {
+				OR = {
+					scope:raid_target = { tag = WRE }
+					scope:raid_target = { tag = EAR }
+				}
+			}
+			add = 10
+		}
+	}
+}

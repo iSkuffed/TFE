@@ -51,11 +51,7 @@ tfe_pay_the_hunnic_subsidy = {
 			casus_belli ?= casus_belli:cb_tfe_grand_raid
 		}
 		scope:loser = {
-			OR = {
-				tag = WRE
-				tag = EAR
-			}
-			NOT = { is_member_of_international_organization = international_organization:tfe_hunnic_yoke }
+			NOT = { tfe_is_under_the_yoke = yes }
 		}
 	}
 	allow = {
