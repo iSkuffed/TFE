@@ -1,0 +1,44 @@
+﻿# TFE: the Huns raid for captives from day one (static_modifiers/tfe_hunnic_raiders.txt). Vanilla's own slave raid
+# sends captives only to a slave market near the front, and the Huns' one market is at Kaffa, so they also drive
+# off a share of the peasants and labourers of every land they take to their capital, as slaves.
+on_game_start = {
+	on_actions = { tfe_on_start_hunnic_raiders }
+}
+
+tfe_on_start_hunnic_raiders = {
+	effect = {
+		c:HNS ?= { add_country_modifier = { modifier = tfe_hunnic_raiders } }
+	}
+}
+
+on_location_occupied = {
+	on_actions = { tfe_on_hunnic_raid }
+}
+
+on_siege_won = {
+	on_actions = { tfe_on_hunnic_raid }
+}
+
+tfe_on_hunnic_raid = {
+	trigger = {
+		has_country_modifier = tfe_hunnic_raiders
+		exists = root.capital
+		scope:target = {
+			exists = owner
+			NOT = { owner = root }
+		}
+	}
+	effect = {
+		scope:target = {
+			every_pop = {
+				limit = {
+					OR = {
+						pop_type = pop_type:peasants
+						pop_type = pop_type:laborers
+					}
+				}
+				split_pop = { fraction = 0.15 type = pop_type:slaves location = root.capital }
+			}
+		}
+	}
+}
