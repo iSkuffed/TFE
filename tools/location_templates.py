@@ -52,6 +52,7 @@ BRITANNIA = {
     "retford": "livestock", "birmingham": "livestock", "bideford": "livestock", "fishguard": "livestock",
     "montgomery": "livestock",
     "hedingham": "livestock",   # Boreham's improved late-Roman cattle
+    "walden": "wheat",          # Saffron Walden's crocus fields are 14th-century
     "thetford": "horses",       # the Iceni's horse country
     "abingdon": "wheat", "henley": "wheat", "banbury": "wheat", "shaftesbury": "wheat", "lavenham": "wheat",
     "lewes": "wheat",           # Sussex villas; the Weald's iron had collapsed by the late 3rd century

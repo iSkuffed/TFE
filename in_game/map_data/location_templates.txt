@@ -1655,7 +1655,7 @@ colchester = { topography = flatland vegetation = farmland climate = oceanic rel
 chelmsford = { topography = flatland vegetation = farmland climate = oceanic religion = catholic culture = english raw_material = wheat}
 prittlewell = { topography = flatland vegetation = grasslands climate = oceanic religion = catholic culture = english raw_material = legumes natural_harbor_suitability = 0.00}
 hedingham = { topography = flatland vegetation = farmland climate = oceanic religion = catholic culture = english raw_material = livestock}
-walden = { topography = flatland vegetation = grasslands climate = oceanic religion = catholic culture = english raw_material = saffron}
+walden = { topography = flatland vegetation = grasslands climate = oceanic religion = catholic culture = english raw_material = wheat}
 barking = { topography = flatland vegetation = grasslands climate = oceanic religion = catholic culture = english raw_material = wheat natural_harbor_suitability = 0.20}
 ipswich = { topography = flatland vegetation = sparse climate = oceanic religion = catholic culture = english raw_material = horses natural_harbor_suitability = 0.50}
 bury = { topography = flatland vegetation = woods climate = oceanic religion = catholic culture = english raw_material = wheat}

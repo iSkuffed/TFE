@@ -180,7 +180,7 @@ def test_roman_britain_mines_and_herds_rather_than_shears():
     britain = {l for l in goods if anc[l][3] in ("home_counties_area", "midlands_area", "west_country_area",
                                                   "east_anglia_area", "wales_area", "northumbria_area")}
     assert {l for l in britain if goods[l] == "wool"} == {"basingstoke", "amesbury", "penllyn", "egremont", "alnwick"}
-    assert not {l for l in britain if goods[l] == "alum"}   # Whitby's alum works came in 1600
+    assert not {l for l in britain if goods[l] in ("alum", "saffron")}   # Whitby's alum 1600, Walden's saffron 1300s
     for l, g in lt.BRITANNIA.items():
         assert l in britain and goods[l] == g, l
 
