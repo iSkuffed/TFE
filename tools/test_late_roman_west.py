@@ -199,6 +199,20 @@ def test_roman_gaul_grows_no_silk_and_the_rhine_bounds_the_vines():
         assert goods[l] == g, l
 
 
+def test_hispania_grows_nothing_the_arabs_brought():
+    anc = b.load_hierarchy()
+    ours = (b.MOD / "in_game/map_data/location_templates.txt").read_text(encoding="utf-8-sig")
+    goods = dict(re.findall(r"^(\w+) = \{[^\n]*raw_material = (\w+)", ours, re.M))
+    hispania = {l for l in goods if anc[l][2] == "iberia_region"}
+    arab = ("sugar", "rice", "cotton", "saffron", "silk", "saltpeter", "coal")
+    assert not {l for l in hispania if goods[l] in arab}
+    assert len({l for l in hispania if goods[l] == "wool"}) <= 10   # the Mesta's flocks were medieval
+    assert goods["almaden"] == "mercury" and "almaden_base" in ours   # Sisapo's cinnabar (Pliny)
+    assert "toledo_weaponry_base" not in ours
+    for l, g in lt.HISPANIA.items():
+        assert goods[l] == g, l
+
+
 def test_the_frontier_works_hold_a_zone_of_control_on_roman_frontier_land():
     placed = re.findall(r"^\s*(tfe_\w+) = \{ tag = (\w+) level = 1 location = (\w+) \}",
                         CITIES.read_text(encoding="utf-8-sig"), re.M)

@@ -138,7 +138,76 @@ GAUL = {
     "urach": "fruit", "mullheim": "fruit", "heilbronn": "livestock", "hachberg": "lumber", "buchen": "lumber",
     "wurzburg": "wheat",
 }
-MEDIEVAL_CLOTH = ("england_wool_base", "yorkshire_cloth_base", "flanders_fine_cloth_base")
+# Hispania in 395: Baetica's oil and garum, Tarraconensis wine, Saetabis linen, Celtiberian steel, Sisapo's cinnabar.
+# Out go what the Arabs brought (sugar, rice, cotton, saffron, silk), saltpeter, coal, medieval alum and the Mesta's
+# flocks; wool stays with the Celtiberians' and Lusitanians' black cloaks (Diodorus) and Baetica's fleeces.
+HISPANIA = {
+    # Baetica and Lusitania
+    "moron": "livestock",       # Campina pastureland; cotton is Andalusi-era, not Roman
+    "baza": "wheat",            # Hoya de Baza grain plain; saffron is Andalusi-era
+    "mojacar": "lead",          # Sierra Almagrera lead-silver; alum unattested here
+    "adra": "fish",             # Roman Abdera fish-salting port; sugar is Andalusi-era
+    "guadix": "wheat",          # Roman Acci farmland; saffron is Andalusi-era
+    "orgiva": "fruit",          # Alpujarra valley orchards; silk is Andalusi-era
+    "malaga": "fish",           # Roman Malaca garum port; sugar is Andalusi-era
+    "velez_malaga": "wine",     # Malaca coast Roman wine export; sugar is Andalusi-era
+    "santa_eufemia": "lead",    # Alto Guadiato; Roman La Loba lead-silver mine nearby
+    "niebla": "copper",         # Rio Tinto river port; no alum evidence, copper trade
+    "belalcazar": "lead",       # Alto Guadiato mines, Roman remains; alum unattested
+    "puebla_de_guzman": "copper",# Tharsis-La Zarza Roman copper mines in this district
+    "tavira": "fish",           # Roman Balsa; Algarve fish-salting, no tin evidence
+    "olvera": "olives",         # Roman Hippo Nova; no evidence of baths, Cadiz olive belt
+    # Carthaginiensis, eastern Tarraconensis, the Balearics
+    "alcaniz": "olives",        # Bajo Aragon oil region, groves since Roman era
+    "montalban": "iron",        # Sierra Menera iron worked since Celtiberian/Roman times
+    "sarinena": "wheat",        # Monegros cereal steppe; saffron is Arab-era
+    "calatayud": "iron",        # Bilbilis: Martial praised its tempered steel
+    "alfambra": "livestock",    # Teruel highland pasture; saffron is Arab-era
+    "zaragoza": "wine",         # Caesaraugusta amid Ebro vineyards; saffron Arab-era
+    "belchite": "livestock",    # Bajo Aragon steppe grazing; silk is Andalusi-era
+    "tarazona": "iron",         # Turiaso: Pliny groups its iron fame with Bilbilis
+    "monzon": "wheat",          # Cinca valley plain; Ilergetes land, not Celtiberia
+    "huesca": "wheat",          # Osca's Hoya basin is a grain plain, not Celtiberia
+    "jaca": "horses",           # Pyrenean pass town; Vascones land, not Celtiberia
+    "sos": "livestock",         # Pyrenean foothill pasture; Vascones, not Celtiberia
+    "almodovar_del_campo": "livestock",# Oretani grazing land, not Celtiberia
+    "malagon": "legumes",       # Oretani plain; La Mancha pulses, not Celtiberia
+    "tortosa": "fish",          # Dertosa: Ausonius praised its Ebro river fish
+    "manresa": "wheat",         # Bages plain grain; saltpeter is gunpowder-era
+    "montblanc": "stone",       # Conca de Barbera quarry; no ancient alum evidence
+    "seu_durgell": "livestock", # Ceretani cheese pasture (Pliny NH 11.240)
+    "vielha": "livestock",      # Val d'Aran alpine pasture, not Celtiberian
+    "cartagena": "silver",      # Carthago Nova: Strabo/Polybius on its vast silver mines
+    "murcia": "wheat",          # Segura valley grain; silk is Andalusi-era
+    "lorca": "fiber_crops",     # Eliocroca esparto country; saltpeter is gunpowder-era
+    "mula": "livestock",        # Interior Murcia pasture; Mazarron alum is 15th-c.
+    "alcazar_de_san_juan": "wheat",# La Mancha grain plain; saltpeter is gunpowder-era
+    "jativa": "fiber_crops",    # Saetabis linen: praised by Pliny, Catullus, Martial
+    "gandia": "salt",           # Coastal saltpans; sugar is Arab-era
+    "valencia": "fish",         # Valentia: Albufera lagoon fisheries; silk is Andalusi-era
+    "bunol": "stone",           # Inland quarry stone; no ancient alum evidence
+    # Gallaecia and the north
+    "villablino": "lumber",     # Laciana valley forest; coal is anachronistic here
+    "chaves": "medicaments",    # Aquae Flaviae, Iberia's largest Roman bath complex
+    "ourense": "medicaments",   # As Burgas, Roman thermal sanctuary/bathhouse
+    "ribadavia": "wine",        # Ribeiro's Roman-era winepresses (Strabo, 2nd c. BC)
+    "villaviciosa": "fruit",    # Astures' apple orchards, Strabo 1st c. BC
+    "carrion_de_los_condes": "wheat",# Vaccaei grain plain, Tierra de Campos
+    "monzon_campos": "wheat",   # Vaccaei grain plain, Tierra de Campos
+    "cuellar": "livestock",     # Arevaci highland cattle herders, not Mesta
+    "fuentiduena": "livestock", # Arevaci highland cattle herders, not Mesta
+    "valmaseda": "livestock",   # Basque mountain pastoralism, not Mesta wool
+    "olite": "wine",            # Ribera Navarra, Ebro valley viticulture (cf. Tudela)
+    "miranda_de_i_douro": "livestock",# Trás-os-Montes cattle country (Zoela)
+    # Extremadura and the Alentejo were the Mesta's winter pastures; Baetica keeps its golden fleeces (Martial)
+    "badajoz": "wheat", "escurial": "livestock", "valencia_de_alcantara": "livestock",
+    "jerez_de_los_caballeros": "livestock",   # Iberian hams (Strabo)
+    "portalegre": "horses",     # the Lusitanian mares
+    "merida": "dyes",           # Emerita's kermes scarlet, the best (Pliny)
+    "coimbra": "olives",        # the Mondego valley; its medicine came with the university
+}
+MEDIEVAL_MODIFIERS = ("england_wool_base", "yorkshire_cloth_base", "flanders_fine_cloth_base",
+                      "toledo_weaponry_base")
 
 
 # Flavour text: the goods marker's tooltip shows a location's own description (<location>_desc) under its modifier.
@@ -177,8 +246,8 @@ CITY_FLAVOR = {
 def overrides(anc, topo, unownable, raw, mods):
     out = {l: {"raw_material": "wheat", "modifier": "tfe_granary_of_rome"} for l in GRANARIES}
     out |= {l: {"raw_material": g} for l, g in ITALIAN_VILLAS.items()}
-    out |= {l: {"modifier": None} for l, m in mods.items() if m in MEDIEVAL_CLOTH}
-    out |= {l: out.get(l, {}) | {"raw_material": g} for l, g in (BRITANNIA | GAUL).items()}
+    out |= {l: {"modifier": None} for l, m in mods.items() if m in MEDIEVAL_MODIFIERS}
+    out |= {l: out.get(l, {}) | {"raw_material": g} for l, g in (BRITANNIA | GAUL | HISPANIA).items()}
     for l, path in anc.items():
         if len(path) > 3 and path[3] in PANNONIA and topo.get(l) in b.LAND_TOPO and l not in unownable:
             out[l] = {"modifier": "tfe_pannonian_recruiting_grounds"}
