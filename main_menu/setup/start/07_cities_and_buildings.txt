@@ -287,9 +287,6 @@ locations={
 
 	# Poland
 	krakow = { rank = city 		town_setup = polish_town }
-	plock = 	{ rank = town	town_setup = polish_town }
-	poznan = 	{ rank = town	town_setup = polish_town }
-	torun = 	{ rank = town	town_setup = baltic_town	prosperity = -0.5}
 	wloclawek =	{ prosperity = -0.2 }
 	radziejow =	{ prosperity = -0.2 }
 

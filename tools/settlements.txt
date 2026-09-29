@@ -402,6 +402,7 @@ novgorod = rural
 plock = rural
 polotsk = rural
 poznan = rural
+torun = rural       # founded 1233 by the Teutonic Order; a tab in vanilla hid it from settle() until now
 pskov = rural
 riga = rural
 rostov = rural
