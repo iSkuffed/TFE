@@ -100,14 +100,16 @@ tfe_hunnic_storm = {
 			set_variable = { name = tfe_storm_phase value = 3 }
 			set_variable = { name = tfe_reckoning_clock value = yes years = 10 }
 			# the Yoke is broken once it has lost half its subject peoples: count them now
-			set_variable = { name = tfe_reckoning_threshold value = 0 }
+			# tfe_reckoning_peoples is also shown on the situation panel: "half of the N subject peoples"
+			set_variable = { name = tfe_reckoning_peoples value = 0 }
 			international_organization:tfe_hunnic_yoke ?= {
 				every_international_organization_member = {
 					limit = { NOT = { tag = HNS } }
-					root = { change_variable = { name = tfe_reckoning_threshold add = 1 } }
+					root = { change_variable = { name = tfe_reckoning_peoples add = 1 } }
 					trigger_event_non_silently = tfe_hunnic_storm.3
 				}
 			}
+			set_variable = { name = tfe_reckoning_threshold value = var:tfe_reckoning_peoples }
 			change_variable = { name = tfe_reckoning_threshold multiply = 0.5 }
 			change_variable = { name = tfe_reckoning_threshold add = 1 }	# the Huns themselves
 		}

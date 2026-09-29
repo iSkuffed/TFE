@@ -1,4 +1,4 @@
-situation_panel = {
+﻿situation_panel = {
 	# TFE: the Hunnic Storm (in_game/common/situations/tfe_hunnic_storm.txt), after vanilla rise_of_timur.gui.
 	# The phase card follows the situation variable tfe_storm_phase (as treaty_of_tordesillas.gui does its phase).
 
@@ -148,7 +148,77 @@ situation_panel = {
 					visible = "[EqualTo_float( FixedPointToFloat(SituationView.GetActiveSituation.GetSituation.MakeScope.GetVariable('tfe_storm_phase').GetValue), '(float)3.0')]"
 					text = "TFE_STORM_PHASE_3_DESC"
 				}
+				text_multi = {
+					margin = { 15 0 }
+					layoutpolicy_horizontal = expanding
+					max_width = 400
+					autoresize = yes
+					visible = "[EqualTo_float( FixedPointToFloat(SituationView.GetActiveSituation.GetSituation.MakeScope.GetVariable('tfe_storm_phase').GetValue), '(float)1.0')]"
+					text = "TFE_STORM_PHASE_1_GOAL"
+				}
+				text_multi = {
+					margin = { 15 0 }
+					layoutpolicy_horizontal = expanding
+					max_width = 400
+					autoresize = yes
+					visible = "[EqualTo_float( FixedPointToFloat(SituationView.GetActiveSituation.GetSituation.MakeScope.GetVariable('tfe_storm_phase').GetValue), '(float)2.0')]"
+					text = "TFE_STORM_PHASE_2_GOAL"
+				}
+				text_multi = {
+					margin = { 15 0 }
+					layoutpolicy_horizontal = expanding
+					max_width = 400
+					autoresize = yes
+					visible = "[EqualTo_float( FixedPointToFloat(SituationView.GetActiveSituation.GetSituation.MakeScope.GetVariable('tfe_storm_phase').GetValue), '(float)3.0')]"
+					text = "TFE_STORM_PHASE_3_GOAL"
+				}
 			}
+		}
+
+		# THE TRIBUTARIES: every people in the Hunnic Yoke, as colonial_revolution.gui lists a federation
+		situation_card_header_button = {
+			visible = "[GetUniqueInternationalOrganization('tfe_hunnic_yoke').Exists]"
+			blockoverride "card_header_button_icon_texture" {
+				texture = "gfx/interface/icons/alerts_icons/international_organization.dds"
+			}
+			blockoverride "card_header_button_raw_text" {
+				text = "TFE_STORM_TRIBUTARIES"
+			}
+			blockoverride "bottom_content" {
+				scrollarea = {
+					layoutpolicy_horizontal = expanding
+					size = { -1 80 }
+					scrollbarpolicy_horizontal = always_off
+					scrollbar_vertical = {
+						using = Scrollbar_Vertical
+					}
+					scrollwidget = {
+						dynamicgridbox = {
+							layoutpolicy_horizontal = expanding
+							flipdirection = yes
+							position = { 10 10 }
+							datamodel_wrap = 14
+							maxhorizontalslots = 14
+							datamodel = "[GetUniqueInternationalOrganization('tfe_hunnic_yoke').GetMembers]"
+							item = {
+								country_flag_small = {}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	##################################### BOTTOM: HOW THE STORM WORKS #####################################
+
+	blockoverride "situation_panel_main_content_bottom" {
+		text_multi = {
+			margin = { 15 5 }
+			layoutpolicy_horizontal = expanding
+			max_width = 480
+			autoresize = yes
+			text = "TFE_STORM_GUIDE"
 		}
 	}
 }
