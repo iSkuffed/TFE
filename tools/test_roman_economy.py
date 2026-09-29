@@ -53,7 +53,7 @@ def test_roman_towns_get_no_castles_from_their_town_presets():
     own, _ = owners()
     known = setups(VANILLA_SETUPS) | setups(TWINS)
     roman = [(l, s) for l, (r, s) in towns().items() if l in own]
-    assert len(roman) > 300
+    assert len(roman) > 250
     fortified = [(l, s) for l, s in roman if FORT_TYPES & set(known[s])]
     assert not fortified, fortified[:5]
 
@@ -147,3 +147,12 @@ def test_rome_not_naples_is_the_market_of_southern_italy():
     markets = re.findall(r"^\s*add_market = (\w+)", (START / "03_markets.txt").read_text(encoding="utf-8-sig"), re.M)
     assert "rome" in markets and "naples" not in markets
     assert b.move_markets("\tadd_market = naples\n\tadd_market = venice\n") == "\tadd_market = rome\n\tadd_market = venice\n"
+
+
+def test_395_settlements_replace_1337_ones():
+    ranks = dict(re.findall(r"^\s*(\w+) = \{[^}]*rank = (\w+)", CITIES.read_text(encoding="utf-8-sig"), re.M))
+    pops = pops_by_location((START / "06_pops.txt").read_text(encoding="utf-8"))
+    world = {l for l, r in ranks.items() if r == "megalopolis"}
+    assert {"rome", "constantinople", "alexandria"} <= world and len(world) <= 10, world
+    assert "venice" not in ranks and ranks["cairo"] == "town" and ranks["trier"] == "city"   # no lagoon city yet
+    assert pops["rome"] > 2 * max(p for l, p in pops.items() if l not in world)

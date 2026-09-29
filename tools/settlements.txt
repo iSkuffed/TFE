@@ -1,0 +1,830 @@
+# The world's settlements in 395, over vanilla's 1337 towns (read by tools/borders.py).
+#   location = rank [population in thousands] [town_setup]
+# rank: megalopolis | city | town | rural (rural drops a vanilla town). A population pins the location's pops to that
+# many thousand; the rest of its region share what is left, so region totals (borders.py) hold. A town_setup is
+# needed only for a town vanilla didn't have. Unlisted locations keep vanilla's rank and their share of the region.
+
+
+#### Italy, Iberia and Roman Africa
+# Lane MED_WEST: italy_region, iberia_region, maghreb_region (all owners), incl. Sicily/Sardinia/Corsica/Balearics
+# One line per CHANGE from current locations.tsv state. Unlisted locations keep current rank/pop.
+
+# --- MEGALOPOLIS ---
+rome = megalopolis 650   # Rome c.400 AD still by far the West's largest city; Chandler/Hanson estimates ~500-800k before the 5th-6th c. aqueduct cuts and Vandal-era decline
+tunis = city 200   # Carthage: the West's second city (Ausonius ranks it after Rome and Constantinople); a great city, not a world city
+
+# --- PROMOTIONS: rural -> city (real, major c.395 settlements the vanilla map left unranked) ---
+aquileia = city 55 italian_coastal_city   # imperial mint/fortress city on the Adriatic lagoon, "Rome of the north"; Council of Aquileia held here 381 AD. Sacked 401, destroyed 452 (Attila) -- still thriving in 395
+caserta = city 40 italian_city   # location covers ancient Capua (Santa Maria Capua Vetere), "Altera Roma," metropolitan see of Campania. Caserta itself is an 18th-c. Bourbon town with no ancient existence
+merida = city 38 iberian_city   # Emerita Augusta, capital of Lusitania; still-standing theatre/amphitheatre/circus/bridge attest a major provincial capital
+braga = city 20 iberian_city   # Bracara Augusta, capital of the Diocletianic province of Gallaecia, hub of a major Roman road network
+tangier = city 22 maghreb_coastal_city   # Tingis, capital of (and namesake of) Mauretania Tingitana; still a WRE coastal holding after Rome's 3rd-c. withdrawal from the interior
+al_khums = city 35 maghreb_coastal_city   # = Leptis Magna, birthplace of Septimius Severus, whose building program made it one of the grandest cities of Roman Africa
+sousse = city 25 maghreb_coastal_city   # Hadrumetum, capital of the province of Byzacena (split from Africa Proconsularis under Diocletian), second city of Roman Africa after Carthage
+
+# --- PROMOTIONS: rural -> town ---
+cartagena = town 12 iberian_town_port   # Carthago Nova, major Roman silver/lead-mining port and mint city; reduced from its Republican peak but still a real town in 395
+ibiza = town 6 iberian_town_port   # Ebusus, wealthy Punic-Roman salt/garum port, a near-autonomous civitas
+pollensa = town 5 iberian_town_port   # Pollentia, Roman colonia co-founded with Palma in 123 BC
+lugo = town 8 iberian_town   # Lucus Augusti, conventus capital of Gallaecia; its Roman wall circuit still stands complete today (UNESCO)
+coruna = town 6 iberian_town_port   # Farum Brigantium; its Roman lighthouse (Tower of Hercules, 2nd c. AD) still operates, attesting a real port town
+volubilis = town 8 maghreb_town   # capital of Mauretania Tingitana until Rome's 285 AD withdrawal to the coast; a Romanized Berber elite kept the city inhabited for centuries after
+ceuta = town 8 maghreb_coastal_town   # Septem, fortified Roman port commanding the Strait of Gibraltar; held by Rome/WRE long after the interior was lost
+sale = town 5 maghreb_coastal_town   # Sala Colonia, the southernmost Roman municipium in Africa at the Bou Regreg mouth; garrison withdrawn 285 AD but the town continued
+aleria = town 6 italian_coastal_town   # one of Corsica's two Roman coloniae (with Mariana), the island's Roman administrative capital
+
+# --- RANK RAISED (already ranked; no town_setup needed) ---
+arezzo = city   # Arretium, wealthy Etrurian city, famed centre of Arretine terra sigillata pottery export
+brindisi = city 25   # Brundisium, chief embarkation port for the East on the Via Appia, one of Italy's most important harbours
+benevento = city 20   # Beneventum, major Samnite-Roman colonia and road hub (Arch of Trajan still stands); was oddly the lowest-pop ranked town in Campania
+zaragoza = city 25   # Caesaraugusta, major Augustan colonia and mint city of Tarraconensis
+tarragona = city 38   # Tarraco, capital of Hispania Citerior/Tarraconensis and Augustus's own residence 26-25 BC; was wrongly ranked below Barcelona
+cherchell = city 40   # Caesarea Mauretaniae, capital of Mauretania Caesariensis, King Juba II's Hellenistic-Roman capital with its famous library
+syracuse = city   # provincial capital of Sicilia under Rome, the island's chief administrative seat even after its Hellenistic-era peak
+catania = city 40   # Catina's pop_k was already far above other Sicilian towns (64.5k); fits better as a real but trimmed city than an outsized "town"
+
+# --- DEMOTIONS: rank lowered (medieval/Islamic-era foundations or vanilla-scale anachronisms) ---
+venice = rural 4   # the lagoon held scattered fishing/salt hamlets in 395; urban Venice begins only after the 568 AD Lombard invasion pushed refugees into it
+udine = rural   # first attested c.983 AD, grew up after Aquileia's 452 AD destruction
+ferrara = rural   # post-Roman marsh foundation, first attested 753 AD
+alessandria = rural   # founded 1168 AD by the Lombard League against Frederick Barbarossa
+prato = rural   # no Roman antecedent; first attested 10th century
+aquila = rural   # L'Aquila founded 1254 AD by Frederick II from a synoecism of villages
+foggia = rural   # Norman-era foundation (c.11th c.), no Roman antecedent
+manfredonia = rural   # founded 1256 AD by Manfred of Sicily, replacing the nearby ancient (and by then malarial/declined) Sipontum
+melfi = rural   # Norman foundation c.1041 AD
+catanzaro = rural   # Byzantine-era foundation, c.9th century
+macerata = rural   # medieval foundation (10th c.+); the real Roman town here, Helvia Ricina, had already declined by late antiquity
+oran = rural   # founded 903 AD by Andalusi sailors from al-Andalus; only a minor Roman fishing post (Portus Divinus) existed nearby
+tlemcen = town 10   # ancient Pomaria was a modest Roman limes fort, not the Zayyanid-era metropolis; kept as a small frontier town, demoted from city
+tahert = rural 16.2   # Tiaret, Rustamid Ibadi capital founded 761 AD
+kairouan = rural 3   # founded 670 AD by Uqba ibn Nafi as the first Arab-Islamic city of the Maghreb, deliberately built on empty inland ground
+mahdia = rural 2   # founded 921 AD by the Fatimid caliph al-Mahdi on a previously undeveloped, easily-fortified peninsula
+fez = rural 10.7   # founded 789 AD by Idris I
+meknes = rural 10.7   # medieval Zenata Berber (Miknasa) foundation, c.10th century
+rabat = rural   # built as an Almohad ribat c.1150 AD
+marrakesh = rural 1.5   # founded 1070 AD by the Almoravids; uninhabited before that (already rural, but its 19.5k pop_k was a glaring medieval-scale leftover)
+taza = rural   # Almoravid/Almohad-era fortress town of the Taza Gap; no known Roman-era city here
+azemmour = rural   # medieval Moroccan Atlantic port, no securely attested Roman-era antecedent
+sijilmasa = rural 1   # founded 757 AD by the Midrarids, first Islamic trans-Saharan trade city; already rural but its pop_k (13.2) was a leftover of its medieval size
+burgos = rural   # founded 884 AD as a Christian frontier fortress of Castile
+valladolid = rural   # Reconquista/Islamic-era-adjacent foundation, first solidly attested ~10-11th c. (named per brief as a glaring anachronism)
+medina_del_campo = rural   # name is Arabic ("town of the field"); grew from a 10th-c. Caliphate of Cordoba frontier post
+teruel = rural   # founded 1171 AD by Alfonso II of Aragon
+perpignan = rural   # first documented 927 AD, a Carolingian-era villa
+cervera = rural   # Reconquista-era repopulation town, first attested c.11th c.
+badajoz = rural   # founded 875 AD as "Batalyaws" by the muwallad rebel Ibn Marwan al-Jilliqi
+santiago_compostela = rural   # the site develops only after the reputed 813 AD discovery of St James's tomb
+almeria = rural   # founded as a naval base 955 AD by Abd ar-Rahman III of Cordoba
+zamora = rural   # Reconquista frontier fortress, prominent from 893 AD (Alfonso III)
+ciudad_rodrigo = rural   # founded/repopulated 1150s AD by Count Rodrigo Gonzalez Giron -- literally named for its medieval founder
+oviedo = rural   # founded 761 AD by Fruela I of Asturias, later Asturian capital
+murcia = rural 6.9   # founded 825 AD by Abd ar-Rahman II of Cordoba
+tudela = rural   # founded 802 AD under the Banu Qasi (Emirate of Cordoba)
+cuenca = rural   # Caliphate of Cordoba fortress town ("Qunka"), first attested 9th-10th c.
+castellon_de_la_plana = rural   # founded 1251 AD when James I of Aragon moved the hilltop settlement to the plain
+morella = rural   # medieval Islamic-era hilltop fortress town; no clear Roman urban record
+granada = town 15   # Granada's greatness is entirely Nasrid (1230s-1492, when it held 100k+); the Roman/Visigothic town here, Illiberis/Iliberri, was modest
+genoa = town 15   # Genoa's rise is a medieval maritime-republic phenomenon (10th c.+); Roman Genua was a minor Ligurian naval port
+
+# --- POP-ONLY PINS (rank unchanged; correcting medieval-scale pop_k inherited from vanilla) ---
+naples = city 35   # Neapolis was a real, moderate Campanian port town in 395; its 200k+ figure is inherited from Angevin-capital-era Naples
+florence = town 12   # Florentia was a minor Roman colonia; Florentine greatness begins in the high-medieval wool/banking boom
+lucca = town 20   # Luca was a real but secondary Tuscan colonia (site of the 56 BC "First Triumvirate" conference); its city-republic prominence is medieval
+siena = town 10   # Saena Julia was a minor colonia; Sienese greatness (banking, Palio) is medieval
+treviso = town 15   # Tarvisium was a modest Roman-Venetic civitas, not a 77k-pop town
+chioggia = town 8   # Fossa Clodia was a minor Roman-era settlement at the lagoon's edge
+savona = town 10   # Savo was a minor Ligurian port
+toledo = city 22   # Toletum was a real but modest Roman municipium in 395; it only becomes a capital once the Visigoths move their seat there in 567 AD
+
+# SOURCES
+# - Ausonius, Ordo Urbium Nobilium (c.390 AD) -- ranks Carthage among the empire's top cities.
+# - A. Chandler, Four Thousand Years of Urban Growth (1987); rough city-size league tables used for Rome/Carthage-tier calls.
+# - J.W. Hanson, An Urban Geography of the Roman World, 100 BC-AD 300 (2016) -- dataset of Roman city areas/estimated populations (Rome, Carthage, Tarraco, Emerita, Caesarea Mauretaniae, Leptis Magna, Cirta, Hippo Regius).
+# - A. Wilson, "City sizes and urbanization in the Roman Empire," in Bowman & Wilson (eds), Settlement, Urbanization, and Population (2011).
+# - W. Scheidel, "Roman population size: the logic of the debate" (2007), for order-of-magnitude sanity checks.
+# - Notitia Dignitatum (early 5th c.) for provincial capitals: Tarraco (Tarraconensis), Emerita (Lusitania), Bracara (Gallaecia), Cirta (Numidia), Caesarea (Mauretania Caesariensis), Hadrumetum (Byzacena), Carthage (Africa Proconsularis).
+# - General historical/founding dates for medieval & Islamic-era towns (L'Aquila 1254, Alessandria 1168, Ferrara first attested 753, Venice urbanization post-568, Oran 903, Tahert 761, Kairouan 670, Mahdia 921, Fez 789, Rabat c.1150, Marrakesh 1070, Sijilmasa 757, Burgos 884, Teruel 1171, Perpignan 927, Badajoz 875, Santiago de Compostela post-813, Almeria 955, Zamora 893, Ciudad Rodrigo 1150s, Oviedo 761, Murcia 825, Tudela 802, Castellon de la Plana 1251, Granada's Nasrid-era peak) -- standard encyclopedic consensus (Britannica, regional municipal histories), cross-checked against known Roman-era antecedents (Illiberis/Granada, Pomaria/Tlemcen, Sala Colonia, Volubilis, Portus Divinus/Oran).
+
+#### Gaul, Britain, the Rhine and the North
+# Lane NORTH_WEST: western_europe minus italy_region and iberia_region
+# (Gaul, Britain, Ireland, Scandinavia, the Rhineland/Low Countries/free Germany, the Alpine lands)
+
+## Gaul (france_region) — mostly a legitimate Roman civitas network already; corrections are pop-pins
+## and demoting a few civitas capitals that were mis-ranked "city", plus one medieval-site fix.
+paris = city 20   # Lutetia; small late-Roman island town (Julian wintered/was acclaimed Augustus here 360), not the 1337 metropolis; cut hard from 120.7k
+arles = city 25   # Arelate; rising fast as the praetorian prefecture of Gaul relocates here from Trier c.395-407 ("the Gallic Rome"), major port and mint
+lyon = city 30   # Lugdunum; capital of Lugdunensis I, still a major mint/bridge city despite 3rd-c. decline from its 2nd-c. peak
+vienne = city   # Vienna; capital of provincia Viennensis, rival/peer of Lyon; pop_k already plausible, just fixing rank
+reims = city 30   # Durocortorum; capital of Belgica Secunda, ancient sources rank it among Gaul's largest cities by area
+bordeaux = city 28   # Burdigala; capital of Aquitania Secunda, Atlantic wine port praised by native son Ausonius
+autun = town 10   # Augustodunum; famous early-imperial "sister and rival of Rome" but sacked by Bagaudae/Victorinus in the 260s-270s and rebuilt at a fraction of its size (walls cut from ~500ha to ~10ha); still a functioning civitas capital
+angers = town 12   # Juliomagus; ordinary Armorican civitas capital, not a provincial capital or great port — "city" was too generous
+troyes = town 12   # Augustobona Tricassium; modest civitas capital of the Tricasses, not a provincial seat
+arras = town 14   # Nemetacum; civitas capital of the Atrebates, a real Belgic town but not city-tier
+montpellier = rural   # site did not exist in 395 (first attested 985 AD); nearest Roman town was Substantio/Sextantio, itself a minor vicus a few km away
+
+## Rhineland — Roman territory west of the Rhine, real Roman cities
+trier = city 55   # Augusta Treverorum; praetorian prefecture capital and imperial residence (Valentinian I, Gratian) until the move to Arles ~395-407, largest city north of the Alps in the late empire; Wightman/Heinen estimate the walled city at 40-75k
+cologne = city 20   # Colonia Claudia Ara Agrippinensium; provincial capital of Germania Secunda, Rhine river-port, bishopric since 313
+mainz = city 22   # Mogontiacum; legionary fortress + provincial capital of Germania Prima
+strasbourg = city 22   # Argentoratum; major Rhine legionary base, site of Julian's 357 victory over the Alamanni
+bonn = town 14 german_town   # Bonna; legionary fortress + vicus on the Rhine limes, garrisoned into the late empire
+neuss = town 13 german_town   # Novaesium; another Rhine legionary-fortress town
+nijmegen = town 9 lowlands_town   # Noviomagus Batavorum; former Batavian colonia, reduced but still inhabited in the late 4th c.
+dusseldorf = rural   # medieval market town, first chartered 1288, no Roman-era settlement
+utrecht = rural   # Traiectum was a small Rhine-limes fort/vicus, well below town scale; grew into a real town only after Willibrord's 8th-c. bishopric
+
+## Low Countries — within the empire's nominal borders but no real towns existed here yet in 395;
+## every one of these is a medieval (mostly 9th-13th c.) foundation.
+antwerp = rural   # first attested 8th c.
+brussels = rural 11.9   # first attested 10th-11th c.
+leuven = rural 11.9   # first attested 9th c.
+hertogenbosch = rural   # founded c.1185
+ghent = rural   # grew around 7th-c. abbeys
+sint_niklaas = rural   # medieval foundation
+bruges = rural 19   # rose as a port from the 9th c.
+ypres = rural   # medieval cloth town
+mons = rural   # grew around a 7th-c. convent
+liege = rural 6.6   # grew around St Lambert's chapel, late 7th c.
+namur = rural 6.6   # medieval county seat; the hilltop had only a small late-Roman refuge fort, not a town
+luxembourg = rural   # founded 963 around Sigefroi's castle
+groningen = rural   # medieval foundation
+zwolle = rural   # medieval foundation
+deventer = rural   # grew from an 8th-c. Frankish mission post
+amsterdam = rural   # medieval fishing village, chartered 1300s
+dordrecht = rural   # medieval foundation
+the_hague = rural   # 13th-c. foundation
+middelburg = rural   # medieval foundation
+zutphen = rural   # medieval foundation
+
+## Free Germany beyond the Rhine/Danube limes — barbaricum in 395; no towns existed at all.
+## All of the following are medieval (mostly Carolingian-era or later) foundations.
+beeskow = rural
+berlin = rural   # first attested 13th c.
+brandenburg = rural   # grew from a Slavic fort, German town founded 1170s
+wittenberg = rural
+zerbst = rural
+kiel = rural   # founded 1242
+lubeck = rural   # founded 1143
+brunswick = rural   # grew from Henry the Lion's 12th-c. seat
+goslar = rural
+gottingen = rural
+halberstadt = rural   # bishopric founded 804 by Charlemagne, still 4 centuries too late
+hamburg = rural   # grew from Charlemagne's Hammaburg fort, c.808
+luneburg = rural
+magdeburg = rural   # founded 805 by Charlemagne
+rostock = rural   # 13th-c. Hanseatic foundation
+wismar = rural
+stettin = rural   # Slavic then German town, 12th-13th c.
+stralsund = rural
+wolgast = rural
+erfurt = rural   # earliest mission post 742 (Boniface), still centuries after 395
+freiberg = rural
+gorlitz = rural
+halle_an_der_saale = rural
+leipzig = rural   # first attested 1015
+bremen = rural   # bishopric founded 787 by Charlemagne
+dortmund = rural
+munster = rural   # bishopric founded 793/805 by Charlemagne
+osnabruck = rural   # bishopric founded by Charlemagne, 780s
+paderborn = rural   # Charlemagne's Saxon-war base, 776
+soest = rural
+frankfurt = rural   # sits in the former Agri Decumates (Wetterau), abandoned by Rome c.260 AD; Alamanni territory by 395
+wetzlar = rural   # same abandoned Agri Decumates territory
+
+## Britain — promote the real civitas/provincial capitals that vanilla left rural, demote the
+## Anglo-Saxon/medieval foundations vanilla ranked as towns, and shrink London to its late-Roman size.
+london = city 16   # Londinium; diocesan capital (Vicarius Britanniarum) and bishopric (attested Council of Arles, 314), but archaeology shows sharp 4th-c. contraction inside its walls — nowhere near 1337's 42k
+york = city 22   # Eboracum; colonia + legionary fortress, provincial capital (likely of Britannia Secunda)
+lincoln = city 20   # Lindum; colonia and provincial capital of Flavia Caesariensis
+cirencester = city 22 british_town   # Corinium Dobunnorum; 2nd-largest walled town in Roman Britain (~97ha), likely capital of Britannia Prima
+st_albans = city 18 british_town   # Verulamium; one of Roman Britain's largest towns (municipium, ~80ha), still building new structures into the early 5th c.
+canterbury = town 15 british_town   # Durovernum Cantiacorum; civitas capital of the Cantiaci
+winchester = town 14 british_town   # Venta Belgarum; civitas capital of the Belgae, one of the largest walled areas in Britain
+chichester = town 12 british_town_port   # Noviomagus Reginorum; civitas capital of the Regni
+exeter = town 13 british_town_port   # Isca Dumnoniorum; civitas capital of the Dumnonii
+gloucester = town 16 british_town_port   # Glevum; colonia on the Severn
+chester = town 13 british_town_port   # Deva; legionary fortress on the Dee
+bath = town 13 british_town   # Aquae Sulis; a real but small temple/spa town
+cambridge = rural   # Anglo-Saxon burh, no Roman-era town (the small Duroliponte crossing-post was tiny)
+oxford = rural   # Anglo-Saxon foundation, first attested 8th-9th c.
+lynn = rural   # King's Lynn, founded c.1101
+norwich = rural   # grew as an Anglo-Saxon/Viking-age town, 9th-10th c.
+boston = rural   # medieval market town
+coventry = rural   # first attested 1043
+bristol = rural   # Anglo-Saxon burh "Brycgstow", first attested c.11th c.
+salisbury = rural   # modern city founded 1220; Iron-Age/Roman Old Sarum (Sorviodunum) nearby was a minor waystation
+
+## Scotland — beyond the Antonine Wall in 395, Pictish/Votadinian territory with no towns.
+inverness = rural
+aberdeen = rural
+berwick = rural 7.1
+edinburgh = rural 7.1
+perth = rural
+
+## Ireland — never Roman, pre-urban in 395; every 1337 Irish town is a Viking-age (9th-10th c.) or later foundation.
+dublin = rural 10.4   # Viking longphort founded 841
+new_ross = rural 10.4   # founded 1207
+wexford = rural   # Viking foundation, 9th c.
+galway = rural   # medieval foundation
+sligo = rural   # medieval foundation
+cork = rural 6   # Viking foundation, 9th c.
+limerick = rural   # Viking foundation, 9th c.
+waterford = rural 6   # Viking foundation, 853
+
+## Scandinavia — Iron Age Scandinavia had no towns in 395; every 1337 town here is Viking-age or later.
+## (Real central places like Gudme on Funen or Uppåkra in Skåne existed but stay rural per brief.)
+aalborg = rural
+flensburg = rural
+kobenhavn = rural   # Copenhagen, first attested 12th c.
+odense = rural 10.4   # named for Odin, but town origins are Viking-age at earliest
+randers = rural
+roskilde = rural   # Danish royal seat only from c.980
+viborg = rural
+kalmar = rural
+linkoping = rural
+skara = rural
+soderkoping = rural
+visby = rural   # Hanseatic-era town, 12th c.
+lund = rural 5.6   # founded c.990
+stockholm = rural   # founded 1252
+bergen = rural   # founded 1070
+hamar = rural
+oslo = rural   # founded c.1040
+stavanger = rural
+tonsberg = rural   # Norway's oldest town, but still no earlier than the Viking age
+
+## Alpine/south German lands — Roman Raetia and Noricum kept real cities; the Agri Decumates
+## (abandoned to the Alamanni c.260 AD), Bohemia/Moravia (Marcomanni/Quadi), and most named
+## Alpine "towns" are medieval foundations centuries after 395.
+augsburg = city 20   # Augusta Vindelicum, provincial capital of Raetia Secunda
+regensburg = city 18   # Castra Regina, fortress of Legio III Italica and a major Danube-limes city
+vienna = city 18   # Vindobona, fortress of Legio X Gemina on the Danube limes
+speyer = town 8   # Noviomagus Nemetum, civitas capital of the Nemetes; "city" at 3.5k pop was internally inconsistent
+linz = town 7   # Lentia, a small Danube fort-town, not a 16k-pop city
+munich = rural   # first attested 1158
+klagenfurt = rural   # medieval foundation, 12th c.; Roman Noricum's real capital Virunum was a different site nearby
+graz = rural   # Slavic-founded ("Gradec"), c.12th c.; Roman Flavia Solva was a different nearby site
+innsbruck = rural   # bridge town chartered 1239; the nearby Roman post-station Veldidena was tiny
+memmingen = rural   # medieval foundation
+oettingen = rural   # medieval foundation
+ravensburg = rural   # founded 1088
+stuttgart = rural 6   # in the former Agri Decumates (Neckar valley), abandoned by Rome c.260 AD
+ulm = rural   # medieval foundation, chartered 1181; also ex-Agri Decumates
+heidelberg = rural   # medieval foundation
+landau_rhineland = rural   # founded 1274
+freiburg = rural   # founded 1120
+bern = rural   # founded 1191
+colmar = rural   # first attested 823
+mulhouse = rural   # first attested 803
+zurich = rural 4.8   # Turicum was a tiny Roman customs post on the Limmat, not a town-scale settlement
+bamberg = rural   # never Roman; founded as a Frankish fortress, 902
+nuremberg = rural   # never Roman; first attested 1050
+rothenburg = rural   # never Roman; medieval foundation
+wurzburg = rural   # never Roman; earliest Frankish castle attested c.7th-8th c.
+kutna_hora = rural   # Marcomannic/Quadi territory in 395, no towns; town itself is 13th-c.
+plzen = rural   # same; Slavic-era name, town founded 1295
+prague = rural   # same; earliest Slavic settlement is 9th c., centuries after the 6th-c. Slavic migration into Bohemia
+brno = rural   # Quadi territory in 395; medieval Slavic/German town
+olomouc = rural   # Quadi territory in 395; medieval Slavic/German town
+
+# SOURCES
+# - Edith Wightman, "Roman Trier and the Treveri" (1970); Heinz Heinen on Augusta Treverorum's late-imperial
+#   population and role as praetorian prefecture / imperial residence.
+# - John Drinkwater, "Roman Gaul: The Three Provinces, 58 BC-AD 260" and later work on the 3rd-c. crisis and the
+#   Bagaudae sack of Autun.
+# - John Wacher, "The Towns of Roman Britain" (2nd ed. 1995); Michael Fulford/Neil Holbrook on Cirencester
+#   (Corinium) as 2nd-largest walled town in Roman Britain; Sheppard Frere's Verulamium excavations (late 4th/
+#   early 5th c. "Building 2").
+# - Andrew Wilson, "Urbanization in Roman Britain" (in Bowman & Wilson, "Settlement, Urbanization, and Population").
+# - Notitia Galliarum (provincial capitals of Gaul: Reims=Belgica II, Vienne=Viennensis, etc.) and Notitia
+#   Dignitatum (Raetia II/Regensburg-Augsburg, legionary dispositions on the Rhine/Danube).
+# - Ausonius, "Ordo Urbium Nobilium" (4th-c. poem ranking the great cities of the Roman West, incl. Trier,
+#   Bordeaux, Arles, Reims).
+# - Colin McEvedy & Richard Jones, "Atlas of World Population History" (1978) for regional population orders
+#   of magnitude and the general "no towns in Iron Age/barbarian Europe" picture.
+# - Tertius Chandler, "Four Thousand Years of Urban Growth" for comparative pre-modern city-size sanity checks.
+# - General medieval-urbanism dating (first-attestation/founding years) for Scandinavia, Ireland, the Low
+#   Countries, free Germany, Bohemia/Moravia, and the Alpine "medieval-founded" entries above: standard,
+#   uncontroversial municipal-history dates (town charters, Viking longphort foundings, Carolingian bishopric
+#   foundings), cross-checked against general historical knowledge rather than a single source.
+
+#### The East: Balkans, Anatolia, the Levant, Egypt, Persia, Arabia, the steppe
+# Lane EAST_MED: eastern_europe + middle_east super_regions, egypt/nubia/ethiopia regions
+# Format: location = RANK [POP_K] [TOWN_SETUP]   # reason/source
+
+# --- The two megalopoleis of the East, and the false one ---
+constantinople = megalopolis 280   # New Rome, ~200-300k and rising per brief; was 134.6k. Chandler/Modelski range 300-500k by AD 500.
+alexandria = megalopolis 320   # "arguably megalopolis, the largest city of the East" per brief; 2nd city of the Mediterranean, still huge after 4th-c decline from its Ptolemaic peak.
+cairo = town 12   # Cairo didn't exist in 395; this location is the site of the Roman fortress of Babylon (Old Cairo), a legionary camp + small river-port town, not a megalopolis.
+giza = city 150 egyptian_city   # stands in for Memphis, just across the river: still the old capital's temple/nome-capital complex (Saqqara, Serapeum) with a rich Nile hinterland, though eclipsed by Alexandria.
+mansoura = rural   # Mansoura was founded in 1219 AD (Ayyubid); pure medieval anachronism for 395, no town here yet.
+damietta = town 20   # ancient Tamiathis was a real but modest Nile-mouth port, not the 147k city vanilla gives it.
+
+# --- Antioch, the Levant, Egypt anomalies ---
+antioch = city 210   # John Chrysostom (4th c.) gives ~200k souls for Antioch, down from its earlier peak; keep as city (below the megalopolis handful), raise from 117.6k.
+aleppo = city 30   # ancient Beroea was a lesser Syrian city under Rome; its rise as a trade metropolis is Islamic/Mamluk-era. 177.4k is a glaring 1337 (Mamluk) anachronism.
+jerusalem = city 30   # Aelia Capitolina was a modest colonia until Constantine's 4th-c church-building program; 80.1k is too high for 395.
+acre = city 40   # Roman Ptolemais was a real but middling Levantine port, not the 98.6k Crusader-era emporium vanilla gives it.
+diyarbekir = city 35   # Amida, the famous fortress of Ammianus's 359 AD siege: a real major Roman frontier city, but not 137.6k.
+urfa = city 45   # Edessa, named in the brief; great Syriac Christian centre, but trim from 137k to a plausible late-antique size.
+nusaybin = city 45   # Nisibis, ceded to Persia in 363 (owner SAS already reflects this, per brief); trim from 123.3k.
+mosul = town 15   # no real city here in 395 (a small Sasanian fort, "Nod-Ardashir"); Mosul's growth is early-Islamic on. 115.3k city rank is anachronistic.
+basra = rural 50.1   # founded 636 AD (early Islamic garrison town); pure anachronism for 395.
+wasit = rural   # founded 702 AD (Umayyad); pure anachronism for 395.
+baghdad = megalopolis 260   # Baghdad (762 AD) did not exist; this location is the nearest map fit for Ctesiphon-Seleucia-Veh Ardashir, the Sasanian capital complex, one of the largest urban agglomerations of the ancient world by 395.
+tadmur = town 8 tiny_levant_town   # Palmyra, "reduced" per brief: sacked by Aurelian in 273, refounded only as a small Diocletianic garrison/oasis town by 395.
+istakhr = town 8 central_asian_town   # Sasanian dynastic and Zoroastrian religious capital near Persepolis; modest population but real status, currently unranked rural.
+dezful = town 15 central_asian_town   # nearest fit for Gundishapur, the famous Sasanian academy/hospital town of Khuzestan; currently unranked rural.
+merv = city 30   # great Silk Road city and Sasanian Khorasan's provincial capital, named in the brief; was only a small town rank at 8.7k.
+
+# --- Anatolia: the brief's named cities ---
+ayasuluk = city 80 greek_city_port   # nearest fit for Ephesus, still one of Roman Asia's great port-metropoleis in the 4th c. (before its harbour fully silted); was unranked rural.
+bergama = city 55   # Pergamon, a major city of Asia (library, Asclepieion); pop already high (69.4k) but only town rank.
+iznik = city 55   # Nicaea, host of the 325 AD council and a provincial capital alongside Nicomedia; pop already high (78.4k) but only town rank.
+# Nicomedia (izmit) and Smyrna are already city rank with plausible high pop: left unchanged.
+# Sardis: no location key sits close enough to the site (nearest candidates already carry other identities); left unmapped.
+
+# --- Balkans: real Roman cities the 1337 map buried as towns/villages ---
+sredets = city 35   # Serdica/Sofia, Constantine's favoured city ("my Rome"), provincial capital of Dacia Mediterranea.
+nis = city 30   # Naissus, birthplace of Constantine, major road junction and mint city.
+plovdiv = city 40   # Philippopolis, leading city and provincial capital of Thracia.
+edirne = city 35   # Adrianople, major Thracian city (378 AD battle); road hub of the diocese.
+drastar = city 30   # Durostorum, legionary fortress of Legio XI Claudia on the Danube limes.
+varna = city 25   # Odessos, major Greek/Roman Black Sea port.
+constanta = city 25   # Tomis, provincial capital of Scythia Minor (Ovid's exile).
+belgrad = city 35   # Singidunum, provincial capital of Moesia Prima, legionary fortress.
+skopje = city 30   # Scupi, Roman colonia and provincial capital of Dardania.
+sremska_mitrovica = city 40 italian_city   # Sirmium, WRE/EAR border per brief: one of the Tetrarchy's four imperial capitals, was unranked rural.
+durres = city 30   # Dyrrachium, the Adriatic terminus of the Via Egnatia, a major port.
+thessaloniki = city 90   # Thessalonica, Galerius's imperial residence and the Balkans' second city; raise from 49.8k.
+gergeri = city 25 greek_town   # nearest fit for Gortyn, Roman provincial capital of Creta et Cyrenaica; was unranked rural.
+candia = rural 5.4   # "Candia"/Heraklion's prominence is Arab (824 AD)/Venetian; no such town in Roman Crete (capital was Gortyn, see gergeri).
+
+# --- Medieval-name anachronisms to demote to rural (no town here in 395) ---
+zagreb = rural       # medieval Croatian foundation (~11th c.)
+dubrovnik = town     # keep a small town for Roman Epidaurum nearby; Ragusa/Dubrovnik itself is a 7th-c.+ refoundation, demoted from city.
+knin = rural         # named settlement is medieval Croatian; the Roman-era camps (Burnum) were minor.
+fehervar = rural      # Szekesfehervar, 10th-c. Hungarian foundation.
+bratislava = rural    # name and town are medieval (first attested 907 AD); only a minor Roman-era fort (Gerulata) existed nearby.
+szeged = rural        # first attested 1183 AD (medieval Hungarian).
+brasov = rural        # Saxon foundation, ~13th c.
+cluj = rural          # Roman Napoca declined after Aurelian's 271 AD withdrawal from Dacia; Gepid-held ruins by 395, not a going city.
+iasi = rural          # medieval Moldavian town (14th-15th c.).
+ismail = rural        # Ottoman-era fortress town.
+suceava = rural       # medieval Moldavian capital (14th c.).
+pest = rural          # minor Roman suburb (Contra Aquincum) of Buda; not a distinct town.
+bucharest = rural     # medieval Wallachian foundation (~14th c.).
+campulung_muscel = rural   # medieval Wallachian foundation (~13th c.).
+targoviste = rural    # medieval Wallachian capital (~14th c.).
+kyiv = rural 6.4          # per brief: Kyiv did not exist in 395.
+lviv = rural          # founded ~1256 AD.
+poltava = rural       # first attested 1174 AD.
+astrakhan = rural     # Golden Horde-era city (13th c.+).
+sarai_al_jadid = rural   # "New Sarai," a Golden Horde capital (14th c.); pure anachronism.
+sarayjuk = rural      # Golden Horde-era trade city (13th c.+).
+kursk = rural         # first attested 1032 AD (Kyivan Rus).
+kaffa = town          # Theodosia was a real Bosporan-era port but modest by 395; demoted from city (3.5k pop hardly justified "city" anyway).
+theodoro = rural      # capital of the medieval Gothic principality of Theodoro; no such polity/town existed in 395.
+gdansk = rural        # Slavic/Baltic lands have no towns in 395 per brief; medieval Polish foundation regardless.
+konigsberg = rural    # Teutonic Order foundation (1255 AD).
+opole = rural         # medieval Polish town.
+wroclaw = rural       # medieval Polish/Silesian town.
+ani = rural 8.6           # Bagratid Armenian fortress/city, prominent only from the 5th-10th c.
+gladzor = rural       # associated with a 13th-14th c. Armenian monastic academy; no ancient town here.
+ganja = rural         # traditionally founded 5th-9th c. (Sasanian/early Islamic); no town in 395.
+tbilisi = rural 14.8       # Tbilisi only rises to prominence from Vakhtang Gorgasali's ~5th-c. refoundation; Iberia's real capital in 395 was Mtskheta (see below).
+mtskheta = city 30 christian_anatolian_city   # ancient Armazi/Mtskheta, the actual capital of the Kingdom of Iberia, Christianized under King Mirian III in the 4th c.
+soba = rural          # capital of the medieval kingdom of Alodia (~6th c.+); did not exist in 395.
+dongola = rural       # capital of the medieval kingdom of Makuria (~6th c.+); did not exist in 395.
+taizz = rural 17         # founded by the Ayyubids in the 12th c.; pure anachronism.
+jeddah = rural 3.8        # became Mecca's port only after Caliph Uthman's ~647 AD foundation.
+soltaniyeh = rural    # Ilkhanid Mongol foundation (14th c.); pure anachronism.
+
+# --- Arabia: brief's Himyar and small-Hejaz calls ---
+mecca = town 5    # per brief, Mecca was small in 395: a minor Qurayshi shrine settlement, not yet a caravan capital.
+medina = town 8   # per brief, Medina (Yathrib) was a modest but somewhat larger oasis settlement of several tribes.
+dhafar = city 20 levant_city   # Zafar, the actual Himyarite royal capital named in the brief; was unranked rural.
+sana_yemen = city 87.4 levant_city   # Sana'a, a major Himyarite city named in the brief; rank raised to match its already-large inherited pop (rural at that size was the real anomaly).
+marib = city 15 levant_town   # Marib, the ancient Sabaean capital and great dam oasis, named in the brief; was unranked rural.
+
+# SOURCES
+# - Chandler, Four Thousand Years of Urban Growth (1987) and Chandler/Modelski tables of ancient city sizes (Constantinople, Alexandria).
+# - McEvedy & Jones, Atlas of World Population History (used indirectly via TFE's own WORLD_POPULATION_M/ROMAN_POPULATION_M in tools/borders.py).
+# - John Chrysostom (4th c., quoted in modern surveys) for Antioch's ~200,000 souls.
+# - Web search summaries (Sept 2026) consulted for Constantinople c.400 AD population estimates (istanbultarihi.ist, shadowsofconstantinople.com, Wikipedia "List of largest cities throughout history"), Ctesiphon/Seleucia size and Sasanian Mesopotamia population (Wikipedia "Ctesiphon", Encyclopaedia Iranica "CTESIPHON"), Antioch's Chrysostom-era population (craigkeener.com, biblicalcyclopedia.com), and Aksum's 4th-c. urban population (britishmuseum.org, historyhit.com) -- Aksum's own inherited figure (21.1k, already city) matched this evidence and was left unchanged.
+# - General late-antique urban geography/administrative-capital status (Serdica, Naissus, Sirmium, Singidunum, Scupi, Durostorum, Odessos, Tomis, Dyrrachium, Gortyn, Nisibis, Edessa, Amida, Ptolemais, Aelia Capitolina, Napoca, Mtskheta, Zafar, Marib, Sana'a, Gundeshapur, Istakhr): standard Roman/Sasanian/South Arabian historical consensus (Barrington Atlas-level place identifications), not a single citable web source.
+# - Foundation dates used to flag medieval anachronisms (Kyiv, Lviv, Poltava, Astrakhan, Sarai, Kursk, Dubrovnik/Ragusa, Zagreb, Bratislava, Szeged, Brasov, Iasi, Suceava, Bucharest, Targoviste, Ani, Ganja, Tbilisi, Dongola, Soba, Taizz, Jeddah, Soltaniyeh, Mansoura, Basra, Wasit, Baghdad): standard reference dates for each city's founding/rise to prominence.
+
+#### China, Korea, Japan and Central Asia
+shangyuan = megalopolis 380   # Jiankang, Eastern Jin capital since 317; Sanguozhi/Jin shu record a walled city of several hundred thousand; chinese_city preset omitted (megalopolis uses its own).
+linzhang = city 70 chinese_city   # Ye (鄴), capital of Cao Wei/Later Zhao/Former Yan/Ran Wei, one of the era's great walled cities (Bronze Bird Terrace); still Former/Later Yan territory in 395. Was wrongly rural.
+guangping = rural   # Duplicate seat in the same commandery cluster as Handan; Jin-era Guangping's seat was Handan, not a second town here.
+luoyang = city 20   # Luoyang sacked 311 (Han-Zhao) and fought over since Former Qin's 383 collapse; still garrisoned, symbolically vital, but a shadow of Han/Western Jin size. Chandler/Bairoch-style estimate for a ruined former capital.
+yiyang = rural   # Duplicate Henan-commandery entry; one seat (Luoyang) suffices.
+kaifeng = rural 25.7   # Kaifeng/Bianzhou's rise starts under the Five Dynasties (10th c.); a minor Chenliu-commandery county in 395.
+xinzheng = rural   # Same Kaifeng-commandery cluster; no case for a second Jin-era seat here.
+guancheng_zhengzhou = city 20   # Xingyang commandery seat, a strategic gateway commandery near Luoyang under Jin; kept as city.
+yangdi = rural 25.7   # Duplicate Xingyang-commandery entry.
+yongcheng = rural   # Duplicate Liangguo-commandery entry.
+dadu = town 12   # Beijing was minor Ji (薊), Yan/Guangyang commandery seat and frontier garrison town in 395, not yet a capital of anything; demoted hard from Yuan/Ming megalopolis.
+jingzhao = city 90   # Chang'an, Later Qin (Yao Xing's) capital from 386; sacked repeatedly since 311 but rebuilt as a working royal capital. Bumped from 35k to a capital-scale figure, still well below Han-era peak.
+suzhou_gansu = town 15 chinese_town   # Jiuquan, one of the 4 Hexi Corridor commanderies (with Wuwei/Zhangye/Dunhuang); was wrongly rural.
+gaotai = rural 5.1   # Minor Jiuquan-commandery county, not the seat itself.
+shazhou = town 15 chinese_town   # Dunhuang (Shazhou), Silk Road gateway oasis; Mogao caves construction begins 366 AD. Was wrongly rural.
+zhenfan = city 45   # Best-fit location for Guzang (modern Wuwei), capital of the Later Liang kingdom (Lü Guang, from 386); a major Silk Road/Buddhist-translation centre. No exact 'Wuwei' key exists in this province cluster.
+dantu = city 35   # Jingkou, home base of Eastern Jin's Beifu Army, the dynasty's most important garrison city; pop cut hard from 1337's 120k.
+jiangdu = city 30   # Guangling, Jin's Yangtze-mouth frontier garrison opposite Jingkou; pop cut from 1337's 61k.
+shouchun = city 30   # Shouyang/Shouchun, the great Huai River fortress-city, site of the Battle of Fei River (383) just before the mod's start.
+pengze = city 20   # Xunyang/Jiujiang, key middle-Yangtze garrison and cultural centre (Huiyuan's Donglin Temple at nearby Lushan, Tao Yuanming's home).
+wuxian = city 35   # Wu commandery seat (Suzhou); a real Jiangnan commandery capital, but nowhere near 1337's 243k canal-city scale.
+shaoxing = city 55   # Kuaiji, the leading Jiangnan commandery after Jiankang itself (many northern refugee elites settled here); pop cut from 1337's 127k.
+hangzhou = town 18   # Qiantang was a modest county town before the Sui Grand Canal (7th c.) made Hangzhou great; demoted from city and cut hard from 85k.
+xuanhua_nanning = rural   # Nanning's urban rise starts under the Tang; a remote Jiaozhi-frontier outpost in 395.
+lhasa = rural 3.4   # Tibetan Empire founded 7th c.; no urban centre at Lhasa in 395.
+leh = rural   # Ladakh urbanises much later; no case for a 395 town.
+chamdo = rural   # No pre-imperial Tibetan urban centre attested at Chamdo in 395.
+kucha = city central_asian_city   # Kucha was the most populous Tarim kingdom per Han shu/Wei lue Western Regions records, larger than Kashgar or Khotan; was wrongly rural.
+karasahr = town central_asian_town   # Yanqi (Karashahr) kingdom capital, comparable in the Han-era records to Khotan; was wrongly rural.
+charklik = town central_asian_town   # Yuni, the Shanshan kingdom's relocated capital after Loulan's desertification; matches the SSN (Shanshan) owner tag.
+kuandian = city 25 korea_city   # Nearest mapped location to Ji'an: site of Gungnae-seong (Guonei), Goguryeo's actual royal capital 3-427 AD (Pyongyang only becomes capital in 427).
+ilan_hala = rural   # Yilan/Sanxing is a Qing-era garrison town (18th c.); anachronistic for 395 Mohe/Wuji tribal territory.
+karakorum = rural   # Karakorum is Ogedei Khan's 1235 foundation; no settlement here in 395 (Rouran/Xianbei steppe).
+kaesong = town 15   # Kaesong's urban rise is Goryeo-era (founded as Songak, capital from 918/896); no case for a 68k city here in 395 — cut to a frontier settlement.
+seogyeong = city 45   # Pyongyang was Lelang commandery's Han-Chinese capital for four centuries before Goguryeo took it in 313; the best-urbanised spot in Korea in 395. Bumped from 27k.
+jeonju = town 16   # Jeonju's prominence is a Later Baekje/Goryeo (9th-10th c.) development; a secondary Baekje town at best in 395.
+andong = rural 11.7   # The name 'Andong' postdates the Tang Andong Protectorate (668) and especially Goryeo (930); no basis for a 40k town in early Silla's periphery.
+jinju = town 15   # The Gaya confederacy had no strong central authority; Jinju's later Joseon-era prominence doesn't apply to 395 — cut to one minor Gaya polity's town.
+takaichi = town japan_town   # Takaichi/Asuka district, the historic heart of the early Yamato court (Miwa/Makimuku, great kofun); the one town the brief allows for Kofun Japan. Was wrongly rural.
+kyoto = rural 13.8   # Heian-kyo founded 794; wholly anachronistic as a 395 city.
+kamakura = rural 8.2   # Kamakura's prominence starts with the 1185 shogunate; no Kofun-era settlement of note.
+miyagi = rural   # Tohoku (Emishi territory) is outside Yamato control in 395; no towns.
+akita = rural   # Tohoku (Emishi territory) is outside Yamato control in 395; no towns.
+kagoshima = rural   # Pre-Yamato Hayato/Kumaso Kyushu; no towns yet.
+hata = rural   # Peripheral Shikoku (Tosa); no Kofun-era town.
+yoshiki_suou = rural   # Peripheral Inland Sea coast; no Kofun-era town.
+anxi = rural   # Ming/Qing county-town density in fujian thinned to one presumed commandery seat per area for 395; this one demoted.
+youxi = rural   # Ming/Qing county-town density in fujian thinned to one presumed commandery seat per area for 395; this one demoted.
+gutian = rural   # Ming/Qing county-town density in fujian thinned to one presumed commandery seat per area for 395; this one demoted.
+zhangping = rural   # Ming/Qing county-town density in fujian thinned to one presumed commandery seat per area for 395; this one demoted.
+putian = rural   # Ming/Qing county-town density in fujian thinned to one presumed commandery seat per area for 395; this one demoted.
+shaowu = rural   # Ming/Qing county-town density in fujian thinned to one presumed commandery seat per area for 395; this one demoted.
+jinjiang = rural   # Ming/Qing county-town density in fujian thinned to one presumed commandery seat per area for 395; this one demoted.
+shanghang = rural   # Ming/Qing county-town density in fujian thinned to one presumed commandery seat per area for 395; this one demoted.
+minxian = rural   # Ming/Qing county-town density in fujian thinned to one presumed commandery seat per area for 395; this one demoted.
+hailing = rural   # Ming/Qing county-town density in huaidong thinned to one presumed commandery seat per area for 395; this one demoted.
+haimen = rural   # Ming/Qing county-town density in huaidong thinned to one presumed commandery seat per area for 395; this one demoted.
+funing_huaian = rural   # Ming/Qing county-town density in huaidong thinned to one presumed commandery seat per area for 395; this one demoted.
+xuzhou = rural   # Ming/Qing county-town density in huaidong thinned to one presumed commandery seat per area for 395; this one demoted.
+wuwei = rural   # Ming/Qing county-town density in huaixi thinned to one presumed commandery seat per area for 395; this one demoted.
+luan = rural   # Ming/Qing county-town density in huaixi thinned to one presumed commandery seat per area for 395; this one demoted.
+mengcheng = rural   # Ming/Qing county-town density in huaixi thinned to one presumed commandery seat per area for 395; this one demoted.
+zhaoxin = rural   # Ming/Qing county-town density in huaixi thinned to one presumed commandery seat per area for 395; this one demoted.
+huaiyuan = rural   # Ming/Qing county-town density in huaixi thinned to one presumed commandery seat per area for 395; this one demoted.
+linhuai = rural   # Ming/Qing county-town density in huaixi thinned to one presumed commandery seat per area for 395; this one demoted.
+suzhou_fengyang = rural   # Ming/Qing county-town density in huaixi thinned to one presumed commandery seat per area for 395; this one demoted.
+hezhou_he = rural   # Ming/Qing county-town density in huaixi thinned to one presumed commandery seat per area for 395; this one demoted.
+yingshang = rural   # Ming/Qing county-town density in huaixi thinned to one presumed commandery seat per area for 395; this one demoted.
+macheng = rural 14.1   # Ming/Qing county-town density in hubei thinned to one presumed commandery seat per area for 395; this one demoted.
+yiling = rural   # Ming/Qing county-town density in hubei thinned to one presumed commandery seat per area for 395; this one demoted.
+hanchuan = rural   # Ming/Qing county-town density in hubei thinned to one presumed commandery seat per area for 395; this one demoted.
+wudang = rural   # Ming/Qing county-town density in hubei thinned to one presumed commandery seat per area for 395; this one demoted.
+fangling = rural   # Ming/Qing county-town density in hubei thinned to one presumed commandery seat per area for 395; this one demoted.
+shayang = rural   # Ming/Qing county-town density in hubei thinned to one presumed commandery seat per area for 395; this one demoted.
+zigui = rural   # Ming/Qing county-town density in hubei thinned to one presumed commandery seat per area for 395; this one demoted.
+yusha = rural   # Ming/Qing county-town density in hubei thinned to one presumed commandery seat per area for 395; this one demoted.
+xiaogan = rural   # Ming/Qing county-town density in hubei thinned to one presumed commandery seat per area for 395; this one demoted.
+shipai = rural   # Ming/Qing county-town density in hubei thinned to one presumed commandery seat per area for 395; this one demoted.
+lingling = rural   # Ming/Qing county-town density in hunan thinned to one presumed commandery seat per area for 395; this one demoted.
+hengyang = rural   # Ming/Qing county-town density in hunan thinned to one presumed commandery seat per area for 395; this one demoted.
+yiyang_changsha = rural   # Ming/Qing county-town density in hunan thinned to one presumed commandery seat per area for 395; this one demoted.
+ningyuan = rural   # Ming/Qing county-town density in hunan thinned to one presumed commandery seat per area for 395; this one demoted.
+xiangtan = rural   # Ming/Qing county-town density in hunan thinned to one presumed commandery seat per area for 395; this one demoted.
+pingyang_guiyang = rural   # Ming/Qing county-town density in hunan thinned to one presumed commandery seat per area for 395; this one demoted.
+yongan_youzhou = rural   # Ming/Qing county-town density in hunan thinned to one presumed commandery seat per area for 395; this one demoted.
+baicang = rural   # Ming/Qing county-town density in hunan thinned to one presumed commandery seat per area for 395; this one demoted.
+yizhang = rural   # Ming/Qing county-town density in hunan thinned to one presumed commandery seat per area for 395; this one demoted.
+changshu = rural 125.2   # Ming/Qing county-town density in jiangnan thinned to one presumed commandery seat per area for 395; this one demoted.
+ningguo = rural 125.2   # Ming/Qing county-town density in jiangnan thinned to one presumed commandery seat per area for 395; this one demoted.
+jiangning = rural   # Ming/Qing county-town density in jiangnan thinned to one presumed commandery seat per area for 395; this one demoted.
+jiangyin = rural   # Ming/Qing county-town density in jiangnan thinned to one presumed commandery seat per area for 395; this one demoted.
+guangde = rural   # Ming/Qing county-town density in jiangnan thinned to one presumed commandery seat per area for 395; this one demoted.
+dangtu = rural   # Ming/Qing county-town density in jiangnan thinned to one presumed commandery seat per area for 395; this one demoted.
+wuyuan_huizhou = rural   # Ming/Qing county-town density in jiangnan thinned to one presumed commandery seat per area for 395; this one demoted.
+dongliu = rural   # Ming/Qing county-town density in jiangnan thinned to one presumed commandery seat per area for 395; this one demoted.
+yongxin = rural 73.2   # Ming/Qing county-town density in jiangxi thinned to one presumed commandery seat per area for 395; this one demoted.
+lean_fuzhou = rural   # Ming/Qing county-town density in jiangxi thinned to one presumed commandery seat per area for 395; this one demoted.
+fenning = rural   # Ming/Qing county-town density in jiangxi thinned to one presumed commandery seat per area for 395; this one demoted.
+gaoan = rural   # Ming/Qing county-town density in jiangxi thinned to one presumed commandery seat per area for 395; this one demoted.
+anfu_jian = rural   # Ming/Qing county-town density in jiangxi thinned to one presumed commandery seat per area for 395; this one demoted.
+nancheng = rural   # Ming/Qing county-town density in jiangxi thinned to one presumed commandery seat per area for 395; this one demoted.
+fuliang = rural   # Ming/Qing county-town density in jiangxi thinned to one presumed commandery seat per area for 395; this one demoted.
+yichun = rural   # Ming/Qing county-town density in jiangxi thinned to one presumed commandery seat per area for 395; this one demoted.
+shangrao = rural   # Ming/Qing county-town density in jiangxi thinned to one presumed commandery seat per area for 395; this one demoted.
+jianchang = rural   # Ming/Qing county-town density in jiangxi thinned to one presumed commandery seat per area for 395; this one demoted.
+xingguo = rural   # Ming/Qing county-town density in jiangxi thinned to one presumed commandery seat per area for 395; this one demoted.
+longnan = rural   # Ming/Qing county-town density in jiangxi thinned to one presumed commandery seat per area for 395; this one demoted.
+huichang = rural   # Ming/Qing county-town density in jiangxi thinned to one presumed commandery seat per area for 395; this one demoted.
+chongyi = rural   # Ming/Qing county-town density in jiangxi thinned to one presumed commandery seat per area for 395; this one demoted.
+wuling = rural   # Ming/Qing county-town density in wuling thinned to one presumed commandery seat per area for 395; this one demoted.
+suining_jing = rural   # Ming/Qing county-town density in wuling thinned to one presumed commandery seat per area for 395; this one demoted.
+yuanling = rural   # Ming/Qing county-town density in wuling thinned to one presumed commandery seat per area for 395; this one demoted.
+luyang = rural   # Ming/Qing county-town density in wuling thinned to one presumed commandery seat per area for 395; this one demoted.
+lichuan = rural   # Ming/Qing county-town density in wuling thinned to one presumed commandery seat per area for 395; this one demoted.
+yongshun_yongshun = rural   # Ming/Qing county-town density in wuling thinned to one presumed commandery seat per area for 395; this one demoted.
+dongyang = rural 110.4   # Ming/Qing county-town density in zhejiang thinned to one presumed commandery seat per area for 395; this one demoted.
+linan = rural 110.4   # Ming/Qing county-town density in zhejiang thinned to one presumed commandery seat per area for 395; this one demoted.
+anji = rural 110.4   # Ming/Qing county-town density in zhejiang thinned to one presumed commandery seat per area for 395; this one demoted.
+zhuji = rural   # Ming/Qing county-town density in zhejiang thinned to one presumed commandery seat per area for 395; this one demoted.
+shuangxi = rural   # Ming/Qing county-town density in zhejiang thinned to one presumed commandery seat per area for 395; this one demoted.
+yinxian = rural   # Ming/Qing county-town density in zhejiang thinned to one presumed commandery seat per area for 395; this one demoted.
+linhai = rural   # Ming/Qing county-town density in zhejiang thinned to one presumed commandery seat per area for 395; this one demoted.
+xian_quzhou = rural   # Ming/Qing county-town density in zhejiang thinned to one presumed commandery seat per area for 395; this one demoted.
+chunan = rural   # Ming/Qing county-town density in zhejiang thinned to one presumed commandery seat per area for 395; this one demoted.
+longquan = rural   # Ming/Qing county-town density in zhejiang thinned to one presumed commandery seat per area for 395; this one demoted.
+yuyang = rural   # Ming/Qing county-town density in beiping thinned to one presumed commandery seat per area for 395; this one demoted.
+yifeng = rural   # Ming/Qing county-town density in beiping thinned to one presumed commandery seat per area for 395; this one demoted.
+baoan_baoan = rural   # Ming/Qing county-town density in beiping thinned to one presumed commandery seat per area for 395; this one demoted.
+lutai = rural   # Ming/Qing county-town density in beiping thinned to one presumed commandery seat per area for 395; this one demoted.
+shanyin = rural 14.8   # Ming/Qing county-town density in datong thinned to one presumed commandery seat per area for 395; this one demoted.
+erdao = rural   # Ming/Qing county-town density in datong thinned to one presumed commandery seat per area for 395; this one demoted.
+zichuan = town   # Largest settlement of haiyou; kept as a plain commandery-seat town, not a named major capital, so downgraded from city.
+anqiu = rural   # Ming/Qing county-town density in haiyou thinned to one presumed commandery seat per area for 395; this one demoted.
+juxian = rural   # Ming/Qing county-town density in haiyou thinned to one presumed commandery seat per area for 395; this one demoted.
+yexian_laizhou = rural   # Ming/Qing county-town density in haiyou thinned to one presumed commandery seat per area for 395; this one demoted.
+jimo = rural   # Ming/Qing county-town density in haiyou thinned to one presumed commandery seat per area for 395; this one demoted.
+muping = rural   # Ming/Qing county-town density in haiyou thinned to one presumed commandery seat per area for 395; this one demoted.
+qixia = rural   # Ming/Qing county-town density in haiyou thinned to one presumed commandery seat per area for 395; this one demoted.
+puyang = rural   # Ming/Qing county-town density in hebei thinned to one presumed commandery seat per area for 395; this one demoted.
+huixian = rural   # Ming/Qing county-town density in hebei thinned to one presumed commandery seat per area for 395; this one demoted.
+baima_daming = rural   # Ming/Qing county-town density in hebei thinned to one presumed commandery seat per area for 395; this one demoted.
+wuan = rural   # Ming/Qing county-town density in hebei thinned to one presumed commandery seat per area for 395; this one demoted.
+shanxian = rural   # Ming/Qing county-town density in henan thinned to one presumed commandery seat per area for 395; this one demoted.
+changshe = rural   # Ming/Qing county-town density in henan thinned to one presumed commandery seat per area for 395; this one demoted.
+lushi = rural   # Ming/Qing county-town density in henan thinned to one presumed commandery seat per area for 395; this one demoted.
+lanyang = rural   # Ming/Qing county-town density in henan thinned to one presumed commandery seat per area for 395; this one demoted.
+liangxian_ruzhou = rural   # Ming/Qing county-town density in henan thinned to one presumed commandery seat per area for 395; this one demoted.
+biyang = rural   # Ming/Qing county-town density in henan thinned to one presumed commandery seat per area for 395; this one demoted.
+rangxian = rural   # Ming/Qing county-town density in henan thinned to one presumed commandery seat per area for 395; this one demoted.
+xizhou = rural   # Ming/Qing county-town density in henan thinned to one presumed commandery seat per area for 395; this one demoted.
+licheng = rural 33.4   # Ming/Qing county-town density in shandong thinned to one presumed commandery seat per area for 395; this one demoted.
+fengfu = rural   # Ming/Qing county-town density in shandong thinned to one presumed commandery seat per area for 395; this one demoted.
+qihe = rural   # Ming/Qing county-town density in shandong thinned to one presumed commandery seat per area for 395; this one demoted.
+pingyin = rural   # Ming/Qing county-town density in shandong thinned to one presumed commandery seat per area for 395; this one demoted.
+yanci = rural   # Ming/Qing county-town density in shandong thinned to one presumed commandery seat per area for 395; this one demoted.
+chuqiu = rural   # Ming/Qing county-town density in shandong thinned to one presumed commandery seat per area for 395; this one demoted.
+yuncheng = rural   # Ming/Qing county-town density in shandong thinned to one presumed commandery seat per area for 395; this one demoted.
+wudi = rural   # Ming/Qing county-town density in shandong thinned to one presumed commandery seat per area for 395; this one demoted.
+tengxian = rural   # Ming/Qing county-town density in shandong thinned to one presumed commandery seat per area for 395; this one demoted.
+shansu = rural   # Ming/Qing county-town density in shandong thinned to one presumed commandery seat per area for 395; this one demoted.
+qufu = rural   # Ming/Qing county-town density in shandong thinned to one presumed commandery seat per area for 395; this one demoted.
+liaocheng = rural   # Ming/Qing county-town density in shandong thinned to one presumed commandery seat per area for 395; this one demoted.
+hongtong = rural 27   # Ming/Qing county-town density in shanxi thinned to one presumed commandery seat per area for 395; this one demoted.
+yushe = rural 27   # Ming/Qing county-town density in shanxi thinned to one presumed commandery seat per area for 395; this one demoted.
+xiangyuan = rural 27   # Ming/Qing county-town density in shanxi thinned to one presumed commandery seat per area for 395; this one demoted.
+taiping_jiangzhou = rural 27   # Ming/Qing county-town density in shanxi thinned to one presumed commandery seat per area for 395; this one demoted.
+hedong = rural   # Ming/Qing county-town density in shanxi thinned to one presumed commandery seat per area for 395; this one demoted.
+shouyang = rural   # Ming/Qing county-town density in shanxi thinned to one presumed commandery seat per area for 395; this one demoted.
+wenxi = rural   # Ming/Qing county-town density in shanxi thinned to one presumed commandery seat per area for 395; this one demoted.
+xihe = rural   # Ming/Qing county-town density in shanxi thinned to one presumed commandery seat per area for 395; this one demoted.
+lingshi = rural   # Ming/Qing county-town density in shanxi thinned to one presumed commandery seat per area for 395; this one demoted.
+shilou = rural   # Ming/Qing county-town density in shanxi thinned to one presumed commandery seat per area for 395; this one demoted.
+hehe = rural   # Ming/Qing county-town density in shanxi thinned to one presumed commandery seat per area for 395; this one demoted.
+pingjin = rural   # Ming/Qing county-town density in shanxi thinned to one presumed commandery seat per area for 395; this one demoted.
+xiurong = rural   # Ming/Qing county-town density in shanxi thinned to one presumed commandery seat per area for 395; this one demoted.
+wuxiang = rural   # Ming/Qing county-town density in shanxi thinned to one presumed commandery seat per area for 395; this one demoted.
+hequ = rural   # Ming/Qing county-town density in shanxi thinned to one presumed commandery seat per area for 395; this one demoted.
+dinghu = rural   # Ming/Qing county-town density in shanxi thinned to one presumed commandery seat per area for 395; this one demoted.
+guozhou = rural   # Ming/Qing county-town density in shanxi thinned to one presumed commandery seat per area for 395; this one demoted.
+yixingzhou = rural 9.3   # Ming/Qing county-town density in yanbei thinned to one presumed commandery seat per area for 395; this one demoted.
+hezhong = rural   # Ming/Qing county-town density in yanbei thinned to one presumed commandery seat per area for 395; this one demoted.
+xingzhong = rural   # Ming/Qing county-town density in yanbei thinned to one presumed commandery seat per area for 395; this one demoted.
+anxi_dingzhou = rural   # Ming/Qing county-town density in yannan thinned to one presumed commandery seat per area for 395; this one demoted.
+xingtai = rural   # Ming/Qing county-town density in yannan thinned to one presumed commandery seat per area for 395; this one demoted.
+zhending = rural   # Ming/Qing county-town density in yannan thinned to one presumed commandery seat per area for 395; this one demoted.
+pingji = rural   # Ming/Qing county-town density in yannan thinned to one presumed commandery seat per area for 395; this one demoted.
+jinghai = rural   # Ming/Qing county-town density in yannan thinned to one presumed commandery seat per area for 395; this one demoted.
+jingan_shenzhou = rural   # Ming/Qing county-town density in yannan thinned to one presumed commandery seat per area for 395; this one demoted.
+nangong = rural   # Ming/Qing county-town density in yannan thinned to one presumed commandery seat per area for 395; this one demoted.
+yanshan = rural   # Ming/Qing county-town density in yannan thinned to one presumed commandery seat per area for 395; this one demoted.
+tangxian = rural   # Ming/Qing county-town density in yannan thinned to one presumed commandery seat per area for 395; this one demoted.
+puyin = rural   # Ming/Qing county-town density in yannan thinned to one presumed commandery seat per area for 395; this one demoted.
+hejian = rural   # Ming/Qing county-town density in yannan thinned to one presumed commandery seat per area for 395; this one demoted.
+tiaoxian = rural   # Ming/Qing county-town density in yannan thinned to one presumed commandery seat per area for 395; this one demoted.
+dingxing = rural   # Ming/Qing county-town density in yannan thinned to one presumed commandery seat per area for 395; this one demoted.
+gengma = town   # Largest settlement of dali; kept as a plain commandery-seat town, not a named major capital, so downgraded from city.
+taihe_dali = rural   # Ming/Qing county-town density in dali thinned to one presumed commandery seat per area for 395; this one demoted.
+yangshan = rural 27.8   # Ming/Qing county-town density in guangdong thinned to one presumed commandery seat per area for 395; this one demoted.
+dongguan = rural 27.8   # Ming/Qing county-town density in guangdong thinned to one presumed commandery seat per area for 395; this one demoted.
+nanhai = rural 27.8   # Ming/Qing county-town density in guangdong thinned to one presumed commandery seat per area for 395; this one demoted.
+jieyang = rural   # Ming/Qing county-town density in guangdong thinned to one presumed commandery seat per area for 395; this one demoted.
+gaoyao = rural   # Ming/Qing county-town density in guangdong thinned to one presumed commandery seat per area for 395; this one demoted.
+conghua = rural   # Ming/Qing county-town density in guangdong thinned to one presumed commandery seat per area for 395; this one demoted.
+xinxing_nanen = rural   # Ming/Qing county-town density in guangdong thinned to one presumed commandery seat per area for 395; this one demoted.
+ducheng = rural   # Ming/Qing county-town density in guangdong thinned to one presumed commandery seat per area for 395; this one demoted.
+baochang_nanxiong = rural   # Ming/Qing county-town density in guangdong thinned to one presumed commandery seat per area for 395; this one demoted.
+qingxiang = rural 17.4   # Ming/Qing county-town density in guangxi thinned to one presumed commandery seat per area for 395; this one demoted.
+lishan_pingle = rural   # Ming/Qing county-town density in guangxi thinned to one presumed commandery seat per area for 395; this one demoted.
+maping = rural   # Ming/Qing county-town density in guangxi thinned to one presumed commandery seat per area for 395; this one demoted.
+changan = rural   # Ming/Qing county-town density in guangxi thinned to one presumed commandery seat per area for 395; this one demoted.
+tanjin = rural   # Ming/Qing county-town density in guangxi thinned to one presumed commandery seat per area for 395; this one demoted.
+nanliu = rural   # Ming/Qing county-town density in guangxi thinned to one presumed commandery seat per area for 395; this one demoted.
+puning_rongzhou = rural   # Ming/Qing county-town density in guangxi thinned to one presumed commandery seat per area for 395; this one demoted.
+changhua = rural   # Ming/Qing county-town density in haibei_hainan thinned to one presumed commandery seat per area for 395; this one demoted.
+wenchang = rural   # Ming/Qing county-town density in haibei_hainan thinned to one presumed commandery seat per area for 395; this one demoted.
+ningyuan_wananjun = rural   # Ming/Qing county-town density in haibei_hainan thinned to one presumed commandery seat per area for 395; this one demoted.
+hepu = rural   # Ming/Qing county-town density in haibei_hainan thinned to one presumed commandery seat per area for 395; this one demoted.
+xinyi_gaozhou = rural   # Ming/Qing county-town density in haibei_hainan thinned to one presumed commandery seat per area for 395; this one demoted.
+shilong = rural   # Ming/Qing county-town density in haibei_hainan thinned to one presumed commandery seat per area for 395; this one demoted.
+qianjiang_binzhou = rural   # Ming/Qing county-town density in liangjiang thinned to one presumed commandery seat per area for 395; this one demoted.
+duyang = rural   # Ming/Qing county-town density in liangjiang thinned to one presumed commandery seat per area for 395; this one demoted.
+weichu = rural   # Ming/Qing county-town density in yunnan thinned to one presumed commandery seat per area for 395; this one demoted.
+gengdang = rural   # Ming/Qing county-town density in yunnan thinned to one presumed commandery seat per area for 395; this one demoted.
+luzhou = rural 12.1   # Ming/Qing county-town density in chuandong thinned to one presumed commandery seat per area for 395; this one demoted.
+pengshui = rural   # Ming/Qing county-town density in chuandong thinned to one presumed commandery seat per area for 395; this one demoted.
+fuzhou_sichuan = rural   # Ming/Qing county-town density in chuandong thinned to one presumed commandery seat per area for 395; this one demoted.
+fengdu = rural   # Ming/Qing county-town density in chuandong thinned to one presumed commandery seat per area for 395; this one demoted.
+shizhao = rural   # Ming/Qing county-town density in chuandong thinned to one presumed commandery seat per area for 395; this one demoted.
+puge = rural 6.9   # Ming/Qing county-town density in chuannan thinned to one presumed commandery seat per area for 395; this one demoted.
+rongxian = rural 6.9   # Ming/Qing county-town density in chuannan thinned to one presumed commandery seat per area for 395; this one demoted.
+huichuan_dechang = rural   # Ming/Qing county-town density in chuannan thinned to one presumed commandery seat per area for 395; this one demoted.
+jiangyou = rural   # Ming/Qing county-town density in chuanxi thinned to one presumed commandery seat per area for 395; this one demoted.
+mianzhou = rural   # Ming/Qing county-town density in chuanxi thinned to one presumed commandery seat per area for 395; this one demoted.
+jingchuan = rural   # Ming/Qing county-town density in hexi thinned to one presumed commandery seat per area for 395; this one demoted.
+jingbian = rural   # Ming/Qing county-town density in hexi thinned to one presumed commandery seat per area for 395; this one demoted.
+fuzhou_yanan = rural   # Ming/Qing county-town density in hexi thinned to one presumed commandery seat per area for 395; this one demoted.
+fuchuan_ningxia = rural   # Ming/Qing county-town density in hexi thinned to one presumed commandery seat per area for 395; this one demoted.
+baoan = rural   # Ming/Qing county-town density in hexi thinned to one presumed commandery seat per area for 395; this one demoted.
+huanzhou_qingyang = rural   # Ming/Qing county-town density in hexi thinned to one presumed commandery seat per area for 395; this one demoted.
+fugu = rural   # Ming/Qing county-town density in hexi thinned to one presumed commandery seat per area for 395; this one demoted.
+jingning = rural   # Ming/Qing county-town density in hexi thinned to one presumed commandery seat per area for 395; this one demoted.
+suide = rural   # Ming/Qing county-town density in hexi thinned to one presumed commandery seat per area for 395; this one demoted.
+longxi_gongchang = rural 12.8   # Ming/Qing county-town density in longyou thinned to one presumed commandery seat per area for 395; this one demoted.
+wenxian_gongchang = rural   # Ming/Qing county-town density in longyou thinned to one presumed commandery seat per area for 395; this one demoted.
+sanshui_binzhou = rural 22.5   # Ming/Qing county-town density in shaanxi thinned to one presumed commandery seat per area for 395; this one demoted.
+hancheng = rural   # Ming/Qing county-town density in shaanxi thinned to one presumed commandery seat per area for 395; this one demoted.
+qianzhou = rural   # Ming/Qing county-town density in shaanxi thinned to one presumed commandery seat per area for 395; this one demoted.
+pucheng = rural   # Ming/Qing county-town density in shaanxi thinned to one presumed commandery seat per area for 395; this one demoted.
+huayuan = rural   # Ming/Qing county-town density in shaanxi thinned to one presumed commandery seat per area for 395; this one demoted.
+linyou = rural   # Ming/Qing county-town density in shaanxi thinned to one presumed commandery seat per area for 395; this one demoted.
+xunyang = rural   # Ming/Qing county-town density in shaanxi thinned to one presumed commandery seat per area for 395; this one demoted.
+daan = rural   # Ming/Qing county-town density in shaanxi thinned to one presumed commandery seat per area for 395; this one demoted.
+
+# SOURCES
+# - Tan Qixiang, Zhongguo Lishi Ditu Ji (Historical Atlas of China), Jin/Sixteen Kingdoms/Eastern Jin volumes:
+#   commandery seats used throughout (Ye/Linzhang, Xiangyang, Jiangling, Jingkou/Dantu, Guangling/Jiangdu,
+#   Shouchun, Jiankang, Chang'an, Luoyang, Pingcheng, the Hexi Corridor commanderies).
+# - Jin Shu (History of the Jin Dynasty), Dilizhi (Treatise on Geography): ~19 zhou / ~173 jun / ~1232 xian for the
+#   unified Jin c. 280 AD; used as the rough town-density baseline for thinning 1337's ~300 China-lane ranked
+#   locations down to a plausible 395 count.
+# - Han Shu and Wei Lue (via Hou Han Shu commentary), Xiyu zhuan (Western Regions chapters): population figures for
+#   the Tarim Basin oasis kingdoms (Kucha largest, then Khotan/Yanqi/Kashgar/Loulan/Shanshan) driving the Xinjiang
+#   promotions and the Loulan/Miran abandonment already reflected in the data (0 pop, left unchanged).
+# - Chandler, Four Thousand Years of Urban Growth, and Bairoch, Cities and Economic Development: order-of-magnitude
+#   population estimates for Jiankang, Chang'an, Luoyang and Kaesong-era Korea, cross-checked against the brief's
+#   own Paris/Milan/Constantinople/Rome benchmarks.
+# - McEvedy & Jones, Atlas of World Population History: regional population orders of magnitude for Korea, Japan,
+#   Central Asia and Manchuria/Mongolia/Siberia (matches WORLD_POPULATION_M's own citation of the same source).
+# - Samguk Sagi (Korea, Three Kingdoms chronicle) for Baekje's Hanseong/Ungjin capital sequence (Hanseong falls,
+#   capital moves to Ungjin/Gongju, only in 475 - confirms Gongju/Ungjin correctly left rural at 395) and Goguryeo's
+#   capital sequence (Gungnae-seong until 427, then Pyongyang).
+# - Nihon Shoki / Kofun-period archaeology (Makimuku/Miwa site, Asuka-Takaichi district) for the Yamato court's
+#   4th-century core; Kyoto (Heian-kyo, 794) and Kamakura (1185) excluded as anachronistic.
+# - General knowledge of Sogdian/Silk Road urbanism (Samarkand/Maracanda, Bukhara, Chach/Tashkent) for leaving
+#   Transoxiana's existing ranks essentially untouched.
+# - Method note: for the large mass of unnamed/unrecognised China-lane "town" entries (mostly Ming/Qing county
+#   seats with no attested Jin-era significance), a mechanical fallback was used: within each EU5 "area" not covered
+#   by a specifically-researched location above, only the single highest-pop_k entry was kept (downgraded to town if
+#   it had been city) as a stand-in for that area's presumed commandery seat, and every other non-rural entry in the
+#   area was demoted to rural. This is a deliberate simplification, not individually verified per location - see
+#   handoff notes for its limits (e.g. it missed real ancient seats like Lanzhou/Jincheng and Fuzhou/Min in favour of
+#   the area's highest-pop neighbour).
+
+#### India, South-East Asia, Africa and the Americas
+# Lane REST: south_asia, south_east_asia, west_africa, central_africa, east_africa (minus ethiopia/nubia),
+# southern_africa, north_america, south_america, australasia, pacific_islands. 395 AD (Gupta India / Funan-Pyu-Cham
+# South-East Asia / Classic Maya & Teotihuacan Mesoamerica / Moche-Nazca-Tiwanaku Andes).
+
+# --- SOUTH ASIA: Gupta India & Sri Lanka ---
+patna = megalopolis 260 indian_city   # Pataliputra, Chandragupta II's capital; Faxian (in India c.399-411) called it magnificent; a world city
+mathura = city   # major Gupta-era Vaishnava/Buddhist art & pilgrimage centre on the Yamuna ("Mathura school"); town -> city
+prayag = town indian_town   # Ganges-Yamuna confluence; site of Samudragupta's Allahabad Pillar inscription; rural -> town
+anuradhapura = city 70 indian_city   # capital of the Anuradhapura Kingdom since the 4th c. BC, described by Faxian c.410-411; rural -> city
+kotte = rural 15   # Kotte Kingdom founded 1412 AD, ~1000 years after game start
+tamluk = city indian_coastal_city   # Tamralipti, the great Gupta-era port; Faxian sailed for China from here c.409 AD; rural -> city
+delhi = rural 15   # Dhillika/Delhi first an urban centre under the Tomaras, c.736 AD; nothing here in 395
+gaur = rural   # Lakhnauti/Gaur's rise is Sena dynasty (12th c.) and Bengal Sultanate
+pandua = rural   # Pandua/Firuzabad founded as a Bengal Sultanate capital 1339-42 AD
+satgaon = rural   # Saptagram's heyday as a port is 13th-16th c.
+sonargaon = rural   # rose as a regional capital under the Delhi/Bengal Sultanate, 13th c. onward
+kamatapur = rural   # capital of the Kamata kingdom, founded c.13th c.
+kataka = rural   # Cuttack founded/fortified c.989 AD by the Somavamshi dynasty
+nadia = rural   # Nabadwip's rise as a Sena capital and centre of learning is 12th c. onward
+ahmednagar = rural   # founded 1494 AD by the Nizam Shahis; pure medieval-Islamic foundation
+bijapur = rural   # Vijayapura/Bijapur's urban history begins under the Kalyani Chalukyas, 10th-11th c. at earliest
+bidar = rural   # rose to prominence only as the Bahmani capital from 1429 AD
+gulbarga = rural   # prominence dates to the Bahmani Sultanate, capital there from 1347 AD
+raichur = rural   # the Raichur Doab fort city is a 14th-c. Bahmani/Vijayanagara foundation
+golconda = rural   # founded c.1143 AD as a Kakatiya mud fort
+warangal = rural   # Kakatiya capital, founded c.12th-13th c.
+vijayanagar = rural   # literally "City of Victory", founded 1336 AD
+kozhikode = rural   # Calicut's rise under the Zamorins begins c.13th c.; a minor fishing village in 395
+
+# --- SOUTH EAST ASIA: Funan, Champa, Pyu, pre-Dvaravati Thailand/Java/Sumatra ---
+simhapura = city 20 south_east_asia_city   # early Champa's capital at Tra Kieu, attested from the kingdom's founding (Linyi, c.192 AD); rural -> city
+vijaya = rural   # Cha Ban/Vijaya only became the Cham capital after Indrapura fell, 10th-11th c.
+vyadhapura = city   # Funan's royal capital per Chinese/Sanskrit sources; town -> city
+angkor_borei = city south_east_asia_city   # major Funan canal-city, extensively excavated moated urban core (with Oc Eo as its port); rural -> city
+angkor = rural   # the Khmer temple-capital was founded by Jayavarman II in 802 AD
+longvek = rural   # a 16th-century post-Angkor Khmer capital
+indrapura_khmer = rural   # echoes a 9th-c. Cham/Khmer capital name; nothing here in 395
+ayodhya = rural 8.7   # Chao Phraya valley urbanisation (Dvaravati and successors) postdates 395; an Ayutthaya-era name
+lopburi = rural 8.7   # Lavo/Lopburi's Dvaravati-era prominence begins c.6th c.
+sukhothai = rural 8.7   # Sukhothai kingdom founded 1238 AD
+suphanburi = rural 8.7   # an Ayutthaya-period town
+lamphun = rural   # Hariphunchai founded (legendarily) c.7th-8th c.
+temasek = rural   # Temasek/Singapore first clearly attested in the 14th century
+pegu = rural   # Bago traditionally founded 573 AD
+martaban = town   # demote from city; a modest early Mon trade port, Hanthawaddy-era prominence is 13th c.+
+pagan = town   # demote from city; stands in for a fading Beikthano (Pyu city that peaked c.200 BC-100 AD); the historical Bagan kingdom is 9th c.+
+pyay = city 35   # Sri Ksetra, greatest Pyu walled city (ruins beside modern Pyay), near its 4th-5th c. floruit; raise pop, keep city
+daha = rural   # Daha/Kediri only rose as a kingdom capital c.1042 AD
+kawali = rural   # Kawali became the Sunda (Galuh) capital c.1333 AD
+sunda_kelapa = rural   # Tarumanagara was only just founded (c.358 AD); no real port town yet
+palembang = rural   # Srivijaya, which made Palembang its capital, was founded c.671 AD
+
+# --- WEST & EAST AFRICA ---
+# unowned in 395, so no town can stand here yet: djenne = town sahel_town   # stands in for Jenne-Jeno, one of sub-Saharan Africa's earliest urban centres, inhabited since ~250 BC; rural -> town
+mogadishu = rural   # Mogadishu founded by Arab/Persian traders c.9th-10th century
+
+# --- NORTH AMERICA: Teotihuacan-dominated Mesoamerica, Classic Maya ---
+tehotihuacan = megalopolis 150 mexican_city   # Teotihuacan, dominant power of central Mexico, one of the largest cities on Earth c.395; rural -> megalopolis
+tenochtitlan = rural 23.2   # founded 1325 AD
+tlacopan = rural   # rose as a Triple Alliance capital only in the 15th c.
+tetzcoco = rural 23.2   # the Acolhua reached the Valley of Mexico c.13th c.
+azcapotzalco = rural 23.2   # the Tepanec capital's prominence is post-Toltec, well after 395
+zaachila = city   # best available stand-in for the Zapotec capital region of Monte Alban, near its Period IIIb floruit; town -> city
+mani = rural   # a Postclassic Maya town of the Mayapan league
+mayapan = rural   # founded c.1220s AD
+chakan_putum = rural   # Chakanputun/Champoton's prominence in the chronicles is Postclassic (Itza migration era)
+noh_peten = rural 0.8   # Nojpeten, the Itza capital, founded 15th c.
+pismachi = rural   # a Postclassic highland Maya-era name, not yet founded in 395
+yax_mutal = city 45 yucatan_town   # Tikal (Yax Mutal), a major Early Classic Maya capital already prominent before its 378 AD "entrada"; rural -> city
+
+# --- SOUTH AMERICA: Moche, Nazca, Tiwanaku ---
+chan_chan = city   # stands in for the Moche capital at Cerro Blanco (Huacas del Sol y de la Luna), the era's dominant north-coast centre; town -> city
+# unowned in 395, so no town can stand here yet: tiwanaku = town andes_town   # an emerging altiplano ceremonial-political centre, well before its 6th-9th c. imperial peak; rural -> town
+cahuachi = town andes_town   # the great Nazca pilgrimage/ceremonial centre, active c.1st-5th c. AD; rural -> town
+
+# --- NOT CHANGED, notable checks ---
+# sana (Sipan-area, andes_region) already town under MOC - left as is, plausible Moche elite centre.
+# kolhapur (ancient Hippokoura, Ptolemy 2nd c.), kayal (ancient Pandya pearl port near Korkai), puri, monghyr,
+# kanchipuram, madurai, varanasi, ujjain: already plausibly ranked for 395, left unchanged.
+# pinya (Pyu, irrawady_area): left unchanged (already city) but is read here as standing in for Halin, the other
+# major Pyu walled city flourishing c.300-500 AD; its EU5 name is a much later Burmese kingdom, unavoidable given
+# only 3 Pyu-tagged locations exist (pagan/pinya/pyay) for 3 real Pyu cities (Beikthano/Halin/Sri Ksetra).
+# djenne is Jenne-Jeno's approximate location, not the modern town of Djenne (founded c.13th c.) which succeeded it.
+# gao, walata, tichit, timbuktu, great_zimbabwe, kotte-adjacent Sri Lanka coast, jaffna, west/central/southern
+# African locations, and all Amazon/Chaco/Brazil/Caribbean/Canada/Alaska locations: already correctly rural, no
+# known 395 urban settlement to add; left unchanged.
+
+# REGION-TOTAL CONCERNS (not encoded above, per brief)
+# - new_zealand_region and remote/eastern Polynesia (Society Islands, Cook Islands, Hawaii, Easter Island; not
+#   micronesia/western Polynesia like Fiji-Tonga-Samoa, which were settled ~1000 BC) had NO human population in 395;
+#   Polynesian voyaging reached them only c.700-1300 AD (see Wilmshurst et al. 2011, PNAS, on late NZ settlement).
+#   new_zealand_region is unlisted in WORLD_POPULATION_M so it "keeps vanilla's numbers" - i.e. an anachronistic
+#   pre-existing Maori population. Consider adding new_zealand_region (and maybe remote polynesia_region islands)
+#   to WORLD_POPULATION_M near 0.
+# - great_lakes_region's 1.5M target seems generous for pre-Bantu-consolidation East Africa in 395, but no specific
+#   glaring location anomaly to pin against it (no named 395 polity/city there), so left alone.
+
+# SOURCES
+# - McEvedy & Jones, "Atlas of World Population History" (1978) - regional population baselines.
+# - Tertius Chandler, "Four Thousand Years of Urban Growth" (1987) - Pataliputra, Teotihuacan, ancient city-size estimates.
+# - Faxian (Fa-Hien), "A Record of Buddhistic Kingdoms" (tr. Legge, 1886) - Pataliputra, Tamralipti, Anuradhapura, c.399-411 AD travels.
+# - George Coedes, "The Indianized States of Southeast Asia" (1968) - Funan/Vyadhapura/Angkor Borei/Oc Eo, Champa/Simhapura, Sukhothai/Ayutthaya chronology.
+# - Bob Hudson, "The Origins of Bagan" (2004) and Pyu Ancient Cities (UNESCO listing, 2014) - Sri Ksetra, Halin, Beikthano dating.
+# - Wikipedia/standard tertiary consensus, cross-checked, for foundation dates: Delhi (Tomara, 736), Gaur/Pandua/
+#   Satgaon/Sonargaon/Kamatapur/Cuttack/Nabadwip (Bengal Sultanate/Sena era), Bahmani-Deccan cities (Bidar, Gulbarga,
+#   Bijapur, Golconda, Warangal, Vijayanagara, Ahmednagar), Mogadishu, Kediri/Daha, Kawali, Palembang/Srivijaya,
+#   Kotte (1412), Mayapan/Nojpeten/Chakanputun (Postclassic Maya), Tenochtitlan/Tlacopan/Tetzcoco (Triple Alliance),
+#   Jenne-Jeno (Roderick McIntosh excavations, occupation from ~250 BC).
+# - Michael E. Smith on Teotihuacan population (c.100,000-200,000 at its Early Classic peak) and the Basin of Mexico
+#   before the Aztecs.
+# - Simon Martin & Nikolai Grube, "Chronicle of the Maya Kings and Queens" - Tikal/Yax Mutal, the 378 AD "entrada".
+# - Joanne Pillsbury / Moche studies (Huacas de Moche site) and Christopher Donnan on Sipan, for Moche urbanism.
+# - Alan Kolata, "The Tiwanaku" (1993) - Tiwanaku's early (pre-imperial) 4th-c. state.
+# - Helaine Silverman, "Cahuachi in the Ancient Nasca World" (1993).
+# - Wilmshurst, Hunt, Lipo & Anderson (2011), PNAS, "High-precision radiocarbon dating shows recent and rapid
+#   initial human colonization of East Polynesia" - late settlement of NZ/remote Polynesia.
+
+#### The Roman Levant's coastal cities (merge pass: vanilla left them rural with the region's people piled on them)
+beirut = city 45 levant_city   # Berytus, the empire's great law school
+latakia = city 40 levant_city   # Laodicea ad Mare, a Severan metropolis and Syria's port
+sidon = town 30 levant_town   # Sidon, a purple-dye and glass port
+tripoli_syria = town 25 levant_town   # Tripolis of Phoenicia
+tartus = town 20 levant_town   # Antaradus
+baalbek = town 25 levant_town   # Heliopolis, the temple city of Jupiter
+cermik = rural 40   # an upland Jazira district, not a 180k city: vanilla's weight scaled up by Sasanian Mesopotamia's total
+damascus = city 80   # Damascus, a great caravan city but second to Antioch in Syria

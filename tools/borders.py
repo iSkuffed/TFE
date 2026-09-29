@@ -207,6 +207,52 @@ def load_ranks(path, tags, rank_names, default="rank_county"):
     return ranks, errors
 
 
+SETTLEMENT_RANKS = ("megalopolis", "city", "town", "rural")
+
+
+def load_settlements(path, locations, setups):
+    # "location = rank [population in thousands] [town_setup]": the 395 settlements over vanilla's 1337 ones
+    out, errors = {}, []
+    for no, loc, val in parse_kv_file(path):
+        where = f"{Path(path).name}:{no}"
+        rank, *rest = val.split() or [""]
+        pop = float(rest.pop(0)) if rest and re.fullmatch(r"[\d.]+", rest[0]) else None
+        setup = rest.pop(0) if rest else None
+        if loc not in locations:
+            errors.append(f"{where}: unknown location '{loc}'")
+        elif rank not in SETTLEMENT_RANKS:
+            errors.append(f"{where}: unknown rank '{rank}'")
+        elif setup and setup not in setups or rest:
+            errors.append(f"{where}: unknown town_setup '{' '.join([setup] + rest)}'")
+        elif loc in out:
+            errors.append(f"{where}: {loc} listed twice")
+        else:
+            out[loc] = (rank, pop, setup)
+    return out, errors
+
+
+def settle(text, settlements):
+    # re-rank vanilla's towns, drop the ones that were not there in 395, and add 395's own at the top
+    listed = set()
+    def one(line):
+        m = re.match(r"\s*(\w+) = \{ rank = (\w+)", line)
+        if not m or m.group(1) not in settlements:
+            return [line]
+        listed.add(m.group(1))
+        rank, _, setup = settlements[m.group(1)]
+        if rank == "rural":
+            return []
+        line = line.replace(f"rank = {m.group(2)}", f"rank = {rank}", 1)
+        return [re.sub(r"town_setup\s*=\s*\w+", f"town_setup = {setup}", line) if setup else line]
+    lines = [out for l in text.split("\n") for out in one(l)]
+    new = [f"\t{l} = {{ rank = {r} town_setup = {s} }}" for l, (r, _, s) in settlements.items()
+           if l not in listed and r != "rural"]
+    missing = [l for l in new if l.endswith("town_setup = None }")]
+    assert not missing, f"tools/settlements.txt: new towns need a town_setup: {missing[:5]}"
+    at = lines.index("locations={") + 1
+    return "\n".join(lines[:at] + ["\t# TFE: 395's own towns (tools/settlements.txt)"] + new + lines[at:])
+
+
 def load_governments(path, owned):
     govs, errors = {}, []
     for no, t, line in parse_kv_file(path):
@@ -530,10 +576,15 @@ def compute():
     country_types, e = load_country_types()
     errors += e + [f"country_types.txt: {t} owns no land" for t in sorted(set(country_types) - set(owned))]
     pop_based = {t for t, k in country_types.items() if k == "pop"}
+    settlements, e = load_settlements(TOOLS / "settlements.txt", land, vanilla_keys(GAME / "in_game/common/town_setups"))
+    errors += e
+    landed = landed_locations(owner, pop_based)
+    warnings += [f"settlements.txt: {l} is on unowned land and stays rural" for l, (r, _, _) in settlements.items()
+                 if r != "rural" and l not in landed]
     return dict(anc=anc, topo=topo, cent=cent, land=land, proj=proj, stats=stats, holdout=holdout, ds=ds,
                 owner=owner, trail=trail, tags=tags, errors=errors, warnings=warnings, owned=owned, caps=caps,
                 ranks=ranks, discovered=discovered, governments=governments, pop_based=pop_based,
-                country_types=country_types)
+                country_types=country_types, settlements=settlements)
 
 
 FILTERED_START = ["03_markets", "07_cities_and_buildings", "09_roads"]
@@ -751,13 +802,13 @@ ROMAN_POPULATION_M = {
 # vanilla town presets gave the West 175 castles; it keeps its seats and the limes (Rhine, Danube, the Wall)
 WORLD_POPULATION_M = {  # 395 population (millions) of each region's land outside the empires (McEvedy & Jones, rounded
     # for play). Vanilla's 1337 had China and India near 90M each and Japan 10M. Unlisted regions (Iceland, the far
-    # Pacific) keep vanilla's handful rather than go empty.
+    # Pacific) keep vanilla's handful rather than go empty. China's north still outnumbered the Jin south, 1337's reverse.
     "north_german_region":3.0, "south_german_region":1.2, "carpathia_region":1.5, "balkan_region":0.3,
     "great_britain_region":0.3, "ireland_region":0.5, "scandinavian_region":0.8, "baltic_region":1.0,
     "russian_region":1.0, "ruthenia_region":1.2, "steppes_region":0.8, "ural_region":0.3, "west_siberia_region":0.1,
     "caucasus_region":1.5, "persia_region":4.0, "khorasan_region":2.5, "crescent_region":4.5, "arabia_region":3.0,
     "egypt_region":0.01, "nubia_region":0.6, "ethiopia_region":1.2, "maghreb_region":1.0,
-    "east_china_region":22.0, "north_china_region":12.0, "south_china_region":4.0, "west_china_region":4.0,
+    "east_china_region":14.0, "north_china_region":20.0, "south_china_region":4.0, "west_china_region":4.0,
     "manchuria_region":1.0, "korea_region":2.0, "mongolia_region":0.8, "tibet_region":0.8, "xinjiang_region":0.6,
     "japan_region":2.0, "hindustan_region":15.0, "bengal_region":10.0, "deccan_region":12.0,
     "western_india_region":7.0, "central_india_region":6.0, "indochina_region":4.0, "indonesia_region":4.0,
@@ -771,10 +822,10 @@ ROMAN_FORTS = {
             "buda", "york", "carlisle"),
     "EAR": ("constantinople", "thessaloniki", "edirne", "nis", "antioch", "malatya", "trebizond", "alexandria", "dara"),
 }
-# a Local Governor in each diocese's seat, or the nearest city (Arles -> Marseille, Trier -> Metz, Ephesus -> Smyrna)
+# a Local Governor in each diocese's seat (Sirmium = sremska_mitrovica, Ephesus = ayasuluk)
 ROMAN_GOVERNORS = {
-    "WRE": ("rome", "tunis", "sevilla", "marseille", "metz", "london", "buda"),
-    "EAR": ("thessaloniki", "smyrna", "kayseri", "antioch", "alexandria"),
+    "WRE": ("rome", "tunis", "merida", "arles", "trier", "london", "sremska_mitrovica"),
+    "EAR": ("thessaloniki", "ayasuluk", "kayseri", "antioch", "alexandria"),
 }
 # the frontier works between those castles (building_types/tfe_frontier.txt): Hadrian's Wall, and the ripa of the Rhine
 # and the Danube, where the land across the river is not Roman. The Goths hold the Danube from Vidin to Ruse.
@@ -834,27 +885,44 @@ def move_markets(text):
     return re.sub(r"(add_market = )(\w+)", lambda m: m.group(1) + MARKET_MOVES.get(m.group(2), m.group(2)), text)
 
 
-def region_pops(text, owner, anc):
+POP_FLATTEN = 0.75   # 1337's spread to the power of this: flatter, as 395 lacked a millennium of growth in the cores
+
+
+def region_pops(text, owner, anc, pinned=None):
     # each Roman region is scaled to ROMAN_POPULATION_M, the rest of each region to WORLD_POPULATION_M; vanilla's
-    # spread between locations is kept. Regions in neither table keep vanilla's numbers.
+    # spread between locations is kept, flattened by POP_FLATTEN. Regions in neither table keep vanilla's numbers. A
+    # pinned location (thousands, from tools/settlements.txt) gets exactly its number, and the rest of its region
+    # shares what is left.
+    pinned = pinned or {}
     def key(l):
         t = owner.get(l)
         return (t, anc[l][2]) if t in ROMAN_EMPIRES else anc[l][2]
     target = ROMAN_POPULATION_M | WORLD_POPULATION_M
-    blocks = [(m.group(1), m.group(2)) for m in re.finditer(r"^(\w+) = \{(.*?)^\}", text, re.M | re.S)]
-    total = {}
-    for l, body in blocks:
-        total[key(l)] = total.get(key(l), 0) + sum(float(x) for x in re.findall(r"size = ([\d.]+)", body))
+    size = {m.group(1): sum(float(x) for x in re.findall(r"size = ([\d.]+)", m.group(2)))
+            for m in re.finditer(r"^(\w+) = \{(.*?)^\}", text, re.M | re.S)}
+    assert not (empty := [l for l in pinned if not size.get(l)]), f"pinned locations without pops: {empty}"
+    free, fixed = {}, {}
+    for l, n in size.items():
+        k = key(l)
+        if l in pinned:
+            fixed[k] = fixed.get(k, 0) + pinned[l]
+        else:
+            free[k] = free.get(k, 0) + n ** POP_FLATTEN
+    starved = [k for k in fixed if k in target and target[k] * 1000 - fixed[k] < 0.4 * target[k] * 1000]
+    assert not starved, f"pinned towns hold over 60% of these regions' people: {starved}"
     def repl(m):
-        k = key(m.group(1))
-        if k not in target:
+        l, k = m.group(1), key(m.group(1))
+        if l in pinned:
+            f = pinned[l] / size[l]
+        elif k in target and size[l]:
+            f = (target[k] * 1000 - fixed.get(k, 0)) / free[k] * size[l] ** (POP_FLATTEN - 1)
+        else:
             return m.group(0)
-        f = target[k] * 1000 / total[k]
         return re.sub(r"size = ([\d.]+)", lambda s: f"size = {float(s.group(1)) * f:.3f}", m.group(0))
     return re.sub(r"^(\w+) = \{(.*?)^\}", repl, text, flags=re.M | re.S)
 
 
-def emit_filtered_start(anc, owner, pop_based):
+def emit_filtered_start(anc, owner, pop_based, settlements):
     owned = landed_locations(owner, pop_based)
     twins = unfortified_setups((GAME / "in_game/common/town_setups/00_default.txt").read_text(encoding="utf-8-sig"))
     (MOD / "in_game/common/town_setups").mkdir(parents=True, exist_ok=True)
@@ -862,7 +930,8 @@ def emit_filtered_start(anc, owner, pop_based):
     for name in FILTERED_START:
         text = (GAME / f"main_menu/setup/start/{name}.txt").read_text(encoding="utf-8-sig")
         if name == "07_cities_and_buildings":   # its buildings are 1337 tag-owned
-            text = roman_town_setups(text[:text.index("building_manager")], owner, twins) + roman_buildings()
+            text = settle(text[:text.index("building_manager")], settlements)
+            text = roman_town_setups(text, owner, twins) + roman_buildings()
         if name == "03_markets":
             text = move_markets(text)
         (MOD / f"main_menu/setup/start/{name}.txt").write_text(filter_unowned(text, set(anc), owned), encoding="utf-8")
@@ -886,7 +955,7 @@ def build():
                        (DEFS_OUT, emit_definitions(s["tags"])), (LOC_OUT, emit_localization(s["tags"]))):
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(text, encoding="utf-8-sig" if path == DEFS_OUT else "utf-8")
-    emit_filtered_start(s["anc"], s["owner"], s["pop_based"])
+    emit_filtered_start(s["anc"], s["owner"], s["pop_based"], s["settlements"])
     dyn = splice_dynasties((GAME / "main_menu/setup/start/04_dynasties.txt").read_text(encoding="utf-8-sig"),
                            (TOOLS / "tfe_dynasties.txt").read_text(encoding="utf-8"))
     (MOD / "main_menu/setup/start/04_dynasties.txt").write_text(dyn, encoding="utf-8")
@@ -900,7 +969,7 @@ def build():
     pops, lost = purge_late_faiths(pops, s["anc"])
     if lost:
         sys.exit(f"no faith of 395 near {lost[:20]}: add a rule to tools/religions.txt")
-    pops = region_pops(pops, s["owner"], s["anc"])
+    pops = region_pops(pops, s["owner"], s["anc"], {l: p for l, (_, p, _) in s["settlements"].items() if p})
     (MOD / "main_menu/setup/start/06_pops.txt").write_text(pops, encoding="utf-8")
     formables = "in_game/common/formable_countries/00_formable_countries.txt"
     (MOD / formables).parent.mkdir(parents=True, exist_ok=True)
