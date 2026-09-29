@@ -172,6 +172,18 @@ def test_italys_remaining_wheat_yields_less_so_african_grain_sells_there():
     assert value["tfe_latifundia"] < value["tfe_annona_militaris"] < 0
 
 
+def test_roman_britain_mines_and_herds_rather_than_shears():
+    anc = b.load_hierarchy()
+    ours = (b.MOD / "in_game/map_data/location_templates.txt").read_text(encoding="utf-8-sig")
+    assert not re.search(r"\b(england_wool_base|yorkshire_cloth_base)\b", ours)   # medieval: gone everywhere
+    goods = dict(re.findall(r"^(\w+) = \{[^\n]*raw_material = (\w+)", ours, re.M))
+    south = {l for l in goods if anc[l][3] in ("home_counties_area", "midlands_area", "west_country_area",
+                                                "east_anglia_area", "wales_area")}
+    assert {l for l in south if goods[l] == "wool"} == {"basingstoke", "amesbury", "penllyn"}
+    for l, g in lt.BRITANNIA.items():
+        assert l in south and goods[l] == g, l
+
+
 def test_the_frontier_works_hold_a_zone_of_control_on_roman_frontier_land():
     placed = re.findall(r"^\s*(tfe_\w+) = \{ tag = (\w+) level = 1 location = (\w+) \}",
                         CITIES.read_text(encoding="utf-8-sig"), re.M)
