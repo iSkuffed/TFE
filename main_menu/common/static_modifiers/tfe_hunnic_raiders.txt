@@ -1,0 +1,7 @@
+﻿# TFE: the Huns take captives from every land their armies occupy (vanilla's slave raid, as the steppe hordes'
+# slave-raiding advances give it). Granted for good at game start by on_action/tfe_hunnic_raiders.txt.
+tfe_hunnic_raiders = {
+	game_data = { category = country }
+	auto_slave_raid = yes
+	slave_raid_efficiency = 0.2
+}
