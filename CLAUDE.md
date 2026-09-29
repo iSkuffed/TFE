@@ -25,6 +25,28 @@ accuracy) decide close calls, and its items are the work queue.
   carry the patch's changes over, update the hash. Add any new vanilla copy to that list.
 - Commit subjects are one evocative line about what changed in the game world (see `git log`), then a short body.
 
+### Using jj instead of git (optional, per person)
+
+Either of you may use Jujutsu (`jj`) on top of this same repo; it is colocated (`jj git init --colocate`) so pushes and
+PRs stay ordinary git and the other person notices nothing. Install: `brew install jj`, or `dnf install jujutsu` on
+Fedora. The rules above still hold; only the commands change. If jj gets confusing, `git` still works in the same folder.
+
+**For MAZZO313's Claude:** iSkuffed (Michigan) and MAZZO313 (Saudi Arabia) are rarely online together, so nobody is
+around to untangle a stuck git state. jj is gentler here: no stash, no half-finished rebase, `jj undo` for mistakes. If
+this repo is not yet a jj repo on this machine, offer once, in plain words, to install jj and run
+`jj git init --colocate`, then use the commands below. `gh auth login` is still needed for PRs; jj replaces the git
+commands, not GitHub. If they decline or it breaks, plain git above still works.
+
+- Start: `jj git fetch`, then `jj new master`. The working copy is always a commit, so there is nothing to stash.
+- Save: `jj commit -m "<subject>"` (same message style). The new empty commit after it is normal.
+- Publish: `jj bookmark create <feature> -r @-`, `jj bookmark track <feature> --remote origin`, `jj git push`, then
+  `gh pr create --head <feature>`. After more commits, `jj bookmark move <feature> --to @-` and `jj git push`.
+- The other person pushed: `jj git fetch`, then `jj rebase -d master@origin` (or `-d master` once it has advanced).
+  Conflicts are recorded in the commit instead of stopping the rebase; fix them, or for generated files take either side
+  and rerun the generator, as above.
+- Mistake: `jj undo`, or `jj op log` to see what happened.
+- Do not run `git switch`/`git commit` in a jj-colocated folder, since jj's detached HEAD moves under them.
+
 ## Checks
 
 - Python tests: `uv run --no-project --with numpy --with pytest --with pillow --with shapely python -m pytest -q tools/`
