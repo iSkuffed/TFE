@@ -1,0 +1,16 @@
+﻿# TFE: the ruler of the Huns who takes the title Scourge of God (generic_actions/tfe_hunnic_storm.txt). Never rolled:
+# only that action gives it. When its bearer dies the Reckoning begins (situations/tfe_hunnic_storm.txt).
+tfe_scourge_of_god = {
+	category = ruler
+	custom_tags = { military }
+
+	allow = {
+		always = no
+	}
+
+	modifier = {
+		land_morale_modifier = 0.15
+		discipline = 0.05
+		monthly_prestige = 0.5
+	}
+}

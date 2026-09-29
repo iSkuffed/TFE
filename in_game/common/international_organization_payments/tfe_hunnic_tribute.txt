@@ -1,0 +1,49 @@
+﻿# TFE: every member of the Hunnic Yoke pays the Huns each month, about 1% of the members' combined trade and tax
+# income, each in proportion to its own (vanilla tatar_yoke_contribution, paid to the leader, no slider).
+tfe_hunnic_tribute = {
+	get_payer_list = {
+		every_international_organization_member = {
+			limit = {
+				NOT = {
+					is_leader_of_international_organization = root
+				}
+			}
+
+			add_to_local_variable_list = {
+				name = payers
+				target = this
+			}
+		}
+	}
+	get_payee_list = {
+		leader_country ?= {
+			add_to_local_variable_list = {
+				name = payees
+				target = this
+			}
+		}
+	}
+	price = tfe_hunnic_tribute_price
+	uses_maintenance = no
+	price_multiplier = {
+		add = {
+			desc = "TFE_HUNNIC_TRIBUTE_MULTIPLIER"
+			every_international_organization_member = {
+				add = monthly_income_trade_and_tax
+			}
+			multiply = 0.01
+		}
+	}
+	proportion_for_payer = {
+		add = {
+			desc = "tfe_hunnic_tribute"
+			value = monthly_income_trade_and_tax
+		}
+	}
+	proportion_for_payee = {
+		add = {
+			desc = "tfe_hunnic_tribute"
+			value = 1
+		}
+	}
+}

@@ -1,0 +1,21 @@
+﻿# TFE: a host takes to the road (generic_actions/tfe_migratory.txt; the Huns push the Germanic peoples west in
+# events/tfe_hunnic_storm.txt). Scope: the migrating country. It musters a great host, abandons its homeland and gets
+# a casus belli on the Roman empires: a landless host has no neighbours for the game to offer one against.
+tfe_start_migration_effect = {
+	save_scope_as = tfe_host
+	set_variable = tfe_migrating
+	random_army = { unit_location = { save_scope_as = tfe_muster } }
+	scope:tfe_muster = {
+		while = {
+			count = 24
+			create_sub_unit_with_owner = { type = a_footmen owner = scope:tfe_host origin = scope:tfe_muster }
+		}
+		while = {
+			count = 8
+			create_sub_unit_with_owner = { type = a_tribal_cavalry owner = scope:tfe_host origin = scope:tfe_muster }
+		}
+	}
+	every_owned_location = { scope:tfe_host = { abandon_location = prev } }
+	if = { limit = { country_exists = c:WRE } add_casus_belli = { target = c:WRE type = casus_belli:cb_tfe_migration } }
+	if = { limit = { country_exists = c:EAR } add_casus_belli = { target = c:EAR type = casus_belli:cb_tfe_migration } }
+}

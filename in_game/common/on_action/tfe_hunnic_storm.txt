@@ -1,0 +1,33 @@
+﻿# TFE: the Hunnic Storm (situations/tfe_hunnic_storm.txt) begins on day one, with the Huns at the head of their Yoke.
+on_game_start = {
+	on_actions = { tfe_on_start_hunnic_storm }
+}
+
+tfe_on_start_hunnic_storm = {
+	effect = {
+		international_organization:tfe_hunnic_yoke ?= { set_leader_country = c:HNS }
+		if = {
+			limit = { country_exists = c:HNS }
+			activate_situation = situation:tfe_hunnic_storm
+		}
+	}
+}
+
+on_ruler_death = {
+	on_actions = { tfe_on_ruler_death_reckoning_due }
+}
+
+# The fallback Reckoning: any Hunnic ruler's death after 10 years of the Scourge phase (the situation opens it monthly)
+tfe_on_ruler_death_reckoning_due = {
+	trigger = {
+		tag = HNS
+		situation:tfe_hunnic_storm = {
+			situation_is_active = yes
+			var:tfe_storm_phase = 2
+			NOT = { has_variable = tfe_scourge_clock }
+		}
+	}
+	effect = {
+		situation:tfe_hunnic_storm = { set_variable = { name = tfe_reckoning_due value = yes } }
+	}
+}

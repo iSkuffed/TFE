@@ -1,0 +1,22 @@
+﻿# TFE: the Huns' war goals (casus_belli/tfe_hunnic_storm.txt). They want submission and gold, not land.
+tfe_submit_to_the_yoke = {
+	type = superiority
+
+	attacker = {
+		conquer_cost = 1.0
+	}
+	defender = {
+	}
+	ticking_war_score = 0.5
+}
+
+tfe_grand_raid = {
+	type = superiority
+
+	attacker = {
+		conquer_cost = 1.0
+	}
+	defender = {
+	}
+	ticking_war_score = 0.5
+}

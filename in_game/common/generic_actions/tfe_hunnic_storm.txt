@@ -1,0 +1,144 @@
+﻿# TFE: the actions of the Hunnic Storm (situations/tfe_hunnic_storm.txt)
+# A member of the Hunnic Yoke rises against the Huns (vanilla break_the_yoke)
+tfe_break_the_yoke = {
+	type = internationalorganization
+	force_click_and_confirm_or_hold = yes
+
+	potential = {
+		scope:actor = {
+			is_member_of_international_organization = international_organization:tfe_hunnic_yoke
+			NOT = {
+				is_leader_of_international_organization = international_organization:tfe_hunnic_yoke
+			}
+		}
+	}
+
+	allow = {
+		scope:actor = {
+			is_subject = no
+			NOT = { is_at_war_with = international_organization:tfe_hunnic_yoke.leader_country }
+			NOT = { has_truce_with = international_organization:tfe_hunnic_yoke.leader_country }
+		}
+	}
+
+	ai_tick = daily
+	ai_tick_frequency = 80
+
+	automation_tick = never
+	automation_tick_frequency = 12
+
+	cooldown = {
+		type = tfe_break_the_yoke
+		years = 10
+	}
+
+	select_trigger = {
+		looking_for_a = international_organization
+		source = actor
+		target_flag = recipient
+		name = "choose_international_organization"
+		none_available_msg_key = "leave_international_organization_none"
+		column = {
+			data = name
+		}
+		visible = {
+			this = international_organization:tfe_hunnic_yoke
+		}
+	}
+
+	effect = {
+		if = {
+			limit = {
+				exists = international_organization:tfe_hunnic_yoke.leader_country
+			}
+			custom_tooltip = {
+				text = tfe_break_the_yoke_tt
+				scope:actor = {
+					leave_all_wars_with = international_organization:tfe_hunnic_yoke.leader_country
+					declare_war_with_cb = {
+						target = international_organization:tfe_hunnic_yoke.leader_country
+						type = casus_belli:cb_tfe_break_the_yoke
+					}
+				}
+			}
+		}
+		else = { custom_tooltip = tfe_break_the_yoke_tt }
+	}
+
+	ai_will_do = {
+		add = -20
+		international_organization:tfe_hunnic_yoke.leader_country ?= {
+			save_temporary_scope_as = target_country
+		}
+		add = {
+			if = {
+				limit = {
+					exists = international_organization:tfe_hunnic_yoke.leader_country
+					scope:actor = {
+						total_population > scope:target_country.total_population
+					}
+				}
+				add = 30
+			}
+		}
+	}
+}
+
+# Phase 2: the ruler of the Huns takes the title Scourge of God, once per Storm. His death opens the Reckoning.
+tfe_take_the_scourge_title = {
+	type = situation
+
+	potential = {
+		scope:actor = { tag = HNS }
+		situation:tfe_hunnic_storm = {
+			situation_is_active = yes
+			var:tfe_storm_phase = 2
+			NOT = { has_variable = tfe_scourge }
+		}
+	}
+	allow = {
+		scope:actor = {
+			ruler ?= { is_adult = yes }
+		}
+	}
+
+	ai_tick = monthly
+	ai_tick_frequency = 1
+	automation_tick = never
+	automation_tick_frequency = 12
+
+	select_trigger = {
+		looking_for_a = situation
+		interaction_source_list = {
+			situation:tfe_hunnic_storm = {
+				add_to_list = source
+			}
+		}
+		target_flag = recipient
+		name = "choose_situation"
+		column = {
+			data = name
+		}
+		visible = {
+			situation:tfe_hunnic_storm = this
+			situation_is_active = yes
+		}
+	}
+
+	effect = {
+		scope:actor.ruler = {
+			add_trait = trait:tfe_scourge_of_god
+			save_scope_as = tfe_new_scourge
+		}
+		custom_tooltip = tfe_take_the_scourge_title_tt
+		hidden_effect = {
+			situation:tfe_hunnic_storm = {
+				set_variable = { name = tfe_scourge value = scope:tfe_new_scourge }
+			}
+		}
+	}
+
+	ai_will_do = {
+		add = 1000
+	}
+}

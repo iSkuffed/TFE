@@ -22,6 +22,7 @@
  TFE_UNITY_DISPUTED_LANDS: "Claims on the other half's lands"
  TFE_UNITY_ACCESS_DENIED: "Military access refused"
  TFE_UNITY_CIVIL_WAR: "The Augusti are at war"
+ TFE_UNITY_HUNNIC_SUBSIDY: "Gold for the Huns"
  TFE_UNITY_HOLDS: "The Empire is still one"
  cb_tfe_war_of_the_augusti: "War of the Augusti"
  cb_tfe_war_of_the_augusti_desc: "Unity has collapsed. The other Augustus is a usurper in all but name."

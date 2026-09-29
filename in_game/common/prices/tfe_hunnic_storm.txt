@@ -1,0 +1,4 @@
+﻿# TFE: the Hunnic Yoke's tribute (international_organization_payments/tfe_hunnic_tribute.txt), in gold only
+tfe_hunnic_tribute_price = {
+	gold = 1
+}
