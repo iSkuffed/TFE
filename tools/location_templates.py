@@ -206,8 +206,211 @@ HISPANIA = {
     "merida": "dyes",           # Emerita's kermes scarlet, the best (Pliny)
     "coimbra": "olives",        # the Mondego valley; its medicine came with the university
 }
+# Italy in 395, beyond its wheat: Sicily's and Apulia's Arab and Norman sugar, cotton, silk and saffron go back to
+# olives and wine; Tolfa's alum (1460s) and Venice's glass go; Parma, Mutina and Patavium keep the fleeces Strabo and
+# Martial praised; Populonia smelts Elban iron again.
+ITALIA = {
+    "aquila": "livestock",        # Amiternum highlands; Apennine pastoralism replaces saffron.
+    "rotondo": "lumber",          # Garganum forest; medieval/early-modern alum removed.
+    "lecce": "olives",            # Lupiae/Salentum; ancient olives replace medieval saffron.
+    "francavilla": "olives",      # Salentum olives; local cotton belongs to later centuries.
+    "catanzaro": "wine",          # Skylletion hinterland; Roman Calabria grew wine.
+    "cotrone": "fish",            # Kroton coast; coastal fishing predates local cotton.
+    "reggiocal": "olives",        # Rhegium; olives replace later cotton cultivation.
+    "cosenza": "lumber",          # Consentia/Sila; ancient timber suits this upland site.
+    "piedimonte": "lumber",       # Allifae/Matesian hills; timber replaces late alum works.
+    "bologna": "livestock",       # Bononia hinterland; no ancient local silk production.
+    "medicina": "livestock",      # Bononia plain; no ancient medicinal source is attested.
+    "padova": "wool",             # Patavium; Roman textiles and wool are attested.
+    "modena": "wool",             # Mutina: Strabo 5.1.12 names its soft wool.
+    "parma": "wool",              # Parma: Martial 14.155 ranks its fleeces second.
+    "genoa": "wool",              # Liguria: Strabo 5.1.12 attests local coarse wool.
+    "civitavecchia": "fish",      # Centumcellae coast; Tolfa alum works postdate 395.
+    "volterra": "stone",          # Volaterrae: Etruscan alabaster urns attest local stone.
+    "messina": "wine",            # Messana: Pliny NH 14.8 names Mamertine wine.
+    "lomello": "livestock",       # Laumellum: rice cultivation in Italy is medieval.
+    "vercelli": "wool",           # Vercellae, Po basin; ancient wool predates rice farming.
+    "tratalias": "lead",          # Sulcis/Metalla; Roman lead-silver mining is attested.
+    "piazza": "stone",            # Henna hinterland; saltpeter belongs to gunpowder age.
+    "mazara": "fish",             # Selinus/Mazara coast; ancient fishery, no saltpeter.
+    "catania": "wine",            # Catana; Roman Sicilian viticulture, before silk farming.
+    "bivona": "olives",           # Sicani hinterland; ancient olives replace Arab cotton.
+    "palermo": "olives",          # Panormus; ancient olives replace Arab sugar cane.
+    "syracuse": "wine",           # Syracusae; Roman Sicilian wine, before Arab sugar cane.
+    "malta": "fish",              # Melite; ancient island fishery replaces later cotton.
+    "modica": "olives",           # Hyblaean country; olives replace later sericulture.
+    "terranovasic": "olives",     # Gela coast; olives replace Arab-era cotton.
+    "florence": "olives",         # Florentia; Tuscan olive-growing predates silk industry.
+    "massamar": "copper",         # Massa Marittima: Etruscan copper mining.
+    "piombino": "iron",           # Populonia smelted Elban iron; Strabo 5.2.6.
+    "lucca": "olives",            # Luca; ancient Tuscan olives replace later cotton.
+    "pescia": "fruit",            # Valdinievole; local fruit replaces later cotton crop.
+    "pisa": "fish",               # Pisae coast; ancient fishing replaces later silk.
+    "salerno": "olives",          # Salernum: coastal olives, no ancient medical school.
+}
+# Africa in 395 was the Empire's oil press and granary: Byzacena and Tripolitania olives, Meninx's and Mogador's
+# purple, the red-slip potteries of El Djem and Neapolis. Out go the Arabs' sugar, cotton and saffron and the Marinids'
+# flocks; the Moors and Gaetulians beyond the frontier herd, and their oases grow dates.
+AFRICA = {
+    "mostaganem": "wheat",        # Caesariensis plain: Roman grain, not Arab cotton.
+    "cherchell": "wheat",         # Caesarea Mauretaniae: wheat replaces Arab sugar.
+    "algiers": "fish",            # Icosium coast: maritime catch, not a dye center.
+    "bades": "livestock",         # Interior plateau: pastoral output over unsupported dyes.
+    "tamazaghrane": "fish",       # Roman coast: maritime catch, not a dye center.
+    "al_kadwa": "olives",         # Tripolitanian oil region: olives replace cotton.
+    "ghariyan": "olives",         # Western Djebel: suited to Roman olive-growing.
+    "tarhuna": "olives",          # Tarhuna plateau: numerous Roman olive presses.
+    "amergo": "wheat",            # Tingitana frontier: cereals replace Arab cotton.
+    "meskiana": "millet",         # Numidian upland: millet replaces Arab cotton.
+    "madas": "millet",            # Roman Africa: millet replaces Arab-era cotton.
+    "chebba": "olives",           # Byzacena coast: olives replace Arab sugar.
+    "ajim": "dyes",               # Meninx on Djerba: Pliny ranks its purple highly.
+    "medenine": "dyes",           # Gigthis district: south Gulf purple/murex trade.
+    "tangier": "fish",            # Tingi/Cotta coast: Roman fish-salting industry.
+    "nabeul": "clay",             # Neapolis kilns remained active into the early 6th c.
+    "el_jem": "clay",             # Central Tunisian ARS kiln zone: pottery clay.
+    "bejaia": "lumber",           # Saldae/Kabylie: Mauretanian timber is regional evidence.
+    "tozeur": "fruit",            # Tusuros oasis: dates replace Arab saffron.
+    "oujda": "livestock",         # Fringe pastoralism replaces a wool economy.
+    "brezina": "livestock",       # Fringe pastoralism replaces Arab-era cotton.
+    "el_abiodh_sidi_cheikh": "livestock",# Fringe herding replaces wool trade.
+    "medrissa": "livestock",      # Fringe herding replaces wool trade.
+    "messaad": "livestock",       # Fringe herding replaces wool trade.
+    "djelfa": "wild_game",        # Plateau game replaces an unsupported alum work.
+    "abalessa": "wild_game",      # Saharan game replaces a nonlocal sand good.
+    "sinawin": "livestock",       # Fringe pastoralism replaces a sand good.
+    "tazirbu": "fruit",           # Tazirbu oasis: dates replace medieval wool.
+    "zella": "fruit",             # Zella oasis: dates replace medieval wool.
+    "sabha": "fruit",             # Fezzan oasis: dates replace medieval wool.
+    "ain_salah": "fruit",         # Saharan oasis: dates replace a sand good.
+    "ghardaia": "fruit",          # M'zab oasis: dates replace Arab saffron.
+    "berriane": "livestock",      # Fringe herding replaces wool trade.
+    "ouargla": "fruit",           # Ouargla oasis: dates replace a dye trade.
+    "ngoussa": "fruit",           # Saharan oasis: dates replace Arab cotton.
+    "taghit": "fruit",            # Taghit oasis: dates replace medieval wool.
+    "tamacine": "fruit",          # Saharan oasis: dates replace Arab saffron.
+    "ksar_el_kebir": "livestock", # BAQ fringe: pastoral output replaces sugar.
+    "ouezzane": "livestock",      # BAQ fringe: herding replaces wool trade.
+    "miatbir": "livestock",       # Unowned fringe: herding replaces wool trade.
+    "al_mazamma": "livestock",    # BAQ fringe: herding replaces Arab cotton.
+    "fez": "livestock",           # BAQ fringe: pastoral output replaces dye works.
+    "azrou": "wild_game",         # Atlas woodland game replaces a dye trade.
+    "baht": "livestock",          # BAQ fringe: herding replaces a cloth economy.
+    "sefrou": "livestock",        # BAQ fringe: herding replaces wool trade.
+    "tabarida": "livestock",      # BAQ fringe: herding replaces wool trade.
+    "terrest": "livestock",       # BAQ fringe: herding replaces a later mine.
+    "tezerghe": "livestock",      # BAQ fringe: herding replaces an unsupported mine.
+    "chichaoua": "livestock",     # Unowned fringe: herding replaces Arab cotton.
+    "marrakesh": "livestock",     # Unowned fringe: herding replaces later wine.
+    "naffis": "livestock",        # Unowned fringe: herding replaces an unsupported mine.
+    "tamdegost": "livestock",     # Unowned fringe: pastoral output replaces sugar.
+    "tinmel": "wild_game",        # Atlas game replaces medieval wool trade.
+    "bzou": "livestock",          # Unowned fringe: pastoral output replaces sugar.
+    "demnate": "wild_game",       # Atlas game replaces medieval wool trade.
+    "azemmour": "livestock",      # BAQ fringe: herding replaces Arab cotton.
+    "settat": "livestock",        # BAQ fringe: pastoral output replaces later wine.
+    "tamdoult": "livestock",      # Unowned fringe: herding replaces a later mine.
+    "beni_sabih": "livestock",    # Unowned fringe: pastoral output replaces dyes.
+    "tizounine": "livestock",     # Unowned fringe: herding replaces an unsupported mine.
+    "agdez": "fruit",             # Draa oasis: dates replace medieval wool.
+    "ait_benhaddou": "livestock", # Unowned fringe: herding replaces wool trade.
+    "taroudant": "fruit",         # Sus/Souss oasis: dates replace Arab cotton.
+    "noul_lamta": "livestock",    # Unowned fringe: herding replaces wool trade.
+    "tafraout": "wild_game",      # Anti-Atlas game replaces an unsupported mine.
+    "tidsi": "livestock",         # Unowned fringe: pastoral output replaces sugar.
+    "sijilmasa": "fruit",         # Sijilmasa oasis: dates replace later alum works.
+    "boumalne_dades": "fruit",    # Dades oasis: dates replace stone.
+    "ksar_es_souk": "fruit",      # Tafilalt oasis: dates replace an unsupported mine.
+    "tazzarine": "fruit",         # Draa oasis: dates replace an unsupported mine.
+    "todgha": "fruit",            # Todgha oasis: dates replace uncertain Saharan gold.
+    "smara": "livestock",         # Unowned Saharan fringe: pastoral output.
+    "tindouf": "livestock",       # Unowned Saharan fringe: pastoral output.
+    "aousserd": "livestock",      # Unowned Saharan fringe: pastoral output.
+    "mogador": "dyes",            # Iles Purpuraires: Juba II's Gaetulian purple works
+    "tetouan": "olives",          # Tamuda in the Martil valley: sugar is Andalusi-era.
+    "tissemsilt": "wheat",        # The Sersou plateau, Mauretanian grain land: cotton is Arab-era.
+}
+# Raetia and Noricum: alpine herds, Noric iron from the Hüttenberg, the baths of Aquae (Baden). Tirolese and
+# Bohemian silver, Hall's salt and the Styrian Erzberg are medieval; the Alamanni and Marcomanni farm and herd.
+RAETIA_NORICUM = {
+    "garmisch": "livestock",      # Partanum: alpine pasture; no ancient alum works
+    "traunstein": "livestock",    # No Roman spa or medicinal spring is attested here
+    "kyburg": "livestock",        # No Roman spa source; Kyburg is medieval
+    "roding": "livestock",        # No Roman spa source; outside the imperial frontier
+    "monthey": "livestock",       # Bex saltworks begin in 1475; no Roman extraction
+    "innsbruck": "livestock",     # Oeni Pons by Hall; salt first recorded in 1232
+    "sterzing": "livestock",      # Wibitina: Schneeberg silver attested from 1237
+    "bludenz": "lumber",          # Montafon silver first recorded in 1319
+    "konstanz": "fish",           # Bodensee: Raetian wine is sourced near Verona
+    "zabern": "wheat",            # Tabernae: Alsace local viticulture is late or uncertain
+    "belfort": "livestock",       # No Roman-period local wine production evidence
+    "augsburg": "wheat",          # Augusta Vindelicorum: fustian/cotton trade is medieval
+    "ulm": "wheat",               # ALM frontier: no local Roman fiber-crop evidence
+    "stockach": "livestock",      # Alamannic frontier: pastoral output suits the period
+    "riedlingen": "livestock",    # Alamannic frontier: pastoral output suits the period
+    "villingen": "livestock",     # Alamannic frontier: pastoral output suits the period
+    "waldshut": "livestock",      # Alamannic frontier: pastoral output suits the period
+    "welzheim": "lumber",         # ALM frontier: glass sand is a specialized industry
+    "austria_baden": "medicaments",# Aquae: Roman sulfur-water baths
+    "friesach": "iron",           # Hüttenberg nearby: Roman ferrum Noricum
+    "korneuburg": "wheat",        # Quadi shore: beyond the limes, no Roman wine source
+    "krumlov": "wild_game",       # Boiohaemum: no Roman spa source for medicaments
+    "loket": "lumber",            # Loket coal extraction is post-Roman
+    "tepla": "lumber",            # West Bohemian silver working is medieval
+    "kutna_hora": "wheat",        # Mons Cuthna: silver boom starts in the 13th c
+    "cheb": "wild_game",          # Eger tin panning is attested from the 10th c
+    "litomerice": "wheat",        # Beyond the limes: no Roman wine source
+    "nachod": "wild_game",        # No Roman spa evidence for medicaments
+    "brno": "wheat",              # Quadi territory: no Roman vineyard evidence
+    "mittersill": "livestock",    # Habachtal emerald mining lacks ancient proof
+    "tamsweg": "livestock",       # No ancient tin mining evidence in the Lungau
+    "voitsberg": "lumber",        # West Styrian coal extraction is post-Roman
+    "leoben": "livestock",        # Styrian Erzberg iron mining is medieval or later
+    "schladming": "lumber",       # No Roman-period iron mine evidence here
+    "weiz": "lumber",             # Arzberg silver first recorded in 1242
+    "jihlava": "livestock",       # Iglau silver boom starts in the 13th c
+}
+# Picts and Irish counted wealth in cattle: out go medieval linen, monastic wool and Bronze Age mines.
+CALEDONIA_HIBERNIA = {
+    "lewis": "fish",              # Bostadh Iron Age settlement yielded fish remains.
+    "islay": "fish",              # Hebridean Iron Age fish remains support coastal fishing.
+    "mann": "fish",               # Manx copper was mined in the Bronze Age or from the 13th c.
+    "lochaber": "livestock",      # No ancient alum works are attested here.
+    "stirling": "livestock",      # ScARF finds mixed herds; avoid widespread wool output.
+    "kirkcudbright": "livestock", # ScARF finds mixed herds; avoid widespread wool output.
+    "kenmure": "livestock",       # ScARF finds mixed herds; avoid widespread wool output.
+    "glasgow": "livestock",       # ScARF finds mixed herds; avoid widespread wool output.
+    "paisley": "livestock",       # ScARF finds mixed herds; avoid widespread wool output.
+    "dumbarton": "livestock",     # ScARF finds mixed herds; avoid widespread wool output.
+    "duns": "livestock",          # ScARF finds mixed herds; avoid widespread wool output.
+    "forfar": "livestock",        # ScARF finds mixed herds; avoid widespread wool output.
+    "arbroath": "fish",           # Coastal fishing suits this Iron Age location.
+    "dumfries": "livestock",      # Scottish flax and linen are too late for 395.
+    "dunfermline": "livestock",   # Scottish flax and linen are too late for 395.
+    "athenry": "livestock",       # Earliest cited Irish flax cultivation is 11th c.
+    "castlereagh": "livestock",   # Earliest cited Irish flax cultivation is 11th c.
+    "cullahill": "livestock",     # Earliest cited Irish flax cultivation is 11th c.
+    "killmallock": "livestock",   # Earliest cited Irish flax cultivation is 11th c.
+    "ennis": "livestock",         # Earliest cited Irish flax cultivation is 11th c.
+    "roscrea": "livestock",       # Earliest cited Irish flax cultivation is 11th c.
+    "clogher": "livestock",       # Earliest cited Irish flax cultivation is 11th c.
+    "magherafelt": "livestock",   # Earliest cited Irish flax cultivation is 11th c.
+    "kinsale": "fish",            # Irish wool exports grew after the Norman conquest.
+    "youghal": "fish",            # Irish wool exports grew after the Norman conquest.
+    "dingle": "fish",             # Irish wool exports grew after the Norman conquest.
+    "cashel": "livestock",        # Irish cattle dominated wealth and pastoral farming.
+    "dungarvan": "fish",          # Irish wool exports grew after the Norman conquest.
+    "carbery": "fish",            # West Cork copper mines date to the Bronze Age.
+    "glendalough": "wild_game",   # Wicklow lead mining evidence is medieval or later.
+    "tipperary": "livestock",     # Silvermines production is documented from 1298.
+    "nenagh": "livestock",        # Nearby Silvermines extraction is medieval.
+    "iveagh": "livestock",        # Ireland had no tin mines; tin was imported.
+    "carrickmacross": "livestock",# No ancient source for this medicaments output.
+}
+# Medieval industries, and Sicily's sulfur mines, whose bonus is to gunpowder saltpeter
 MEDIEVAL_MODIFIERS = ("england_wool_base", "yorkshire_cloth_base", "flanders_fine_cloth_base",
-                      "toledo_weaponry_base")
+                      "toledo_weaponry_base", "milan_weaponry_base", "tuscany_fine_cloth_base", "venice_glass_base",
+                      "kutna_hora_silver_mines_base", "sicily_sulfur_mines")
 
 
 # Flavour text: the goods marker's tooltip shows a location's own description (<location>_desc) under its modifier.
@@ -247,10 +450,11 @@ def overrides(anc, topo, unownable, raw, mods):
     out = {l: {"raw_material": "wheat", "modifier": "tfe_granary_of_rome"} for l in GRANARIES}
     out |= {l: {"raw_material": g} for l, g in ITALIAN_VILLAS.items()}
     out |= {l: {"modifier": None} for l, m in mods.items() if m in MEDIEVAL_MODIFIERS}
-    out |= {l: out.get(l, {}) | {"raw_material": g} for l, g in (BRITANNIA | GAUL | HISPANIA).items()}
+    roman_world = BRITANNIA | GAUL | HISPANIA | ITALIA | AFRICA | RAETIA_NORICUM | CALEDONIA_HIBERNIA
+    out |= {l: out.get(l, {}) | {"raw_material": g} for l, g in roman_world.items()}
     for l, path in anc.items():
         if len(path) > 3 and path[3] in PANNONIA and topo.get(l) in b.LAND_TOPO and l not in unownable:
-            out[l] = {"modifier": "tfe_pannonian_recruiting_grounds"}
+            out[l] = out.get(l, {}) | {"modifier": "tfe_pannonian_recruiting_grounds"}
         elif (len(path) > 3 and path[2] == "italy_region" and path[3] not in ITALIAN_ISLANDS
               and raw.get(l) == "wheat" and l not in ITALIAN_VILLAS):
             out[l] = {"modifier": "tfe_annona_militaris" if path[3] in ITALIA_ANNONARIA else "tfe_latifundia"}

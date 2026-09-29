@@ -241,3 +241,18 @@ def test_every_location_with_our_modifier_tells_its_story():
     keys = dict(re.findall(r'^ (\w+)_desc: "(.+)"$', flavor.read_text(encoding="utf-8-sig"), re.M))
     assert set(keys) == tagged, sorted(set(keys) ^ tagged)
     assert "Carthage" in keys["tunis"] and "Papacy" not in keys["rome"]
+
+
+def test_the_rest_of_the_west_loses_what_came_after_rome():
+    anc = b.load_hierarchy()
+    ours = (b.MOD / "in_game/map_data/location_templates.txt").read_text(encoding="utf-8-sig")
+    goods = dict(re.findall(r"^(\w+) = \{[^\n]*raw_material = (\w+)", ours, re.M))
+    regions = ("italy_region", "maghreb_region", "south_german_region", "ireland_region")
+    later = ("sugar", "rice", "cotton", "saffron", "silk", "saltpeter", "coal")
+    assert not {l for l in goods if anc[l][2] in regions and goods[l] in later}
+    for m in ("milan_weaponry_base", "tuscany_fine_cloth_base", "venice_glass_base", "kutna_hora_silver_mines_base",
+              "sicily_sulfur_mines"):
+        assert m not in ours, m
+    assert goods["piombino"] == "iron" and goods["friesach"] == "iron"   # Elban iron at Populonia, ferrum Noricum
+    for l, g in (lt.ITALIA | lt.AFRICA | lt.RAETIA_NORICUM | lt.CALEDONIA_HIBERNIA).items():
+        assert goods[l] == g, l
