@@ -1,0 +1,78 @@
+﻿# TFE: the Imperium Romanum window's buttons for the West. Each costs Unity (the effects run as the West's actor).
+tfe_illyricum_claims = {
+	type = internationalorganization
+	icon = migrate_pop_based_country
+
+	ai_tick = monthly
+	ai_tick_frequency = 12
+	automation_tick = never
+	automation_tick_frequency = 12
+
+	potential = {
+		exists = international_organization:tfe_roman_empire
+		scope:actor = { tag = WRE }
+		country_exists = c:EAR
+	}
+	allow = {
+		scope:actor = { NOT = { has_variable = tfe_illyricum_claim } }
+	}
+
+	select_trigger = {
+		looking_for_a = international_organization
+		target_flag = recipient
+		name = "choose_international_organization"
+		column = { data = name }
+		visible = { international_organization_type = international_organization_type:tfe_roman_empire }
+	}
+
+	effect = {
+		scope:actor = {
+			set_variable = { name = tfe_illyricum_claim years = 10 }
+			add_casus_belli = { target = c:EAR type = casus_belli:cb_tfe_illyrian_claim years = 10 }
+		}
+		scope:recipient = { change_variable = { name = tfe_unity add = -10 } }
+	}
+	ai_will_do = { value = -300 }
+}
+
+tfe_align_visigoths = {
+	type = internationalorganization
+	icon = migrate_pop_based_country
+
+	ai_tick = monthly
+	ai_tick_frequency = 12
+	automation_tick = never
+	automation_tick_frequency = 12
+
+	potential = {
+		exists = international_organization:tfe_roman_empire
+		scope:actor = { tag = WRE }
+		country_exists = c:VIS
+	}
+	allow = {
+		scope:actor = { NOT = { has_variable = tfe_visigoths_aligned } }
+	}
+
+	select_trigger = {
+		looking_for_a = international_organization
+		target_flag = recipient
+		name = "choose_international_organization"
+		column = { data = name }
+		visible = { international_organization_type = international_organization_type:tfe_roman_empire }
+	}
+
+	effect = {
+		scope:actor = {
+			set_variable = tfe_visigoths_aligned
+			c:VIS ?= {
+				if = {
+					limit = { is_subject_type = tfe_foederati }
+					overlord = { cancel_subject = c:VIS }
+				}
+			}
+			create_relation = { first = scope:actor second = c:VIS type = relation_type:alliance }
+		}
+		scope:recipient = { change_variable = { name = tfe_unity add = -10 } }
+	}
+	ai_will_do = { value = -300 }
+}

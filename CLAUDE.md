@@ -25,13 +25,6 @@ accuracy) decide close calls, and its items are the work queue.
   carry the patch's changes over, update the hash. Add any new vanilla copy to that list.
 - Commit subjects are one evocative line about what changed in the game world (see `git log`), then a short body.
 
-## Community Mod Framework
-
-TFE depends on the workshop mod Community Mod Framework (`community_mod_framework`, id 3692202776; add it to the playset
-before TFE). Player-facing buttons are CMF action bar elements: register them in `scripted_effects/tfe_cmf.txt`, show and
-gate them in `scripted_guis/tfe_cmf.txt` (the key must equal the element), do their work in `tfe_handle_cmf_callback`, and
-give `<element>_name`, `_tooltip`, `_color` and `_icon` localisation keys. The bar sits bottom right in game.
-
 ## Checks
 
 - Python tests: `uv run --no-project --with numpy --with pytest --with pillow --with shapely python -m pytest -q tools/`
