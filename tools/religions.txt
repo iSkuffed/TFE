@@ -176,6 +176,11 @@ lezgistan_province | * | lezgin_paganism    # Lpink: the highlands stay pagan
 * | moksha_culture | moksha_religion
 * | meschera_culture | moksha_religion
 * | bjarmian | komi_paganism
+* | komi | komi_paganism
+* | udmurt | udmurt_paganism
+* | chuvash_culture | tengri
+* | mansi_culture | obian_paganism
+ural_region | * | obian_paganism
 * | nenets_culture | samoyedic_paganism
 * | estonian | muinaisusko
 * | liv | muinaisusko

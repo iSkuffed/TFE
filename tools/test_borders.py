@@ -302,7 +302,7 @@ def test_load_settlements_parses_rank_pop_and_setup(tmp_path):
 
 
 def test_settle_reranks_drops_and_adds_towns():
-    text = ("locations={\n\tvenice = { rank = city town_setup = venice_city }\n"
+    text = ("locations={\n\tvenice = \t{ rank = city town_setup = venice_city }\n"
             "\trome = { rank = city\t\ttown_setup = italian_city }\n\tlyon = { rank = town town_setup = french_town }\n}\n")
     out = b.settle(text, {"venice": ("rural", 5.0, None), "rome": ("megalopolis", 600.0, None),
                           "aquileia": ("city", None, "italian_city"), "lyon": ("city", None, "french_city")})

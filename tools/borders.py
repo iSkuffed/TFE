@@ -235,7 +235,7 @@ def settle(text, settlements):
     # re-rank vanilla's towns, drop the ones that were not there in 395, and add 395's own at the top
     listed = set()
     def one(line):
-        m = re.match(r"\s*(\w+) = \{ rank = (\w+)", line)
+        m = re.match(r"\s*(\w+)\s*=\s*\{\s*rank = (\w+)", line)  # vanilla writes a few as "plock = \t{ rank"
         if not m or m.group(1) not in settlements:
             return [line]
         listed.add(m.group(1))

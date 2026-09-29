@@ -1,0 +1,49 @@
+﻿# TFE: the great Roman trades, each a location's own modifier (tools/location_templates.py ROMAN_SPECIALITIES).
+# One effect each: it is the badge on the goods marker in the raw-material map mode.
+# Sidon and Tyre: the murex purple of Phoenicia
+tfe_sidonian_purple = {
+	game_data = { category = location }
+	local_dyes_output_modifier = 0.5
+}
+
+# Hispalis and the Baetis: the oil of the annona (Monte Testaccio)
+tfe_baetican_oil = {
+	game_data = { category = location }
+	local_olives_output_modifier = 0.5
+}
+
+# Sinuessa and the ager Falernus: Italy's most famous wine
+tfe_falernian_wine = {
+	game_data = { category = location }
+	local_wine_output_modifier = 0.5
+}
+
+# Gaza: the great export wine of late antiquity, in Gaza jars (LRA4)
+tfe_gazan_wine = {
+	game_data = { category = location }
+	local_wine_output_modifier = 0.5
+}
+
+# Noreia and the Huettenberg: ferrum Noricum, the legions' iron
+tfe_noric_steel = {
+	game_data = { category = location }
+	local_iron_output_modifier = 0.5
+}
+
+# Caesarea: the imperial stud farms (domus divina per Cappadociam)
+tfe_cappadocian_studs = {
+	game_data = { category = location }
+	local_horses_output_modifier = 0.5
+}
+
+# the Dumnonii: Cornish tin, revived from the 3rd century
+tfe_dumnonian_tin = {
+	game_data = { category = location }
+	local_tin_output_modifier = 0.5
+}
+
+# Dhofar and Moscha Limen: the frankincense of Arabia Felix
+tfe_frankincense = {
+	game_data = { category = location }
+	local_incense_output_modifier = 0.5
+}

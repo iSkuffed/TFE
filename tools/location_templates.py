@@ -619,6 +619,23 @@ MEDIEVAL_MODIFIERS = ("england_wool_base", "yorkshire_cloth_base", "flanders_fin
                       "toledo_weaponry_base", "milan_weaponry_base", "tuscany_fine_cloth_base", "venice_glass_base",
                       "kutna_hora_silver_mines_base", "sicily_sulfur_mines", "idrija_base", "kremnica_gold_mines",
                       "nile_delta_rice_base", "nile_delta_sugar_base", "nile_delta_cotton_base")
+# vanilla's specialities that begin after 395: Yemeni coffee (1400s), the Rammelsberg (968), Falun (c. 1000) and the
+# Panjshir silver boom (9th-10th c.). Taizz and Muza (Mocha) grew myrrh, not coffee.
+LATER_MODIFIERS = ("coffee_yemen_base", "rammelsberg_silver_mines_base", "falun_base",
+                   "panjshir_valley_silver_mines_base")
+YEMEN = {"taizz": "incense", "al_mukha": "incense"}
+# the great Roman trades, each on the town that produced its good (static_modifiers/tfe_roman_specialities.txt)
+ROMAN_SPECIALITIES = {
+    "sidon": "tfe_sidonian_purple",
+    "sevilla": "tfe_baetican_oil",
+    "gaeta": "tfe_falernian_wine",
+    "gaza": "tfe_gazan_wine",
+    "friesach": "tfe_noric_steel",
+    "kayseri": "tfe_cappadocian_studs",
+    "truro": "tfe_dumnonian_tin",
+    "launceston": "tfe_dumnonian_tin",
+    "mirbat": "tfe_frankincense",
+}
 
 
 # Flavour text: the goods marker's tooltip shows a location's own description (<location>_desc) under its modifier.
@@ -636,6 +653,22 @@ FLAVOR = {
     "tfe_annona_militaris": "The Po plain is good grain land, but its land tax is paid in kind. Carts of wheat go "
                             "to the state granaries for the court and the armies of the Alpine frontier, and much of "
                             "the harvest never reaches the market.",
+    "tfe_sidonian_purple": "The murex shells of the Phoenician shore give the purple that only the emperor may wear "
+                          "whole. The dye works of Sidon and Tyre stink of rotting shellfish and are worth a fortune.",
+    "tfe_baetican_oil": "Baetica's olive oil fills the amphorae of the annona. Their broken sherds have piled up a "
+                        "hill by the Tiber in Rome, Monte Testaccio.",
+    "tfe_falernian_wine": "The Falernian slopes above the Campanian shore grow the most famous wine in Italy, which "
+                          "the poets praised and the rich still lay down for decades.",
+    "tfe_gazan_wine": "Gaza's white wine travels in its own tall jars to Gaul, Egypt and Britain. It is the great "
+                      "wine of the late Roman world.",
+    "tfe_noric_steel": "Noricum's iron from the Hüttenberg makes the hardest blades the legions know. The Romans call "
+                       "it ferrum Noricum, and an imperial arms factory works it at Lauriacum.",
+    "tfe_cappadocian_studs": "The emperor's own stud farms graze Cappadocia's high pastures and breed the horses of "
+                             "the imperial stables and the cavalry of the East.",
+    "tfe_dumnonian_tin": "The tin streams of the Dumnonii, worked again since the third century, send their metal "
+                         "across the sea for the bronze and pewter of the Empire.",
+    "tfe_frankincense": "Frankincense grows on the Dhofar hills and is shipped from Moscha Limen to Egypt and India. "
+                        "Every church and temple in the Empire burns it.",
 }
 CITY_FLAVOR = {
     "tunis": "Carthage, capital of Africa Proconsularis and the greatest city of the West after Rome. In every "
@@ -657,10 +690,11 @@ CITY_FLAVOR = {
 def overrides(anc, topo, unownable, raw, mods):
     out = {l: {"raw_material": "wheat", "modifier": "tfe_granary_of_rome"} for l in GRANARIES}
     out |= {l: {"raw_material": g} for l, g in ITALIAN_VILLAS.items()}
-    out |= {l: {"modifier": None} for l, m in mods.items() if m in MEDIEVAL_MODIFIERS}
+    out |= {l: {"modifier": None} for l, m in mods.items() if m in MEDIEVAL_MODIFIERS + LATER_MODIFIERS}
     roman_world = (BRITANNIA | GAUL | HISPANIA | ITALIA | AFRICA | RAETIA_NORICUM | CALEDONIA_HIBERNIA | ILLYRICUM
                    | GRAECIA_THRACIA | BARBARICUM | ANATOLIA | AEGYPTUS | ORIENS | CAUCASUS)
-    out |= {l: out.get(l, {}) | {"raw_material": g} for l, g in roman_world.items()}
+    out |= {l: out.get(l, {}) | {"raw_material": g} for l, g in (roman_world | YEMEN).items()}
+    out |= {l: out.get(l, {}) | {"modifier": m} for l, m in ROMAN_SPECIALITIES.items()}
     for l, path in anc.items():
         if len(path) > 3 and path[3] in PANNONIA and topo.get(l) in b.LAND_TOPO and l not in unownable:
             out[l] = out.get(l, {}) | {"modifier": "tfe_pannonian_recruiting_grounds"}

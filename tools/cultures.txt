@@ -54,6 +54,18 @@ AGL | * | saxon
 TGI | * | saxon
 FRS | * | frisian
 AES | * | pruthenian
+SUD | * | sudovian
+EST | * | estonian
+ANE | * | venedi
+MRD | * | erzya_culture
+MRO | * | meschera_culture
+MRR | * | mari_culture
+UDM | * | udmurt
+KMI | * | komi
+IMK | * | chuvash_culture
+SRT | * | mansi_culture
+SUO | * | tavastian
+KRE | * | karelian
 PKT | * | pictish
 DMN | * | briton
 VOT | * | briton
@@ -100,6 +112,9 @@ iberia_region | * | hispano_roman
 italy_region | griko_culture | griko_culture
 italy_region | italki | italki
 italy_region | * | roman_culture
+szepes_province | * | dacian             # the Carpi in the eastern Carpathians
+zemplen_province | * | dacian
+maramaros_province | * | dacian
 slovakia_area | * | suebian             # Quadi country
 transdanubia_area | * | illyro_roman 75 gothic_culture 15 alan_culture 10   # Pannonia; Alatheus' and Saphrax' federates, 380
 carpathia_region | * | gothic_culture
@@ -379,6 +394,7 @@ yaroslavl_area | * | merya_culture
 arkhangelsk_area | * | bjarmian
 west_novgorod_area | * | votian
 russian_region | * | vepsian
+ural_region | * | mansi_culture       # a Finno-Ugric 395 default for the Ural and Arctic fringe
 
 # ---- Scandinavia ----
 scandinavian_region | danish | danish
