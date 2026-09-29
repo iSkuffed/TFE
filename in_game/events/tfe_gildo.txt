@@ -1,0 +1,190 @@
+﻿namespace = tfe_gildo
+
+# Gildo's revolt is earned, not dated (on_action/tfe_gildo.txt starts the count). Every month the West's
+# tfe_gildo_progress rises by tfe_gildo_monthly_rise; three warnings offer ways to slow it; at 100, or after
+# 14 August 397, he rises (5, then tfe_opening.3 for the split). tfe_gildo_revolt_fires reads the result.
+
+# the monthly count (hidden)
+tfe_gildo.1 = {
+	type = country_event
+	title = tfe_gildo.1.title
+	desc = tfe_gildo.1.desc
+	outcome = neutral
+	hidden = yes
+
+	trigger = { NOT = { has_variable = tfe_gildo_revolt_fired } }
+
+	immediate = {
+		change_variable = { name = tfe_gildo_progress add = tfe_gildo_monthly_rise }
+		if = {
+			limit = { var:tfe_gildo_progress < 0 }
+			set_variable = { name = tfe_gildo_progress value = 0 }
+		}
+		if = {
+			limit = {
+				OR = {
+					var:tfe_gildo_progress >= 100
+					current_date > 397.8.14
+				}
+			}
+			trigger_event_non_silently = tfe_gildo.5
+		}
+		else = {
+			if = {
+				limit = { var:tfe_gildo_progress >= 35 NOT = { has_variable = tfe_gildo_warned_1 } }
+				set_variable = tfe_gildo_warned_1
+				trigger_event_non_silently = tfe_gildo.2
+			}
+			if = {
+				limit = { var:tfe_gildo_progress >= 65 NOT = { has_variable = tfe_gildo_warned_2 } }
+				set_variable = tfe_gildo_warned_2
+				trigger_event_non_silently = tfe_gildo.3
+			}
+			if = {
+				limit = { var:tfe_gildo_progress >= 90 NOT = { has_variable = tfe_gildo_warned_3 } }
+				set_variable = tfe_gildo_warned_3
+				trigger_event_non_silently = tfe_gildo.4
+			}
+			trigger_event_silently = { id = tfe_gildo.1 months = 1 }
+		}
+	}
+}
+
+# first warning: the grain fleet runs late
+tfe_gildo.2 = {
+	type = country_event
+	title = tfe_gildo.2.title
+	desc = tfe_gildo.2.desc
+	outcome = neutral
+
+	image = "gfx/interface/illustrations/event/backgrounds/exterior/byz_soldiers_exterior.dds"
+
+	# an inspector counts the sacks himself
+	option = {
+		name = tfe_gildo.2.a
+		add_gold = -30
+		custom_tooltip = tfe_gildo_down_10_tt
+		hidden_effect = { change_variable = { name = tfe_gildo_progress add = -10 } }
+		ai_chance = { base = 2 }
+	}
+
+	# ships are late every year
+	option = {
+		name = tfe_gildo.2.b
+		ai_chance = { base = 1 }
+	}
+}
+
+# second warning: Gildo names his price
+tfe_gildo.3 = {
+	type = country_event
+	title = tfe_gildo.3.title
+	desc = tfe_gildo.3.desc
+	outcome = negative
+
+	image = "gfx/interface/illustrations/event/backgrounds/interior/byz_nobles_interior.dds"
+
+	# make him Master of Soldiers for Africa, for life
+	option = {
+		name = tfe_gildo.3.a
+		add_prestige = -10
+		custom_tooltip = tfe_gildo_down_30_tt
+		hidden_effect = { change_variable = { name = tfe_gildo_progress add = -30 } }
+		ai_chance = { base = 2 }
+	}
+
+	# garrison the African ports with men of our own
+	option = {
+		name = tfe_gildo.3.b
+		add_gold = -60
+		custom_tooltip = tfe_gildo_down_15_tt
+		hidden_effect = { change_variable = { name = tfe_gildo_progress add = -15 } }
+		ai_chance = { base = 2 }
+	}
+
+	# he can wait for an answer
+	option = {
+		name = tfe_gildo.3.c
+		ai_chance = { base = 1 }
+	}
+}
+
+# third warning: the bishops of Numidia
+tfe_gildo.4 = {
+	type = country_event
+	title = tfe_gildo.4.title
+	desc = tfe_gildo.4.desc
+	outcome = negative
+
+	image = "gfx/interface/illustrations/event/backgrounds/interior/byz_nobles_interior.dds"
+
+	# suspend the edicts against the Donatists in Africa
+	option = {
+		name = tfe_gildo.4.a
+		add_legitimacy = -5
+		custom_tooltip = tfe_gildo_down_20_tt
+		hidden_effect = { change_variable = { name = tfe_gildo_progress add = -20 } }
+		ai_chance = { base = 2 }
+	}
+
+	# the law is the law
+	option = {
+		name = tfe_gildo.4.b
+		custom_tooltip = tfe_gildo_up_10_tt
+		hidden_effect = { change_variable = { name = tfe_gildo_progress add = 10 } }
+		ai_chance = { base = 1 }
+	}
+}
+
+# Gildo speaks at Cirta, and 397's tfe_opening.3 splits the land
+tfe_gildo.5 = {
+	type = country_event
+	title = tfe_gildo.5.title
+	desc = tfe_gildo.5.desc
+	outcome = negative
+
+	image = "gfx/interface/illustrations/event/backgrounds/exterior/nobles/syrian_nobles_exterior.dds"
+
+	immediate = {
+		set_variable = tfe_gildo_revolt_fired
+	}
+
+	option = {
+		name = tfe_gildo.5.a
+		hidden_effect = { trigger_event_non_silently = tfe_opening.3 }
+	}
+}
+
+# after the rising, Carthage and Tripolis are won or lost one town at a time (hidden, monthly for two years)
+tfe_gildo.6 = {
+	type = country_event
+	title = tfe_gildo.6.title
+	desc = tfe_gildo.6.desc
+	outcome = neutral
+	hidden = yes
+
+	trigger = { country_exists = c:GILDO }
+
+	immediate = {
+		change_variable = { name = tfe_gildo_wave add = 1 }
+		every_owned_location = {
+			limit = { tfe_gildo_contested_land = yes }
+			if = {
+				limit = { religion_percentage = { religion = religion:donatism value >= 0.25 } }
+				random = { chance = 25 change_location_owner = c:GILDO }
+			}
+			else = {
+				random = { chance = 8 change_location_owner = c:GILDO }
+			}
+		}
+		# Carthage decides where he sits
+		if = {
+			limit = { location:tunis = { owner ?= c:GILDO } }
+			c:GILDO = { set_capital = location:tunis }
+		}
+		if = {
+			limit = { var:tfe_gildo_wave < 24 }
+			trigger_event_silently = { id = tfe_gildo.6 months = 1 }
+		}
+	}
+}
