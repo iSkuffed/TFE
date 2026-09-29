@@ -2,7 +2,9 @@
 market_manager = {
 	#europe
 	add_market = lubeck
+	add_market = riga
 	add_market = venice
+	add_market = novgorod
 	add_market = genoa
 	add_market = london
 	add_market = dublin
@@ -16,6 +18,8 @@ market_manager = {
 	add_market = sevilla
 	add_market = cologne
 	add_market = kyiv
+	add_market = krakow
+	add_market = moscow
 	add_market = kaffa
 	add_market = astrakhan
 	add_market = sarai_al_jadid
@@ -162,4 +166,5 @@ market_manager = {
 	#add_market = waskaganish
 	
 	#Siberia
+	add_market = kazan
 }

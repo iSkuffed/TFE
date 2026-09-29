@@ -1,0 +1,4 @@
+# TFE: empty, replacing vanilla's, which gave Malmo its Skane herring market (c. 1200) and Freiberg its silver
+# (1168). Neither existed in 395.
+locations = {
+}

@@ -1,0 +1,156 @@
+# Eastern Europe, 395 AD. Later lines win: area first, then province.
+!scope baltic_region russian_region ruthenia_region ural_region
+
+# ---------- Baltic coast and Poland ----------
+lithuania_area = AUK
+samogitia_area = CUR
+greater_poland_area = LUG
+central_poland_area = LUG
+mazovia_area = LUG
+
+courland_province = CUR
+semigalia_province = CUR
+latgalia_province = LTG
+selonia_province = LTG
+inner_livonia_province = LTG
+south_livonia_province = LTG
+estonia_province = EST
+north_livonia_province = EST
+rotalia_province = EST
+tartu_province = EST
+
+suwalki_province = SUD
+lomza_province = SUD
+podlasie_province = SUD
+
+# ---------- Belarus and the Dnieper ----------
+white_ruthenia_area = DBL
+smolensk_area = DBL
+
+grodno_province = SUD
+novogrudok_province = SUD
+slonin_province = SUD
+vawkavysk_province = SUD
+bresta_province = SUD
+kobryn_province = SUD
+kletsk_province = ANE
+mazyr_province = ANE
+rechytsa_province = ANE
+slutsk_province = ANE
+pinsk_province = ANE
+turov_province = ANE
+chornobyl_province = ANE
+olevsk_province = ANE
+ovruch_province = ANE
+chernihiv_province = ANE
+gomel_province = ANE
+novhorod_siverskyi_province = ANE
+starodub_siverskyi_province = ANE
+trubchevsk_province = ANE
+bryansk_province = DBL
+
+lesser_poland_area = WND
+chelm_province = WND
+volodymyr_province = WND
+zviahel_province = WND
+przemysl_province = WND
+sanok_province = WND
+drohobych_province = WND
+pocutia_province = WND
+
+# ---------- Forest tribes of the Oka, Volga and north ----------
+moscow_area = GLJ
+oka_area = GLJ
+tver_area = GLJ
+yaroslavl_area = MRY
+vladimir_area = MRY
+suzdal_area = MRY
+beloozero_area = VES
+totma_area = VES
+east_novgorod_area = VES
+west_novgorod_area = VOD
+
+galich_province = MRY
+gorodets_province = MRY
+nizhny_novgorod_province = MRY
+unzha_province = MRY
+kargopol_province = VES
+zaonezhye_province = VES
+onega_province = VES
+
+murom_province = MRO
+kasimov_province = MRO
+ryazan_province = MRO
+pronsk_province = MRO
+rostislavl_province = MRO
+bogdanovo_province = MRD
+sarov_province = MRD
+penza_province = MRD
+tambov_province = MRD
+alatyr_province = MRD
+kurmysh_province = MRD
+troitskoye_kuroedovo_province = MRD
+
+# ---------- Volga-Kama and the Urals ----------
+bolghar_area = IMK
+vyatka_area = UDM
+karagay_area = KMI
+ust_sysola_area = KMI
+ural_area = SRT
+
+yaransk_province = MRR
+nema_province = MRR
+uren_province = MRR
+igra_province = UDM
+sarapul_province = UDM
+kazan_province = IMK
+cheboksary_province = IMK
+samara_province = IMK
+simbirsk_province = IMK
+perm_province = KMI
+beryozovka_province = KMI
+kasevo_province = KMI
+ufa_province = SRT
+bisert_province = SRT
+chishmy_province = SRT
+krasnaya_gorka_province = SRT
+sorochinskaya_province = HNS
+meleuz_province = HNS
+lipetsk_province = HNS
+saratov_province = HNS
+
+# ---------- Slovakia ----------
+trencsen_province = QAD
+hont_province = QAD
+nograd_province = QAD
+szepes_province = CRP
+zemplen_province = CRP
+maramaros_province = CRP
+
+# ---------- Finland and Karelia ----------
+finland_area = SUO
+vyborg_province = KRE
+aunus_karelia_province = KRE
+inner_aunus_karelia_province = KRE
+korela_province = KRE
+
+# Keep the pre-existing Hunnic locations inside mixed provinces.
+lutava = HNS
+hlukhiv = HNS
+voronizh_chernihiv = HNS
+rylsk = HNS
+iziaslav = HNS
+liubar = HNS
+polonne = HNS
+drohobych = HNS
+stryi = HNS
+turka = HNS
+kolomyia = HNS
+sniatyn = HNS
+tysmenytsia = HNS
+serdobinskaya = HNS
+kirsanov = HNS
+mordovo = HNS
+rasskazovo = HNS
+uvarovo = HNS
+zherdevka = HNS

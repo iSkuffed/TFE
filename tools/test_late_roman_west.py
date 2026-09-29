@@ -135,7 +135,8 @@ def test_the_map_carries_the_lands_modifiers():
     ours = (b.MOD / "in_game/map_data/location_templates.txt").read_text(encoding="utf-8-sig")
     assert ours == lt.build(), "rerun tools/location_templates.py"
     tagged = dict(re.findall(r"^(\w+) = \{ modifier = (tfe_\w+) ", ours, re.M))
-    assert {m for m in tagged.values()} == {p.stem for p in MODS}
+    specialities = set(lt.ROMAN_SPECIALITIES.values())   # their own family, in test_specialities.py
+    assert {m for m in tagged.values() if m not in specialities} == {p.stem for p in MODS}
     assert {l for l, m in tagged.items() if m == "tfe_granary_of_rome"} == set(lt.GRANARIES)
     assert len([m for m in tagged.values() if m == "tfe_pannonian_recruiting_grounds"]) > 40
     for l in lt.GRANARIES:
