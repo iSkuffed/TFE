@@ -1,0 +1,22 @@
+﻿# TFE: how fast Africa slips from the West each month (events/tfe_gildo.txt, scope: the West).
+# Left alone it reaches 100 in about three years, so the revolt lands in 397 as it did. Suppression is in the events.
+tfe_gildo_monthly_rise = {
+	value = 1.5
+	# Stilicho kept the Eastern legions and Constantinople's court is hunting for allies
+	if = {
+		limit = { has_variable = tfe_stilicho_claims_the_east }
+		add = 0.75
+	}
+	# a divided empire is easy to leave
+	if = {
+		limit = { international_organization:tfe_roman_empire.var:tfe_unity < 50 }
+		add = 0.75
+	}
+	# Numidia's bishops
+	if = {
+		limit = {
+			location:constantine_ALG = { religion_percentage = { religion = religion:donatism value >= 0.5 } }
+		}
+		add = 0.5
+	}
+}

@@ -83,7 +83,7 @@ tfe_opening.2 = {
 	}
 }
 
-# Autumn 397: Gildo, count of Africa, holds back Rome's grain and offers Africa to the East
+# Gildo, count of Africa, holds back Rome's grain and offers Africa to the East (fired by tfe_gildo.5, autumn 397 at the latest)
 tfe_opening.3 = {
 	type = country_event
 	title = tfe_opening.3.title
@@ -94,12 +94,21 @@ tfe_opening.3 = {
 
 	trigger = {
 		character:tfe_gildo ?= { is_alive = yes }
-		location:tunis = { owner ?= root }
+		OR = {
+			location:cherchell = { owner ?= root }
+			location:constantine_ALG = { owner ?= root }
+		}
 	}
 
 	immediate = {
 		character:tfe_gildo = { save_scope_as = tfe_usurper_ruler }
-		location:tunis = {
+		# his seat is Cherchell, or Cirta if Cherchell is lost; Carthage only if he wins it (tfe_gildo.6)
+		if = {
+			limit = { location:cherchell = { owner ?= root } }
+			location:cherchell = { save_scope_as = tfe_gildo_seat }
+		}
+		else = { location:constantine_ALG = { save_scope_as = tfe_gildo_seat } }
+		scope:tfe_gildo_seat = {
 			create_country_from_location = {
 				define_unique_country_tag = GILDO
 				change_country_name = TFE_GILDO
@@ -115,10 +124,12 @@ tfe_opening.3 = {
 			}
 		}
 		every_owned_location = {
-			limit = { region = region:maghreb_region }
+			limit = { tfe_gildo_base_land = yes }
 			change_location_owner = scope:tfe_usurper
 		}
 		set_variable = { name = tfe_usurper value = scope:tfe_usurper years = 10 }
+		set_variable = { name = tfe_gildo_wave value = 0 }
+		trigger_event_silently = { id = tfe_gildo.6 months = 3 }	# the grain coast and Tripolitania are still in play
 		c:EAR ?= { trigger_event_non_silently = tfe_opening.4 }
 	}
 
