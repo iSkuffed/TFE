@@ -1,5 +1,42 @@
 # TFE 395: starting armies
 unit_manager = {
+	# The West's field army (tools/test_roman_balance.py): Rome fights with paid regulars, not levies. Stilicho's
+	# praesental army at Mediolanum: 12 regiments of foot and 3 of horse (6,600 men)
+	army = {
+		country = WRE
+		location = milano
+		sub_units = {
+			a_footmen = { strength = 1 }
+			a_footmen = { strength = 1 }
+			a_footmen = { strength = 1 }
+			a_footmen = { strength = 1 }
+			a_footmen = { strength = 1 }
+			a_footmen = { strength = 1 }
+			a_footmen = { strength = 1 }
+			a_footmen = { strength = 1 }
+			a_footmen = { strength = 1 }
+			a_footmen = { strength = 1 }
+			a_footmen = { strength = 1 }
+			a_footmen = { strength = 1 }
+			a_armored_horsemen = { strength = 1 }
+			a_armored_horsemen = { strength = 1 }
+			a_armored_horsemen = { strength = 1 }
+		}
+	}
+	# the army of the Gauls under its magister at Augusta Treverorum: 6 of foot and 1 of horse (3,200 men)
+	army = {
+		country = WRE
+		location = trier
+		sub_units = {
+			a_footmen = { strength = 1 }
+			a_footmen = { strength = 1 }
+			a_footmen = { strength = 1 }
+			a_footmen = { strength = 1 }
+			a_footmen = { strength = 1 }
+			a_footmen = { strength = 1 }
+			a_armored_horsemen = { strength = 1 }
+		}
+	}
 	# The Hasding host on the upper Tisza, a Society of Pops that lives by its army
 	army = {
 		country = HAS

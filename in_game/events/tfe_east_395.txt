@@ -1,0 +1,64 @@
+﻿namespace = tfe_east_395
+
+# Summer 395: while the Eastern army is still in Italy, the Huns ride through the Caspian Gates and plunder Armenia,
+# Cappadocia, Cilicia and Syria as far as Antioch (Jerome, Letter 60; Claudian, In Rufinum 2). They go home laden.
+tfe_east_395.1 = {
+	type = country_event
+	title = tfe_east_395.1.title
+	desc = tfe_east_395.1.desc
+	outcome = negative
+
+	image = "gfx/interface/illustrations/event/backgrounds/exterior/soldiers/asian_soldiers_exterior.dds"
+
+	immediate = {
+		area:armenian_highlands_area = {
+			every_location_in_area = {
+				limit = { owner = root }
+				add_location_modifier = { modifier = tfe_hunnic_ravages years = 2 }
+			}
+		}
+		area:cappadocia_area = {
+			every_location_in_area = {
+				limit = { owner = root }
+				add_location_modifier = { modifier = tfe_hunnic_ravages years = 2 }
+			}
+		}
+		area:cilicia_area = {
+			every_location_in_area = {
+				limit = { owner = root }
+				add_location_modifier = { modifier = tfe_hunnic_ravages years = 2 }
+			}
+		}
+		province_definition:antakya_province = {
+			every_location_in_province_definition = {
+				limit = { owner = root }
+				add_location_modifier = { modifier = tfe_hunnic_ravages years = 2 }
+			}
+		}
+		province_definition:ayntab_province = {
+			every_location_in_province_definition = {
+				limit = { owner = root }
+				add_location_modifier = { modifier = tfe_hunnic_ravages years = 2 }
+			}
+		}
+		province_definition:halab_province = {
+			every_location_in_province_definition = {
+				limit = { owner = root }
+				add_location_modifier = { modifier = tfe_hunnic_ravages years = 2 }
+			}
+		}
+		province_definition:hims_province = {
+			every_location_in_province_definition = {
+				limit = { owner = root }
+				add_location_modifier = { modifier = tfe_hunnic_ravages years = 2 }
+			}
+		}
+	}
+
+	option = {
+		name = tfe_east_395.1.a
+		historical_option = yes
+		custom_tooltip = tfe_east_395.1.a.tt
+		ai_chance = { base = 1 }
+	}
+}

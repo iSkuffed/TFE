@@ -1,0 +1,23 @@
+﻿# TFE: Rome raises no peasant levies (tools/test_roman_balance.py). By 395 it bought its recruits through the
+# conscription tax (praebitio tironum, or aurum tironicum in gold) and fought with a paid standing army, so both
+# empires field far fewer levies and must pay for regulars.
+tfe_roman_recruitment = {
+	potential_trigger = {
+		OR = {
+			has_or_had_tag = WRE
+			has_or_had_tag = EAR
+		}
+	}
+
+	global_army_levy_size_modifier = -0.6
+}
+
+# The West's field army is fed in kind from the grain tax (the annona militaris of Italy and Africa), not paid in
+# coin, so its regulars cost less than the Debased Coinage would make them
+tfe_rations_in_kind = {
+	potential_trigger = {
+		has_or_had_tag = WRE
+	}
+
+	army_maintenance_efficiency = 0.3
+}

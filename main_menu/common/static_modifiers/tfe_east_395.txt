@@ -1,0 +1,29 @@
+﻿# TFE: the East's wounds in 395 (on_action/tfe_east_395.txt, events/tfe_east_395.txt)
+# Thrace, the Moesias and Macedonia, burned over since Adrianople (378); the Goths still live inside the frontier
+tfe_ravaged_by_the_goths = {
+	game_data = {
+		category = location
+		decaying = yes
+	}
+	local_levy_size_modifier = -0.3
+	local_monthly_prosperity = -0.005
+	local_population_growth = -0.002
+}
+
+# The Huns over the Caspian Gates, summer 395: Armenia, Cappadocia, Cilicia and Syria to Antioch plundered
+tfe_hunnic_ravages = {
+	game_data = {
+		category = location
+		decaying = yes
+	}
+	local_levy_size_modifier = -0.5
+	local_monthly_prosperity = -0.025
+	local_unrest = 0.2
+}
+
+# The Isaurians of the Taurus: brigands no governor has ever tamed
+tfe_isaurian_brigands = {
+	game_data = { category = location }
+	local_unrest = 0.25
+	local_monthly_control = -0.01
+}

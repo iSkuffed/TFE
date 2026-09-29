@@ -1,0 +1,45 @@
+﻿# TFE: the East's wounds in 395 (static_modifiers/tfe_east_395.txt). Its field army is in Italy with Stilicho
+# (events/tfe_opening.txt); these are the rest.
+on_game_start = {
+	on_actions = { tfe_on_start_east_395 }
+}
+
+tfe_on_start_east_395 = {
+	effect = {
+		# Thrace, Moesia Secunda, Moesia Prima and Macedonia, burned over since Adrianople: it fades over 15 years
+		area:thrace_area = {
+			every_location_in_area = {
+				limit = { owner = c:EAR }
+				add_location_modifier = { modifier = tfe_ravaged_by_the_goths years = 15 }
+			}
+		}
+		area:bulgaria_area = {
+			every_location_in_area = {
+				limit = { owner = c:EAR }
+				add_location_modifier = { modifier = tfe_ravaged_by_the_goths years = 15 }
+			}
+		}
+		area:serbia_area = {
+			every_location_in_area = {
+				limit = { owner = c:EAR }
+				add_location_modifier = { modifier = tfe_ravaged_by_the_goths years = 15 }
+			}
+		}
+		area:macedonia_area = {
+			every_location_in_area = {
+				limit = { owner = c:EAR }
+				add_location_modifier = { modifier = tfe_ravaged_by_the_goths years = 15 }
+			}
+		}
+		# Isauria: the Taurus brigands
+		province_definition:icel_province = {
+			every_location_in_province_definition = {
+				limit = { owner = c:EAR }
+				add_location_modifier = { modifier = tfe_isaurian_brigands }
+			}
+		}
+		c:EAR ?= {
+			trigger_event_non_silently = { id = tfe_east_395.1 days = 165 }		# the Huns, summer 395
+		}
+	}
+}
