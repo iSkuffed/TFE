@@ -1,0 +1,9 @@
+# Roman Mesopotamia in 395. Jovian's peace of 363 gave Persia Nisibis, Singara, Castra Maurorum and the satrapies
+# beyond the Tigris; Osrhoene and the province of Mesopotamia stayed Roman: Edessa, Carrhae, Amida, Constantina,
+# Resaina, Callinicum and Circesium held the frontier (Ammianus 25.7, Notitia Dignitatum Or. 35-36).
+# Loaded last, so these win over the dataset, which draws the Persian border too far west.
+ar_ruha_province = EAR           # Osrhoene: Edessa, Carrhae, Batnae, Birtha/Zeugma
+diyarbekir_province = EAR        # Amida, seat of the dux of Mesopotamia
+mardin_province = EAR            # Constantina (Tella), Resaina (Theodosiopolis), the Khabur forts
+raqqa_province = EAR             # Callinicum, Circesium at the Khabur mouth, Dausara
+mayyafariqin = EAR               # Martyropolis in Sophanene; Arzanene beyond it went to Persia in 363
