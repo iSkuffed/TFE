@@ -1604,23 +1604,23 @@ tamworth = { topography = flatland vegetation = woods climate = oceanic religion
 lancaster = { topography = flatland vegetation = grasslands climate = oceanic religion = catholic culture = northumbrian raw_material = livestock natural_harbor_suitability = 0.25}
 blackburn = { topography = hills vegetation = woods climate = oceanic religion = catholic culture = english raw_material = coal}
 liverpool = { topography = flatland vegetation = grasslands climate = oceanic religion = catholic culture = english raw_material = sand natural_harbor_suitability = 0.80}
-preston = { topography = flatland vegetation = grasslands climate = oceanic religion = catholic culture = english raw_material = wool natural_harbor_suitability = 0.20}
+preston = { topography = flatland vegetation = grasslands climate = oceanic religion = catholic culture = english raw_material = horses natural_harbor_suitability = 0.20}
 manchester = { topography = flatland vegetation = grasslands climate = oceanic religion = catholic culture = english raw_material = coal}
 pennines_01 = { topography = hills_wasteland vegetation = sparse climate = continental}
 pennines_02 = { topography = hills_wasteland vegetation = sparse climate = continental}
 york = { topography = flatland vegetation = farmland climate = oceanic religion = catholic culture = northumbrian raw_material = wheat}
-scarborough = { topography = hills vegetation = sparse climate = oceanic religion = catholic culture = northumbrian raw_material = alum natural_harbor_suitability = 0.25}
+scarborough = { topography = hills vegetation = sparse climate = oceanic religion = catholic culture = northumbrian raw_material = fish natural_harbor_suitability = 0.25}
 bedale = { topography = flatland vegetation = grasslands climate = oceanic religion = catholic culture = northumbrian raw_material = horses}
 richmond = { topography = hills vegetation = sparse climate = oceanic religion = catholic culture = northumbrian raw_material = lead}
-whitby = { topography = hills vegetation = sparse climate = oceanic religion = catholic culture = northumbrian raw_material = alum natural_harbor_suitability = 0.25}
+whitby = { topography = hills vegetation = sparse climate = oceanic religion = catholic culture = northumbrian raw_material = gems natural_harbor_suitability = 0.25}
 north_york_moors = { topography = hills_wasteland vegetation = sparse climate = oceanic}
 hull = { topography = flatland vegetation = grasslands climate = oceanic religion = catholic culture = northumbrian raw_material = fish natural_harbor_suitability = 0.40}
 bridlington = { topography = flatland vegetation = grasslands climate = oceanic religion = catholic culture = northumbrian raw_material = fiber_crops natural_harbor_suitability = 0.20}
 selby = { topography = flatland vegetation = grasslands climate = oceanic religion = catholic culture = northumbrian raw_material = horses}
-norton = { topography = flatland vegetation = grasslands climate = oceanic religion = catholic culture = northumbrian raw_material = wool}
+norton = { topography = flatland vegetation = grasslands climate = oceanic religion = catholic culture = northumbrian raw_material = wheat}
 leeds = { topography = hills vegetation = woods climate = oceanic religion = catholic culture = english raw_material = iron}
-pontefract = { topography = flatland vegetation = woods climate = oceanic religion = catholic culture = english raw_material = wool}
-skipton = { topography = flatland vegetation = sparse climate = oceanic religion = catholic culture = northumbrian raw_material = wool}
+pontefract = { topography = flatland vegetation = woods climate = oceanic religion = catholic culture = english raw_material = wheat}
+skipton = { topography = flatland vegetation = sparse climate = oceanic religion = catholic culture = northumbrian raw_material = lead}
 wakefield = { topography = flatland vegetation = sparse climate = oceanic religion = catholic culture = english raw_material = stone}
 doncaster = { topography = flatland vegetation = grasslands climate = oceanic religion = catholic culture = english raw_material = iron}
 ripon = { topography = flatland vegetation = grasslands climate = oceanic religion = catholic culture = northumbrian raw_material = beeswax}
@@ -1630,7 +1630,7 @@ pennines_06 = { topography = hills_wasteland vegetation = sparse climate = ocean
 newcastle = { topography = flatland vegetation = grasslands climate = oceanic religion = catholic culture = northumbrian raw_material = coal natural_harbor_suitability = 0.50}
 hexham = { topography = flatland vegetation = forest climate = oceanic religion = catholic culture = northumbrian raw_material = coal}
 alnwick = { topography = flatland vegetation = grasslands climate = oceanic religion = catholic culture = northumbrian raw_material = wool natural_harbor_suitability = 0.00}
-morpeth = { topography = flatland vegetation = grasslands climate = oceanic religion = catholic culture = northumbrian raw_material = wool natural_harbor_suitability = 0.00}
+morpeth = { topography = flatland vegetation = grasslands climate = oceanic religion = catholic culture = northumbrian raw_material = livestock natural_harbor_suitability = 0.00}
 billingham = { topography = flatland vegetation = forest climate = oceanic religion = catholic culture = northumbrian raw_material = wild_game}
 carlisle = { topography = flatland vegetation = woods climate = oceanic religion = catholic culture = northumbrian raw_material = clay natural_harbor_suitability = 0.50}
 cockermouth = { topography = flatland vegetation = forest climate = oceanic religion = catholic culture = northumbrian raw_material = lead natural_harbor_suitability = 0.00}
@@ -1639,9 +1639,9 @@ egremont = { topography = flatland vegetation = forest climate = oceanic religio
 derwent_water = { topography = lakes climate = oceanic}
 kendal = { topography = wetlands vegetation = woods climate = oceanic religion = catholic culture = northumbrian raw_material = iron natural_harbor_suitability = 0.00}
 appleby = { topography = flatland vegetation = sparse climate = oceanic religion = catholic culture = northumbrian raw_material = clay}
-durham = { topography = flatland vegetation = grasslands climate = oceanic religion = catholic culture = northumbrian raw_material = wool natural_harbor_suitability = 0.00}
+durham = { topography = flatland vegetation = grasslands climate = oceanic religion = catholic culture = northumbrian raw_material = livestock natural_harbor_suitability = 0.00}
 darlington = { topography = hills vegetation = sparse climate = oceanic religion = catholic culture = northumbrian raw_material = coal}
-stockton = { topography = flatland vegetation = grasslands climate = oceanic religion = catholic culture = northumbrian raw_material = wool natural_harbor_suitability = 0.30}
+stockton = { topography = flatland vegetation = grasslands climate = oceanic religion = catholic culture = northumbrian raw_material = livestock natural_harbor_suitability = 0.30}
 pennines_03 = { topography = hills_wasteland vegetation = sparse climate = continental}
 chester = { topography = flatland vegetation = woods climate = oceanic religion = catholic culture = english raw_material = salt natural_harbor_suitability = 0.10}
 macclesfield = { topography = flatland vegetation = woods climate = oceanic religion = catholic culture = english raw_material = livestock natural_harbor_suitability = 0.00}

@@ -44,8 +44,8 @@ ITALIAN_VILLAS = {
 ITALIA_ANNONARIA = ("lombardy_area", "piemonte_area", "veneto_area", "emilia_area", "liguria_area")
 ITALIAN_ISLANDS = ("sicily_area", "sardinia_area")
 # Britannia fed the Rhine army (Julian's 359 grain fleet), mined, potted and kept cattle; the great wool trade was
-# medieval. Of vanilla's 24 wool towns in the south and Wales only three flocks stay: the downs around Venta Belgarum,
-# whose state weaving works made the birrus Britannicus, and the Welsh hills. Vanilla's English Wool Country and
+# medieval. Of vanilla's 33 English and Welsh wool towns only five flocks stay: the downs around Venta Belgarum, whose
+# state weaving works made the birrus Britannicus, the Welsh hills, the Cumbrian fells and the Votadini's hills. Vanilla's English Wool Country and
 # Yorkshire Cloth modifiers go everywhere.
 BRITANNIA = {
     "dunstable": "livestock", "aylesbury": "livestock", "wigmore": "livestock", "bosworth": "livestock",
@@ -64,6 +64,13 @@ BRITANNIA = {
     "oswestry": "copper",       # Llanymynech
     "truro": "tin",             # Cornish tin replaced Spain's in the 3rd century
     "wells": "lead", "bath": "stone",   # Charterhouse on Mendip; Bath stone
+    # the north was the army's: grain for the legion at York, cattle and hides for the Wall, cavalry horses
+    "norton": "wheat", "pontefract": "wheat",   # East Riding villas, the Vale of York
+    "skipton": "lead",          # Craven and Nidderdale
+    "preston": "horses",        # Ribchester's Sarmatian veterans
+    "durham": "livestock", "stockton": "livestock", "morpeth": "livestock",
+    "whitby": "gems",           # jet, carved at York; the alum works came in 1600
+    "scarborough": "fish",
 }
 BRITISH_WOOL = ("england_wool_base", "yorkshire_cloth_base")
 
