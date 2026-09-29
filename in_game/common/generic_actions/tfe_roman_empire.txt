@@ -30,7 +30,8 @@ tfe_illyricum_claims = {
 			set_variable = { name = tfe_illyricum_claim years = 10 }
 			add_casus_belli = { target = c:EAR type = casus_belli:cb_tfe_illyrian_claim years = 10 }
 		}
-		scope:recipient = { change_variable = { name = tfe_unity add = -10 } }
+		custom_tooltip = tfe_unity_down_10_tt
+		hidden_effect = { scope:recipient = { change_variable = { name = tfe_unity add = -10 } } }
 	}
 	ai_will_do = { value = -300 }
 }
@@ -72,7 +73,8 @@ tfe_align_visigoths = {
 			}
 			create_relation = { first = scope:actor second = c:VIS type = relation_type:alliance }
 		}
-		scope:recipient = { change_variable = { name = tfe_unity add = -10 } }
+		custom_tooltip = tfe_unity_down_10_tt
+		hidden_effect = { scope:recipient = { change_variable = { name = tfe_unity add = -10 } } }
 	}
 	ai_will_do = { value = -300 }
 }

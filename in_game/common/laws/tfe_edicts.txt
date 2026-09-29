@@ -15,6 +15,7 @@ tfe_edicts_law = {
 	# Cunctos populos (380): all peoples shall hold the faith of Nicaea
 	tfe_edict_fide_policy = {
 		on_activate = {
+			custom_tooltip = tfe_unity_down_5_tt
 			international_organization:tfe_roman_empire = {
 				change_variable = { name = tfe_unity add = -5 }
 				set_variable = { name = tfe_edict_binds years = 5 }
@@ -29,6 +30,7 @@ tfe_edicts_law = {
 	# The emperors' constitutions gathered into one code, as Theodosius II would in 438
 	tfe_edict_codificatio_policy = {
 		on_activate = {
+			custom_tooltip = tfe_unity_down_5_tt
 			international_organization:tfe_roman_empire = {
 				change_variable = { name = tfe_unity add = -5 }
 				set_variable = { name = tfe_edict_binds years = 5 }
@@ -43,6 +45,7 @@ tfe_edicts_law = {
 	# The imperial post: couriers between both courts, horses paid for by the provincials
 	tfe_edict_cursus_publicus_policy = {
 		on_activate = {
+			custom_tooltip = tfe_unity_down_5_tt
 			international_organization:tfe_roman_empire = {
 				change_variable = { name = tfe_unity add = -5 }
 				set_variable = { name = tfe_edict_binds years = 5 }
@@ -57,6 +60,7 @@ tfe_edicts_law = {
 	# Deserted fields given to whoever will till them, their taxes laid on the neighbouring landowners
 	tfe_edict_agri_deserti_policy = {
 		on_activate = {
+			custom_tooltip = tfe_unity_down_5_tt
 			international_organization:tfe_roman_empire = {
 				change_variable = { name = tfe_unity add = -5 }
 				set_variable = { name = tfe_edict_binds years = 5 }
@@ -71,6 +75,7 @@ tfe_edicts_law = {
 	# Bread for the cities, from the provinces' grain
 	tfe_edict_annona_policy = {
 		on_activate = {
+			custom_tooltip = tfe_unity_down_5_tt
 			international_organization:tfe_roman_empire = {
 				change_variable = { name = tfe_unity add = -5 }
 				set_variable = { name = tfe_edict_binds years = 5 }

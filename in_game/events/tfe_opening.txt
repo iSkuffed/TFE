@@ -15,7 +15,8 @@ tfe_opening.1 = {
 	option = {
 		name = tfe_opening.1.a
 		historical_option = yes
-		international_organization:tfe_roman_empire ?= { change_variable = { name = tfe_unity add = 5 } }
+		custom_tooltip = tfe_unity_up_5_tt
+		hidden_effect = { international_organization:tfe_roman_empire ?= { change_variable = { name = tfe_unity add = 5 } } }
 		ai_chance = { base = 3 }
 	}
 
@@ -24,7 +25,8 @@ tfe_opening.1 = {
 		name = tfe_opening.1.b
 		add_prestige = 10
 		set_variable = tfe_stilicho_claims_the_east	# read by 2 and 4: the East remembers
-		international_organization:tfe_roman_empire ?= { change_variable = { name = tfe_unity add = -10 } }
+		custom_tooltip = tfe_unity_down_10_tt
+		hidden_effect = { international_organization:tfe_roman_empire ?= { change_variable = { name = tfe_unity add = -10 } } }
 		ai_chance = { base = 1 }
 	}
 }
@@ -46,7 +48,8 @@ tfe_opening.2 = {
 		# Stilicho's hand is seen in it
 		if = {
 			limit = { c:WRE ?= { has_variable = tfe_stilicho_claims_the_east } }
-			international_organization:tfe_roman_empire ?= { change_variable = { name = tfe_unity add = -5 } }
+			custom_tooltip = tfe_unity_down_5_tt
+			hidden_effect = { international_organization:tfe_roman_empire ?= { change_variable = { name = tfe_unity add = -5 } } }
 		}
 	}
 
@@ -143,7 +146,8 @@ tfe_opening.4 = {
 		name = tfe_opening.4.a
 		historical_option = yes
 		scope:tfe_usurper ?= { make_subject_of = { target = root type = subject_type:vassal } }
-		international_organization:tfe_roman_empire ?= { change_variable = { name = tfe_unity add = -15 } }
+		custom_tooltip = tfe_unity_down_15_tt
+		hidden_effect = { international_organization:tfe_roman_empire ?= { change_variable = { name = tfe_unity add = -15 } } }
 		ai_chance = {
 			base = 1
 			modifier = {
@@ -156,7 +160,8 @@ tfe_opening.4 = {
 	# one empire: send his envoys back to Carthage in chains
 	option = {
 		name = tfe_opening.4.b
-		international_organization:tfe_roman_empire ?= { change_variable = { name = tfe_unity add = 5 } }
+		custom_tooltip = tfe_unity_up_5_tt
+		hidden_effect = { international_organization:tfe_roman_empire ?= { change_variable = { name = tfe_unity add = 5 } } }
 		ai_chance = { base = 1 }
 	}
 }

@@ -1,0 +1,398 @@
+development = {
+# TFE, 395 AD: vanilla's 1337 spread redone. Generic terms are vanilla's; regions, areas, provinces and
+# locations below are for 395. All valid values are added together (see vanilla's 14_development.txt).
+# Scale: Roman Mediterranean and Sasanian heartland 25-30, Roman frontier 15-20, free barbaricum 3-6.
+
+	base = -2
+
+	#Waterways
+	coastal = 5 # multiplies by natural harbor suitability
+	river = 0.5 # multiplies by river size, ranges from 1 to 8 but 5 is the biggest used in the setup
+
+	#Roads (TFE's Roman road network, 09_roads.txt)
+	road = 2
+
+	#location rank
+	megalopolis = 5	# TFE: Rome, Constantinople and the other great cities start at this rank, not city
+	city = 5
+	town = 2
+
+	# vegetation
+	grasslands = 1
+	farmland = 3
+	sparse = -1
+	forest = -2
+	woods = -1
+	desert = -3
+	jungle = -4
+
+	#climate
+	tropical = -3
+	subtropical = 2
+	oceanic = 1
+	arid = -4
+	cold_arid = -3
+	mediterranean = 2
+	continental = 1
+	arctic = -5
+
+	#topography
+	flatland = 1
+	mountains = -3
+	hills = -2
+	plateau = -1
+	wetlands = -4
+
+
+	# regions
+	#western europe
+	scandinavian_region = 2 # free Scandinavia, Iron Age farmers
+	north_atlantic_islands_region = 0 # Iceland and Greenland unsettled
+	north_german_region = 5 # free Germania; the Roman left bank of the Rhine is raised below
+	south_german_region = 5 # Alamanni, Marcomanni, Bavarii; the Roman Alps and Danube are raised below
+	great_britain_region = 14 # Britannia, a middling Roman frontier diocese
+	ireland_region = 4 # Hibernia, outside the Empire
+	france_region = 18 # the Gauls; the Mediterranean south is raised below
+	iberia_region = 22 # the Spains, in their villa boom
+	italy_region = 28 # the heart of the Empire
+	#eastern europe
+	carpathia_region = 5 # Sarmatians, Goths and Gepids; Pannonia is raised below
+	baltic_region = 3 # Balts, Finns and the Vistula peoples
+	caucasus_region = 12 # Armenia, Iberia, Lazica and Albania, fought over by Rome and Persia
+	steppes_region = 3 # Sarmatian and Gothic steppe
+	russian_region = 4 # Slav and Finnic forest peoples
+	ruthenia_region = 6 # Chernyakhov farmers under the Goths
+	ural_region = 2
+	balkan_region = 18 # Roman Illyricum, Thrace and Greece
+	#africa
+	egypt_region = 30 # Rome's granary
+	macaronesia_region = 0
+	maghreb_region = 20 # the Diocese of Africa; the free Berber interior is lowered below
+	guinea_region = 4
+	sahel_region = 6 # early Sahel, before the trans-Saharan trade
+	ethiopia_region = 10 # Aksum's hinterland; its core is raised below
+	nubia_region = 8 # Kush has just fallen to Aksum
+	somalia_region = 8 # Punt's incense coast
+	great_lakes_region = 4
+	swahili_coast_region = 5 # Azania, a Periplus trade coast
+	madagascar_region = 2
+	kongo_region = 3
+	southern_africa_islands_region = 0
+	southern_africa_region = 0
+	zimbabwe_region = 2
+	#asia
+	anatolia_region = 24 # Asia, Bithynia, Galatia and Cappadocia: rich Roman provinces
+	crescent_region = 26 # Syria and Mesopotamia, the richest lands of both empires
+	arabia_region = 6
+	persia_region = 26 # the Sasanian heartland
+	khorasan_region = 14 # Sogdiana, Bactria and Khorasan under the Sasanians and Kidarites
+	west_siberia_region = 0
+	east_siberia_region = 0
+	east_china_region = 26 # Eastern Jin's Jiangnan, refugees from the north
+	japan_region = 12 # Kofun Yamato
+	korea_region = 16 # Three Kingdoms: Goguryeo, Baekje, Silla
+	manchuria_region = 8
+	mongolia_region = 4 # Xianbei and Rouran
+	north_china_region = 24 # the Sixteen Kingdoms: a great heartland, ravaged by war
+	south_china_region = 20
+	tibet_region = 6 # Qiang, before Yarlung
+	west_china_region = 22 # Sichuan and Guanzhong
+	xinjiang_region = 10 # the Tarim oasis kingdoms
+	hindustan_region = 26 # Gupta core
+	bengal_region = 27
+	western_india_region = 24 # Malwa and Gujarat, taken by Chandragupta II c. 400
+	deccan_region = 20 # Vakataka and Kadamba
+	central_india_region = 24
+	indochina_region = 14 # Funan, Champa, the Pyu
+	indonesia_region = 10
+	#america
+	canada_region = 0
+	caribbean_region = 0
+	east_coast_region = 0 # Hopewell has faded; Cahokia is centuries away
+	great_plains_region = 3
+	mesoamerica_region = 16 # Teotihuacan and Zapotec Monte Alban
+	central_america_region = 7 # Early Classic Maya
+	aridoamerica_region = 5
+	alaska_region = 0
+	west_coast_region = 0
+	colombia_region = 5
+	brazil_region = 0
+	andes_region = 12 # Moche and Nazca
+	chaco_region = 0
+	la_plata_region = 0
+	#oceania
+	australia_region = 0
+	melanesia_region = 0
+	micronesia_region = 0
+	polynesia_region = 0
+	new_zealand_region = 0
+
+
+	# areas
+	#scandinavia
+	denmark_area = 1 # Jutland, Angles and Jutes
+	karelia_area = -5
+	kola_area = -5
+	#balkan region
+	thrace_area = 8 # Constantinople's hinterland
+	macedonia_area = 3 # Thessalonica
+	northern_greece_area = 2 # Athens, still a learned city
+	morea_area = 2 # Achaea, thinner since the Herulian raids
+	aegean_archipelago_area = 3
+	albania_area = 2 # Epirus Nova, Dyrrachium
+	croatia_area = 4 # Dalmatia, Salona
+	slovenia_area = 6 # Aquileia's Alpine hinterland
+	slavonia_area = 4 # Pannonia Savia, Sirmium
+	bosnia_area = -2
+	#great britain
+	home_counties_area = 4 # London, Kent and Hampshire: the villa country
+	west_country_area = 4 # Cirencester, Bath, Gloucester
+	east_anglia_area = 2
+	midlands_area = 1
+	northumbria_area = -2 # Hadrian's Wall
+	wales_area = -4
+	scottish_lowlands_area = -8 # beyond the Wall
+	scottish_highlands_area = -8
+	hebrides_area = -12
+	#france
+	provence_area = 6 # Narbonensis, Arelate
+	languedoc_area = 5
+	lyonnais_area = 4 # Lugdunum
+	guyenne_area = 4 # Aquitania, Burdigala
+	burgundy_area = 2 # Augustodunum
+	auvergne_area = 2
+	savoy_area = 1
+	brittany_area = -4 # Armorica, in Bagaudae revolt
+	normandy_area = -1
+	champagne_area = -1 # Frankish laeti
+	picardy_area = -1
+	#iberia
+	andalusia_area = 5 # Baetica, oil and wine
+	valencia_area = 3
+	granada_area = 1
+	catalonia_area = 3 # Tarraco
+	extremadura_area = 3 # Emerita Augusta
+	galicia_area = -2
+	leon_area = -2
+	castile_area = -3 # the thin meseta and the Cantabrian hills
+	navarre_area = -3 # Vascones, barely Romanised
+	#italy
+	sardinia_area = -6
+	sicily_area = 0 # Rome's grain island
+	lazio_area = 3 # Rome's suburbicarian hinterland
+	campania_area = 3 # Campania Felix
+	#carpathia
+	transdanubia_area = 14 # Pannonia Valeria, the Danube limes' rich rear
+	south_alfold_area = 1
+	north_alfold_area = 0 # Sarmatian Iazyges
+	slovakia_area = 0 # Quadi
+	moldavia_area = -3
+	transylvania_area = 0 # Dacia, abandoned in 271
+	#north germany
+	flanders_area = 12 # Belgica Secunda
+	brabant_area = 8 # Germania Inferior
+	wallonia_area = 10 # Belgica
+	holland_area = 4 # Batavia, Frankish settlers
+	rhineland_area = 8 # Germania Secunda, Colonia and Treveri
+	hesse_area = 3 # Mogontiacum's right bank, Alamannic
+	friesland_area = 0
+	#south germany
+	alsace_area = 12 # Germania Prima, Argentoratum
+	upper_rhine_area = 4 # the Agri Decumates, lost to the Alamanni
+	western_switzerland_area = 10 # Helvetia
+	central_switzerland_area = 8
+	eastern_switzerland_area = 6 # Raetia Prima
+	tirol_area = 6 # Raetia Secunda
+	bavaria_area = 6 # Raetia south of the Danube, free Baiuvarii to the north
+	salzburg_area = 10 # Noricum Ripense
+	upper_austria_area = 10
+	austria_area = 12 # Pannonia Prima, Vindobona
+	styria_area = 12 # Noricum Mediterraneum
+	carinthia_area = 10
+	swabia_area = 0 # Alamanni
+	franconia_area = 0
+	bohemia_area = 0 # Marcomanni, in free Germania
+	moravia_area = 0 # Quadi
+	#poland
+	silesia_area = 0
+	#Russia
+	pomorye_area = -10
+	arkhangelsk_area = -10
+	#Steppes
+	crimea_area = 10 # the Bosporan Kingdom's cities, Rome's client
+	matrega_area = 8 # Phanagoria and the Taman shore
+	azov_area = 3 # Tanais
+	#Caucasus
+	armenia_area = 6 # Greater Armenia, partitioned in 387
+	armenian_highlands_area = 3
+	georgia_area = 3 # Iberia and Lazica
+	shirvan_area = 3 # Caucasian Albania
+	northern_caucasus_area = -6
+	#Africa
+	#egypt
+	cyrenaica_area = -12 # ruined by the 365 earthquake and the Austuriani
+	sinai_area = -10
+	#maghreb
+	tunis_area = 8 # Africa Proconsularis, Byzacena and Numidia
+	tripolitania_area = 2 # Leptis Magna
+	algiers_area = 2 # Mauretania Caesariensis
+	morocco_area = -2 # Mauretania Tingitana, held only on the coast
+	sus_area = -5
+	desert_area = -12
+	western_sahara_area = -15
+	#ethiopia
+	northern_ethiopia_area = 12 # Aksum's core, at its height under Ezana
+	southern_ethiopia_area = -4
+	#nubia
+	butana_area = 4 # Meroe
+	darfur_area = -3
+	equatoria_area = -5
+	#swahili coast and Somalia: no medieval city-states yet
+	southern_somalia_area = 0
+
+	#Asia
+	#anatolia
+	west_anatolia_area = 4 # Asia, Ephesus and Pergamon
+	marmara_area = 4 # Bithynia, Nicomedia and Nicaea
+	cilicia_area = 0 # Isauria's bandit hills and Tarsus
+	#crescent
+	levant_area = 2 # Syria and Palaestina
+	jazira_area = -2 # the Roman-Persian marches
+	iraq_arabi_area = 2 # Asoristan, the Sawad
+	#persia
+	fars_area = 3 # Istakhr, the dynasty's homeland
+	khuzestan_area = 4 # Susiana, Gundeshapur
+	iraq_ajam_area = 2 # Media
+	azerbaijan_area = 2 # Atropatene
+	kordestan_area = -3
+	mazandaran_area = -3
+	quhestan_area = -6
+	sistan_area = -3
+	baluchistan_area = -8
+	#khorasan
+	transoxiana_area = 4 # Sogdian oases
+	eastern_khorasan_area = 2 # Bactria and Merv
+	western_khorasan_area = 2
+	khwarazm_area = 0
+	desht_kipchak_area = -8
+	zhetysu_area = -3
+	#Arabia
+	north_yemen_area = 10 # Himyar, Marib's dam
+	south_yemen_area = 10
+	bahrein_area = 3 # Sasanian pearl coast
+	oman_area = 2
+	najd_area = -2
+	hail_area = -2
+	#Tibet
+	kham_area = 0
+	#Korea
+	gwanseo_area = -5
+	gwanbuk_area = -10
+	#Manchuria
+	liaodong_area = 5 # Murong Yan
+	#Xinjiang
+	tarim_area = 5
+	#Japan
+	ou_area = -5
+	ezo_area = -25
+	ryuukyuu_area = -15
+	saikaidou_area = -3
+	#East China
+	hunan_area = -3
+	wuling_area = -3
+	hubei_area = -3
+	jiangxi_area = -5
+	#West China
+	gansu_area = -7
+	hexi_area = -3
+	longyou_area = -3
+	shaanxi_area = -3
+	#South China
+	dali_area = -3
+	yunnan_area = -3
+	guizhou_area = -3
+	liangjiang_area = -3
+	guangxi_area = -3
+	#Bengal
+	assam_area = -10
+	hill_area = -10
+	monyul_area = -10
+	#Hindustan
+	upper_indus_area = -7
+	#Indonesia
+	java_area = 2
+	luzon_area = -6
+	visayas_area = -6
+	mindanao_area = -6
+	south_borneo_area = -3
+	north_borneo_area = -3
+
+	# provinces
+	#Egypt
+	oasis_province = -5
+	#Italy
+	ticino_province = -5
+	novara_province = -3
+	valtellina_province = -3
+	cismonte_province = -10 # Corsica
+	pumonte_province = -10
+	#Ethiopia
+	tigray_province = 3 # Aksum itself
+	#Manchuria
+	jinzhou_province = 5
+	liaoyang_province = 5
+	gaizhou_province = 5
+	#Korea
+	hamheung_province = 5
+	#North China
+	#Shanxi Area
+	qingcheng_province = -5
+	jining_shanxi_province = -5
+	datong_province = -5
+	#Beizhili Area
+	xinghe_province = -3
+	shangdu_province = -7
+	quanning_province = -7
+	daning_province = -7
+	xingzhou_province = -3
+	wanquan_province = -3
+	baoan_province = -3
+	#Bengal
+	#Bengal Area
+	tripura_province = -10
+	sylhet_province = -10
+	#Rhine
+	bergisches_land_province = -5 # free Germania east of the river
+	westerwald = -5
+
+	#unique locations
+	constantinople = 14 # New Rome
+	rome = 14 # the city itself
+	alexandria = 10 # the East's greatest port
+	antioch = 8 # Syria's metropolis
+	tunis = 8 # Carthage, Rome's second city in the West
+	milano = 6 # Mediolanum, Honorius's court
+	ravenna = 3 # a fleet base, not yet a capital
+	trier = 6 # Augusta Treverorum, imperial residence of the West
+	thessaloniki = 4 # Galerius's capital
+	ayasuluk = 4 # Ephesus
+	aquileia = 3
+	arles = 3
+	athens = 3
+	jerusalem = 3 # Christian pilgrimage
+	giza = 2 # Memphis
+	damascus = 2
+	cordoba = 3 # Corduba, capital of Baetica
+	zaragoza = 2 # Caesaraugusta
+	cologne = 2
+	baghdad = 14 # Ctesiphon and Seleucia, the Sasanian capital
+	merv = 2
+	samarkand = 3 # Sogdian Afrasiab
+	nishapur = 3
+	shangyuan = 6 # Jiankang, Eastern Jin's capital
+	jingzhao = 3 # Chang'an
+	patna = 6 # Pataliputra, Gupta capital
+	tehotihuacan = 6
+	zaachila = 3 # Monte Alban
+	yax_mutal = 3 # Tikal
+}
