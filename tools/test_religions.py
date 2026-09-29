@@ -17,7 +17,8 @@ NEW = {"arianism", "donatism", "celtic_paganism", "slavic_paganism", "arabian_pa
 # what may live in the core in 395: nothing born later (Islam, Druze, the medieval heresies), no Latin papacy
 OF_395 = NEW | {"orthodox", "nestorianism", "hellenism_religion", "norse", "tengri", "alan_paganism", "romuva",
                 "muinaisusko", "votian_religion", "sapmi_shamanism", "mari_paganism", "erzya_religion",
-                "moksha_religion", "komi_paganism", "samoyedic_paganism", "khabzeism", "vainakh_paganism",
+                 "moksha_religion", "komi_paganism", "udmurt_paganism", "obian_paganism", "samoyedic_paganism",
+                 "khabzeism", "vainakh_paganism",
                 "lezgin_paganism", "godala_religion", "judaism", "samaritanism", "mandeaism", "manichaeism",
                 "zoroastrian", "mahayana", "hindu"}
 
@@ -105,7 +106,7 @@ def test_the_core_keeps_only_religions_of_395():
     anc = b.load_hierarchy()
     left = {}
     for loc, ps in pops().items():
-        if anc[loc][2] in b.CULTURE_REGIONS:
+        if anc[loc][2] in (b.CULTURE_REGIONS | {"ural_region"}):
             for kind, culture, religion in ps:
                 if religion not in OF_395:
                     left.setdefault((culture, religion), loc)
@@ -143,6 +144,13 @@ def test_mixed_places():
     roman = [l for l, ps in p.items() if anc[l][2] in ("italy_region", "france_region", "iberia_region", "anatolia_region")]
     mixed = [l for l in roman if len({r for _, _, r in p[l]}) > 1]
     assert len(mixed) > 0.8 * len(roman), (len(mixed), len(roman))
+
+
+def test_ural_and_carpathian_religions_match_the_395_rules():
+    for loc, religion in (("ufa", "obian_paganism"), ("sarapul", "udmurt_paganism"),
+                          ("cherdyn", "komi_paganism"), ("laish", "tengri"),
+                          ("mukachevo", "zalmoxism")):
+        assert majority(loc) == religion, (loc, pops()[loc])
 
 
 def test_late_faiths_fall_to_the_neighbours():

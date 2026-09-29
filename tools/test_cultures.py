@@ -100,7 +100,7 @@ def test_the_core_has_no_1337_cultures_left():
     targets = {c for _, _, to in b.load_culture_rules(RULES, None, None) for c, _ in b.mix(to)}
     left = {}
     for loc, cults in pops_cultures().items():
-        if anc[loc][2] in b.CULTURE_REGIONS:
+        if anc[loc][2] in (b.CULTURE_REGIONS | {"ural_region"}):
             for c in set(cults) - targets:
                 left.setdefault(c, loc)
     assert not left, sorted(left.items())[:20]
@@ -168,6 +168,13 @@ def test_review_spot_checks():
     assert top("korela") == "karelian"
     assert "swedish" not in {c for l, a in b.load_hierarchy().items() if len(a) > 3 and a[3] in ("karelia_area", "kola_area")
                              for c in by.get(l, ())}
+
+
+def test_eastern_finnic_and_ural_cultures_match_the_pop_rules():
+    # SUO uses tavastian because finland_area already maps its pops to tavastian.
+    for loc, culture in (("abo", "tavastian"), ("korela", "karelian"), ("ufa", "mansi_culture"),
+                         ("sarapul", "udmurt"), ("cherdyn", "komi"), ("laish", "chuvash_culture")):
+        assert top(loc) == culture, (loc, top(loc))
 
 
 def test_the_illyrian_highlands():
