@@ -1,6 +1,6 @@
 # TAG | name | adjective | capital (- = auto) | template | culture | religion | r g b
 # culture/religion: the 395 identity of each state (pops get theirs from tools/cultures.txt and tools/religions.txt)
-WRE | Western Roman Empire | Western Roman | milano | catholic_monarchy | roman_culture | orthodox | 140 56 56   # dark Roman red: a pure red (no pink) at the painted map's 0.6 saturation cap
+WRE | Western Roman Empire | Western Roman | milano | catholic_monarchy | roman_culture | orthodox | 110 44 44   # dark Roman red: a pure red (no pink) at the painted map's 0.6 saturation cap, darkened
 EAR | Eastern Roman Empire | Eastern Roman | constantinople | eastern_european_monarchy | greek_culture | orthodox | 128 36 140
 VIS | Visigoths | Visigothic | tarnovo | eurasian_tribe | gothic_culture | arianism | 200 120 60   # Arian
 HNS | Huns | Hunnic | - | eurasian_horde_no_muslim | hunnic | tengri | 150 110 60
