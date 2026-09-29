@@ -1,8 +1,10 @@
 ﻿l_english:
  WRE: "Western Roman Empire"
  WRE_ADJ: "Western Roman"
+ WRE_THE: "$common_string_prefix_article$"
  EAR: "Eastern Roman Empire"
  EAR_ADJ: "Eastern Roman"
+ EAR_THE: "$common_string_prefix_article$"
  VIS: "Visigoths"
  VIS_ADJ: "Visigothic"
  HNS: "Huns"

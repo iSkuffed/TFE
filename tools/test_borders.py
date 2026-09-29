@@ -152,6 +152,17 @@ def test_emit_definitions_and_localization():
     loc = b.emit_localization(tags)
     assert loc.startswith("﻿l_english:\n")
     assert ' AAA: "Western Roman Empire"' in loc and ' AAA_ADJ: "Western Roman"' in loc
+    assert "AAA_THE" not in loc
+
+
+def test_the_empires_take_the_article():
+    # "the Western Roman Empire", as vanilla writes "the Ottomans" (TUR_THE)
+    tags = {t: _tag(name=t, adj=t) for t in ("WRE", "EAR", "VIS")}
+    loc = b.emit_localization(tags)
+    assert ' WRE_THE: "$common_string_prefix_article$"' in loc and ' EAR_THE: "$common_string_prefix_article$"' in loc
+    assert "VIS_THE" not in loc
+    ours = (b.MOD / "main_menu/localization/english/tfe_countries_l_english.yml").read_text(encoding="utf-8-sig")
+    assert ' WRE_THE: "$common_string_prefix_article$"' in ours and ' EAR_THE: "$common_string_prefix_article$"' in ours
 
 
 def test_resolve_capitals_skips_undefined_tags():
