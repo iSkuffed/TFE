@@ -12,10 +12,7 @@ tfe_gildo.1 = {
 	outcome = neutral
 	hidden = yes
 
-	trigger = {
-		NOT = { has_variable = tfe_gildo_revolt_fired }
-		character:tfe_gildo ?= { is_alive = yes }
-	}
+	trigger = { NOT = { has_variable = tfe_gildo_revolt_fired } }
 
 	immediate = {
 		change_variable = { name = tfe_gildo_progress add = tfe_gildo_monthly_rise }

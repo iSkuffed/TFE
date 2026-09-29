@@ -93,7 +93,6 @@ tfe_opening.3 = {
 	image = "gfx/interface/illustrations/event/backgrounds/exterior/nobles/syrian_nobles_exterior.dds"
 
 	trigger = {
-		character:tfe_gildo ?= { is_alive = yes }
 		OR = {
 			location:cherchell = { owner ?= root }
 			location:constantine_ALG = { owner ?= root }
@@ -101,7 +100,11 @@ tfe_opening.3 = {
 	}
 
 	immediate = {
-		character:tfe_gildo = { save_scope_as = tfe_usurper_ruler }
+		# Gildo, or if he has died before his hold ripens, his Moorish kinsman in his place
+		if = {
+			limit = { character:tfe_gildo ?= { is_alive = yes } }
+			character:tfe_gildo = { save_scope_as = tfe_usurper_ruler }
+		}
 		# his seat is Cherchell, or Cirta if Cherchell is lost; Carthage only if he wins it (tfe_gildo.6)
 		if = {
 			limit = { location:cherchell = { owner ?= root } }
@@ -118,6 +121,18 @@ tfe_opening.3 = {
 				set_country_rank = country_rank:rank_kingdom
 				change_government_type = government_type:monarchy
 				add_gold = 200	# Africa's taxes, kept back from Italy
+				if = {
+					limit = { NOT = { exists = scope:tfe_usurper_ruler } }
+					create_character = {
+						first_name = name_gildo
+						culture = culture:kabyle
+						religion = religion:donatism
+						estate = estate_type:nobles_estate
+						age = 35
+						mil = 60
+						save_scope_as = tfe_usurper_ruler
+					}
+				}
 				set_new_ruler = scope:tfe_usurper_ruler
 				set_variable = { name = tfe_usurper_against value = root years = 10 }
 				save_scope_as = tfe_usurper
