@@ -1,5 +1,5 @@
 ﻿# TFE: the West's burdens in 395. Two reforms WRE starts with (10_countries) and cannot drop: each brings its own slot,
-# so the crown keeps its usual free ones. The Reform of the Coinage ends the Debased Coinage (auto_modifiers).
+# so the crown keeps its usual free ones.
 
 # The clarissimi: senators excused the sordid munera, their land-tax arrears remitted, their estates beyond the census
 tfe_senatorial_immunities = {
@@ -33,23 +33,4 @@ tfe_patrocinium = {
 		global_manpower_modifier = -0.25
 		government_reform_slots = 1
 	}
-}
-
-# A sound coin again: the debased nummus called in and the soldiers paid in full-weight metal
-tfe_coinage_reform = {
-	potential = {
-		has_or_had_tag = WRE
-		NOT = { has_variable = tfe_coinage_restored }
-	}
-	allow = {
-		at_war = no
-		stability >= 25
-	}
-	country_modifier = {
-		tax_income_efficiency = -0.1
-	}
-	on_fully_activated = {
-		set_variable = { name = tfe_coinage_restored }	# ends the Debased Coinage
-	}
-	years = 3
 }

@@ -1,0 +1,50 @@
+﻿# TFE: burdens the Roman state laid on its own people, locked like the West's others (tfe_late_roman_west.txt):
+# each brings its own slot. A way to lift them is still to be designed.
+
+# The plebs are forbidden arms (Theodosian Code, on private weapons), so the state fields no levy and pays only professionals
+tfe_disarmed_plebs = {
+	potential = {
+		has_or_had_tag = WRE
+	}
+	locked = {
+		always = yes
+	}
+	country_modifier = {
+		global_levy_size_modifier = -1
+		army_maintenance_efficiency = 0.5
+		peasants_estate_target_satisfaction = -0.1
+		government_reform_slots = 1
+	}
+}
+
+# The same law in the East, where the peasantry is the demos
+tfe_disarmed_demos = {
+	potential = {
+		has_or_had_tag = EAR
+	}
+	locked = {
+		always = yes
+	}
+	country_modifier = {
+		global_levy_size_modifier = -1
+		army_maintenance_efficiency = 0.5
+		peasants_estate_target_satisfaction = -0.1
+		government_reform_slots = 1
+	}
+}
+
+# The soldiers' stipend and donatives are paid in gold, bought with a copper and silver coin worth less each year
+tfe_debased_currency = {
+	potential = {
+		has_or_had_tag = WRE
+	}
+	locked = {
+		always = yes
+	}
+	country_modifier = {
+		minting_income_factor = -0.1
+		land_morale_modifier = -0.15
+		army_maintenance_efficiency = -0.25
+		government_reform_slots = 1
+	}
+}

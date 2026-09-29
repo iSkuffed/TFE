@@ -1,4 +1,4 @@
-"""The West's locked reform burdens and separate debased coinage; Africa's grain,
+"""The West's locked reform burdens; the disarmed plebs and debased currency of both empires; Africa's grain,
 Pannonia's recruits and the frontier works of Britain, the Rhine and the Danube."""
 import re
 import sys
@@ -9,6 +9,7 @@ import borders as b
 import location_templates as lt
 
 REFORMS = b.MOD / "in_game/common/government_reforms/tfe_late_roman_west.txt"
+BURDENS = b.MOD / "in_game/common/government_reforms/tfe_late_roman_burdens.txt"
 AUTO = b.MOD / "in_game/common/auto_modifiers/tfe_late_roman_west.txt"
 FRONTIER = b.MOD / "in_game/common/building_types/tfe_frontier.txt"
 EFFECTS = b.MOD / "in_game/common/scripted_effects/tfe_lands.txt"
@@ -21,7 +22,9 @@ ICON_MAP = b.MOD / "main_menu/common/modifier_icons/tfe_modifier_icons.txt"
 COUNTRIES = b.MOD / "main_menu/setup/start/10_countries.txt"
 CITIES = b.MOD / "main_menu/setup/start/07_cities_and_buildings.txt"
 LOC = b.MOD / "main_menu/localization/english/tfe_late_roman_west_l_english.yml"
-SCRIPTS = (REFORMS, AUTO, FRONTIER, EFFECTS, ON_ACTION) + MODS
+LOC_BURDENS = b.MOD / "main_menu/localization/english/tfe_late_roman_burdens_l_english.yml"
+ESTATES = b.MOD / "in_game/common/customizable_localization/estates.txt"
+SCRIPTS = (REFORMS, BURDENS, AUTO, FRONTIER, EFFECTS, ON_ACTION) + MODS
 
 
 def code(p):
@@ -38,15 +41,15 @@ def wre():
 
 def test_files_are_balanced_and_bom_prefixed():
     assert not (b.MOD / "in_game/common/estate_privileges/tfe_late_roman_west.txt").exists()
-    for p in SCRIPTS + (LOC,):
+    for p in SCRIPTS + (LOC, LOC_BURDENS, ESTATES):
         assert p.read_bytes().startswith(b"\xef\xbb\xbf"), p.name
     for p in SCRIPTS:
         assert code(p).count("{") == code(p).count("}"), p.name
 
 
 def test_everything_shown_is_localized_and_has_an_icon():
-    keys = set(re.findall(r"^\s*([\w.]+):\d*\s", LOC.read_text(encoding="utf-8-sig"), re.M))
-    wanted = {k for n in blocks(REFORMS, FRONTIER) for k in (n, f"{n}_desc")}
+    keys = set(re.findall(r"^\s*([\w.]+):\d*\s", (LOC.read_text(encoding="utf-8-sig") + LOC_BURDENS.read_text(encoding="utf-8-sig")), re.M))
+    wanted = {k for n in blocks(REFORMS, BURDENS, FRONTIER) for k in (n, f"{n}_desc")}
     wanted |= {f"AUTO_MODIFIER_{k}_{m}" for m in blocks(AUTO) for k in ("NAME", "DESC")}
     wanted |= {f"STATIC_MODIFIER_{k}_{m}" for m in blocks(*MODS) for k in ("NAME", "DESC")}
     assert not wanted - keys, sorted(wanted - keys)
@@ -65,7 +68,7 @@ def test_everything_shown_is_localized_and_has_an_icon():
         assert vanilla_plus or found(icons.get(effect, {}).get(side, "missing")), (p.name, effect, side)
     for n in blocks(FRONTIER):   # a building's icon is named for it
         assert (ICONS / f"buildings/{n}.dds").exists(), n
-    for n in blocks(REFORMS):
+    for n in blocks(REFORMS, BURDENS):
         assert (ICONS / f"government_reforms/illustrations/{n}.dds").exists(), n
 
 
@@ -77,7 +80,7 @@ def country_modifier(body):
 
 def test_both_burdens_are_locked_reforms_with_their_original_effects_and_slots():
     reforms = blocks(REFORMS)
-    assert set(reforms) == {"tfe_senatorial_immunities", "tfe_patrocinium", "tfe_coinage_reform"}
+    assert set(reforms) == {"tfe_senatorial_immunities", "tfe_patrocinium"}
     expected = {
         "tfe_senatorial_immunities": {
             "global_nobles_estate_power": "0.5",
@@ -102,20 +105,50 @@ def test_both_burdens_are_locked_reforms_with_their_original_effects_and_slots()
         assert "on_fully_activated" not in body and "on_deactivate" not in body, name
 
 
-def test_the_west_starts_with_both_burdens():
-    expected = "reforms = { tfe_senatorial_immunities tfe_patrocinium }"
+def test_the_west_starts_with_its_burdens():
+    expected = "reforms = { tfe_senatorial_immunities tfe_patrocinium tfe_disarmed_plebs tfe_debased_currency }"
     govs = [line.split(" = ", 1)[1] for line in (b.TOOLS / "governments.txt").read_text(encoding="utf-8").splitlines()
             if line.startswith("WRE = reforms = ")]
     assert govs == [expected]
     assert f"\t\t\t\t{expected}" in wre().replace("\r", "")   # 10_countries is borders.py's output
 
 
-def test_peraequatio_and_dilectus_are_gone_and_coinage_still_ends_debasement():
-    reforms = blocks(REFORMS)
-    assert "tfe_peraequatio_reform" not in reforms
-    assert "tfe_dilectus_reform" not in reforms
-    coin = re.search(r"NOT = \{ has_variable = (\w+) \}", blocks(AUTO)["tfe_debased_coinage"]).group(1)
-    assert f"set_variable = {{ name = {coin} }}" in reforms["tfe_coinage_reform"]
+def test_peraequatio_dilectus_and_the_coinage_reform_are_gone():
+    reforms = blocks(REFORMS, BURDENS)
+    for gone in ("tfe_peraequatio_reform", "tfe_dilectus_reform", "tfe_coinage_reform"):
+        assert gone not in reforms
+    assert "tfe_debased_coinage" not in blocks(AUTO) and "tfe_coinage_restored" not in code(AUTO)
+
+
+def test_the_disarmed_plebs_and_debased_currency_are_locked_reforms_with_a_slot_each():
+    reforms = blocks(BURDENS)
+    disarmed = {"global_levy_size_modifier": "-1", "army_maintenance_efficiency": "0.5",
+                "peasants_estate_target_satisfaction": "-0.1", "government_reform_slots": "1"}
+    expected = {
+        "tfe_disarmed_plebs": ("WRE", disarmed),
+        "tfe_disarmed_demos": ("EAR", disarmed),
+        "tfe_debased_currency": ("WRE", {"minting_income_factor": "-0.1", "land_morale_modifier": "-0.15",
+                                         "army_maintenance_efficiency": "-0.25", "government_reform_slots": "1"}),
+    }
+    assert set(reforms) == set(expected)
+    for name, (tag, effects) in expected.items():
+        assert re.search(rf"potential = \{{\s*has_or_had_tag = {tag}\s*\}}", reforms[name]), name
+        assert re.search(r"locked = \{\s*always = yes\s*\}", reforms[name]), name
+        assert country_modifier(reforms[name]) == effects, name
+    govs = [line.split(" = ", 1)[1] for line in (b.TOOLS / "governments.txt").read_text(encoding="utf-8").splitlines()
+            if line.startswith("EAR = reforms = ")]
+    assert govs == ["reforms = { tfe_disarmed_demos }"]
+    east = re.search(r"\bEAR = \{(.*?)\n\t\t\}", COUNTRIES.read_text(encoding="utf-8-sig"), re.S).group(1)
+    assert "reforms = { tfe_disarmed_demos }" in east
+
+
+def test_the_peasants_estate_is_plebs_and_demos_under_the_disarming_laws():
+    # a whole copy of vanilla's file (test_vanilla_copies.py) with ours first in the block: first match wins
+    block = re.search(r"^peasants_estate = \{(.*?)^\}", code(ESTATES), re.M | re.S).group(1)
+    first = re.findall(r"localization_key = (\w+)", block)[:2]
+    assert first == ["tfe_plebs", "tfe_demos"]
+    for key, reform in (("tfe_plebs", "tfe_disarmed_plebs"), ("tfe_demos", "tfe_disarmed_demos")):
+        assert f"localization_key = {key} trigger = {{ has_reform = government_reform:{reform} }}" in block
 
 
 def owned():
