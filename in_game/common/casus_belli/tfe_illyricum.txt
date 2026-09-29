@@ -1,0 +1,14 @@
+﻿# TFE: the West's claim on Eastern Illyricum, set by the Support Stilicho's Claims button (scripted_effects/tfe_cmf.txt) for 10 years
+cb_tfe_illyrian_claim = {
+	create_visible = {
+		has_variable = tfe_illyricum_claim
+	}
+	create_enabled = {
+		scope:target = { tag = EAR }
+	}
+	declare_enabled = {
+		scope:target = { tag = EAR }
+	}
+	speed = 100
+	war_goal_type = tfe_take_illyricum
+}
