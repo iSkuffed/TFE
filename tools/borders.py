@@ -508,8 +508,14 @@ def emit_definitions(tags):
     return "\n".join(L)
 
 
+# names that take "the", as vanilla's TUR_THE gives "the Ottomans": the Western and the Eastern Roman Empire
+ARTICLE_TAGS = ("WRE", "EAR")
+
+
 def emit_localization(tags):
-    return "﻿l_english:\n" + "".join(f' {t}: "{d["name"]}"\n {t}_ADJ: "{d["adj"]}"\n' for t, d in tags.items())
+    return "﻿l_english:\n" + "".join(
+        f' {t}: "{d["name"]}"\n {t}_ADJ: "{d["adj"]}"\n'
+        + (f' {t}_THE: "$common_string_prefix_article$"\n' if t in ARTICLE_TAGS else "") for t, d in tags.items())
 
 
 def render(owner, tags, topo, step=4):
