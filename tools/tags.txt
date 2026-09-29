@@ -158,7 +158,7 @@ MDV | Maldives | Maldivian | male_atoll | indonesia_monarchy_no_mandala | dhiveh
 # ---- Eastern Europe ----
 SUD | Sudovians | Sudovian | grodno | eurasian_tribe | sudovian | romuva | 125 145 90
 AUK | Aukstaitians | Aukstaitian | kernave | eurasian_tribe | aukstaitian | romuva | 105 135 75
-CUR | Curonians | Curonian | grobina | eurasian_tribe | curonian | romuva | 175 145 65
+CUR | Curonians | Curonian | grobina | eurasian_tribe | curonian | romuva | 176 146 70
 LTG | Latgalians | Latgalian | pietalava | eurasian_tribe | latvian | romuva | 140 115 65
 EST | Estonians | Estonian | tartu | eurasian_tribe | estonian | muinaisusko | 80 125 155
 LUG | Lugii | Lugian | kalisz | eurasian_tribe | venedi | slavic_paganism | 140 95 75

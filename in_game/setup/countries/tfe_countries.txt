@@ -1360,8 +1360,8 @@ AUK = { # Aukstaitians
 }
 
 CUR = { # Curonians
-	color = rgb { 175 145 65 }
-	color2 = rgb { 87 72 32 }
+	color = rgb { 176 146 70 }
+	color2 = rgb { 88 73 35 }
 	culture_definition = curonian # PLACEHOLDER
 	religion_definition = romuva # PLACEHOLDER
 	description_category = administrative
