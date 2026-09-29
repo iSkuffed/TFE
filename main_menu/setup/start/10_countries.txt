@@ -707,6 +707,7 @@ countries = {
 			country_rank = rank_empire
 			government = {
 				ruler = tfe_arcadius
+				reforms = { tfe_disarmed_demos }
 				ruler_term = { character = tfe_theodosius_i start_date = 379.1.19 end_date = 395.1.17 regnal_number = 1 }
 			}
 		}
@@ -3519,7 +3520,7 @@ countries = {
 				start_regency_date = 395.1.17
 				end_regency_date = 400.9.9
 				regnal_numbers = { name_valentinian = 2 }
-				reforms = { tfe_senatorial_immunities tfe_patrocinium }
+				reforms = { tfe_senatorial_immunities tfe_patrocinium tfe_disarmed_plebs tfe_debased_currency }
 			}
 		}
 		WSN = { # Wusun

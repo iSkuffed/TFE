@@ -4,13 +4,9 @@
  tfe_patrocinium: "Patrocinium"
  tfe_patrocinium_desc: "The coloni shelter under a great landlord. He hides them from the recruiting officer and pays gold in their place, so the legions must be filled with barbarians."
 
- tfe_coinage_reform: "Reform of the Coinage"
- tfe_coinage_reform_desc: "The debased nummus is called in and the soldiers are paid in full-weight metal. Once it is in force, the Debased Coinage ends."
 
  AUTO_MODIFIER_NAME_tfe_comitatenses: "Comitatenses"
  AUTO_MODIFIER_DESC_tfe_comitatenses: "The field armies of the West are paid professionals, drilled and kept under arms in peace and war."
- AUTO_MODIFIER_NAME_tfe_debased_coinage: "Debased Coinage"
- AUTO_MODIFIER_DESC_tfe_debased_coinage: "The soldiers' stipend and donatives are owed in gold, and the copper and silver that buys it is worth less every year."
 
  STATIC_MODIFIER_NAME_tfe_granary_of_rome: "Granary of Rome"
  STATIC_MODIFIER_DESC_tfe_granary_of_rome: "Africa's wheat fills the annona of Rome. Every field that can be sown is sown."

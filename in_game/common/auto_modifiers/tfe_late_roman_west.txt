@@ -1,19 +1,8 @@
-﻿# TFE: the West fights with a paid army (comitatenses) and pays it in a debased coin. The Coinage Reform
-# (government_reforms/tfe_late_roman_west.txt) ends the debasement; the professional army stays.
+﻿# TFE: the West fights with a paid army (comitatenses); its debased coin is the tfe_debased_currency reform.
 tfe_comitatenses = {
 	potential_trigger = {
 		has_or_had_tag = WRE
 	}
 
 	discipline = 0.05
-}
-
-# The stipend and donatives are paid in gold, bought with a copper and silver coin worth less each year
-tfe_debased_coinage = {
-	potential_trigger = {
-		has_or_had_tag = WRE
-		NOT = { has_variable = tfe_coinage_restored }
-	}
-
-	army_maintenance_efficiency = -0.25
 }

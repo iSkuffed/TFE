@@ -164,5 +164,5 @@ def test_roman_towns_taken_by_a_host_send_it_men():
     text = loc.read_text(encoding="utf-8-sig")
     assert all(f"STATIC_MODIFIER_{k}_tfe_fled_to_the_host:" in text for k in ("NAME", "DESC"))
     # each of the West's burdens drives more men to the host
-    burdens = set(top_keys(COMMON / "government_reforms/tfe_late_roman_west.txt")) - {"tfe_coinage_reform"}
+    burdens = set(top_keys(COMMON / "government_reforms/tfe_late_roman_west.txt"))
     assert set(re.findall(r"has_reform = government_reform:(\w+)", code(values))) == burdens
