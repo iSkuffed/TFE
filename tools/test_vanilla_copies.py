@@ -9,6 +9,8 @@ import borders as b
 # our copy: (its vanilla original, the original's sha256 prefix when we last synced)
 COPIES = {
     "in_game/common/languages/tfe_languages.txt": ("in_game/common/languages/00_italy.txt", "41fea717f67c83bc"),
+    "in_game/gfx/map/map_modes/00_tfe_map_modes.txt": ("in_game/gfx/map/map_modes/map_modes.txt", "820fb7b409585b79"),
+    "in_game/gfx/map/water/water.settings": ("in_game/gfx/map/water/water.settings", "94870c46d5109286"),
 }
 
 

@@ -1,0 +1,23 @@
+﻿# TFE: Imperator's political map. Only the keys we change; vanilla's 00_graphics.txt holds the rest.
+# Colours are HSV (hue = degrees / 360), a 4th value is alpha.
+
+NGraphics = {
+	# the paper map's sea: one dark slate blue, no bright coastal band
+	FLAT_MAP_COLOR_WATER_BLUE_HSV = { 0.604 0.43 0.40 }
+	FLAT_MAP_COLOR_COAST_BLUE_HSV = { 0.604 0.43 0.46 }
+	FLAT_MAP_COLOR_DETAIL_BLUE_HSV = { 0.604 0.43 0.55 }
+	# unowned land shows the paper beneath (See the World - Death to the Gray Void)
+	FLAT_MAP_COLOR_LAND_HSV = { 0.069 0.7 1.0 0 }
+}
+
+NMapColors = {
+	# unowned land is see-through, not grey
+	DEFAULT_COLOR = { 0.0 0.0 0.7 0 }
+	# the terrain map's sea in map modes: the same slate blue, laid over the water
+	WATER_MAP_COLOR = { 0.604 0.43 0.40 }
+	OCEAN_MAP_COLOR = { 0.604 0.45 0.34 }
+	WATER_MAP_ALPHA = 0.85
+	# muted, painted country colours
+	MAP_COLOR_SATURATION_RANGE = { 0.0 0.6 }
+}
+
