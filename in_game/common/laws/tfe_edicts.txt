@@ -67,7 +67,7 @@ tfe_edicts_law = {
 			}
 		}
 		country_modifier = {
-			global_population_growth = 0.1
+			global_population_growth = 0.002	# a yearly rate: +0.2%. At 0.1 (+10%) every city filled to its limit
 			nobles_estate_target_satisfaction = -0.05
 		}
 	}

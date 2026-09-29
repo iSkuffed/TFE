@@ -56,3 +56,11 @@ def test_every_edict_spends_unity_binds_and_has_a_benefit_and_a_cost():
         values = [float(v) for v in re.findall(r"= (-?[\d.]+)", mods)]
         assert len(values) == 2 and min(values) < 0 < max(values), name
 
+
+def test_population_growth_stays_in_vanillas_range():
+    # a yearly rate: 0.1 is +10% a year, and Agri Deserti at 0.1 filled every city to its limit.
+    # Vanilla's largest is the census debate's 0.005
+    for p in [*(b.MOD / "in_game").rglob("*.txt"), *(b.MOD / "main_menu/common").rglob("*.txt")]:
+        for v in re.findall(r"population_growth = (-?[\d.]+)", code(p)):
+            assert abs(float(v)) <= 0.005, f"{p.name}: population_growth = {v}"
+
