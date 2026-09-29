@@ -26948,25 +26948,25 @@ theodoro = {
 	define_pop = {	type = nobles	size = 0.009	culture = pontic_greek_culture	religion = orthodox }
 	define_pop = {	type = nobles	size = 0.002	culture = pontic_greek_culture	religion = hellenism_religion }
 	define_pop = {	type = clergy	size = 0.011	culture = pontic_greek_culture	religion = orthodox }
-	define_pop = {	type = peasants	size = 0.924	culture = pontic_greek_culture	religion = orthodox }
+	define_pop = {	type = peasants	size = 0.920	culture = pontic_greek_culture	religion = orthodox }
 	define_pop = {	type = peasants	size = 0.163	culture = pontic_greek_culture	religion = hellenism_religion }
-	define_pop = {	type = peasants	size = 1.648	culture = gothic_culture	religion = orthodox }
+	define_pop = {	type = peasants	size = 1.641	culture = gothic_culture	religion = orthodox }
 }
 qirq_yer = {
 	define_pop = {	type = clergy	size = 0.005	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 1.609	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.323	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 0.542	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 1.602	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.322	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 0.540	culture = hunnic	religion = tengri }
 }
 lusta = {
-	define_pop = {	type = slaves	size = 1.237	culture = pontic_greek_culture	religion = orthodox }
-	define_pop = {	type = slaves	size = 0.218	culture = pontic_greek_culture	religion = hellenism_religion }
+	define_pop = {	type = slaves	size = 1.231	culture = pontic_greek_culture	religion = orthodox }
+	define_pop = {	type = slaves	size = 0.217	culture = pontic_greek_culture	religion = hellenism_religion }
 }
 qarasuvbazar = {
 	define_pop = {	type = clergy	size = 0.006	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 1.873	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.410	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 0.598	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 1.865	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.408	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 0.595	culture = hunnic	religion = tengri }
 }
 crimean_mountains = {
 }
@@ -26975,12 +26975,12 @@ kaffa = {
 	define_pop = {	type = nobles	size = 0.001	culture = pontic_greek_culture	religion = hellenism_religion }
 	define_pop = {	type = nobles	size = 0.002	culture = hunnic	religion = tengri }
 	define_pop = {	type = clergy	size = 0.020	culture = hunnic	religion = tengri }
-	define_pop = {	type = burghers	size = 0.871	culture = pontic_greek_culture	religion = orthodox }
-	define_pop = {	type = burghers	size = 0.154	culture = pontic_greek_culture	religion = hellenism_religion }
+	define_pop = {	type = burghers	size = 0.867	culture = pontic_greek_culture	religion = orthodox }
+	define_pop = {	type = burghers	size = 0.153	culture = pontic_greek_culture	religion = hellenism_religion }
 	define_pop = {	type = burghers	size = 0.063	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 1.400	culture = pontic_greek_culture	religion = orthodox }
-	define_pop = {	type = peasants	size = 0.247	culture = pontic_greek_culture	religion = hellenism_religion }
-	define_pop = {	type = peasants	size = 0.209	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 1.394	culture = pontic_greek_culture	religion = orthodox }
+	define_pop = {	type = peasants	size = 0.246	culture = pontic_greek_culture	religion = hellenism_religion }
+	define_pop = {	type = peasants	size = 0.208	culture = hunnic	religion = tengri }
 	define_pop = {	type = peasants	size = 0.156	culture = hunnic	religion = tengri }
 	define_pop = {	type = peasants	size = 0.104	culture = hunnic	religion = tengri }
 	define_pop = {	type = peasants	size = 0.052	culture = hunnic	religion = tengri }
@@ -26988,62 +26988,62 @@ kaffa = {
 soldaia = {
 	define_pop = {	type = nobles	size = 0.002	culture = hunnic	religion = tengri }
 	define_pop = {	type = clergy	size = 0.020	culture = pontic_greek_culture	religion = orthodox }
-	define_pop = {	type = burghers	size = 0.348	culture = pontic_greek_culture	religion = orthodox }
+	define_pop = {	type = burghers	size = 0.347	culture = pontic_greek_culture	religion = orthodox }
 	define_pop = {	type = burghers	size = 0.062	culture = pontic_greek_culture	religion = hellenism_religion }
-	define_pop = {	type = burghers	size = 0.082	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 1.034	culture = pontic_greek_culture	religion = orthodox }
-	define_pop = {	type = slaves	size = 0.183	culture = pontic_greek_culture	religion = hellenism_religion }
+	define_pop = {	type = burghers	size = 0.081	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 1.029	culture = pontic_greek_culture	religion = orthodox }
+	define_pop = {	type = slaves	size = 0.182	culture = pontic_greek_culture	religion = hellenism_religion }
 }
 vosporo = {
 	define_pop = {	type = nobles	size = 0.004	culture = hunnic	religion = tengri }
-	define_pop = {	type = clergy	size = 0.033	culture = pontic_greek_culture	religion = orthodox }
-	define_pop = {	type = burghers	size = 0.560	culture = pontic_greek_culture	religion = orthodox }
-	define_pop = {	type = burghers	size = 0.099	culture = pontic_greek_culture	religion = hellenism_religion }
+	define_pop = {	type = clergy	size = 0.032	culture = pontic_greek_culture	religion = orthodox }
+	define_pop = {	type = burghers	size = 0.557	culture = pontic_greek_culture	religion = orthodox }
+	define_pop = {	type = burghers	size = 0.098	culture = pontic_greek_culture	religion = hellenism_religion }
 	define_pop = {	type = burghers	size = 0.131	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 2.140	culture = pontic_greek_culture	religion = orthodox }
-	define_pop = {	type = peasants	size = 0.378	culture = pontic_greek_culture	religion = hellenism_religion }
+	define_pop = {	type = peasants	size = 2.131	culture = pontic_greek_culture	religion = orthodox }
+	define_pop = {	type = peasants	size = 0.376	culture = pontic_greek_culture	religion = hellenism_religion }
 }
 seyitler = {
 	define_pop = {	type = clergy	size = 0.003	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.820	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.331	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 0.671	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.817	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.329	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 0.668	culture = hunnic	religion = tengri }
 }
 solkhat = {
 	define_pop = {	type = clergy	size = 0.008	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 2.348	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.497	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 0.766	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 2.337	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.495	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 0.763	culture = hunnic	religion = tengri }
 }
 kalay = {
 	define_pop = {	type = clergy	size = 0.004	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.949	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.412	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 0.747	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.945	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.410	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 0.743	culture = hunnic	religion = tengri }
 }
 kezlev = {
 	define_pop = {	type = clergy	size = 0.004	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 1.028	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.425	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 0.831	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 1.024	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.424	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 0.827	culture = hunnic	religion = tengri }
 }
 aqmecit = {
 	define_pop = {	type = clergy	size = 0.004	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.564	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.531	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 1.164	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.562	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.529	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 1.159	culture = hunnic	religion = tengri }
 }
 jurchi = {
 	define_pop = {	type = clergy	size = 0.005	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 1.099	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.525	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 0.817	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 1.094	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.523	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 0.814	culture = hunnic	religion = tengri }
 }
 or_qapi = {
 	define_pop = {	type = clergy	size = 0.005	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.644	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.682	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 1.252	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.641	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.679	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 1.246	culture = hunnic	religion = tengri }
 }
 lake_sasyk_syvash = {
 }
@@ -27052,190 +27052,190 @@ syvash_lagoon = {
 syvash_sand_bar = {
 }
 taman = {
-	define_pop = {	type = peasants	size = 0.553	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = tribesmen	size = 1.400	culture = circassian_culture	religion = khabzeism }
-	define_pop = {	type = tribesmen	size = 0.539	culture = circassian_culture	religion = khabzeism }
-	define_pop = {	type = tribesmen	size = 0.215	culture = circassian_culture	religion = khabzeism }
+	define_pop = {	type = peasants	size = 0.550	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = tribesmen	size = 1.394	culture = circassian_culture	religion = khabzeism }
+	define_pop = {	type = tribesmen	size = 0.536	culture = circassian_culture	religion = khabzeism }
+	define_pop = {	type = tribesmen	size = 0.214	culture = circassian_culture	religion = khabzeism }
 }
 mapa = {
 	define_pop = {	type = clergy	size = 0.008	culture = circassian_culture	religion = khabzeism }
-	define_pop = {	type = tribesmen	size = 3.118	culture = circassian_culture	religion = khabzeism }
-	define_pop = {	type = tribesmen	size = 1.336	culture = circassian_culture	religion = khabzeism }
+	define_pop = {	type = tribesmen	size = 3.105	culture = circassian_culture	religion = khabzeism }
+	define_pop = {	type = tribesmen	size = 1.330	culture = circassian_culture	religion = khabzeism }
 }
 susaco = {
 	define_pop = {	type = clergy	size = 0.038	culture = circassian_culture	religion = khabzeism }
-	define_pop = {	type = tribesmen	size = 2.053	culture = circassian_culture	religion = khabzeism }
-	define_pop = {	type = tribesmen	size = 0.878	culture = circassian_culture	religion = khabzeism }
+	define_pop = {	type = tribesmen	size = 2.045	culture = circassian_culture	religion = khabzeism }
+	define_pop = {	type = tribesmen	size = 0.875	culture = circassian_culture	religion = khabzeism }
 }
 shanjir = {
 	define_pop = {	type = clergy	size = 0.004	culture = circassian_culture	religion = khabzeism }
-	define_pop = {	type = tribesmen	size = 0.572	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = tribesmen	size = 0.858	culture = circassian_culture	religion = khabzeism }
-	define_pop = {	type = tribesmen	size = 1.429	culture = circassian_culture	religion = khabzeism }
+	define_pop = {	type = tribesmen	size = 0.569	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = tribesmen	size = 0.854	culture = circassian_culture	religion = khabzeism }
+	define_pop = {	type = tribesmen	size = 1.423	culture = circassian_culture	religion = khabzeism }
 }
 copa = {
 	define_pop = {	type = clergy	size = 0.004	culture = circassian_culture	religion = khabzeism }
-	define_pop = {	type = tribesmen	size = 1.764	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = tribesmen	size = 2.016	culture = circassian_culture	religion = khabzeism }
-	define_pop = {	type = tribesmen	size = 1.008	culture = circassian_culture	religion = khabzeism }
-	define_pop = {	type = tribesmen	size = 0.252	culture = circassian_culture	religion = khabzeism }
+	define_pop = {	type = tribesmen	size = 1.757	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = tribesmen	size = 2.008	culture = circassian_culture	religion = khabzeism }
+	define_pop = {	type = tribesmen	size = 1.004	culture = circassian_culture	religion = khabzeism }
+	define_pop = {	type = tribesmen	size = 0.250	culture = circassian_culture	religion = khabzeism }
 }
 siba_circassia = {
 	define_pop = {	type = clergy	size = 0.004	culture = circassian_culture	religion = khabzeism }
-	define_pop = {	type = tribesmen	size = 0.557	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = tribesmen	size = 0.836	culture = circassian_culture	religion = khabzeism }
-	define_pop = {	type = tribesmen	size = 1.393	culture = circassian_culture	religion = khabzeism }
+	define_pop = {	type = tribesmen	size = 0.555	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = tribesmen	size = 0.832	culture = circassian_culture	religion = khabzeism }
+	define_pop = {	type = tribesmen	size = 1.387	culture = circassian_culture	religion = khabzeism }
 }
 tuapse = {
-	define_pop = {	type = nobles	size = 0.028	culture = circassian_culture	religion = khabzeism }
-	define_pop = {	type = clergy	size = 0.056	culture = circassian_culture	religion = khabzeism }
-	define_pop = {	type = tribesmen	size = 0.395	culture = abazin_culture	religion = khabzeism }
-	define_pop = {	type = tribesmen	size = 2.336	culture = circassian_culture	religion = khabzeism }
-	define_pop = {	type = tribesmen	size = 1.029	culture = circassian_culture	religion = khabzeism }
-	define_pop = {	type = tribesmen	size = 0.197	culture = abazin_culture	religion = khabzeism }
+	define_pop = {	type = nobles	size = 0.027	culture = circassian_culture	religion = khabzeism }
+	define_pop = {	type = clergy	size = 0.055	culture = circassian_culture	religion = khabzeism }
+	define_pop = {	type = tribesmen	size = 0.393	culture = abazin_culture	religion = khabzeism }
+	define_pop = {	type = tribesmen	size = 2.326	culture = circassian_culture	religion = khabzeism }
+	define_pop = {	type = tribesmen	size = 1.025	culture = circassian_culture	religion = khabzeism }
+	define_pop = {	type = tribesmen	size = 0.196	culture = abazin_culture	religion = khabzeism }
 }
 costa = {
 	define_pop = {	type = clergy	size = 0.018	culture = abazin_culture	religion = khabzeism }
-	define_pop = {	type = peasants	size = 0.606	culture = abkhazian_culture	religion = khabzeism }
-	define_pop = {	type = tribesmen	size = 2.406	culture = abazin_culture	religion = khabzeism }
-	define_pop = {	type = tribesmen	size = 1.032	culture = abazin_culture	religion = khabzeism }
+	define_pop = {	type = peasants	size = 0.603	culture = abkhazian_culture	religion = khabzeism }
+	define_pop = {	type = tribesmen	size = 2.396	culture = abazin_culture	religion = khabzeism }
+	define_pop = {	type = tribesmen	size = 1.027	culture = abazin_culture	religion = khabzeism }
 }
 khadyzhi = {
 	define_pop = {	type = clergy	size = 0.004	culture = circassian_culture	religion = khabzeism }
-	define_pop = {	type = tribesmen	size = 0.801	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = tribesmen	size = 1.202	culture = circassian_culture	religion = khabzeism }
-	define_pop = {	type = tribesmen	size = 2.003	culture = circassian_culture	religion = khabzeism }
+	define_pop = {	type = tribesmen	size = 0.798	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = tribesmen	size = 1.197	culture = circassian_culture	religion = khabzeism }
+	define_pop = {	type = tribesmen	size = 1.995	culture = circassian_culture	religion = khabzeism }
 }
 kuzhyb = {
 	define_pop = {	type = clergy	size = 0.004	culture = circassian_culture	religion = khabzeism }
-	define_pop = {	type = tribesmen	size = 0.486	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = tribesmen	size = 0.729	culture = circassian_culture	religion = khabzeism }
-	define_pop = {	type = tribesmen	size = 1.215	culture = circassian_culture	religion = khabzeism }
+	define_pop = {	type = tribesmen	size = 0.484	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = tribesmen	size = 0.726	culture = circassian_culture	religion = khabzeism }
+	define_pop = {	type = tribesmen	size = 1.209	culture = circassian_culture	religion = khabzeism }
 }
 maykop = {
 	define_pop = {	type = clergy	size = 0.011	culture = circassian_culture	religion = khabzeism }
-	define_pop = {	type = tribesmen	size = 0.757	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = tribesmen	size = 1.135	culture = circassian_culture	religion = khabzeism }
-	define_pop = {	type = tribesmen	size = 1.893	culture = circassian_culture	religion = khabzeism }
+	define_pop = {	type = tribesmen	size = 0.753	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = tribesmen	size = 1.130	culture = circassian_culture	religion = khabzeism }
+	define_pop = {	type = tribesmen	size = 1.885	culture = circassian_culture	religion = khabzeism }
 }
 moschevo = {
-	define_pop = {	type = clergy	size = 0.019	culture = circassian_culture	religion = khabzeism }
-	define_pop = {	type = tribesmen	size = 0.805	culture = circassian_culture	religion = khabzeism }
+	define_pop = {	type = clergy	size = 0.018	culture = circassian_culture	religion = khabzeism }
+	define_pop = {	type = tribesmen	size = 0.801	culture = circassian_culture	religion = khabzeism }
 	define_pop = {	type = tribesmen	size = 0.153	culture = abazin_culture	religion = khabzeism }
-	define_pop = {	type = tribesmen	size = 0.309	culture = abazin_culture	religion = khabzeism }
-	define_pop = {	type = tribesmen	size = 1.829	culture = circassian_culture	religion = khabzeism }
+	define_pop = {	type = tribesmen	size = 0.307	culture = abazin_culture	religion = khabzeism }
+	define_pop = {	type = tribesmen	size = 1.822	culture = circassian_culture	religion = khabzeism }
 }
 akhtar = {
 	define_pop = {	type = clergy	size = 0.003	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = tribesmen	size = 0.658	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = tribesmen	size = 0.868	culture = circassian_culture	religion = khabzeism }
-	define_pop = {	type = tribesmen	size = 1.424	culture = circassian_culture	religion = khabzeism }
+	define_pop = {	type = tribesmen	size = 0.655	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = tribesmen	size = 0.864	culture = circassian_culture	religion = khabzeism }
+	define_pop = {	type = tribesmen	size = 1.418	culture = circassian_culture	religion = khabzeism }
 }
 kalininskaya = {
 	define_pop = {	type = clergy	size = 0.003	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = tribesmen	size = 2.270	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = tribesmen	size = 0.198	culture = circassian_culture	religion = khabzeism }
-	define_pop = {	type = tribesmen	size = 0.368	culture = circassian_culture	religion = khabzeism }
+	define_pop = {	type = tribesmen	size = 2.260	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = tribesmen	size = 0.197	culture = circassian_culture	religion = khabzeism }
+	define_pop = {	type = tribesmen	size = 0.367	culture = circassian_culture	religion = khabzeism }
 }
 bryukhovetskaya = {
 	define_pop = {	type = clergy	size = 0.004	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = peasants	size = 0.107	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = peasants	size = 0.953	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = tribesmen	size = 1.085	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = peasants	size = 0.106	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = peasants	size = 0.949	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = tribesmen	size = 1.080	culture = alan_culture	religion = alan_paganism }
 }
 bzhedygu_kal = {
 	define_pop = {	type = clergy	size = 0.001	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = tribesmen	size = 1.814	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = tribesmen	size = 1.806	culture = alan_culture	religion = alan_paganism }
 	define_pop = {	type = tribesmen	size = 0.158	culture = circassian_culture	religion = khabzeism }
-	define_pop = {	type = tribesmen	size = 0.294	culture = circassian_culture	religion = khabzeism }
+	define_pop = {	type = tribesmen	size = 0.293	culture = circassian_culture	religion = khabzeism }
 }
 ust_labinsk = {
 	define_pop = {	type = clergy	size = 0.005	culture = alan_culture	religion = alan_paganism }
 	define_pop = {	type = peasants	size = 0.113	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = peasants	size = 0.682	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = tribesmen	size = 1.479	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = peasants	size = 0.679	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = tribesmen	size = 1.473	culture = alan_culture	religion = alan_paganism }
 }
 pavlovskaya = {
 	define_pop = {	type = clergy	size = 0.003	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = peasants	size = 0.267	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = peasants	size = 0.532	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = tribesmen	size = 0.985	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = peasants	size = 0.266	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = peasants	size = 0.529	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = tribesmen	size = 0.981	culture = alan_culture	religion = alan_paganism }
 }
 tbilisskaya = {
 	define_pop = {	type = clergy	size = 0.002	culture = alan_culture	religion = alan_paganism }
 	define_pop = {	type = peasants	size = 0.078	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = peasants	size = 0.452	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = tribesmen	size = 1.040	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = peasants	size = 0.450	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = tribesmen	size = 1.035	culture = alan_culture	religion = alan_paganism }
 }
 romanovsky_khutor = {
 	define_pop = {	type = clergy	size = 0.001	culture = alan_culture	religion = alan_paganism }
 	define_pop = {	type = peasants	size = 0.065	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = peasants	size = 0.568	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = tribesmen	size = 0.670	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = peasants	size = 0.565	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = tribesmen	size = 0.667	culture = alan_culture	religion = alan_paganism }
 }
 chatyun = {
 	define_pop = {	type = clergy	size = 0.004	culture = circassian_culture	religion = khabzeism }
-	define_pop = {	type = tribesmen	size = 0.757	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = tribesmen	size = 0.378	culture = circassian_culture	religion = khabzeism }
-	define_pop = {	type = tribesmen	size = 0.757	culture = circassian_culture	religion = khabzeism }
+	define_pop = {	type = tribesmen	size = 0.753	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = tribesmen	size = 0.377	culture = circassian_culture	religion = khabzeism }
+	define_pop = {	type = tribesmen	size = 0.753	culture = circassian_culture	religion = khabzeism }
 }
 adyukh = {
 	define_pop = {	type = clergy	size = 0.005	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = tribesmen	size = 1.396	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = tribesmen	size = 0.232	culture = circassian_culture	religion = khabzeism }
-	define_pop = {	type = tribesmen	size = 0.698	culture = circassian_culture	religion = khabzeism }
+	define_pop = {	type = tribesmen	size = 1.389	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = tribesmen	size = 0.231	culture = circassian_culture	religion = khabzeism }
+	define_pop = {	type = tribesmen	size = 0.695	culture = circassian_culture	religion = khabzeism }
 }
 armavir = {
 	define_pop = {	type = clergy	size = 0.003	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = peasants	size = 0.126	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = peasants	size = 0.799	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = tribesmen	size = 1.600	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = peasants	size = 0.125	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = peasants	size = 0.795	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = tribesmen	size = 1.593	culture = alan_culture	religion = alan_paganism }
 }
 shkhancheriekhabl = {
 	define_pop = {	type = clergy	size = 0.002	culture = circassian_culture	religion = khabzeism }
-	define_pop = {	type = tribesmen	size = 1.106	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = tribesmen	size = 0.553	culture = circassian_culture	religion = khabzeism }
-	define_pop = {	type = tribesmen	size = 1.106	culture = circassian_culture	religion = khabzeism }
+	define_pop = {	type = tribesmen	size = 1.101	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = tribesmen	size = 0.550	culture = circassian_culture	religion = khabzeism }
+	define_pop = {	type = tribesmen	size = 1.101	culture = circassian_culture	religion = khabzeism }
 }
 belorechensk = {
 	define_pop = {	type = clergy	size = 0.005	culture = circassian_culture	religion = khabzeism }
-	define_pop = {	type = tribesmen	size = 1.058	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = tribesmen	size = 0.529	culture = circassian_culture	religion = khabzeism }
-	define_pop = {	type = tribesmen	size = 1.058	culture = circassian_culture	religion = khabzeism }
+	define_pop = {	type = tribesmen	size = 1.054	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = tribesmen	size = 0.526	culture = circassian_culture	religion = khabzeism }
+	define_pop = {	type = tribesmen	size = 1.054	culture = circassian_culture	religion = khabzeism }
 }
 khadjibey = {
 	define_pop = {	type = clergy	size = 0.003	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.111	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.833	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 0.833	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 0.444	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.110	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.830	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 0.830	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 0.442	culture = hunnic	religion = tengri }
 }
 teligol = {
 	define_pop = {	type = clergy	size = 0.003	culture = hunnic	religion = tengri }
 	define_pop = {	type = peasants	size = 0.101	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.753	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 0.877	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 0.305	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.750	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 0.873	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 0.304	culture = hunnic	religion = tengri }
 }
 kuyanlik = {
 	define_pop = {	type = clergy	size = 0.002	culture = hunnic	religion = tengri }
 	define_pop = {	type = peasants	size = 0.114	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.793	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 1.041	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 0.343	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.789	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 1.037	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 0.342	culture = hunnic	religion = tengri }
 }
 ananiv = {
 	define_pop = {	type = clergy	size = 0.005	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.117	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.875	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 1.342	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.116	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.872	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 1.336	culture = hunnic	religion = tengri }
 }
 iagorlic = {
 	define_pop = {	type = clergy	size = 0.005	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.137	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.749	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 1.310	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 0.548	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.136	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.746	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 1.304	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 0.546	culture = hunnic	religion = tengri }
 }
 khadzhibey_liman = {
 }
@@ -27243,1478 +27243,1478 @@ kuialnyk_liman = {
 }
 dashev = {
 	define_pop = {	type = peasants	size = 0.193	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.548	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 1.007	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 0.200	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.546	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 1.003	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 0.199	culture = hunnic	religion = tengri }
 }
 balikley = {
 	define_pop = {	type = clergy	size = 0.003	culture = hunnic	religion = tengri }
 	define_pop = {	type = peasants	size = 0.097	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.891	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 0.971	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.887	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 0.967	culture = hunnic	religion = tengri }
 }
 aqmecit_prybuzhzhya = {
 	define_pop = {	type = clergy	size = 0.004	culture = hunnic	religion = tengri }
 	define_pop = {	type = peasants	size = 0.112	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.954	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 1.180	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.950	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 1.175	culture = hunnic	religion = tengri }
 }
 argamakli_sarai = {
 	define_pop = {	type = clergy	size = 0.003	culture = hunnic	religion = tengri }
 	define_pop = {	type = peasants	size = 0.089	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.806	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 0.899	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.802	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 0.895	culture = hunnic	religion = tengri }
 }
 vithold_hammami = {
 	define_pop = {	type = clergy	size = 0.001	culture = hunnic	religion = tengri }
 	define_pop = {	type = peasants	size = 0.187	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.639	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 0.860	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 0.194	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.637	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 0.857	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 0.193	culture = hunnic	religion = tengri }
 }
 harbuzynka = {
 	define_pop = {	type = clergy	size = 0.003	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.101	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.872	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 1.053	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.100	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.869	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 1.049	culture = hunnic	religion = tengri }
 }
 oleshia = {
 	define_pop = {	type = clergy	size = 0.003	culture = hunnic	religion = tengri }
 	define_pop = {	type = peasants	size = 0.108	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.836	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 0.907	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 0.327	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.833	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 0.903	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 0.325	culture = hunnic	religion = tengri }
 }
 bereznehuvate = {
 	define_pop = {	type = clergy	size = 0.003	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.085	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.683	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 0.929	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.084	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.681	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 0.925	culture = hunnic	religion = tengri }
 }
 bashtanka = {
 	define_pop = {	type = clergy	size = 0.003	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.084	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.750	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 0.844	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.083	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.747	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 0.841	culture = hunnic	religion = tengri }
 }
 tavan = {
 	define_pop = {	type = clergy	size = 0.004	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.320	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.890	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 0.923	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.318	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.886	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 0.919	culture = hunnic	religion = tengri }
 }
 velyka_oleksandrivka = {
 	define_pop = {	type = clergy	size = 0.003	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.328	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.861	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 0.999	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.326	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.857	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 0.995	culture = hunnic	religion = tengri }
 }
 qalancaq = {
 	define_pop = {	type = clergy	size = 0.004	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.362	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.684	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 1.370	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.361	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.681	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 1.364	culture = hunnic	religion = tengri }
 }
 aslan_horod = {
-	define_pop = {	type = peasants	size = 0.303	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.790	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 0.934	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.302	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.786	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 0.930	culture = hunnic	religion = tengri }
 }
 ordu_bazar = {
 	define_pop = {	type = clergy	size = 0.004	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.352	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.944	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 1.049	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.350	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.940	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 1.045	culture = hunnic	religion = tengri }
 }
 rohat_kermen = {
 	define_pop = {	type = clergy	size = 0.003	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.297	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.720	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 0.966	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.296	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.716	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 0.962	culture = hunnic	religion = tengri }
 }
 enice = {
 	define_pop = {	type = clergy	size = 0.004	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.350	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.982	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 1.003	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.349	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.978	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 0.998	culture = hunnic	religion = tengri }
 }
 velyka_lepetykha = {
 	define_pop = {	type = clergy	size = 0.003	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.298	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.658	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 1.035	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.297	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.655	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 1.031	culture = hunnic	religion = tengri }
 }
 kichkas = {
 	define_pop = {	type = clergy	size = 0.005	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.410	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 1.132	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 1.193	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.409	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 1.127	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 1.188	culture = hunnic	religion = tengri }
 }
 rozdory = {
 	define_pop = {	type = clergy	size = 0.005	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.483	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.883	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 1.856	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.481	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.879	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 1.848	culture = hunnic	religion = tengri }
 }
 hryshyne = {
 	define_pop = {	type = clergy	size = 0.004	culture = hunnic	religion = tengri }
 	define_pop = {	type = peasants	size = 0.095	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.751	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 1.065	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.748	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 1.061	culture = hunnic	religion = tengri }
 }
 pavlohrad = {
 	define_pop = {	type = clergy	size = 0.002	culture = hunnic	religion = tengri }
 	define_pop = {	type = peasants	size = 0.129	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.361	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 0.369	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 1.291	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.360	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 0.368	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 1.285	culture = hunnic	religion = tengri }
 }
 yelanets = {
 	define_pop = {	type = clergy	size = 0.004	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.112	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.968	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 1.167	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.111	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.964	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 1.162	culture = hunnic	religion = tengri }
 }
 usivka = {
 	define_pop = {	type = clergy	size = 0.008	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.272	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.623	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 0.920	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 2.723	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.271	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.620	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 0.916	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 2.711	culture = hunnic	religion = tengri }
 }
 mala_vyska = {
 	define_pop = {	type = clergy	size = 0.006	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.160	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 1.045	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 1.994	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.159	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 1.040	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 1.986	culture = hunnic	religion = tengri }
 }
 umanske = {
 	define_pop = {	type = clergy	size = 0.006	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.144	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 1.112	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 1.618	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.143	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 1.107	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 1.611	culture = hunnic	religion = tengri }
 }
 ingul = {
 	define_pop = {	type = clergy	size = 0.004	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.104	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.861	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 1.115	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.103	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.857	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 1.110	culture = hunnic	religion = tengri }
 }
 petrove = {
 	define_pop = {	type = clergy	size = 0.004	culture = hunnic	religion = tengri }
 	define_pop = {	type = peasants	size = 0.160	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.336	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 0.572	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 1.603	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.334	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 0.570	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 1.596	culture = hunnic	religion = tengri }
 }
 karlivka = {
 	define_pop = {	type = clergy	size = 0.002	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 3.372	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 3.357	culture = hunnic	religion = tengri }
 }
 kolomak = {
-	define_pop = {	type = peasants	size = 2.080	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 2.071	culture = hunnic	religion = tengri }
 }
 berestyn = {
 	define_pop = {	type = clergy	size = 0.004	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.160	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.336	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 0.570	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 1.601	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.159	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.335	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 0.568	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 1.594	culture = hunnic	religion = tengri }
 }
 samarchyk = {
 	define_pop = {	type = clergy	size = 0.005	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.167	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.465	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 0.479	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 1.668	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.166	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.463	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 0.477	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 1.661	culture = hunnic	religion = tengri }
 }
 oril = {
 	define_pop = {	type = nobles	size = 0.002	culture = hunnic	religion = tengri }
 	define_pop = {	type = clergy	size = 0.011	culture = hunnic	religion = tengri }
-	define_pop = {	type = burghers	size = 0.185	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 2.663	culture = hunnic	religion = tengri }
+	define_pop = {	type = burghers	size = 0.184	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 2.652	culture = hunnic	religion = tengri }
 }
 ternivka = {
 	define_pop = {	type = clergy	size = 0.001	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.163	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.360	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 0.565	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 1.634	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.162	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.358	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 0.563	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 1.626	culture = hunnic	religion = tengri }
 }
 kodak = {
 	define_pop = {	type = clergy	size = 0.004	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.158	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.310	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 0.583	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 1.577	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.157	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.308	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 0.581	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 1.570	culture = hunnic	religion = tengri }
 }
 myshuryn_rih = {
 	define_pop = {	type = clergy	size = 0.004	culture = hunnic	religion = tengri }
 	define_pop = {	type = peasants	size = 0.155	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.427	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 0.456	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 1.559	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.425	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 0.454	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 1.553	culture = hunnic	religion = tengri }
 }
 sofiivka = {
 	define_pop = {	type = clergy	size = 0.004	culture = hunnic	religion = tengri }
 	define_pop = {	type = peasants	size = 0.093	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.736	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 1.041	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.732	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 1.036	culture = hunnic	religion = tengri }
 }
 kryvyi_rih = {
 	define_pop = {	type = clergy	size = 0.004	culture = hunnic	religion = tengri }
 	define_pop = {	type = peasants	size = 0.119	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 1.131	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 1.141	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 1.126	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 1.136	culture = hunnic	religion = tengri }
 }
 tomakivka = {
 	define_pop = {	type = clergy	size = 0.002	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.282	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.753	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 0.846	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.281	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.750	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 0.842	culture = hunnic	religion = tengri }
 }
 mykytyn_rih = {
-	define_pop = {	type = clergy	size = 0.003	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.307	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.703	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 1.040	culture = hunnic	religion = tengri }
+	define_pop = {	type = clergy	size = 0.002	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.306	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.700	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 1.036	culture = hunnic	religion = tengri }
 }
 kursk = {
 	define_pop = {	type = nobles	size = 0.001	culture = hunnic	religion = tengri }
-	define_pop = {	type = clergy	size = 0.011	culture = hunnic	religion = tengri }
-	define_pop = {	type = burghers	size = 0.267	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 5.001	culture = hunnic	religion = tengri }
+	define_pop = {	type = clergy	size = 0.010	culture = hunnic	religion = tengri }
+	define_pop = {	type = burghers	size = 0.266	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 4.979	culture = hunnic	religion = tengri }
 }
 fatezh = {
 	define_pop = {	type = clergy	size = 0.001	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 3.638	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 3.622	culture = hunnic	religion = tengri }
 }
 opalkova = {
-	define_pop = {	type = slaves	size = 2.854	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 2.841	culture = hunnic	religion = tengri }
 }
 kosozhichi = {
-	define_pop = {	type = slaves	size = 2.318	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 2.308	culture = hunnic	religion = tengri }
 }
 manturovo_kursk = {
-	define_pop = {	type = slaves	size = 3.249	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 3.235	culture = hunnic	religion = tengri }
 }
 olgov = {
 	define_pop = {	type = clergy	size = 0.001	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 3.673	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 3.657	culture = hunnic	religion = tengri }
 }
 oskol = {
-	define_pop = {	type = slaves	size = 3.521	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 3.505	culture = hunnic	religion = tengri }
 }
 troitskoye_na_shchigrakh = {
 	define_pop = {	type = clergy	size = 0.003	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 5.736	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 5.711	culture = hunnic	religion = tengri }
 }
 belgorod = {
 	define_pop = {	type = clergy	size = 0.001	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 3.946	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 3.929	culture = hunnic	religion = tengri }
 }
 korocha = {
-	define_pop = {	type = slaves	size = 3.288	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 3.274	culture = hunnic	religion = tengri }
 }
 oboyan = {
 	define_pop = {	type = clergy	size = 0.001	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 3.271	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 3.257	culture = hunnic	religion = tengri }
 }
 muzhech = {
 	define_pop = {	type = clergy	size = 0.002	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 2.759	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 2.748	culture = hunnic	religion = tengri }
 }
 rakitnoye = {
 	define_pop = {	type = clergy	size = 0.003	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 3.514	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 3.499	culture = hunnic	religion = tengri }
 }
 sudzha = {
 	define_pop = {	type = clergy	size = 0.002	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 3.979	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 3.961	culture = hunnic	religion = tengri }
 }
 yelets = {
-	define_pop = {	type = slaves	size = 3.398	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 3.383	culture = hunnic	religion = tengri }
 }
 gogol = {
-	define_pop = {	type = slaves	size = 3.050	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 3.037	culture = hunnic	religion = tengri }
 }
 talitsa_yelets = {
-	define_pop = {	type = slaves	size = 2.634	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 2.622	culture = hunnic	religion = tengri }
 }
 terbuny = {
-	define_pop = {	type = slaves	size = 2.873	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 2.860	culture = hunnic	religion = tengri }
 }
 ust_livny = {
-	define_pop = {	type = slaves	size = 3.555	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 3.540	culture = hunnic	religion = tengri }
 }
 zemlyansk = {
-	define_pop = {	type = slaves	size = 3.790	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 3.774	culture = hunnic	religion = tengri }
 }
 alexeyevka = {
 	define_pop = {	type = clergy	size = 0.026	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.602	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 1.553	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 1.859	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.599	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 1.547	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 1.851	culture = hunnic	religion = tengri }
 }
 rovenki = {
 	define_pop = {	type = clergy	size = 0.017	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.388	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.994	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 1.206	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.386	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.989	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 1.201	culture = hunnic	religion = tengri }
 }
 valuyki = {
 	define_pop = {	type = clergy	size = 0.017	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.134	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 1.039	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 1.508	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.133	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 1.034	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 1.502	culture = hunnic	religion = tengri }
 }
 chernyanka = {
-	define_pop = {	type = slaves	size = 3.494	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 3.479	culture = hunnic	religion = tengri }
 }
 kastornoye = {
-	define_pop = {	type = slaves	size = 3.408	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 3.393	culture = hunnic	religion = tengri }
 }
 voronezh = {
-	define_pop = {	type = slaves	size = 3.707	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 3.691	culture = hunnic	religion = tengri }
 }
 anna_russia = {
-	define_pop = {	type = slaves	size = 3.029	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 3.016	culture = hunnic	religion = tengri }
 }
 novaya_pokrovka = {
 	define_pop = {	type = clergy	size = 0.005	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.199	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.350	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 0.780	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 1.996	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.198	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.348	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 0.776	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 1.987	culture = hunnic	religion = tengri }
 }
 semidesyatnoye = {
-	define_pop = {	type = slaves	size = 3.180	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 3.166	culture = hunnic	religion = tengri }
 }
 ostrogozhsk = {
 	define_pop = {	type = clergy	size = 0.018	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.427	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.741	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 1.682	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.425	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.738	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 1.675	culture = hunnic	religion = tengri }
 }
 rossosh = {
 	define_pop = {	type = clergy	size = 0.004	culture = hunnic	religion = tengri }
 	define_pop = {	type = peasants	size = 0.195	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.404	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 0.708	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 1.963	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.402	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 0.705	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 1.955	culture = hunnic	religion = tengri }
 }
 bielska_sloboda = {
 	define_pop = {	type = clergy	size = 0.015	culture = hunnic	religion = tengri }
 	define_pop = {	type = peasants	size = 0.115	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 1.094	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 1.107	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 1.089	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 1.102	culture = hunnic	religion = tengri }
 }
 bilovodsk = {
 	define_pop = {	type = clergy	size = 0.018	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.423	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.955	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 1.441	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.421	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.951	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 1.434	culture = hunnic	religion = tengri }
 }
 novopskov = {
 	define_pop = {	type = clergy	size = 0.013	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.295	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.708	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 0.965	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.294	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.705	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 0.961	culture = hunnic	religion = tengri }
 }
 kalnivka = {
 	define_pop = {	type = clergy	size = 0.015	culture = hunnic	religion = tengri }
 	define_pop = {	type = peasants	size = 0.120	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 1.142	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 1.150	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 1.137	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 1.145	culture = hunnic	religion = tengri }
 }
 nyzhnia_duvanka = {
 	define_pop = {	type = clergy	size = 0.004	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.170	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.404	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 0.559	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 1.701	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.169	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.403	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 0.556	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 1.694	culture = hunnic	religion = tengri }
 }
 konstantinovka = {
 	define_pop = {	type = clergy	size = 0.016	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.624	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.733	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 1.140	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.621	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.730	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 1.135	culture = hunnic	religion = tengri }
 }
 izium = {
 	define_pop = {	type = clergy	size = 0.005	culture = hunnic	religion = tengri }
 	define_pop = {	type = peasants	size = 0.166	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.240	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 0.427	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 0.834	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 1.668	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.239	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 0.425	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 0.830	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 1.661	culture = hunnic	religion = tengri }
 }
 adalaga = {
-	define_pop = {	type = peasants	size = 0.126	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.169	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 0.339	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 0.634	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 1.270	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.298	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.399	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 0.800	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 1.499	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 3.003	culture = hunnic	religion = tengri }
 }
 barvinkove = {
 	define_pop = {	type = clergy	size = 0.004	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.178	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.325	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 0.682	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 1.778	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.177	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.323	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 0.679	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 1.771	culture = hunnic	religion = tengri }
 }
 kupiansk = {
-	define_pop = {	type = clergy	size = 0.019	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.143	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 1.021	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 1.689	culture = hunnic	religion = tengri }
+	define_pop = {	type = clergy	size = 0.018	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.142	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 1.017	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 1.682	culture = hunnic	religion = tengri }
 }
 sloviansk = {
-	define_pop = {	type = peasants	size = 0.263	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.714	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 0.864	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 0.705	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.262	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.711	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 0.860	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 0.702	culture = hunnic	religion = tengri }
 }
 vovchansk = {
 	define_pop = {	type = clergy	size = 0.008	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.271	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.506	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 0.576	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 1.353	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 2.707	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.269	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.504	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 0.574	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 1.347	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 2.695	culture = hunnic	religion = tengri }
 }
 sumy = {
 	define_pop = {	type = clergy	size = 0.002	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 3.210	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 3.196	culture = hunnic	religion = tengri }
 }
 glushkovo = {
 	define_pop = {	type = clergy	size = 0.002	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 3.885	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 3.868	culture = hunnic	religion = tengri }
 }
 krasnopillia = {
 	define_pop = {	type = clergy	size = 0.005	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 2.340	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 2.330	culture = hunnic	religion = tengri }
 }
 vilshana = {
 	define_pop = {	type = clergy	size = 0.022	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 2.247	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 2.238	culture = hunnic	religion = tengri }
 }
 donets_kharkiv = {
 	define_pop = {	type = clergy	size = 0.001	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 3.101	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 3.087	culture = hunnic	religion = tengri }
 }
 chuhuiv = {
 	define_pop = {	type = peasants	size = 0.127	culture = hunnic	religion = tengri }
 	define_pop = {	type = peasants	size = 0.174	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 0.338	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 0.640	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 1.281	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 0.336	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 0.637	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 1.275	culture = hunnic	religion = tengri }
 }
 khotmyzh = {
-	define_pop = {	type = peasants	size = 2.387	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 2.377	culture = hunnic	religion = tengri }
 }
 kotelva = {
 	define_pop = {	type = clergy	size = 0.006	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 2.503	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 2.492	culture = hunnic	religion = tengri }
 }
 okhtyrka = {
 	define_pop = {	type = clergy	size = 0.003	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 4.192	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 4.173	culture = hunnic	religion = tengri }
 }
 zmiiv = {
-	define_pop = {	type = peasants	size = 0.108	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.190	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 0.245	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 0.543	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 1.087	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.107	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.189	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 0.243	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 0.540	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 1.082	culture = hunnic	religion = tengri }
 }
 melitopol = {
 	define_pop = {	type = clergy	size = 0.003	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.306	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.551	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 1.184	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.305	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.549	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 1.179	culture = hunnic	religion = tengri }
 }
 kyrylivka = {
 	define_pop = {	type = clergy	size = 0.002	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.311	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.681	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 1.084	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.310	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.678	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 1.079	culture = hunnic	religion = tengri }
 }
 tokmak = {
 	define_pop = {	type = clergy	size = 0.005	culture = hunnic	religion = tengri }
 	define_pop = {	type = peasants	size = 0.129	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.986	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 1.474	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.982	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 1.468	culture = hunnic	religion = tengri }
 }
 konski_vody = {
 	define_pop = {	type = clergy	size = 0.003	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.296	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.667	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 1.016	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.295	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.664	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 1.011	culture = hunnic	religion = tengri }
 }
 kuchugur = {
 	define_pop = {	type = clergy	size = 0.003	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.291	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.696	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 0.952	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.290	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.693	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 0.948	culture = hunnic	religion = tengri }
 }
 berdiansk = {
 	define_pop = {	type = clergy	size = 0.003	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.292	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.769	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 0.889	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.291	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.766	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 0.885	culture = hunnic	religion = tengri }
 }
 taganrog = {
 	define_pop = {	type = clergy	size = 0.003	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.563	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.589	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 1.100	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.560	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.586	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 1.096	culture = hunnic	religion = tengri }
 }
 velyka_novosilka = {
 	define_pop = {	type = clergy	size = 0.005	culture = hunnic	religion = tengri }
 	define_pop = {	type = peasants	size = 0.123	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.921	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 1.423	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.917	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 1.417	culture = hunnic	religion = tengri }
 }
 domakha = {
 	define_pop = {	type = clergy	size = 0.002	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.271	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.483	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 1.049	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.269	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.481	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 1.044	culture = hunnic	religion = tengri }
 }
 huliaipole = {
 	define_pop = {	type = clergy	size = 0.004	culture = hunnic	religion = tengri }
 	define_pop = {	type = peasants	size = 0.106	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.874	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 1.148	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.870	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 1.143	culture = hunnic	religion = tengri }
 }
 shyrokyne = {
 	define_pop = {	type = clergy	size = 0.004	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.371	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.650	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 1.453	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.370	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.647	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 1.447	culture = hunnic	religion = tengri }
 }
 vasylivka = {
 	define_pop = {	type = clergy	size = 0.003	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.329	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.760	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 1.105	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.327	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.756	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 1.100	culture = hunnic	religion = tengri }
 }
 bakhmut = {
 	define_pop = {	type = clergy	size = 0.005	culture = hunnic	religion = tengri }
 	define_pop = {	type = peasants	size = 0.129	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.777	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 1.683	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.773	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 1.676	culture = hunnic	religion = tengri }
 }
 lysychansk = {
 	define_pop = {	type = clergy	size = 0.004	culture = hunnic	religion = tengri }
 	define_pop = {	type = peasants	size = 0.106	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.646	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 1.381	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.643	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 1.375	culture = hunnic	religion = tengri }
 }
 kreminna = {
 	define_pop = {	type = clergy	size = 0.004	culture = hunnic	religion = tengri }
 	define_pop = {	type = peasants	size = 0.096	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.711	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 1.122	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.708	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 1.117	culture = hunnic	religion = tengri }
 }
 oleksandrivka = {
 	define_pop = {	type = clergy	size = 0.006	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.139	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.926	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 1.720	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.138	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.922	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 1.713	culture = hunnic	religion = tengri }
 }
 posad = {
 	define_pop = {	type = clergy	size = 0.005	culture = hunnic	religion = tengri }
 	define_pop = {	type = peasants	size = 0.128	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.816	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 1.623	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.812	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 1.616	culture = hunnic	religion = tengri }
 }
 azok = {
 	define_pop = {	type = clergy	size = 0.003	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = peasants	size = 1.014	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = peasants	size = 0.241	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = tribesmen	size = 0.304	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = peasants	size = 1.010	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = peasants	size = 0.240	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = tribesmen	size = 0.303	culture = alan_culture	religion = alan_paganism }
 }
 bagayevskaya = {
 	define_pop = {	type = clergy	size = 0.003	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = peasants	size = 0.410	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = peasants	size = 0.413	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = tribesmen	size = 0.818	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = peasants	size = 0.408	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = peasants	size = 0.411	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = tribesmen	size = 0.815	culture = alan_culture	religion = alan_paganism }
 }
 shcherbinovka = {
 	define_pop = {	type = clergy	size = 0.003	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = peasants	size = 0.367	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = peasants	size = 0.452	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = tribesmen	size = 0.649	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = peasants	size = 0.365	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = peasants	size = 0.450	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = tribesmen	size = 0.646	culture = alan_culture	religion = alan_paganism }
 }
 balzimachi = {
 	define_pop = {	type = clergy	size = 0.004	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = tribesmen	size = 1.057	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = tribesmen	size = 1.052	culture = alan_culture	religion = alan_paganism }
 	define_pop = {	type = tribesmen	size = 0.132	culture = alan_culture	religion = alan_paganism }
 	define_pop = {	type = tribesmen	size = 0.132	culture = alan_culture	religion = alan_paganism }
 }
 kanevskaya = {
 	define_pop = {	type = clergy	size = 0.003	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = peasants	size = 0.263	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = peasants	size = 0.717	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = tribesmen	size = 0.775	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = peasants	size = 0.262	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = peasants	size = 0.714	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = tribesmen	size = 0.772	culture = alan_culture	religion = alan_paganism }
 }
 starominskaya = {
 	define_pop = {	type = clergy	size = 0.004	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = peasants	size = 0.439	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = peasants	size = 0.554	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = tribesmen	size = 0.762	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = peasants	size = 0.437	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = peasants	size = 0.551	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = tribesmen	size = 0.759	culture = alan_culture	religion = alan_paganism }
 }
 yegorlykskaya = {
 	define_pop = {	type = clergy	size = 0.004	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = peasants	size = 0.482	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = peasants	size = 0.533	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = tribesmen	size = 0.914	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = peasants	size = 0.480	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = peasants	size = 0.530	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = tribesmen	size = 0.910	culture = alan_culture	religion = alan_paganism }
 }
 tana = {
 	define_pop = {	type = clergy	size = 0.011	culture = hunnic	religion = tengri }
-	define_pop = {	type = burghers	size = 0.261	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 1.155	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.261	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 0.360	culture = hunnic	religion = tengri }
+	define_pop = {	type = burghers	size = 0.260	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 1.150	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.259	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 0.359	culture = hunnic	religion = tengri }
 }
 krasny_sulin = {
 	define_pop = {	type = clergy	size = 0.002	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.450	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.410	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 0.940	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.448	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.409	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 0.936	culture = hunnic	religion = tengri }
 }
 shakhty = {
 	define_pop = {	type = clergy	size = 0.004	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.585	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.670	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 1.087	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.582	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.667	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 1.082	culture = hunnic	religion = tengri }
 }
 rovenky = {
 	define_pop = {	type = clergy	size = 0.004	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.377	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.646	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 1.494	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.376	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.643	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 1.488	culture = hunnic	religion = tengri }
 }
 kalmius = {
 	define_pop = {	type = clergy	size = 0.004	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.359	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 1.001	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 1.034	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.357	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.997	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 1.029	culture = hunnic	religion = tengri }
 }
 kamenskaya = {
 	define_pop = {	type = clergy	size = 0.001	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.367	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.372	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 0.731	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.366	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.370	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 0.728	culture = hunnic	religion = tengri }
 }
 semikarakorsk = {
 	define_pop = {	type = clergy	size = 0.004	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.441	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.527	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 0.796	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.439	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.525	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 0.793	culture = hunnic	religion = tengri }
 }
 bol_shaya_martynovka = {
 	define_pop = {	type = clergy	size = 0.006	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.466	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 1.401	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.464	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 1.395	culture = hunnic	religion = tengri }
 }
 cheplak = {
 	define_pop = {	type = clergy	size = 0.010	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = peasants	size = 0.705	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = slaves	size = 2.117	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = peasants	size = 0.702	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = slaves	size = 2.108	culture = alan_culture	religion = alan_paganism }
 }
 bolshoy_gashun = {
 	define_pop = {	type = clergy	size = 0.008	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = peasants	size = 0.364	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = slaves	size = 2.064	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = peasants	size = 0.362	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = slaves	size = 2.055	culture = alan_culture	religion = alan_paganism }
 }
 dubovskoye = {
 	define_pop = {	type = clergy	size = 0.007	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.529	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 1.587	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.526	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 1.580	culture = hunnic	religion = tengri }
 }
 yundin = {
 	define_pop = {	type = clergy	size = 0.005	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = peasants	size = 0.548	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = peasants	size = 0.555	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = tribesmen	size = 1.090	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = peasants	size = 0.546	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = peasants	size = 0.553	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = tribesmen	size = 1.085	culture = alan_culture	religion = alan_paganism }
 }
 ust_tsimla = {
-	define_pop = {	type = peasants	size = 0.746	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 1.118	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.743	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 1.114	culture = hunnic	religion = tengri }
 }
 konstantinovsk = {
-	define_pop = {	type = peasants	size = 0.695	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 1.042	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.692	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 1.038	culture = hunnic	religion = tengri }
 }
 tatsinskaya = {
 	define_pop = {	type = clergy	size = 0.017	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.665	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 1.995	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.662	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 1.987	culture = hunnic	religion = tengri }
 }
 tormosin = {
-	define_pop = {	type = peasants	size = 0.569	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 1.481	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.567	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 1.475	culture = hunnic	religion = tengri }
 }
 luhansk = {
 	define_pop = {	type = clergy	size = 0.015	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.120	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.975	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 1.297	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.119	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.971	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 1.292	culture = hunnic	religion = tengri }
 }
 mityakinskaya = {
 	define_pop = {	type = clergy	size = 0.013	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.302	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.666	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 1.046	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.301	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.663	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 1.042	culture = hunnic	religion = tengri }
 }
 novoaidar = {
 	define_pop = {	type = clergy	size = 0.016	culture = hunnic	religion = tengri }
 	define_pop = {	type = peasants	size = 0.127	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.895	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 1.521	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.891	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 1.515	culture = hunnic	religion = tengri }
 }
 belaya_kalitva = {
 	define_pop = {	type = clergy	size = 0.017	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.645	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.582	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 1.352	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.642	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.580	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 1.346	culture = hunnic	religion = tengri }
 }
 millerovo = {
 	define_pop = {	type = clergy	size = 0.011	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.251	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.559	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 0.865	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.250	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.556	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 0.861	culture = hunnic	religion = tengri }
 }
 kremenskaya = {
-	define_pop = {	type = peasants	size = 0.883	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 1.325	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.879	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 1.319	culture = hunnic	religion = tengri }
 }
 kletskaya = {
-	define_pop = {	type = peasants	size = 0.469	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 1.356	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.467	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 1.350	culture = hunnic	religion = tengri }
 }
 ust_medveditskaya = {
-	define_pop = {	type = peasants	size = 0.567	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 1.478	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.564	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 1.472	culture = hunnic	religion = tengri }
 }
 oblivskaya = {
 	define_pop = {	type = clergy	size = 0.008	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.498	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.521	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 0.977	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.496	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.518	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 0.973	culture = hunnic	religion = tengri }
 }
 nizhny_chir = {
-	define_pop = {	type = peasants	size = 0.863	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 1.295	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.860	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 1.290	culture = hunnic	religion = tengri }
 }
 kashary = {
 	define_pop = {	type = clergy	size = 0.015	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.365	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.800	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 1.265	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.363	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.797	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 1.260	culture = hunnic	religion = tengri }
 }
 chertkovo = {
 	define_pop = {	type = clergy	size = 0.015	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.588	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.634	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 1.129	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.585	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.632	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 1.124	culture = hunnic	religion = tengri }
 }
 bokovskaya = {
 	define_pop = {	type = clergy	size = 0.014	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.533	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.702	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 0.896	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.530	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.699	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 0.892	culture = hunnic	religion = tengri }
 }
 milyutinskaya = {
 	define_pop = {	type = clergy	size = 0.017	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.669	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.735	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 1.272	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.666	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.732	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 1.266	culture = hunnic	religion = tengri }
 }
 boguchar = {
 	define_pop = {	type = clergy	size = 0.017	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.668	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.619	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 1.386	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.665	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.616	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 1.380	culture = hunnic	religion = tengri }
 }
 borisoglebsk = {
 	define_pop = {	type = clergy	size = 0.004	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.190	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.354	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 0.726	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 1.907	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.189	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.353	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 0.722	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 1.899	culture = hunnic	religion = tengri }
 }
 bannoye = {
 	define_pop = {	type = clergy	size = 0.006	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.239	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.445	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 0.911	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 2.394	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.238	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.443	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 0.907	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 2.384	culture = hunnic	religion = tengri }
 }
 kalach = {
 	define_pop = {	type = clergy	size = 0.025	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.945	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.866	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 1.969	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.941	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.862	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 1.960	culture = hunnic	religion = tengri }
 }
 sadovoye = {
-	define_pop = {	type = slaves	size = 3.195	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 3.181	culture = hunnic	religion = tengri }
 }
 bolshaya_gribanovka = {
 	define_pop = {	type = clergy	size = 0.003	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.170	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.432	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 0.532	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 1.703	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.169	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.430	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 0.530	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 1.696	culture = hunnic	religion = tengri }
 }
 buturlinovka = {
 	define_pop = {	type = clergy	size = 0.005	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.208	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.418	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 0.766	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 2.091	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.207	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.416	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 0.763	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 2.081	culture = hunnic	religion = tengri }
 }
 verkhny_mamon = {
 	define_pop = {	type = clergy	size = 0.004	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.183	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.392	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 0.648	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 1.836	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.182	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.390	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 0.645	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 1.828	culture = hunnic	religion = tengri }
 }
 uryupin = {
 	define_pop = {	type = clergy	size = 0.023	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.872	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 1.303	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 1.314	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.868	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 1.297	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 1.308	culture = hunnic	religion = tengri }
 }
 mikhaylovka = {
 	define_pop = {	type = clergy	size = 0.012	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.768	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.558	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 0.593	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.765	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.556	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 0.590	culture = hunnic	religion = tengri }
 }
 novoanninsky = {
 	define_pop = {	type = clergy	size = 0.012	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.448	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.668	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 0.675	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.446	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.665	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 0.672	culture = hunnic	religion = tengri }
 }
 alexeyevskaya = {
 	define_pop = {	type = clergy	size = 0.017	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.646	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.712	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 1.224	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.643	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.709	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 1.219	culture = hunnic	religion = tengri }
 }
 veesky = {
 	define_pop = {	type = clergy	size = 0.018	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.671	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.979	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 1.033	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.668	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.975	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 1.028	culture = hunnic	religion = tengri }
 }
 kumylzhenskaya = {
 	define_pop = {	type = clergy	size = 0.014	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.846	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.390	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 0.879	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.843	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.388	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 0.875	culture = hunnic	religion = tengri }
 }
 zimnyatsky = {
-	define_pop = {	type = peasants	size = 1.653	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 0.560	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 1.646	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 0.558	culture = hunnic	religion = tengri }
 }
 malodelskaya = {
-	define_pop = {	type = peasants	size = 1.361	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 0.733	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 1.355	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 0.730	culture = hunnic	religion = tengri }
 }
 ilovlya = {
-	define_pop = {	type = peasants	size = 1.472	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 0.792	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 1.465	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 0.789	culture = hunnic	religion = tengri }
 }
 mechet = {
-	define_pop = {	type = peasants	size = 2.857	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 1.868	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 2.845	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 1.860	culture = hunnic	religion = tengri }
 }
 stepanevka = {
-	define_pop = {	type = peasants	size = 2.187	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 1.648	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 2.178	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 1.641	culture = hunnic	religion = tengri }
 }
 sarai_al_jadid = {
 	define_pop = {	type = nobles	size = 0.006	culture = hunnic	religion = tengri }
 	define_pop = {	type = clergy	size = 0.027	culture = hunnic	religion = tengri }
-	define_pop = {	type = burghers	size = 0.633	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 2.856	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 2.056	culture = hunnic	religion = tengri }
+	define_pop = {	type = burghers	size = 0.630	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 2.844	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 2.048	culture = hunnic	religion = tengri }
 }
 beljamen = {
-	define_pop = {	type = peasants	size = 2.740	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 1.808	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 2.728	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 1.800	culture = hunnic	religion = tengri }
 }
 zenzevatka = {
-	define_pop = {	type = peasants	size = 2.333	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 1.718	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 2.323	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 1.711	culture = hunnic	religion = tengri }
 }
 nagavskaya = {
 	define_pop = {	type = clergy	size = 0.009	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.698	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 2.098	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.695	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 2.088	culture = hunnic	religion = tengri }
 }
 aksay = {
-	define_pop = {	type = peasants	size = 1.387	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 1.810	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 1.381	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 1.802	culture = hunnic	religion = tengri }
 }
 yelan = {
 	define_pop = {	type = clergy	size = 0.016	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.633	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.683	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 1.216	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.630	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.680	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 1.211	culture = hunnic	religion = tengri }
 }
 machekha = {
 	define_pop = {	type = clergy	size = 0.013	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.496	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.685	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 0.803	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.494	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.682	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 0.800	culture = hunnic	religion = tengri }
 }
 novonikolayevsky = {
 	define_pop = {	type = clergy	size = 0.015	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.359	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.722	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 1.311	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.357	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.719	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 1.306	culture = hunnic	religion = tengri }
 }
 samoylovka = {
 	define_pop = {	type = clergy	size = 0.014	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.528	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.712	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 0.873	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.526	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.709	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 0.869	culture = hunnic	religion = tengri }
 }
 rudnya_pontic = {
-	define_pop = {	type = peasants	size = 1.495	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 2.243	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 1.489	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 2.233	culture = hunnic	religion = tengri }
 }
 danilovka = {
-	define_pop = {	type = peasants	size = 1.005	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 1.507	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 1.001	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 1.501	culture = hunnic	religion = tengri }
 }
 kotovo = {
-	define_pop = {	type = peasants	size = 1.572	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 0.846	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 1.565	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 0.842	culture = hunnic	religion = tengri }
 }
 kamyshin = {
-	define_pop = {	type = peasants	size = 1.965	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 1.306	culture = hunnic	religion = tengri }
-}
-goly_karamysh = {
-	define_pop = {	type = peasants	size = 2.300	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 1.475	culture = hunnic	religion = tengri }
-}
-astrakhan = {
-	define_pop = {	type = peasants	size = 4.348	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 2.787	culture = hunnic	religion = tengri }
-}
-khosheutovo = {
-	define_pop = {	type = peasants	size = 0.865	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 1.139	culture = hunnic	religion = tengri }
-}
-krasny_yar = {
-	define_pop = {	type = peasants	size = 0.722	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 1.680	culture = hunnic	religion = tengri }
-}
-ganyushkino = {
-	define_pop = {	type = clergy	size = 0.003	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.082	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.433	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.117	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 0.130	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 1.957	culture = hunnic	religion = tengri }
 	define_pop = {	type = slaves	size = 1.300	culture = hunnic	religion = tengri }
 }
+goly_karamysh = {
+	define_pop = {	type = peasants	size = 2.290	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 1.469	culture = hunnic	religion = tengri }
+}
+astrakhan = {
+	define_pop = {	type = peasants	size = 4.329	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 2.775	culture = hunnic	religion = tengri }
+}
+khosheutovo = {
+	define_pop = {	type = peasants	size = 0.861	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 1.134	culture = hunnic	religion = tengri }
+}
+krasny_yar = {
+	define_pop = {	type = peasants	size = 0.719	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 1.672	culture = hunnic	religion = tengri }
+}
+ganyushkino = {
+	define_pop = {	type = clergy	size = 0.002	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.082	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.432	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.117	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 0.129	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 1.295	culture = hunnic	religion = tengri }
+}
 pologoye_zaymishche = {
-	define_pop = {	type = peasants	size = 0.780	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 1.006	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.777	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 1.002	culture = hunnic	religion = tengri }
 }
 srednyaya_akhtuba = {
-	define_pop = {	type = peasants	size = 1.272	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 1.628	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 1.266	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 1.621	culture = hunnic	religion = tengri }
 }
 bykovo = {
-	define_pop = {	type = peasants	size = 1.144	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 1.425	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 1.139	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 1.419	culture = hunnic	religion = tengri }
 }
 elton = {
-	define_pop = {	type = peasants	size = 0.586	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 1.090	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.584	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 1.085	culture = hunnic	religion = tengri }
 }
 zolotari = {
-	define_pop = {	type = peasants	size = 0.770	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 0.992	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.767	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 0.988	culture = hunnic	religion = tengri }
 }
 berezhnovka = {
-	define_pop = {	type = peasants	size = 1.221	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 1.398	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 1.216	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 1.392	culture = hunnic	religion = tengri }
 }
 zamyany = {
-	define_pop = {	type = peasants	size = 3.366	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 2.687	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 3.351	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 2.675	culture = hunnic	religion = tengri }
 }
 yenotayevka = {
-	define_pop = {	type = peasants	size = 2.330	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 1.327	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 2.320	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 1.321	culture = hunnic	religion = tengri }
 }
 sapara = {
-	define_pop = {	type = peasants	size = 0.095	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.537	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.094	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.535	culture = hunnic	religion = tengri }
 	define_pop = {	type = peasants	size = 0.062	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 0.079	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 0.806	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 0.078	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 0.803	culture = hunnic	religion = tengri }
 }
 chernyye_zemli = {
-	define_pop = {	type = peasants	size = 0.088	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.500	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.087	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.497	culture = hunnic	religion = tengri }
 	define_pop = {	type = peasants	size = 0.040	culture = hunnic	religion = tengri }
 	define_pop = {	type = tribesmen	size = 0.091	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 0.749	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 0.746	culture = hunnic	religion = tengri }
 }
 ikryanoye = {
-	define_pop = {	type = peasants	size = 1.581	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 1.701	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 1.574	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 1.694	culture = hunnic	religion = tengri }
 }
 chyorny_yar = {
-	define_pop = {	type = peasants	size = 1.908	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 0.716	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 1.900	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 0.713	culture = hunnic	religion = tengri }
 }
 nikolskoye_pontic = {
-	define_pop = {	type = peasants	size = 1.138	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 1.338	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 1.133	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 1.332	culture = hunnic	religion = tengri }
 }
 malye_derbety = {
-	define_pop = {	type = peasants	size = 0.287	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 1.628	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.285	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 1.621	culture = hunnic	religion = tengri }
 	define_pop = {	type = peasants	size = 0.202	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 0.227	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 1.898	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 0.226	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 1.890	culture = hunnic	religion = tengri }
 }
 sadovoye_kalmykia = {
-	define_pop = {	type = peasants	size = 1.238	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 0.747	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 1.232	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 0.744	culture = hunnic	religion = tengri }
 }
 ded_khulsun = {
 	define_pop = {	type = peasants	size = 0.054	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.289	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.288	culture = hunnic	religion = tengri }
 	define_pop = {	type = peasants	size = 0.063	culture = hunnic	religion = tengri }
 	define_pop = {	type = tribesmen	size = 0.101	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 0.868	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 0.865	culture = hunnic	religion = tengri }
 }
 zavetnoye = {
 	define_pop = {	type = clergy	size = 0.005	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = peasants	size = 0.378	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = slaves	size = 1.134	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = peasants	size = 0.376	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = slaves	size = 1.129	culture = alan_culture	religion = alan_paganism }
 }
 bolkhuny = {
-	define_pop = {	type = peasants	size = 0.760	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 0.869	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.757	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 0.866	culture = hunnic	religion = tengri }
 }
 mikhaylovka_pontic = {
-	define_pop = {	type = peasants	size = 0.441	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 1.015	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.439	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 1.010	culture = hunnic	religion = tengri }
 }
 rechnoye = {
-	define_pop = {	type = peasants	size = 0.817	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 1.066	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.814	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 1.061	culture = hunnic	religion = tengri }
 }
 bokey = {
 	define_pop = {	type = peasants	size = 0.046	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.244	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.243	culture = hunnic	religion = tengri }
 	define_pop = {	type = peasants	size = 0.065	culture = hunnic	religion = tengri }
 	define_pop = {	type = tribesmen	size = 0.073	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 0.733	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 0.730	culture = hunnic	religion = tengri }
 }
 botkul = {
 	define_pop = {	type = clergy	size = 0.002	culture = hunnic	religion = tengri }
 	define_pop = {	type = peasants	size = 0.063	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.331	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.330	culture = hunnic	religion = tengri }
 	define_pop = {	type = peasants	size = 0.078	culture = hunnic	religion = tengri }
 	define_pop = {	type = tribesmen	size = 0.110	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 0.995	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 0.991	culture = hunnic	religion = tengri }
 }
 zhanybek = {
 	define_pop = {	type = clergy	size = 0.003	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.106	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.558	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.154	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 0.164	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 1.674	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.105	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.555	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.153	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 0.163	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 1.666	culture = hunnic	religion = tengri }
 }
 dardeling = {
-	define_pop = {	type = peasants	size = 1.011	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 1.211	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 1.006	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 1.206	culture = hunnic	religion = tengri }
 }
 mekletin = {
 	define_pop = {	type = clergy	size = 0.002	culture = alan_culture	religion = alan_paganism }
 	define_pop = {	type = peasants	size = 0.063	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = peasants	size = 0.331	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = peasants	size = 0.330	culture = alan_culture	religion = alan_paganism }
 	define_pop = {	type = peasants	size = 0.070	culture = alan_culture	religion = alan_paganism }
 	define_pop = {	type = tribesmen	size = 0.118	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = slaves	size = 0.995	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = slaves	size = 0.991	culture = alan_culture	religion = alan_paganism }
 }
 kok_usn = {
-	define_pop = {	type = peasants	size = 0.776	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = slaves	size = 1.017	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = peasants	size = 0.773	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = slaves	size = 1.013	culture = alan_culture	religion = alan_paganism }
 }
 yashkul = {
 	define_pop = {	type = clergy	size = 0.002	culture = alan_culture	religion = alan_paganism }
 	define_pop = {	type = peasants	size = 0.063	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = peasants	size = 0.331	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = peasants	size = 0.330	culture = alan_culture	religion = alan_paganism }
 	define_pop = {	type = peasants	size = 0.066	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = tribesmen	size = 0.122	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = slaves	size = 0.995	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = tribesmen	size = 0.121	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = slaves	size = 0.991	culture = alan_culture	religion = alan_paganism }
 }
 iki_burul = {
 	define_pop = {	type = clergy	size = 0.002	culture = alan_culture	religion = alan_paganism }
 	define_pop = {	type = peasants	size = 0.063	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = peasants	size = 0.331	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = peasants	size = 0.330	culture = alan_culture	religion = alan_paganism }
 	define_pop = {	type = peasants	size = 0.090	culture = alan_culture	religion = alan_paganism }
 	define_pop = {	type = tribesmen	size = 0.098	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = slaves	size = 0.995	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = slaves	size = 0.991	culture = alan_culture	religion = alan_paganism }
 }
 priyutnoye = {
 	define_pop = {	type = clergy	size = 0.003	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = peasants	size = 0.311	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = slaves	size = 0.932	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = peasants	size = 0.309	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = slaves	size = 0.928	culture = alan_culture	religion = alan_paganism }
 }
 elista = {
 	define_pop = {	type = clergy	size = 0.002	culture = alan_culture	religion = alan_paganism }
 	define_pop = {	type = peasants	size = 0.063	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = peasants	size = 0.331	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = peasants	size = 0.330	culture = alan_culture	religion = alan_paganism }
 	define_pop = {	type = peasants	size = 0.079	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = tribesmen	size = 0.109	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = slaves	size = 0.995	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = tribesmen	size = 0.108	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = slaves	size = 0.991	culture = alan_culture	religion = alan_paganism }
 }
 remontnoye = {
 	define_pop = {	type = clergy	size = 0.006	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = peasants	size = 0.455	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = slaves	size = 1.367	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = peasants	size = 0.453	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = slaves	size = 1.361	culture = alan_culture	religion = alan_paganism }
 }
 gorodovikovsk = {
 	define_pop = {	type = clergy	size = 0.002	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = peasants	size = 0.285	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = peasants	size = 0.407	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = tribesmen	size = 0.449	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = peasants	size = 0.284	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = peasants	size = 0.405	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = tribesmen	size = 0.447	culture = alan_culture	religion = alan_paganism }
 }
 raguli = {
 	define_pop = {	type = clergy	size = 0.004	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = peasants	size = 0.451	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = peasants	size = 0.604	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = tribesmen	size = 0.748	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = peasants	size = 0.449	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = peasants	size = 0.601	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = tribesmen	size = 0.745	culture = alan_culture	religion = alan_paganism }
 }
 lake_manych = {
 }
 majar = {
-	define_pop = {	type = peasants	size = 1.847	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = slaves	size = 1.368	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = peasants	size = 1.839	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = slaves	size = 1.362	culture = alan_culture	religion = alan_paganism }
 }
 zelenokumsk = {
 	define_pop = {	type = clergy	size = 0.002	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = peasants	size = 0.588	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = slaves	size = 1.767	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = peasants	size = 0.586	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = slaves	size = 1.759	culture = alan_culture	religion = alan_paganism }
 }
 arzgir = {
-	define_pop = {	type = peasants	size = 0.361	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = slaves	size = 1.086	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = peasants	size = 0.359	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = slaves	size = 1.081	culture = alan_culture	religion = alan_paganism }
 }
 levokumskoye = {
-	define_pop = {	type = peasants	size = 0.362	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = slaves	size = 1.089	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = peasants	size = 0.361	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = slaves	size = 1.084	culture = alan_culture	religion = alan_paganism }
 }
 novopavlovsk = {
-	define_pop = {	type = peasants	size = 0.313	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = peasants	size = 0.649	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = tribesmen	size = 1.128	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = peasants	size = 0.312	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = peasants	size = 0.646	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = tribesmen	size = 1.123	culture = alan_culture	religion = alan_paganism }
 }
 yessentuq = {
 	define_pop = {	type = clergy	size = 0.001	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = peasants	size = 0.139	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = peasants	size = 0.970	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = tribesmen	size = 1.672	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = peasants	size = 0.138	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = peasants	size = 0.966	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = tribesmen	size = 1.664	culture = alan_culture	religion = alan_paganism }
 }
 alexandrovskoye = {
-	define_pop = {	type = peasants	size = 0.258	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = peasants	size = 0.479	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = tribesmen	size = 0.981	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = peasants	size = 0.257	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = peasants	size = 0.477	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = tribesmen	size = 0.977	culture = alan_culture	religion = alan_paganism }
 }
 blagodarnoye = {
-	define_pop = {	type = peasants	size = 0.495	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = peasants	size = 0.532	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = tribesmen	size = 0.954	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = peasants	size = 0.493	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = peasants	size = 0.530	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = tribesmen	size = 0.950	culture = alan_culture	religion = alan_paganism }
 }
 novoselitskoye = {
-	define_pop = {	type = peasants	size = 0.453	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = peasants	size = 0.528	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = tribesmen	size = 0.832	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = peasants	size = 0.451	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = peasants	size = 0.526	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = tribesmen	size = 0.828	culture = alan_culture	religion = alan_paganism }
 }
 naurskaya = {
 	define_pop = {	type = clergy	size = 0.011	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = peasants	size = 0.498	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = slaves	size = 2.822	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = peasants	size = 0.496	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = slaves	size = 2.810	culture = alan_culture	religion = alan_paganism }
 }
 kara_bazaar = {
 	define_pop = {	type = clergy	size = 0.011	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = peasants	size = 0.794	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = slaves	size = 2.384	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = peasants	size = 0.791	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = slaves	size = 2.373	culture = alan_culture	religion = alan_paganism }
 }
 terekli_mekteb = {
 	define_pop = {	type = clergy	size = 0.011	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = peasants	size = 0.514	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = slaves	size = 2.912	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = peasants	size = 0.511	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = slaves	size = 2.899	culture = alan_culture	religion = alan_paganism }
 }
 kurskaya = {
 	define_pop = {	type = clergy	size = 0.007	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = peasants	size = 0.329	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = slaves	size = 1.867	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = peasants	size = 0.328	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = slaves	size = 1.859	culture = alan_culture	religion = alan_paganism }
 }
 kamysh_burun = {
 	define_pop = {	type = clergy	size = 0.008	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = peasants	size = 0.586	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = slaves	size = 1.760	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = peasants	size = 0.584	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = slaves	size = 1.752	culture = alan_culture	religion = alan_paganism }
 }
 stavropol = {
-	define_pop = {	type = peasants	size = 0.074	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = peasants	size = 0.574	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = tribesmen	size = 0.827	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = peasants	size = 0.073	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = peasants	size = 0.572	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = tribesmen	size = 0.824	culture = alan_culture	religion = alan_paganism }
 }
 grigoropolisskaya = {
 	define_pop = {	type = peasants	size = 0.059	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = peasants	size = 0.353	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = tribesmen	size = 0.770	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = peasants	size = 0.352	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = tribesmen	size = 0.766	culture = alan_culture	religion = alan_paganism }
 }
 uspenskoye = {
 	define_pop = {	type = peasants	size = 0.057	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = peasants	size = 0.411	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = tribesmen	size = 0.685	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = peasants	size = 0.409	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = tribesmen	size = 0.682	culture = alan_culture	religion = alan_paganism }
 }
 shad_kirman = {
 	define_pop = {	type = clergy	size = 0.001	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = peasants	size = 0.099	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = peasants	size = 0.744	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = tribesmen	size = 1.131	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = peasants	size = 0.098	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = peasants	size = 0.741	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = tribesmen	size = 1.126	culture = alan_culture	religion = alan_paganism }
 }
 petrovskoye_pontic = {
 	define_pop = {	type = clergy	size = 0.001	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = peasants	size = 0.291	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = peasants	size = 0.722	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = tribesmen	size = 0.927	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = peasants	size = 0.290	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = peasants	size = 0.719	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = tribesmen	size = 0.923	culture = alan_culture	religion = alan_paganism }
 }
 privolnoye = {
-	define_pop = {	type = peasants	size = 0.170	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = peasants	size = 0.335	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = tribesmen	size = 0.627	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = peasants	size = 0.169	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = peasants	size = 0.334	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = tribesmen	size = 0.625	culture = alan_culture	religion = alan_paganism }
 }
 belaya_glina = {
 	define_pop = {	type = clergy	size = 0.003	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = peasants	size = 0.263	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = peasants	size = 0.492	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = tribesmen	size = 1.004	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = peasants	size = 0.262	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = peasants	size = 0.490	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = tribesmen	size = 0.999	culture = alan_culture	religion = alan_paganism }
 }
 peschanokopskoye = {
 	define_pop = {	type = clergy	size = 0.002	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = peasants	size = 0.176	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = peasants	size = 0.443	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = tribesmen	size = 0.556	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = peasants	size = 0.175	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = peasants	size = 0.441	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = tribesmen	size = 0.554	culture = alan_culture	religion = alan_paganism }
 }
 novo_alexandrovskoye = {
 	define_pop = {	type = peasants	size = 0.040	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = peasants	size = 0.232	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = tribesmen	size = 0.542	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = peasants	size = 0.231	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = tribesmen	size = 0.539	culture = alan_culture	religion = alan_paganism }
 }
 bezopasnoye = {
 	define_pop = {	type = peasants	size = 0.074	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = peasants	size = 0.462	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = tribesmen	size = 0.954	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = peasants	size = 0.460	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = tribesmen	size = 0.950	culture = alan_culture	religion = alan_paganism }
 }
 ipatovo = {
 	define_pop = {	type = clergy	size = 0.002	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = peasants	size = 0.199	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = peasants	size = 0.546	culture = alan_culture	religion = alan_paganism }
-	define_pop = {	type = tribesmen	size = 0.586	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = peasants	size = 0.198	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = peasants	size = 0.544	culture = alan_culture	religion = alan_paganism }
+	define_pop = {	type = tribesmen	size = 0.583	culture = alan_culture	religion = alan_paganism }
 }
 kalmyk = {
 	define_pop = {	type = peasants	size = 0.035	culture = hunnic	religion = tengri }
 	define_pop = {	type = peasants	size = 0.201	culture = hunnic	religion = tengri }
 	define_pop = {	type = peasants	size = 0.084	culture = hunnic	religion = tengri }
 	define_pop = {	type = tribesmen	size = 0.116	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 1.141	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 1.136	culture = hunnic	religion = tengri }
 }
 karatobe = {
 	define_pop = {	type = peasants	size = 0.043	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.245	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.244	culture = hunnic	religion = tengri }
 	define_pop = {	type = peasants	size = 0.086	culture = hunnic	religion = tengri }
 	define_pop = {	type = tribesmen	size = 0.158	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 1.390	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 1.384	culture = hunnic	religion = tengri }
 }
 shyngyrlau = {
 	define_pop = {	type = peasants	size = 0.044	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.236	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.053	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.235	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.052	culture = hunnic	religion = tengri }
 	define_pop = {	type = tribesmen	size = 0.081	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 2.404	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 2.394	culture = hunnic	religion = tengri }
 }
 aksay_pointic = {
 	define_pop = {	type = peasants	size = 0.059	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.313	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.311	culture = hunnic	religion = tengri }
 	define_pop = {	type = peasants	size = 0.062	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 0.116	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 1.561	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 0.115	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 1.554	culture = hunnic	religion = tengri }
 }
 zhympity = {
 	define_pop = {	type = peasants	size = 0.043	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.245	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.087	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 0.158	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 1.390	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.244	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.086	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 0.157	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 1.384	culture = hunnic	religion = tengri }
 }
 terekti = {
 	define_pop = {	type = peasants	size = 0.043	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.245	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.244	culture = hunnic	religion = tengri }
 	define_pop = {	type = peasants	size = 0.074	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 0.170	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 1.390	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 0.169	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 1.384	culture = hunnic	religion = tengri }
 }
 oral = {
-	define_pop = {	type = peasants	size = 0.340	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 3.555	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.338	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 3.540	culture = hunnic	religion = tengri }
 }
 shalkar_lake = {
 }
 ryn = {
 	define_pop = {	type = clergy	size = 0.002	culture = hunnic	religion = tengri }
 	define_pop = {	type = peasants	size = 0.083	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.437	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.111	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 0.138	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 1.311	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.435	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.110	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 0.137	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 1.305	culture = hunnic	religion = tengri }
 }
 ushtagan = {
 	define_pop = {	type = peasants	size = 0.047	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.249	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.248	culture = hunnic	religion = tengri }
 	define_pop = {	type = peasants	size = 0.061	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 0.081	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 0.748	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 0.080	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 0.745	culture = hunnic	religion = tengri }
 }
 sarayjuk = {
-	define_pop = {	type = peasants	size = 1.205	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 1.808	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 1.200	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 1.800	culture = hunnic	religion = tengri }
 }
 kisikkamys = {
 	define_pop = {	type = clergy	size = 0.002	culture = hunnic	religion = tengri }
 	define_pop = {	type = peasants	size = 0.091	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.477	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.126	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 0.147	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 1.432	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.475	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.125	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 0.146	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 1.426	culture = hunnic	religion = tengri }
 }
 kulagin = {
-	define_pop = {	type = peasants	size = 0.284	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 0.854	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.283	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 0.850	culture = hunnic	religion = tengri }
 }
 saryadyn = {
-	define_pop = {	type = peasants	size = 0.237	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 0.711	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.236	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 0.708	culture = hunnic	religion = tengri }
 }
 talowski = {
-	define_pop = {	type = peasants	size = 0.038	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.214	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.037	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.213	culture = hunnic	religion = tengri }
 	define_pop = {	type = peasants	size = 0.070	culture = hunnic	religion = tengri }
-	define_pop = {	type = tribesmen	size = 0.143	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 1.211	culture = hunnic	religion = tengri }
+	define_pop = {	type = tribesmen	size = 0.142	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 1.206	culture = hunnic	religion = tengri }
 }
 inder_lake = {
 }
 piterka = {
-	define_pop = {	type = peasants	size = 0.641	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 1.283	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.638	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 1.277	culture = hunnic	religion = tengri }
 }
 krasny_kut_pontic = {
-	define_pop = {	type = clergy	size = 0.005	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.760	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 1.141	culture = hunnic	religion = tengri }
+	define_pop = {	type = clergy	size = 0.004	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.757	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 1.136	culture = hunnic	religion = tengri }
 }
 mokrous = {
 	define_pop = {	type = clergy	size = 0.007	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.950	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 1.427	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.946	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 1.421	culture = hunnic	religion = tengri }
 }
 savinka = {
-	define_pop = {	type = peasants	size = 0.674	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 1.012	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.671	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 1.007	culture = hunnic	religion = tengri }
 }
 rovnoye = {
-	define_pop = {	type = peasants	size = 1.581	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 1.115	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 1.574	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 1.110	culture = hunnic	religion = tengri }
 }
 pokrovsk = {
 	define_pop = {	type = clergy	size = 0.006	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 1.636	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 1.142	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 1.629	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 1.137	culture = hunnic	religion = tengri }
 }
 baronsk = {
 	define_pop = {	type = clergy	size = 0.005	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 1.484	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 0.808	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 1.478	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 0.805	culture = hunnic	religion = tengri }
 }
 taskala = {
 	define_pop = {	type = peasants	size = 0.041	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.240	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.239	culture = hunnic	religion = tengri }
 	define_pop = {	type = peasants	size = 0.078	culture = hunnic	religion = tengri }
 	define_pop = {	type = tribesmen	size = 0.161	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 1.486	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 1.479	culture = hunnic	religion = tengri }
 }
 dergachi = {
-	define_pop = {	type = peasants	size = 0.597	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 1.790	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.594	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 1.783	culture = hunnic	religion = tengri }
 }
 chertanla = {
-	define_pop = {	type = peasants	size = 0.432	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 1.299	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.431	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 1.293	culture = hunnic	religion = tengri }
 }
 alexandrov_gay = {
-	define_pop = {	type = peasants	size = 0.234	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 1.331	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.233	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 1.325	culture = hunnic	religion = tengri }
 }
 ozinki = {
-	define_pop = {	type = peasants	size = 0.433	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 1.901	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.431	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 1.893	culture = hunnic	religion = tengri }
 }
 mechetnaya = {
 	define_pop = {	type = clergy	size = 0.004	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.948	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 1.423	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.944	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 1.417	culture = hunnic	religion = tengri }
 }
 perelyub = {
 	define_pop = {	type = clergy	size = 0.002	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 1.331	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 1.722	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 1.325	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 1.714	culture = hunnic	religion = tengri }
 }
 ivanteyevka = {
 	define_pop = {	type = clergy	size = 0.001	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 1.044	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 1.538	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 1.039	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 1.531	culture = hunnic	religion = tengri }
 }
 balakovo = {
 	define_pop = {	type = clergy	size = 0.005	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 1.715	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 1.011	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 1.707	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 1.006	culture = hunnic	religion = tengri }
 }
 dukhovnitskoye = {
-	define_pop = {	type = peasants	size = 1.492	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 1.029	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 1.486	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 1.025	culture = hunnic	religion = tengri }
 }
 sakminskoye_vodokhranilishche = {
 	define_pop = {	type = clergy	size = 0.003	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.881	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 1.067	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.878	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 1.063	culture = hunnic	religion = tengri }
 }
 yershov = {
 	define_pop = {	type = clergy	size = 0.006	culture = hunnic	religion = tengri }
-	define_pop = {	type = peasants	size = 0.841	culture = hunnic	religion = tengri }
-	define_pop = {	type = slaves	size = 1.262	culture = hunnic	religion = tengri }
+	define_pop = {	type = peasants	size = 0.838	culture = hunnic	religion = tengri }
+	define_pop = {	type = slaves	size = 1.257	culture = hunnic	religion = tengri }
 }
 moscow = {
 	define_pop = {	type = nobles	size = 0.002	culture = aukstaitian	religion = romuva }

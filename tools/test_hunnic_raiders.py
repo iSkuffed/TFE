@@ -46,3 +46,24 @@ def test_occupied_lands_give_up_captives_to_the_capital():
 def test_everything_shown_is_localized():
     keys = set(re.findall(r"^\s*([\w.]+):\d*\s", LOC.read_text(encoding="utf-8-sig"), re.M))
     assert {"STATIC_MODIFIER_NAME_tfe_hunnic_raiders", "STATIC_MODIFIER_DESC_tfe_hunnic_raiders"} <= keys
+
+
+def test_the_horde_pays_a_tenth_of_army_upkeep_for_good():
+    m = re.search(r"tfe_hunnic_horde = \{(.*?)\n\}", code(MODIFIER), re.S).group(1)
+    assert "category = country" in m and "army_maintenance_efficiency = 9" in m   # 1 / (1 + 9) = 10% paid
+    assert "c:HNS ?= { add_country_modifier = { modifier = tfe_hunnic_horde } }" in code(ON_ACTION)
+    keys = set(re.findall(r"^\s*([\w.]+):\d*\s", LOC.read_text(encoding="utf-8-sig"), re.M))
+    assert {"STATIC_MODIFIER_NAME_tfe_hunnic_horde", "STATIC_MODIFIER_DESC_tfe_hunnic_horde"} <= keys
+
+
+def test_the_huns_start_with_about_20000_horse_archers_and_four_supply_carts_at_a_town_capital():
+    armies = (b.MOD / "main_menu/setup/start/27_armies.txt").read_text(encoding="utf-8")
+    host = re.search(r"country = HNS\s+location = adalaga\s+sub_units = \{(.*?)\n\t\t\}", armies, re.S).group(1)
+    assert host.count("a_steppe_horse_archers = { strength = 1 }") * 600 == 19800   # a horse archer regiment is 600 men
+    assert host.count("a_supply_carts = { strength = 1 }") == 4
+    tags = (b.TOOLS / "tags.txt").read_text(encoding="utf-8")
+    assert re.search(r"^HNS \| Huns \| Hunnic \| adalaga \|", tags, re.M)
+    start = b.MOD / "main_menu/setup/start/07_cities_and_buildings.txt"
+    text = start.read_text(encoding="utf-8")
+    assert re.search(r"adalaga = \{ rank = town ", text)
+    assert "barracks = { tag = HNS level = 1 location = adalaga }" in text

@@ -17,7 +17,5 @@ NMapColors = {
 	WATER_MAP_COLOR = { 0.604 0.43 0.40 }
 	OCEAN_MAP_COLOR = { 0.604 0.45 0.34 }
 	WATER_MAP_ALPHA = 0.85
-	# muted, painted country colours
-	MAP_COLOR_SATURATION_RANGE = { 0.0 0.6 }
 }
 

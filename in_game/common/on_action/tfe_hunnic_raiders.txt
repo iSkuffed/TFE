@@ -8,6 +8,7 @@ on_game_start = {
 tfe_on_start_hunnic_raiders = {
 	effect = {
 		c:HNS ?= { add_country_modifier = { modifier = tfe_hunnic_raiders } }
+		c:HNS ?= { add_country_modifier = { modifier = tfe_hunnic_horde } }
 	}
 }
 
