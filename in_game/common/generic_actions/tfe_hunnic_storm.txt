@@ -607,7 +607,7 @@ tfe_hire_hunnic_horsemen = {
 	}
 }
 
-# A Roman empire pays the Hunnic subsidy without losing a war (as the Grand Raid's peace does): 10 years of peace
+# A Roman empire joins the Hunnic Yoke without losing a war (as the Grand Raid's peace does) and buys 10 years of peace
 tfe_pay_the_huns_for_peace = {
 	type = situation
 
@@ -623,7 +623,7 @@ tfe_pay_the_huns_for_peace = {
 	}
 	allow = {
 		scope:actor = {
-			NOT = { has_variable = tfe_hunnic_subsidy }
+			NOT = { is_member_of_international_organization = international_organization:tfe_hunnic_yoke }
 			NOT = { is_at_war_with = c:HNS }
 		}
 	}
@@ -655,7 +655,9 @@ tfe_pay_the_huns_for_peace = {
 		custom_tooltip = tfe_pay_the_huns_for_peace_tt
 		scope:actor = {
 			add_truce_with = { target = c:HNS years = 10 mutual = yes }
-			hidden_effect = { set_variable = { name = tfe_hunnic_subsidy value = c:HNS years = 10 } }
+			international_organization:tfe_hunnic_yoke = {
+				add_country_to_international_organization = scope:actor
+			}
 		}
 	}
 

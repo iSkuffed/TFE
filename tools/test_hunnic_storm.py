@@ -73,7 +73,7 @@ def test_the_yoke_is_seeded_with_the_huns_and_their_tributaries():
     m = re.search(r"type = tfe_hunnic_yoke.*?members = \{([^}]*)\}\s*tfe_hunnic_overlord = \{\s*HNS\s*\}", setup, re.S)
     assert m and set(m.group(1).split()) == TRIBUTARIES | {"HNS"}
     dip = code(START / "12_diplomacy.txt")
-    assert not re.search(r"first = HNS second = \w+ subject_type = tributary", dip)
+    assert set(re.findall(r"first = HNS second = (\w+) subject_type = tributary", dip)) == TRIBUTARIES
     assert not (START / "12_diplomacy.txt").read_bytes().startswith(b"\xef\xbb\xbf")
     yoke = code(YOKE)
     assert re.search(r"payments_implemented = \{\s*tfe_hunnic_tribute\s*\}", yoke)
@@ -99,7 +99,7 @@ def test_every_war_has_its_goal_and_its_treaty():
     by_cb = set(re.findall(r"casus_belli \?= casus_belli:(\w+)", treaties))
     assert by_cb == set(goals) - {"cb_tfe_stand_against_the_scourge"}     # that one is a plain superiority war
     assert "add_country_to_international_organization = scope:loser" in treaties
-    assert "name = tfe_hunnic_subsidy value = scope:winner years = 10" in treaties
+    assert "tfe_hunnic_subsidy" not in treaties
     assert "reason = WonFreedom" in treaties
     # the Break the Yoke action and the Reckoning's rising declare the same war
     for p in (ACTIONS, EVENT):
@@ -109,7 +109,7 @@ def test_every_war_has_its_goal_and_its_treaty():
 def test_the_phases_open_on_named_causes():
     s = code(SITUATION)
     assert "set_variable = { name = tfe_storm_phase value = 1 }" in s
-    assert re.search(r"total_members >= 8\s*any_country = \{ has_variable = tfe_hunnic_subsidy \}", s)
+    assert re.search(r"total_members >= 8\s*any_international_organization_member = \{ OR = \{ tag = WRE tag = EAR \} \}", s)
     assert re.search(r"current_date >= 434\.1\.1\s*total_members >= 6", s)
     assert "var:tfe_scourge = { is_alive = no }" in s and "has_variable = tfe_reckoning_due" in s
     assert "set_variable = { name = tfe_reckoning_clock value = yes years = 10 }" in s
@@ -125,7 +125,7 @@ def test_the_phases_open_on_named_causes():
     assert re.search(r"on_ruler_death = \{\s*on_actions = \{ tfe_on_ruler_death_reckoning_due \}", on)
     # the subsidy's Unity driver in the Imperium Romanum
     rome = code(COMMON / "international_organizations/tfe_roman_empire.txt")
-    assert "has_variable = tfe_hunnic_subsidy" in rome and 'desc = "TFE_UNITY_HUNNIC_SUBSIDY"' in rome
+    assert "is_member_of_international_organization = international_organization:tfe_hunnic_yoke" in rome and 'desc = "TFE_UNITY_HUNNIC_SUBSIDY"' in rome
 
 
 def test_the_scourge_is_a_title_not_a_roll():
@@ -147,3 +147,4 @@ def test_panel_and_art_exist():
     for d in ("illustrations/situation", "icons/situations"):
         art = b.MOD / f"main_menu/gfx/interface/{d}/tfe_hunnic_storm.dds"
         assert art.read_bytes()[:4] == b"DDS ", art
+

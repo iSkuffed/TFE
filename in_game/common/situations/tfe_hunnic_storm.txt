@@ -27,17 +27,7 @@ tfe_hunnic_storm = {
 	}
 
 	on_monthly = {
-		# The Grand Raid's subsidy: each Roman empire that lost one pays its victor a tenth of its income, for 10 years
-		every_country = {
-			limit = { has_variable = tfe_hunnic_subsidy }
-			save_scope_as = tfe_subsidy_payer
-			var:tfe_hunnic_subsidy = {
-				add_gold = { value = scope:tfe_subsidy_payer.monthly_income_trade_and_tax multiply = 0.1 }
-			}
-			add_gold = { value = monthly_income_trade_and_tax multiply = -0.1 }
-		}
-
-		# Phase 2, the Scourge: a Yoke of 8 and a Roman empire paying for peace; from 434, a Yoke of 6 suffices
+		# Phase 2, the Scourge: a Yoke of 8 and a Roman empire in the Yoke; from 434, a Yoke of 6 suffices
 		if = {
 			limit = {
 				var:tfe_storm_phase = 1
@@ -45,7 +35,7 @@ tfe_hunnic_storm = {
 					OR = {
 						AND = {
 							total_members >= 8
-							any_country = { has_variable = tfe_hunnic_subsidy }
+							any_international_organization_member = { OR = { tag = WRE tag = EAR } }
 						}
 						AND = {
 							current_date >= 434.1.1
@@ -56,7 +46,7 @@ tfe_hunnic_storm = {
 			}
 			set_variable = { name = tfe_storm_phase value = 2 }
 			if = {
-				limit = { any_country = { has_variable = tfe_hunnic_subsidy } }
+				limit = { international_organization:tfe_hunnic_yoke ?= { any_international_organization_member = { OR = { tag = WRE tag = EAR } } } }
 				set_variable = { name = tfe_storm_by_subsidy value = yes }
 			}
 			# the fallback Reckoning: any Hunnic ruler's death once this runs out (on_action/tfe_hunnic_storm.txt)
@@ -152,26 +142,18 @@ tfe_hunnic_storm = {
 		}
 	}
 
-	on_ended = {
-		# the Storm is over and nobody is left to collect: Rome stops paying
-		every_country = {
-			limit = { has_variable = tfe_hunnic_subsidy }
-			remove_variable = tfe_hunnic_subsidy
-		}
-	}
-
 	tooltip = {
 		if = {
 			limit = { owner ?= c:HNS }
 			custom_tooltip = TFE_STORM_HUNS
 		}
 		else_if = {
-			limit = { owner ?= { is_member_of_international_organization = international_organization:tfe_hunnic_yoke } }
-			custom_tooltip = TFE_STORM_YOKE
+			limit = { owner ?= { OR = { tag = WRE tag = EAR } is_member_of_international_organization = international_organization:tfe_hunnic_yoke } }
+			custom_tooltip = TFE_STORM_SUBSIDY
 		}
 		else_if = {
-			limit = { owner ?= { has_variable = tfe_hunnic_subsidy } }
-			custom_tooltip = TFE_STORM_SUBSIDY
+			limit = { owner ?= { is_member_of_international_organization = international_organization:tfe_hunnic_yoke } }
+			custom_tooltip = TFE_STORM_YOKE
 		}
 	}
 
@@ -191,7 +173,7 @@ tfe_hunnic_storm = {
 	# Romans paying the subsidy are striped in the Huns' colour
 	secondary_map_color = {
 		if = {
-			limit = { owner ?= { has_variable = tfe_hunnic_subsidy } }
+			limit = { owner ?= { OR = { tag = WRE tag = EAR } is_member_of_international_organization = international_organization:tfe_hunnic_yoke } }
 			value = rgb { 90 35 20 }
 		}
 	}

@@ -16,7 +16,7 @@ cb_tfe_submit_to_the_yoke = {
 	war_goal_type = tfe_submit_to_the_yoke
 }
 
-# The Huns ride into the Empire for gold: the loser pays the Hunnic subsidy
+# The Huns ride into the Empire for gold: the loser joins the Yoke and pays its tribute
 cb_tfe_grand_raid = {
 	create_visible = {
 		tag = HNS
@@ -27,7 +27,7 @@ cb_tfe_grand_raid = {
 				tag = WRE
 				tag = EAR
 			}
-			NOT = { has_variable = tfe_hunnic_subsidy }
+			NOT = { is_member_of_international_organization = international_organization:tfe_hunnic_yoke }
 		}
 	}
 	speed = 100
