@@ -40,14 +40,13 @@ character_db = {
 		first_name = { name = name_arcadius }
 		culture = greek_culture
 		religion = orthodox
-		adm = 25 dip = 30 mil = 10
+		adm = 45 dip = 45 mil = 25	# a middling emperor, steered by his ministers; never led an army
 		birth_date = 377.1.1
 		birth = segovia
 		dynasty = theodosian_dynasty
 		father = tfe_theodosius_i
 		mother = tfe_aelia_flaccilla
-		ruler_trait = raised_by_eunuchs
-		ruler_trait = naive
+		ruler_trait = naive	# Rufinus, then Eutropius, then Eudoxia ruled through him
 		tag = EAR
 	}
 	tfe_honorius = { # 10 years old: Stilicho rules
@@ -60,6 +59,8 @@ character_db = {
 		dynasty = theodosian_dynasty
 		father = tfe_theodosius_i
 		mother = tfe_aelia_flaccilla
+		child_trait = child_slow	# indolent and easily led all his life (Procopius' chickens)
+		ruler_trait = craven	# never took the field; he would hide behind Ravenna's marshes
 		tag = WRE
 	}
 	tfe_galla_placidia = { # Galla Placidia; born 388-393

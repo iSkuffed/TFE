@@ -160,6 +160,16 @@ def test_key_rulers_and_their_ages(chars):
     assert db["tfe_arcadius"]["birth_date"][0].startswith("377")
 
 
+
+def test_the_sons_of_theodosius(chars):
+    # Honorius grows up slow and never takes the field; Arcadius is a middling emperor his ministers steer
+    db = {cid: fields(body) for cid, body in chars}
+    hon, arc = db["tfe_honorius"], db["tfe_arcadius"]
+    assert "child_slow" in hon.get("child_trait", []) and "craven" in hon.get("ruler_trait", [])
+    assert "raised_by_eunuchs" not in arc.get("ruler_trait", [])   # the eunuch system is not in play in 395
+    assert "naive" in arc.get("ruler_trait", [])
+    assert int(arc["adm"][0]) >= 40 and int(arc["dip"][0]) >= 40, (arc["adm"], arc["dip"])
+
 def test_portrait_modifiers_target_defined_characters(chars):
     text = (b.MOD / "main_menu/gfx/portraits/portrait_modifiers/tfe_historical_chr.txt").read_text(encoding="utf-8-sig")
     refs = set(re.findall(r"character:(\w+)", text))
