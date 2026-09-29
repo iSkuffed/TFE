@@ -1,0 +1,82 @@
+# The trunk roads of 395 AD. "name | location location ..."; borders.py joins each pair of neighbours in a line by the
+# shortest run of adjacent locations on Roman, Armenian or Persian land, so a waypoint only has to name the towns.
+# A "~" between two names is a bridge or ferry over water: a direct link with no path search (Bosporus, Hellespont).
+# Vanilla's own 1337 roads survive only inside the road-building lands (see ROAD_BUILDERS in borders.py).
+
+# Italy
+Via Appia | rome benevento taranto brindisi
+Via Appia to Bari (Via Traiana) | benevento bari
+Via Flaminia | rome rimini
+Via Aemilia | rimini bologna milano
+Via Postumia | genoa milano verona aquileia
+Via Aurelia | rome pisa genoa
+Via Cassia | rome florence
+Via Popilia to Naples | rome naples
+Via Julia Augusta | genoa nice arles
+
+# Gaul
+Via Domitia | arles nimes narbonne perpignan
+Via Aquitania | narbonne carcassonne toulouse bordeaux
+Via Agrippa | arles lyon chalon_sur_saone langres reims boulogne_sur_mer
+Rhone road | lyon vienne arles
+Lyon to Rhine | lyon besancon basel strasbourg
+Strasbourg to Trier | strasbourg metz trier
+Rhine limes road | mainz cologne
+Trier to Cologne | trier cologne
+Via Agrippa to Paris | reims soissons paris
+Atlantic road | bordeaux tours paris rouen amiens
+
+# Spain
+Via Augusta | perpignan girona tarragona valencia
+Via Augusta south | valencia alicante murcia cordoba cadiz
+Via de la Plata | merida astorga
+Ebro road | tarragona zaragoza
+Lusitanian road | merida lisbon
+Braga road | astorga braga
+Toledo road | merida toledo
+
+# Britain
+Watling Street | dover canterbury london st_albans chester
+Ermine Street | london lincoln york
+Fosse Way | exeter cirencester lincoln
+Stane Street to Winchester | london winchester
+Hadrian's Wall road | york carlisle
+
+# Danube, Alps and the Balkans
+Danube limes road | mainz augsburg regensburg passau linz vienna
+Via Claudia Augusta | verona bregenz augsburg
+Pannonian road | aquileia celje ptuj szombathely gyor buda
+Danube to Aquincum | vienna gyor
+Sava road | ljubljana zagreb sisak osijek sremska_mitrovica
+Via Gemina and the Dalmatian coast | aquileia trieste rijeka zadar sibenik split
+Via Militaris | belgrad nis sredets plovdiv edirne constantinople
+Via Egnatia | durres elbasan ohrid thessaloniki kavala komotini edirne
+Vardar road | thessaloniki skopje nis
+Sirmium road | sremska_mitrovica belgrad
+Athens road | thessaloniki athens corinth
+
+# Anatolia (the Imperial Military Road and its branches)
+Bosporus ferry | constantinople ~ izmit
+Anatolian diagonal | izmit ankara kayseri tarsus
+Cilician gates | tarsus adana iskenderun antioch
+Black Sea road | ankara amasya trebizond
+Eastern road | kayseri sivas erzincan erzurum
+
+# Syria, Palestine, Egypt
+Antioch to Aleppo | antioch aleppo
+Euphrates road | aleppo rusafa
+Edessa road | aleppo urfa nusaybin
+Strata Diocletiana | homs damascus bosra
+Via Nova Traiana | bosra amman karak aqaba
+Coast road | antioch latakia tripoli_syria beirut sidon acre
+Via Maris | acre nablus hebron gaza
+Sinai road | gaza bilbeis cairo
+Nile delta | alexandria cairo
+Upper Nile | cairo asyut aswan
+
+# Africa
+Via Africa | tunis kairouan sousse
+Numidian road | tunis tebessa constantine_ALG setif algiers
+Tripolitanian road | gabes tripoli
+Carthage to Hippo | tunis bizerte annaba
+Mauretanian coast | algiers oran tlemcen

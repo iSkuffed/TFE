@@ -13,4 +13,48 @@ unit_manager = {
 			a_tribal_cavalry = { strength = 1 }
 		}
 	}
+	# The Hunnic horde at its capital: 33 regiments of 600 horse archers (19,800 riders) and the wagons that follow them
+	army = {
+		country = HNS
+		location = adalaga
+		sub_units = {
+			a_steppe_horse_archers = { strength = 1 }
+			a_steppe_horse_archers = { strength = 1 }
+			a_steppe_horse_archers = { strength = 1 }
+			a_steppe_horse_archers = { strength = 1 }
+			a_steppe_horse_archers = { strength = 1 }
+			a_steppe_horse_archers = { strength = 1 }
+			a_steppe_horse_archers = { strength = 1 }
+			a_steppe_horse_archers = { strength = 1 }
+			a_steppe_horse_archers = { strength = 1 }
+			a_steppe_horse_archers = { strength = 1 }
+			a_steppe_horse_archers = { strength = 1 }
+			a_steppe_horse_archers = { strength = 1 }
+			a_steppe_horse_archers = { strength = 1 }
+			a_steppe_horse_archers = { strength = 1 }
+			a_steppe_horse_archers = { strength = 1 }
+			a_steppe_horse_archers = { strength = 1 }
+			a_steppe_horse_archers = { strength = 1 }
+			a_steppe_horse_archers = { strength = 1 }
+			a_steppe_horse_archers = { strength = 1 }
+			a_steppe_horse_archers = { strength = 1 }
+			a_steppe_horse_archers = { strength = 1 }
+			a_steppe_horse_archers = { strength = 1 }
+			a_steppe_horse_archers = { strength = 1 }
+			a_steppe_horse_archers = { strength = 1 }
+			a_steppe_horse_archers = { strength = 1 }
+			a_steppe_horse_archers = { strength = 1 }
+			a_steppe_horse_archers = { strength = 1 }
+			a_steppe_horse_archers = { strength = 1 }
+			a_steppe_horse_archers = { strength = 1 }
+			a_steppe_horse_archers = { strength = 1 }
+			a_steppe_horse_archers = { strength = 1 }
+			a_steppe_horse_archers = { strength = 1 }
+			a_steppe_horse_archers = { strength = 1 }
+			a_supply_carts = { strength = 1 }
+			a_supply_carts = { strength = 1 }
+			a_supply_carts = { strength = 1 }
+			a_supply_carts = { strength = 1 }
+		}
+	}
 }

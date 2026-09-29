@@ -37,6 +37,7 @@ locations={
 	sremska_mitrovica = { rank = city town_setup = tfe_unfortified_italian_city }
 	gergeri = { rank = city town_setup = tfe_unfortified_greek_town }
 	mtskheta = { rank = city town_setup = christian_anatolian_city }
+	adalaga = { rank = town town_setup = central_asian_town }
 	dhafar = { rank = city town_setup = levant_city }
 	sana_yemen = { rank = city town_setup = levant_city }
 	marib = { rank = city town_setup = levant_town }
@@ -749,4 +750,5 @@ building_manager = {
 	tfe_limes = { tag = EAR level = 1 location = bosra }
 	tfe_limes = { tag = EAR level = 1 location = karak }
 	tfe_limes = { tag = EAR level = 1 location = aqaba }
+	barracks = { tag = HNS level = 1 location = adalaga }
 }

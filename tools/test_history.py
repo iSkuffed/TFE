@@ -108,6 +108,16 @@ def test_empires_ranked_and_discovery_sane(state):
     assert "italy_region" not in state["discovered"]["GUP"]
 
 
+def test_the_two_roman_empires_see_all_of_each_others_land(state):
+    west, east = set(state["discovered"]["WRE"]), set(state["discovered"]["EAR"])
+    assert west == east
+    for t in ("WRE", "EAR"):
+        assert {state["anc"][l][2] for l in state["owned"][t]} - b.UNKNOWN_TO_ROME <= west
+    assert not west & {"north_atlantic_ocean_region", "macaronesia_region", "north_atlantic_islands_region",
+                             "sahel_region", "khorasan_region", "nubia_region", "scandinavian_region", "baltic_region",
+                             "ruthenia_region", "russian_region"}
+
+
 def test_diplomacy_links_landed_tags(state):
     text = re.sub(r"#[^\n]*", "", (b.MOD / "main_menu/setup/start/12_diplomacy.txt").read_text(encoding="utf-8"))
     pairs = re.findall(r"first\s*=\s*(\w+)\s+second\s*=\s*(\w+)", text)
@@ -356,3 +366,11 @@ def test_the_pillars_frontier_kings_serve_the_guptas():
 @pytest.mark.parametrize("tag", ["LCV", "KTP", "KMR", "KGL", "ZOT", "MYL", "KSM", "BLR", "MDV"])
 def test_himalayan_peasants_share_their_rulers_culture(state, tag):
     test_caucasian_peasants_share_their_rulers_culture(state, tag)
+
+
+def test_middle_and_southern_arabia_are_unknown_to_rome(state):
+    areas = set(state["discovered_areas"]["WRE"])
+    assert areas == set(state["discovered_areas"]["EAR"])
+    assert {"hedjaz_area", "hail_area", "bahrein_area", "oman_area"} <= areas
+    assert not areas & {"najd_area", "north_yemen_area", "south_yemen_area", "arabian_area"}
+    assert "arabia_region" not in state["discovered"]["WRE"]

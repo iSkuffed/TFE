@@ -695,9 +695,12 @@ countries = {
 			}
 			capital = constantinople
 			discovered_regions = {
-				anatolia_region arabia_region balkan_region baltic_region carpathia_region caucasus_region crescent_region egypt_region
-				ethiopia_region italy_region khorasan_region maghreb_region north_german_region nubia_region persia_region russian_region
-				ruthenia_region sahel_region scandinavian_region south_german_region steppes_region
+				anatolia_region balkan_region carpathia_region caucasus_region crescent_region egypt_region ethiopia_region france_region
+				great_britain_region iberia_region ireland_region italy_region maghreb_region north_german_region persia_region south_german_region
+				steppes_region
+			}
+			discovered_areas = {
+				bahrein_area hail_area hedjaz_area oman_area oman_sea_zones_area red_sea_area
 			}
 			include = "eastern_european_monarchy"
 			accepted_cultures = { roman_culture syriac_culture coptic_culture armenian_culture cappadocian_greek_culture pontic_greek_culture albanian illyro_roman thraco_roman phrygian galatian }
@@ -3499,9 +3502,12 @@ countries = {
 			}
 			capital = milano
 			discovered_regions = {
-				anatolia_region balkan_region baltic_region carpathia_region crescent_region egypt_region france_region great_britain_region
-				iberia_region ireland_region italy_region macaronesia_region maghreb_region north_atlantic_islands_region north_atlantic_ocean_region north_german_region
-				ruthenia_region sahel_region scandinavian_region south_german_region steppes_region
+				anatolia_region balkan_region carpathia_region caucasus_region crescent_region egypt_region ethiopia_region france_region
+				great_britain_region iberia_region ireland_region italy_region maghreb_region north_german_region persia_region south_german_region
+				steppes_region
+			}
+			discovered_areas = {
+				bahrein_area hail_area hedjaz_area oman_area oman_sea_zones_area red_sea_area
 			}
 			include = "catholic_monarchy"
 			accepted_cultures = { gallo_roman hispano_roman afro_roman romano_british briton albanian illyro_roman thraco_roman }

@@ -1,3 +1,5 @@
 ﻿l_english:
  STATIC_MODIFIER_NAME_tfe_hunnic_raiders: "Hunnic Raiders"
  STATIC_MODIFIER_DESC_tfe_hunnic_raiders: "Where the Huns ride, the people are driven off with the herds. Every land our armies occupy gives up captives, driven back to our capital as slaves."
+ STATIC_MODIFIER_NAME_tfe_hunnic_horde: "The Horde"
+ STATIC_MODIFIER_DESC_tfe_hunnic_horde: "Every rider brings his own horses and feeds himself from the herds, so our armies cost a tenth of the upkeep other armies do."

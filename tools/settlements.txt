@@ -435,6 +435,9 @@ taizz = rural 17         # founded by the Ayyubids in the 12th c.; pure anachron
 jeddah = rural 3.8        # became Mecca's port only after Caliph Uthman's ~647 AD foundation.
 soltaniyeh = rural    # Ilkhanid Mongol foundation (14th c.); pure anachronism.
 
+# --- The Huns' capital: a real town (the horde's camp-city, with its slave market) ---
+adalaga = town 6 central_asian_town   # a steppe kingdom's winter seat: wagons, herds and captives, not walls
+
 # --- Arabia: brief's Himyar and small-Hejaz calls ---
 mecca = town 5    # per brief, Mecca was small in 395: a minor Qurayshi shrine settlement, not yet a caravan capital.
 medina = town 8   # per brief, Medina (Yathrib) was a modest but somewhat larger oasis settlement of several tribes.
