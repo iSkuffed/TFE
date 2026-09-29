@@ -10,3 +10,20 @@ tfe_foederati_subject_opinion = {
 tfe_foederati_overlord_opinion = {
 	value = 50
 }
+
+# TFE: the Hunnic Storm's situation actions (generic_actions/tfe_hunnic_storm.txt)
+tfe_hunnic_feast = {
+	value = 40
+	max = 40
+	yearly_decay = 4
+}
+tfe_hunnic_greater_tribute = {
+	value = -40
+	min = -40
+	yearly_decay = 4
+}
+tfe_hunnic_gifts = {
+	value = 30
+	max = 30
+	yearly_decay = 3
+}

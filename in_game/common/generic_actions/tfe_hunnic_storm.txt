@@ -1,10 +1,11 @@
 ﻿# TFE: the actions of the Hunnic Storm (situations/tfe_hunnic_storm.txt)
-# A member of the Hunnic Yoke rises against the Huns (vanilla break_the_yoke)
+# A member of the Hunnic Yoke rises against the Huns (vanilla break_the_yoke), from the Hunnic Storm's panel
 tfe_break_the_yoke = {
-	type = internationalorganization
+	type = situation
 	force_click_and_confirm_or_hold = yes
 
 	potential = {
+		situation:tfe_hunnic_storm = { situation_is_active = yes }
 		scope:actor = {
 			is_member_of_international_organization = international_organization:tfe_hunnic_yoke
 			NOT = {
@@ -33,16 +34,20 @@ tfe_break_the_yoke = {
 	}
 
 	select_trigger = {
-		looking_for_a = international_organization
-		source = actor
+		looking_for_a = situation
+		interaction_source_list = {
+			situation:tfe_hunnic_storm = {
+				add_to_list = source
+			}
+		}
 		target_flag = recipient
-		name = "choose_international_organization"
-		none_available_msg_key = "leave_international_organization_none"
+		name = "choose_situation"
 		column = {
 			data = name
 		}
 		visible = {
-			this = international_organization:tfe_hunnic_yoke
+			situation:tfe_hunnic_storm = this
+			situation_is_active = yes
 		}
 	}
 
@@ -140,5 +145,529 @@ tfe_take_the_scourge_title = {
 
 	ai_will_do = {
 		add = 1000
+	}
+}
+
+# The Huns: a great feast for the kings of the Yoke. Fed kings are slower to rise in the Reckoning.
+tfe_feast_the_subject_kings = {
+	type = situation
+
+	potential = {
+		scope:actor = { tag = HNS }
+		situation:tfe_hunnic_storm = { situation_is_active = yes }
+	}
+	allow = {
+		scope:actor = {
+			at_war = no
+		}
+	}
+
+	price = price:tfe_hunnic_storm_gold
+	price_modifier = {
+		add = {
+			desc = "tfe_one_years_income"
+			value = scope:actor.monthly_income_trade_and_tax
+			multiply = 12
+			min = 50
+		}
+	}
+
+	ai_tick = monthly
+	ai_tick_frequency = 6
+	automation_tick = never
+	automation_tick_frequency = 12
+
+	cooldown = {
+		type = tfe_feast_the_subject_kings
+		years = 10
+	}
+
+	select_trigger = {
+		looking_for_a = situation
+		interaction_source_list = {
+			situation:tfe_hunnic_storm = {
+				add_to_list = source
+			}
+		}
+		target_flag = recipient
+		name = "choose_situation"
+		column = {
+			data = name
+		}
+		visible = {
+			situation:tfe_hunnic_storm = this
+			situation_is_active = yes
+		}
+	}
+
+	effect = {
+		custom_tooltip = tfe_feast_the_subject_kings_tt
+		international_organization:tfe_hunnic_yoke ?= {
+			every_international_organization_member = {
+				limit = { NOT = { tag = HNS } }
+				add_opinion = { target = c:HNS modifier = tfe_hunnic_feast }
+				hidden_effect = { set_variable = { name = tfe_feasted_by_the_huns value = yes years = 10 } }
+			}
+		}
+	}
+
+	ai_will_do = {
+		add = 0
+		# before and during the Scourge, while the Reckoning is still to come
+		if = {
+			limit = {
+				situation:tfe_hunnic_storm = { var:tfe_storm_phase = 2 }
+			}
+			add = 50
+		}
+	}
+}
+
+# The Huns: double the tribute for 5 years. The Yoke pays, and remembers it when the Reckoning comes.
+tfe_demand_greater_tribute = {
+	type = situation
+
+	potential = {
+		scope:actor = { tag = HNS }
+		situation:tfe_hunnic_storm = { situation_is_active = yes }
+	}
+	allow = {
+		scope:actor = {
+			NOT = { has_variable = tfe_greater_tribute }
+		}
+	}
+
+	ai_tick = monthly
+	ai_tick_frequency = 12
+	automation_tick = never
+	automation_tick_frequency = 12
+
+	cooldown = {
+		type = tfe_demand_greater_tribute
+		years = 15
+	}
+
+	select_trigger = {
+		looking_for_a = situation
+		interaction_source_list = {
+			situation:tfe_hunnic_storm = {
+				add_to_list = source
+			}
+		}
+		target_flag = recipient
+		name = "choose_situation"
+		column = {
+			data = name
+		}
+		visible = {
+			situation:tfe_hunnic_storm = this
+			situation_is_active = yes
+		}
+	}
+
+	effect = {
+		custom_tooltip = tfe_demand_greater_tribute_tt
+		hidden_effect = {
+			scope:actor = { set_variable = { name = tfe_greater_tribute value = yes years = 5 } }
+		}
+		international_organization:tfe_hunnic_yoke ?= {
+			every_international_organization_member = {
+				limit = { NOT = { tag = HNS } }
+				add_opinion = { target = c:HNS modifier = tfe_hunnic_greater_tribute }
+				hidden_effect = { set_variable = { name = tfe_bled_by_the_huns value = yes years = 10 } }
+			}
+		}
+	}
+
+	ai_will_do = {
+		add = 0
+		# only while the Scourge is still to come, and when the treasury is thin
+		if = {
+			limit = {
+				situation:tfe_hunnic_storm = { var:tfe_storm_phase = 1 }
+				scope:actor = { gold < 50 }
+			}
+			add = 30
+		}
+	}
+}
+
+# A tributary: gold for the Huns, and for 10 years its share of the tribute is halved (international_organization_payments/tfe_hunnic_tribute.txt)
+tfe_win_the_huns_favour = {
+	type = situation
+
+	potential = {
+		situation:tfe_hunnic_storm = { situation_is_active = yes }
+		scope:actor = {
+			is_member_of_international_organization = international_organization:tfe_hunnic_yoke
+			NOT = { tag = HNS }
+		}
+	}
+	allow = {
+		scope:actor = {
+			NOT = { has_variable = tfe_hunnic_favour }
+		}
+	}
+
+	price = price:tfe_hunnic_storm_gold
+	price_modifier = {
+		add = {
+			desc = "tfe_six_months_income"
+			value = scope:actor.monthly_income_trade_and_tax
+			multiply = 6
+			min = 10
+		}
+	}
+
+	ai_tick = monthly
+	ai_tick_frequency = 12
+	automation_tick = never
+	automation_tick_frequency = 12
+
+	cooldown = {
+		type = tfe_win_the_huns_favour
+		years = 10
+	}
+
+	select_trigger = {
+		looking_for_a = situation
+		interaction_source_list = {
+			situation:tfe_hunnic_storm = {
+				add_to_list = source
+			}
+		}
+		target_flag = recipient
+		name = "choose_situation"
+		column = {
+			data = name
+		}
+		visible = {
+			situation:tfe_hunnic_storm = this
+			situation_is_active = yes
+		}
+	}
+
+	effect = {
+		custom_tooltip = tfe_win_the_huns_favour_tt
+		c:HNS ?= {
+			add_gold = {
+				value = scope:actor.monthly_income_trade_and_tax
+				multiply = 6
+				min = 10
+			}
+			add_opinion = { target = scope:actor modifier = tfe_hunnic_gifts }
+		}
+		hidden_effect = {
+			scope:actor = { set_variable = { name = tfe_hunnic_favour value = yes years = 10 } }
+		}
+	}
+
+	ai_will_do = {
+		add = 5
+	}
+}
+
+# A people outside the Yoke buys 5 years of peace from the Huns
+tfe_send_gifts_to_the_hunnic_court = {
+	type = situation
+
+	potential = {
+		situation:tfe_hunnic_storm = { situation_is_active = yes }
+		country_exists = c:HNS
+		scope:actor = {
+			NOT = { tag = HNS }
+			NOT = { is_member_of_international_organization = international_organization:tfe_hunnic_yoke }
+		}
+	}
+	allow = {
+		scope:actor = {
+			NOT = { is_at_war_with = c:HNS }
+			NOT = { has_truce_with = c:HNS }
+		}
+	}
+
+	price = price:tfe_hunnic_storm_gold
+	price_modifier = {
+		add = {
+			desc = "tfe_one_years_income"
+			value = scope:actor.monthly_income_trade_and_tax
+			multiply = 12
+			min = 20
+		}
+	}
+
+	ai_tick = monthly
+	ai_tick_frequency = 6
+	automation_tick = never
+	automation_tick_frequency = 12
+
+	cooldown = {
+		type = tfe_send_gifts_to_the_hunnic_court
+		years = 5
+	}
+
+	select_trigger = {
+		looking_for_a = situation
+		interaction_source_list = {
+			situation:tfe_hunnic_storm = {
+				add_to_list = source
+			}
+		}
+		target_flag = recipient
+		name = "choose_situation"
+		column = {
+			data = name
+		}
+		visible = {
+			situation:tfe_hunnic_storm = this
+			situation_is_active = yes
+		}
+	}
+
+	effect = {
+		c:HNS = {
+			add_gold = {
+				value = scope:actor.monthly_income_trade_and_tax
+				multiply = 12
+				min = 20
+			}
+			add_opinion = { target = scope:actor modifier = tfe_hunnic_gifts }
+		}
+		scope:actor = {
+			add_truce_with = { target = c:HNS years = 5 mutual = yes }
+		}
+	}
+
+	ai_will_do = {
+		add = 0
+		# the Huns are at the door and far stronger
+		if = {
+			limit = {
+				scope:actor = {
+					any_neighbor_country = { is_member_of_international_organization = international_organization:tfe_hunnic_yoke }
+				}
+				c:HNS = { military_strength > scope:actor.military_strength }
+			}
+			add = 20
+		}
+	}
+}
+
+# A neighbour of the Yoke bows without a war and joins it
+tfe_submit_to_the_huns = {
+	type = situation
+
+	potential = {
+		situation:tfe_hunnic_storm = { situation_is_active = yes }
+		country_exists = c:HNS
+		scope:actor = {
+			NOT = { tag = HNS }
+			NOT = { is_member_of_international_organization = international_organization:tfe_hunnic_yoke }
+			any_neighbor_country = { is_member_of_international_organization = international_organization:tfe_hunnic_yoke }
+			NOT = { tag = WRE }
+			NOT = { tag = EAR }
+		}
+	}
+	allow = {
+		scope:actor = {
+			is_subject = no
+		}
+	}
+
+	ai_tick = monthly
+	ai_tick_frequency = 12
+	automation_tick = never
+	automation_tick_frequency = 12
+
+	select_trigger = {
+		looking_for_a = situation
+		interaction_source_list = {
+			situation:tfe_hunnic_storm = {
+				add_to_list = source
+			}
+		}
+		target_flag = recipient
+		name = "choose_situation"
+		column = {
+			data = name
+		}
+		visible = {
+			situation:tfe_hunnic_storm = this
+			situation_is_active = yes
+		}
+	}
+
+	effect = {
+		scope:actor = {
+			leave_all_wars_with = c:HNS
+		}
+		international_organization:tfe_hunnic_yoke = {
+			add_country_to_international_organization = scope:actor
+		}
+	}
+
+	ai_will_do = {
+		add = 0
+		# only a people the Huns already have by the throat
+		if = {
+			limit = {
+				scope:actor = { is_at_war_with = c:HNS }
+				c:HNS = { military_strength > scope:actor.military_strength }
+			}
+			add = 10
+		}
+	}
+}
+
+# A Roman empire hires Hunnic riders as mercenaries, as Aetius did
+tfe_hire_hunnic_horsemen = {
+	type = situation
+
+	potential = {
+		situation:tfe_hunnic_storm = { situation_is_active = yes }
+		country_exists = c:HNS
+		scope:actor = {
+			OR = {
+				tag = WRE
+				tag = EAR
+			}
+		}
+	}
+	allow = {
+		scope:actor = {
+			NOT = { is_at_war_with = c:HNS }
+		}
+	}
+
+	price = price:tfe_hunnic_storm_gold
+	price_modifier = {
+		add = {
+			desc = "tfe_three_months_income"
+			value = scope:actor.monthly_income_trade_and_tax
+			multiply = 3
+			min = 25
+		}
+	}
+
+	ai_tick = monthly
+	ai_tick_frequency = 6
+	automation_tick = never
+	automation_tick_frequency = 12
+
+	cooldown = {
+		type = tfe_hire_hunnic_horsemen
+		years = 10
+	}
+
+	select_trigger = {
+		looking_for_a = situation
+		interaction_source_list = {
+			situation:tfe_hunnic_storm = {
+				add_to_list = source
+			}
+		}
+		target_flag = recipient
+		name = "choose_situation"
+		column = {
+			data = name
+		}
+		visible = {
+			situation:tfe_hunnic_storm = this
+			situation_is_active = yes
+		}
+	}
+
+	effect = {
+		custom_tooltip = tfe_hire_hunnic_horsemen_tt
+		hidden_effect = {
+			create_mercenary = {
+				name = tfe_hunnic_horsemen
+				home = scope:actor.capital
+				categories = {
+					army_light_cavalry = 6
+				}
+				save_scope_as = tfe_hunnic_horsemen
+				months = 120
+			}
+			if = {
+				limit = { exists = scope:tfe_hunnic_horsemen }
+				scope:actor = { hire_mercenary = scope:tfe_hunnic_horsemen }
+			}
+		}
+	}
+
+	ai_will_do = {
+		add = 0
+		if = {
+			limit = {
+				scope:actor = { at_war = yes }
+			}
+			add = 20
+		}
+	}
+}
+
+# A Roman empire pays the Hunnic subsidy without losing a war (as the Grand Raid's peace does): 10 years of peace
+tfe_pay_the_huns_for_peace = {
+	type = situation
+
+	potential = {
+		situation:tfe_hunnic_storm = { situation_is_active = yes }
+		country_exists = c:HNS
+		scope:actor = {
+			OR = {
+				tag = WRE
+				tag = EAR
+			}
+		}
+	}
+	allow = {
+		scope:actor = {
+			NOT = { has_variable = tfe_hunnic_subsidy }
+			NOT = { is_at_war_with = c:HNS }
+		}
+	}
+
+	ai_tick = monthly
+	ai_tick_frequency = 12
+	automation_tick = never
+	automation_tick_frequency = 12
+
+	select_trigger = {
+		looking_for_a = situation
+		interaction_source_list = {
+			situation:tfe_hunnic_storm = {
+				add_to_list = source
+			}
+		}
+		target_flag = recipient
+		name = "choose_situation"
+		column = {
+			data = name
+		}
+		visible = {
+			situation:tfe_hunnic_storm = this
+			situation_is_active = yes
+		}
+	}
+
+	effect = {
+		custom_tooltip = tfe_pay_the_huns_for_peace_tt
+		scope:actor = {
+			add_truce_with = { target = c:HNS years = 10 mutual = yes }
+			hidden_effect = { set_variable = { name = tfe_hunnic_subsidy value = c:HNS years = 10 } }
+		}
+	}
+
+	ai_will_do = {
+		add = 0
+		# only when the Huns are far the stronger and the Empire is fighting elsewhere
+		if = {
+			limit = {
+				c:HNS = { military_strength > scope:actor.military_strength }
+				scope:actor = { at_war = yes }
+			}
+			add = 10
+		}
 	}
 }
