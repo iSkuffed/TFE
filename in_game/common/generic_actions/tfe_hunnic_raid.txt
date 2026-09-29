@@ -31,8 +31,13 @@ tfe_grand_raid = {
 
 	select_trigger = {
 		looking_for_a = country
-		source = actor
-		source_flags = neighbor
+		interaction_source_list = {
+			scope:actor = {
+				every_neighbor_country = {
+					add_to_list = source
+				}
+			}
+		}
 		target_flag = raid_target
 		name = "tfe_grand_raid_choose_country"
 		column = {

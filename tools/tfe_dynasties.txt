@@ -2,6 +2,10 @@
 		name = { name = balthi_dynasty }
 		home = tulcea
 	}
+	uldin_dynasty = {
+		name = { name = uldin_dynasty }
+		home = adalaga
+	}
 	hasding_dynasty = {
 		name = { name = hasding_dynasty }
 		home = abrahamtelke

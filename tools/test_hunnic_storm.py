@@ -153,7 +153,7 @@ def test_panel_and_art_exist():
 
 def test_the_grand_raid_is_a_paid_button_not_a_free_cb():
     raid, cb = code(RAID), code(CB)
-    assert "type = casus_belli:cb_tfe_grand_raid" in raid and "source_flags = neighbor" in raid
+    assert "type = casus_belli:cb_tfe_grand_raid" in raid and "every_neighbor_country" in raid
     assert "price = price:tfe_hunnic_raid_prestige" in raid and "value = 10" in raid
     assert re.search(r"tfe_hunnic_raid_prestige = \{\s*prestige = 1", code(PRICE))
     grand = cb[cb.index("cb_tfe_grand_raid"):]

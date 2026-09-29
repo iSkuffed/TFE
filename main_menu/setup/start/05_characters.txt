@@ -377,6 +377,7 @@ character_db = {
 	}
 	tfe_uldin = { # first securely attested Hun king (c. 400); approx
 		first_name = { name = name_uldin }
+		dynasty = uldin_dynasty
 		culture = hunnic
 		religion = tengri
 		mil = 70
