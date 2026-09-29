@@ -57,6 +57,9 @@ been seen working in game, or you say plainly that it hasn't.
     the grave/tilde key.
   - `run`: copy the effect file into `run\`, run it from the console, then run a second file of filler `debug_log`
     lines, because `debug.log` is buffered and the probe's output only reaches disk after it.
+  - From BerFoe's `eu5-modding-skill` (`scripts/Start-EU5.ps1`, measured on 1.3.11, not yet tried by us): the game
+    rewrites `playsets.json` when it exits, so stop it before editing that file and back it up first. A direct
+    `eu5.exe` launch logs "Steam was not initialized"; launch through `steam://run` if that matters to a test.
 - **Probes beat screenshots.** Write an effect file with `debug_log = "..."` inside `if`/`else` checks, `run` it and
   read the log. Example: `location:tunis = { if = { limit = { is_full_expanded_rgo = yes } debug_log = "full" } }`.
 - **Load the mod:** the active playset is in `Documents/.../Europa Universalis V/playsets.json` (`isActive`). If the
@@ -92,3 +95,11 @@ been seen working in game, or you say plainly that it hasn't.
   not Political: press the Political button before judging a change to it.
 - A heir set in `on_regency_end` is overwritten: the game picks the new ruler's heir after it fires. From
   `on_new_ruler`, fire an event with `delay = { days = 1 }` (`tfe_opening.6`).
+- Localization files load in reverse alphabetical order (Z to A), the opposite of `common/`, so a later file does not
+  beat an earlier one. To override a vanilla string put the key in `main_menu/localization/english/replace/`, which
+  wins over every other file. A `.yml` without its BOM is dropped whole (every key shows raw), and `error.log` names it.
+  `reload loc` in the console reloads text without a restart.
+- A window that touches no vanilla file: write the `.gui`, then register it in a `.txt` under
+  `in_game/gui/scripted_widgets/` as `gui/<file>.gui = <widget name>`. The widget's `visible` must be a function, not
+  `yes`; use `visible = "[EqualTo_CFixedPoint('(CFixedPoint)0', '(CFixedPoint)0')]"` for always shown (vanilla's own
+  `_scripted_widgets.info`). GUI errors land in `logs/gui.log`, not `error.log`; `reload gui` reloads without a restart.
