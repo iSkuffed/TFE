@@ -278,3 +278,12 @@ def test_the_east_weaves_no_silk_before_the_monks_bring_the_worm():
     for l, g in (lt.ILLYRICUM | lt.GRAECIA_THRACIA | lt.BARBARICUM | lt.ANATOLIA | lt.AEGYPTUS | lt.ORIENS
                  | lt.CAUCASUS).items():
         assert goods[l] == g, l
+
+
+def test_the_limes_shows_a_stockade_on_the_map():
+    # a town's 3D models come from city_data/templates.txt, triggered by its buildings: the Limes wears the stockade
+    tpl = (b.MOD / "main_menu/gfx/map/city_data/templates.txt").read_text(encoding="utf-8-sig")
+    for name in ("stockade", "stockade_no_flag", "capital_flag", "capital_flag_fort"):
+        body = re.search(rf"^template {name} \{{(.*?)^\}}", tpl, re.M | re.S).group(1)
+        want = -1.0 if name == "capital_flag" else 1.0
+        assert f"has_building_with_at_least_one_level:tfe_limes = {want}" in body, name
