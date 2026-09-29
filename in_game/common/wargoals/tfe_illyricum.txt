@@ -1,0 +1,28 @@
+﻿# TFE: Stilicho's claim on Eastern Illyricum (cb_tfe_illyrian_claim): only these eight provinces can be taken.
+tfe_take_illyricum = {
+	type = take_province
+
+	attacker = {
+		conquer_cost = 0.5
+		allowed_locations = {
+			custom_tooltip = {
+				text = tfe_take_illyricum_valid_locations_tt
+				scope:location = {
+					OR = {
+						province = province_definition:zeta_province			# Docleatae
+						province = province_definition:raska_province			# Dardanian Mines
+						province = province_definition:toplica_province			# Margus Valley
+						province = province_definition:sumadija_province		# Singidunum
+						province = province_definition:branicevo_province		# Viminacium
+						province = province_definition:nis_province				# Naissus
+						province = province_definition:kosovo_province			# Dardania
+						province = province_definition:illyria_province			# Praevalitana
+					}
+				}
+			}
+		}
+	}
+	defender = {
+	}
+	ticking_war_score = 0.5
+}
