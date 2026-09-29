@@ -15,6 +15,7 @@ Background research: `reports/Fallen Eagle ideas for EU5.md` (notes in `research
 ## Done
 
 - [x] 395 borders and countries, world populations, starting economy, Imperial Fisc
+- [x] 395 settlements (`tools/settlements.txt`, read by `borders.py`): 1337's towns re-ranked, dropped or added for 395 with sourced populations; seven world cities (Rome, Constantinople, Alexandria, Ctesiphon, Jiankang, Pataliputra, Teotihuacan); vanilla's spread flattened (`POP_FLATTEN`) and China's north outnumbering the south
 - [x] 395 cultures and culture groups (Roman, Greek, Aramaic, Germanic, the East, Asia); Greek and Roman subcultures kindred
 - [x] 395 religions: Nicene, Arian, Donatist, Religio Romana, the old gods; no faith born after 395
 - [x] Flags and coats of arms for every 395 country

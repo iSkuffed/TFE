@@ -277,3 +277,37 @@ def test_pop_society_pops_become_the_tribe():
     assert "culture = x" in out                                   # other locations untouched
     assert re.search(r"^l3 = \{\s*define_pop = \{\s*type = tribesmen", out, re.M)   # a location with no vanilla pops
     assert out.count("{") == out.count("}")
+
+
+def test_load_settlements_parses_rank_pop_and_setup(tmp_path):
+    f = tmp_path / "s.txt"
+    f.write_text("rome = megalopolis 600   # Roma\nvenice = rural\naquileia = city 60 italian_city\n"
+                 "nowhere = town\nravenna = village\nrome = city\nlyon = town 20 bogus_setup\n", encoding="utf-8")
+    out, errs = b.load_settlements(f, {"rome", "venice", "aquileia", "ravenna", "lyon"}, {"italian_city"})
+    assert out == {"rome": ("megalopolis", 600.0, None), "venice": ("rural", None, None),
+                   "aquileia": ("city", 60.0, "italian_city")}
+    assert errs == ["s.txt:4: unknown location 'nowhere'", "s.txt:5: unknown rank 'village'",
+                    "s.txt:6: rome listed twice", "s.txt:7: unknown town_setup 'bogus_setup'"]
+
+
+def test_settle_reranks_drops_and_adds_towns():
+    text = ("locations={\n\tvenice = { rank = city town_setup = venice_city }\n"
+            "\trome = { rank = city\t\ttown_setup = italian_city }\n\tlyon = { rank = town town_setup = french_town }\n}\n")
+    out = b.settle(text, {"venice": ("rural", 5.0, None), "rome": ("megalopolis", 600.0, None),
+                          "aquileia": ("city", None, "italian_city"), "lyon": ("city", None, "french_city")})
+    assert "venice" not in out
+    assert "\trome = { rank = megalopolis\t\ttown_setup = italian_city }" in out
+    assert "\tlyon = { rank = city town_setup = french_city }" in out
+    assert re.search(r"^locations=\{\n.*\n\taquileia = \{ rank = city town_setup = italian_city \}", out, re.M)
+
+
+def test_region_pops_pins_a_town_and_the_region_shares_the_rest():
+    text = ("l1 = {\n\tdefine_pop = { type = peasants size = 10.000 }\n}\n"
+            "l2 = {\n\tdefine_pop = { type = peasants size = 30.000 }\n\tdefine_pop = { type = burghers size = 10.000 }\n}\n"
+            "l3 = {\n\tdefine_pop = { type = peasants size = 50.000 }\n}\n")
+    anc = {l: ("c", "sr", "north_german_region", "a", "p") for l in ("l1", "l2", "l3")}
+    out = b.region_pops(text, {}, anc, {"l2": 1000.0})
+    sizes = [float(x) for x in re.findall(r"size = ([\d.]+)", out)]
+    assert sizes[1:3] == [750.0, 250.0]                                  # l2 keeps its own spread
+    assert abs(sum(sizes) - b.WORLD_POPULATION_M["north_german_region"] * 1000) < 0.01
+    assert abs(sizes[3] / sizes[0] - 5 ** b.POP_FLATTEN) < 1e-4          # the rest keep vanilla's spread, flatter
