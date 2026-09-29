@@ -1,6 +1,8 @@
 ﻿l_english:
- AUTO_MODIFIER_NAME_tfe_roman_recruitment: "Recruits, Not Levies"
- AUTO_MODIFIER_DESC_tfe_roman_recruitment: "Rome raises no peasant host. Landowners owe recruits to the conscription tax, or pay gold in their place, and the Empire fights with soldiers it pays."
+ AUTO_MODIFIER_NAME_tfe_roman_recruitment_east: "Recruits, Not Levies"
+ AUTO_MODIFIER_DESC_tfe_roman_recruitment_east: "Rome raises no peasant host. Landowners owe recruits to the conscription tax, or pay gold in their place, and the Empire fights with soldiers it pays."
+ AUTO_MODIFIER_NAME_tfe_roman_recruitment_west: "Recruits, Not Levies"
+ AUTO_MODIFIER_DESC_tfe_roman_recruitment_west: "Rome raises no peasant host. Landowners owe recruits to the conscription tax, or pay gold in their place, and the Empire fights with soldiers it pays."
  AUTO_MODIFIER_NAME_tfe_rations_in_kind: "Rations in Kind"
  AUTO_MODIFIER_DESC_tfe_rations_in_kind: "The field army is fed from the grain tax of Italy and Africa, gathered into the state granaries, so its soldiers cost less than their debased pay would."
  STATIC_MODIFIER_NAME_tfe_ravaged_by_the_goths: "Ravaged by the Goths"

@@ -1,15 +1,22 @@
 ﻿# TFE: Rome raises no peasant levies (tools/test_roman_balance.py). By 395 it bought its recruits through the
 # conscription tax (praebitio tironum, or aurum tironicum in gold) and fought with a paid standing army, so both
 # empires field far fewer levies and must pay for regulars.
-tfe_roman_recruitment = {
+# Levy modifiers add up, and each empire starts with its own estates' levy penalties: the East already stood near
+# 0.63, so a flat -0.6 left it 10,187 of 199,000 levies in game. Each gets its own cut: the East's aims at ~80,000.
+tfe_roman_recruitment_east = {
 	potential_trigger = {
-		OR = {
-			has_or_had_tag = WRE
-			has_or_had_tag = EAR
-		}
+		has_or_had_tag = EAR
 	}
 
-	global_army_levy_size_modifier = -0.6
+	global_army_levy_size_modifier = -0.35
+}
+
+tfe_roman_recruitment_west = {
+	potential_trigger = {
+		has_or_had_tag = WRE
+	}
+
+	global_army_levy_size_modifier = -0.3	# to be tuned against the West's in-game levies
 }
 
 # The West's field army is fed in kind from the grain tax (the annona militaris of Italy and Africa), not paid in

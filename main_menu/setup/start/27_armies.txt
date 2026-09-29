@@ -1,5 +1,38 @@
 # TFE 395: starting armies
 unit_manager = {
+	# What the East kept when Theodosius took its praesental armies west (tools/test_roman_balance.py): the army of
+	# Oriens at Antioch, facing Persia: 8 regiments of foot and 4 of horse (4,800 men)
+	army = {
+		country = EAR
+		location = antioch
+		sub_units = {
+			a_footmen = { strength = 1 }
+			a_footmen = { strength = 1 }
+			a_footmen = { strength = 1 }
+			a_footmen = { strength = 1 }
+			a_footmen = { strength = 1 }
+			a_footmen = { strength = 1 }
+			a_footmen = { strength = 1 }
+			a_footmen = { strength = 1 }
+			a_armored_horsemen = { strength = 1 }
+			a_armored_horsemen = { strength = 1 }
+			a_armored_horsemen = { strength = 1 }
+			a_armored_horsemen = { strength = 1 }
+		}
+	}
+	# the palace guard, the scholae, at Constantinople: 4 of foot and 2 of horse (2,400 men)
+	army = {
+		country = EAR
+		location = constantinople
+		sub_units = {
+			a_footmen = { strength = 1 }
+			a_footmen = { strength = 1 }
+			a_footmen = { strength = 1 }
+			a_footmen = { strength = 1 }
+			a_armored_horsemen = { strength = 1 }
+			a_armored_horsemen = { strength = 1 }
+		}
+	}
 	# The West's field army (tools/test_roman_balance.py): Rome fights with paid regulars, not levies. Stilicho's
 	# praesental army at Mediolanum: 12 regiments of foot and 3 of horse (6,600 men)
 	army = {

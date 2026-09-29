@@ -33,10 +33,14 @@ def test_files_are_balanced_and_bom_prefixed():
 
 
 def test_rome_buys_recruits_instead_of_raising_levies():
+    # levy modifiers add up: the East already stood near 0.63, so -0.6 left it 10,187 of 199,000 in game.
+    # Each empire gets its own cut, aimed at ~80,000 for the East
     auto = blocks(AUTO)
-    rec = auto["tfe_roman_recruitment"]
-    assert set(re.findall(r"has_or_had_tag = (\w+)", rec)) == {"WRE", "EAR"}
-    assert "global_army_levy_size_modifier = -0.6" in rec
+    east, west = auto["tfe_roman_recruitment_east"], auto["tfe_roman_recruitment_west"]
+    assert set(re.findall(r"has_or_had_tag = (\w+)", east)) == {"EAR"}
+    assert set(re.findall(r"has_or_had_tag = (\w+)", west)) == {"WRE"}
+    assert "global_army_levy_size_modifier = -0.35" in east
+    assert re.search(r"global_army_levy_size_modifier = -0\.\d+", west)
     kind = auto["tfe_rations_in_kind"]
     assert set(re.findall(r"has_or_had_tag = (\w+)", kind)) == {"WRE"}
     assert "army_maintenance_efficiency = 0.3" in kind
@@ -49,6 +53,14 @@ def test_the_west_starts_with_its_field_army():
     assert 9000 <= men <= 10500 and 20 <= regiments <= 24, (men, regiments)
     places = {loc for tag, loc, _ in armies if tag == "WRE"}
     assert places == {"milano", "trier"}   # the praesental army at Mediolanum, the Gallic army at Augusta Treverorum
+
+
+def test_the_east_keeps_what_did_not_go_west():
+    # Theodosius took the praesental armies to Italy; the army of Oriens and the palace guard stayed
+    armies = re.findall(r"army = \{\s*country = (\w+)\s*location = (\w+)\s*sub_units = \{(.*?)\}\s*\}", code(ARMIES), re.S)
+    men = sum(MEN[u] for tag, _, units in armies if tag == "EAR" for u in re.findall(r"(\w+) = \{", units))
+    assert 6500 <= men <= 8000, men
+    assert {loc for tag, loc, _ in armies if tag == "EAR"} == {"antioch", "constantinople"}
 
 
 def test_the_east_is_wounded_where_history_wounded_it():
