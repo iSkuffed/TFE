@@ -3,7 +3,6 @@
 # Gildo's revolt is earned, not dated (on_action/tfe_gildo.txt starts the count). Every month the West's
 # tfe_gildo_progress rises by tfe_gildo_monthly_rise; three warnings offer ways to slow it; at 100, or after
 # 14 August 397, he rises (5, then tfe_opening.3 for the split). tfe_gildo_revolt_fires reads the result.
-
 # the monthly count (hidden)
 tfe_gildo.1 = {
 	type = country_event
@@ -11,9 +10,7 @@ tfe_gildo.1 = {
 	desc = tfe_gildo.1.desc
 	outcome = neutral
 	hidden = yes
-
 	trigger = { NOT = { has_variable = tfe_gildo_revolt_fired } }
-
 	immediate = {
 		change_variable = { name = tfe_gildo_progress add = tfe_gildo_monthly_rise }
 		if = {
@@ -56,9 +53,7 @@ tfe_gildo.2 = {
 	title = tfe_gildo.2.title
 	desc = tfe_gildo.2.desc
 	outcome = neutral
-
 	image = "gfx/interface/illustrations/event/backgrounds/exterior/byz_soldiers_exterior.dds"
-
 	# an inspector counts the sacks himself
 	option = {
 		name = tfe_gildo.2.a
@@ -67,7 +62,6 @@ tfe_gildo.2 = {
 		hidden_effect = { change_variable = { name = tfe_gildo_progress add = -10 } }
 		ai_chance = { base = 2 }
 	}
-
 	# ships are late every year
 	option = {
 		name = tfe_gildo.2.b
@@ -81,9 +75,7 @@ tfe_gildo.3 = {
 	title = tfe_gildo.3.title
 	desc = tfe_gildo.3.desc
 	outcome = negative
-
 	image = "gfx/interface/illustrations/event/backgrounds/interior/byz_nobles_interior.dds"
-
 	# make him Master of Soldiers for Africa, for life
 	option = {
 		name = tfe_gildo.3.a
@@ -92,7 +84,6 @@ tfe_gildo.3 = {
 		hidden_effect = { change_variable = { name = tfe_gildo_progress add = -30 } }
 		ai_chance = { base = 2 }
 	}
-
 	# garrison the African ports with men of our own
 	option = {
 		name = tfe_gildo.3.b
@@ -101,7 +92,6 @@ tfe_gildo.3 = {
 		hidden_effect = { change_variable = { name = tfe_gildo_progress add = -15 } }
 		ai_chance = { base = 2 }
 	}
-
 	# he can wait for an answer
 	option = {
 		name = tfe_gildo.3.c
@@ -115,9 +105,7 @@ tfe_gildo.4 = {
 	title = tfe_gildo.4.title
 	desc = tfe_gildo.4.desc
 	outcome = negative
-
 	image = "gfx/interface/illustrations/event/backgrounds/interior/byz_nobles_interior.dds"
-
 	# suspend the edicts against the Donatists in Africa
 	option = {
 		name = tfe_gildo.4.a
@@ -126,7 +114,6 @@ tfe_gildo.4 = {
 		hidden_effect = { change_variable = { name = tfe_gildo_progress add = -20 } }
 		ai_chance = { base = 2 }
 	}
-
 	# the law is the law
 	option = {
 		name = tfe_gildo.4.b
@@ -142,13 +129,10 @@ tfe_gildo.5 = {
 	title = tfe_gildo.5.title
 	desc = tfe_gildo.5.desc
 	outcome = negative
-
 	image = "gfx/interface/illustrations/event/backgrounds/exterior/nobles/syrian_nobles_exterior.dds"
-
 	immediate = {
 		set_variable = tfe_gildo_revolt_fired
 	}
-
 	option = {
 		name = tfe_gildo.5.a
 		hidden_effect = { trigger_event_non_silently = tfe_opening.3 }
@@ -162,9 +146,7 @@ tfe_gildo.6 = {
 	desc = tfe_gildo.6.desc
 	outcome = neutral
 	hidden = yes
-
 	trigger = { country_exists = c:GILDO }
-
 	immediate = {
 		change_variable = { name = tfe_gildo_wave add = 1 }
 		every_owned_location = {
@@ -179,11 +161,13 @@ tfe_gildo.6 = {
 		}
 		# the East took his oath (tfe_opening.4): once his war with us is over, he is Constantinople's man
 		if = {
-			limit = {
-				has_variable = tfe_gildo_goes_east
-				c:GILDO = { NOT = { is_at_war_with = root } }
+			limit = { has_variable = tfe_gildo_goes_east c:GILDO = { NOT = { is_at_war_with = root } } }
+			c:GILDO = {
+				make_subject_of = {
+					target = c:EAR
+					type = subject_type:vassal
+				}
 			}
-			c:GILDO = { make_subject_of = { target = c:EAR type = subject_type:vassal } }
 			remove_variable = tfe_gildo_goes_east
 		}
 		# Carthage decides where he sits

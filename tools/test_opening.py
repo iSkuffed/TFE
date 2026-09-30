@@ -81,5 +81,5 @@ def test_gildo_rises_as_an_annexable_revolter():
     assert "leave_war = { war = scope:tfe_gildo_war actor = root }" in crowning
     # a vassal of the East cannot be annexed and ends the revolt war: the homage waits for peace (tfe_gildo.6)
     assert "make_subject_of" not in east
-    gildo = code(b.MOD / "in_game/events/tfe_gildo.txt")
+    gildo = " ".join(code(b.MOD / "in_game/events/tfe_gildo.txt").split())  # script/gildo_events.py writes the layout
     assert "c:GILDO = { make_subject_of = { target = c:EAR type = subject_type:vassal } }" in gildo

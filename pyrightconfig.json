@@ -1,0 +1,19 @@
+{
+  "include": [
+    "tools/pdx",
+    "script"
+  ],
+  "exclude": [
+    "tools/pdx/census.py"
+  ],
+  "extraPaths": [
+    "tools"
+  ],
+  "pythonVersion": "3.12",
+  "typeCheckingMode": "standard",
+  "ignore": [
+    "tools/pdx/gen_api.py",
+    "tools/pdx/overrides.py",
+    "tools/pdx/infer.py"
+  ]
+}

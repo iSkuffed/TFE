@@ -28,6 +28,8 @@ accuracy) decide close calls, and its items are the work queue.
   - `tools/borders.py` writes `main_menu/setup/start/10_countries.txt`, `07_cities_and_buildings.txt` and more (see its
     output line). Its inputs are the tables in `borders.py` and the `tools/*.txt` files.
   - `tools/location_templates.py` writes `in_game/map_data/location_templates.txt`. Rerun it after every EU5 patch.
+  - `script/*.py` write the script files they name (see "Script written in Python" below). Edit the Python, never the
+    `.txt`/`.yml` it produced; on a conflict take either side and rerun `python script/run.py`.
 - **Vanilla copies need resyncing after an EU5 patch.** Some mod files are whole vanilla files with a few `TFE`
   changes, listed in `tools/test_vanilla_copies.py`. It fails when a patch changes an original: diff it against ours,
   carry the patch's changes over, update the hash. Add any new vanilla copy to that list.
@@ -57,7 +59,7 @@ commands, not GitHub. If they decline or it breaks, plain git above still works.
 
 ## Checks
 
-- Python tests: `uv run --no-project --with numpy --with pytest --with pillow --with shapely python -m pytest -q tools/`
+- Python tests: `uv run --no-project --with numpy --with pytest --with pillow --with shapely --with pyright python -m pytest -q tools/`
   (install `uv` on Windows with `winget install astral-sh.uv`). All must pass before a PR.
 - `tools/lint_script.py` checks our script against the `script_docs` logs (unknown effects/triggers, `name =` in
   modifiers, bad `outcome`, undefined modifiers). It runs inside the pytest command above. After adding a new kind of
@@ -70,6 +72,26 @@ commands, not GitHub. If they decline or it breaks, plain git above still works.
 - Vanilla's own script docs (`effects.log`, `triggers.log`, `modifiers.log`, `on_actions.log`) are written into
   `Documents/Paradox Interactive/Europa Universalis V/docs/` only when you run `script_docs` in the game's console;
   run it once if the folder is missing. Check them and vanilla's files before guessing syntax.
+
+## Script written in Python
+
+New script is written as Python against typed bindings (`tools/pdx/`); running it writes the `.txt` (and an event's
+localisation). `pyright` is the compiler: it rejects an effect in the wrong scope, a misspelt effect or trigger and a
+bad `outcome` before EU5 does. Plan: `docs/specs/2026-09-30-python-script-layer-design.md`; the contract for the layers
+is `tools/pdx/CONTRACT.md`.
+
+- Sources are `script/*.py`, each with an `outputs()` returning `{repo path: text}`. Write them all with
+  `python script/run.py` (same `uv run ...` prefix as the tests). Ported so far: `migratory.py` (generic actions),
+  `gildo_events.py` (events and their loc). A test fails when a generated file is stale.
+- Start a new file by copying the nearest port. `Doc.event(...)` builds events; `with c.every_neighbor_country() as n:`
+  changes scope; `with t.link("scope:actor", CountryTrig) as c:` is `scope:actor = { }`; comparison triggers read
+  `t.gold(100, op=">=")`; `t.var("x", "<", 50)`; a value block (ai_will_do) is `body.effects("ai_will_do", ValueFx)`.
+- `raw("...")` is the escape hatch for anything the bindings do not model. Put a `# GAP:` comment on it saying what is
+  missing, and fix the binding when you meet the same gap twice.
+- `tools/pdx/api.py` is generated from the docs logs, vanilla's call shapes and the mod's own scripted effects and
+  triggers: `python tools/pdx/gen_api.py`. Rerun it after an EU5 patch and after adding a scripted effect or trigger;
+  a test fails when it is stale. Names it could not infer a signature for are in `UNVERIFIED`.
+- Check a change with `pyright` (`uv run --no-project --with pyright python -m pyright`), then `tools/lint_script.py`.
 
 ## Testing in game
 
