@@ -198,3 +198,27 @@ def test_pyright_passes_migratory_and_flags_wrong_scope_in_a_link(tmp_path):
     assert pyright(tmp_path, None, "script/migratory.py") == []
     lines = {d["range"]["start"]["line"] + 1 for d in pyright(tmp_path, WRONG_IN_LINK, "wrong.py")}
     assert lines == {i for i, l in enumerate(WRONG_IN_LINK.splitlines(), 1) if "# BAD" in l}, lines
+
+
+def test_a_scripted_effect_takes_the_parameters_its_body_names():
+    """`$param$`s in the body type the call even when no .txt calls it yet (vanilla's abstain_vote is one)."""
+    import inspect
+    from pdx.api import CountryFx
+    sig = inspect.signature(CountryFx.abstain_vote)
+    assert {"voter", "resolution"} <= set(sig.parameters)
+
+
+def test_extend_regency_is_a_bare_number():
+    import inspect
+    from pdx.api import CountryFx
+    assert "args" not in inspect.signature(CountryFx.extend_regency).parameters
+
+
+def test_create_country_from_location_opens_the_new_countrys_scope():
+    from pdx.api import CountryFx, LocationFx
+    nodes = []
+    with LocationFx(nodes).create_country_from_location(overlord="root") as c:
+        c.define_unique_country_tag("CONST")
+        c.add_gold(200)
+    assert [n.key for n in nodes[0].val] == ["overlord", "define_unique_country_tag", "add_gold"]
+    assert nodes[0].key == "create_country_from_location" and CountryFx

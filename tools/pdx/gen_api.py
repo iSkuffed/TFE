@@ -17,7 +17,7 @@ sys.path.insert(0, str(HERE.parent))
 import borders as b
 import infer
 import overrides as ov
-from lint_script import DOCS, definitions, doc_names
+from lint_script import DOCS, definitions, doc_names, script_files, tree_of
 
 OUT = HERE / "api.py"
 RESERVED = {"note", "tail", "raw", "link", "saved", "limit"}  # Scope's own methods, and `limit`
@@ -48,10 +48,37 @@ def doc_targets():
     return out
 
 
+def script_params(roots):
+    """{scripted name: its `$param$`s in order of first use}, read from the scripted effect's or trigger's own body."""
+    out = {}
+    for root in roots:
+        for p in script_files(root):
+            if p.parent.name not in ("scripted_effects", "scripted_triggers"):
+                continue
+            try:
+                tree = tree_of(p)
+            except ValueError:
+                continue
+            for e in tree:
+                if e.key and isinstance(e.val, list):
+                    seen = []
+                    stack = [e.val]
+                    while stack:
+                        for x in stack.pop(0):
+                            for s in (x.key, x.val):
+                                if isinstance(s, str):
+                                    seen += re.findall(r"\$(\w+)(?:\|[^$]*)?\$", s)
+                            if isinstance(x.val, list):
+                                stack.append(x.val)
+                    out[e.key] = list(dict.fromkeys(seen))
+    return out
+
+
 def scripted_docs(docs):
     """the scripted effects/triggers of vanilla, its DLCs and the mod, as doc-like entries (scope unknowable: any)."""
-    found = definitions([b.GAME, *sorted((b.GAME / "dlc").glob("*")), b.MOD])
-    return {m: {n: {"desc": "", "scopes": [], "targets": [], "traits": False, "scripted": True}
+    roots = [b.GAME, *sorted((b.GAME / "dlc").glob("*")), b.MOD]
+    found, params = definitions(roots), script_params(roots)
+    return {m: {n: {"desc": "", "scopes": [], "targets": [], "traits": False, "scripted": True, "params": params.get(n, [])}
                 for n in sorted(found[k]) if n.isidentifier() and n not in docs[m]}
             for m, k in (("E", "effects"), ("T", "triggers"))}
 
@@ -88,6 +115,10 @@ def build(mode, docs, scan, names):
         if d.get("scripted"):  # `tfe_x = yes`, or a parameter block whose keys the call sites show
             sp = infer.spec_vanilla(name, scan[mode][name], names) if name in scan[mode] else None
             sp = {**(sp or {"shapes": {"scalar"}, "req": [], "opt": [], "kinds": {"bool"}}), "scripted": True}
+            fresh = [k for k in d["params"] if k not in sp["req"] + sp["opt"]]  # parameters no call site has used yet
+            if fresh or (d["params"] and "block" not in sp["shapes"]):
+                sp = {**sp, "shapes": sp["shapes"] | {"block"}, "opt": sp["opt"] + fresh,
+                      "order": sp.get("order", []) + fresh}
             out[name] = ("scripted", {**sp, "shapes": sp["shapes"] - {"bare"} or {"scalar"}})
         elif name in claimed:
             out[name] = ("splice", None)
@@ -207,6 +238,8 @@ def generate(docs=None, scan=None):
                 tg = d["targets"]
                 target = cls(tg[0], m) if len(tg) == 1 and tg[0] in known_set else "Any"
                 src = iterator(name, sp, target)
+            elif sp and sp.get("opens"):  # a block whose body runs in another scope (the new country, say)
+                src = iterator(name, sp, sp["opens"])
             elif kind == "fallback":
                 unverified.append(f"{MODE_NAME[m]}.{name}")
                 src = f'    def {pyname(name)}(self, *args: Any, **kw: Any) -> None: self._call("{name}", *args, **kw)'

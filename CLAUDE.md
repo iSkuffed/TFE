@@ -90,6 +90,9 @@ is `tools/pdx/CONTRACT.md`.
 - Start a new file by copying the nearest port. `Doc.event(...)` builds events; `with c.every_neighbor_country() as n:`
   changes scope; `with t.link("scope:actor", CountryTrig) as c:` is `scope:actor = { }`; comparison triggers read
   `t.gold(100, op=">=")`; `t.var("x", "<", 50)`; a value block (ai_will_do) is `body.effects("ai_will_do", ValueFx)`.
+- Modifier files: `doc.modifier(name, category="country", <modifier keys>=...)` for a static modifier,
+  `doc.modifier(name, potential=lambda t: ..., <keys>=...)` for an auto modifier (keys are checked against
+  `modifiers.log`), `doc.bias(name, value)` for an opinion bias. `doc.entry(name)` covers anything else.
 - `raw("...")` is the escape hatch for anything the bindings do not model. Put a `# GAP:` comment on it saying what is
   missing, and fix the binding when you meet the same gap twice.
 - `tools/pdx/api.py` is generated from the docs logs, vanilla's call shapes and the mod's own scripted effects and

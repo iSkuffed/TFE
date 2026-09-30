@@ -1,9 +1,19 @@
 """Script objects: a file (Doc) holding named entries whose fields and effect/trigger blocks are typed scopes."""
+import functools
+import re
 from contextlib import contextmanager
 from typing import Any, Callable, ContextManager, Generic, Iterator, Literal, TypeVar, get_args
 
 from .api import AnyFx, AnyTrig, CountryFx, CountryTrig, Outcome
 from .core import Q, Scope, render
+
+@functools.cache
+def modifier_keys():
+    """the keys modifiers.log lists (empty when the docs have not been written yet: then nothing is checked)."""
+    import lint_script
+    log = lint_script.DOCS / "modifiers.log"
+    return set(re.findall(r"^Tag: (\w+),", log.read_text(encoding="utf-8-sig"), re.M)) if log.exists() else set()
+
 
 F = TypeVar("F")
 T = TypeVar("T")
@@ -88,6 +98,9 @@ class Event(Scope, Generic[F, T, O]):
     def immediate(self) -> ContextManager[F]:
         return self._open("immediate", self._fx)
 
+    def after(self) -> ContextManager[F]:
+        return self._open("after", self._fx)
+
     @contextmanager
     def option(self, letter, *, text, historical=False) -> Iterator[O]:
         self._loc.add(f"{self._id}.{letter}", text)
@@ -110,13 +123,18 @@ class Doc:
         self._top._call("namespace", name)
 
     @contextmanager
-    def _event(self, n, type, category, title, desc, outcome, hidden, image, kinds):
-        if outcome not in get_args(Outcome):
+    def _event(self, n, type, category, title, desc, outcome, hidden, image, once, kinds):
+        if outcome is None and not hidden:
+            raise ValueError("a visible event needs an outcome")
+        if outcome is not None and outcome not in get_args(Outcome):
             raise ValueError(f"event outcome {outcome!r}: must be one of {get_args(Outcome)}")
+        if not hidden and (title is None or desc is None):
+            raise ValueError("a visible event needs a title and a desc")
         if self.ns is None:
             raise ValueError("doc.namespace(...) first")
         eid = f"{self.ns}.{n}"
-        self.loc.add(f"{eid}.title", title)
+        if title is not None:
+            self.loc.add(f"{eid}.title", title)
         if isinstance(desc, str):
             self.loc.add(f"{eid}.desc", desc)
         with self._top._open(eid, Event) as e:
@@ -125,14 +143,18 @@ class Doc:
             e._call("type", type)
             if category:
                 e._call("category", category)
-            e._call("title", f"{eid}.title")
+            if title is not None:
+                e._call("title", f"{eid}.title")
             if isinstance(desc, str):
                 e._call("desc", f"{eid}.desc")
-            else:
+            elif desc is not None:
                 self._first_valid(e, eid, desc, kinds[1])
-            e._call("outcome", outcome)
+            if outcome is not None:
+                e._call("outcome", outcome)
             if hidden:
                 e._call("hidden", True)
+            if once:
+                e._call("fire_only_once", True)
             if image:
                 e._call("image", Q(image))
             yield e
@@ -147,14 +169,39 @@ class Doc:
                         cond(t) if cond else t._call("always", True)
                     td._call("desc", f"{eid}.desc.{suffix}")
 
-    def event(self, n: int, *, type: Literal["country_event"], title: str, desc: str | list[tuple[Callable[[CountryTrig], Any] | None, str, str]],
-              outcome: Outcome, hidden: bool = False, image: str | None = None,
-              category: Literal["situation_event"] | None = None) -> ContextManager[Event[CountryFx, CountryTrig, CountryOption]]:
-        """desc is the text, or a list of (condition or None for always, loc-key suffix, text) for a first_valid of triggered_descs."""
-        return self._event(n, type, category, title, desc, outcome, hidden, image, (CountryFx, CountryTrig, CountryOption))
+    def event(self, n: int, *, type: Literal["country_event"], title: str | None = None,
+              desc: str | list[tuple[Callable[[CountryTrig], Any] | None, str, str]] | None = None,
+              outcome: Outcome | None = None, hidden: bool = False, image: str | None = None,
+              category: Literal["situation_event"] | None = None,
+              fire_only_once: bool = False) -> ContextManager[Event[CountryFx, CountryTrig, CountryOption]]:
+        """desc is the text, or a list of (condition or None for always, loc-key suffix, text) for a first_valid of triggered_descs.
+        A hidden event needs no title, desc or outcome (and writes no loc keys for the ones left out)."""
+        return self._event(n, type, category, title, desc, outcome, hidden, image, fire_only_once,
+                           (CountryFx, CountryTrig, CountryOption))
 
     def note(self, text):
         self._top.note(text)
+
+    def modifier(self, name, *, category=None, potential: Callable[[CountryTrig], Any] | None = None, **effects):
+        """a static modifier (`category="country"` writes `game_data = { category = country }`) or an auto modifier
+        (`potential` writes `potential_trigger`); the keywords are the modifier's own keys, checked against modifiers.log."""
+        known = modifier_keys()
+        for k in effects:
+            if known and k not in known:
+                raise ValueError(f"{name}: {k} is not a modifier key in modifiers.log")
+        with self.entry(name) as m:
+            if category:
+                m.data("game_data", category=category)
+            if potential:
+                with m.triggers("potential_trigger", CountryTrig) as t:
+                    potential(t)
+            for k, v in effects.items():
+                m.field(k, v)
+
+    def bias(self, name, value):
+        """an opinion modifier (biases/): `name = { value = v }`"""
+        with self.entry(name) as b:
+            b.field("value", value)
 
     def entry(self, name):
         return self._top._open(name, Body)
