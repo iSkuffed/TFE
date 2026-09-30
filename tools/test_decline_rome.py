@@ -68,6 +68,14 @@ def test_hospitalitas_lets_the_host_refuse_and_makes_a_foedus():
     assert ev.count("outcome = neutral") == 2
     # a saved scope does not reach a child event: the offer travels as variables and is re-derived
     assert "var:tfe_hospitalitas_from" in ev and "var:tfe_hospitalitas_refused_by" in ev
+    # user: accepting names the lands; refusing mid-war says the war goes on
+    # user: a whole area, not one province; nobody gives up a migration for a single province
+    assert "looking_for_a = area" in acts and "looking_for_a = province" not in acts
+    assert "name = tfe_hospitalitas_area value = scope:target_area" in acts
+    assert "var:tfe_hospitalitas_area ?= { save_scope_as = tfe_land }" in ev
+    assert "[tfe_land.GetName]" in LOC.read_text(encoding="utf-8-sig")
+    refuse = ev.split("name = tfe_decline_rome.1.b")[1]
+    assert re.search(r"limit = \{\s*exists = scope:tfe_rome\s*is_at_war_with = scope:tfe_rome\s*\}\s*custom_tooltip = tfe_decline_rome\.1\.b\.war_tt", refuse)
 
 
 def test_man_the_limes_costs_and_marks_the_frontier():
@@ -87,5 +95,5 @@ def test_man_the_limes_costs_and_marks_the_frontier():
 
 def test_the_limes_bars_the_peoples_beyond_it():
     trig = code(TRIGGERS)
-    assert re.search(r"tfe_barred_by_the_limes = \{\s*custom_tooltip", trig)
+    assert re.search(r"tfe_frontier_unmanned = \{\s*custom_tooltip", trig) and "NOT = {" in trig
     assert "any_owned_location" in trig and "any_neighbor_location" in trig and "has_location_modifier = tfe_limes_manned" in trig

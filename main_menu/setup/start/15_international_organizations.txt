@@ -15,4 +15,11 @@ international_organization_manager = {
 			HNS
 		}
 	}
+	# the peoples beyond the limes pass freely through each other's land (international_organizations/tfe_barbaricum.txt)
+	add_international_organization = {
+		type = tfe_barbaricum
+		creation_date = 395.1.17
+		map_color = hsv360 { 95 45 40 }
+		members = { ALM BGD FRK HAS SLX SAX MKM QAD LGB SLF FRS AGL TGI RUG SCR VIS GEP CRP IAZ }
+	}
 }

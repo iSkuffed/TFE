@@ -10,13 +10,16 @@ tfe_has_frontier_works = {
 	}
 }
 
-# A country (scope: country) with land beside a stretch of frontier that an Augustus has manned (Man the Limes). The
-# Migrate button's allow says "tfe_barred_by_the_limes = no", so the greyed-out button tells the player why.
-tfe_barred_by_the_limes = {
+# A country (scope: country) with no land beside a stretch of frontier that an Augustus has manned (Man the Limes).
+# True when the way is open, so the Migrate buttons' requirement reads right with either mark: a custom_tooltip shows
+# its text as written, and "= no" on a barred-trigger showed "A Roman garrison mans the frontier" ticked green.
+tfe_frontier_unmanned = {
 	custom_tooltip = {
-		text = tfe_barred_by_the_limes_tt
-		any_owned_location = {
-			any_neighbor_location = { has_location_modifier = tfe_limes_manned }
+		text = tfe_frontier_unmanned_tt
+		NOT = {
+			any_owned_location = {
+				any_neighbor_location = { has_location_modifier = tfe_limes_manned }
+			}
 		}
 	}
 }

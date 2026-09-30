@@ -1,7 +1,8 @@
 ﻿# TFE: a host takes to the road (generic_actions/tfe_migratory.txt, on the Decline of the West's panel; the Huns push
 # the Germanic peoples west in events/tfe_hunnic_storm.txt). Scope: the migrating country. It becomes an army-based
 # country, musters a great host, abandons its homeland and gets a casus belli on the Roman empires: a landless host
-# has no neighbours for the game to offer one against.
+# has no neighbours for the game to offer one against. A fifth of its people go with it, to settle the land it wins
+# (on_action/tfe_migratory.txt). Its passage over the land it leaves is Barbaricum's (international_organizations/).
 tfe_start_migration_effect = {
 	save_scope_as = tfe_host
 	set_variable = tfe_migrating
@@ -25,6 +26,19 @@ tfe_start_migration_effect = {
 		while = {
 			count = 8
 			create_sub_unit_with_owner = { type = a_tribal_cavalry owner = scope:tfe_host origin = scope:tfe_muster }
+		}
+	}
+	# a fifth of our people take the road; the rest stay under the new lords. Counted by pop_size, whatever its unit.
+	set_variable = { name = tfe_host_people value = 0 }
+	set_variable = { name = tfe_host_plantings value = 0 }	# change_variable fails on an unset variable
+	every_owned_location = {
+		every_pop = {
+			limit = { culture = scope:tfe_host.culture }
+			save_temporary_scope_as = tfe_leaver
+			scope:tfe_host = {
+				change_variable = { name = tfe_host_people add = { value = scope:tfe_leaver.pop_size multiply = 0.2 } }
+			}
+			add_pop_size = { value = pop_size multiply = -0.2 }
 		}
 	}
 	# a neighbouring people moves into the homeland, so it is not left empty; its pops stay, under new lords. Only with

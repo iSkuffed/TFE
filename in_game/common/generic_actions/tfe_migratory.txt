@@ -1,8 +1,10 @@
 ﻿# TFE: migratory peoples. A people of Germania or Dacia (tfe_is_migrator) may once give up its homeland, from the
 # Decline of the West's panel (situations/tfe_decline_of_the_west.txt), for a great host that costs nothing while it
 # owns no land (auto_modifiers/tfe_migratory.txt). It cannot replenish: landless, it has no manpower, so every warrior
-# lost is gone until it wins land of its own.
-tfe_start_migration = {
+# lost is gone until it wins land of its own. One button per empire: the host marches on the East or the West at once,
+# and that Augustus may buy it off with land (Hospitalitas, generic_actions/tfe_decline_rome.txt). The two differ only
+# in the empire.
+tfe_migrate_east = {
 	type = situation
 	icon = migrate_pop_based_country
 
@@ -12,11 +14,16 @@ tfe_start_migration = {
 			tfe_is_migrator = yes
 			NOT = { has_variable = tfe_migrating }
 		}
+		country_exists = c:EAR
 	}
 	allow = {
+		custom_tooltip = {
+			text = tfe_migration_not_yet_tt
+			current_date >= 395.2.18	# a month after the game starts (defines' START_DATE)
+		}
 		scope:actor = {
 			is_subject = no	# no warband afield is fine: the host gathers at the capital
-			tfe_barred_by_the_limes = no	# scripted_triggers/tfe_decline_rome.txt: a manned frontier holds them
+			tfe_frontier_unmanned = yes	# scripted_triggers/tfe_decline_rome.txt: a manned frontier holds them
 		}
 	}
 
@@ -45,8 +52,12 @@ tfe_start_migration = {
 
 	effect = {
 		custom_tooltip = tfe_start_migration_tt
+		custom_tooltip = tfe_migrate_EAR_tt
 		hidden_effect = {
-			scope:actor = { tfe_start_migration_effect = yes }	# scripted_effects/tfe_migratory.txt
+			scope:actor = {
+				tfe_start_migration_effect = yes	# scripted_effects/tfe_migratory.txt
+				declare_war_with_cb = { target = c:EAR type = casus_belli:cb_tfe_migration }
+			}
 		}
 	}
 
@@ -65,6 +76,95 @@ tfe_start_migration = {
 					scope:actor = { any_neighbor_country = { tfe_is_under_the_yoke = yes } }
 				}
 				add = 45
+			}
+			if = {	# the empire across the river first
+				limit = { scope:actor = { any_neighbor_country = { tag = EAR } } }
+				add = 10
+			}
+			if = {
+				limit = { international_organization:tfe_roman_empire ?= { var:tfe_unity < 50 } }
+				add = 25
+			}
+		}
+	}
+}
+
+tfe_migrate_west = {
+	type = situation
+	icon = migrate_pop_based_country
+
+	potential = {
+		situation:tfe_decline_of_the_west = { situation_is_active = yes }
+		scope:actor = {
+			tfe_is_migrator = yes
+			NOT = { has_variable = tfe_migrating }
+		}
+		country_exists = c:WRE
+	}
+	allow = {
+		custom_tooltip = {
+			text = tfe_migration_not_yet_tt
+			current_date >= 395.2.18	# a month after the game starts (defines' START_DATE)
+		}
+		scope:actor = {
+			is_subject = no	# no warband afield is fine: the host gathers at the capital
+			tfe_frontier_unmanned = yes	# scripted_triggers/tfe_decline_rome.txt: a manned frontier holds them
+		}
+	}
+
+	ai_tick = monthly
+	ai_tick_frequency = 12
+	automation_tick = never
+	automation_tick_frequency = 12
+
+	select_trigger = {
+		looking_for_a = situation
+		interaction_source_list = {
+			situation:tfe_decline_of_the_west = {
+				add_to_list = source
+			}
+		}
+		target_flag = recipient
+		name = "choose_situation"
+		column = {
+			data = name
+		}
+		visible = {
+			situation:tfe_decline_of_the_west = this
+			situation_is_active = yes
+		}
+	}
+
+	effect = {
+		custom_tooltip = tfe_start_migration_tt
+		custom_tooltip = tfe_migrate_WRE_tt
+		hidden_effect = {
+			scope:actor = {
+				tfe_start_migration_effect = yes	# scripted_effects/tfe_migratory.txt
+				declare_war_with_cb = { target = c:WRE type = casus_belli:cb_tfe_migration }
+			}
+		}
+	}
+
+	# Pace the chaos: one AI people on the road at a time. None moves within 4 years of the last host setting out
+	# (tfe_host_took_the_road), and then only when pushed: the Huns at the door or Rome divided.
+	ai_will_do = {
+		value = 0
+		if = {
+			limit = {
+				NOT = { has_global_variable = tfe_host_took_the_road }
+				scope:actor = { at_war = no }
+			}
+			add = 5
+			if = {
+				limit = {
+					scope:actor = { any_neighbor_country = { tfe_is_under_the_yoke = yes } }
+				}
+				add = 45
+			}
+			if = {	# the empire across the river first
+				limit = { scope:actor = { any_neighbor_country = { tag = WRE } } }
+				add = 10
 			}
 			if = {
 				limit = { international_organization:tfe_roman_empire ?= { var:tfe_unity < 50 } }
