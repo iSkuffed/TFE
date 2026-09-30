@@ -121,6 +121,37 @@
 			}
 		}
 
+		# STILICHO'S GLORY: the confidence Rome has in him (script/defs_stilicho.py); gone once he falls
+		situation_card_header_button = {
+			visible = "[SituationView.GetActiveSituation.GetSituation.MakeScope.GetVariable('tfe_stilicho_glory').IsSet]"
+			blockoverride "card_header_button_icon_texture" {
+				texture = "gfx/interface/icons/alerts_icons/imminent_revolt.dds"
+			}
+			blockoverride "card_header_button_raw_text" {
+				text = "TFE_DECLINE_GLORY"
+			}
+			blockoverride "bottom_content" {
+				hbox = {
+					layoutpolicy_horizontal = expanding
+					margin = { 15 5 }
+					spacing = 8
+					tooltip = "TFE_DECLINE_GLORY_TT"
+					progressbar = {
+						layoutpolicy_horizontal = expanding
+						size = { -1 14 }
+						using = progress_bar_green_red_alt
+						min = 0
+						max = 100
+						value = "[FixedPointToFloat(SituationView.GetActiveSituation.GetSituation.MakeScope.GetVariable('tfe_stilicho_glory').GetValue)]"
+					}
+					text_single = {
+						autoresize = yes
+						text = "TFE_DECLINE_GLORY_VALUE"
+					}
+				}
+			}
+		}
+
 		# AFRICA: Gildo's hold (events/tfe_gildo.txt keeps it on the West), then his kingdom
 		situation_card_header_button = {
 			blockoverride "card_header_button_icon_texture" {
