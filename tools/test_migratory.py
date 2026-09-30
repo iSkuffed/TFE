@@ -80,7 +80,7 @@ def test_the_ai_takes_the_road_one_people_at_a_time():
 def test_the_host_disbands_back_to_its_old_warband_once_it_takes_land():
     # user: force disband the special troops after the migration; otherwise one location has to pay 16,000 men
     on = code(SETTLE)
-    assert re.search(r"on_location_changed_owner = \{\s*on_actions = \{\s*tfe_on_host_settles\s*\}", on)
+    assert re.search(r"on_location_changed_owner = \{\s*on_actions = \{\s*tfe_on_host_settles\b", on)
     trigger = re.search(r"tfe_on_host_settles = \{\s*trigger = \{(.*?)\n\t\}", on, re.S).group(1)
     assert "has_variable = tfe_migrating" in trigger and "NOT = { has_variable = tfe_settled }" in trigger   # once
     assert "set_variable = tfe_settled" in on
@@ -190,3 +190,41 @@ def test_roman_towns_taken_by_a_host_send_it_men():
     # each of the West's burdens drives more men to the host
     burdens = set(top_keys(COMMON / "government_reforms/tfe_late_roman_west.txt"))
     assert set(re.findall(r"has_reform = government_reform:(\w+)", code(values))) == burdens
+
+
+def test_barbaricum_lets_the_peoples_beyond_the_rivers_pass():
+    # user: fuzzy borders in Germania, as the HRE; a landless host must never be exiled (it cannot siege when it is)
+    io = COMMON / "international_organizations/tfe_barbaricum.txt"
+    assert io.read_bytes().startswith(b"\xef\xbb\xbf") and code(io).count("{") == code(io).count("}")
+    body = code(io)
+    assert top_keys(io) == ["tfe_barbaricum"] and "has_leader_country = no" in body
+    access = re.search(r"has_military_access = \{(.*?)\n\t\}", body, re.S).group(1)
+    assert "is_member_of_international_organization = root" in access   # members pass through members
+    assert "has_variable = tfe_migrating" in access and "NOT = { has_variable = tfe_settled }" in access   # a host anywhere
+    for s in ("can_join_trigger = { always = no }", "can_leave_trigger = { always = no }", "gives_food_access_to_members = yes"):
+        assert s in body, s
+    assert "expel_members_who_are_attackers_at_war_with_other_members = no" in body   # the tribes fight each other
+    setup = code(b.MOD / "main_menu/setup/start/15_international_organizations.txt")
+    members = re.search(r"type = tfe_barbaricum.*?members = \{([^}]*)\}", setup, re.S).group(1).split()
+    trigger = re.search(r"tfe_is_migrator = \{(.*?)\n\}", code(COMMON / "scripted_triggers/tfe_decline_of_the_west.txt"), re.S).group(1)
+    assert sorted(members) == sorted(re.findall(r"tag = (\w+)", trigger))
+    keys = set(re.findall(r"^\s*([\w.]+):\d*\s", LOC.read_text(encoding="utf-8-sig"), re.M))
+    assert {"tfe_barbaricum", "tfe_barbaricum_desc"} <= keys
+
+
+def test_a_fifth_of_the_people_follow_the_host_and_settle_its_first_lands():
+    # user: taking land shifts its people towards the host's culture and faith, by how many already live there
+    effect = code(EFFECT)
+    assert "limit = { culture = scope:tfe_host.culture }" in effect
+    taken = re.search(r"add = \{ value = scope:tfe_leaver\.pop_size multiply = ([\d.]+) \}", effect).group(1)
+    left = re.search(r"add_pop_size = \{ value = pop_size multiply = -([\d.]+) \}", effect).group(1)
+    assert taken == left   # the people are moved, not copied
+    assert effect.index("tfe_host_people") < effect.index("change_location_owner")   # counted before the land goes
+    assert "set_variable = { name = tfe_host_plantings value = 0 }" in effect   # change_variable fails on an unset one
+    on = code(SETTLE)
+    assert re.search(r"on_actions = \{ tfe_on_host_settles tfe_on_host_plants_its_people \}", on)
+    plant = on[on.index("tfe_on_host_plants_its_people = {"):]
+    assert "culture = scope:winner.culture" in plant and "religion = scope:winner.religion" in plant
+    share = float(re.search(r"multiply = ([\d.]+)", plant).group(1))
+    rounds = int(re.search(r"var:tfe_host_plantings >= (\d+)", plant).group(1))
+    assert share * rounds == 1   # every settler is planted, and no more

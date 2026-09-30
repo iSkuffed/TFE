@@ -1,7 +1,8 @@
 ﻿# TFE: the first land a migrating host (generic_actions/tfe_migratory.txt) wins ends the migration. The great host
 # disbands back to the warband it started with; its free upkeep (auto_modifiers/tfe_migratory.txt) ends for good.
+# Its people settle the land it wins, beside the locals (tfe_on_host_plants_its_people).
 on_location_changed_owner = {
-	on_actions = { tfe_on_host_settles }
+	on_actions = { tfe_on_host_settles tfe_on_host_plants_its_people }
 }
 
 tfe_on_host_settles = {
@@ -29,6 +30,35 @@ tfe_on_host_settles = {
 					count = 2
 					create_sub_unit_with_owner = { type = a_tribal_cavalry owner = scope:winner origin = scope:tfe_warband_site }
 				}
+			}
+		}
+	}
+}
+
+# The people who followed the host (tfe_host_people, counted by tfe_start_migration_effect) settle the first four
+# locations it wins, a quarter in each, as peasants of its culture and faith. The same settlers are a majority in a
+# thinly peopled countryside and a minority in a great city: the shift follows how many already live there.
+tfe_on_host_plants_its_people = {
+	trigger = {
+		exists = scope:winner
+		scope:winner = { has_variable = tfe_host_people }
+	}
+	effect = {
+		add_pop = {
+			culture = scope:winner.culture
+			religion = scope:winner.religion
+			type = pop_type:peasants
+			size = {
+				value = scope:winner.var:tfe_host_people
+				multiply = 0.25
+			}
+		}
+		scope:winner = {
+			change_variable = { name = tfe_host_plantings add = 1 }
+			if = {
+				limit = { var:tfe_host_plantings >= 4 }
+				remove_variable = tfe_host_people
+				remove_variable = tfe_host_plantings
 			}
 		}
 	}

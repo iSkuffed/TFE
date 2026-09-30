@@ -1,0 +1,46 @@
+﻿# TFE: Barbaricum, the lands beyond the limes, where borders were fuzzy and nobody enforced them. Its members are the
+# peoples of Germania and Dacia (scripted_triggers/tfe_decline_of_the_west.txt's tfe_is_migrator), seeded at start
+# (setup/start/15_international_organizations.txt). Not a league: no leader, no laws, nobody joins or leaves.
+# It exists for passage, as vanilla's jurchen_federation: members walk through each other's land. A host on the road
+# (tfe_migrating, not yet tfe_settled; generic_actions/tfe_migratory.txt) walks anywhere, so it is never exiled: the
+# homeland it leaves passes to a neighbour under its feet, and a peace that wins it no land leaves it on Roman soil.
+tfe_barbaricum = {
+	has_target = no
+	unique = yes
+	has_leader_country = no
+	disband_if_no_leader = no
+	show_on_diplomatic_map = yes
+	show_leave_message = no
+	use_laws_as_join_reason = no
+	subject_limited = no
+	can_invite_countries = no
+	expel_members_who_are_targets_of_other_members = no
+	expel_members_who_are_attackers_at_war_with_other_members = no
+	expel_members_who_are_defenders_at_war_with_other_members = no
+
+	diplomatic_capacity_cost = {
+		value = 0
+	}
+
+	can_declare_war = {
+		always = yes
+	}
+
+	create_visible_trigger = { always = no }
+	invite_visible_trigger = { always = no }
+	join_visible_trigger = { always = no }
+	can_join_trigger = { always = no }
+	can_leave_trigger = { always = no }
+
+	gives_food_access_to_members = yes
+
+	has_military_access = {
+		OR = {
+			scope:recipient ?= { is_member_of_international_organization = root }
+			scope:actor ?= {
+				has_variable = tfe_migrating
+				NOT = { has_variable = tfe_settled }
+			}
+		}
+	}
+}
