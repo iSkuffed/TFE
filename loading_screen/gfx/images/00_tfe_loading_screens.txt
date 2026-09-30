@@ -6,3 +6,30 @@
 	}
 	tag = "tfe_loading_surrender"
 }
+
+tfe_loading_lute = {
+	illustration_image = {
+		texture_file = "gfx/loading_screen_assets/00/images/tfe_loading_lute.dds"
+		priority = 1
+		weight = 1
+	}
+	tag = "tfe_loading_lute"
+}
+
+tfe_loading_balcony = {
+	illustration_image = {
+		texture_file = "gfx/loading_screen_assets/00/images/tfe_loading_balcony.dds"
+		priority = 1
+		weight = 1
+	}
+	tag = "tfe_loading_balcony"
+}
+
+tfe_loading_vision = {
+	illustration_image = {
+		texture_file = "gfx/loading_screen_assets/00/images/tfe_loading_vision.dds"
+		priority = 1
+		weight = 1
+	}
+	tag = "tfe_loading_vision"
+}

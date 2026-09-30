@@ -17,44 +17,10 @@ loading_screen_scene_rossbach = {
 	}
 }
 
+# TFE: this slot shows a flat Roman-era fresco instead: one layer on the backdrop mesh
 loading_screen_scene_florence = {
 	ecs_illustration_image = {
-		list = "loading_screen_florence_layer1"
-		pdxmesh = "layer_1_mesh"
-		name = "illustration_override_anims" #schematic
-	}
-	ecs_illustration_image = {
-		list = "loading_screen_florence_layer2"
-		pdxmesh = "layer_2_mesh"
-		name = "illustration_override_anims" #schematic
-	}
-	ecs_illustration_image = {
-		list = "loading_screen_florence_layer3"
-		pdxmesh = "layer_3_mesh"
-		name = "illustration_override_anims" #schematic
-	}
-	ecs_illustration_image = {
-		list = "loading_screen_florence_layer4"
-		pdxmesh = "layer_4_mesh"
-		name = "illustration_override_anims" #schematic
-	}
-	ecs_illustration_image = {
-		list = "loading_screen_florence_layer5"
-		pdxmesh = "layer_5_mesh"
-		name = "illustration_override_anims" #schematic
-	}
-	ecs_illustration_image = {
-		list = "loading_screen_florence_layer6"
-		pdxmesh = "layer_6_mesh"
-		name = "illustration_override_anims" #schematic
-	}
-	ecs_illustration_image = {
-		list = "loading_screen_florence_layer7"
-		pdxmesh = "layer_7_mesh"
-		name = "illustration_override_anims" #schematic
-	}
-	ecs_illustration_image = {
-		list = "loading_screen_florence_layer8"
+		list = "tfe_loading_lute"
 		pdxmesh = "layer_8_mesh"
 		name = "illustration_override_anims" #schematic
 	}
@@ -69,44 +35,10 @@ loading_screen_scene_florence = {
 }
 
 
+# TFE: this slot shows a flat Roman-era fresco instead: one layer on the backdrop mesh
 loading_screen_scene_zheng_he = {
 	ecs_illustration_image = {
-		list = "loading_screen_zheng_he_layer1"
-		pdxmesh = "layer_1_mesh"
-		name = "illustration_override_anims" #schematic
-	}
-	ecs_illustration_image = {
-		list = "loading_screen_zheng_he_layer2"
-		pdxmesh = "layer_2_mesh"
-		name = "illustration_override_anims" #schematic
-	}
-	ecs_illustration_image = {
-		list = "loading_screen_zheng_he_layer3"
-		pdxmesh = "layer_3_mesh"
-		name = "illustration_override_anims" #schematic
-	}
-	ecs_illustration_image = {
-		list = "loading_screen_zheng_he_layer4"
-		pdxmesh = "layer_4_mesh"
-		name = "illustration_override_anims" #schematic
-	}
-	ecs_illustration_image = {
-		list = "loading_screen_zheng_he_layer5"
-		pdxmesh = "layer_5_mesh"
-		name = "illustration_override_anims" #schematic
-	}
-	ecs_illustration_image = {
-		list = "loading_screen_zheng_he_layer6"
-		pdxmesh = "layer_6_mesh"
-		name = "illustration_override_anims" #schematic
-	}
-	ecs_illustration_image = {
-		list = "loading_screen_zheng_he_layer7"
-		pdxmesh = "layer_7_mesh"
-		name = "illustration_override_anims" #schematic
-	}
-	ecs_illustration_image = {
-		list = "loading_screen_zheng_he_layer8"
+		list = "tfe_loading_balcony"
 		pdxmesh = "layer_8_mesh"
 		name = "illustration_override_anims" #schematic
 	}
@@ -122,44 +54,10 @@ loading_screen_scene_zheng_he = {
 
 
 
+# TFE: this slot shows a flat Roman-era fresco instead: one layer on the backdrop mesh
 loading_screen_scene_martin_luther = {
 	ecs_illustration_image = {
-		list = "loading_screen_martin_luther_layer1"
-		pdxmesh = "layer_1_mesh"
-		name = "illustration_override_anims" #schematic
-	}
-	ecs_illustration_image = {
-		list = "loading_screen_martin_luther_layer2"
-		pdxmesh = "layer_2_mesh"
-		name = "illustration_override_anims" #schematic
-	}
-	ecs_illustration_image = {
-		list = "loading_screen_martin_luther_layer3"
-		pdxmesh = "layer_3_mesh"
-		name = "illustration_override_anims" #schematic
-	}
-	ecs_illustration_image = {
-		list = "loading_screen_martin_luther_layer4"
-		pdxmesh = "layer_4_mesh"
-		name = "illustration_override_anims" #schematic
-	}
-	ecs_illustration_image = {
-		list = "loading_screen_martin_luther_layer5"
-		pdxmesh = "layer_5_mesh"
-		name = "illustration_override_anims" #schematic
-	}
-	ecs_illustration_image = {
-		list = "loading_screen_martin_luther_layer6"
-		pdxmesh = "layer_6_mesh"
-		name = "illustration_override_anims" #schematic
-	}
-	ecs_illustration_image = {
-		list = "loading_screen_martin_luther_layer7"
-		pdxmesh = "layer_7_mesh"
-		name = "illustration_override_anims" #schematic
-	}
-	ecs_illustration_image = {
-		list = "loading_screen_martin_luther_layer8"
+		list = "tfe_loading_vision"
 		pdxmesh = "layer_8_mesh"
 		name = "illustration_override_anims" #schematic
 	}
