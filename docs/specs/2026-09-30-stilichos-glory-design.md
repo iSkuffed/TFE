@@ -2,12 +2,13 @@
 
 Approved in chat 2026-09-30 (RoadMap #27). The West stands or falls on one man. Stilicho's Glory is a bar in the
 Decline of the West panel: the confidence Rome has in him. It moves only on named causes, it decides how well the
-West's army fights, and at its height it brings a showdown with Honorius. Standing with Stilicho means a civil war that
+West's army fights, and at its height it brings a showdown with Honorius. Standing with Stilicho means a revolt that
 can save the West as his empire. Standing with the Emperor, or losing Stilicho, starts the West's collapse.
 
-Prerequisite: Gildo's revolt moved onto vanilla's civil war (RoadMap #25, its own PR first). It proves the shared
-effect this design needs: `create_rebel` + pops' allegiance + `start_civil_war`, with the war screen's annex button at
-100% war score and no antagonism.
+Prerequisite: Gildo's revolt moved onto vanilla's revolt (RoadMap #25, PR #57). It proves the effect this design
+needs: `create_rebel` + pops' allegiance + `start_revolt`, with the war screen's Annex Revolter at 100% war score and no
+antagonism. Tested there: `start_civil_war` offers only "Surrender Civil War", never an annex. A backer that joins the
+revolt leads the rebel side and turns Annex Revolter into a white peace, so backers are sent home a day later.
 
 ## The regency lasts to 408
 
@@ -62,31 +63,46 @@ It fires in three ways:
 - **When the extended regency ends in 408:** certain, if it has not fired yet.
 
 It has two options:
-- **Stand with Stilicho.** Needs Glory 70 or more, shown with a ✓/✗ tick. It starts the civil war.
+- **Stand with Stilicho.** Needs Glory 70 or more, shown with a ✓/✗ tick. It starts Stilicho's revolt.
 - **Stand with the Emperor.** The Honorius outcome.
 
 The AI always stands with the Emperor. If Stilicho dies first, in battle or of age, there is no event: the West takes
 the Honorius outcome without its Unity and East bonus.
 
-## Standing with Stilicho: the civil war
+## Standing with Stilicho: the revolt
 
-1. Stilicho is crowned Augustus of the West. Your country stays WRE under him, and the regency ends.
-2. Honorius's loyalists rise through the shared civil-war effect as a new country under Honorius. They hold:
-   - Italy (`italy_region`), Illyricum (`balkan_region`, West-owned) and Raetia et Noricum (`south_german_region`);
-   - Hispania (`iberia_region`) too, if Glory is under 90.
-3. Stilicho keeps Gaul (`france_region`), and Hispania at 90+. In each case this means only locations the West owns
-   directly, never its subjects'.
+Honorius is the rightful Augustus, so Stilicho is the one who rebels.
+
+1. Stilicho's army rises as a revolt (`start_revolt`) in Gaul (`france_region`), plus Hispania (`iberia_region`) at
+   Glory 90 or more. Only locations the West owns directly count, never its subjects'. A day later (as Gildo's
+   `tfe_opening.7`) the revolter is renamed Stilicho's West, crowned with Stilicho, given Eucherius as heir and the
+   rest of that land, and any backers are sent home.
+2. The player follows him: `change_player` moves the player from WRE to the revolter. The Glory tiers' modifiers move
+   with him.
+3. Honorius keeps the WRE: the tag, Italy (`italy_region`), West-owned Illyricum (`balkan_region`), Raetia et Noricum
+   (`south_german_region`), and Hispania if Glory is under 90. The regency ends, and Honorius rules in his own name.
+   WRE keeps its seat in the Imperium Romanum, so the East is already called to his defence at Unity 75 or more
+   (`join_defensive_wars_auto_call`). No seat has to move.
 4. At the same moment, the Britains (`great_britain_region`) and the Diocese of Africa (`maghreb_region`) break away.
    They are independent and at war with neither side.
    - Britain becomes the Constantine III country (`tfe_opening.5` builds it; share its effect, and stop the 407 event
      firing again).
    - Africa's towns go to Gildo (`c:GILDO`) if his kingdom exists, otherwise to a new breakaway country.
-   - WRE keeps its cores on both, so after winning, Stilicho can take them back with a claim.
-5. Honorius's state takes the West's seat in the Imperium Romanum and WRE leaves it. At Unity 75 or more the East is
-   called to defend Honorius automatically (`join_defensive_wars_auto_call`).
-6. **Win:** annex Honorius's state from the war screen. The Imperium Romanum falls below two members and dissolves
-   through its existing `auto_disband_trigger`. Stilicho rules the West.
-7. **Lose:** the loyalists annex WRE. Game over, as in the base game.
+   - Stilicho's West gets cores on both, so after winning he can take them back with a claim.
+5. **Win: take Honorius's capital.** `on_location_occupied` fires "Stilicho Enters Ravenna" (the event names whatever
+   Honorius's capital is) when Stilicho's West occupies it. Winning takes everything: Stilicho's West annexes the WRE
+   (`annex_country`, reason `CivilWar`), which ends the war, and takes the name, flag and, if the game allows it once
+   WRE is gone, the `WRE` tag (check in game; otherwise it keeps its own tag under the WRE name and flag). The Imperium
+   Romanum falls below two members and dissolves through its existing `auto_disband_trigger`. The event then asks what
+   becomes of Honorius:
+   - **Execute him** (`kill_character`): no rival claimant is left, but the East is appalled (relations and opinion
+     down).
+   - **Exile him to Constantinople** (`move_country` to EAR): he lives on as a courtier of his brother's court (or his
+     nephew's, if Arcadius has died).
+6. **Lose:** Honorius annexes Stilicho's West from the war screen (Annex Revolter). The player's country is gone:
+   game over, as in the base game.
+7. **Neither:** if the war ends in a white peace, Stilicho's West survives beside Honorius's WRE. It keeps the usurper
+   CB against WRE (`tfe_usurper_against`, as Gildo and Constantine III have), so the player can finish the job later.
 
 ## Standing with the Emperor (or Stilicho dies)
 
@@ -110,10 +126,10 @@ AI that reaches 90 early still stands with the Emperor.
 - Python tests under `tools/`: the bar's variable and clamps, every cause wired to its hook, the showdown's three
   triggers, the 70 gate, the AI weights, every shown key localised.
 - In game, playing as WRE: move Glory by console through each tier and check morale in the military tooltip; fire the
-  showdown at 90, 100 and on 1 Jan 408; take both options; win and lose the civil war; watch Britain and Africa break
-  away and the Imperium Romanum dissolve only on a win. Check `error.log` for `tfe_` lines.
+  showdown at 90, 100 and on 1 Jan 408; take both options; check the player lands in Stilicho's West; win by taking Honorius's capital
+  (both Honorius choices) and lose by being annexed; watch Britain and Africa break away and the Imperium Romanum
+  dissolve only on a win. Check `error.log` for `tfe_` lines.
 
 ## Out of scope
 
-Honorius's rump state after the collapse (#28). Stilicho's reforms as Emperor. Gildo's own rework beyond moving it
-onto the civil-war effect (#25).
+Honorius's rump state after the collapse (#28). Stilicho's reforms as Emperor. Gildo's own rework (#25, PR #57).
