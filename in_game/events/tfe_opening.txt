@@ -100,71 +100,113 @@ tfe_opening.3 = {
 	}
 
 	immediate = {
-		# Gildo, or if he has died before his hold ripens, his Moorish kinsman in his place
-		if = {
-			limit = { character:tfe_gildo ?= { is_alive = yes } }
-			character:tfe_gildo = { save_scope_as = tfe_usurper_ruler }
-		}
-		# his seat is Cherchell, or Cirta if Cherchell is lost; Carthage only if he wins it (tfe_gildo.6)
-		if = {
-			limit = { location:cherchell = { owner ?= root } }
-			location:cherchell = { save_scope_as = tfe_gildo_seat }
-		}
-		else = { location:constantine_ALG = { save_scope_as = tfe_gildo_seat } }
-		scope:tfe_gildo_seat = {
-			create_country_from_location = {
-				define_unique_country_tag = GILDO
-				change_country_name = TFE_GILDO
-				change_country_adjective = TFE_GILDO_ADJ
-				change_country_color = map_gutnish
-				change_country_flag = TFE_GILDO
-				set_country_rank = country_rank:rank_kingdom
-				change_government_type = government_type:monarchy
-				add_gold = 200	# Africa's taxes, kept back from Italy
-				if = {
-					limit = { NOT = { exists = scope:tfe_usurper_ruler } }
-					create_character = {
-						first_name = name_gildo
-						culture = culture:kabyle
-						religion = religion:donatism
-						estate = estate_type:nobles_estate
-						age = 35
-						mil = 60
-						save_scope_as = tfe_usurper_ruler
-					}
-				}
-				set_new_ruler = scope:tfe_usurper_ruler
-				set_variable = { name = tfe_usurper_against value = root years = 10 }
-				save_scope_as = tfe_usurper
-			}
+		# a revolt, not a war: the war screen can then annex the revolter outright, with no antagonism.
+		# The revolter appears at once, named after its biggest town; tfe_opening.7 makes it Gildo's kingdom a day later.
+		create_rebel = {
+			category = nationalist
+			name = tfe_gildo_rebels
+			culture = culture:kabyle
+			religion = religion:donatism
+			save_scope_as = tfe_gildo_rebels
 		}
 		every_owned_location = {
 			limit = { tfe_gildo_base_land = yes }
-			change_location_owner = scope:tfe_usurper
+			every_pop = { change_pop_allegiance = scope:tfe_gildo_rebels }
 		}
-		set_variable = { name = tfe_usurper value = scope:tfe_usurper years = 10 }
-		set_variable = { name = tfe_gildo_wave value = 0 }
-		trigger_event_silently = { id = tfe_gildo.6 months = 3 }	# the grain coast and Tripolitania are still in play
-		c:EAR ?= { trigger_event_non_silently = tfe_opening.4 }
+		scope:tfe_gildo_rebels ?= { start_revolt = yes }
+		trigger_event_silently = { id = tfe_opening.7 days = 1 }
 	}
 
 	# his brother Mascezel knows Africa and hates him: send him
 	option = {
 		name = tfe_opening.3.a
 		historical_option = yes
-		declare_war_with_cb = { target = scope:tfe_usurper type = casus_belli:cb_tfe_suppress_usurper }
-		ai_chance = { base = 3 }
-	}
-
-	# Italy can go hungry a season; the war can wait
-	option = {
-		name = tfe_opening.3.b
-		add_prestige = -10
 		ai_chance = { base = 1 }
 	}
 }
 
-# The East is offered the diocese of Africa (fired by 3)
+# The day after the rising: the revolter becomes Gildo's kingdom and takes the rest of his land (fired by 3)
+tfe_opening.7 = {
+	type = country_event
+	hidden = yes
+
+	immediate = {
+		random_country = {
+			limit = {
+				is_at_war_with = root
+				any_owned_location = { tfe_gildo_base_land = yes }
+				# carved from his land alone: the Mauri who back him sit in Laghouat too, but hold land beyond it
+				NOT = { any_owned_location = { NOT = { tfe_gildo_base_land = yes } } }
+			}
+			save_scope_as = tfe_usurper
+		}
+		# Gildo, or if he has died before his hold ripens, his Moorish kinsman in his place
+		if = {
+			limit = { character:tfe_gildo ?= { is_alive = yes } }
+			character:tfe_gildo = { save_scope_as = tfe_usurper_ruler }
+		}
+		scope:tfe_usurper ?= {
+			define_unique_country_tag = GILDO
+			change_country_name = TFE_GILDO
+			change_country_adjective = TFE_GILDO_ADJ
+			change_country_color = map_gutnish
+			change_country_flag = TFE_GILDO
+			set_country_rank = country_rank:rank_kingdom
+			change_government_type = government_type:monarchy
+			add_gold = 200	# Africa's taxes, kept back from Italy
+			if = {
+				limit = { NOT = { exists = scope:tfe_usurper_ruler } }
+				create_character = {
+					first_name = name_gildo
+					culture = culture:kabyle
+					religion = religion:donatism
+					estate = estate_type:nobles_estate
+					age = 35
+					mil = 60
+					save_scope_as = tfe_usurper_ruler
+				}
+			}
+			set_new_ruler = scope:tfe_usurper_ruler
+			set_variable = { name = tfe_usurper_against value = root years = 10 }
+			# a neighbour backing the revolt (the Mauri) leads the rebel side, and Annex Revolter then only offers it
+			# a white peace: send the backers home so the war screen can annex Gildo
+			every_current_war = {
+				limit = { is_in_war = root }
+				save_scope_as = tfe_gildo_war
+				every_war_participant = {
+					limit = {
+						is_at_war_with = root
+						NOT = { this = scope:tfe_usurper }
+					}
+					leave_war = { war = scope:tfe_gildo_war actor = root }
+				}
+			}
+		}
+		if = {
+			limit = { exists = scope:tfe_usurper }
+			# the revolt hands him only part of it
+			every_owned_location = {
+				limit = { tfe_gildo_base_land = yes }
+				change_location_owner = scope:tfe_usurper
+			}
+			# his seat is Cherchell, or Cirta if Cherchell is lost; Carthage only if he wins it (tfe_gildo.6)
+			if = {
+				limit = { location:cherchell = { owner ?= scope:tfe_usurper } }
+				scope:tfe_usurper = { set_capital = location:cherchell }
+			}
+			else_if = {
+				limit = { location:constantine_ALG = { owner ?= scope:tfe_usurper } }
+				scope:tfe_usurper = { set_capital = location:constantine_ALG }
+			}
+			set_variable = { name = tfe_usurper value = scope:tfe_usurper years = 10 }
+			set_variable = { name = tfe_gildo_wave value = 0 }
+			trigger_event_silently = { id = tfe_gildo.6 months = 3 }	# the grain coast and Tripolitania are still in play
+			c:EAR ?= { trigger_event_non_silently = tfe_opening.4 }
+		}
+	}
+}
+
+# The East is offered the diocese of Africa (fired by 7)
 tfe_opening.4 = {
 	type = country_event
 	title = tfe_opening.4.title
@@ -183,7 +225,9 @@ tfe_opening.4 = {
 	option = {
 		name = tfe_opening.4.a
 		historical_option = yes
-		scope:tfe_usurper ?= { make_subject_of = { target = root type = subject_type:vassal } }
+		# not now: a vassal of the East cannot be annexed as a revolter, and the revolt war ends (tfe_gildo.6)
+		custom_tooltip = tfe_gildo_goes_east_tt
+		hidden_effect = { c:WRE = { set_variable = tfe_gildo_goes_east } }
 		custom_tooltip = tfe_unity_down_15_tt
 		hidden_effect = { international_organization:tfe_roman_empire ?= { change_variable = { name = tfe_unity add = -15 } } }
 		ai_chance = {
