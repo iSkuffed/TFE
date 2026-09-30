@@ -1,0 +1,196 @@
+﻿
+
+# TFE: Rossbach's slot shows a Roman surrender scene instead: one flat layer on the backdrop mesh
+loading_screen_scene_rossbach = {
+	ecs_illustration_image = {
+		list = "tfe_loading_surrender"
+		pdxmesh = "layer_8_mesh"
+		name = "illustration_override_anims" #schematic
+	}
+	gfx_environment_file = "gfx/illustrations/environment2.txt"
+
+	camera = {
+		camera_near_far = {0.11 100000}
+		camera_fov_y_degrees = 37.5
+		camera_position = {0 0 -125}
+		camera_look_at = {0 0 1000}
+	}
+}
+
+# TFE: this slot shows a flat Roman-era fresco instead: one layer on the backdrop mesh
+loading_screen_scene_florence = {
+	ecs_illustration_image = {
+		list = "tfe_loading_lute"
+		pdxmesh = "layer_8_mesh"
+		name = "illustration_override_anims" #schematic
+	}
+	gfx_environment_file = "gfx/illustrations/environment2.txt"
+
+	camera = {
+		camera_near_far = {0.11 100000}
+		camera_fov_y_degrees = 37.5
+		camera_position = {0 0 -125}
+		camera_look_at = {0 0 1000}
+	}
+}
+
+
+# TFE: this slot shows a flat Roman-era fresco instead: one layer on the backdrop mesh
+loading_screen_scene_zheng_he = {
+	ecs_illustration_image = {
+		list = "tfe_loading_han_court"
+		pdxmesh = "layer_8_mesh"
+		name = "illustration_override_anims" #schematic
+	}
+	gfx_environment_file = "gfx/illustrations/environment2.txt"
+
+	camera = {
+		camera_near_far = {0.11 100000}
+		camera_fov_y_degrees = 37.5
+		camera_position = {0 0 -125}
+		camera_look_at = {0 0 1000}
+	}
+}
+
+
+
+# TFE: this slot shows a flat Roman-era fresco instead: one layer on the backdrop mesh
+loading_screen_scene_martin_luther = {
+	ecs_illustration_image = {
+		list = "tfe_loading_vision"
+		pdxmesh = "layer_8_mesh"
+		name = "illustration_override_anims" #schematic
+	}
+	gfx_environment_file = "gfx/illustrations/environment2.txt"
+
+	camera = {
+		camera_near_far = {0.11 100000}
+		camera_fov_y_degrees = 37.5
+		camera_position = {0 0 -125}
+		camera_look_at = {0 0 1000}
+	}
+}
+
+
+# TFE: this slot shows a flat Roman-era fresco instead: one layer on the backdrop mesh
+loading_screen_scene_damascus_ambassadors = {
+	ecs_illustration_image = {
+		list = "tfe_loading_balcony"
+		pdxmesh = "layer_8_mesh"
+		name = "illustration_override_anims" #schematic
+	}
+	gfx_environment_file = "gfx/illustrations/environment2.txt"
+
+	camera = {
+		camera_near_far = {0.11 100000}
+		camera_fov_y_degrees = 37.5
+		camera_position = {0 0 -125}
+		camera_look_at = {0 0 1000}
+	}
+}
+
+# TFE: this slot shows a flat Roman-era fresco instead: one layer on the backdrop mesh
+loading_screen_scene_deccan = {
+	ecs_illustration_image = {
+		list = "tfe_loading_ruins"
+		pdxmesh = "layer_8_mesh"
+		name = "illustration_override_anims" #schematic
+	}
+	gfx_environment_file = "gfx/illustrations/environment2.txt"
+
+	camera = {
+		camera_near_far = {0.11 100000}
+		camera_fov_y_degrees = 37.5
+		camera_position = {0 0 -125}
+		camera_look_at = {0 0 1000}
+	}
+}
+
+# TFE: this slot shows a flat Roman-era fresco instead: one layer on the backdrop mesh
+loading_screen_scene_aztec = {
+	ecs_illustration_image = {
+		list = "tfe_loading_triumph"
+		pdxmesh = "layer_8_mesh"
+		name = "illustration_override_anims" #schematic
+	}
+	gfx_environment_file = "gfx/illustrations/environment2.txt"
+
+	camera = {
+		camera_near_far = {0.11 100000}
+		camera_fov_y_degrees = 37.5
+		camera_position = {0 0 -125}
+		camera_look_at = {0 0 1000}
+	}
+}
+
+# TFE: this slot shows a flat Roman-era fresco instead: one layer on the backdrop mesh
+loading_screen_scene_iroquois_ambush = {
+	ecs_illustration_image = {
+		list = "tfe_loading_warrior"
+		pdxmesh = "layer_8_mesh"
+		name = "illustration_override_anims" #schematic
+	}
+	gfx_environment_file = "gfx/illustrations/environment2.txt"
+
+	camera = {
+		camera_near_far = {0.11 100000}
+		camera_fov_y_degrees = 37.5
+		camera_position = {0 0 -125}
+		camera_look_at = {0 0 1000}
+	}
+}
+
+
+
+# TFE: this slot shows a flat Roman-era fresco instead: one layer on the backdrop mesh
+loading_screen_scene_ashanti = {
+	ecs_illustration_image = {
+		list = "tfe_loading_cataphracts"
+		pdxmesh = "layer_8_mesh"
+		name = "illustration_override_anims" #schematic
+	}
+	gfx_environment_file = "gfx/illustrations/environment2.txt"
+
+	camera = {
+		camera_near_far = {0.11 100000}
+		camera_fov_y_degrees = 37.5
+		camera_position = {0 0 -125}
+		camera_look_at = {0 0 1000}
+	}
+}
+
+
+# TFE: this slot shows a flat Roman-era fresco instead: one layer on the backdrop mesh
+loading_screen_scene_white_mountain = {
+	ecs_illustration_image = {
+		list = "tfe_loading_forest_ambush"
+		pdxmesh = "layer_8_mesh"
+		name = "illustration_override_anims" #schematic
+	}
+	gfx_environment_file = "gfx/illustrations/environment2.txt"
+
+	camera = {
+		camera_near_far = {0.11 100000}
+		camera_fov_y_degrees = 37.5
+		camera_position = {0 0 -125}
+		camera_look_at = {0 0 1000}
+	}
+}
+
+
+# TFE: this slot shows a flat Roman-era fresco instead: one layer on the backdrop mesh
+loading_screen_scene_hansa = {
+	ecs_illustration_image = {
+		list = "tfe_loading_king"
+		pdxmesh = "layer_8_mesh"
+		name = "illustration_override_anims" #schematic
+	}
+	gfx_environment_file = "gfx/illustrations/environment2.txt"
+
+	camera = {
+		camera_near_far = {0.11 100000}
+		camera_fov_y_degrees = 37.5
+		camera_position = {0 0 -125}
+		camera_look_at = {0 0 1000}
+	}
+}

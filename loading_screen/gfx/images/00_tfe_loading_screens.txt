@@ -1,0 +1,107 @@
+﻿tfe_loading_surrender = {
+	illustration_image = {
+		texture_file = "gfx/loading_screen_assets/00/images/tfe_loading_surrender.dds"
+		priority = 1
+		weight = 1
+	}
+	tag = "tfe_loading_surrender"
+}
+
+tfe_loading_lute = {
+	illustration_image = {
+		texture_file = "gfx/loading_screen_assets/00/images/tfe_loading_lute.dds"
+		priority = 1
+		weight = 1
+	}
+	tag = "tfe_loading_lute"
+}
+
+tfe_loading_balcony = {
+	illustration_image = {
+		texture_file = "gfx/loading_screen_assets/00/images/tfe_loading_balcony.dds"
+		priority = 1
+		weight = 1
+	}
+	tag = "tfe_loading_balcony"
+}
+
+tfe_loading_vision = {
+	illustration_image = {
+		texture_file = "gfx/loading_screen_assets/00/images/tfe_loading_vision.dds"
+		priority = 1
+		weight = 1
+	}
+	tag = "tfe_loading_vision"
+}
+
+tfe_loading_han_court = {
+	illustration_image = {
+		texture_file = "gfx/loading_screen_assets/00/images/tfe_loading_han_court.dds"
+		priority = 1
+		weight = 1
+	}
+	tag = "tfe_loading_han_court"
+}
+
+tfe_loading_ruins = {
+	illustration_image = {
+		texture_file = "gfx/loading_screen_assets/00/images/tfe_loading_ruins.dds"
+		priority = 1
+		weight = 1
+	}
+	tag = "tfe_loading_ruins"
+}
+
+tfe_loading_triumph = {
+	illustration_image = {
+		texture_file = "gfx/loading_screen_assets/00/images/tfe_loading_triumph.dds"
+		priority = 1
+		weight = 1
+	}
+	tag = "tfe_loading_triumph"
+}
+
+tfe_loading_warrior = {
+	illustration_image = {
+		texture_file = "gfx/loading_screen_assets/00/images/tfe_loading_warrior.dds"
+		priority = 1
+		weight = 1
+	}
+	tag = "tfe_loading_warrior"
+}
+
+tfe_loading_cataphracts = {
+	illustration_image = {
+		texture_file = "gfx/loading_screen_assets/00/images/tfe_loading_cataphracts.dds"
+		priority = 1
+		weight = 1
+	}
+	tag = "tfe_loading_cataphracts"
+}
+
+tfe_loading_forest_ambush = {
+	illustration_image = {
+		texture_file = "gfx/loading_screen_assets/00/images/tfe_loading_forest_ambush.dds"
+		priority = 1
+		weight = 1
+	}
+	tag = "tfe_loading_forest_ambush"
+}
+
+tfe_loading_king = {
+	illustration_image = {
+		texture_file = "gfx/loading_screen_assets/00/images/tfe_loading_king.dds"
+		priority = 1
+		weight = 1
+	}
+	tag = "tfe_loading_king"
+}
+
+tfe_loading_issus = {
+	illustration_image = {
+		texture_file = "gfx/loading_screen_assets/00/images/tfe_loading_issus.dds"
+		priority = 1
+		weight = 1
+	}
+	tag = "tfe_loading_issus"
+}
