@@ -8,7 +8,7 @@ from __future__ import annotations
 from contextlib import contextmanager
 from typing import Any, ContextManager, Generic, Iterator, Literal, TypeVar
 
-from pdx.core import Scope
+from pdx.core import Cmp, Scope
 
 
 Outcome = Literal["positive", "neutral", "negative"]
@@ -5451,7 +5451,7 @@ class AnyTrig(Scope):
     def byzantine_succession_crisis_end_trigger(self, _v: bool | str | float = True, /) -> None: self._call("byzantine_succession_crisis_end_trigger", _v)
     def cabinet_already_performing_same_task_on_target(self, _v: bool | str | float | None = None, /, *, cabinet_action: Any = None, interaction_target: Any = None) -> None:
         _scripted(self, "cabinet_already_performing_same_task_on_target", _v, dict(cabinet_action=cabinet_action, interaction_target=interaction_target))
-    def calc_true_if(self, *, any_unit: Any = None) -> None: self._call("calc_true_if", **_kw(any_unit=any_unit))
+    def calc_true_if(self, *, any_unit: Any = None, amount: Cmp) -> None: self._call("calc_true_if", **_kw(any_unit=any_unit, amount=amount))
     def can_add_relation(self, *, first: Any = None, second: Any = None, type: Any = None) -> None: self._call("can_add_relation", **_kw(first=first, second=second, type=type))
     def can_adopt_compatible_religion_law(self, _v: bool | str | float | None = None, /, *, country: Any = None) -> None:
         _scripted(self, "can_adopt_compatible_religion_law", _v, dict(country=country))
@@ -6155,7 +6155,7 @@ class AnyTrig(Scope):
     def get_senior_partner(self, _v: bool | str | float | None = None, /, *, union: Any = None) -> None:
         _scripted(self, "get_senior_partner", _v, dict(union=union))
     def global_trade_plausible_location(self, _v: bool | str | float = True, /) -> None: self._call("global_trade_plausible_location", _v)
-    def global_variable_list_size(self, *, name: Any) -> None: self._call("global_variable_list_size", **_kw(name=name))
+    def global_variable_list_size(self, *, name: Any, value: Cmp) -> None: self._call("global_variable_list_size", **_kw(name=name, value=value))
     def global_variable_map_size(self, *args: Any, **kw: Any) -> None: self._call("global_variable_map_size", *args, **kw)
     def go_advance_type(self, data: Any, /, *, op: Op = "=") -> ContextManager[AdvanceTypeTrig]:
         return self.link(f"advance_type:{data}", AdvanceTypeTrig, op=op)
@@ -6848,13 +6848,13 @@ class AnyTrig(Scope):
         _scripted(self, "law_is_not_locked", _v, dict(type=type))
     def legalism_events_10_trigger(self, _v: bool | str | float = True, /) -> None: self._call("legalism_events_10_trigger", _v)
     def levee_en_masse_plausible_location(self, _v: bool | str | float = True, /) -> None: self._call("levee_en_masse_plausible_location", _v)
-    def list_size(self, _v: Any = None, /, *, op: Op = "=", name: Any = None) -> None:
+    def list_size(self, _v: Any = None, /, *, op: Op = "=", name: Any = None, value: Any = None) -> None:
         if _v is None:
-            self._call("list_size", **_kw(name=name))
+            self._call("list_size", **_kw(name=name, value=value))
         else:
             self._cmp("list_size", op, _v)
     def little_ice_age_end_trigger(self, _v: bool | str | float = True, /) -> None: self._call("little_ice_age_end_trigger", _v)
-    def local_variable_list_size(self, *, name: Any) -> None: self._call("local_variable_list_size", **_kw(name=name))
+    def local_variable_list_size(self, *, name: Any, value: Cmp) -> None: self._call("local_variable_list_size", **_kw(name=name, value=value))
     def local_variable_map_size(self, *args: Any, **kw: Any) -> None: self._call("local_variable_map_size", *args, **kw)
     def location_and_owner_can_build(self, _v: bool | str | float | None = None, /, *, building_type: Any = None) -> None:
         _scripted(self, "location_and_owner_can_build", _v, dict(building_type=building_type))
@@ -7116,13 +7116,13 @@ class AnyTrig(Scope):
     def valid_male_for_ruler(self, _v: bool | str | float = True, /) -> None: self._call("valid_male_for_ruler", _v)
     def valid_malwa_land(self, _v: bool | str | float = True, /) -> None: self._call("valid_malwa_land", _v)
     def valid_york_growth(self, _v: bool | str | float = True, /) -> None: self._call("valid_york_growth", _v)
-    def variable_list_size(self, *, name: Any) -> None: self._call("variable_list_size", **_kw(name=name))
+    def variable_list_size(self, *, name: Any, value: Cmp) -> None: self._call("variable_list_size", **_kw(name=name, value=value))
     def variable_map_size(self, *, name: Any = None) -> None: self._call("variable_map_size", **_kw(name=name))
     def war_of_religions_end_trigger(self, _v: bool | str | float = True, /) -> None: self._call("war_of_religions_end_trigger", _v)
     def war_of_the_aragonese_union_disaster_end_trigger(self, _v: bool | str | float = True, /) -> None: self._call("war_of_the_aragonese_union_disaster_end_trigger", _v)
     def war_of_the_roses_end_trigger(self, _v: bool | str | float = True, /) -> None: self._call("war_of_the_roses_end_trigger", _v)
     def was_recently_under_interdict(self, _v: bool | str | float = True, /) -> None: self._call("was_recently_under_interdict", _v)
-    def weighted_calc_true_if(self, *, amount: Any = None) -> None: self._call("weighted_calc_true_if", **_kw(amount=amount))
+    def weighted_calc_true_if(self, *, amount: Cmp) -> None: self._call("weighted_calc_true_if", **_kw(amount=amount))
     def western_schism_end_trigger(self, _v: bool | str | float = True, /) -> None: self._call("western_schism_end_trigger", _v)
     def wokou_events_5_target_trigger(self, _v: bool | str | float = True, /) -> None: self._call("wokou_events_5_target_trigger", _v)
     def wokou_has_sponsor(self, _v: bool | str | float = True, /) -> None: self._call("wokou_has_sponsor", _v)
@@ -7219,9 +7219,9 @@ class AreaTrig(AnyTrig):
     def area_average_control(self, _v: Any, /, op: Op = "=") -> None: self._cmp("area_average_control", op, _v)
     def area_average_integration(self, _v: Any, /, op: Op = "=") -> None: self._cmp("area_average_integration", op, _v)
     def area_exploration_progress(self, _v: Any, /, op: Op = "=") -> None: self._cmp("area_exploration_progress", op, _v)
-    def culture_group_percentage(self, _v: Any = None, /, *, op: Op = "=", culture_group: Any = None) -> None:
+    def culture_group_percentage(self, _v: Any = None, /, *, op: Op = "=", culture_group: Any = None, value: Cmp | None = None) -> None:
         if _v is None:
-            self._call("culture_group_percentage", **_kw(culture_group=culture_group))
+            self._call("culture_group_percentage", **_kw(culture_group=culture_group, value=value))
         else:
             self._cmp("culture_group_percentage", op, _v)
     def culture_group_population(self, _v: Any = None, /, *, op: Op = "=", culture_group: Any = None) -> None:
@@ -7229,9 +7229,9 @@ class AreaTrig(AnyTrig):
             self._call("culture_group_population", **_kw(culture_group=culture_group))
         else:
             self._cmp("culture_group_population", op, _v)
-    def culture_percentage(self, _v: Any = None, /, *, op: Op = "=", culture: Any = None) -> None:
+    def culture_percentage(self, _v: Any = None, /, *, op: Op = "=", culture: Any = None, value: Cmp | None = None) -> None:
         if _v is None:
-            self._call("culture_percentage", **_kw(culture=culture))
+            self._call("culture_percentage", **_kw(culture=culture, value=value))
         else:
             self._cmp("culture_percentage", op, _v)
     def culture_percentage_in_area(self, _v: Any = None, /, *, op: Op = "=", country: Any = None, culture: Any = None) -> None:
@@ -7292,9 +7292,9 @@ class AreaTrig(AnyTrig):
             self._call("religion_group_population", **_kw(religion_group=religion_group))
         else:
             self._cmp("religion_group_population", op, _v)
-    def religion_percentage(self, _v: Any = None, /, *, op: Op = "=", religion: Any = None) -> None:
+    def religion_percentage(self, _v: Any = None, /, *, op: Op = "=", religion: Any = None, value: Cmp | None = None) -> None:
         if _v is None:
-            self._call("religion_percentage", **_kw(religion=religion))
+            self._call("religion_percentage", **_kw(religion=religion, value=value))
         else:
             self._cmp("religion_percentage", op, _v)
     def religion_population(self, _v: Any = None, /, *, op: Op = "=", religion: Any = None) -> None:
@@ -7508,9 +7508,9 @@ class CharacterTrig(AnyTrig):
             self._cmp("character_modifier_strength", op, _v)
     def character_name(self, _v: Any, /) -> None: self._call("character_name", _v)
     def character_nickname(self, *args: Any, **kw: Any) -> None: self._call("character_nickname", *args, **kw)
-    def country_modifier_strength(self, _v: Any = None, /, *, op: Op = "=", modifier: Any = None) -> None:
+    def country_modifier_strength(self, _v: Any = None, /, *, op: Op = "=", modifier: Any = None, value: Cmp | None = None) -> None:
         if _v is None:
-            self._call("country_modifier_strength", **_kw(modifier=modifier))
+            self._call("country_modifier_strength", **_kw(modifier=modifier, value=value))
         else:
             self._cmp("country_modifier_strength", op, _v)
     def days_as_rebel(self, _v: Any, /, op: Op = "=") -> None: self._cmp("days_as_rebel", op, _v)
@@ -7597,9 +7597,9 @@ class CharacterTrig(AnyTrig):
     def has_unit(self, _v: Any, /, op: Op = "=") -> None: self._cmp("has_unit", op, _v)
     def has_unit_modifier(self, _v: Any, /) -> None: self._call("has_unit_modifier", _v)
     def heir_position(self, _v: Any, /, op: Op = "=") -> None: self._cmp("heir_position", op, _v)
-    def heir_score(self, _v: Any = None, /, *, op: Op = "=", target: Any = None) -> None:
+    def heir_score(self, _v: Any = None, /, *, op: Op = "=", target: Any = None, value: Cmp | None = None) -> None:
         if _v is None:
-            self._call("heir_score", **_kw(target=target))
+            self._call("heir_score", **_kw(target=target, value=value))
         else:
             self._cmp("heir_score", op, _v)
     def heir_score_home(self, _v: Any, /, op: Op = "=") -> None: self._cmp("heir_score_home", op, _v)
@@ -7675,9 +7675,9 @@ class CharacterTrig(AnyTrig):
     def num_of_children(self, _v: Any, /, op: Op = "=") -> None: self._cmp("num_of_children", op, _v)
     def num_of_spouses(self, _v: Any, /, op: Op = "=") -> None: self._cmp("num_of_spouses", op, _v)
     def num_of_traits(self, _v: Any, /, op: Op = "=") -> None: self._cmp("num_of_traits", op, _v)
-    def num_of_traits_of_category(self, _v: Any = None, /, *, op: Op = "=", type: Any = None) -> None:
+    def num_of_traits_of_category(self, _v: Any = None, /, *, op: Op = "=", type: Any = None, value: Cmp | None = None) -> None:
         if _v is None:
-            self._call("num_of_traits_of_category", **_kw(type=type))
+            self._call("num_of_traits_of_category", **_kw(type=type, value=value))
         else:
             self._cmp("num_of_traits_of_category", op, _v)
     def province_modifier_strength(self, _v: Any = None, /, *, op: Op = "=", modifier: Any = None) -> None:
@@ -7805,9 +7805,9 @@ class ContinentTrig(AnyTrig):
         return self._open("any_present_overlord", CountryTrig, **_kw(count=count, percent=percent))
     def any_sub_continent_in_continent(self, *, count: Any = None, percent: Any = None) -> ContextManager[SubContinentTrig]:
         return self._open("any_sub_continent_in_continent", SubContinentTrig, **_kw(count=count, percent=percent))
-    def culture_group_percentage(self, _v: Any = None, /, *, op: Op = "=", culture_group: Any = None) -> None:
+    def culture_group_percentage(self, _v: Any = None, /, *, op: Op = "=", culture_group: Any = None, value: Cmp | None = None) -> None:
         if _v is None:
-            self._call("culture_group_percentage", **_kw(culture_group=culture_group))
+            self._call("culture_group_percentage", **_kw(culture_group=culture_group, value=value))
         else:
             self._cmp("culture_group_percentage", op, _v)
     def culture_group_population(self, _v: Any = None, /, *, op: Op = "=", culture_group: Any = None) -> None:
@@ -7815,9 +7815,9 @@ class ContinentTrig(AnyTrig):
             self._call("culture_group_population", **_kw(culture_group=culture_group))
         else:
             self._cmp("culture_group_population", op, _v)
-    def culture_percentage(self, _v: Any = None, /, *, op: Op = "=", culture: Any = None) -> None:
+    def culture_percentage(self, _v: Any = None, /, *, op: Op = "=", culture: Any = None, value: Cmp | None = None) -> None:
         if _v is None:
-            self._call("culture_percentage", **_kw(culture=culture))
+            self._call("culture_percentage", **_kw(culture=culture, value=value))
         else:
             self._cmp("culture_percentage", op, _v)
     def culture_population(self, _v: Any = None, /, *, op: Op = "=", culture: Any = None) -> None:
@@ -7848,9 +7848,9 @@ class ContinentTrig(AnyTrig):
             self._call("religion_group_population", **_kw(religion_group=religion_group))
         else:
             self._cmp("religion_group_population", op, _v)
-    def religion_percentage(self, _v: Any = None, /, *, op: Op = "=", religion: Any = None) -> None:
+    def religion_percentage(self, _v: Any = None, /, *, op: Op = "=", religion: Any = None, value: Cmp | None = None) -> None:
         if _v is None:
-            self._call("religion_percentage", **_kw(religion=religion))
+            self._call("religion_percentage", **_kw(religion=religion, value=value))
         else:
             self._cmp("religion_percentage", op, _v)
     def religion_population(self, _v: Any = None, /, *, op: Op = "=", religion: Any = None) -> None:
@@ -7887,9 +7887,9 @@ class CountryTrig(AnyTrig):
             self._call("annexation_progress", **_kw(target=target, value=value))
         else:
             self._cmp("annexation_progress", op, _v)
-    def antagonism(self, _v: Any = None, /, *, op: Op = "=", target: Any = None) -> None:
+    def antagonism(self, _v: Any = None, /, *, op: Op = "=", target: Any = None, value: Cmp | None = None) -> None:
         if _v is None:
-            self._call("antagonism", **_kw(target=target))
+            self._call("antagonism", **_kw(target=target, value=value))
         else:
             self._cmp("antagonism", op, _v)
     def any_accepted_culture(self, *, count: Any = None, percent: Any = None) -> ContextManager[CultureTrig]:
@@ -8173,9 +8173,9 @@ class CountryTrig(AnyTrig):
     def average_country_literacy(self, _v: Any, /, op: Op = "=") -> None: self._cmp("average_country_literacy", op, _v)
     def average_estate_satisfaction(self, _v: Any, /, op: Op = "=") -> None: self._cmp("average_estate_satisfaction", op, _v)
     def bond_capacity(self, _v: Any, /, op: Op = "=") -> None: self._cmp("bond_capacity", op, _v)
-    def border_distance_to(self, _v: Any = None, /, *, op: Op = "=", country: Any = None) -> None:
+    def border_distance_to(self, _v: Any = None, /, *, op: Op = "=", country: Any = None, value: Cmp | None = None) -> None:
         if _v is None:
-            self._call("border_distance_to", **_kw(country=country))
+            self._call("border_distance_to", **_kw(country=country, value=value))
         else:
             self._cmp("border_distance_to", op, _v)
     def building_type_is_obsolete(self, _v: Any, /, op: Op = "=") -> None: self._cmp("building_type_is_obsolete", op, _v)
@@ -8245,9 +8245,9 @@ class CountryTrig(AnyTrig):
     def complacency(self, _v: Any, /, op: Op = "=") -> None: self._cmp("complacency", op, _v)
     def complacency_percentage(self, _v: Any, /, op: Op = "=") -> None: self._cmp("complacency_percentage", op, _v)
     def conquer_area_preference(self, _v: Any, /, op: Op = "=") -> None: self._cmp("conquer_area_preference", op, _v)
-    def conquer_desire(self, _v: Any = None, /, *, op: Op = "=", target: Any = None) -> None:
+    def conquer_desire(self, _v: Any = None, /, *, op: Op = "=", target: Any = None, value: Cmp | None = None) -> None:
         if _v is None:
-            self._call("conquer_desire", **_kw(target=target))
+            self._call("conquer_desire", **_kw(target=target, value=value))
         else:
             self._cmp("conquer_desire", op, _v)
     def conquistador_utility(self, _v: Any = None, /, *, op: Op = "=", area: Any = None) -> None:
@@ -8275,15 +8275,15 @@ class CountryTrig(AnyTrig):
     def country_has_estate(self, _v: Any, /, op: Op = "=") -> None: self._cmp("country_has_estate", op, _v)
     def country_has_order(self, _v: Any, /, op: Op = "=") -> None: self._cmp("country_has_order", op, _v)
     def country_highest_rated_special_status_power(self, _v: Any, /, op: Op = "=") -> None: self._cmp("country_highest_rated_special_status_power", op, _v)
-    def country_interaction_acceptance(self, _v: Any = None, /, *, op: Op = "=", type: Any = None, target: Any = None) -> None:
+    def country_interaction_acceptance(self, _v: Any = None, /, *, op: Op = "=", type: Any = None, target: Any = None, value: Cmp | None = None) -> None:
         if _v is None:
-            self._call("country_interaction_acceptance", **_kw(type=type, target=target))
+            self._call("country_interaction_acceptance", **_kw(type=type, target=target, value=value))
         else:
             self._cmp("country_interaction_acceptance", op, _v)
     def country_loan_capacity(self, _v: Any, /, op: Op = "=") -> None: self._cmp("country_loan_capacity", op, _v)
-    def country_modifier_strength(self, _v: Any = None, /, *, op: Op = "=", modifier: Any = None) -> None:
+    def country_modifier_strength(self, _v: Any = None, /, *, op: Op = "=", modifier: Any = None, value: Cmp | None = None) -> None:
         if _v is None:
-            self._call("country_modifier_strength", **_kw(modifier=modifier))
+            self._call("country_modifier_strength", **_kw(modifier=modifier, value=value))
         else:
             self._cmp("country_modifier_strength", op, _v)
     def country_rank_level(self, _v: Any, /, op: Op = "=") -> None: self._cmp("country_rank_level", op, _v)
@@ -8306,20 +8306,20 @@ class CountryTrig(AnyTrig):
     def creditworthiness(self, _v: Any, /, op: Op = "=") -> None: self._cmp("creditworthiness", op, _v)
     def cultural_maintenance(self, _v: Any, /, op: Op = "=") -> None: self._cmp("cultural_maintenance", op, _v)
     def cultural_unity(self, _v: Any, /, op: Op = "=") -> None: self._cmp("cultural_unity", op, _v)
-    def culture_group_percentage_in_country(self, _v: Any = None, /, *, op: Op = "=", culture_group: Any = None) -> None:
+    def culture_group_percentage_in_country(self, _v: Any = None, /, *, op: Op = "=", culture_group: Any = None, value: Cmp | None = None) -> None:
         if _v is None:
-            self._call("culture_group_percentage_in_country", **_kw(culture_group=culture_group))
+            self._call("culture_group_percentage_in_country", **_kw(culture_group=culture_group, value=value))
         else:
             self._cmp("culture_group_percentage_in_country", op, _v)
     def culture_group_population_in_country(self, _v: Any, /, op: Op = "=") -> None: self._cmp("culture_group_population_in_country", op, _v)
-    def culture_percentage_in_country(self, _v: Any = None, /, *, op: Op = "=", culture: Any = None) -> None:
+    def culture_percentage_in_country(self, _v: Any = None, /, *, op: Op = "=", culture: Any = None, value: Cmp | None = None) -> None:
         if _v is None:
-            self._call("culture_percentage_in_country", **_kw(culture=culture))
+            self._call("culture_percentage_in_country", **_kw(culture=culture, value=value))
         else:
             self._cmp("culture_percentage_in_country", op, _v)
-    def culture_population_in_country(self, _v: Any = None, /, *, op: Op = "=", culture: Any = None) -> None:
+    def culture_population_in_country(self, _v: Any = None, /, *, op: Op = "=", culture: Any = None, value: Cmp | None = None) -> None:
         if _v is None:
-            self._call("culture_population_in_country", **_kw(culture=culture))
+            self._call("culture_population_in_country", **_kw(culture=culture, value=value))
         else:
             self._cmp("culture_population_in_country", op, _v)
     def currency_percentage_towards_limit(self, _v: Any, /, op: Op = "=") -> None: self._cmp("currency_percentage_towards_limit", op, _v)
@@ -8363,9 +8363,9 @@ class CountryTrig(AnyTrig):
     def does_estate_want_other_policy(self, *args: Any, **kw: Any) -> None: self._call("does_estate_want_other_policy", *args, **kw)
     def doom(self, _v: Any, /, op: Op = "=") -> None: self._cmp("doom", op, _v)
     def doom_percentage(self, _v: Any, /, op: Op = "=") -> None: self._cmp("doom_percentage", op, _v)
-    def dynastic_power(self, _v: Any = None, /, *, op: Op = "=", international_organization: Any = None) -> None:
+    def dynastic_power(self, _v: Any = None, /, *, op: Op = "=", international_organization: Any = None, value: Cmp | None = None) -> None:
         if _v is None:
-            self._call("dynastic_power", **_kw(international_organization=international_organization))
+            self._call("dynastic_power", **_kw(international_organization=international_organization, value=value))
         else:
             self._cmp("dynastic_power", op, _v)
     def dynasty_modifier_strength(self, _v: Any = None, /, *, op: Op = "=", modifier: Any = None) -> None:
@@ -8379,19 +8379,19 @@ class CountryTrig(AnyTrig):
         else:
             self._cmp("employment_system_desire", op, _v)
     def estate_loan_interest(self, _v: Any, /, op: Op = "=") -> None: self._cmp("estate_loan_interest", op, _v)
-    def estate_max_tax(self, _v: Any = None, /, *, op: Op = "=", estate_type: Any = None) -> None:
+    def estate_max_tax(self, _v: Any = None, /, *, op: Op = "=", estate_type: Any = None, value: Cmp | None = None) -> None:
         if _v is None:
-            self._call("estate_max_tax", **_kw(estate_type=estate_type))
+            self._call("estate_max_tax", **_kw(estate_type=estate_type, value=value))
         else:
             self._cmp("estate_max_tax", op, _v)
-    def estate_opinion(self, _v: Any = None, /, *, op: Op = "=", estate_type: Any = None, target: Any = None) -> None:
+    def estate_opinion(self, _v: Any = None, /, *, op: Op = "=", estate_type: Any = None, target: Any = None, value: Cmp | None = None) -> None:
         if _v is None:
-            self._call("estate_opinion", **_kw(estate_type=estate_type, target=target))
+            self._call("estate_opinion", **_kw(estate_type=estate_type, target=target, value=value))
         else:
             self._cmp("estate_opinion", op, _v)
-    def estate_satisfaction(self, _v: Any = None, /, *, op: Op = "=", estate_type: Any = None) -> None:
+    def estate_satisfaction(self, _v: Any = None, /, *, op: Op = "=", estate_type: Any = None, value: Cmp | None = None) -> None:
         if _v is None:
-            self._call("estate_satisfaction", **_kw(estate_type=estate_type))
+            self._call("estate_satisfaction", **_kw(estate_type=estate_type, value=value))
         else:
             self._cmp("estate_satisfaction", op, _v)
     def estate_type_allowed_in_cabinet(self, *, estate_type: Any = None) -> None: self._call("estate_type_allowed_in_cabinet", **_kw(estate_type=estate_type))
@@ -8405,9 +8405,9 @@ class CountryTrig(AnyTrig):
             self._call("exploration_utility", **_kw(area=area, character=character))
         else:
             self._cmp("exploration_utility", op, _v)
-    def favors(self, _v: Any = None, /, *, op: Op = "=", target: Any = None) -> None:
+    def favors(self, _v: Any = None, /, *, op: Op = "=", target: Any = None, value: Cmp | None = None) -> None:
         if _v is None:
-            self._call("favors", **_kw(target=target))
+            self._call("favors", **_kw(target=target, value=value))
         else:
             self._cmp("favors", op, _v)
     def favors_needed_to_annul_relations_with(self, _v: Any = None, /, *, op: Op = "=", target: Any = None) -> None:
@@ -8560,9 +8560,9 @@ class CountryTrig(AnyTrig):
     def great_power_ranking(self, _v: Any, /, op: Op = "=") -> None: self._cmp("great_power_ranking", op, _v)
     def great_power_score(self, _v: Any, /, op: Op = "=") -> None: self._cmp("great_power_score", op, _v)
     def had_country_rank_level(self, *args: Any, **kw: Any) -> None: self._call("had_country_rank_level", *args, **kw)
-    def had_disaster_for_years(self, _v: Any = None, /, *, op: Op = "=", disaster_type: Any = None) -> None:
+    def had_disaster_for_years(self, _v: Any = None, /, *, op: Op = "=", disaster_type: Any = None, years: Cmp | None = None) -> None:
         if _v is None:
-            self._call("had_disaster_for_years", **_kw(disaster_type=disaster_type))
+            self._call("had_disaster_for_years", **_kw(disaster_type=disaster_type, years=years))
         else:
             self._cmp("had_disaster_for_years", op, _v)
     def harmony(self, _v: Any, /, op: Op = "=") -> None: self._cmp("harmony", op, _v)
@@ -8670,9 +8670,9 @@ class CountryTrig(AnyTrig):
     def has_unlocked_any_unit_of_category(self, _v: Any, /) -> None: self._call("has_unlocked_any_unit_of_category", _v)
     def has_voted_for_issue_in_parliament(self, _v: Any, /, op: Op = "=") -> None: self._cmp("has_voted_for_issue_in_parliament", op, _v)
     def heathen_population_fraction(self, _v: Any, /, op: Op = "=") -> None: self._cmp("heathen_population_fraction", op, _v)
-    def heir_score_country(self, _v: Any = None, /, *, op: Op = "=", target: Any = None) -> None:
+    def heir_score_country(self, _v: Any = None, /, *, op: Op = "=", target: Any = None, value: Cmp | None = None) -> None:
         if _v is None:
-            self._call("heir_score_country", **_kw(target=target))
+            self._call("heir_score_country", **_kw(target=target, value=value))
         else:
             self._cmp("heir_score_country", op, _v)
     def heretic_population_fraction(self, _v: Any, /, op: Op = "=") -> None: self._cmp("heretic_population_fraction", op, _v)
@@ -8768,9 +8768,9 @@ class CountryTrig(AnyTrig):
     def karma_percentage(self, _v: Any, /, op: Op = "=") -> None: self._cmp("karma_percentage", op, _v)
     def knows_about_institution(self, _v: Any, /, op: Op = "=") -> None: self._cmp("knows_about_institution", op, _v)
     def knows_country(self, _v: Any, /, op: Op = "=") -> None: self._cmp("knows_country", op, _v)
-    def language_percentage_in_country(self, _v: Any = None, /, *, op: Op = "=", language: Any = None) -> None:
+    def language_percentage_in_country(self, _v: Any = None, /, *, op: Op = "=", language: Any = None, value: Cmp | None = None) -> None:
         if _v is None:
-            self._call("language_percentage_in_country", **_kw(language=language))
+            self._call("language_percentage_in_country", **_kw(language=language, value=value))
         else:
             self._cmp("language_percentage_in_country", op, _v)
     def language_population_in_country(self, _v: Any, /, op: Op = "=") -> None: self._cmp("language_population_in_country", op, _v)
@@ -8786,9 +8786,9 @@ class CountryTrig(AnyTrig):
             self._call("location_modifier_strength", **_kw(modifier=modifier))
         else:
             self._cmp("location_modifier_strength", op, _v)
-    def location_progress_for_formable(self, _v: Any = None, /, *, op: Op = "=", formable_country: Any = None) -> None:
+    def location_progress_for_formable(self, _v: Any = None, /, *, op: Op = "=", formable_country: Any = None, value: Cmp | None = None) -> None:
         if _v is None:
-            self._call("location_progress_for_formable", **_kw(formable_country=formable_country))
+            self._call("location_progress_for_formable", **_kw(formable_country=formable_country, value=value))
         else:
             self._cmp("location_progress_for_formable", op, _v)
     def long_term_eco_growth(self, _v: Any, /, op: Op = "=") -> None: self._cmp("long_term_eco_growth", op, _v)
@@ -8923,9 +8923,9 @@ class CountryTrig(AnyTrig):
             self._call("offer_relation_acceptance", **_kw(type=type, target=target))
         else:
             self._cmp("offer_relation_acceptance", op, _v)
-    def opinion(self, _v: Any = None, /, *, op: Op = "=", target: Any = None) -> None:
+    def opinion(self, _v: Any = None, /, *, op: Op = "=", target: Any = None, value: Cmp | None = None) -> None:
         if _v is None:
-            self._call("opinion", **_kw(target=target))
+            self._call("opinion", **_kw(target=target, value=value))
         else:
             self._cmp("opinion", op, _v)
     def opinion_difference_between(self, _v: Any = None, /, *, op: Op = "=", first: Any = None, second: Any = None) -> None:
@@ -8984,9 +8984,9 @@ class CountryTrig(AnyTrig):
         else:
             self._cmp("policy_utility", op, _v)
     def pop_type_percentage_in_country(self, _v: Any, /, op: Op = "=") -> None: self._cmp("pop_type_percentage_in_country", op, _v)
-    def pop_type_population_in_country(self, _v: Any = None, /, *, op: Op = "=", pop_type: Any = None) -> None:
+    def pop_type_population_in_country(self, _v: Any = None, /, *, op: Op = "=", pop_type: Any = None, value: Cmp | None = None) -> None:
         if _v is None:
-            self._call("pop_type_population_in_country", **_kw(pop_type=pop_type))
+            self._call("pop_type_population_in_country", **_kw(pop_type=pop_type, value=value))
         else:
             self._cmp("pop_type_population_in_country", op, _v)
     def possible_military_leaders(self, _v: Any, /, op: Op = "=") -> None: self._cmp("possible_military_leaders", op, _v)
@@ -9035,20 +9035,20 @@ class CountryTrig(AnyTrig):
             self._call("relative_defensive_alliance_strength", **_kw(target=target))
         else:
             self._cmp("relative_defensive_alliance_strength", op, _v)
-    def relative_military_strength(self, _v: Any = None, /, *, op: Op = "=", target: Any = None) -> None:
+    def relative_military_strength(self, _v: Any = None, /, *, op: Op = "=", target: Any = None, value: Cmp | None = None) -> None:
         if _v is None:
-            self._call("relative_military_strength", **_kw(target=target))
+            self._call("relative_military_strength", **_kw(target=target, value=value))
         else:
             self._cmp("relative_military_strength", op, _v)
-    def relative_strength(self, _v: Any = None, /, *, op: Op = "=", target: Any = None) -> None:
+    def relative_strength(self, _v: Any = None, /, *, op: Op = "=", target: Any = None, value: Cmp | None = None) -> None:
         if _v is None:
-            self._call("relative_strength", **_kw(target=target))
+            self._call("relative_strength", **_kw(target=target, value=value))
         else:
             self._cmp("relative_strength", op, _v)
     def relevant_countries(self, _v: Any, /, op: Op = "=") -> None: self._cmp("relevant_countries", op, _v)
-    def religion_group_percentage_in_country(self, _v: Any = None, /, *, op: Op = "=", religion_group: Any = None) -> None:
+    def religion_group_percentage_in_country(self, _v: Any = None, /, *, op: Op = "=", religion_group: Any = None, value: Cmp | None = None) -> None:
         if _v is None:
-            self._call("religion_group_percentage_in_country", **_kw(religion_group=religion_group))
+            self._call("religion_group_percentage_in_country", **_kw(religion_group=religion_group, value=value))
         else:
             self._cmp("religion_group_percentage_in_country", op, _v)
     def religion_group_population_in_country(self, _v: Any, /, op: Op = "=") -> None: self._cmp("religion_group_population_in_country", op, _v)
@@ -9057,14 +9057,14 @@ class CountryTrig(AnyTrig):
             self._call("religion_modifier_strength", **_kw(modifier=modifier))
         else:
             self._cmp("religion_modifier_strength", op, _v)
-    def religion_percentage_in_country(self, _v: Any = None, /, *, op: Op = "=", religion: Any = None) -> None:
+    def religion_percentage_in_country(self, _v: Any = None, /, *, op: Op = "=", religion: Any = None, value: Cmp | None = None) -> None:
         if _v is None:
-            self._call("religion_percentage_in_country", **_kw(religion=religion))
+            self._call("religion_percentage_in_country", **_kw(religion=religion, value=value))
         else:
             self._cmp("religion_percentage_in_country", op, _v)
-    def religion_population_in_country(self, _v: Any = None, /, *, op: Op = "=", religion: Any = None) -> None:
+    def religion_population_in_country(self, _v: Any = None, /, *, op: Op = "=", religion: Any = None, value: Cmp | None = None) -> None:
         if _v is None:
-            self._call("religion_population_in_country", **_kw(religion=religion))
+            self._call("religion_population_in_country", **_kw(religion=religion, value=value))
         else:
             self._cmp("religion_population_in_country", op, _v)
     def religious_influence(self, _v: Any, /, op: Op = "=") -> None: self._cmp("religious_influence", op, _v)
@@ -9128,9 +9128,9 @@ class CountryTrig(AnyTrig):
             self._cmp("short_term_trigger_currency_utility", op, _v)
     def slider_minting_value(self, _v: Any, /, op: Op = "=") -> None: self._cmp("slider_minting_value", op, _v)
     def societal_value_progress(self, _v: Any, /, op: Op = "=") -> None: self._cmp("societal_value_progress", op, _v)
-    def spy_network(self, _v: Any = None, /, *, op: Op = "=", target: Any = None) -> None:
+    def spy_network(self, _v: Any = None, /, *, op: Op = "=", target: Any = None, value: Cmp | None = None) -> None:
         if _v is None:
-            self._call("spy_network", **_kw(target=target))
+            self._call("spy_network", **_kw(target=target, value=value))
         else:
             self._cmp("spy_network", op, _v)
     def stability(self, _v: Any, /, op: Op = "=") -> None: self._cmp("stability", op, _v)
@@ -9162,9 +9162,9 @@ class CountryTrig(AnyTrig):
     def total_debt(self, _v: Any, /, op: Op = "=") -> None: self._cmp("total_debt", op, _v)
     def total_development(self, _v: Any, /, op: Op = "=") -> None: self._cmp("total_development", op, _v)
     def total_dynastic_power(self, _v: Any, /, op: Op = "=") -> None: self._cmp("total_dynastic_power", op, _v)
-    def total_effective_goods_production_buildings(self, _v: Any = None, /, *, op: Op = "=", goods: Any = None) -> None:
+    def total_effective_goods_production_buildings(self, _v: Any = None, /, *, op: Op = "=", goods: Any = None, value: Cmp | None = None) -> None:
         if _v is None:
-            self._call("total_effective_goods_production_buildings", **_kw(goods=goods))
+            self._call("total_effective_goods_production_buildings", **_kw(goods=goods, value=value))
         else:
             self._cmp("total_effective_goods_production_buildings", op, _v)
     def total_foreign_buildings_levels(self, _v: Any, /, op: Op = "=") -> None: self._cmp("total_foreign_buildings_levels", op, _v)
@@ -9181,9 +9181,9 @@ class CountryTrig(AnyTrig):
             self._call("total_population", **_kw(value=value, add=add, multiply=multiply))
         else:
             self._cmp("total_population", op, _v)
-    def total_population_in_international_organization(self, _v: Any = None, /, *, op: Op = "=", international_organization: Any = None) -> None:
+    def total_population_in_international_organization(self, _v: Any = None, /, *, op: Op = "=", international_organization: Any = None, value: Cmp | None = None) -> None:
         if _v is None:
-            self._call("total_population_in_international_organization", **_kw(international_organization=international_organization))
+            self._call("total_population_in_international_organization", **_kw(international_organization=international_organization, value=value))
         else:
             self._cmp("total_population_in_international_organization", op, _v)
     def total_population_in_international_organization_percentage(self, _v: Any = None, /, *, op: Op = "=", international_organization: Any = None) -> None:
@@ -9196,9 +9196,9 @@ class CountryTrig(AnyTrig):
     def total_true_faith_population(self, _v: Any, /, op: Op = "=") -> None: self._cmp("total_true_faith_population", op, _v)
     def tribal_cohesion(self, _v: Any, /, op: Op = "=") -> None: self._cmp("tribal_cohesion", op, _v)
     def tribal_cohesion_percentage(self, _v: Any, /, op: Op = "=") -> None: self._cmp("tribal_cohesion_percentage", op, _v)
-    def trust(self, _v: Any = None, /, *, op: Op = "=", target: Any = None) -> None:
+    def trust(self, _v: Any = None, /, *, op: Op = "=", target: Any = None, value: Cmp | None = None) -> None:
         if _v is None:
-            self._call("trust", **_kw(target=target))
+            self._call("trust", **_kw(target=target, value=value))
         else:
             self._cmp("trust", op, _v)
     def trust_equilibrium(self, _v: Any = None, /, *, op: Op = "=", target: Any = None, value: Any = None) -> None:
@@ -9249,26 +9249,26 @@ class CountryTrig(AnyTrig):
     def wants_to_attack(self, _v: Any, /, op: Op = "=") -> None: self._cmp("wants_to_attack", op, _v)
     def wants_to_give_away_any_province(self, _v: Any, /, op: Op = "=") -> None: self._cmp("wants_to_give_away_any_province", op, _v)
     def wants_to_subjugate(self, _v: Any, /, op: Op = "=") -> None: self._cmp("wants_to_subjugate", op, _v)
-    def war_enthusiasm(self, _v: Any = None, /, *, op: Op = "=", war: Any = None) -> None:
+    def war_enthusiasm(self, _v: Any = None, /, *, op: Op = "=", war: Any = None, value: Cmp | None = None) -> None:
         if _v is None:
-            self._call("war_enthusiasm", **_kw(war=war))
+            self._call("war_enthusiasm", **_kw(war=war, value=value))
         else:
             self._cmp("war_enthusiasm", op, _v)
     def war_exhaustion(self, _v: Any, /, op: Op = "=") -> None: self._cmp("war_exhaustion", op, _v)
     def war_exhaustion_percentage(self, _v: Any, /, op: Op = "=") -> None: self._cmp("war_exhaustion_percentage", op, _v)
-    def war_score_in_war(self, _v: Any = None, /, *, op: Op = "=", war: Any = None) -> None:
+    def war_score_in_war(self, _v: Any = None, /, *, op: Op = "=", war: Any = None, value: Cmp | None = None) -> None:
         if _v is None:
-            self._call("war_score_in_war", **_kw(war=war))
+            self._call("war_score_in_war", **_kw(war=war, value=value))
         else:
             self._cmp("war_score_in_war", op, _v)
-    def war_score_in_war_whole_side(self, _v: Any = None, /, *, op: Op = "=", war: Any = None) -> None:
+    def war_score_in_war_whole_side(self, _v: Any = None, /, *, op: Op = "=", war: Any = None, value: Cmp | None = None) -> None:
         if _v is None:
-            self._call("war_score_in_war_whole_side", **_kw(war=war))
+            self._call("war_score_in_war_whole_side", **_kw(war=war, value=value))
         else:
             self._cmp("war_score_in_war_whole_side", op, _v)
-    def war_score_versus(self, _v: Any = None, /, *, op: Op = "=", target: Any = None) -> None:
+    def war_score_versus(self, _v: Any = None, /, *, op: Op = "=", target: Any = None, value: Cmp | None = None) -> None:
         if _v is None:
-            self._call("war_score_versus", **_kw(target=target))
+            self._call("war_score_versus", **_kw(target=target, value=value))
         else:
             self._cmp("war_score_versus", op, _v)
     def within_diplomatic_range(self, _v: Any, /, op: Op = "=") -> None: self._cmp("within_diplomatic_range", op, _v)
@@ -9277,9 +9277,9 @@ class CountryTrig(AnyTrig):
     def yearly_gold(self, _v: Any, /, op: Op = "=") -> None: self._cmp("yearly_gold", op, _v)
     def yearly_manpower(self, _v: Any, /, op: Op = "=") -> None: self._cmp("yearly_manpower", op, _v)
     def yearly_sailors(self, _v: Any, /, op: Op = "=") -> None: self._cmp("yearly_sailors", op, _v)
-    def years_in_international_organization(self, _v: Any = None, /, *, op: Op = "=", international_organization: Any = None) -> None:
+    def years_in_international_organization(self, _v: Any = None, /, *, op: Op = "=", international_organization: Any = None, value: Cmp | None = None) -> None:
         if _v is None:
-            self._call("years_in_international_organization", **_kw(international_organization=international_organization))
+            self._call("years_in_international_organization", **_kw(international_organization=international_organization, value=value))
         else:
             self._cmp("years_in_international_organization", op, _v)
 
@@ -9305,7 +9305,7 @@ class CultureTrig(AnyTrig):
     def cultural_influence_power(self, _v: Any, /, op: Op = "=") -> None: self._cmp("cultural_influence_power", op, _v)
     def cultural_tradition(self, _v: Any, /, op: Op = "=") -> None: self._cmp("cultural_tradition", op, _v)
     def cultural_tradition_power(self, _v: Any, /, op: Op = "=") -> None: self._cmp("cultural_tradition_power", op, _v)
-    def cultural_view(self, *, target: Any) -> None: self._call("cultural_view", **_kw(target=target))
+    def cultural_view(self, *, target: Any, value: Any) -> None: self._call("cultural_view", **_kw(target=target, value=value))
     def culture_opinion_impact(self, _v: Any = None, /, *, op: Op = "=", culture: Any = None) -> None:
         if _v is None:
             self._call("culture_opinion_impact", **_kw(culture=culture))
@@ -9334,7 +9334,7 @@ class CultureTrig(AnyTrig):
     def is_primary_or_accepted_in(self, _v: Any, /, op: Op = "=") -> None: self._cmp("is_primary_or_accepted_in", op, _v)
     def is_tolerated_in(self, _v: Any, /, op: Op = "=") -> None: self._cmp("is_tolerated_in", op, _v)
     def merged_culture_group_contains_culture(self, _v: Any, /, op: Op = "=") -> None: self._cmp("merged_culture_group_contains_culture", op, _v)
-    def reverse_cultural_view(self, *, target: Any) -> None: self._call("reverse_cultural_view", **_kw(target=target))
+    def reverse_cultural_view(self, *, target: Any, value: Any) -> None: self._call("reverse_cultural_view", **_kw(target=target, value=value))
 
 
 class CultureGroupTrig(AnyTrig):
@@ -9408,14 +9408,14 @@ class DynastyTrig(AnyTrig):
             self._call("character_modifier_strength", **_kw(modifier=modifier))
         else:
             self._cmp("character_modifier_strength", op, _v)
-    def country_modifier_strength(self, _v: Any = None, /, *, op: Op = "=", modifier: Any = None) -> None:
+    def country_modifier_strength(self, _v: Any = None, /, *, op: Op = "=", modifier: Any = None, value: Cmp | None = None) -> None:
         if _v is None:
-            self._call("country_modifier_strength", **_kw(modifier=modifier))
+            self._call("country_modifier_strength", **_kw(modifier=modifier, value=value))
         else:
             self._cmp("country_modifier_strength", op, _v)
-    def dynastic_power(self, _v: Any = None, /, *, op: Op = "=", international_organization: Any = None) -> None:
+    def dynastic_power(self, _v: Any = None, /, *, op: Op = "=", international_organization: Any = None, value: Cmp | None = None) -> None:
         if _v is None:
-            self._call("dynastic_power", **_kw(international_organization=international_organization))
+            self._call("dynastic_power", **_kw(international_organization=international_organization, value=value))
         else:
             self._cmp("dynastic_power", op, _v)
     def dynasty_modifier_strength(self, _v: Any = None, /, *, op: Op = "=", modifier: Any = None) -> None:
@@ -9610,16 +9610,16 @@ class GoodsTrig(AnyTrig):
     def is_demanded_in_market_by_trades(self, _v: Any, /, op: Op = "=") -> None: self._cmp("is_demanded_in_market_by_trades", op, _v)
     def is_demanded_in_market_by_units(self, _v: Any, /, op: Op = "=") -> None: self._cmp("is_demanded_in_market_by_units", op, _v)
     def is_food(self, _v: Any, /, op: Op = "=") -> None: self._cmp("is_food", op, _v)
-    def is_in_surplus_in_market(self, _v: Any = None, /, *, op: Op = "=", market: Any = None, country: Any = None) -> None:
+    def is_in_surplus_in_market(self, _v: Any = None, /, *, op: Op = "=", market: Any = None, country: Any = None, value: Cmp | None = None) -> None:
         if _v is None:
-            self._call("is_in_surplus_in_market", **_kw(market=market, country=country))
+            self._call("is_in_surplus_in_market", **_kw(market=market, country=country, value=value))
         else:
             self._cmp("is_in_surplus_in_market", op, _v)
     def is_produced_by_production_method(self, _v: Any, /, op: Op = "=") -> None: self._cmp("is_produced_by_production_method", op, _v)
     def is_used_by_production_method(self, _v: Any, /, op: Op = "=") -> None: self._cmp("is_used_by_production_method", op, _v)
-    def price_in_market(self, _v: Any = None, /, *, op: Op = "=", market: Any = None) -> None:
+    def price_in_market(self, _v: Any = None, /, *, op: Op = "=", market: Any = None, value: Cmp | None = None) -> None:
         if _v is None:
-            self._call("price_in_market", **_kw(market=market))
+            self._call("price_in_market", **_kw(market=market, value=value))
         else:
             self._cmp("price_in_market", op, _v)
     def raw_material_occurrence(self, _v: Any, /, op: Op = "=") -> None: self._cmp("raw_material_occurrence", op, _v)
@@ -9761,9 +9761,9 @@ class InternationalOrganizationTrig(AnyTrig):
         else:
             self._cmp("country_has_been_member_for_years", op, _v)
     def country_has_special_status(self, *, type: Any, country: Any) -> None: self._call("country_has_special_status", **_kw(type=type, country=country))
-    def country_modifier_strength(self, _v: Any = None, /, *, op: Op = "=", modifier: Any = None) -> None:
+    def country_modifier_strength(self, _v: Any = None, /, *, op: Op = "=", modifier: Any = None, value: Cmp | None = None) -> None:
         if _v is None:
-            self._call("country_modifier_strength", **_kw(modifier=modifier))
+            self._call("country_modifier_strength", **_kw(modifier=modifier, value=value))
         else:
             self._cmp("country_modifier_strength", op, _v)
     def currency_percentage_towards_limit(self, _v: Any, /, op: Op = "=") -> None: self._cmp("currency_percentage_towards_limit", op, _v)
@@ -9909,9 +9909,9 @@ class InternationalOrganizationTrig(AnyTrig):
     def months_since_last_parliament_called(self, _v: Any, /, op: Op = "=") -> None: self._cmp("months_since_last_parliament_called", op, _v)
     def navy_tradition(self, _v: Any, /, op: Op = "=") -> None: self._cmp("navy_tradition", op, _v)
     def navy_tradition_percentage(self, _v: Any, /, op: Op = "=") -> None: self._cmp("navy_tradition_percentage", op, _v)
-    def num_countries_with_special_status(self, _v: Any = None, /, *, op: Op = "=", type: Any = None) -> None:
+    def num_countries_with_special_status(self, _v: Any = None, /, *, op: Op = "=", type: Any = None, value: Any = None) -> None:
         if _v is None:
-            self._call("num_countries_with_special_status", **_kw(type=type))
+            self._call("num_countries_with_special_status", **_kw(type=type, value=value))
         else:
             self._cmp("num_countries_with_special_status", op, _v)
     def num_of_active_parliament_agendas(self, _v: Any, /, op: Op = "=") -> None: self._cmp("num_of_active_parliament_agendas", op, _v)
@@ -10006,9 +10006,9 @@ class InternationalOrganizationTrig(AnyTrig):
         else:
             self._cmp("unit_modifier_strength", op, _v)
     def vote_is_locked(self, *, voter: Any, resolution: Any) -> None: self._call("vote_is_locked", **_kw(voter=voter, resolution=resolution))
-    def votes_for_resolution(self, _v: Any = None, /, *, op: Op = "=", resolution: Any = None, outcome: Any = None) -> None:
+    def votes_for_resolution(self, _v: Any = None, /, *, op: Op = "=", resolution: Any = None, outcome: Any = None, value: Cmp | None = None) -> None:
         if _v is None:
-            self._call("votes_for_resolution", **_kw(resolution=resolution, outcome=outcome))
+            self._call("votes_for_resolution", **_kw(resolution=resolution, outcome=outcome, value=value))
         else:
             self._cmp("votes_for_resolution", op, _v)
     def war_exhaustion(self, _v: Any, /, op: Op = "=") -> None: self._cmp("war_exhaustion", op, _v)
@@ -10130,14 +10130,14 @@ class LocationTrig(AnyTrig):
         return self._open("any_work_of_art_in_location", WorkOfArtTrig, **_kw(count=count, percent=percent))
     def average_location_literacy(self, _v: Any, /, op: Op = "=") -> None: self._cmp("average_location_literacy", op, _v)
     def average_satisfaction(self, _v: Any, /, op: Op = "=") -> None: self._cmp("average_satisfaction", op, _v)
-    def border_distance_to(self, _v: Any = None, /, *, op: Op = "=", country: Any = None) -> None:
+    def border_distance_to(self, _v: Any = None, /, *, op: Op = "=", country: Any = None, value: Cmp | None = None) -> None:
         if _v is None:
-            self._call("border_distance_to", **_kw(country=country))
+            self._call("border_distance_to", **_kw(country=country, value=value))
         else:
             self._cmp("border_distance_to", op, _v)
-    def building_efficiency(self, _v: Any = None, /, *, op: Op = "=", building_type: Any = None) -> None:
+    def building_efficiency(self, _v: Any = None, /, *, op: Op = "=", building_type: Any = None, value: Cmp | None = None) -> None:
         if _v is None:
-            self._call("building_efficiency", **_kw(building_type=building_type))
+            self._call("building_efficiency", **_kw(building_type=building_type, value=value))
         else:
             self._cmp("building_efficiency", op, _v)
     def building_type_max_level(self, _v: Any = None, /, *, op: Op = "=", building_type: Any = None, owner: Any = None) -> None:
@@ -10153,14 +10153,14 @@ class LocationTrig(AnyTrig):
         else:
             self._cmp("character_modifier_strength", op, _v)
     def climate(self, _v: Any, /) -> None: self._call("climate", _v)
-    def country_modifier_strength(self, _v: Any = None, /, *, op: Op = "=", modifier: Any = None) -> None:
+    def country_modifier_strength(self, _v: Any = None, /, *, op: Op = "=", modifier: Any = None, value: Cmp | None = None) -> None:
         if _v is None:
-            self._call("country_modifier_strength", **_kw(modifier=modifier))
+            self._call("country_modifier_strength", **_kw(modifier=modifier, value=value))
         else:
             self._cmp("country_modifier_strength", op, _v)
-    def culture_group_percentage(self, _v: Any = None, /, *, op: Op = "=", culture_group: Any = None) -> None:
+    def culture_group_percentage(self, _v: Any = None, /, *, op: Op = "=", culture_group: Any = None, value: Cmp | None = None) -> None:
         if _v is None:
-            self._call("culture_group_percentage", **_kw(culture_group=culture_group))
+            self._call("culture_group_percentage", **_kw(culture_group=culture_group, value=value))
         else:
             self._cmp("culture_group_percentage", op, _v)
     def culture_group_population(self, _v: Any = None, /, *, op: Op = "=", culture_group: Any = None) -> None:
@@ -10168,9 +10168,9 @@ class LocationTrig(AnyTrig):
             self._call("culture_group_population", **_kw(culture_group=culture_group))
         else:
             self._cmp("culture_group_population", op, _v)
-    def culture_percentage(self, _v: Any = None, /, *, op: Op = "=", culture: Any = None) -> None:
+    def culture_percentage(self, _v: Any = None, /, *, op: Op = "=", culture: Any = None, value: Cmp | None = None) -> None:
         if _v is None:
-            self._call("culture_percentage", **_kw(culture=culture))
+            self._call("culture_percentage", **_kw(culture=culture, value=value))
         else:
             self._cmp("culture_percentage", op, _v)
     def culture_population(self, _v: Any = None, /, *, op: Op = "=", culture: Any = None) -> None:
@@ -10186,14 +10186,14 @@ class LocationTrig(AnyTrig):
     def disease_affects_pops_here(self, _v: Any, /, op: Op = "=") -> None: self._cmp("disease_affects_pops_here", op, _v)
     def disease_has_outbreak_here(self, _v: Any, /, op: Op = "=") -> None: self._cmp("disease_has_outbreak_here", op, _v)
     def disease_has_stagnated(self, _v: Any, /, op: Op = "=") -> None: self._cmp("disease_has_stagnated", op, _v)
-    def disease_outbreak_presence(self, _v: Any = None, /, *, op: Op = "=", disease_outbreak: Any = None) -> None:
+    def disease_outbreak_presence(self, _v: Any = None, /, *, op: Op = "=", disease_outbreak: Any = None, value: Cmp | None = None) -> None:
         if _v is None:
-            self._call("disease_outbreak_presence", **_kw(disease_outbreak=disease_outbreak))
+            self._call("disease_outbreak_presence", **_kw(disease_outbreak=disease_outbreak, value=value))
         else:
             self._cmp("disease_outbreak_presence", op, _v)
-    def disease_presence(self, _v: Any = None, /, *, op: Op = "=", disease: Any = None) -> None:
+    def disease_presence(self, _v: Any = None, /, *, op: Op = "=", disease: Any = None, value: Cmp | None = None) -> None:
         if _v is None:
-            self._call("disease_presence", **_kw(disease=disease))
+            self._call("disease_presence", **_kw(disease=disease, value=value))
         else:
             self._cmp("disease_presence", op, _v)
     def disease_resistance(self, _v: Any = None, /, *, op: Op = "=", target: Any = None) -> None:
@@ -10203,9 +10203,9 @@ class LocationTrig(AnyTrig):
             self._cmp("disease_resistance", op, _v)
     def distance_to(self, _v: Any, /, op: Op = "=") -> None: self._cmp("distance_to", op, _v)
     def distance_to_area(self, _v: Any, /, op: Op = "=") -> None: self._cmp("distance_to_area", op, _v)
-    def distance_to_squared(self, _v: Any = None, /, *, op: Op = "=", location: Any = None) -> None:
+    def distance_to_squared(self, _v: Any = None, /, *, op: Op = "=", location: Any = None, value: Any = None) -> None:
         if _v is None:
-            self._call("distance_to_squared", **_kw(location=location))
+            self._call("distance_to_squared", **_kw(location=location, value=value))
         else:
             self._cmp("distance_to_squared", op, _v)
     def dynasty_modifier_strength(self, _v: Any = None, /, *, op: Op = "=", modifier: Any = None) -> None:
@@ -10370,16 +10370,16 @@ class LocationTrig(AnyTrig):
     def local_relative_estate_power(self, _v: Any, /, op: Op = "=") -> None: self._cmp("local_relative_estate_power", op, _v)
     def local_religious_unity(self, _v: Any, /, op: Op = "=") -> None: self._cmp("local_religious_unity", op, _v)
     def location_art_quality(self, _v: Any, /, op: Op = "=") -> None: self._cmp("location_art_quality", op, _v)
-    def location_building_level(self, _v: Any = None, /, *, op: Op = "=", building_type: Any = None, owner: Any = None) -> None:
+    def location_building_level(self, _v: Any = None, /, *, op: Op = "=", building_type: Any = None, value: Any = None, owner: Any = None) -> None:
         if _v is None:
-            self._call("location_building_level", **_kw(building_type=building_type, owner=owner))
+            self._call("location_building_level", **_kw(building_type=building_type, value=value, owner=owner))
         else:
             self._cmp("location_building_level", op, _v)
     def location_key(self, _v: Any, /) -> None: self._call("location_key", _v)
     def location_maritime_merchant_power(self, _v: Any, /, op: Op = "=") -> None: self._cmp("location_maritime_merchant_power", op, _v)
-    def location_maritime_presence_power(self, _v: Any = None, /, *, op: Op = "=", country: Any = None) -> None:
+    def location_maritime_presence_power(self, _v: Any = None, /, *, op: Op = "=", country: Any = None, value: Cmp | None = None) -> None:
         if _v is None:
-            self._call("location_maritime_presence_power", **_kw(country=country))
+            self._call("location_maritime_presence_power", **_kw(country=country, value=value))
         else:
             self._cmp("location_maritime_presence_power", op, _v)
     def location_max_population(self, _v: Any, /, op: Op = "=") -> None: self._cmp("location_max_population", op, _v)
@@ -10401,9 +10401,9 @@ class LocationTrig(AnyTrig):
     def location_privateer_power(self, _v: Any, /, op: Op = "=") -> None: self._cmp("location_privateer_power", op, _v)
     def location_size(self, _v: Any, /, op: Op = "=") -> None: self._cmp("location_size", op, _v)
     def location_tax_base(self, _v: Any, /, op: Op = "=") -> None: self._cmp("location_tax_base", op, _v)
-    def location_unemployed_population_for_building_type(self, _v: Any = None, /, *, op: Op = "=", building_type: Any = None) -> None:
+    def location_unemployed_population_for_building_type(self, _v: Any = None, /, *, op: Op = "=", building_type: Any = None, value: Cmp | None = None) -> None:
         if _v is None:
-            self._call("location_unemployed_population_for_building_type", **_kw(building_type=building_type))
+            self._call("location_unemployed_population_for_building_type", **_kw(building_type=building_type, value=value))
         else:
             self._cmp("location_unemployed_population_for_building_type", op, _v)
     def location_within_range(self, _v: Any, /, op: Op = "=") -> None: self._cmp("location_within_range", op, _v)
@@ -10439,9 +10439,9 @@ class LocationTrig(AnyTrig):
             self._call("population", **_kw(value=value, add=add, multiply=multiply))
         else:
             self._cmp("population", op, _v)
-    def population_with_traits(self, _v: Any = None, /, *, op: Op = "=", limit_: Any = None) -> None:
+    def population_with_traits(self, _v: Any = None, /, *, op: Op = "=", limit_: Any = None, value: Cmp | None = None) -> None:
         if _v is None:
-            self._call("population_with_traits", **_kw(limit_=limit_))
+            self._call("population_with_traits", **_kw(limit_=limit_, value=value))
         else:
             self._cmp("population_with_traits", op, _v)
     def prosperity(self, _v: Any, /, op: Op = "=") -> None: self._cmp("prosperity", op, _v)
@@ -10474,9 +10474,9 @@ class LocationTrig(AnyTrig):
             self._call("religion_modifier_strength", **_kw(modifier=modifier))
         else:
             self._cmp("religion_modifier_strength", op, _v)
-    def religion_percentage(self, _v: Any = None, /, *, op: Op = "=", religion: Any = None) -> None:
+    def religion_percentage(self, _v: Any = None, /, *, op: Op = "=", religion: Any = None, value: Cmp | None = None) -> None:
         if _v is None:
-            self._call("religion_percentage", **_kw(religion=religion))
+            self._call("religion_percentage", **_kw(religion=religion, value=value))
         else:
             self._cmp("religion_percentage", op, _v)
     def religion_population(self, _v: Any = None, /, *, op: Op = "=", religion: Any = None) -> None:
@@ -10519,9 +10519,9 @@ class MarketTrig(AnyTrig):
         return self._open("any_location_in_market", LocationTrig, **_kw(count=count, percent=percent))
     def any_merchant_in_market(self, *, count: Any = None, percent: Any = None) -> ContextManager[CountryTrig]:
         return self._open("any_merchant_in_market", CountryTrig, **_kw(count=count, percent=percent))
-    def available_merchant_capacity(self, _v: Any = None, /, *, op: Op = "=", country: Any = None) -> None:
+    def available_merchant_capacity(self, _v: Any = None, /, *, op: Op = "=", country: Any = None, value: Cmp | None = None) -> None:
         if _v is None:
-            self._call("available_merchant_capacity", **_kw(country=country))
+            self._call("available_merchant_capacity", **_kw(country=country, value=value))
         else:
             self._cmp("available_merchant_capacity", op, _v)
     def demands_goods(self, _v: Any, /, op: Op = "=") -> None: self._cmp("demands_goods", op, _v)
@@ -10568,14 +10568,14 @@ class MarketTrig(AnyTrig):
     def market_max_food(self, _v: Any, /, op: Op = "=") -> None: self._cmp("market_max_food", op, _v)
     def market_monthly_food_balance(self, _v: Any, /, op: Op = "=") -> None: self._cmp("market_monthly_food_balance", op, _v)
     def market_population(self, _v: Any, /, op: Op = "=") -> None: self._cmp("market_population", op, _v)
-    def market_possible_goods_trade_surplus(self, _v: Any = None, /, *, op: Op = "=", goods: Any = None, country: Any = None) -> None:
+    def market_possible_goods_trade_surplus(self, _v: Any = None, /, *, op: Op = "=", goods: Any = None, country: Any = None, value: Cmp | None = None) -> None:
         if _v is None:
-            self._call("market_possible_goods_trade_surplus", **_kw(goods=goods, country=country))
+            self._call("market_possible_goods_trade_surplus", **_kw(goods=goods, country=country, value=value))
         else:
             self._cmp("market_possible_goods_trade_surplus", op, _v)
-    def merchant_capacity(self, _v: Any = None, /, *, op: Op = "=", country: Any = None) -> None:
+    def merchant_capacity(self, _v: Any = None, /, *, op: Op = "=", country: Any = None, value: Cmp | None = None) -> None:
         if _v is None:
-            self._call("merchant_capacity", **_kw(country=country))
+            self._call("merchant_capacity", **_kw(country=country, value=value))
         else:
             self._cmp("merchant_capacity", op, _v)
     def merchant_power_in_market(self, _v: Any, /, op: Op = "=") -> None: self._cmp("merchant_power_in_market", op, _v)
@@ -10599,9 +10599,9 @@ class MercenaryTrig(AnyTrig):
             self._call("character_modifier_strength", **_kw(modifier=modifier))
         else:
             self._cmp("character_modifier_strength", op, _v)
-    def country_modifier_strength(self, _v: Any = None, /, *, op: Op = "=", modifier: Any = None) -> None:
+    def country_modifier_strength(self, _v: Any = None, /, *, op: Op = "=", modifier: Any = None, value: Cmp | None = None) -> None:
         if _v is None:
-            self._call("country_modifier_strength", **_kw(modifier=modifier))
+            self._call("country_modifier_strength", **_kw(modifier=modifier, value=value))
         else:
             self._cmp("country_modifier_strength", op, _v)
     def dynasty_modifier_strength(self, _v: Any = None, /, *, op: Op = "=", modifier: Any = None) -> None:
@@ -10870,9 +10870,9 @@ class ProductionMethodTrig(AnyTrig):
 class ProvinceTrig(AnyTrig):
     def any_location_in_province(self, *, count: Any = None, percent: Any = None) -> ContextManager[LocationTrig]:
         return self._open("any_location_in_province", LocationTrig, **_kw(count=count, percent=percent))
-    def border_distance_to(self, _v: Any = None, /, *, op: Op = "=", country: Any = None) -> None:
+    def border_distance_to(self, _v: Any = None, /, *, op: Op = "=", country: Any = None, value: Cmp | None = None) -> None:
         if _v is None:
-            self._call("border_distance_to", **_kw(country=country))
+            self._call("border_distance_to", **_kw(country=country, value=value))
         else:
             self._cmp("border_distance_to", op, _v)
     def character_modifier_strength(self, _v: Any = None, /, *, op: Op = "=", modifier: Any = None) -> None:
@@ -10880,14 +10880,14 @@ class ProvinceTrig(AnyTrig):
             self._call("character_modifier_strength", **_kw(modifier=modifier))
         else:
             self._cmp("character_modifier_strength", op, _v)
-    def country_modifier_strength(self, _v: Any = None, /, *, op: Op = "=", modifier: Any = None) -> None:
+    def country_modifier_strength(self, _v: Any = None, /, *, op: Op = "=", modifier: Any = None, value: Cmp | None = None) -> None:
         if _v is None:
-            self._call("country_modifier_strength", **_kw(modifier=modifier))
+            self._call("country_modifier_strength", **_kw(modifier=modifier, value=value))
         else:
             self._cmp("country_modifier_strength", op, _v)
-    def culture_group_percentage(self, _v: Any = None, /, *, op: Op = "=", culture_group: Any = None) -> None:
+    def culture_group_percentage(self, _v: Any = None, /, *, op: Op = "=", culture_group: Any = None, value: Cmp | None = None) -> None:
         if _v is None:
-            self._call("culture_group_percentage", **_kw(culture_group=culture_group))
+            self._call("culture_group_percentage", **_kw(culture_group=culture_group, value=value))
         else:
             self._cmp("culture_group_percentage", op, _v)
     def culture_group_population(self, _v: Any = None, /, *, op: Op = "=", culture_group: Any = None) -> None:
@@ -10895,9 +10895,9 @@ class ProvinceTrig(AnyTrig):
             self._call("culture_group_population", **_kw(culture_group=culture_group))
         else:
             self._cmp("culture_group_population", op, _v)
-    def culture_percentage(self, _v: Any = None, /, *, op: Op = "=", culture: Any = None) -> None:
+    def culture_percentage(self, _v: Any = None, /, *, op: Op = "=", culture: Any = None, value: Cmp | None = None) -> None:
         if _v is None:
-            self._call("culture_percentage", **_kw(culture=culture))
+            self._call("culture_percentage", **_kw(culture=culture, value=value))
         else:
             self._cmp("culture_percentage", op, _v)
     def culture_population(self, _v: Any = None, /, *, op: Op = "=", culture: Any = None) -> None:
@@ -11016,9 +11016,9 @@ class ProvinceTrig(AnyTrig):
             self._call("religion_modifier_strength", **_kw(modifier=modifier))
         else:
             self._cmp("religion_modifier_strength", op, _v)
-    def religion_percentage(self, _v: Any = None, /, *, op: Op = "=", religion: Any = None) -> None:
+    def religion_percentage(self, _v: Any = None, /, *, op: Op = "=", religion: Any = None, value: Cmp | None = None) -> None:
         if _v is None:
-            self._call("religion_percentage", **_kw(religion=religion))
+            self._call("religion_percentage", **_kw(religion=religion, value=value))
         else:
             self._cmp("religion_percentage", op, _v)
     def religion_population(self, _v: Any = None, /, *, op: Op = "=", religion: Any = None) -> None:
@@ -11057,9 +11057,9 @@ class ProvinceDefinitionTrig(AnyTrig):
         return self._open("any_province_in_province_definition", ProvinceTrig, **_kw(count=count, percent=percent))
     def any_west_of_province_definition(self, *, count: Any = None, percent: Any = None) -> ContextManager[ProvinceDefinitionTrig]:
         return self._open("any_west_of_province_definition", ProvinceDefinitionTrig, **_kw(count=count, percent=percent))
-    def culture_group_percentage(self, _v: Any = None, /, *, op: Op = "=", culture_group: Any = None) -> None:
+    def culture_group_percentage(self, _v: Any = None, /, *, op: Op = "=", culture_group: Any = None, value: Cmp | None = None) -> None:
         if _v is None:
-            self._call("culture_group_percentage", **_kw(culture_group=culture_group))
+            self._call("culture_group_percentage", **_kw(culture_group=culture_group, value=value))
         else:
             self._cmp("culture_group_percentage", op, _v)
     def culture_group_population(self, _v: Any = None, /, *, op: Op = "=", culture_group: Any = None) -> None:
@@ -11067,9 +11067,9 @@ class ProvinceDefinitionTrig(AnyTrig):
             self._call("culture_group_population", **_kw(culture_group=culture_group))
         else:
             self._cmp("culture_group_population", op, _v)
-    def culture_percentage(self, _v: Any = None, /, *, op: Op = "=", culture: Any = None) -> None:
+    def culture_percentage(self, _v: Any = None, /, *, op: Op = "=", culture: Any = None, value: Cmp | None = None) -> None:
         if _v is None:
-            self._call("culture_percentage", **_kw(culture=culture))
+            self._call("culture_percentage", **_kw(culture=culture, value=value))
         else:
             self._cmp("culture_percentage", op, _v)
     def culture_population(self, _v: Any = None, /, *, op: Op = "=", culture: Any = None) -> None:
@@ -11112,9 +11112,9 @@ class ProvinceDefinitionTrig(AnyTrig):
             self._call("religion_group_population", **_kw(religion_group=religion_group))
         else:
             self._cmp("religion_group_population", op, _v)
-    def religion_percentage(self, _v: Any = None, /, *, op: Op = "=", religion: Any = None) -> None:
+    def religion_percentage(self, _v: Any = None, /, *, op: Op = "=", religion: Any = None, value: Cmp | None = None) -> None:
         if _v is None:
-            self._call("religion_percentage", **_kw(religion=religion))
+            self._call("religion_percentage", **_kw(religion=religion, value=value))
         else:
             self._cmp("religion_percentage", op, _v)
     def religion_population(self, _v: Any = None, /, *, op: Op = "=", religion: Any = None) -> None:
@@ -11136,9 +11136,9 @@ class RebelsTrig(AnyTrig):
             self._call("character_modifier_strength", **_kw(modifier=modifier))
         else:
             self._cmp("character_modifier_strength", op, _v)
-    def country_modifier_strength(self, _v: Any = None, /, *, op: Op = "=", modifier: Any = None) -> None:
+    def country_modifier_strength(self, _v: Any = None, /, *, op: Op = "=", modifier: Any = None, value: Cmp | None = None) -> None:
         if _v is None:
-            self._call("country_modifier_strength", **_kw(modifier=modifier))
+            self._call("country_modifier_strength", **_kw(modifier=modifier, value=value))
         else:
             self._cmp("country_modifier_strength", op, _v)
     def dynasty_modifier_strength(self, _v: Any = None, /, *, op: Op = "=", modifier: Any = None) -> None:
@@ -11236,9 +11236,9 @@ class RegionTrig(AnyTrig):
         return self._open("any_present_country", CountryTrig, **_kw(count=count, percent=percent))
     def any_present_overlord(self, *, count: Any = None, percent: Any = None) -> ContextManager[CountryTrig]:
         return self._open("any_present_overlord", CountryTrig, **_kw(count=count, percent=percent))
-    def culture_group_percentage(self, _v: Any = None, /, *, op: Op = "=", culture_group: Any = None) -> None:
+    def culture_group_percentage(self, _v: Any = None, /, *, op: Op = "=", culture_group: Any = None, value: Cmp | None = None) -> None:
         if _v is None:
-            self._call("culture_group_percentage", **_kw(culture_group=culture_group))
+            self._call("culture_group_percentage", **_kw(culture_group=culture_group, value=value))
         else:
             self._cmp("culture_group_percentage", op, _v)
     def culture_group_population(self, _v: Any = None, /, *, op: Op = "=", culture_group: Any = None) -> None:
@@ -11246,9 +11246,9 @@ class RegionTrig(AnyTrig):
             self._call("culture_group_population", **_kw(culture_group=culture_group))
         else:
             self._cmp("culture_group_population", op, _v)
-    def culture_percentage(self, _v: Any = None, /, *, op: Op = "=", culture: Any = None) -> None:
+    def culture_percentage(self, _v: Any = None, /, *, op: Op = "=", culture: Any = None, value: Cmp | None = None) -> None:
         if _v is None:
-            self._call("culture_percentage", **_kw(culture=culture))
+            self._call("culture_percentage", **_kw(culture=culture, value=value))
         else:
             self._cmp("culture_percentage", op, _v)
     def culture_population(self, _v: Any = None, /, *, op: Op = "=", culture: Any = None) -> None:
@@ -11283,9 +11283,9 @@ class RegionTrig(AnyTrig):
             self._call("religion_group_population", **_kw(religion_group=religion_group))
         else:
             self._cmp("religion_group_population", op, _v)
-    def religion_percentage(self, _v: Any = None, /, *, op: Op = "=", religion: Any = None) -> None:
+    def religion_percentage(self, _v: Any = None, /, *, op: Op = "=", religion: Any = None, value: Cmp | None = None) -> None:
         if _v is None:
-            self._call("religion_percentage", **_kw(religion=religion))
+            self._call("religion_percentage", **_kw(religion=religion, value=value))
         else:
             self._cmp("religion_percentage", op, _v)
     def religion_population(self, _v: Any = None, /, *, op: Op = "=", religion: Any = None) -> None:
@@ -11327,9 +11327,9 @@ class ReligionTrig(AnyTrig):
             self._call("character_modifier_strength", **_kw(modifier=modifier))
         else:
             self._cmp("character_modifier_strength", op, _v)
-    def country_modifier_strength(self, _v: Any = None, /, *, op: Op = "=", modifier: Any = None) -> None:
+    def country_modifier_strength(self, _v: Any = None, /, *, op: Op = "=", modifier: Any = None, value: Cmp | None = None) -> None:
         if _v is None:
-            self._call("country_modifier_strength", **_kw(modifier=modifier))
+            self._call("country_modifier_strength", **_kw(modifier=modifier, value=value))
         else:
             self._cmp("country_modifier_strength", op, _v)
     def dynasty_modifier_strength(self, _v: Any = None, /, *, op: Op = "=", modifier: Any = None) -> None:
@@ -11409,13 +11409,13 @@ class ReligionTrig(AnyTrig):
             self._call("religion_modifier_strength", **_kw(modifier=modifier))
         else:
             self._cmp("religion_modifier_strength", op, _v)
-    def religious_view(self, *, target: Any) -> None: self._call("religious_view", **_kw(target=target))
+    def religious_view(self, *, target: Any, value: Any) -> None: self._call("religious_view", **_kw(target=target, value=value))
     def religious_view_impact(self, _v: Any = None, /, *, op: Op = "=", culture: Any = None) -> None:
         if _v is None:
             self._call("religious_view_impact", **_kw(culture=culture))
         else:
             self._cmp("religious_view_impact", op, _v)
-    def reverse_religious_view(self, *, target: Any) -> None: self._call("reverse_religious_view", **_kw(target=target))
+    def reverse_religious_view(self, *, target: Any, value: Cmp) -> None: self._call("reverse_religious_view", **_kw(target=target, value=value))
     def reverse_religious_view_impact(self, _v: Any = None, /, *, op: Op = "=", culture: Any = None) -> None:
         if _v is None:
             self._call("reverse_religious_view_impact", **_kw(culture=culture))
@@ -11459,7 +11459,7 @@ class ReligiousSchoolTrig(AnyTrig):
     def modifier_utility(self, _v: Any, /, op: Op = "=") -> None: self._cmp("modifier_utility", op, _v)
     def modifier_utility_include_locations(self, _v: Any, /, op: Op = "=") -> None: self._cmp("modifier_utility_include_locations", op, _v)
     def reverse_school_opinion(self, *args: Any, **kw: Any) -> None: self._call("reverse_school_opinion", *args, **kw)
-    def school_opinion(self, *, target: Any) -> None: self._call("school_opinion", **_kw(target=target))
+    def school_opinion(self, *, target: Any, value: Any) -> None: self._call("school_opinion", **_kw(target=target, value=value))
 
 
 class ResolutionTrig(AnyTrig):
@@ -11498,9 +11498,9 @@ class ScriptedGeographyTrig(AnyTrig):
         return self._open("any_region_in_scripted_geography", RegionTrig, **_kw(count=count, percent=percent))
     def any_sub_continent_in_scripted_geography(self, *, count: Any = None, percent: Any = None) -> ContextManager[SubContinentTrig]:
         return self._open("any_sub_continent_in_scripted_geography", SubContinentTrig, **_kw(count=count, percent=percent))
-    def culture_group_percentage(self, _v: Any = None, /, *, op: Op = "=", culture_group: Any = None) -> None:
+    def culture_group_percentage(self, _v: Any = None, /, *, op: Op = "=", culture_group: Any = None, value: Cmp | None = None) -> None:
         if _v is None:
-            self._call("culture_group_percentage", **_kw(culture_group=culture_group))
+            self._call("culture_group_percentage", **_kw(culture_group=culture_group, value=value))
         else:
             self._cmp("culture_group_percentage", op, _v)
     def culture_group_population(self, _v: Any = None, /, *, op: Op = "=", culture_group: Any = None) -> None:
@@ -11508,9 +11508,9 @@ class ScriptedGeographyTrig(AnyTrig):
             self._call("culture_group_population", **_kw(culture_group=culture_group))
         else:
             self._cmp("culture_group_population", op, _v)
-    def culture_percentage(self, _v: Any = None, /, *, op: Op = "=", culture: Any = None) -> None:
+    def culture_percentage(self, _v: Any = None, /, *, op: Op = "=", culture: Any = None, value: Cmp | None = None) -> None:
         if _v is None:
-            self._call("culture_percentage", **_kw(culture=culture))
+            self._call("culture_percentage", **_kw(culture=culture, value=value))
         else:
             self._cmp("culture_percentage", op, _v)
     def culture_population(self, _v: Any = None, /, *, op: Op = "=", culture: Any = None) -> None:
@@ -11534,9 +11534,9 @@ class ScriptedGeographyTrig(AnyTrig):
             self._call("religion_group_population", **_kw(religion_group=religion_group))
         else:
             self._cmp("religion_group_population", op, _v)
-    def religion_percentage(self, _v: Any = None, /, *, op: Op = "=", religion: Any = None) -> None:
+    def religion_percentage(self, _v: Any = None, /, *, op: Op = "=", religion: Any = None, value: Cmp | None = None) -> None:
         if _v is None:
-            self._call("religion_percentage", **_kw(religion=religion))
+            self._call("religion_percentage", **_kw(religion=religion, value=value))
         else:
             self._cmp("religion_percentage", op, _v)
     def religion_population(self, _v: Any = None, /, *, op: Op = "=", religion: Any = None) -> None:
@@ -11575,9 +11575,9 @@ class SituationTrig(AnyTrig):
     def situation_has_ended(self, _v: Any, /, op: Op = "=") -> None: self._cmp("situation_has_ended", op, _v)
     def situation_is_active(self, _v: Any, /, op: Op = "=") -> None: self._cmp("situation_is_active", op, _v)
     def vote_is_locked(self, *, voter: Any, resolution: Any) -> None: self._call("vote_is_locked", **_kw(voter=voter, resolution=resolution))
-    def votes_for_resolution(self, _v: Any = None, /, *, op: Op = "=", resolution: Any = None, outcome: Any = None) -> None:
+    def votes_for_resolution(self, _v: Any = None, /, *, op: Op = "=", resolution: Any = None, outcome: Any = None, value: Cmp | None = None) -> None:
         if _v is None:
-            self._call("votes_for_resolution", **_kw(resolution=resolution, outcome=outcome))
+            self._call("votes_for_resolution", **_kw(resolution=resolution, outcome=outcome, value=value))
         else:
             self._cmp("votes_for_resolution", op, _v)
     def years_since_situation_end(self, _v: Any, /, op: Op = "=") -> None: self._cmp("years_since_situation_end", op, _v)
@@ -11605,9 +11605,9 @@ class SubContinentTrig(AnyTrig):
         return self._open("any_present_overlord", CountryTrig, **_kw(count=count, percent=percent))
     def any_region_in_continent(self, *, count: Any = None, percent: Any = None) -> ContextManager[RegionTrig]:
         return self._open("any_region_in_continent", RegionTrig, **_kw(count=count, percent=percent))
-    def culture_group_percentage(self, _v: Any = None, /, *, op: Op = "=", culture_group: Any = None) -> None:
+    def culture_group_percentage(self, _v: Any = None, /, *, op: Op = "=", culture_group: Any = None, value: Cmp | None = None) -> None:
         if _v is None:
-            self._call("culture_group_percentage", **_kw(culture_group=culture_group))
+            self._call("culture_group_percentage", **_kw(culture_group=culture_group, value=value))
         else:
             self._cmp("culture_group_percentage", op, _v)
     def culture_group_population(self, _v: Any = None, /, *, op: Op = "=", culture_group: Any = None) -> None:
@@ -11615,9 +11615,9 @@ class SubContinentTrig(AnyTrig):
             self._call("culture_group_population", **_kw(culture_group=culture_group))
         else:
             self._cmp("culture_group_population", op, _v)
-    def culture_percentage(self, _v: Any = None, /, *, op: Op = "=", culture: Any = None) -> None:
+    def culture_percentage(self, _v: Any = None, /, *, op: Op = "=", culture: Any = None, value: Cmp | None = None) -> None:
         if _v is None:
-            self._call("culture_percentage", **_kw(culture=culture))
+            self._call("culture_percentage", **_kw(culture=culture, value=value))
         else:
             self._cmp("culture_percentage", op, _v)
     def culture_population(self, _v: Any = None, /, *, op: Op = "=", culture: Any = None) -> None:
@@ -11650,9 +11650,9 @@ class SubContinentTrig(AnyTrig):
             self._call("religion_group_population", **_kw(religion_group=religion_group))
         else:
             self._cmp("religion_group_population", op, _v)
-    def religion_percentage(self, _v: Any = None, /, *, op: Op = "=", religion: Any = None) -> None:
+    def religion_percentage(self, _v: Any = None, /, *, op: Op = "=", religion: Any = None, value: Cmp | None = None) -> None:
         if _v is None:
-            self._call("religion_percentage", **_kw(religion=religion))
+            self._call("religion_percentage", **_kw(religion=religion, value=value))
         else:
             self._cmp("religion_percentage", op, _v)
     def religion_population(self, _v: Any = None, /, *, op: Op = "=", religion: Any = None) -> None:
@@ -11666,14 +11666,14 @@ class SubUnitTrig(AnyTrig):
     def definition_is_for_levy(self, _v: Any, /, op: Op = "=") -> None: self._cmp("definition_is_for_levy", op, _v)
     def disease_has_outbreak_here(self, _v: Any, /, op: Op = "=") -> None: self._cmp("disease_has_outbreak_here", op, _v)
     def disease_has_stagnated(self, _v: Any, /, op: Op = "=") -> None: self._cmp("disease_has_stagnated", op, _v)
-    def disease_outbreak_presence(self, _v: Any = None, /, *, op: Op = "=", disease_outbreak: Any = None) -> None:
+    def disease_outbreak_presence(self, _v: Any = None, /, *, op: Op = "=", disease_outbreak: Any = None, value: Cmp | None = None) -> None:
         if _v is None:
-            self._call("disease_outbreak_presence", **_kw(disease_outbreak=disease_outbreak))
+            self._call("disease_outbreak_presence", **_kw(disease_outbreak=disease_outbreak, value=value))
         else:
             self._cmp("disease_outbreak_presence", op, _v)
-    def disease_presence(self, _v: Any = None, /, *, op: Op = "=", disease: Any = None) -> None:
+    def disease_presence(self, _v: Any = None, /, *, op: Op = "=", disease: Any = None, value: Cmp | None = None) -> None:
         if _v is None:
-            self._call("disease_presence", **_kw(disease=disease))
+            self._call("disease_presence", **_kw(disease=disease, value=value))
         else:
             self._cmp("disease_presence", op, _v)
     def disease_resistance(self, _v: Any = None, /, *, op: Op = "=", target: Any = None) -> None:
@@ -11802,9 +11802,9 @@ class UnitTrig(AnyTrig):
             self._call("character_modifier_strength", **_kw(modifier=modifier))
         else:
             self._cmp("character_modifier_strength", op, _v)
-    def country_modifier_strength(self, _v: Any = None, /, *, op: Op = "=", modifier: Any = None) -> None:
+    def country_modifier_strength(self, _v: Any = None, /, *, op: Op = "=", modifier: Any = None, value: Cmp | None = None) -> None:
         if _v is None:
-            self._call("country_modifier_strength", **_kw(modifier=modifier))
+            self._call("country_modifier_strength", **_kw(modifier=modifier, value=value))
         else:
             self._cmp("country_modifier_strength", op, _v)
     def dynasty_modifier_strength(self, _v: Any = None, /, *, op: Op = "=", modifier: Any = None) -> None:

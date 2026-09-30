@@ -122,3 +122,41 @@ def test_a_bias_builder_and_a_misspelt_modifier_key():
     _same_entry(d, "in_game/common/biases/tfe_biases.txt", "tfe_foederati_subject_opinion")
     with pytest.raises(ValueError, match="not a modifier key"):
         Doc().modifier("x", land_morale_modifer=0.1)
+
+
+def test_a_bias_takes_its_extra_keys_in_the_order_given():
+    from pdx.objects import Doc
+    d = Doc()
+    d.bias("a", 50, max=50, yearly_decay=5)
+    d.bias("b", -75, yearly_decay=3, min=-75)
+    a, b = ls.parse(d.text())
+    assert [(c.key, c.val) for c in a.val] == [("value", "50"), ("max", "50"), ("yearly_decay", "5")]
+    assert [c.key for c in b.val] == ["value", "yearly_decay", "min"]
+    with pytest.raises(ValueError, match="not a bias key"):
+        d.bias("c", 1, yearly_dcay=1)  # pyright: ignore
+
+
+def test_a_select_trigger_builder_matches_the_committed_action():
+    from pdx.api import SituationTrig
+    from pdx.objects import Doc
+    d = Doc()
+    with d.generic_action("x") as a:
+        with a.select_trigger("situation", SituationTrig, name="choose_situation", source="situation:tfe_hunnic_storm") as t:
+            t.compare("situation:tfe_hunnic_storm", "=", "this")
+            t.situation_is_active(True)
+    tree = lambda es: [(e.key, e.op, tree(e.val) if isinstance(e.val, list) else e.val) for e in es]
+    want = next(e for e in ls.parse((ROOT / "in_game/common/generic_actions/tfe_hunnic_storm.txt").read_text(encoding="utf-8-sig"))
+                for c in e.val if c.key == "select_trigger")
+    have = ls.parse(d.text())[0].val[0]
+    assert tree([have]) == tree([next(c for c in want.val if c.key == "select_trigger")])
+
+
+def test_a_comparison_inside_a_block_keeps_its_operator():
+    from pdx.api import LocationTrig
+    from pdx.core import Cmp
+    nodes = []
+    LocationTrig(nodes).religion_percentage(religion="religion:donatism", value=Cmp(">=", 0.25))
+    e = ls.parse(__import__("pdx.core", fromlist=["render"]).render(nodes))[0]
+    assert [(c.key, c.op, c.val) for c in e.val] == [("religion", "=", "religion:donatism"), ("value", ">=", "0.25")]
+    with pytest.raises(ValueError):
+        Cmp("=>", 1)

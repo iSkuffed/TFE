@@ -90,6 +90,7 @@ is `tools/pdx/CONTRACT.md`.
 - Start a new file by copying the nearest port. `Doc.event(...)` builds events; `with c.every_neighbor_country() as n:`
   changes scope; `with t.link("scope:actor", CountryTrig) as c:` is `scope:actor = { }`; comparison triggers read
   `t.gold(100, op=">=")`; `t.var("x", "<", 50)`; a value block (ai_will_do) is `body.effects("ai_will_do", ValueFx)`.
+- Generic actions: `doc.generic_action(name)`, whose `select_trigger(looking_for_a, SituationTrig, name=..., source=...)` yields the `visible` triggers. A block with `value >= x` inside takes `value=Cmp(">=", x)` (`from pdx.core import Cmp`). `doc.bias(name, value, max=..., yearly_decay=...)` keeps the keys in the order given.
 - Modifier files: `doc.modifier(name, category="country", <modifier keys>=...)` for a static modifier,
   `doc.modifier(name, potential=lambda t: ..., <keys>=...)` for an auto modifier (keys are checked against
   `modifiers.log`), `doc.bias(name, value)` for an opinion bias. `doc.entry(name)` covers anything else.

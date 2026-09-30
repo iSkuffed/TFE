@@ -3,7 +3,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "tools"))
-from pdx.api import CountryFx, CountryTrig, ValueFx
+from pdx.api import CountryFx, CountryTrig, SituationTrig, ValueFx
 from pdx.objects import Doc
 
 ACTOR = "scope:actor"
@@ -15,8 +15,8 @@ and that Augustus may buy it off with land (Hospitalitas, generic_actions/tfe_de
 in the empire."""
 
 
-def migrate(doc, name, tag):
-    with doc.entry(name) as a:
+def migrate(doc: Doc, name: str, tag: str):
+    with doc.generic_action(name) as a:
         a.field("type", "situation")
         a.field("icon", "migrate_pop_based_country")
         with a.triggers("potential") as t:
@@ -40,15 +40,9 @@ def migrate(doc, name, tag):
         a.field("ai_tick_frequency", 12)
         a.field("automation_tick", "never")
         a.field("automation_tick_frequency", 12)
-        # only raw block: its schema (looking_for_a, columns, source lists) belongs to an objects.py GenericAction builder
-        a.raw("""select_trigger = {
-            looking_for_a = situation
-            interaction_source_list = { situation:tfe_decline_of_the_west = { add_to_list = source } }
-            target_flag = recipient
-            name = "choose_situation"
-            column = { data = name }
-            visible = { situation:tfe_decline_of_the_west = this situation_is_active = yes }
-        }""")
+        with a.select_trigger("situation", SituationTrig, name="choose_situation", source="situation:tfe_decline_of_the_west") as t:
+            t.compare("situation:tfe_decline_of_the_west", "=", "this")
+            t.situation_is_active(True)
         with a.effects("effect") as e:
             e.custom_tooltip("tfe_start_migration_tt")
             e.custom_tooltip(f"tfe_migrate_{tag}_tt")

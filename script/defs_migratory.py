@@ -16,7 +16,7 @@ def create_units(loc, owner, origin, units):
             w.create_sub_unit_with_owner(type=unit, owner=owner, origin=origin)
 
 
-def raise_host(d):
+def raise_host(d: Defs):
     with d.effect("tfe_start_migration_effect", CountryFx) as e:
         e.save_scope_as("tfe_host")
         e.set_variable("tfe_migrating")
@@ -79,7 +79,7 @@ def raise_host(d):
         e.tfe_list_the_migrators(True)
 
 
-def list_migrators(d):
+def list_migrators(d: Defs):
     d.note("The Decline of the West's panel (gui/panels/situation/tfe_decline_of_the_west.gui) lists the migrators by state:\n"
            "at home, on the road (tfe_migrating), settled (tfe_settled). Any scope; the situation refreshes it monthly.")
     with d.effect("tfe_list_the_migrators", AnyFx) as e:

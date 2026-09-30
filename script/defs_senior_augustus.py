@@ -1,5 +1,6 @@
 """Seniority goes to the Augustus who has reigned longest (international_organization_special_statuses/tfe_roman_empire.txt)."""
 import sys
+from typing import Literal
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "tools"))
@@ -10,7 +11,7 @@ EMPIRE = "international_organization:tfe_roman_empire"
 SENIOR = "special_status:tfe_senior_augustus"
 
 
-def status(io, verb, country):
+def status(io: InternationalOrganizationFx, verb: Literal["add", "remove"], country: str):
     call = io.international_organization_add_special_status if verb == "add" else io.international_organization_remove_special_status
     call(type=SENIOR, country=country)
 
