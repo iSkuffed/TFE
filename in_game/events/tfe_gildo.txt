@@ -177,6 +177,15 @@ tfe_gildo.6 = {
 				random = { chance = 8 change_location_owner = c:GILDO }
 			}
 		}
+		# the East took his oath (tfe_opening.4): once his war with us is over, he is Constantinople's man
+		if = {
+			limit = {
+				has_variable = tfe_gildo_goes_east
+				c:GILDO = { NOT = { is_at_war_with = root } }
+			}
+			c:GILDO = { make_subject_of = { target = c:EAR type = subject_type:vassal } }
+			remove_variable = tfe_gildo_goes_east
+		}
 		# Carthage decides where he sits
 		if = {
 			limit = { location:tunis = { owner ?= c:GILDO } }

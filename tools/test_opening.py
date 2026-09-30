@@ -51,8 +51,8 @@ def test_every_opening_event_is_scheduled():
 
 def test_usurpers_name_their_enemy_both_ways():
     ev = code(EVENT)
-    # each usurper is spawned with a claim on the Augustus, who gets one back
-    assert ev.count("create_country_from_location") == 2
+    # each usurper (Gildo, Constantine) is spawned with a claim on the Augustus, who gets one back
+    assert ev.count("define_unique_country_tag") == 2
     assert ev.count("name = tfe_usurper_against value = root") == 2
     assert ev.count("name = tfe_usurper value = scope:tfe_usurper") == 2
 
@@ -64,5 +64,22 @@ def test_events_do_not_crash_the_game():
     east = ev.split("tfe_opening.4 = {")[1].split("tfe_opening.5 = {")[0]
     assert "c:WRE.var:tfe_usurper = { save_scope_as = tfe_usurper }" in east
     # spawned countries need a government, and the treasury to not go bankrupt on day one
-    assert ev.count("change_government_type = government_type:monarchy") == ev.count("create_country_from_location")
-    assert ev.count("add_gold = ") == ev.count("create_country_from_location")
+    assert ev.count("change_government_type = government_type:monarchy") == ev.count("define_unique_country_tag")
+    assert ev.count("add_gold = ") == ev.count("define_unique_country_tag")
+
+
+def test_gildo_rises_as_an_annexable_revolter():
+    ev = code(EVENT)
+    rising = ev.split("tfe_opening.3 = {")[1].split("tfe_opening.7 = {")[0]
+    crowning = ev.split("tfe_opening.7 = {")[1].split("tfe_opening.4 = {")[0]
+    east = ev.split("tfe_opening.4 = {")[1].split("tfe_opening.5 = {")[0]
+    # a revolt, not a civil war or a declared war: only a revolt war offers Annex Revolter
+    assert "start_revolt = yes" in rising and "declare_war" not in rising and "create_country" not in rising
+    # the Mauri back him from inside his own land: the revolter is the one holding nothing else
+    assert "NOT = { any_owned_location = { NOT = { tfe_gildo_base_land = yes } } }" in crowning
+    # a backer leading the rebel side turns Annex Revolter into a white peace
+    assert "leave_war = { war = scope:tfe_gildo_war actor = root }" in crowning
+    # a vassal of the East cannot be annexed and ends the revolt war: the homage waits for peace (tfe_gildo.6)
+    assert "make_subject_of" not in east
+    gildo = code(b.MOD / "in_game/events/tfe_gildo.txt")
+    assert "c:GILDO = { make_subject_of = { target = c:EAR type = subject_type:vassal } }" in gildo
