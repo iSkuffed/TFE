@@ -5,6 +5,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 from pdx.api import CountryFx, CountryTrig, LocationTrig
+from pdx.core import Cmp
 from pdx.objects import Doc
 
 EXT, INT = "gfx/interface/illustrations/event/backgrounds/exterior/", "gfx/interface/illustrations/event/backgrounds/interior/"
@@ -129,7 +130,7 @@ def build():
                     t.tfe_gildo_contested_land()
                 with loc.if_() as f:
                     with f.limit() as t:
-                        t.raw("religion_percentage = { religion = religion:donatism value >= 0.25 }")  # GAP: block form with a `value >= x` comparison inside
+                        t.religion_percentage(religion="religion:donatism", value=Cmp(">=", 0.25))
                     with f.random(25) as r:
                         r.change_location_owner("c:GILDO")
                 with loc.else_() as f:

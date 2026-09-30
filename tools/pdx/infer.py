@@ -100,16 +100,16 @@ def spec_vanilla(name, st, names):
     for k, c in sorted(st["keys"].items(), key=lambda kc: (-kc[1], kc[0])):
         if k in names and c < st["shapes"]["block"] / 2:
             continue
-        if st["badops"][k] > c / 2:  # `value >= 5` inside a block: kwargs cannot carry an operator
-            continue
         keys.append(k)
     if "block" in shapes and not keys:
         return None
     n = st["shapes"]["block"]
     req = [k for k in keys if st["keys"][k] == n] if n >= 3 else []
     order = sorted(keys, key=lambda k: (st["pos"][k] / st["keys"][k], k))  # vanilla's usual order, so ports diff cleanly
+    # a key vanilla only ever writes with `>=`, `<`...: the caller passes Cmp(op, value)
+    types = {k: "Cmp" for k in keys if st["badops"][k] == st["keys"][k]}
     return {"shapes": shapes, "req": req, "opt": [k for k in keys if k not in req], "kinds": set(st["kinds"]),
-            "order": order}
+            "order": order, "types": types}
 
 
 def hint(name, desc):

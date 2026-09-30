@@ -2,7 +2,7 @@
 import functools
 import re
 from contextlib import contextmanager
-from typing import Any, Callable, ContextManager, Generic, Iterator, Literal, TypeVar, get_args
+from typing import Any, Callable, ContextManager, Generic, Iterator, Literal, TypedDict, TypeVar, Unpack, get_args, overload
 
 from .api import AnyFx, AnyTrig, CountryFx, CountryTrig, Outcome
 from .core import Q, Scope, render
@@ -17,7 +17,17 @@ def modifier_keys():
 
 F = TypeVar("F")
 T = TypeVar("T")
+_T = TypeVar("_T", bound=Scope)
 O = TypeVar("O")
+
+
+class BiasKeys(TypedDict, total=False):
+    max: float
+    min: float
+    yearly_decay: float
+    yearly_gain: float
+    years: float
+    months: float
 
 
 class Body(Scope):
@@ -29,14 +39,43 @@ class Body(Scope):
     def data(self, key, **kw):
         self._call(key, **kw)
 
-    def triggers(self, key, cls=AnyTrig):
+    @overload
+    def triggers(self, key: str) -> ContextManager[AnyTrig]: ...
+    @overload
+    def triggers(self, key: str, cls: type[_T]) -> ContextManager[_T]: ...
+    def triggers(self, key: str, cls: Any = AnyTrig) -> Any:
         return self._open(key, cls)
 
-    def effects(self, key, cls=AnyFx):
+    @overload
+    def effects(self, key: str) -> ContextManager[AnyFx]: ...
+    @overload
+    def effects(self, key: str, cls: type[_T]) -> ContextManager[_T]: ...
+    def effects(self, key: str, cls: Any = AnyFx) -> Any:
         return self._open(key, cls)
 
     def block(self, key):
         return self._open(key, Body)
+
+
+class GenericAction(Body):
+    """one generic action: the plain fields, potential/allow/effect blocks, and a select_trigger."""
+
+    @contextmanager
+    def select_trigger(self, looking_for_a: str, visible: type[_T], *, name: str, source: str | None = None,
+                       target_flag: str = "recipient", column: str = "name") -> Iterator[_T]:
+        """`select_trigger = { looking_for_a .. [interaction_source_list = { <source> = { add_to_list = source } }] target_flag ..
+        name = ".." column = { data = .. } visible = { <yielded> } }`. `visible` is the trigger class of the thing being chosen
+        (SituationTrig, InternationalOrganizationTrig); source is a scope link whose members are the choices."""
+        with self._open("select_trigger", Body) as s:
+            s.field("looking_for_a", looking_for_a)
+            if source:
+                with s.effects("interaction_source_list") as i, i.link(source, AnyFx) as x:
+                    x.add_to_list("source")
+            s.field("target_flag", target_flag)
+            s.field("name", Q(name))
+            s.data("column", data=column)
+            with s.triggers("visible", visible) as t:
+                yield t
 
 
 class Loc:
@@ -198,13 +237,21 @@ class Doc:
             for k, v in effects.items():
                 m.field(k, v)
 
-    def bias(self, name, value):
-        """an opinion modifier (biases/): `name = { value = v }`"""
+    def bias(self, name, value, **keys: Unpack[BiasKeys]):
+        """an opinion modifier (biases/): `name = { value = v <keys in the order given> }`"""
+        for k in keys:
+            if k not in BiasKeys.__annotations__:
+                raise ValueError(f"{name}: {k} is not a bias key ({', '.join(BiasKeys.__annotations__)})")
         with self.entry(name) as b:
             b.field("value", value)
+            for k, v in keys.items():
+                b.field(k, v)
 
     def entry(self, name):
         return self._top._open(name, Body)
+
+    def generic_action(self, name) -> ContextManager[GenericAction]:
+        return self._top._open(name, GenericAction)
 
     def text(self):
         return render(self.nodes)

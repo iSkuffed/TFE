@@ -278,7 +278,7 @@ from __future__ import annotations
 from contextlib import contextmanager
 from typing import Any, ContextManager, Generic, Iterator, Literal, TypeVar
 
-from pdx.core import Scope
+from pdx.core import Cmp, Scope
 '''
 
 

@@ -210,8 +210,19 @@ class Scope:
             self._add(n)
 
 
+class Cmp:
+    """a keyword value that carries its operator: `religion_percentage(religion=r, value=Cmp(">=", 0.25))` writes `value >= 0.25`."""
+
+    def __init__(self, op, value):
+        if op not in CMP_OPS:
+            raise ValueError(f"unknown operator {op!r}")
+        self.op, self.value = op, value
+
+
 def _kwval(v):
-    return [Node(k.rstrip("_"), "=", _kwval(x)) for k, x in v.items()] if isinstance(v, dict) else fmt(v)
+    if isinstance(v, dict):
+        return [Node(k.rstrip("_"), x.op if isinstance(x, Cmp) else "=", _kwval(x.value if isinstance(x, Cmp) else x)) for k, x in v.items()]
+    return fmt(v)
 
 
 class _Saved:
