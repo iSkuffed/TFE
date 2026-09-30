@@ -13,8 +13,7 @@ def create_units(loc, owner, origin, units):
     """`while = { count = n create_sub_unit_with_owner = {...} }` per (count, type) on loc."""
     for count, unit in units:
         with loc.while_(count=count) as w:
-            # GAP: the binding writes origin before owner (vanilla order); the files have owner first
-            w._call("create_sub_unit_with_owner", type=unit, owner=owner, origin=origin)
+            w.create_sub_unit_with_owner(type=unit, owner=owner, origin=origin)
 
 
 def raise_host(d):

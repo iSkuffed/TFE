@@ -93,3 +93,32 @@ def test_a_visible_event_still_needs_text_and_an_outcome():
         with pytest.raises(ValueError):
             with d.event(1, type="country_event", **kw):  # pyright: ignore
                 pass
+
+
+def _same_entry(doc, committed, name):
+    tree = lambda es: [(e.key, e.op, tree(e.val) if isinstance(e.val, list) else e.val) for e in es]
+    want = [e for e in ls.parse((ROOT / committed).read_text(encoding="utf-8-sig")) if e.key == name]
+    assert tree(ls.parse(doc.text())) == tree(want)
+
+
+def test_a_static_modifier_builder_matches_the_committed_entry():
+    from pdx.objects import Doc
+    d = Doc()
+    d.modifier("tfe_stilicho_regency", category="country", land_morale_modifier=0.1, global_nobles_estate_power=0.2)
+    _same_entry(d, "main_menu/common/static_modifiers/tfe_opening.txt", "tfe_stilicho_regency")
+
+
+def test_an_auto_modifier_builder_matches_the_committed_entry():
+    from pdx.objects import Doc
+    d = Doc()
+    d.modifier("tfe_comitatenses", potential=lambda t: t.has_or_had_tag("WRE"), discipline=0.05)
+    _same_entry(d, "in_game/common/auto_modifiers/tfe_late_roman_west.txt", "tfe_comitatenses")
+
+
+def test_a_bias_builder_and_a_misspelt_modifier_key():
+    from pdx.objects import Doc
+    d = Doc()
+    d.bias("tfe_foederati_subject_opinion", 0)
+    _same_entry(d, "in_game/common/biases/tfe_biases.txt", "tfe_foederati_subject_opinion")
+    with pytest.raises(ValueError, match="not a modifier key"):
+        Doc().modifier("x", land_morale_modifer=0.1)

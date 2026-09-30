@@ -19,6 +19,9 @@ KILL = spec("scalar block", opt="target killer reason location".split())
 
 # effects. The docs say add_country_modifier takes `name =`; the game needs `modifier =` (lint_script checks this too).
 SPEC_FX = {
+    # the mod's files write owner before origin (vanilla does the reverse; the game does not care)
+    "create_sub_unit_with_owner": {**spec("block", ["type", "owner"], ["origin", "experience"]),
+                                   "order": ["type", "owner", "origin", "experience"]},
     # the body is the new country's scope: define_unique_country_tag, create_character, set_new_ruler run inside it
     "create_country_from_location": {**spec("block", opt="locations overlord reforms subject_type name save_scope_as capital ruler_or_regent".split()),
                                      "opens": "CountryFx"},

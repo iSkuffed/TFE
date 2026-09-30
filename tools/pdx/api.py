@@ -4066,7 +4066,7 @@ class LocationFx(AnyFx):
     def create_num_sub_unit_of_category(self, *args: Any, **kw: Any) -> None: self._call("create_num_sub_unit_of_category", *args, **kw)
     def create_sub_unit(self, _v: Any, /) -> None: self._call("create_sub_unit", _v)
     def create_sub_unit_of_category(self, _v: Any, /) -> None: self._call("create_sub_unit_of_category", _v)
-    def create_sub_unit_with_owner(self, *, type: Any, origin: Any = None, owner: Any, experience: Any = None) -> None: self._call("create_sub_unit_with_owner", **_kw(type=type, origin=origin, owner=owner, experience=experience))
+    def create_sub_unit_with_owner(self, *, type: Any, owner: Any, origin: Any = None, experience: Any = None) -> None: self._call("create_sub_unit_with_owner", **_kw(type=type, owner=owner, origin=origin, experience=experience))
     def destroy_all_buildings_of_type(self, *args: Any, **kw: Any) -> None: self._call("destroy_all_buildings_of_type", *args, **kw)
     def destroy_building(self, _v: Any, /) -> None: self._call("destroy_building", _v)
     def destroy_building_forcefully(self, _v: Any, /) -> None: self._call("destroy_building_forcefully", _v)

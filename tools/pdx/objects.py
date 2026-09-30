@@ -1,9 +1,19 @@
 """Script objects: a file (Doc) holding named entries whose fields and effect/trigger blocks are typed scopes."""
+import functools
+import re
 from contextlib import contextmanager
 from typing import Any, Callable, ContextManager, Generic, Iterator, Literal, TypeVar, get_args
 
 from .api import AnyFx, AnyTrig, CountryFx, CountryTrig, Outcome
 from .core import Q, Scope, render
+
+@functools.cache
+def modifier_keys():
+    """the keys modifiers.log lists (empty when the docs have not been written yet: then nothing is checked)."""
+    import lint_script
+    log = lint_script.DOCS / "modifiers.log"
+    return set(re.findall(r"^Tag: (\w+),", log.read_text(encoding="utf-8-sig"), re.M)) if log.exists() else set()
+
 
 F = TypeVar("F")
 T = TypeVar("T")
@@ -171,6 +181,27 @@ class Doc:
 
     def note(self, text):
         self._top.note(text)
+
+    def modifier(self, name, *, category=None, potential: Callable[[CountryTrig], Any] | None = None, **effects):
+        """a static modifier (`category="country"` writes `game_data = { category = country }`) or an auto modifier
+        (`potential` writes `potential_trigger`); the keywords are the modifier's own keys, checked against modifiers.log."""
+        known = modifier_keys()
+        for k in effects:
+            if known and k not in known:
+                raise ValueError(f"{name}: {k} is not a modifier key in modifiers.log")
+        with self.entry(name) as m:
+            if category:
+                m.data("game_data", category=category)
+            if potential:
+                with m.triggers("potential_trigger", CountryTrig) as t:
+                    potential(t)
+            for k, v in effects.items():
+                m.field(k, v)
+
+    def bias(self, name, value):
+        """an opinion modifier (biases/): `name = { value = v }`"""
+        with self.entry(name) as b:
+            b.field("value", value)
 
     def entry(self, name):
         return self._top._open(name, Body)
