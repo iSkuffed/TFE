@@ -7060,6 +7060,8 @@ class AnyTrig(Scope):
     def tfe_gildo_revolt_fires(self, _v: bool | str | float = True, /) -> None: self._call("tfe_gildo_revolt_fires", _v)
     def tfe_has_frontier_works(self, _v: bool | str | float = True, /) -> None: self._call("tfe_has_frontier_works", _v)
     def tfe_hunnic_storm_is_over(self, _v: bool | str | float = True, /) -> None: self._call("tfe_hunnic_storm_is_over", _v)
+    def tfe_is_historical_land_of(self, _v: bool | str | float | None = None, /, *, WHO: Any = None) -> None:
+        _scripted(self, "tfe_is_historical_land_of", _v, dict(WHO=WHO))
     def tfe_is_migrator(self, _v: bool | str | float = True, /) -> None: self._call("tfe_is_migrator", _v)
     def tfe_is_under_the_yoke(self, _v: bool | str | float = True, /) -> None: self._call("tfe_is_under_the_yoke", _v)
     def tfe_is_western_rome(self, _v: bool | str | float = True, /) -> None: self._call("tfe_is_western_rome", _v)
