@@ -1,7 +1,7 @@
 ﻿namespace = tfe_decline_rome
 
-# Hospitalitas (generic_actions/tfe_decline_rome.txt): an Augustus offers a host on the road a Roman province to settle.
-# The offer sits in variables on the host (tfe_hospitalitas_from: the Augustus; tfe_hospitalitas_province: the province;
+# Hospitalitas (generic_actions/tfe_decline_rome.txt): an Augustus offers a host on the road a Roman area to settle.
+# The offer sits in variables on the host (tfe_hospitalitas_from: the Augustus; tfe_hospitalitas_area: the area;
 # tfe_hospitalitas_land: his locations in it), for three months, and the event re-derives its scopes from them.
 tfe_decline_rome.1 = {
 	type = country_event
@@ -20,7 +20,7 @@ tfe_decline_rome.1 = {
 	immediate = {
 		save_scope_as = tfe_host
 		var:tfe_hospitalitas_from = { save_scope_as = tfe_rome }
-		var:tfe_hospitalitas_province ?= { save_scope_as = tfe_land }
+		var:tfe_hospitalitas_area ?= { save_scope_as = tfe_land }
 	}
 
 	# swear the foedus and take the land
@@ -46,7 +46,7 @@ tfe_decline_rome.1 = {
 			}
 			scope:tfe_host = {
 				remove_variable = tfe_hospitalitas_from
-				remove_variable = tfe_hospitalitas_province
+				remove_variable = tfe_hospitalitas_area
 				clear_variable_list = tfe_hospitalitas_land
 			}
 		}
@@ -86,7 +86,7 @@ tfe_decline_rome.1 = {
 			}
 			scope:tfe_host = {
 				remove_variable = tfe_hospitalitas_from
-				remove_variable = tfe_hospitalitas_province
+				remove_variable = tfe_hospitalitas_area
 				clear_variable_list = tfe_hospitalitas_land
 			}
 		}

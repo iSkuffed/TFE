@@ -2,7 +2,7 @@
 # migrating host on Roman land as foederati (Hospitalitas; the host may refuse, events/tfe_decline_rome.txt), or pay to
 # garrison a stretch of the frontier so that no people beyond it may take the road (scripted_triggers/tfe_decline_rome.txt).
 
-# Hospitalitas: a province of the Empire for a host on the road, as Rome settled the Visigoths in Aquitaine in 418
+# Hospitalitas: an area of the Empire for a host on the road, as Rome settled the Visigoths in Aquitaine in 418
 tfe_hospitalitas = {
 	type = situation
 
@@ -76,25 +76,26 @@ tfe_hospitalitas = {
 		}
 	}
 
-	# the land: one of the actor's provinces, never the one that holds the capital
+	# the land: a whole area where the actor holds provinces (a single province is too little to buy off a people),
+	# never the one that holds the capital
 	select_trigger = {
-		looking_for_a = province
+		looking_for_a = area
 		interaction_source_list = {
 			scope:actor = {
-				every_province = {
+				every_area_with_owned_province = {
 					add_to_list = source
 				}
 			}
 		}
-		target_flag = target_province
-		name = "tfe_hospitalitas_choose_province"
-		none_available_msg_key = "tfe_hospitalitas_no_province"
+		target_flag = target_area
+		name = "tfe_hospitalitas_choose_area"
+		none_available_msg_key = "tfe_hospitalitas_no_area"
 		column = {
 			data = name
 		}
 		visible = {
-			any_location_in_province = { owner ?= scope:actor }
-			NOT = { any_location_in_province = { owner ?= scope:actor is_capital = yes } }
+			any_location_in_area = { owner ?= scope:actor }
+			NOT = { any_location_in_area = { owner ?= scope:actor is_capital = yes } }
 		}
 	}
 
@@ -104,10 +105,10 @@ tfe_hospitalitas = {
 			# what the host's event needs travels as variables on the host (a saved scope does not reach it)
 			scope:host = {
 				set_variable = { name = tfe_hospitalitas_from value = scope:actor months = 3 }
-				set_variable = { name = tfe_hospitalitas_province value = scope:target_province months = 3 }	# named in the event
+				set_variable = { name = tfe_hospitalitas_area value = scope:target_area months = 3 }	# named in the event
 			}
-			scope:target_province = {
-				every_location_in_province = {
+			scope:target_area = {
+				every_location_in_area = {
 					limit = { owner ?= scope:actor }
 					scope:host = {
 						add_to_variable_list = { name = tfe_hospitalitas_land target = prev months = 3 }
@@ -134,13 +135,13 @@ tfe_hospitalitas = {
 			}
 			add = 40
 		}
-		# give what Rome barely holds (the frontier, the deserted fields), never a province it truly rules
+		# give what Rome barely holds (the frontier, the deserted fields), never an area it truly rules
 		if = {
-			limit = { scope:target_province = { province_average_control < 0.3 } }
+			limit = { scope:target_area = { area_average_control < 0.3 } }
 			add = 20
 		}
 		else_if = {
-			limit = { scope:target_province = { province_average_control > 0.6 } }
+			limit = { scope:target_area = { area_average_control > 0.6 } }
 			add = -100
 		}
 	}
