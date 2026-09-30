@@ -168,7 +168,7 @@ tfe_man_the_limes = {
 	price_modifier = {
 		add = {
 			desc = "tfe_man_the_limes_cost"
-			value = 50
+			value = 100
 		}
 	}
 
@@ -200,34 +200,43 @@ tfe_man_the_limes = {
 		}
 	}
 
+	# a whole diocese (region) at a time: one fort was too little to matter
 	select_trigger = {
-		looking_for_a = location
+		looking_for_a = region
 		interaction_source_list = {
 			scope:actor = {
 				every_owned_location = {
 					limit = { tfe_has_frontier_works = yes }
-					add_to_list = source
+					region = { add_to_list = source }
 				}
 			}
 		}
-		target_flag = limes_location
-		name = "tfe_man_the_limes_choose_location"
-		none_available_msg_key = "tfe_man_the_limes_no_location"
+		target_flag = limes_region
+		name = "tfe_man_the_limes_choose_region"
+		none_available_msg_key = "tfe_man_the_limes_no_region"
 		column = {
 			data = name
 		}
 		visible = {
-			owner ?= scope:actor
-			tfe_has_frontier_works = yes
-			NOT = { has_location_modifier = tfe_limes_manned }
+			any_location_in_region = {
+				owner ?= scope:actor
+				tfe_has_frontier_works = yes
+				NOT = { has_location_modifier = tfe_limes_manned }
+			}
 		}
 	}
 
 	effect = {
 		custom_tooltip = tfe_man_the_limes_tt
 		hidden_effect = {
-			scope:limes_location = {
-				add_location_modifier = { modifier = tfe_limes_manned years = 10 mode = replace }
+			scope:limes_region = {
+				every_location_in_region = {
+					limit = {
+						owner ?= scope:actor
+						tfe_has_frontier_works = yes
+					}
+					add_location_modifier = { modifier = tfe_limes_manned years = 10 mode = replace }
+				}
 			}
 		}
 	}
@@ -238,8 +247,12 @@ tfe_man_the_limes = {
 		if = {
 			limit = {
 				scope:actor = { gold >= 150 }
-				scope:limes_location = {
-					any_neighbor_location = { owner ?= { tfe_is_migrator = yes NOT = { has_variable = tfe_migrating } } }
+				scope:limes_region = {
+					any_location_in_region = {
+						owner ?= scope:actor
+						tfe_has_frontier_works = yes
+						any_neighbor_location = { owner ?= { tfe_is_migrator = yes NOT = { has_variable = tfe_migrating } } }
+					}
 				}
 			}
 			add = 30
