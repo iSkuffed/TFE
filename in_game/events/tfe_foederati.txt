@@ -6,15 +6,11 @@ tfe_foederati.1 = {
 	title = tfe_foederati.1.title
 	desc = tfe_foederati.1.desc
 	outcome = neutral
-
 	image = "gfx/interface/illustrations/event/backgrounds/exterior/soldiers/north_german_soldiers_exterior.dds"
-
 	trigger = { is_subject_type = tfe_foederati }
-
 	immediate = {
 		overlord = { save_scope_as = tfe_foedus_lord }
 	}
-
 	# swear anew to the living
 	option = {
 		name = tfe_foederati.1.a
@@ -22,7 +18,6 @@ tfe_foederati.1 = {
 		add_prestige = 5
 		ai_chance = { base = 2 }
 	}
-
 	# take what was promised: the foedus is broken and the Empire owes us land
 	option = {
 		name = tfe_foederati.1.b

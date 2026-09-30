@@ -38,7 +38,7 @@ def vanilla_files(game):
 
 def scan(game, names, mod=None):
     """names: {"E": set of effect names, "T": set of trigger names} (docs + scripted). mod: the mod's root, scanned too."""
-    stats = collections.defaultdict(lambda: {"n": 0, "shapes": collections.Counter(), "keys": collections.Counter(),
+    stats = collections.defaultdict(lambda: {"n": 0, "shapes": collections.Counter(), "keys": collections.Counter(), "pos": collections.Counter(),
                                              "kinds": collections.Counter(), "badops": collections.Counter()})
     iters = collections.defaultdict(collections.Counter)
 
@@ -58,6 +58,9 @@ def scan(game, names, mod=None):
                     s["shapes"]["block"] += 1
                     inner = {x.key for x in e.val if x.key and IDENT.fullmatch(x.key)}
                     s["keys"].update(inner)
+                    order = list(dict.fromkeys(x.key for x in e.val if x.key in inner))
+                    for i, key in enumerate(order):  # where in the block this key usually sits, 0 = first, 1 = last
+                        s["pos"][key] += i / max(len(order) - 1, 1)
                     for x in e.val:
                         if x.key and x.op in NONEQ:
                             s["badops"][x.key] += 1
@@ -104,7 +107,9 @@ def spec_vanilla(name, st, names):
         return None
     n = st["shapes"]["block"]
     req = [k for k in keys if st["keys"][k] == n] if n >= 3 else []
-    return {"shapes": shapes, "req": req, "opt": [k for k in keys if k not in req], "kinds": set(st["kinds"])}
+    order = sorted(keys, key=lambda k: (st["pos"][k] / st["keys"][k], k))  # vanilla's usual order, so ports diff cleanly
+    return {"shapes": shapes, "req": req, "opt": [k for k in keys if k not in req], "kinds": set(st["kinds"]),
+            "order": order}
 
 
 def hint(name, desc):

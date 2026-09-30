@@ -4,6 +4,7 @@
 on_siege_won = {
 	on_actions = { tfe_on_host_takes_roman_town }
 }
+
 on_location_occupied = {
 	on_actions = { tfe_on_host_takes_roman_town }
 }
@@ -15,7 +16,12 @@ tfe_on_host_takes_roman_town = {
 		NOT = { has_variable = tfe_settled }	# on_action/tfe_migratory.txt
 		scope:target = {
 			NOT = { has_location_modifier = tfe_fled_to_the_host }
-			owner ?= { OR = { has_or_had_tag = WRE has_or_had_tag = EAR } }
+			owner ?= {
+				OR = {
+					has_or_had_tag = WRE
+					has_or_had_tag = EAR
+				}
+			}
 		}
 	}
 	effect = {

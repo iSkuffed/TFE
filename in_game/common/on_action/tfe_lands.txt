@@ -6,16 +6,16 @@ on_game_start = {
 
 tfe_on_start_lands = {
 	effect = {
-		location:tunis = { tfe_work_granary_to_the_limit = yes }			# Carthage
+		location:tunis = { tfe_work_granary_to_the_limit = yes }	# Carthage
 		location:mateur = { tfe_work_granary_to_the_limit = yes }
 		location:tebourba = { tfe_work_granary_to_the_limit = yes }
 		location:medjez_el_bab = { tfe_work_granary_to_the_limit = yes }
-		location:beja_TUN = { tfe_work_granary_to_the_limit = yes }		# Vaga
-		location:el_kef = { tfe_work_granary_to_the_limit = yes }			# Sicca Veneria
-		location:el_fahs = { tfe_work_granary_to_the_limit = yes }		# Thuburbo Maius
-		location:tebessa = { tfe_work_granary_to_the_limit = yes }		# Theveste
+		location:beja_TUN = { tfe_work_granary_to_the_limit = yes }	# Vaga
+		location:el_kef = { tfe_work_granary_to_the_limit = yes }	# Sicca Veneria
+		location:el_fahs = { tfe_work_granary_to_the_limit = yes }	# Thuburbo Maius
+		location:tebessa = { tfe_work_granary_to_the_limit = yes }	# Theveste
 		location:sbiba = { tfe_work_granary_to_the_limit = yes }
 		location:kairouan = { tfe_work_granary_to_the_limit = yes }
-		location:gabes = { tfe_work_granary_to_the_limit = yes }			# Tacapae
+		location:gabes = { tfe_work_granary_to_the_limit = yes }	# Tacapae
 	}
 }

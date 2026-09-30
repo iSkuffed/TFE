@@ -1,6 +1,6 @@
 """Script objects: a file (Doc) holding named entries whose fields and effect/trigger blocks are typed scopes."""
 from contextlib import contextmanager
-from typing import Any, ContextManager, Generic, Iterator, Literal, TypeVar, get_args
+from typing import Any, Callable, ContextManager, Generic, Iterator, Literal, TypeVar, get_args
 
 from .api import AnyFx, AnyTrig, CountryFx, CountryTrig, Outcome
 from .core import Q, Scope, render
@@ -45,6 +45,13 @@ class Loc:
         return "l_english:\n" + "".join(f' {k}: "{esc(v)}"\n' for k, v in self.keys.items())
 
 
+class _AiChance(Scope, Generic[T]):
+    _trig: Any
+
+    def modifier(self, factor) -> ContextManager[T]:
+        return self._open("modifier", self._trig, factor=factor)
+
+
 class _Option(Scope, Generic[T]):
     """the inside of an event option: any effect, plus its own trigger and ai_chance."""
     _trig: Any
@@ -53,7 +60,14 @@ class _Option(Scope, Generic[T]):
         return self._open("trigger", self._trig)
 
     def ai_chance(self, base) -> None:
-        self._call("ai_chance", base=base)  # ponytail: base only; add a value-block class when an option needs modifiers
+        self._call("ai_chance", base=base)
+
+    @contextmanager
+    def ai_chance_block(self, base) -> Iterator["_AiChance[T]"]:
+        """`ai_chance = { base = b  modifier = { factor = f <triggers> } ... }`; notes go between the modifiers."""
+        with self._open("ai_chance", _AiChance, base=base) as a:
+            a._trig = self._trig
+            yield a
 
 
 class CountryOption(_Option[CountryTrig], CountryFx):
@@ -75,10 +89,12 @@ class Event(Scope, Generic[F, T, O]):
         return self._open("immediate", self._fx)
 
     @contextmanager
-    def option(self, letter, *, text) -> Iterator[O]:
+    def option(self, letter, *, text, historical=False) -> Iterator[O]:
         self._loc.add(f"{self._id}.{letter}", text)
         with self._open("option", self._opt) as o:
             o._call("name", f"{self._id}.{letter}")
+            if historical:
+                o._call("historical_option", True)
             yield o
 
 
@@ -94,20 +110,26 @@ class Doc:
         self._top._call("namespace", name)
 
     @contextmanager
-    def _event(self, n, type, title, desc, outcome, hidden, image, kinds):
+    def _event(self, n, type, category, title, desc, outcome, hidden, image, kinds):
         if outcome not in get_args(Outcome):
             raise ValueError(f"event outcome {outcome!r}: must be one of {get_args(Outcome)}")
         if self.ns is None:
             raise ValueError("doc.namespace(...) first")
         eid = f"{self.ns}.{n}"
         self.loc.add(f"{eid}.title", title)
-        self.loc.add(f"{eid}.desc", desc)
+        if isinstance(desc, str):
+            self.loc.add(f"{eid}.desc", desc)
         with self._top._open(eid, Event) as e:
             e._id, e._loc = eid, self.loc
             e._fx, e._trig, e._opt = kinds
             e._call("type", type)
+            if category:
+                e._call("category", category)
             e._call("title", f"{eid}.title")
-            e._call("desc", f"{eid}.desc")
+            if isinstance(desc, str):
+                e._call("desc", f"{eid}.desc")
+            else:
+                self._first_valid(e, eid, desc, kinds[1])
             e._call("outcome", outcome)
             if hidden:
                 e._call("hidden", True)
@@ -115,9 +137,21 @@ class Doc:
                 e._call("image", Q(image))
             yield e
 
-    def event(self, n: int, *, type: Literal["country_event"], title: str, desc: str, outcome: Outcome,
-              hidden: bool = False, image: str | None = None) -> ContextManager[Event[CountryFx, CountryTrig, CountryOption]]:
-        return self._event(n, type, title, desc, outcome, hidden, image, (CountryFx, CountryTrig, CountryOption))
+    def _first_valid(self, e, eid, cases, trig):
+        """desc = { first_valid = { triggered_desc = { trigger = { .. } desc = key } ... } }"""
+        with e._open("desc", Body) as d, d.block("first_valid") as fv:
+            for cond, suffix, text in cases:
+                self.loc.add(f"{eid}.desc.{suffix}", text)
+                with fv.block("triggered_desc") as td:
+                    with td._open("trigger", trig) as t:
+                        cond(t) if cond else t._call("always", True)
+                    td._call("desc", f"{eid}.desc.{suffix}")
+
+    def event(self, n: int, *, type: Literal["country_event"], title: str, desc: str | list[tuple[Callable[[CountryTrig], Any] | None, str, str]],
+              outcome: Outcome, hidden: bool = False, image: str | None = None,
+              category: Literal["situation_event"] | None = None) -> ContextManager[Event[CountryFx, CountryTrig, CountryOption]]:
+        """desc is the text, or a list of (condition or None for always, loc-key suffix, text) for a first_valid of triggered_descs."""
+        return self._event(n, type, category, title, desc, outcome, hidden, image, (CountryFx, CountryTrig, CountryOption))
 
     def note(self, text):
         self._top.note(text)

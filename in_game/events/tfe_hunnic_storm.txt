@@ -19,7 +19,6 @@ tfe_hunnic_storm.1 = {
 	}
 	outcome = negative
 	image = "gfx/interface/illustrations/situation/tfe_hunnic_storm.dds"
-
 	option = {
 		name = tfe_hunnic_storm.1.a
 		trigger = { tag = HNS }
@@ -39,29 +38,28 @@ tfe_hunnic_storm.2 = {
 	desc = tfe_hunnic_storm.2.desc
 	outcome = neutral
 	image = "gfx/interface/illustrations/situation/tfe_hunnic_storm.dds"
-
 	trigger = {
 		tfe_is_migrator = yes	# scripted_triggers/tfe_decline_of_the_west.txt
 		NOT = { has_variable = tfe_migrating }
 		is_subject = no
 		tfe_frontier_unmanned = yes	# scripted_triggers/tfe_decline_rome.txt
 	}
-
 	# the road west (the Decline of the West's Migrate, generic_actions/tfe_migratory.txt)
 	option = {
 		name = tfe_hunnic_storm.2.a
 		historical_option = yes
 		custom_tooltip = tfe_start_migration_tt
-		hidden_effect = { tfe_start_migration_effect = yes }	# scripted_effects/tfe_migratory.txt
+		hidden_effect = {
+			tfe_start_migration_effect = yes	# scripted_effects/tfe_migratory.txt
+		}
 		ai_chance = {
 			base = 3
-			modifier = {	# pace the chaos: one host on the road every 4 years
+			modifier = {
 				factor = 0
 				has_global_variable = tfe_host_took_the_road
-			}
+			}	# pace the chaos: one host on the road every 4 years
 		}
 	}
-
 	option = {
 		name = tfe_hunnic_storm.2.b
 		add_prestige = 5
@@ -77,13 +75,11 @@ tfe_hunnic_storm.3 = {
 	desc = tfe_hunnic_storm.3.desc
 	outcome = positive
 	image = "gfx/interface/illustrations/situation/tfe_hunnic_storm.dds"
-
 	trigger = {
 		tfe_is_under_the_yoke = yes
 		NOT = { tag = HNS }
 		country_exists = c:HNS
 	}
-
 	# rise with the others
 	option = {
 		name = tfe_hunnic_storm.3.a
@@ -110,10 +106,7 @@ tfe_hunnic_storm.3 = {
 			}
 			else = {
 				leave_all_wars_with = c:HNS
-				declare_war_with_cb = {
-					target = c:HNS
-					type = casus_belli:cb_tfe_break_the_yoke
-				}
+				declare_war_with_cb = { target = c:HNS type = casus_belli:cb_tfe_break_the_yoke }
 			}
 		}
 		ai_chance = {
@@ -121,9 +114,7 @@ tfe_hunnic_storm.3 = {
 			# the Huns are weak: no grown heir to hold the Yoke, or a smaller army than ours
 			modifier = {
 				factor = 3
-				c:HNS = {
-					NOT = { heir ?= { is_adult = yes } }
-				}
+				c:HNS = { NOT = { heir ?= { is_adult = yes } } }
 			}
 			modifier = {
 				factor = 5
@@ -140,7 +131,6 @@ tfe_hunnic_storm.3 = {
 			}
 		}
 	}
-
 	# stay loyal
 	option = {
 		name = tfe_hunnic_storm.3.b
@@ -156,7 +146,6 @@ tfe_hunnic_storm.4 = {
 	desc = tfe_hunnic_storm.4.desc
 	outcome = positive
 	image = "gfx/interface/illustrations/situation/tfe_hunnic_storm.dds"
-
 	option = {
 		name = tfe_hunnic_storm.4.a
 		trigger = { NOT = { tag = HNS } }
@@ -175,7 +164,6 @@ tfe_hunnic_storm.5 = {
 	desc = tfe_hunnic_storm.5.desc
 	outcome = neutral
 	image = "gfx/interface/illustrations/situation/tfe_hunnic_storm.dds"
-
 	option = {
 		name = tfe_hunnic_storm.5.a
 		trigger = { tag = HNS }

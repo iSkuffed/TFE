@@ -1,5 +1,4 @@
 ﻿# TFE: Rome's answers to the migrations (generic_actions/tfe_decline_rome.txt)
-
 # A location (scope: location) that holds the frontier works placed at start (building_types/tfe_frontier.txt)
 tfe_has_frontier_works = {
 	any_buildings_in_location = {

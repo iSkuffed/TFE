@@ -1,5 +1,4 @@
 ﻿# TFE: the Decline of the West (situations/tfe_decline_of_the_west.txt).
-
 # Scope: a country. The peoples of Germania and Dacia who may take the road into the Empire
 # (generic_actions/tfe_migratory.txt's Start Migration, on the Decline's panel).
 tfe_is_migrator = {
