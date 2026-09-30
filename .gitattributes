@@ -1,0 +1,3 @@
+*.txt linguist-language=Assembly linguist-detectable
+*.gui linguist-language=Assembly linguist-detectable
+*.gfx linguist-language=Assembly linguist-detectable
