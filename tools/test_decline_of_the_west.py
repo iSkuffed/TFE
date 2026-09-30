@@ -58,7 +58,7 @@ def test_the_migrators_are_the_peoples_of_germania_and_dacia():
 def test_who_sees_it():
     visible = re.search(r"visible = \{(.*?)\n\t\}", code(SITUATION), re.S).group(1)
     assert "tag = WRE" in visible and "tag = EAR" in visible and "tfe_is_migrator = yes" in visible
-    assert re.search(r"country_exists = c:GILDO\s*this = c:GILDO", visible)   # Gildo's tag is made when he rises
+    assert "tag = GILDO" in visible and "this = c:GILDO" not in visible   # c:GILDO errors until Gildo rises
 
 
 def test_the_panel_shows_the_phase_africa_and_the_migrators():

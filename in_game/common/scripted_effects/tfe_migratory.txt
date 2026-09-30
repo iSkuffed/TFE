@@ -27,7 +27,23 @@ tfe_start_migration_effect = {
 			create_sub_unit_with_owner = { type = a_tribal_cavalry owner = scope:tfe_host origin = scope:tfe_muster }
 		}
 	}
-	every_owned_location = { scope:tfe_host = { abandon_location = prev } }
+	# a neighbouring people moves into the homeland, so it is not left empty; its pops stay, under new lords. Only with
+	# no such neighbour is it abandoned.
+	random_neighbor_country = {
+		limit = {
+			NOT = { tag = WRE }
+			NOT = { tag = EAR }
+			NOT = { has_variable = tfe_migrating }
+		}
+		save_scope_as = tfe_heir_to_the_land
+	}
+	if = {
+		limit = { exists = scope:tfe_heir_to_the_land }
+		every_owned_location = { change_location_owner = scope:tfe_heir_to_the_land }
+	}
+	else = {
+		every_owned_location = { scope:tfe_host = { abandon_location = prev } }
+	}
 	if = { limit = { country_exists = c:WRE } add_casus_belli = { target = c:WRE type = casus_belli:cb_tfe_migration } }
 	if = { limit = { country_exists = c:EAR } add_casus_belli = { target = c:EAR type = casus_belli:cb_tfe_migration } }
 	tfe_list_the_migrators = yes

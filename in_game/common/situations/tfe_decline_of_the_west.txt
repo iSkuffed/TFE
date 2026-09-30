@@ -20,10 +20,7 @@ tfe_decline_of_the_west = {
 			tag = WRE
 			tag = EAR
 			tfe_is_migrator = yes
-			AND = {
-				country_exists = c:GILDO
-				this = c:GILDO
-			}
+			tag = GILDO	# not `this = c:GILDO`: an error every check until Gildo rises
 		}
 	}
 

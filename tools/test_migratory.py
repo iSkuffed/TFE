@@ -51,7 +51,11 @@ def test_start_migration_is_a_one_way_trip_for_the_peoples_beyond_the_rivers():
     effect = code(EFFECT)
     assert "set_variable = tfe_migrating" in effect and "every_owned_location" in effect and "abandon_location" in effect
     # a landed people must become army-based before it abandons its last location, or it is gone
-    assert effect.index("change_country_type = army") < effect.index("abandon_location")
+    assert effect.index("change_country_type = army") < effect.index("change_location_owner")
+    # the homeland passes to a neighbouring people, never to Rome or another host; empty only with no neighbour
+    heir = re.search(r"random_neighbor_country = \{(.*?)\n\t\}", effect, re.S).group(1)
+    assert all(s in heir for s in ("NOT = { tag = WRE }", "NOT = { tag = EAR }", "NOT = { has_variable = tfe_migrating }"))
+    assert effect.index("change_location_owner = scope:tfe_heir_to_the_land") < effect.index("abandon_location")
 
 
 def test_the_ai_takes_the_road_one_people_at_a_time():
