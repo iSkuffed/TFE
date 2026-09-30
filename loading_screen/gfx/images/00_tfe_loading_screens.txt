@@ -1,0 +1,8 @@
+﻿tfe_loading_surrender = {
+	illustration_image = {
+		texture_file = "gfx/loading_screen_assets/00/images/tfe_loading_surrender.dds"
+		priority = 1
+		weight = 1
+	}
+	tag = "tfe_loading_surrender"
+}
