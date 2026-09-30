@@ -1,6 +1,11 @@
 # TFE 395: subject relations
 diplomacy_manager = {
 	# the Huns' tributaries of 395 are members of their Hunnic Yoke (15_international_organizations.txt)
+	dependency = { first = HNS second = ANE subject_type = tributary }
+	dependency = { first = HNS second = CRP subject_type = tributary }
+	dependency = { first = HNS second = MRD subject_type = tributary }
+	dependency = { first = HNS second = IMK subject_type = tributary }
+	dependency = { first = HNS second = SRT subject_type = tributary }
 	# Alaric's Goths, foederati of the East under the foedus of 3 Oct 382, sworn to Theodosius: it lapses at start
 	dependency = { first = EAR second = VIS subject_type = tfe_foederati start_date = 382.10.3 }
 	# Baquates, Western client in Tingitana (treaty altars at Volubilis, 3rd c.)

@@ -36,7 +36,7 @@ tfe_force_into_hunnic_yoke = {
 	}
 }
 
-# Grand Raid: the loser pays the Huns a share of its income for 10 years (collected by situations/tfe_hunnic_storm.txt)
+# Grand Raid: the loser joins the Hunnic Yoke and pays its tribute (international_organization_payments/tfe_hunnic_tribute.txt)
 tfe_pay_the_hunnic_subsidy = {
 	cost = {
 		add = {
@@ -51,11 +51,7 @@ tfe_pay_the_hunnic_subsidy = {
 			casus_belli ?= casus_belli:cb_tfe_grand_raid
 		}
 		scope:loser = {
-			OR = {
-				tag = WRE
-				tag = EAR
-			}
-			NOT = { has_variable = tfe_hunnic_subsidy }
+			NOT = { tfe_is_under_the_yoke = yes }
 		}
 	}
 	allow = {
@@ -63,10 +59,8 @@ tfe_pay_the_hunnic_subsidy = {
 
 	effect = {
 		custom_tooltip = tfe_pay_the_hunnic_subsidy_tt
-		hidden_effect = {
-			scope:loser = {
-				set_variable = { name = tfe_hunnic_subsidy value = scope:winner years = 10 }
-			}
+		international_organization:tfe_hunnic_yoke = {
+			add_country_to_international_organization = scope:loser
 		}
 	}
 

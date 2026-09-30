@@ -16,3 +16,15 @@ tfe_hunnic_storm_is_over = {
 		}
 	}
 }
+
+# A people under the Huns' hand (scope: country): a member of the Yoke, or a tributary of the Huns themselves.
+# The starting tribes are tributaries, not members: the Yoke's tribute is only for those the Huns beat into it.
+tfe_is_under_the_yoke = {
+	OR = {
+		is_member_of_international_organization = international_organization:tfe_hunnic_yoke
+		AND = {
+			is_subject_type = tributary
+			top_overlord ?= { tag = HNS }
+		}
+	}
+}

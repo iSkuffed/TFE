@@ -16,6 +16,7 @@ CB = COMMON / "casus_belli/tfe_hunnic_storm.txt"
 WARGOAL = COMMON / "wargoals/tfe_hunnic_storm.txt"
 TREATY = COMMON / "peace_treaties/tfe_hunnic_storm.txt"
 ACTIONS = COMMON / "generic_actions/tfe_hunnic_storm.txt"
+RAID = COMMON / "generic_actions/tfe_hunnic_raid.txt"
 TRAIT = COMMON / "traits/tfe_scourge_of_god.txt"
 ON_ACTION = COMMON / "on_action/tfe_hunnic_storm.txt"
 MIGRATION = COMMON / "scripted_effects/tfe_migratory.txt"
@@ -25,7 +26,7 @@ MODIFIER = b.MOD / "main_menu/common/static_modifiers/tfe_hunnic_storm.txt"
 PANEL = b.MOD / "in_game/gui/panels/situation/tfe_hunnic_storm.gui"
 LOC = b.MOD / "main_menu/localization/english/tfe_hunnic_storm_l_english.yml"
 START = b.MOD / "main_menu/setup/start"
-SCRIPTS = (SITUATION, END, YOKE, STATUS, TRIBUTE, PRICE, CB, WARGOAL, TREATY, ACTIONS, TRAIT, ON_ACTION, MIGRATION, EVENT,
+SCRIPTS = (SITUATION, END, YOKE, STATUS, TRIBUTE, PRICE, CB, WARGOAL, TREATY, ACTIONS, RAID, TRAIT, ON_ACTION, MIGRATION, EVENT,
            MODIFIER)
 TRIBUTARIES = {"ANE", "CRP", "MRD", "IMK", "SRT"}
 
@@ -55,7 +56,7 @@ def test_everything_shown_is_localized():
     wanted |= {k for c in top_keys(CB) for k in (c, f"{c}_desc")}
     wanted |= {k for g in top_keys(WARGOAL) for k in (f"war_goal_{g}", f"war_goal_{g}_desc")}
     wanted |= {k for t in top_keys(TREATY) for k in (t, f"{t}_entry", f"{t}_entry_short", f"{t}_desc")}
-    wanted |= {k for a in top_keys(ACTIONS) for k in (a, f"{a}_desc")}
+    wanted |= {k for a in top_keys(ACTIONS) + top_keys(RAID) for k in (a, f"{a}_desc")}
     wanted |= {k for t in top_keys(TRAIT) for k in (t, f"desc_{t}", f"{t}_die_desc")}
     wanted |= {f"STATIC_MODIFIER_{k}_{m}" for m in top_keys(MODIFIER) for k in ("NAME", "DESC")}
     for p in SCRIPTS:
@@ -71,9 +72,9 @@ def test_everything_shown_is_localized():
 def test_the_yoke_is_seeded_with_the_huns_and_their_tributaries():
     setup = code(START / "15_international_organizations.txt")
     m = re.search(r"type = tfe_hunnic_yoke.*?members = \{([^}]*)\}\s*tfe_hunnic_overlord = \{\s*HNS\s*\}", setup, re.S)
-    assert m and set(m.group(1).split()) == TRIBUTARIES | {"HNS"}
+    assert m and set(m.group(1).split()) == {"HNS"}      # the tribes are the Huns' subjects, not members
     dip = code(START / "12_diplomacy.txt")
-    assert not re.search(r"first = HNS second = \w+ subject_type = tributary", dip)
+    assert set(re.findall(r"first = HNS second = (\w+) subject_type = tributary", dip)) == TRIBUTARIES
     assert not (START / "12_diplomacy.txt").read_bytes().startswith(b"\xef\xbb\xbf")
     yoke = code(YOKE)
     assert re.search(r"payments_implemented = \{\s*tfe_hunnic_tribute\s*\}", yoke)
@@ -99,7 +100,7 @@ def test_every_war_has_its_goal_and_its_treaty():
     by_cb = set(re.findall(r"casus_belli \?= casus_belli:(\w+)", treaties))
     assert by_cb == set(goals) - {"cb_tfe_stand_against_the_scourge"}     # that one is a plain superiority war
     assert "add_country_to_international_organization = scope:loser" in treaties
-    assert "name = tfe_hunnic_subsidy value = scope:winner years = 10" in treaties
+    assert "tfe_hunnic_subsidy" not in treaties
     assert "reason = WonFreedom" in treaties
     # the Break the Yoke action and the Reckoning's rising declare the same war
     for p in (ACTIONS, EVENT):
@@ -109,8 +110,8 @@ def test_every_war_has_its_goal_and_its_treaty():
 def test_the_phases_open_on_named_causes():
     s = code(SITUATION)
     assert "set_variable = { name = tfe_storm_phase value = 1 }" in s
-    assert re.search(r"total_members >= 8\s*any_country = \{ has_variable = tfe_hunnic_subsidy \}", s)
-    assert re.search(r"current_date >= 434\.1\.1\s*total_members >= 6", s)
+    assert re.search(r"tfe_yoke_size >= 8\s*international_organization:tfe_hunnic_yoke \?= \{\s*any_international_organization_member = \{ OR = \{ tag = WRE tag = EAR \} \}", s)
+    assert re.search(r"current_date >= 434\.1\.1\s*tfe_yoke_size >= 6", s)
     assert "var:tfe_scourge = { is_alive = no }" in s and "has_variable = tfe_reckoning_due" in s
     assert "set_variable = { name = tfe_reckoning_clock value = yes years = 10 }" in s
     for n in (1, 2, 3, 4, 5):
@@ -125,7 +126,7 @@ def test_the_phases_open_on_named_causes():
     assert re.search(r"on_ruler_death = \{\s*on_actions = \{ tfe_on_ruler_death_reckoning_due \}", on)
     # the subsidy's Unity driver in the Imperium Romanum
     rome = code(COMMON / "international_organizations/tfe_roman_empire.txt")
-    assert "has_variable = tfe_hunnic_subsidy" in rome and 'desc = "TFE_UNITY_HUNNIC_SUBSIDY"' in rome
+    assert "is_member_of_international_organization = international_organization:tfe_hunnic_yoke" in rome and 'desc = "TFE_UNITY_HUNNIC_SUBSIDY"' in rome
 
 
 def test_the_scourge_is_a_title_not_a_roll():
@@ -147,3 +148,13 @@ def test_panel_and_art_exist():
     for d in ("illustrations/situation", "icons/situations"):
         art = b.MOD / f"main_menu/gfx/interface/{d}/tfe_hunnic_storm.dds"
         assert art.read_bytes()[:4] == b"DDS ", art
+
+
+
+def test_the_grand_raid_is_a_paid_button_not_a_free_cb():
+    raid, cb = code(RAID), code(CB)
+    assert "type = casus_belli:cb_tfe_grand_raid" in raid and "every_neighbor_country" in raid
+    assert "price = price:tfe_hunnic_raid_prestige" in raid and "value = 10" in raid
+    assert re.search(r"tfe_hunnic_raid_prestige = \{\s*prestige = 1", code(PRICE))
+    grand = cb[cb.index("cb_tfe_grand_raid"):]
+    assert re.search(r"create_visible = \{\s*always = no", grand.split("cb_tfe_break_the_yoke")[0])

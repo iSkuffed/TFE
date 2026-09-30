@@ -6,29 +6,24 @@ cb_tfe_submit_to_the_yoke = {
 	}
 	create_enabled = {
 		scope:target = {
-			NOT = { is_member_of_international_organization = international_organization:tfe_hunnic_yoke }
+			NOT = { tfe_is_under_the_yoke = yes }
 			NOT = { tag = WRE }
 			NOT = { tag = EAR }
-			any_neighbor_country = { is_member_of_international_organization = international_organization:tfe_hunnic_yoke }
+			any_neighbor_country = { tfe_is_under_the_yoke = yes }
 		}
 	}
 	speed = 100
 	war_goal_type = tfe_submit_to_the_yoke
 }
 
-# The Huns ride into the Empire for gold: the loser pays the Hunnic subsidy
+# The Huns ride out for plunder: the loser joins the Yoke and pays its tribute. Only the Grand Raid button
+# (generic_actions/tfe_hunnic_raid.txt) grants it, against a neighbour, for prestige.
 cb_tfe_grand_raid = {
 	create_visible = {
-		tag = HNS
+		always = no
 	}
 	create_enabled = {
-		scope:target = {
-			OR = {
-				tag = WRE
-				tag = EAR
-			}
-			NOT = { has_variable = tfe_hunnic_subsidy }
-		}
+		always = no
 	}
 	speed = 100
 	war_goal_type = tfe_grand_raid
@@ -49,7 +44,7 @@ cb_tfe_break_the_yoke = {
 # While the Scourge rides, anyone outside the Yoke may take the field against the Huns
 cb_tfe_stand_against_the_scourge = {
 	create_visible = {
-		NOT = { is_member_of_international_organization = international_organization:tfe_hunnic_yoke }
+		NOT = { tfe_is_under_the_yoke = yes }
 		situation:tfe_hunnic_storm = {
 			situation_is_active = yes
 			has_variable = tfe_storm_phase

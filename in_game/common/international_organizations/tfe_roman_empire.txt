@@ -106,8 +106,8 @@ tfe_roman_empire = {
 					if = {
 						limit = {
 							OR = {
-								c:WRE ?= { has_variable = tfe_hunnic_subsidy }
-								c:EAR ?= { has_variable = tfe_hunnic_subsidy }
+								c:WRE ?= { is_member_of_international_organization = international_organization:tfe_hunnic_yoke }
+								c:EAR ?= { is_member_of_international_organization = international_organization:tfe_hunnic_yoke }
 							}
 						}
 						add = { desc = "TFE_UNITY_HUNNIC_SUBSIDY" value = 0.1 }

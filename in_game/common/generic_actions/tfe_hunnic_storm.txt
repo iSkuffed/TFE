@@ -202,12 +202,13 @@ tfe_feast_the_subject_kings = {
 
 	effect = {
 		custom_tooltip = tfe_feast_the_subject_kings_tt
-		international_organization:tfe_hunnic_yoke ?= {
-			every_international_organization_member = {
-				limit = { NOT = { tag = HNS } }
-				add_opinion = { target = c:HNS modifier = tfe_hunnic_feast }
-				hidden_effect = { set_variable = { name = tfe_feasted_by_the_huns value = yes years = 10 } }
+		every_country = {
+			limit = {
+				tfe_is_under_the_yoke = yes
+				NOT = { tag = HNS }
 			}
+			add_opinion = { target = c:HNS modifier = tfe_hunnic_feast }
+			hidden_effect = { set_variable = { name = tfe_feasted_by_the_huns value = yes years = 10 } }
 		}
 	}
 
@@ -270,12 +271,13 @@ tfe_demand_greater_tribute = {
 		hidden_effect = {
 			scope:actor = { set_variable = { name = tfe_greater_tribute value = yes years = 5 } }
 		}
-		international_organization:tfe_hunnic_yoke ?= {
-			every_international_organization_member = {
-				limit = { NOT = { tag = HNS } }
-				add_opinion = { target = c:HNS modifier = tfe_hunnic_greater_tribute }
-				hidden_effect = { set_variable = { name = tfe_bled_by_the_huns value = yes years = 10 } }
+		every_country = {
+			limit = {
+				tfe_is_under_the_yoke = yes
+				NOT = { tag = HNS }
 			}
+			add_opinion = { target = c:HNS modifier = tfe_hunnic_greater_tribute }
+			hidden_effect = { set_variable = { name = tfe_bled_by_the_huns value = yes years = 10 } }
 		}
 	}
 
@@ -376,7 +378,7 @@ tfe_send_gifts_to_the_hunnic_court = {
 		country_exists = c:HNS
 		scope:actor = {
 			NOT = { tag = HNS }
-			NOT = { is_member_of_international_organization = international_organization:tfe_hunnic_yoke }
+			NOT = { tfe_is_under_the_yoke = yes }
 		}
 	}
 	allow = {
@@ -444,7 +446,7 @@ tfe_send_gifts_to_the_hunnic_court = {
 		if = {
 			limit = {
 				scope:actor = {
-					any_neighbor_country = { is_member_of_international_organization = international_organization:tfe_hunnic_yoke }
+					any_neighbor_country = { tfe_is_under_the_yoke = yes }
 				}
 				c:HNS = { military_strength > scope:actor.military_strength }
 			}
@@ -462,8 +464,8 @@ tfe_submit_to_the_huns = {
 		country_exists = c:HNS
 		scope:actor = {
 			NOT = { tag = HNS }
-			NOT = { is_member_of_international_organization = international_organization:tfe_hunnic_yoke }
-			any_neighbor_country = { is_member_of_international_organization = international_organization:tfe_hunnic_yoke }
+			NOT = { tfe_is_under_the_yoke = yes }
+			any_neighbor_country = { tfe_is_under_the_yoke = yes }
 			NOT = { tag = WRE }
 			NOT = { tag = EAR }
 		}
@@ -607,7 +609,7 @@ tfe_hire_hunnic_horsemen = {
 	}
 }
 
-# A Roman empire pays the Hunnic subsidy without losing a war (as the Grand Raid's peace does): 10 years of peace
+# A Roman empire joins the Hunnic Yoke without losing a war (as the Grand Raid's peace does) and buys 10 years of peace
 tfe_pay_the_huns_for_peace = {
 	type = situation
 
@@ -623,7 +625,7 @@ tfe_pay_the_huns_for_peace = {
 	}
 	allow = {
 		scope:actor = {
-			NOT = { has_variable = tfe_hunnic_subsidy }
+			NOT = { is_member_of_international_organization = international_organization:tfe_hunnic_yoke }
 			NOT = { is_at_war_with = c:HNS }
 		}
 	}
@@ -655,7 +657,9 @@ tfe_pay_the_huns_for_peace = {
 		custom_tooltip = tfe_pay_the_huns_for_peace_tt
 		scope:actor = {
 			add_truce_with = { target = c:HNS years = 10 mutual = yes }
-			hidden_effect = { set_variable = { name = tfe_hunnic_subsidy value = c:HNS years = 10 } }
+			international_organization:tfe_hunnic_yoke = {
+				add_country_to_international_organization = scope:actor
+			}
 		}
 	}
 
