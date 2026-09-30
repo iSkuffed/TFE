@@ -61,6 +61,12 @@ Block formatting (one-line vs multi-line) is decided by `render`, never by calle
   `UNVERIFIED` set.
 - `Outcome = Literal["positive", "neutral", "negative"]` and similar small enums live in api.py.
 
+## Localisation files
+
+A yml is either fully generated (`Doc.loc`, written by `script/*.py`) or fully hand-written, never both. A feature with
+events plus GUI or panel keys either keeps the GUI keys in a second, hand-written yml or adds them in its script with
+`doc.loc.add(key, text)` so one generated yml holds everything. A hidden event writes no loc keys for a title or desc left out.
+
 ## objects.py (main session writes it later): Event, GenericAction, ScriptedEffect/Trigger, StaticModifier, loc.
 
 ## Rules for lanes
