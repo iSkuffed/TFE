@@ -75,6 +75,10 @@ def test_man_the_limes_costs_and_marks_the_frontier():
     assert "gold" in price and "manpower" in price
     # `name =` (as effects.log says) is silently dropped: the modifier key is `modifier =`
     assert "add_location_modifier = { modifier = tfe_limes_manned years = 10" in acts
+    # a whole diocese at a time, every fort we hold in it
+    limes = acts[acts.index("tfe_man_the_limes = {"):]
+    assert "looking_for_a = region" in limes and "looking_for_a = location" not in limes
+    assert "scope:limes_region = {\n\t\t\t\tevery_location_in_region = {" in limes
     assert "game_data = { category = location }" in mod
     types = set(top_keys(FRONTIER))
     for t in re.findall(r"building_type:(\w+)", code(TRIGGERS)):
