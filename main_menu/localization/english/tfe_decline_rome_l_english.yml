@@ -24,5 +24,5 @@
  tfe_man_the_limes_no_region: "Every diocese on our frontier is already manned."
  STATIC_MODIFIER_NAME_tfe_limes_manned: "Limes Manned"
  STATIC_MODIFIER_DESC_tfe_limes_manned: "An Augustus has filled the river forts and watchtowers of this stretch of the frontier with men."
- tfe_barred_by_the_limes_tt: "A Roman garrison mans the frontier beside our lands"
+ tfe_frontier_unmanned_tt: "No Roman garrison mans the frontier beside our lands"
  tfe_man_the_limes_price: "Manning the Limes"

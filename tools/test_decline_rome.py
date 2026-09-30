@@ -93,5 +93,5 @@ def test_man_the_limes_costs_and_marks_the_frontier():
 
 def test_the_limes_bars_the_peoples_beyond_it():
     trig = code(TRIGGERS)
-    assert re.search(r"tfe_barred_by_the_limes = \{\s*custom_tooltip", trig)
+    assert re.search(r"tfe_frontier_unmanned = \{\s*custom_tooltip", trig) and "NOT = {" in trig
     assert "any_owned_location" in trig and "any_neighbor_location" in trig and "has_location_modifier = tfe_limes_manned" in trig

@@ -44,7 +44,7 @@ tfe_hunnic_storm.2 = {
 		tfe_is_migrator = yes	# scripted_triggers/tfe_decline_of_the_west.txt
 		NOT = { has_variable = tfe_migrating }
 		is_subject = no
-		tfe_barred_by_the_limes = no	# scripted_triggers/tfe_decline_rome.txt
+		tfe_frontier_unmanned = yes	# scripted_triggers/tfe_decline_rome.txt
 	}
 
 	# the road west (the Decline of the West's Migrate, generic_actions/tfe_migratory.txt)

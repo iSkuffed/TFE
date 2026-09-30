@@ -45,7 +45,7 @@ def test_start_migration_is_a_one_way_trip_for_the_peoples_beyond_the_rivers():
     assert "tfe_is_migrator = yes" in potential and "country_type" not in potential   # not only the Vandals now
     assert "NOT = { has_variable = tfe_migrating }" in potential   # once only: the host never comes back
     allow = re.search(r"allow = \{(.*?)\n\t\}", acts, re.S).group(1)
-    assert all(s in allow for s in ("is_subject = no", "tfe_barred_by_the_limes = no"))
+    assert all(s in allow for s in ("is_subject = no", "tfe_frontier_unmanned = yes"))
     assert "any_army" not in allow   # most peoples start with no warband afield; the host gathers at the capital
     assert "tfe_start_migration_effect = yes" in acts
     effect = code(EFFECT)

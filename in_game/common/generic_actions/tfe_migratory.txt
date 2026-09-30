@@ -23,7 +23,7 @@ tfe_migrate_east = {
 		}
 		scope:actor = {
 			is_subject = no	# no warband afield is fine: the host gathers at the capital
-			tfe_barred_by_the_limes = no	# scripted_triggers/tfe_decline_rome.txt: a manned frontier holds them
+			tfe_frontier_unmanned = yes	# scripted_triggers/tfe_decline_rome.txt: a manned frontier holds them
 		}
 	}
 
@@ -108,7 +108,7 @@ tfe_migrate_west = {
 		}
 		scope:actor = {
 			is_subject = no	# no warband afield is fine: the host gathers at the capital
-			tfe_barred_by_the_limes = no	# scripted_triggers/tfe_decline_rome.txt: a manned frontier holds them
+			tfe_frontier_unmanned = yes	# scripted_triggers/tfe_decline_rome.txt: a manned frontier holds them
 		}
 	}
 
