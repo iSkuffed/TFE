@@ -24,11 +24,13 @@ where a file is not generated, pytest under `tools/`, the game itself driven by 
 - Version control is jj, colocated. Never `git switch/commit/checkout/pull/rebase`. Work on bookmark `stilichos-glory`
   (holds the spec). Commit with `jj commit -m "<evocative subject>"` + short body, ending
   `Co-Authored-By: Claude Opus 5.5 (1M context) <noreply@anthropic.com>`; then `jj bookmark move stilichos-glory --to @-`.
-- **Do not start before the pdx fixes land.** Another session (thread 584b3571) is fixing `tools/pdx`: typed keywords
-  for a parameterised scripted effect from its `$param$` names, `Doc.event(..., fire_only_once=...)` and `e.after()`,
-  hidden events without title/desc text, `create_country_from_location` as a scope block. When its PR is on master:
-  `jj git fetch && jj rebase -b stilichos-glory -d master`. If one of those is still missing when you reach it, write
-  that call as `x._call(...)` / `x.raw("...")` with a `# GAP:` comment naming what is missing.
+- The pdx layer this plan relies on landed in PR #62: a parameterised scripted effect takes typed keywords from its
+  `$param$` names (`c.tfe_add_stilicho_glory(amount=5)`, once `gen_api.py` has seen the effect), `Doc.event(...,
+  fire_only_once=...)` and `e.after()`, hidden events need no title/desc/outcome, `create_country_from_location`
+  yields the new country's `CountryFx`, `extend_regency` takes a bare number, and `doc.modifier(name, potential=...,
+  **effects)` writes an auto-modifier (effect keys checked against `modifiers.log`). `doc.bias` writes only `value`,
+  so the two biases here stay hand-written in `tfe_biases.txt` (they need `max`/`min` and `yearly_decay`).
+  Anything still unmodelled: `x.raw("...")` with a `# GAP:` comment naming what is missing.
 - Never hand-edit a file a `script/*.py` writes. Edit the Python, then `python script/run.py`.
 - After adding or renaming a scripted effect or trigger: `python tools/pdx/gen_api.py` (the typed API learns it).
 - Prefix for every Python command: `uv run --no-project --with numpy --with pytest --with pillow --with shapely --with pyright`.
@@ -458,6 +460,17 @@ def glory_at_least(t, n, op=">="):
         s.var(GLORY, op, n)
 
 
+def glory_between(t, lo, hi):
+    """a tier's potential: Stilicho serves this country and Glory is in [lo, hi) (None = open)."""
+    t.tfe_stilicho_serves_us()
+    with t.go_situation(DECLINE, op="?=") as s:
+        s.has_variable(GLORY)
+        if lo is not None:
+            s.var(GLORY, ">=", lo)
+        if hi is not None:
+            s.var(GLORY, "<", hi)
+
+
 def triggers():
     d = Defs()
     d.note("TFE: Stilicho's Glory. Scope: a country. Stilicho is alive and in its service: the regent of Honorius's West, or\n"
@@ -514,23 +527,10 @@ def auto_modifiers():
     doc = Doc()
     doc.note("TFE: Stilicho's Glory. Each applies while Stilicho serves the country, so all of them move with him if he rises.")
     doc.note("his command: the army is his and the great houses follow him (was the 68-month tfe_stilicho_regency)")
-    with doc.entry("tfe_stilicho_regency") as m:
-        with m.triggers("potential_trigger", CountryTrig) as t:
-            t.tfe_stilicho_serves_us()
-        m.field("land_morale_modifier", 0.1)
-        m.field("global_nobles_estate_power", 0.2)
+    doc.modifier("tfe_stilicho_regency", potential=lambda t: t.tfe_stilicho_serves_us(),
+                 land_morale_modifier=0.1, global_nobles_estate_power=0.2)
     for name, lo, hi, mods in TIERS:
-        with doc.entry(name) as m:
-            with m.triggers("potential_trigger", CountryTrig) as t:
-                t.tfe_stilicho_serves_us()
-                with t.go_situation(DECLINE, op="?=") as s:
-                    s.has_variable(GLORY)
-                    if lo is not None:
-                        s.var(GLORY, ">=", lo)
-                    if hi is not None:
-                        s.var(GLORY, "<", hi)
-            for k, v in mods.items():
-                m.field(k, v)
+        doc.modifier(name, potential=lambda t, lo=lo, hi=hi: glory_between(t, lo, hi), **mods)
     return doc
 
 
@@ -947,13 +947,12 @@ def showdown_hooks(d):
 
 ```python
     doc.note("Olympius rules for Honorius after Stilicho's fall: no Glory, no command, and every estate angry")
-    with doc.entry("tfe_olympius_regency") as m:
-        with m.triggers("potential_trigger", CountryTrig) as t:
-            t.has_global_variable("tfe_stilicho_fell")
-            t.tag("WRE")
-            t.has_regent(True)
-        m.field("global_nobles_estate_power", 0.1)
-        m.field("global_estate_target_satisfaction", -0.1)
+    def olympius_rules(t):
+        t.has_global_variable("tfe_stilicho_fell")
+        t.tag("WRE")
+        t.has_regent(True)
+    doc.modifier("tfe_olympius_regency", potential=olympius_rules,
+                 global_nobles_estate_power=0.1, global_estate_target_satisfaction=-0.1)
 ```
 
   In the death hook, the showdown's own execution (option b) finds `tfe_stilicho_showdown` already set, so it runs
@@ -1117,22 +1116,22 @@ from pdx.api import CountryFx, LocationFx
 from pdx.objects_defs import Defs
 
 
-def new_country(loc, tag, name, color, flag, rank, ruler):
-    # GAP (until the pdx fix): create_country_from_location's body is the new country's scope
-    loc.raw(f"""create_country_from_location = {{
-        define_unique_country_tag = {tag}
-        change_country_name = {name}
-        change_country_adjective = {name}_ADJ
-        change_country_color = {color}
-        change_country_flag = {flag}
-        set_country_rank = country_rank:{rank}
-        change_government_type = government_type:monarchy
-        add_gold = 200
-        create_character = {{ {ruler} save_scope_as = tfe_usurper_ruler }}
-        set_new_ruler = scope:tfe_usurper_ruler
-        set_variable = {{ name = tfe_usurper_against value = root years = 10 }}
-        save_scope_as = tfe_usurper
-    }}""")
+def new_country(loc: LocationFx, tag, name, color, rank, **ruler):
+    """a usurper's country out of this location, at war with nobody yet; its flag is named like its name key."""
+    with loc.create_country_from_location() as c:
+        c.define_unique_country_tag(tag)
+        c.change_country_name(name)
+        c.change_country_adjective(f"{name}_ADJ")
+        c.change_country_color(color)
+        c.change_country_flag(name)
+        c.set_country_rank(f"country_rank:{rank}")
+        c.change_government_type("government_type:monarchy")
+        c.add_gold(200)
+        c.create_character(culture="culture:roman_culture", religion="religion:orthodox",
+                           estate="estate_type:nobles_estate", **ruler, save_scope_as="tfe_usurper_ruler")
+        c.set_new_ruler("scope:tfe_usurper_ruler")
+        c.set_variable(name="tfe_usurper_against", value="root", years=10)
+        c.save_scope_as("tfe_usurper")
 
 
 def effects():
@@ -1140,9 +1139,8 @@ def effects():
     d.note("TFE: Britain's army crowns a common soldier for his name (early 407, tfe_opening.5; or when Stilicho rises)")
     with d.effect("tfe_constantine_rises", CountryFx) as e:
         with e.link("location:london", LocationFx) as loc:
-            new_country(loc, "CONST", "TFE_CONSTANTINE", "map_lombard", "TFE_CONSTANTINE", "rank_empire",
-                        "first_name = name_constantine culture = culture:roman_culture religion = religion:orthodox "
-                        "estate = estate_type:nobles_estate age = 40 mil = 55")
+            new_country(loc, "CONST", "TFE_CONSTANTINE", "map_lombard", "rank_empire",
+                        first_name="name_constantine", age=40, mil=55)
         with e.every_owned_location() as loc:
             with loc.limit() as t:
                 t.compare("region", "=", "region:great_britain_region")
@@ -1153,9 +1151,7 @@ def effects():
         with e.random_owned_location() as loc:
             with loc.limit() as t:
                 t.compare("region", "=", "region:maghreb_region")
-            new_country(loc, "AFRIC", "TFE_AFRICA", "map_gutnish", "TFE_AFRICA", "rank_kingdom",
-                        "culture = culture:roman_culture religion = religion:orthodox estate = estate_type:nobles_estate "
-                        "age = 50 adm = 50 mil = 45")
+            new_country(loc, "AFRIC", "TFE_AFRICA", "map_gutnish", "rank_kingdom", age=50, adm=50, mil=45)
         with e.every_owned_location() as loc:
             with loc.limit() as t:
                 t.compare("region", "=", "region:maghreb_region")
@@ -1168,7 +1164,8 @@ def outputs():
     return {"in_game/common/scripted_effects/tfe_usurpers.txt": effects().text()}
 ```
 
-  - `tfe_constantine_rises` must reproduce the old `tfe_opening.5` immediate: diff them after `run.py`.
+  - `tfe_constantine_rises` must do what the old `tfe_opening.5` immediate did: diff them after `run.py` (only the
+    order of `create_character`'s keys and the rank comment may differ).
   - AFRIC's ruler has no `first_name`, so the culture picks one. If `create_character` requires it, use
     `first_name = name_bonifatius` and add ` name_bonifatius: "Bonifatius"` to `tfe_characters_l_english.yml`.
   - Choose AFRIC's colour from `named_colors` so it differs from GILDO's `map_gutnish`
@@ -1225,8 +1222,7 @@ def rises(d):
 ```python
     doc.note("The day after the rising: the revolter becomes Stilicho's West, the player follows him, Honorius takes the\n"
              "throne of what is left, and Britain and Africa go their own way (fired by tfe_stilicho_rises)")
-    with doc.event(3, type="country_event", title="Stilicho's West", desc="Hidden: the revolter is crowned.",
-                   outcome="neutral", hidden=True) as e, e.immediate() as i:
+    with doc.event(3, type="country_event", hidden=True) as e, e.immediate() as i:
         with i.random_country() as c:
             with c.limit() as t:
                 t.is_at_war_with("root")
