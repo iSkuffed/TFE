@@ -160,44 +160,10 @@ loading_screen_scene_ashanti = {
 }
 
 
+# TFE: this slot shows a flat Roman-era fresco instead: one layer on the backdrop mesh
 loading_screen_scene_white_mountain = {
 	ecs_illustration_image = {
-		list = "loading_screen_white_mountain_layer1"
-		pdxmesh = "layer_1_mesh"
-		name = "illustration_override_anims" #schematic
-	}
-	ecs_illustration_image = {
-		list = "loading_screen_white_mountain_layer2"
-		pdxmesh = "layer_2_mesh"
-		name = "illustration_override_anims" #schematic
-	}
-	ecs_illustration_image = {
-		list = "loading_screen_white_mountain_layer3"
-		pdxmesh = "layer_3_mesh"
-		name = "illustration_override_anims" #schematic
-	}
-	ecs_illustration_image = {
-		list = "loading_screen_white_mountain_layer4"
-		pdxmesh = "layer_4_mesh"
-		name = "illustration_override_anims" #schematic
-	}
-	ecs_illustration_image = {
-		list = "loading_screen_white_mountain_layer5"
-		pdxmesh = "layer_5_mesh"
-		name = "illustration_override_anims" #schematic
-	}
-	ecs_illustration_image = {
-		list = "loading_screen_white_mountain_layer6"
-		pdxmesh = "layer_6_mesh"
-		name = "illustration_override_anims" #schematic
-	}
-	ecs_illustration_image = {
-		list = "loading_screen_white_mountain_layer7"
-		pdxmesh = "layer_7_mesh"
-		name = "illustration_override_anims" #schematic
-	}
-	ecs_illustration_image = {
-		list = "loading_screen_white_mountain_layer8"
+		list = "tfe_loading_forest_ambush"
 		pdxmesh = "layer_8_mesh"
 		name = "illustration_override_anims" #schematic
 	}

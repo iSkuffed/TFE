@@ -78,3 +78,12 @@ tfe_loading_cataphracts = {
 	}
 	tag = "tfe_loading_cataphracts"
 }
+
+tfe_loading_forest_ambush = {
+	illustration_image = {
+		texture_file = "gfx/loading_screen_assets/00/images/tfe_loading_forest_ambush.dds"
+		priority = 1
+		weight = 1
+	}
+	tag = "tfe_loading_forest_ambush"
+}
