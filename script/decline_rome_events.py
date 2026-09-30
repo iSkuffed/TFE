@@ -61,15 +61,17 @@ def build():
                     rome.tfe_add_stilicho_glory(amount=-5)
             with o.ai_chance_block(1) as a:
                 a.note("a host would rather win land than be given it: it settles when beaten in the field by the\n"
-                       "Rome that offers, or offered the land its people truly took; a small host (under half the 32\n"
-                       "regiments it musters, script/defs_migratory.py) fears being swallowed as a foederatus")
+                       "Rome that offers, or offered the land its people truly took; a weak Rome, losing its wars or\n"
+                       "outmatched by the host itself, has nothing to promise that the host cannot take")
                 with a.modifier(3) as t:
                     t.is_at_war_with("scope:tfe_rome")
                     t.is_in_losing_war(True)
                 with a.modifier(3) as t, t.link("var:tfe_hospitalitas_area", AreaTrig, op="?=") as ar:
                     ar.tfe_is_historical_land_of(WHO="root")
+                with a.modifier(0.5) as t, t.link("scope:tfe_rome", CountryTrig) as r:
+                    r.is_in_losing_war(True)
                 with a.modifier(0.5) as t:
-                    t.num_regiments(16, op="<")
+                    t.military_strength("scope:tfe_rome.military_strength", op=">")
 
         e.note("the road is ours: refuse, and Rome is told")
         with e.option("b", text='Decline this offer.') as o:
