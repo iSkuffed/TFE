@@ -10,9 +10,15 @@ accuracy) decide close calls, and its items are the work queue.
 
 ## Working together
 
-- **One branch per feature, never straight to `master`.** Start with `git switch master && git pull`, then
-  `git switch -c <feature>`. Push, open a PR with `gh pr create`, merge, delete the branch. Short branches rarely conflict.
-- **Pull before you push:** `git pull --rebase`. A "rejected, fetch first" means the other person pushed; pull, rerun the
+> **Version control here is jj (Jujutsu), not raw git.** Both of us have moved to it and the repo is colocated (`.jj`
+> exists). Never run `git switch`, `git commit`, `git checkout`, `git pull` or `git rebase`: they move jj's detached
+> HEAD. Use the jj commands under "Using jj" below. `gh` is only for what jj cannot do (`gh pr create`, `gh pr merge`,
+> `gh pr view`); a `git` command that only reads (`git log`, `git diff`) is harmless. If a `.jj` folder is missing on a
+> machine, set it up (`jj git init --colocate`) rather than falling back to git.
+
+- **One branch (jj bookmark) per feature, never straight to `master`.** Start with `jj git fetch` and `jj new master`. Push,
+  open a PR with `gh pr create`, merge, delete the branch. Short branches rarely conflict.
+- **Fetch before you push:** `jj git fetch`, then `jj rebase -d master`. A "rejected, fetch first" means the other person pushed; fetch and rebase, rerun the
   tests, push again.
 - **Say which RoadMap item you're taking** before starting, so the two of you stay in different files.
 - **Generated files are never merged by hand.** On a conflict in one, take either side, rerun its generator, commit the
@@ -25,9 +31,9 @@ accuracy) decide close calls, and its items are the work queue.
   carry the patch's changes over, update the hash. Add any new vanilla copy to that list.
 - Commit subjects are one evocative line about what changed in the game world (see `git log`), then a short body.
 
-### Using jj instead of git (optional, per person)
+### Using jj (the default for both of us)
 
-Either of you may use Jujutsu (`jj`) on top of this same repo; it is colocated (`jj git init --colocate`) so pushes and
+We both use Jujutsu (`jj`) on top of this same repo; it is colocated (`jj git init --colocate`) so pushes and
 PRs stay ordinary git and the other person notices nothing. Install: `brew install jj`, or `dnf install jujutsu` on
 Fedora. The rules above still hold; only the commands change. If jj gets confusing, `git` still works in the same folder.
 
