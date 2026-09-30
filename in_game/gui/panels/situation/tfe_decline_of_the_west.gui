@@ -1,0 +1,242 @@
+﻿situation_panel = {
+	# TFE: the Decline of the West (in_game/common/situations/tfe_decline_of_the_west.txt), in the style of tfe_hunnic_storm.gui.
+	# The phase card follows the situation variable tfe_decline_phase; the migrators' lists are variable lists the
+	# situation keeps (scripted_effects/tfe_migratory.txt's tfe_list_the_migrators).
+
+	##################################### TOP HEADER #####################################
+
+	blockoverride "situation_header_left" {
+		country_flag_small = {
+			datacontext = "[GetCountry('WRE')]"
+		}
+		expand = {}
+	}
+
+	##################################### MAIN IMAGE #####################################
+
+	blockoverride "situation_panel_image" {
+		using = one_country_header_template
+
+		blockoverride "one_country_header_background" {
+			background = {
+				texture = "gfx/interface/illustrations/situation/italian_wars.dds"
+				modify_texture = {
+					texture = "gfx/interface/component_masks/mask_fade_horizontal_middle.dds"
+					texture_density = 2
+					spriteType = stretched
+					spriteborder = { 250 250 }
+					blend_mode = alphamultiply
+					alpha = 0.4
+				}
+			}
+		}
+
+		blockoverride "CountryContext" {
+			datacontext = "[GetCountry('WRE')]"
+		}
+		blockoverride "character_portrait_anchor" {
+			parentanchor = bottom|left
+		}
+		blockoverride "character_religion_visibility" {
+			visible = no
+		}
+		blockoverride "character_name_maximumsize" {
+			maximumsize = { 270 -1 }
+		}
+		blockoverride "country_header_extra" {
+			hbox = {
+				layoutpolicy_horizontal = expanding
+				layoutpolicy_vertical = expanding
+				margin = { 10 10 }
+				spacing = 8
+				expand = {}
+			}
+		}
+	}
+
+	##################################### SUBHEADER #####################################
+
+	blockoverride "situation_subheader_content" {
+
+	}
+
+	##################################### MAIN CONTENT #####################################
+
+	blockoverride "situation_panel_main_content" {
+		situation_card_expandable = {
+			blockoverride "header_button_onclick" {
+				onclick = "[LateralView.Vars.Toggle( 'requirements_toggled' )]"
+			}
+			blockoverride "header_text" {
+				text = "END_REQUIREMENTS"
+			}
+			blockoverride "header_icon" {
+				texture = "gfx/interface/icons/disasters/end_requirements_green.dds"
+			}
+			blockoverride "bottom_content" {
+				TooltipRequirementsList = {
+					textcontext = "[SituationView.GetActiveSituation.GetSituation.GetEndConditions]"
+				}
+			}
+			blockoverride "bottom_content_onclick" {
+				visible = "[LateralView.Vars.Exists( 'requirements_toggled' )]"
+			}
+			blockoverride "icon_replace_visible_yes" {
+				visible = "[LateralView.Vars.Exists( 'requirements_toggled' )]"
+			}
+			blockoverride "icon_replace_visible_not" {
+				visible = "[Not(LateralView.Vars.Exists( 'requirements_toggled' ))]"
+			}
+			blockoverride "visible_hint" {}
+			blockoverride "onaction_hint" {}
+		}
+
+		# THE PHASE
+		hbox = {
+			using = bg_scroll_card_header
+			blockoverride "card_header_pattern" {}
+			blockoverride "card_header_shadow" {}
+			layoutpolicy_horizontal = expanding
+
+			vbox = {
+				spacing = 5
+				margin = { 10 10 }
+				layoutpolicy_horizontal = expanding
+
+				text_single = {
+					layoutpolicy_horizontal = expanding
+					align = center|nobaseline
+					default_format = "#yellow_titles"
+					visible = "[EqualTo_float( FixedPointToFloat(SituationView.GetActiveSituation.GetSituation.MakeScope.GetVariable('tfe_decline_phase').GetValue), '(float)1.0')]"
+					text = "TFE_DECLINE_PHASE_1"
+				}
+				text_multi = {
+					margin = { 15 0 }
+					layoutpolicy_horizontal = expanding
+					max_width = 400
+					autoresize = yes
+					visible = "[EqualTo_float( FixedPointToFloat(SituationView.GetActiveSituation.GetSituation.MakeScope.GetVariable('tfe_decline_phase').GetValue), '(float)1.0')]"
+					text = "TFE_DECLINE_PHASE_1_DESC"
+				}
+			}
+		}
+
+		# AFRICA: Gildo's hold (events/tfe_gildo.txt keeps it on the West), then his kingdom
+		situation_card_header_button = {
+			blockoverride "card_header_button_icon_texture" {
+				texture = "gfx/interface/icons/alerts_icons/imminent_revolt.dds"
+			}
+			blockoverride "card_header_button_raw_text" {
+				text = "TFE_DECLINE_AFRICA"
+			}
+			blockoverride "bottom_content" {
+				vbox = {
+					layoutpolicy_horizontal = expanding
+					margin = { 15 5 }
+					text_multi = {
+						layoutpolicy_horizontal = expanding
+						max_width = 400
+						autoresize = yes
+						visible = "[Not(GetCountry('WRE').MakeScope.GetVariable('tfe_gildo_revolt_fired').IsSet)]"
+						text = "TFE_DECLINE_GILDO_PROGRESS"
+					}
+					text_multi = {
+						layoutpolicy_horizontal = expanding
+						max_width = 400
+						autoresize = yes
+						visible = "[GetCountry('WRE').MakeScope.GetVariable('tfe_gildo_revolt_fired').IsSet]"
+						text = "TFE_DECLINE_GILDO_RISEN"
+					}
+				}
+			}
+		}
+
+		# THE MIGRATORS: the peoples of Germania and Dacia, by where they stand
+		situation_card_header_button = {
+			blockoverride "card_header_button_icon_texture" {
+				texture = "gfx/interface/icons/country_types/army.dds"
+			}
+			blockoverride "card_header_button_raw_text" {
+				text = "TFE_DECLINE_MIGRATORS"
+			}
+			blockoverride "bottom_content" {
+				scrollarea = {
+					layoutpolicy_horizontal = expanding
+					size = { -1 170 }
+					scrollbarpolicy_horizontal = always_off
+					scrollbar_vertical = {
+						using = Scrollbar_Vertical
+					}
+					scrollwidget = {
+						vbox = {
+							layoutpolicy_horizontal = expanding
+							text_single = {
+								layoutpolicy_horizontal = expanding
+								margin = { 10 0 }
+								text = "TFE_DECLINE_AT_HOME_LIST"
+							}
+							dynamicgridbox = {
+								layoutpolicy_horizontal = expanding
+								flipdirection = yes
+								datamodel_wrap = 14
+								maxhorizontalslots = 14
+								datamodel = "[SituationView.GetActiveSituation.GetSituation.MakeScope.GetList('tfe_migrators_at_home')]"
+								item = {
+									country_flag_small = {
+										datacontext = "[Scope.GetCountry]"
+									}
+								}
+							}
+							text_single = {
+								layoutpolicy_horizontal = expanding
+								margin = { 10 0 }
+								text = "TFE_DECLINE_ON_THE_ROAD_LIST"
+							}
+							dynamicgridbox = {
+								layoutpolicy_horizontal = expanding
+								flipdirection = yes
+								datamodel_wrap = 14
+								maxhorizontalslots = 14
+								datamodel = "[SituationView.GetActiveSituation.GetSituation.MakeScope.GetList('tfe_migrators_on_the_road')]"
+								item = {
+									country_flag_small = {
+										datacontext = "[Scope.GetCountry]"
+									}
+								}
+							}
+							text_single = {
+								layoutpolicy_horizontal = expanding
+								margin = { 10 0 }
+								text = "TFE_DECLINE_SETTLED_LIST"
+							}
+							dynamicgridbox = {
+								layoutpolicy_horizontal = expanding
+								flipdirection = yes
+								datamodel_wrap = 14
+								maxhorizontalslots = 14
+								datamodel = "[SituationView.GetActiveSituation.GetSituation.MakeScope.GetList('tfe_migrators_settled')]"
+								item = {
+									country_flag_small = {
+										datacontext = "[Scope.GetCountry]"
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	##################################### BOTTOM: HOW THE WEST FALLS #####################################
+
+	blockoverride "situation_panel_main_content_bottom" {
+		text_multi = {
+			margin = { 15 5 }
+			layoutpolicy_horizontal = expanding
+			max_width = 480
+			autoresize = yes
+			text = "TFE_DECLINE_GUIDE"
+		}
+	}
+}

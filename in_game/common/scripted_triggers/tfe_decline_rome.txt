@@ -1,0 +1,22 @@
+﻿# TFE: Rome's answers to the migrations (generic_actions/tfe_decline_rome.txt)
+
+# A location (scope: location) that holds the frontier works placed at start (building_types/tfe_frontier.txt)
+tfe_has_frontier_works = {
+	any_buildings_in_location = {
+		OR = {
+			building_type = building_type:tfe_limes
+			building_type = building_type:tfe_hadrians_wall
+		}
+	}
+}
+
+# A country (scope: country) with land beside a stretch of frontier that an Augustus has manned (Man the Limes). The
+# Migrate button's allow says "tfe_barred_by_the_limes = no", so the greyed-out button tells the player why.
+tfe_barred_by_the_limes = {
+	custom_tooltip = {
+		text = tfe_barred_by_the_limes_tt
+		any_owned_location = {
+			any_neighbor_location = { has_location_modifier = tfe_limes_manned }
+		}
+	}
+}

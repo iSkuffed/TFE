@@ -55,7 +55,7 @@ tfe_hunnic_storm = {
 				limit = { can_see_situation = situation:tfe_hunnic_storm }
 				trigger_event_non_silently = tfe_hunnic_storm.1
 			}
-			# the peoples in the Huns' path must move or submit: hosts that can take to the road are asked
+			# the peoples in the Huns' path must move or submit: those that can take to the road are asked
 			every_country = {
 				limit = {
 					OR = {
@@ -66,7 +66,7 @@ tfe_hunnic_storm = {
 						tag = IAZ
 						tag = QAD
 					}
-					country_type = army
+					tfe_is_migrator = yes	# scripted_triggers/tfe_decline_of_the_west.txt
 					NOT = { has_variable = tfe_migrating }
 					NOT = { tfe_is_under_the_yoke = yes }
 					any_neighbor_country = { tfe_is_under_the_yoke = yes }

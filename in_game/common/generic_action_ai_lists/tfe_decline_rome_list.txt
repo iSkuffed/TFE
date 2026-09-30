@@ -1,0 +1,10 @@
+﻿# TFE: Rome's answers to the Decline of the West (generic_actions/tfe_decline_rome.txt), weighed only by those who see it
+tfe_decline_rome_list = {
+	potential = {
+		can_see_situation = situation:tfe_decline_of_the_west
+	}
+	actions = {
+		tfe_hospitalitas
+		tfe_man_the_limes
+	}
+}

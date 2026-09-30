@@ -1,0 +1,13 @@
+﻿# TFE: the Decline of the West (situations/tfe_decline_of_the_west.txt) begins on day one.
+on_game_start = {
+	on_actions = { tfe_on_start_decline_of_the_west }
+}
+
+tfe_on_start_decline_of_the_west = {
+	effect = {
+		if = {
+			limit = { country_exists = c:WRE }
+			activate_situation = situation:tfe_decline_of_the_west
+		}
+	}
+}

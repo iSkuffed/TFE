@@ -1,4 +1,4 @@
-"""Migratory peoples: an army-based host gives up its homeland for a large host that costs nothing while landless."""
+"""Migratory peoples: a people beyond the rivers gives up its homeland for a large host that costs nothing while landless."""
 import re
 import sys
 from collections import Counter
@@ -36,17 +36,34 @@ def test_scripts_are_bom_prefixed_and_balanced():
         assert code(p).count("{") == code(p).count("}"), p.name
 
 
-def test_start_migration_is_a_one_way_trip_for_hosts():
+def test_start_migration_is_a_one_way_trip_for_the_peoples_beyond_the_rivers():
     acts = code(ACTIONS)
     assert top_keys(ACTIONS) == list(NEW_ACTIONS)
-    assert "country_type = army" in acts and "country_type = pop" not in acts
     listed = re.search(r"actions = \{([^}]*)\}", code(AI_LIST)).group(1).split()
-    assert listed == list(NEW_ACTIONS) and "country_type = army" in code(AI_LIST)
+    assert listed == list(NEW_ACTIONS) and "tfe_is_migrator = yes" in code(AI_LIST)
     potential = re.search(r"potential = \{(.*?)\n\t\}", acts, re.S).group(1)
+    assert "tfe_is_migrator = yes" in potential and "country_type" not in potential   # not only the Vandals now
     assert "NOT = { has_variable = tfe_migrating }" in potential   # once only: the host never comes back
+    allow = re.search(r"allow = \{(.*?)\n\t\}", acts, re.S).group(1)
+    assert all(s in allow for s in ("is_subject = no", "tfe_barred_by_the_limes = no"))
+    assert "any_army" not in allow   # most peoples start with no warband afield; the host gathers at the capital
     assert "tfe_start_migration_effect = yes" in acts
     effect = code(EFFECT)
     assert "set_variable = tfe_migrating" in effect and "every_owned_location" in effect and "abandon_location" in effect
+    # a landed people must become army-based before it abandons its last location, or it is gone
+    assert effect.index("change_country_type = army") < effect.index("change_location_owner")
+    # the homeland passes to a neighbouring people, never to Rome or another host; empty only with no neighbour
+    heir = re.search(r"random_neighbor_country = \{(.*?)\n\t\}", effect, re.S).group(1)
+    assert all(s in heir for s in ("NOT = { tag = WRE }", "NOT = { tag = EAR }", "NOT = { has_variable = tfe_migrating }"))
+    assert effect.index("change_location_owner = scope:tfe_heir_to_the_land") < effect.index("abandon_location")
+
+
+def test_the_ai_takes_the_road_one_people_at_a_time():
+    # pace the chaos: ~19 peoples may migrate; the AI waits 4 years after any host sets out, then needs a push
+    assert "set_global_variable = { name = tfe_host_took_the_road value = yes years = 4 }" in code(EFFECT)
+    ai = re.search(r"ai_will_do = \{(.*?)\n\t\}", code(ACTIONS), re.S).group(1)
+    assert re.search(r"value = 0\s*if = \{\s*limit = \{\s*NOT = \{ has_global_variable = tfe_host_took_the_road \}", ai)
+    assert "tfe_is_under_the_yoke = yes" in ai and "var:tfe_unity < 50" in ai
 
 
 def test_the_host_disbands_back_to_its_old_warband_once_it_takes_land():
@@ -131,18 +148,14 @@ def test_pop_based_leftovers_are_gone():
     assert not (COMMON / "advances/tfe_migratory_advances.txt").exists()
 
 
-GUI = b.MOD / "in_game/gui/form_new_country.gui"
-GUI_BEGIN, GUI_END = "\t\t\t\t\t# TFE: migratory host actions\n", "\t\t\t\t\t# TFE: end\n"
-
-
-def test_host_actions_have_buttons_in_the_settle_panel():
-    # owncountry actions are only reachable where a GUI file places a button for them by name
-    text = GUI.read_text(encoding="utf-8")
-    for a in NEW_ACTIONS:
-        assert f'left_click_and_hold_action = {{ action_name = "{a}" }}' in text, a
-    # the override is vanilla plus our one block, so a game patch that changes the file shows up here
-    start, end = text.index(GUI_BEGIN), text.index(GUI_END) + len(GUI_END)
-    assert text[:start] + text[end:] == (b.GAME / "in_game/gui/form_new_country.gui").read_text(encoding="utf-8")
+def test_start_migration_is_a_button_on_the_decline_of_the_west():
+    # user: the Migrate interaction moves from the Form New Country panel into the Decline of the West situation
+    acts = code(ACTIONS)
+    assert "type = situation" in acts and "type = owncountry" not in acts
+    assert "situation:tfe_decline_of_the_west = { situation_is_active = yes }" in acts
+    assert re.search(r"looking_for_a = situation\s*interaction_source_list = \{\s*situation:tfe_decline_of_the_west", acts)
+    # the override held only our button, so it is gone and vanilla's panel is used as is
+    assert not (b.MOD / "in_game/gui/form_new_country.gui").exists()
 
 
 def test_roman_towns_taken_by_a_host_send_it_men():

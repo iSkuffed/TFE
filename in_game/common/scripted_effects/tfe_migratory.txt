@@ -1,11 +1,23 @@
-﻿# TFE: a host takes to the road (generic_actions/tfe_migratory.txt; the Huns push the Germanic peoples west in
-# events/tfe_hunnic_storm.txt). Scope: the migrating country. It musters a great host, abandons its homeland and gets
-# a casus belli on the Roman empires: a landless host has no neighbours for the game to offer one against.
+﻿# TFE: a host takes to the road (generic_actions/tfe_migratory.txt, on the Decline of the West's panel; the Huns push
+# the Germanic peoples west in events/tfe_hunnic_storm.txt). Scope: the migrating country. It becomes an army-based
+# country, musters a great host, abandons its homeland and gets a casus belli on the Roman empires: a landless host
+# has no neighbours for the game to offer one against.
 tfe_start_migration_effect = {
 	save_scope_as = tfe_host
 	set_variable = tfe_migrating
+	# pace the chaos: the AI's next host waits 4 years (the action's ai_will_do)
+	set_global_variable = { name = tfe_host_took_the_road value = yes years = 4 }
+	# only the Vandals start army-based; a landed people would be gone with its last location (vanilla CHB, OIR)
+	if = {
+		limit = { NOT = { country_type = army } }
+		change_country_type = army
+	}
 	random_army = { unit_location = { save_scope_as = tfe_muster } }
-	scope:tfe_muster = {
+	if = {
+		limit = { NOT = { exists = scope:tfe_muster } }	# no warband afield: the host gathers at the capital
+		capital ?= { save_scope_as = tfe_muster }
+	}
+	scope:tfe_muster ?= {
 		while = {
 			count = 24
 			create_sub_unit_with_owner = { type = a_footmen owner = scope:tfe_host origin = scope:tfe_muster }
@@ -15,7 +27,51 @@ tfe_start_migration_effect = {
 			create_sub_unit_with_owner = { type = a_tribal_cavalry owner = scope:tfe_host origin = scope:tfe_muster }
 		}
 	}
-	every_owned_location = { scope:tfe_host = { abandon_location = prev } }
+	# a neighbouring people moves into the homeland, so it is not left empty; its pops stay, under new lords. Only with
+	# no such neighbour is it abandoned.
+	random_neighbor_country = {
+		limit = {
+			NOT = { tag = WRE }
+			NOT = { tag = EAR }
+			NOT = { has_variable = tfe_migrating }
+		}
+		save_scope_as = tfe_heir_to_the_land
+	}
+	if = {
+		limit = { exists = scope:tfe_heir_to_the_land }
+		every_owned_location = { change_location_owner = scope:tfe_heir_to_the_land }
+	}
+	else = {
+		every_owned_location = { scope:tfe_host = { abandon_location = prev } }
+	}
 	if = { limit = { country_exists = c:WRE } add_casus_belli = { target = c:WRE type = casus_belli:cb_tfe_migration } }
 	if = { limit = { country_exists = c:EAR } add_casus_belli = { target = c:EAR type = casus_belli:cb_tfe_migration } }
+	tfe_list_the_migrators = yes
+}
+
+# The Decline of the West's panel (gui/panels/situation/tfe_decline_of_the_west.gui) lists the migrators by state:
+# at home, on the road (tfe_migrating), settled (tfe_settled). Any scope; the situation refreshes it monthly.
+tfe_list_the_migrators = {
+	situation:tfe_decline_of_the_west = {
+		if = { limit = { has_variable_list = tfe_migrators_at_home } clear_variable_list = tfe_migrators_at_home }
+		if = { limit = { has_variable_list = tfe_migrators_on_the_road } clear_variable_list = tfe_migrators_on_the_road }
+		if = { limit = { has_variable_list = tfe_migrators_settled } clear_variable_list = tfe_migrators_settled }
+	}
+	every_country = {
+		limit = { tfe_is_migrator = yes }
+		save_scope_as = tfe_migrator
+		situation:tfe_decline_of_the_west = {
+			if = {
+				limit = { scope:tfe_migrator = { has_variable = tfe_settled } }
+				add_to_variable_list = { name = tfe_migrators_settled target = scope:tfe_migrator }
+			}
+			else_if = {
+				limit = { scope:tfe_migrator = { has_variable = tfe_migrating } }
+				add_to_variable_list = { name = tfe_migrators_on_the_road target = scope:tfe_migrator }
+			}
+			else = {
+				add_to_variable_list = { name = tfe_migrators_at_home target = scope:tfe_migrator }
+			}
+		}
+	}
 }

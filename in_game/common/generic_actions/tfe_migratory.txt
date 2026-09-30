@@ -1,24 +1,47 @@
-﻿# TFE: migratory peoples (army-based hosts). A host may once give up its homeland for a great host that
-# costs nothing while it owns no land (auto_modifiers/tfe_migratory.txt). It cannot replenish: landless, it
-# has no manpower, so every warrior lost is gone until it wins land of its own.
+﻿# TFE: migratory peoples. A people of Germania or Dacia (tfe_is_migrator) may once give up its homeland, from the
+# Decline of the West's panel (situations/tfe_decline_of_the_west.txt), for a great host that costs nothing while it
+# owns no land (auto_modifiers/tfe_migratory.txt). It cannot replenish: landless, it has no manpower, so every warrior
+# lost is gone until it wins land of its own.
 tfe_start_migration = {
-	type = owncountry
+	type = situation
 	icon = migrate_pop_based_country
 
 	potential = {
+		situation:tfe_decline_of_the_west = { situation_is_active = yes }
 		scope:actor = {
-			country_type = army
+			tfe_is_migrator = yes
 			NOT = { has_variable = tfe_migrating }
 		}
 	}
 	allow = {
-		scope:actor = { any_army = { always = yes } }
+		scope:actor = {
+			is_subject = no	# no warband afield is fine: the host gathers at the capital
+			tfe_barred_by_the_limes = no	# scripted_triggers/tfe_decline_rome.txt: a manned frontier holds them
+		}
 	}
 
 	ai_tick = monthly
 	ai_tick_frequency = 12
 	automation_tick = never
 	automation_tick_frequency = 12
+
+	select_trigger = {
+		looking_for_a = situation
+		interaction_source_list = {
+			situation:tfe_decline_of_the_west = {
+				add_to_list = source
+			}
+		}
+		target_flag = recipient
+		name = "choose_situation"
+		column = {
+			data = name
+		}
+		visible = {
+			situation:tfe_decline_of_the_west = this
+			situation_is_active = yes
+		}
+	}
 
 	effect = {
 		custom_tooltip = tfe_start_migration_tt
@@ -27,11 +50,26 @@ tfe_start_migration = {
 		}
 	}
 
+	# Pace the chaos: one AI people on the road at a time. None moves within 4 years of the last host setting out
+	# (tfe_host_took_the_road), and then only when pushed: the Huns at the door or Rome divided.
 	ai_will_do = {
 		value = 0
 		if = {
-			limit = { scope:actor = { at_war = no } }
-			add = 50
+			limit = {
+				NOT = { has_global_variable = tfe_host_took_the_road }
+				scope:actor = { at_war = no }
+			}
+			add = 5
+			if = {
+				limit = {
+					scope:actor = { any_neighbor_country = { tfe_is_under_the_yoke = yes } }
+				}
+				add = 45
+			}
+			if = {
+				limit = { international_organization:tfe_roman_empire ?= { var:tfe_unity < 50 } }
+				add = 25
+			}
 		}
 	}
 }

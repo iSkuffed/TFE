@@ -1,6 +1,8 @@
-﻿tfe_migratory_list = {
+﻿# TFE: Start Migration (generic_actions/tfe_migratory.txt), weighed only by the peoples who may take the road
+tfe_migratory_list = {
 	potential = {
-		country_type = army
+		tfe_is_migrator = yes
+		NOT = { has_variable = tfe_migrating }
 	}
 	actions = {
 		tfe_start_migration
