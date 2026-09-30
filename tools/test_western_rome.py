@@ -35,6 +35,7 @@ STAY = {
     "in_game/common/situations/tfe_decline_of_the_west.txt",  # can_start is the WRE-only 395 opening
     "in_game/common/on_action/tfe_stilicho.txt", "in_game/events/tfe_stilicho.txt",   # the showdown is Honorius's
     "in_game/common/scripted_effects/tfe_stilicho.txt", "in_game/common/scripted_effects/tfe_usurpers.txt",
+    "in_game/common/auto_modifiers/tfe_stilicho.txt",   # Olympius rules for Honorius, not for Stilicho
     "in_game/common/customizable_localization/country_history.txt",
     "in_game/gui/panels/situation/tfe_decline_of_the_west.gui",   # the header and Gildo's hold are WRE's
     "in_game/common/formable_countries/00_formable_countries.txt",   # vanilla, left alone

@@ -1,0 +1,19 @@
+﻿# TFE: Stilicho's Glory. Scope: a country. Stilicho is alive and in its service: the regent of Honorius's West, or
+# the ruler of his own once he rises. `prev`, not root: root is whoever asked.
+tfe_stilicho_serves_us = {
+	character:tfe_stilicho ?= {
+		is_alive = yes
+		employer ?= prev
+	}
+}
+
+# Scope: a location. The land Stilicho's army holds: Gaul, and Hispania too at Glory 90 (tfe_stilicho_takes_hispania)
+tfe_stilicho_base_land = {
+	OR = {
+		region = region:france_region
+		AND = {
+			region = region:iberia_region
+			has_global_variable = tfe_stilicho_takes_hispania
+		}
+	}
+}

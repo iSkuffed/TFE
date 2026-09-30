@@ -1,0 +1,65 @@
+﻿# TFE: Britain's army crowns a common soldier for his name (early 407, tfe_opening.5; or when Stilicho rises)
+tfe_constantine_rises = {
+	location:london = {
+		create_country_from_location = {
+			define_unique_country_tag = CONST
+			change_country_name = TFE_CONSTANTINE
+			change_country_adjective = TFE_CONSTANTINE_ADJ
+			change_country_color = map_lombard
+			change_country_flag = TFE_CONSTANTINE
+			set_country_rank = country_rank:rank_empire	# an Augustus, whatever Ravenna says
+			change_government_type = government_type:monarchy
+			add_gold = 200
+			create_character = {
+				first_name = name_constantine
+				age = 40
+				religion = religion:orthodox
+				estate = estate_type:nobles_estate
+				culture = culture:roman_culture
+				mil = 55
+				save_scope_as = tfe_usurper_ruler
+			}
+			set_new_ruler = scope:tfe_usurper_ruler
+			set_variable = { name = tfe_usurper_against value = root years = 10 }
+			save_scope_as = tfe_usurper
+		}
+	}
+	every_owned_location = {
+		limit = { region = region:great_britain_region }
+		change_location_owner = scope:tfe_usurper
+	}
+	set_variable = { name = tfe_usurper value = scope:tfe_usurper years = 10 }
+}
+
+# the diocese of Africa goes its own way under a Roman count, when Stilicho rises and Gildo's kingdom is gone
+tfe_africa_breaks_away = {
+	random_owned_location = {
+		limit = { region = region:maghreb_region }
+		create_country_from_location = {
+			define_unique_country_tag = AFRIC
+			change_country_name = TFE_AFRICA
+			change_country_adjective = TFE_AFRICA_ADJ
+			change_country_color = map_kado
+			change_country_flag = TFE_AFRICA
+			set_country_rank = country_rank:rank_kingdom	# a count of Africa, not an Augustus
+			change_government_type = government_type:monarchy
+			add_gold = 200
+			create_character = {
+				adm = 50
+				age = 50
+				religion = religion:orthodox
+				estate = estate_type:nobles_estate
+				culture = culture:roman_culture
+				mil = 45
+				save_scope_as = tfe_usurper_ruler
+			}
+			set_new_ruler = scope:tfe_usurper_ruler
+			set_variable = { name = tfe_usurper_against value = root years = 10 }
+			save_scope_as = tfe_usurper
+		}
+	}
+	every_owned_location = {
+		limit = { region = region:maghreb_region }
+		change_location_owner = scope:tfe_usurper
+	}
+}

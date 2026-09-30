@@ -6,7 +6,6 @@ on_game_start = {
 tfe_on_start_opening = {
 	effect = {
 		c:WRE ?= {
-			add_country_modifier = { modifier = tfe_stilicho_regency months = 68 }	# to Honorius's majority, 9 Sep 400
 			trigger_event_non_silently = tfe_opening.1
 			trigger_event_non_silently = { id = tfe_opening.5 days = 4394 }		# Constantine III, early 407
 		}

@@ -56,6 +56,9 @@ def build():
                     loc.change_location_owner("scope:tfe_host")
                 with h.link("scope:tfe_host", CountryFx) as host:
                     forget_offer(host)
+                h.note("Rome gives its land away: Stilicho's Glory -5 (script/defs_stilicho.py)")
+                with h.link("scope:tfe_rome", CountryFx) as rome:
+                    rome.tfe_add_stilicho_glory(amount=-5)
             with o.ai_chance_block(1) as a:
                 a.note("the war is going badly, or we are the weaker")
                 with a.modifier(4) as t:

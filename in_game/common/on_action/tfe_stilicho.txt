@@ -1,0 +1,215 @@
+﻿# TFE: Stilicho's Glory. On day one his regency is stretched to 408 (the setup ends it at Honorius's majority,
+# 9 Sep 400), and the showdown is set for 22 Aug 408 in case Glory never forces it sooner.
+on_game_start = {
+	on_actions = { tfe_on_start_stilicho }
+}
+
+tfe_on_start_stilicho = {
+	effect = {
+		c:WRE ?= {
+			extend_regency = 8
+			trigger_event_non_silently = { id = tfe_stilicho.2 days = 4961 }
+		}
+	}
+}
+
+# Battles Stilicho himself commands. Root is the country; scope:actor is its unit. A great battle (vanilla's own
+# size test) fires only its own hook: vanilla lists the same one-off reactions under both.
+on_battle_won = {
+	on_actions = { tfe_on_stilicho_battle_won }
+}
+
+on_battle_lost = {
+	on_actions = { tfe_on_stilicho_battle_lost }
+}
+
+on_great_battle_won = {
+	on_actions = { tfe_on_stilicho_great_battle_won }
+}
+
+on_great_battle_lost = {
+	on_actions = { tfe_on_stilicho_great_battle_lost }
+}
+
+tfe_on_stilicho_battle_won = {
+	trigger = { scope:actor.leader ?= character:tfe_stilicho }
+	effect = {
+		scope:actor.owner ?= {
+			tfe_add_stilicho_glory = {
+				amount = 2
+			}
+		}
+	}
+}
+
+tfe_on_stilicho_battle_lost = {
+	trigger = { scope:actor.leader ?= character:tfe_stilicho }
+	effect = {
+		scope:actor.owner ?= {
+			tfe_add_stilicho_glory = {
+				amount = -3
+			}
+		}
+	}
+}
+
+tfe_on_stilicho_great_battle_won = {
+	trigger = { scope:actor.leader ?= character:tfe_stilicho }
+	effect = {
+		scope:actor.owner ?= {
+			tfe_add_stilicho_glory = {
+				amount = 5
+			}
+		}
+	}
+}
+
+tfe_on_stilicho_great_battle_lost = {
+	trigger = { scope:actor.leader ?= character:tfe_stilicho }
+	effect = {
+		scope:actor.owner ?= {
+			tfe_add_stilicho_glory = {
+				amount = -6
+			}
+		}
+	}
+}
+
+# A war ends: a host still on the road beaten (+5) or taking our land (-8), Gildo and the Huns beaten (+10) or
+# winning (-10). Fires for both sides; the effect only moves Glory for the country Stilicho serves.
+on_ending_war = {
+	on_actions = { tfe_on_stilicho_war_ended }
+}
+
+tfe_on_stilicho_war_ended = {
+	trigger = {
+		tfe_stilicho_serves_us = yes
+		exists = scope:winner
+		exists = scope:loser
+	}
+	effect = {
+		if = {
+			limit = { this = scope:winner scope:loser = { has_variable = tfe_migrating NOT = { has_variable = tfe_settled } } }
+			tfe_add_stilicho_glory = {
+				amount = 5
+			}
+		}
+		if = {
+			limit = { this = scope:loser scope:winner = { has_variable = tfe_migrating NOT = { has_variable = tfe_settled } } }
+			tfe_add_stilicho_glory = {
+				amount = -8
+			}
+		}
+		if = {
+			limit = { this = scope:winner scope:loser = { tag = GILDO } }
+			tfe_add_stilicho_glory = {
+				amount = 10
+			}
+		}
+		if = {
+			limit = { this = scope:loser scope:winner = { tag = GILDO } }
+			tfe_add_stilicho_glory = {
+				amount = -10
+			}
+		}
+		if = {
+			limit = { this = scope:winner scope:loser = { tag = HNS } }
+			tfe_add_stilicho_glory = {
+				amount = 10
+			}
+		}
+		if = {
+			limit = { this = scope:loser scope:winner = { tag = HNS } }
+			tfe_add_stilicho_glory = {
+				amount = -10
+			}
+		}
+	}
+}
+
+# Core land ceded in a peace. Not to a migration (that war's -8 counts) nor to a usurper (Gildo's -10 counts),
+# and never our own transfers: the revolt, Britain and Africa move land by effect, not by treaty.
+on_took_location_in_peace_treaty = {
+	on_actions = { tfe_on_stilicho_land_ceded }
+}
+
+tfe_on_stilicho_land_ceded = {
+	trigger = {
+		scope:location = { is_core_of = scope:loser }
+		NOT = {
+			AND = {
+				has_variable = tfe_migrating
+				NOT = { has_variable = tfe_settled }
+			}
+		}
+		NOT = { has_variable = tfe_usurper_against }
+	}
+	effect = {
+		scope:loser = {
+			tfe_add_stilicho_glory = {
+				amount = -1
+			}
+		}
+	}
+}
+
+# Every year Glory stands at 90 or more, a one-in-two chance that Honorius forces the question.
+yearly_country_pulse = {
+	on_actions = { tfe_on_stilicho_yearly }
+}
+
+tfe_on_stilicho_yearly = {
+	trigger = {
+		tag = WRE
+		tfe_stilicho_serves_us = yes
+		NOT = { has_global_variable = tfe_stilicho_showdown }
+		situation:tfe_decline_of_the_west ?= {
+			has_variable = tfe_stilicho_glory
+			var:tfe_stilicho_glory >= 90
+		}
+	}
+	effect = {
+		random = { chance = 50 trigger_event_non_silently = tfe_stilicho.2 }
+	}
+}
+
+# Stilicho dies before the showdown (battle, age): the West loses him without the East's thanks. After he has
+# risen, his own country goes on under Eucherius, and only the bar closes. At the showdown's own execution the
+# showdown is already set, so only the bar closes (it already has).
+on_character_death = {
+	on_actions = { tfe_on_stilicho_dies }
+}
+
+tfe_on_stilicho_dies = {
+	trigger = { scope:target = character:tfe_stilicho }
+	effect = {
+		if = {
+			limit = { tag = WRE NOT = { has_global_variable = tfe_stilicho_showdown } }
+			set_global_variable = tfe_stilicho_showdown
+			tfe_the_west_loses_stilicho = yes
+		}
+		else = {
+			situation:tfe_decline_of_the_west ?= { remove_variable = tfe_stilicho_glory }
+		}
+	}
+}
+
+# Stilicho's West takes Honorius's capital, whatever it is (Ravenna in 402): the West is his (tfe_stilicho.4).
+# Root is the country, scope:target the location, fortified (on_siege_won) or not (on_location_occupied).
+on_location_occupied = {
+	on_actions = { tfe_on_stilicho_takes_the_capital }
+}
+
+on_siege_won = {
+	on_actions = { tfe_on_stilicho_takes_the_capital }
+}
+
+tfe_on_stilicho_takes_the_capital = {
+	trigger = {
+		has_variable = tfe_western_rome
+		NOT = { tag = WRE }
+		is_at_war_with = c:WRE
+		c:WRE ?= { capital = scope:target }
+	}
+	events = { tfe_stilicho.4 }
+}

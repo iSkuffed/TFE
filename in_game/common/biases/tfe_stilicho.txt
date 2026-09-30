@@ -1,0 +1,14 @@
+﻿# TFE: what the East thinks of how the West settles Stilicho (events/tfe_stilicho.txt)
+# the West put Stilicho to death: the East never trusted him
+tfe_stilicho_brought_down = {
+	value = 50
+	max = 50
+	yearly_decay = 5
+}
+
+# Honorius put to death: the East is appalled
+tfe_honorius_executed = {
+	value = -75
+	min = -75
+	yearly_decay = 3
+}

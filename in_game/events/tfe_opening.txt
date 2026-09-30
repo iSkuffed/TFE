@@ -257,39 +257,9 @@ tfe_opening.5 = {
 
 	image = "gfx/interface/illustrations/event/backgrounds/exterior/soldiers/north_german_soldiers_exterior.dds"
 
-	trigger = { location:london = { owner ?= root } }
+	trigger = { location:london = { owner ?= root } NOT = { country_exists = c:CONST } }	# once: Stilicho's rising may crown him first
 
-	immediate = {
-		location:london = {
-			create_country_from_location = {
-				define_unique_country_tag = CONST
-				change_country_name = TFE_CONSTANTINE
-				change_country_adjective = TFE_CONSTANTINE_ADJ
-				change_country_color = map_lombard
-				change_country_flag = TFE_CONSTANTINE
-				set_country_rank = country_rank:rank_empire	# an Augustus, whatever Ravenna says
-				change_government_type = government_type:monarchy
-				add_gold = 200
-				create_character = {
-					first_name = name_constantine
-					culture = culture:roman_culture
-					religion = religion:orthodox
-					estate = estate_type:nobles_estate
-					age = 40
-					mil = 55
-					save_scope_as = tfe_usurper_ruler
-				}
-				set_new_ruler = scope:tfe_usurper_ruler
-				set_variable = { name = tfe_usurper_against value = root years = 10 }
-				save_scope_as = tfe_usurper
-			}
-		}
-		every_owned_location = {
-			limit = { region = region:great_britain_region }
-			change_location_owner = scope:tfe_usurper
-		}
-		set_variable = { name = tfe_usurper value = scope:tfe_usurper years = 10 }
-	}
+	immediate = { tfe_constantine_rises = yes }	# scripted_effects/tfe_usurpers.txt
 
 	# a soldier in the purple is a rebel: he will be hunted down
 	option = {

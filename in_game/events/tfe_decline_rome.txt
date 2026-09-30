@@ -51,6 +51,12 @@ tfe_decline_rome.1 = {
 				remove_variable = tfe_hospitalitas_area
 				clear_variable_list = tfe_hospitalitas_land
 			}
+			# Rome gives its land away: Stilicho's Glory -5 (script/defs_stilicho.py)
+			scope:tfe_rome = {
+				tfe_add_stilicho_glory = {
+					amount = -5
+				}
+			}
 		}
 		ai_chance = {
 			base = 1
