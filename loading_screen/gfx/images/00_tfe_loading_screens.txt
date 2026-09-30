@@ -33,3 +33,39 @@ tfe_loading_vision = {
 	}
 	tag = "tfe_loading_vision"
 }
+
+tfe_loading_han_court = {
+	illustration_image = {
+		texture_file = "gfx/loading_screen_assets/00/images/tfe_loading_han_court.dds"
+		priority = 1
+		weight = 1
+	}
+	tag = "tfe_loading_han_court"
+}
+
+tfe_loading_ruins = {
+	illustration_image = {
+		texture_file = "gfx/loading_screen_assets/00/images/tfe_loading_ruins.dds"
+		priority = 1
+		weight = 1
+	}
+	tag = "tfe_loading_ruins"
+}
+
+tfe_loading_triumph = {
+	illustration_image = {
+		texture_file = "gfx/loading_screen_assets/00/images/tfe_loading_triumph.dds"
+		priority = 1
+		weight = 1
+	}
+	tag = "tfe_loading_triumph"
+}
+
+tfe_loading_warrior = {
+	illustration_image = {
+		texture_file = "gfx/loading_screen_assets/00/images/tfe_loading_warrior.dds"
+		priority = 1
+		weight = 1
+	}
+	tag = "tfe_loading_warrior"
+}

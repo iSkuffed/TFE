@@ -72,44 +72,10 @@ loading_screen_scene_martin_luther = {
 }
 
 
+# TFE: this slot shows a flat Roman-era fresco instead: one layer on the backdrop mesh
 loading_screen_scene_damascus_ambassadors = {
 	ecs_illustration_image = {
-		list = "loading_screen_damascus_ambassadors_layer1"
-		pdxmesh = "layer_1_mesh"
-		name = "illustration_override_anims" #schematic
-	}
-	ecs_illustration_image = {
-		list = "loading_screen_damascus_ambassadors_layer2"
-		pdxmesh = "layer_2_mesh"
-		name = "illustration_override_anims" #schematic
-	}
-	ecs_illustration_image = {
-		list = "loading_screen_damascus_ambassadors_layer3"
-		pdxmesh = "layer_3_mesh"
-		name = "illustration_override_anims" #schematic
-	}
-	ecs_illustration_image = {
-		list = "loading_screen_damascus_ambassadors_layer4"
-		pdxmesh = "layer_4_mesh"
-		name = "illustration_override_anims" #schematic
-	}
-	ecs_illustration_image = {
-		list = "loading_screen_damascus_ambassadors_layer5"
-		pdxmesh = "layer_5_mesh"
-		name = "illustration_override_anims" #schematic
-	}
-	ecs_illustration_image = {
-		list = "loading_screen_damascus_ambassadors_layer6"
-		pdxmesh = "layer_6_mesh"
-		name = "illustration_override_anims" #schematic
-	}
-	ecs_illustration_image = {
-		list = "loading_screen_damascus_ambassadors_layer7"
-		pdxmesh = "layer_7_mesh"
-		name = "illustration_override_anims" #schematic
-	}
-	ecs_illustration_image = {
-		list = "loading_screen_damascus_ambassadors_layer8"
+		list = "tfe_loading_han_court"
 		pdxmesh = "layer_8_mesh"
 		name = "illustration_override_anims" #schematic
 	}
@@ -123,44 +89,10 @@ loading_screen_scene_damascus_ambassadors = {
 	}
 }
 
+# TFE: this slot shows a flat Roman-era fresco instead: one layer on the backdrop mesh
 loading_screen_scene_deccan = {
 	ecs_illustration_image = {
-		list = "loading_screen_deccan_layer1"
-		pdxmesh = "layer_1_mesh"
-		name = "illustration_override_anims" #schematic
-	}
-	ecs_illustration_image = {
-		list = "loading_screen_deccan_layer2"
-		pdxmesh = "layer_2_mesh"
-		name = "illustration_override_anims" #schematic
-	}
-	ecs_illustration_image = {
-		list = "loading_screen_deccan_layer3"
-		pdxmesh = "layer_3_mesh"
-		name = "illustration_override_anims" #schematic
-	}
-	ecs_illustration_image = {
-		list = "loading_screen_deccan_layer4"
-		pdxmesh = "layer_4_mesh"
-		name = "illustration_override_anims" #schematic
-	}
-	ecs_illustration_image = {
-		list = "loading_screen_deccan_layer5"
-		pdxmesh = "layer_5_mesh"
-		name = "illustration_override_anims" #schematic
-	}
-	ecs_illustration_image = {
-		list = "loading_screen_deccan_layer6"
-		pdxmesh = "layer_6_mesh"
-		name = "illustration_override_anims" #schematic
-	}
-	ecs_illustration_image = {
-		list = "loading_screen_deccan_layer7"
-		pdxmesh = "layer_7_mesh"
-		name = "illustration_override_anims" #schematic
-	}
-	ecs_illustration_image = {
-		list = "loading_screen_deccan_layer8"
+		list = "tfe_loading_ruins"
 		pdxmesh = "layer_8_mesh"
 		name = "illustration_override_anims" #schematic
 	}
@@ -174,44 +106,10 @@ loading_screen_scene_deccan = {
 	}
 }
 
+# TFE: this slot shows a flat Roman-era fresco instead: one layer on the backdrop mesh
 loading_screen_scene_aztec = {
 	ecs_illustration_image = {
-		list = "loading_screen_aztec_layer1"
-		pdxmesh = "layer_1_mesh"
-		name = "illustration_override_anims" #schematic
-	}
-	ecs_illustration_image = {
-		list = "loading_screen_aztec_layer2"
-		pdxmesh = "layer_2_mesh"
-		name = "illustration_override_anims" #schematic
-	}
-	ecs_illustration_image = {
-		list = "loading_screen_aztec_layer3"
-		pdxmesh = "layer_3_mesh"
-		name = "illustration_override_anims" #schematic
-	}
-	ecs_illustration_image = {
-		list = "loading_screen_aztec_layer4"
-		pdxmesh = "layer_4_mesh"
-		name = "illustration_override_anims" #schematic
-	}
-	ecs_illustration_image = {
-		list = "loading_screen_aztec_layer5"
-		pdxmesh = "layer_5_mesh"
-		name = "illustration_override_anims" #schematic
-	}
-	ecs_illustration_image = {
-		list = "loading_screen_aztec_layer6"
-		pdxmesh = "layer_6_mesh"
-		name = "illustration_override_anims" #schematic
-	}
-	ecs_illustration_image = {
-		list = "loading_screen_aztec_layer7"
-		pdxmesh = "layer_7_mesh"
-		name = "illustration_override_anims" #schematic
-	}
-	ecs_illustration_image = {
-		list = "loading_screen_aztec_layer8"
+		list = "tfe_loading_triumph"
 		pdxmesh = "layer_8_mesh"
 		name = "illustration_override_anims" #schematic
 	}
@@ -225,44 +123,10 @@ loading_screen_scene_aztec = {
 	}
 }
 
+# TFE: this slot shows a flat Roman-era fresco instead: one layer on the backdrop mesh
 loading_screen_scene_iroquois_ambush = {
 	ecs_illustration_image = {
-		list = "loading_screen_iroquois_ambush_layer1"
-		pdxmesh = "layer_1_mesh"
-		name = "illustration_override_anims" #schematic
-	}
-	ecs_illustration_image = {
-		list = "loading_screen_iroquois_ambush_layer2"
-		pdxmesh = "layer_2_mesh"
-		name = "illustration_override_anims" #schematic
-	}
-	ecs_illustration_image = {
-		list = "loading_screen_iroquois_ambush_layer3"
-		pdxmesh = "layer_3_mesh"
-		name = "illustration_override_anims" #schematic
-	}
-	ecs_illustration_image = {
-		list = "loading_screen_iroquois_ambush_layer4"
-		pdxmesh = "layer_4_mesh"
-		name = "illustration_override_anims" #schematic
-	}
-	ecs_illustration_image = {
-		list = "loading_screen_iroquois_ambush_layer5"
-		pdxmesh = "layer_5_mesh"
-		name = "illustration_override_anims" #schematic
-	}
-	ecs_illustration_image = {
-		list = "loading_screen_iroquois_ambush_layer6"
-		pdxmesh = "layer_6_mesh"
-		name = "illustration_override_anims" #schematic
-	}
-	ecs_illustration_image = {
-		list = "loading_screen_iroquois_ambush_layer7"
-		pdxmesh = "layer_7_mesh"
-		name = "illustration_override_anims" #schematic
-	}
-	ecs_illustration_image = {
-		list = "loading_screen_iroquois_ambush_layer8"
+		list = "tfe_loading_warrior"
 		pdxmesh = "layer_8_mesh"
 		name = "illustration_override_anims" #schematic
 	}
