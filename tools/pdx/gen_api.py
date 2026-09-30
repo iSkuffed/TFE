@@ -115,6 +115,8 @@ def build(mode, docs, scan, names):
 
 def params(sp):
     keys = sp["req"] + sp["opt"]
+    if sp.get("order"):  # keyword-only parameters may come in any order; the call writes them in vanilla's
+        keys = sorted(keys, key=lambda k: sp["order"].index(k) if k in sp["order"] else len(sp["order"]))
     ann = lambda k: sp.get("types", {}).get(k, "Any")
     parts = [f"{pyname(k)}: {ann(k)}" + ("" if k in sp["req"] else (" | None" if ann(k) != "Any" else "") + " = None")
              for k in keys]
@@ -155,6 +157,9 @@ def iterator(name, sp, target):
     sig, call = params(sp)
     star = f"*, {sig}" if sig else ""
     tcls = target if target != "Any" else "AnyFx"
+    if target == "Any" and re.search(r"_in_(global_|local_)?list$", name):  # the list's element type is the caller's to say
+        return (f"    def {pyname(name)}(self, of: type[_S], /{', ' + star if star else ''}) -> ContextManager[_S]:\n"
+                f'        return self._open("{name}", of{f", **_kw({call})" if call else ""})')
     return (f"    def {pyname(name)}(self{', ' + star if star else ''}) -> ContextManager[{target}]:\n"
             f'        return self._open("{name}", {tcls}{f", **_kw({call})" if call else ""})')
 

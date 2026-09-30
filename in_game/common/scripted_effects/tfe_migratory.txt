@@ -44,11 +44,7 @@ tfe_start_migration_effect = {
 	# a neighbouring people moves into the homeland, so it is not left empty; its pops stay, under new lords. Only with
 	# no such neighbour is it abandoned.
 	random_neighbor_country = {
-		limit = {
-			NOT = { tag = WRE }
-			NOT = { tag = EAR }
-			NOT = { has_variable = tfe_migrating }
-		}
+		limit = { NOT = { tag = WRE } NOT = { tag = EAR } NOT = { has_variable = tfe_migrating } }
 		save_scope_as = tfe_heir_to_the_land
 	}
 	if = {
@@ -58,8 +54,14 @@ tfe_start_migration_effect = {
 	else = {
 		every_owned_location = { scope:tfe_host = { abandon_location = prev } }
 	}
-	if = { limit = { country_exists = c:WRE } add_casus_belli = { target = c:WRE type = casus_belli:cb_tfe_migration } }
-	if = { limit = { country_exists = c:EAR } add_casus_belli = { target = c:EAR type = casus_belli:cb_tfe_migration } }
+	if = {
+		limit = { country_exists = c:WRE }
+		add_casus_belli = { target = c:WRE type = casus_belli:cb_tfe_migration }
+	}
+	if = {
+		limit = { country_exists = c:EAR }
+		add_casus_belli = { target = c:EAR type = casus_belli:cb_tfe_migration }
+	}
 	tfe_list_the_migrators = yes
 }
 
@@ -67,9 +69,18 @@ tfe_start_migration_effect = {
 # at home, on the road (tfe_migrating), settled (tfe_settled). Any scope; the situation refreshes it monthly.
 tfe_list_the_migrators = {
 	situation:tfe_decline_of_the_west = {
-		if = { limit = { has_variable_list = tfe_migrators_at_home } clear_variable_list = tfe_migrators_at_home }
-		if = { limit = { has_variable_list = tfe_migrators_on_the_road } clear_variable_list = tfe_migrators_on_the_road }
-		if = { limit = { has_variable_list = tfe_migrators_settled } clear_variable_list = tfe_migrators_settled }
+		if = {
+			limit = { has_variable_list = tfe_migrators_at_home }
+			clear_variable_list = tfe_migrators_at_home
+		}
+		if = {
+			limit = { has_variable_list = tfe_migrators_on_the_road }
+			clear_variable_list = tfe_migrators_on_the_road
+		}
+		if = {
+			limit = { has_variable_list = tfe_migrators_settled }
+			clear_variable_list = tfe_migrators_settled
+		}
 	}
 	every_country = {
 		limit = { tfe_is_migrator = yes }

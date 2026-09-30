@@ -82,7 +82,8 @@ is `tools/pdx/CONTRACT.md`.
 
 - Sources are `script/*.py`, each with an `outputs()` returning `{repo path: text}`. Write them all with
   `python script/run.py` (same `uv run ...` prefix as the tests). Ported so far: `migratory.py` (generic actions),
-  `gildo_events.py` (events and their loc). A test fails when a generated file is stale.
+  `gildo_events.py`, `decline_rome_events.py`, `foederati_events.py`, `hunnic_storm_events.py` (events; their loc
+  stays hand-written except Gildo's), and `defs_*.py` (scripted effects and triggers, on_actions). A test fails when a generated file is stale.
 - Start a new file by copying the nearest port. `Doc.event(...)` builds events; `with c.every_neighbor_country() as n:`
   changes scope; `with t.link("scope:actor", CountryTrig) as c:` is `scope:actor = { }`; comparison triggers read
   `t.gold(100, op=">=")`; `t.var("x", "<", 50)`; a value block (ai_will_do) is `body.effects("ai_will_do", ValueFx)`.
