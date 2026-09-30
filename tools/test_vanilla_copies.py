@@ -14,6 +14,7 @@ COPIES = {
     "in_game/gfx/map/map_modes/00_tfe_map_modes.txt": ("in_game/gfx/map/map_modes/map_modes.txt", "820fb7b409585b79"),
     "in_game/gfx/map/water/water.settings": ("in_game/gfx/map/water/water.settings", "94870c46d5109286"),
     "loading_screen/gfx/scenes/00_loading_screens.txt": ("loading_screen/gfx/scenes/00_loading_screens.txt", "8db58b8ccdc86abc"),
+    "main_menu/gui/frontend_mainview.gui": ("main_menu/gui/frontend_mainview.gui", "9045d2f4ea495ce6"),
     "main_menu/gfx/map/city_data/templates.txt": ("main_menu/gfx/map/city_data/templates.txt", "5c4ae5b915b3431b"),
 }
 
