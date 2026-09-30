@@ -18,7 +18,7 @@ SETTLE = COMMON / "on_action/tfe_migratory.txt"
 LOC = b.MOD / "main_menu/localization/english/tfe_migratory_l_english.yml"
 ARMIES = b.MOD / "main_menu/setup/start/27_armies.txt"
 SCRIPTS = (ACTIONS, EFFECT, AUTO, AI_LIST, CB, WARGOAL, SETTLE)
-NEW_ACTIONS = ("tfe_start_migration",)
+NEW_ACTIONS = ("tfe_migrate_east", "tfe_migrate_west")
 
 
 def code(p):
@@ -56,6 +56,17 @@ def test_start_migration_is_a_one_way_trip_for_the_peoples_beyond_the_rivers():
     heir = re.search(r"random_neighbor_country = \{(.*?)\n\t\}", effect, re.S).group(1)
     assert all(s in heir for s in ("NOT = { tag = WRE }", "NOT = { tag = EAR }", "NOT = { has_variable = tfe_migrating }"))
     assert effect.index("change_location_owner = scope:tfe_heir_to_the_land") < effect.index("abandon_location")
+
+
+def test_one_button_per_empire_declares_war_on_it_after_the_first_month():
+    # user: two buttons, not clickable until a month after the game start, each starts a migration war at once
+    start = re.search(r'START_DATE = "395\.1\.(\d+)"', (b.MOD / "loading_screen/common/defines/tfe_defines.txt").read_text(encoding="utf-8-sig"))
+    acts = code(ACTIONS).split("tfe_migrate_west = {")
+    for act, tag in zip(acts, ("EAR", "WRE")):
+        assert f"country_exists = c:{tag}" in act
+        assert f"current_date >= 395.2.{start.group(1)}" in act and "text = tfe_migration_not_yet_tt" in act
+        assert f"declare_war_with_cb = {{ target = c:{tag} type = casus_belli:cb_tfe_migration }}" in act
+        assert act.index("tfe_start_migration_effect = yes") < act.index("declare_war_with_cb")   # the CB first
 
 
 def test_the_ai_takes_the_road_one_people_at_a_time():

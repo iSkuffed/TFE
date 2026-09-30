@@ -68,6 +68,12 @@ def test_hospitalitas_lets_the_host_refuse_and_makes_a_foedus():
     assert ev.count("outcome = neutral") == 2
     # a saved scope does not reach a child event: the offer travels as variables and is re-derived
     assert "var:tfe_hospitalitas_from" in ev and "var:tfe_hospitalitas_refused_by" in ev
+    # user: accepting names the lands; refusing mid-war says the war goes on
+    assert "name = tfe_hospitalitas_province value = scope:target_province" in acts
+    assert "var:tfe_hospitalitas_province ?= { save_scope_as = tfe_land }" in ev
+    assert "[tfe_land.GetName]" in LOC.read_text(encoding="utf-8-sig")
+    refuse = ev.split("name = tfe_decline_rome.1.b")[1]
+    assert re.search(r"limit = \{\s*exists = scope:tfe_rome\s*is_at_war_with = scope:tfe_rome\s*\}\s*custom_tooltip = tfe_decline_rome\.1\.b\.war_tt", refuse)
 
 
 def test_man_the_limes_costs_and_marks_the_frontier():

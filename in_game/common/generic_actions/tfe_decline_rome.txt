@@ -104,6 +104,7 @@ tfe_hospitalitas = {
 			# what the host's event needs travels as variables on the host (a saved scope does not reach it)
 			scope:host = {
 				set_variable = { name = tfe_hospitalitas_from value = scope:actor months = 3 }
+				set_variable = { name = tfe_hospitalitas_province value = scope:target_province months = 3 }	# named in the event
 			}
 			scope:target_province = {
 				every_location_in_province = {

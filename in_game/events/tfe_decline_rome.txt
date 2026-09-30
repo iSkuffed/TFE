@@ -1,8 +1,8 @@
 ﻿namespace = tfe_decline_rome
 
 # Hospitalitas (generic_actions/tfe_decline_rome.txt): an Augustus offers a host on the road a Roman province to settle.
-# The offer sits in variables on the host (tfe_hospitalitas_from: the Augustus; tfe_hospitalitas_land: his locations in
-# the province), for three months, and the event re-derives its scopes from them.
+# The offer sits in variables on the host (tfe_hospitalitas_from: the Augustus; tfe_hospitalitas_province: the province;
+# tfe_hospitalitas_land: his locations in it), for three months, and the event re-derives its scopes from them.
 tfe_decline_rome.1 = {
 	type = country_event
 	title = tfe_decline_rome.1.title
@@ -20,6 +20,7 @@ tfe_decline_rome.1 = {
 	immediate = {
 		save_scope_as = tfe_host
 		var:tfe_hospitalitas_from = { save_scope_as = tfe_rome }
+		var:tfe_hospitalitas_province ?= { save_scope_as = tfe_land }
 	}
 
 	# swear the foedus and take the land
@@ -45,6 +46,7 @@ tfe_decline_rome.1 = {
 			}
 			scope:tfe_host = {
 				remove_variable = tfe_hospitalitas_from
+				remove_variable = tfe_hospitalitas_province
 				clear_variable_list = tfe_hospitalitas_land
 			}
 		}
@@ -70,6 +72,13 @@ tfe_decline_rome.1 = {
 	option = {
 		name = tfe_decline_rome.1.b
 		custom_tooltip = tfe_decline_rome.1.b.tt
+		if = {
+			limit = {
+				exists = scope:tfe_rome	# the tooltip is read once before immediate saves it
+				is_at_war_with = scope:tfe_rome
+			}
+			custom_tooltip = tfe_decline_rome.1.b.war_tt
+		}
 		hidden_effect = {
 			scope:tfe_rome = {
 				set_variable = { name = tfe_hospitalitas_refused_by value = scope:tfe_host months = 3 }
@@ -77,6 +86,7 @@ tfe_decline_rome.1 = {
 			}
 			scope:tfe_host = {
 				remove_variable = tfe_hospitalitas_from
+				remove_variable = tfe_hospitalitas_province
 				clear_variable_list = tfe_hospitalitas_land
 			}
 		}
