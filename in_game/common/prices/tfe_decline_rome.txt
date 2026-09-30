@@ -1,0 +1,5 @@
+﻿# Man the Limes (generic_actions/tfe_decline_rome.txt): the action scales this by 50, so 50 gold and 2 manpower (2,000 men)
+tfe_man_the_limes_price = {
+	gold = 1
+	manpower = 0.04
+}

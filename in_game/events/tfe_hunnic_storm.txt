@@ -41,17 +41,25 @@ tfe_hunnic_storm.2 = {
 	image = "gfx/interface/illustrations/situation/tfe_hunnic_storm.dds"
 
 	trigger = {
-		country_type = army
+		tfe_is_migrator = yes	# scripted_triggers/tfe_decline_of_the_west.txt
 		NOT = { has_variable = tfe_migrating }
+		is_subject = no
+		tfe_barred_by_the_limes = no	# scripted_triggers/tfe_decline_rome.txt
 	}
 
-	# the road west (generic_actions/tfe_migratory.txt's Start Migration)
+	# the road west (the Decline of the West's Migrate, generic_actions/tfe_migratory.txt)
 	option = {
 		name = tfe_hunnic_storm.2.a
 		historical_option = yes
 		custom_tooltip = tfe_start_migration_tt
 		hidden_effect = { tfe_start_migration_effect = yes }	# scripted_effects/tfe_migratory.txt
-		ai_chance = { base = 3 }
+		ai_chance = {
+			base = 3
+			modifier = {	# pace the chaos: one host on the road every 4 years
+				factor = 0
+				has_global_variable = tfe_host_took_the_road
+			}
+		}
 	}
 
 	option = {

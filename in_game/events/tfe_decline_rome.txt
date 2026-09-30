@@ -1,0 +1,106 @@
+﻿namespace = tfe_decline_rome
+
+# Hospitalitas (generic_actions/tfe_decline_rome.txt): an Augustus offers a host on the road a Roman province to settle.
+# The offer sits in variables on the host (tfe_hospitalitas_from: the Augustus; tfe_hospitalitas_land: his locations in
+# the province), for three months, and the event re-derives its scopes from them.
+tfe_decline_rome.1 = {
+	type = country_event
+	title = tfe_decline_rome.1.title
+	desc = tfe_decline_rome.1.desc
+	outcome = neutral
+
+	image = "gfx/interface/illustrations/event/backgrounds/exterior/soldiers/north_german_soldiers_exterior.dds"
+
+	trigger = {
+		has_variable = tfe_hospitalitas_from
+		has_variable = tfe_migrating
+		NOT = { has_variable = tfe_settled }
+	}
+
+	immediate = {
+		save_scope_as = tfe_host
+		var:tfe_hospitalitas_from = { save_scope_as = tfe_rome }
+	}
+
+	# swear the foedus and take the land
+	option = {
+		name = tfe_decline_rome.1.a
+		historical_option = yes
+		trigger = {
+			any_in_list = { variable = tfe_hospitalitas_land owner ?= scope:tfe_rome }
+		}
+		custom_tooltip = tfe_decline_rome.1.a.tt
+		hidden_effect = {
+			# peace and the oath first: the first location won ends the migration and disbands the host
+			# (on_action/tfe_migratory.txt), which must not happen mid-battle
+			scope:tfe_host = {
+				leave_all_wars_with = scope:tfe_rome
+				make_subject_of = { target = scope:tfe_rome type = subject_type:tfe_foederati }
+			}
+			every_in_list = {
+				variable = tfe_hospitalitas_land
+				limit = { owner ?= scope:tfe_rome }
+				add_core = scope:tfe_host
+				change_location_owner = scope:tfe_host
+			}
+			scope:tfe_host = {
+				remove_variable = tfe_hospitalitas_from
+				clear_variable_list = tfe_hospitalitas_land
+			}
+		}
+		ai_chance = {
+			base = 1
+			# the war is going badly, or we are the weaker
+			modifier = {
+				factor = 4
+				is_at_war_with = scope:tfe_rome
+			}
+			modifier = {
+				factor = 3
+				is_in_losing_war = yes
+			}
+			modifier = {
+				factor = 2
+				military_strength < scope:tfe_rome.military_strength
+			}
+		}
+	}
+
+	# the road is ours: refuse, and Rome is told
+	option = {
+		name = tfe_decline_rome.1.b
+		custom_tooltip = tfe_decline_rome.1.b.tt
+		hidden_effect = {
+			scope:tfe_rome = {
+				set_variable = { name = tfe_hospitalitas_refused_by value = scope:tfe_host months = 3 }
+				trigger_event_non_silently = { id = tfe_decline_rome.2 }
+			}
+			scope:tfe_host = {
+				remove_variable = tfe_hospitalitas_from
+				clear_variable_list = tfe_hospitalitas_land
+			}
+		}
+		ai_chance = { base = 2 }
+	}
+}
+
+# The host has refused Rome's land
+tfe_decline_rome.2 = {
+	type = country_event
+	title = tfe_decline_rome.2.title
+	desc = tfe_decline_rome.2.desc
+	outcome = neutral
+
+	image = "gfx/interface/illustrations/event/backgrounds/exterior/soldiers/north_german_soldiers_exterior.dds"
+
+	trigger = { has_variable = tfe_hospitalitas_refused_by }
+
+	immediate = {
+		var:tfe_hospitalitas_refused_by = { save_scope_as = tfe_host }
+	}
+
+	option = {
+		name = tfe_decline_rome.2.a
+		remove_variable = tfe_hospitalitas_refused_by
+	}
+}

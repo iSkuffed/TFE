@@ -1,0 +1,119 @@
+﻿# TFE: the Decline of the West (RoadMap #6). The West's slow fall, in phases kept in var:tfe_decline_phase.
+# Phase 1, the Frontiers Give Way: Gildo's Africa (events/tfe_gildo.txt, read from the West's tfe_gildo_progress)
+# and the peoples beyond the Rhine and Danube (scripted_triggers/tfe_decline_of_the_west.txt's tfe_is_migrator), who
+# take the road into the Empire from this panel (generic_actions/tfe_migratory.txt). Started on day one by
+# on_action/tfe_decline_of_the_west.txt; its panel is gui/panels/situation/tfe_decline_of_the_west.gui.
+tfe_decline_of_the_west = {
+	monthly_spawn_chance = monthly_spawn_chance_unique
+	can_start = {
+		situation_has_ended = no
+		country_exists = c:WRE
+	}
+	can_end = {
+		custom_tooltip = {
+			text = tfe_decline_west_fallen_tt
+			NOT = { country_exists = c:WRE }
+		}
+	}
+	visible = {
+		OR = {
+			tag = WRE
+			tag = EAR
+			tfe_is_migrator = yes
+			AND = {
+				country_exists = c:GILDO
+				this = c:GILDO
+			}
+		}
+	}
+
+	on_start = {
+		set_variable = { name = tfe_decline_phase value = 1 }
+		tfe_list_the_migrators = yes	# scripted_effects/tfe_migratory.txt: the panel's three lists
+	}
+
+	on_monthly = {
+		tfe_list_the_migrators = yes
+		# can_end alone is checked too rarely
+		if = {
+			limit = { NOT = { country_exists = c:WRE } }
+			end_situation = situation:tfe_decline_of_the_west
+		}
+	}
+
+	tooltip = {
+		if = {
+			limit = { owner ?= c:WRE }
+			custom_tooltip = TFE_DECLINE_WEST
+		}
+		else_if = {
+			limit = { owner ?= c:EAR }
+			custom_tooltip = TFE_DECLINE_EAST
+		}
+		else_if = {
+			limit = { owner ?= { tfe_is_migrator = yes has_variable = tfe_migrating } }
+			custom_tooltip = TFE_DECLINE_SETTLED
+		}
+		else_if = {
+			limit = { owner ?= { tfe_is_migrator = yes } }
+			custom_tooltip = TFE_DECLINE_AT_HOME
+		}
+		else_if = {
+			limit = { country_exists = c:GILDO owner ?= c:GILDO }
+			custom_tooltip = TFE_DECLINE_GILDO
+		}
+	}
+
+	# a host on the road owns no land, so its colour shows where it has settled
+	map_color = {
+		if = {
+			limit = { owner ?= c:WRE }
+			value = rgb { 110 40 120 }
+		}
+		else_if = {
+			limit = { owner ?= c:EAR }
+			value = rgb { 175 120 195 }
+		}
+		else_if = {
+			limit = { owner ?= { tfe_is_migrator = yes has_variable = tfe_migrating } }
+			value = rgb { 215 175 55 }
+		}
+		else_if = {
+			limit = { owner ?= { tfe_is_migrator = yes } }
+			value = rgb { 70 115 60 }
+		}
+		else_if = {
+			limit = { country_exists = c:GILDO owner ?= c:GILDO }
+			value = rgb { 200 95 40 }
+		}
+		else = {
+			value = define:NMapColors|DEFAULT_COLOR
+		}
+	}
+
+	legend_key = {
+		desc = "TFE_DECLINE_WEST"
+		color = rgb { 110 40 120 }
+		require_color_on_map = yes
+	}
+	legend_key = {
+		desc = "TFE_DECLINE_EAST"
+		color = rgb { 175 120 195 }
+		require_color_on_map = yes
+	}
+	legend_key = {
+		desc = "TFE_DECLINE_AT_HOME"
+		color = rgb { 70 115 60 }
+		require_color_on_map = yes
+	}
+	legend_key = {
+		desc = "TFE_DECLINE_SETTLED"
+		color = rgb { 215 175 55 }
+		require_color_on_map = yes
+	}
+	legend_key = {
+		desc = "TFE_DECLINE_GILDO"
+		color = rgb { 200 95 40 }
+		require_color_on_map = yes
+	}
+}

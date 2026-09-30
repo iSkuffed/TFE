@@ -15,6 +15,7 @@ tfe_on_host_settles = {
 	effect = {
 		scope:winner = {
 			set_variable = tfe_settled
+			tfe_list_the_migrators = yes	# the Decline of the West's panel moves it to "settled" now, not next month
 			# the host breaks up and its old warband (setup/start/27_armies.txt) re-forms where it stood. Whole armies
 			# go: destroying sub-units one by one crashed the game a tick later.
 			random_army = { unit_location = { save_scope_as = tfe_warband_site } }

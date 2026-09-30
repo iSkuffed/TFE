@@ -1,0 +1,248 @@
+﻿# TFE: Rome's answers on the Decline of the West's panel (situations/tfe_decline_of_the_west.txt). An Augustus may settle a
+# migrating host on Roman land as foederati (Hospitalitas; the host may refuse, events/tfe_decline_rome.txt), or pay to
+# garrison a stretch of the frontier so that no people beyond it may take the road (scripted_triggers/tfe_decline_rome.txt).
+
+# Hospitalitas: a province of the Empire for a host on the road, as Rome settled the Visigoths in Aquitaine in 418
+tfe_hospitalitas = {
+	type = situation
+
+	potential = {
+		situation:tfe_decline_of_the_west = { situation_is_active = yes }
+		scope:actor = {
+			OR = {
+				tag = WRE
+				tag = EAR
+			}
+		}
+	}
+	allow = {
+		scope:actor = {
+			is_subject = no
+		}
+	}
+
+	ai_tick = monthly
+	ai_tick_frequency = 6
+	automation_tick = never
+	automation_tick_frequency = 12
+
+	# the land itself is the price; the cooldown paces the giving
+	cooldown = {
+		type = tfe_hospitalitas
+		years = 5
+	}
+
+	select_trigger = {
+		looking_for_a = situation
+		interaction_source_list = {
+			situation:tfe_decline_of_the_west = {
+				add_to_list = source
+			}
+		}
+		target_flag = recipient
+		name = "choose_situation"
+		column = {
+			data = name
+		}
+		visible = {
+			situation:tfe_decline_of_the_west = this
+			situation_is_active = yes
+		}
+	}
+
+	# the host: on the road, not yet settled, free and with no offer already before it
+	select_trigger = {
+		looking_for_a = country
+		interaction_source_list = {
+			every_country = {
+				limit = {
+					has_variable = tfe_migrating
+					NOT = { has_variable = tfe_settled }
+				}
+				add_to_list = source
+			}
+		}
+		target_flag = host
+		name = "tfe_hospitalitas_choose_host"
+		none_available_msg_key = "tfe_hospitalitas_no_host"
+		column = {
+			data = name
+		}
+		visible = {
+			has_variable = tfe_migrating
+			NOT = { has_variable = tfe_settled }
+			is_subject = no
+			NOT = { has_variable = tfe_hospitalitas_from }
+		}
+	}
+
+	# the land: one of the actor's provinces, never the one that holds the capital
+	select_trigger = {
+		looking_for_a = province
+		interaction_source_list = {
+			scope:actor = {
+				every_province = {
+					add_to_list = source
+				}
+			}
+		}
+		target_flag = target_province
+		name = "tfe_hospitalitas_choose_province"
+		none_available_msg_key = "tfe_hospitalitas_no_province"
+		column = {
+			data = name
+		}
+		visible = {
+			any_location_in_province = { owner ?= scope:actor }
+			NOT = { any_location_in_province = { owner ?= scope:actor is_capital = yes } }
+		}
+	}
+
+	effect = {
+		custom_tooltip = tfe_hospitalitas_tt
+		hidden_effect = {
+			# what the host's event needs travels as variables on the host (a saved scope does not reach it)
+			scope:host = {
+				set_variable = { name = tfe_hospitalitas_from value = scope:actor months = 3 }
+			}
+			scope:target_province = {
+				every_location_in_province = {
+					limit = { owner ?= scope:actor }
+					scope:host = {
+						add_to_variable_list = { name = tfe_hospitalitas_land target = prev months = 3 }
+					}
+				}
+			}
+			scope:host = {
+				trigger_event_non_silently = { id = tfe_decline_rome.1 }
+			}
+		}
+	}
+
+	ai_will_do = {
+		add = 0
+		# a host at our gates, and the war going badly: settle it before it settles itself
+		if = {
+			limit = { scope:host = { is_at_war_with = scope:actor } }
+			add = 30
+		}
+		if = {
+			limit = {
+				scope:host = { is_at_war_with = scope:actor }
+				scope:actor = { is_in_losing_war = yes }
+			}
+			add = 40
+		}
+		# give what Rome barely holds (the frontier, the deserted fields), never a province it truly rules
+		if = {
+			limit = { scope:target_province = { province_average_control < 0.3 } }
+			add = 20
+		}
+		else_if = {
+			limit = { scope:target_province = { province_average_control > 0.6 } }
+			add = -100
+		}
+	}
+}
+
+# Man the Limes: gold and men to garrison one stretch of the frontier for 10 years
+tfe_man_the_limes = {
+	type = situation
+
+	potential = {
+		situation:tfe_decline_of_the_west = { situation_is_active = yes }
+		scope:actor = {
+			OR = {
+				tag = WRE
+				tag = EAR
+			}
+		}
+	}
+	allow = {
+		scope:actor = {
+			any_owned_location = { tfe_has_frontier_works = yes }
+		}
+	}
+
+	price = price:tfe_man_the_limes_price
+	price_modifier = {
+		add = {
+			desc = "tfe_man_the_limes_cost"
+			value = 50
+		}
+	}
+
+	ai_tick = monthly
+	ai_tick_frequency = 6
+	automation_tick = never
+	automation_tick_frequency = 12
+
+	cooldown = {
+		type = tfe_man_the_limes
+		years = 1
+	}
+
+	select_trigger = {
+		looking_for_a = situation
+		interaction_source_list = {
+			situation:tfe_decline_of_the_west = {
+				add_to_list = source
+			}
+		}
+		target_flag = recipient
+		name = "choose_situation"
+		column = {
+			data = name
+		}
+		visible = {
+			situation:tfe_decline_of_the_west = this
+			situation_is_active = yes
+		}
+	}
+
+	select_trigger = {
+		looking_for_a = location
+		interaction_source_list = {
+			scope:actor = {
+				every_owned_location = {
+					limit = { tfe_has_frontier_works = yes }
+					add_to_list = source
+				}
+			}
+		}
+		target_flag = limes_location
+		name = "tfe_man_the_limes_choose_location"
+		none_available_msg_key = "tfe_man_the_limes_no_location"
+		column = {
+			data = name
+		}
+		visible = {
+			owner ?= scope:actor
+			tfe_has_frontier_works = yes
+			NOT = { has_location_modifier = tfe_limes_manned }
+		}
+	}
+
+	effect = {
+		custom_tooltip = tfe_man_the_limes_tt
+		hidden_effect = {
+			scope:limes_location = {
+				add_location_modifier = { modifier = tfe_limes_manned years = 10 mode = replace }
+			}
+		}
+	}
+
+	ai_will_do = {
+		add = 0
+		# a people still at home across that stretch of the frontier, and gold to spare
+		if = {
+			limit = {
+				scope:actor = { gold >= 150 }
+				scope:limes_location = {
+					any_neighbor_location = { owner ?= { tfe_is_migrator = yes NOT = { has_variable = tfe_migrating } } }
+				}
+			}
+			add = 30
+		}
+	}
+}
