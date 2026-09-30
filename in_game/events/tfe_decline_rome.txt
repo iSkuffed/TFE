@@ -60,18 +60,25 @@ tfe_decline_rome.1 = {
 		}
 		ai_chance = {
 			base = 1
-			# the war is going badly, or we are the weaker
-			modifier = {
-				factor = 4
-				is_at_war_with = scope:tfe_rome
-			}
+			# a host would rather win land than be given it: it settles when beaten in the field by the
+			# Rome that offers, or offered the land its people truly took; a small host (under half the 32
+			# regiments it musters, script/defs_migratory.py) fears being swallowed as a foederatus
 			modifier = {
 				factor = 3
+				is_at_war_with = scope:tfe_rome
 				is_in_losing_war = yes
 			}
 			modifier = {
-				factor = 2
-				military_strength < scope:tfe_rome.military_strength
+				factor = 3
+				var:tfe_hospitalitas_area ?= {
+					tfe_is_historical_land_of = {
+						WHO = root
+					}
+				}
+			}
+			modifier = {
+				factor = 0.5
+				num_regiments < 16
 			}
 		}
 	}
@@ -97,7 +104,7 @@ tfe_decline_rome.1 = {
 				clear_variable_list = tfe_hospitalitas_land
 			}
 		}
-		ai_chance = { base = 2 }
+		ai_chance = { base = 3 }
 	}
 }
 

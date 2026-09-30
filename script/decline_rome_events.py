@@ -4,7 +4,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
-from pdx.api import AreaFx, CountryFx, CountryTrig, LocationFx, LocationTrig
+from pdx.api import AreaFx, AreaTrig, CountryFx, CountryTrig, LocationFx, LocationTrig
 from pdx.objects import Doc
 
 IMG = "gfx/interface/illustrations/event/backgrounds/exterior/soldiers/north_german_soldiers_exterior.dds"
@@ -60,13 +60,16 @@ def build():
                 with h.link("scope:tfe_rome", CountryFx) as rome:
                     rome.tfe_add_stilicho_glory(amount=-5)
             with o.ai_chance_block(1) as a:
-                a.note("the war is going badly, or we are the weaker")
-                with a.modifier(4) as t:
-                    t.is_at_war_with("scope:tfe_rome")
+                a.note("a host would rather win land than be given it: it settles when beaten in the field by the\n"
+                       "Rome that offers, or offered the land its people truly took; a small host (under half the 32\n"
+                       "regiments it musters, script/defs_migratory.py) fears being swallowed as a foederatus")
                 with a.modifier(3) as t:
+                    t.is_at_war_with("scope:tfe_rome")
                     t.is_in_losing_war(True)
-                with a.modifier(2) as t:
-                    t.military_strength("scope:tfe_rome.military_strength", op="<")
+                with a.modifier(3) as t, t.link("var:tfe_hospitalitas_area", AreaTrig, op="?=") as ar:
+                    ar.tfe_is_historical_land_of(WHO="root")
+                with a.modifier(0.5) as t:
+                    t.num_regiments(16, op="<")
 
         e.note("the road is ours: refuse, and Rome is told")
         with e.option("b", text='Decline this offer.') as o:
@@ -83,7 +86,7 @@ def build():
                     rome.trigger_event_non_silently(id="tfe_decline_rome.2")
                 with h.link("scope:tfe_host", CountryFx) as host:
                     forget_offer(host)
-            o.ai_chance(2)
+            o.ai_chance(3)
 
     doc.note("The host has refused Rome's land")
     with doc.event(2, type="country_event", title='The Host Refuses', outcome="neutral",

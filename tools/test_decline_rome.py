@@ -78,6 +78,24 @@ def test_hospitalitas_lets_the_host_refuse_and_makes_a_foedus():
     assert re.search(r"limit = \{\s*exists = scope:tfe_rome\s*is_at_war_with = scope:tfe_rome\s*\}\s*custom_tooltip = tfe_decline_rome\.1\.b\.war_tt", refuse)
 
 
+def test_hospitalitas_keeps_to_its_own_war_and_the_east_to_the_balkans():
+    acts, ev = code(ACTIONS), code(EVENT)
+    hosp = acts[:acts.index("tfe_man_the_limes = {")]
+    # user: the Franks march on the West, and the East bought them off; a host at war with the other Rome is not ours
+    assert re.search(r"NOT = \{\s*this = scope:actor\s*\}\s*is_at_war_with = prev", hosp)
+    # user: the East gave Syria away; it offers only Balkan land
+    assert re.search(r"scope:actor = \{ NOT = \{ tag = EAR \} \}\s*region = region:balkan_region", hosp)
+    # user: the hosts took every offer; refusal outweighs a bare offer, and a small host refuses the more
+    accept = ev.split("name = tfe_decline_rome.1.a")[1].split("name = tfe_decline_rome.1.b")[0]
+    refuse = ev.split("name = tfe_decline_rome.1.b")[1]
+    assert re.search(r"ai_chance = \{\s*base = 1\b", accept) and re.search(r"ai_chance = \{\s*base = 3\b", refuse)
+    assert re.search(r"factor = 0\.5\s*num_regiments < 16", accept)
+    assert "military_strength" not in accept
+    # the land its people truly took sways both sides
+    assert re.search(r"tfe_is_historical_land_of = \{\s*WHO = root\s*\}", accept)
+    assert re.search(r"tfe_is_historical_land_of = \{\s*WHO = scope:host\s*\}", hosp)
+
+
 def test_man_the_limes_costs_and_marks_the_frontier():
     acts, price, mod = code(ACTIONS), code(PRICE), code(MODIFIER)
     assert "gold" in price and "manpower" in price
