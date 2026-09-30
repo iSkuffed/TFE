@@ -59,6 +59,9 @@ commands, not GitHub. If they decline or it breaks, plain git above still works.
 
 - Python tests: `uv run --no-project --with numpy --with pytest --with pillow --with shapely python -m pytest -q tools/`
   (install `uv` on Windows with `winget install astral-sh.uv`). All must pass before a PR.
+- `tools/lint_script.py` checks our script against the `script_docs` logs (unknown effects/triggers, `name =` in
+  modifiers, bad `outcome`, undefined modifiers). It runs inside the pytest command above. After adding a new kind of
+  script, run `--vanilla` and make sure it still reports almost nothing; a hit there is a linter false positive.
 - The tools find vanilla EU5 in Steam's default folder on Linux or Windows. Elsewhere, set `EU5_GAME` to the game's
   `game` folder (the one holding `in_game` and `main_menu`).
 - Script and localisation files start with a UTF-8 BOM. Localisation lives in `main_menu/localization/english/`.
