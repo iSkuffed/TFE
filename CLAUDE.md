@@ -14,7 +14,9 @@ accuracy) decide close calls, and its items are the work queue.
 > exists). Never run `git switch`, `git commit`, `git checkout`, `git pull` or `git rebase`: they move jj's detached
 > HEAD. Use the jj commands under "Using jj" below. `gh` is only for what jj cannot do (`gh pr create`, `gh pr merge`,
 > `gh pr view`); a `git` command that only reads (`git log`, `git diff`) is harmless. If a `.jj` folder is missing on a
-> machine, set it up (`jj git init --colocate`) rather than falling back to git.
+> machine, set it up (`jj git init --colocate`) rather than falling back to git. jj leaves git on a detached HEAD, so
+> `gh pr merge --delete-branch` errors "could not determine current branch" (the merge still lands); add
+> `--repo iSkuffed/TFE` to avoid it, then `jj git fetch` and `jj new master`.
 
 - **One branch (jj bookmark) per feature, never straight to `master`.** Start with `jj git fetch` and `jj new master`. Push,
   open a PR with `gh pr create`, merge, delete the branch. Short branches rarely conflict.
