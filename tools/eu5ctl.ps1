@@ -79,7 +79,7 @@ function Window {
     $p = Game
     if (-not $p) { Fail "not running" }
     # after a crash the reporter window takes the input, and a stray Return would submit the report
-    if (Get-Process | Where-Object { $_.ProcessName -match "crash" }) { Fail "game crashed (crash reporter open), not sending input" }
+    if (Get-Process | Where-Object { $_.ProcessName -match "crash" -and $_.Path -notmatch "Mozilla|Google|Microsoft\\Edge|BraveSoftware" }) { Fail "game crashed (crash reporter open), not sending input" }
     $h = $p.MainWindowHandle
     if ($h -eq [IntPtr]::Zero) { Fail "the game has no window yet" }
     if ([Eu5Ctl]::GetForegroundWindow() -ne $h) { [Eu5Ctl]::Focus($h); Start-Sleep -Milliseconds 300 }
