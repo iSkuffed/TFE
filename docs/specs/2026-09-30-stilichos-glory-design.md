@@ -104,6 +104,21 @@ Honorius is the rightful Augustus, so Stilicho is the one who rebels.
 7. **Neither:** if the war ends in a white peace, Stilicho's West survives beside Honorius's WRE. It keeps the usurper
    CB against WRE (`tfe_usurper_against`, as Gildo and Constantine III have), so the player can finish the job later.
 
+### Two Wests: the barbarians see both
+
+About 50 TFE lines name `WRE` by tag (`c:WRE`, `tag = WRE`): the migrations, Hospitalitas, Man the Limes, the Decline
+of the West, the Hunnic Storm, the Imperium Romanum. While Stilicho's West is a separate tag (during the revolt, after
+a white peace, or for good if it cannot take the `WRE` tag after a win), each of these must decide which West it
+means. Found so far: Migrate West declares war on `c:WRE` only, so no host could march on Stilicho's Gaul.
+
+- A scripted trigger `tfe_is_western_rome` (`tag = WRE`, or the variable `tfe_western_rome`, set on Stilicho's West
+  when he rises) says what counts as the West.
+- **Migrate West** targets the western Rome the host borders, else the larger one. A migrator gets the migration CB
+  against every western Rome, and its AI weighs any western neighbour, not only `WRE`.
+- The plan audits every other `WRE` reference and sorts it: Rome's answers to the barbarians and the Decline of the
+  West follow `tfe_is_western_rome` (Stilicho's West can use Hospitalitas and Man the Limes too), while the Imperium
+  Romanum seat and the 395 opening events stay with Honorius's `WRE`. Vanilla's formables are left alone.
+
 ## Standing with the Emperor (or Stilicho dies)
 
 - Stilicho is executed, or is already dead, and Eucherius with him. The Glory bar closes.
