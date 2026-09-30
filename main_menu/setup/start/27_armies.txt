@@ -57,4 +57,50 @@ unit_manager = {
 			a_supply_carts = { strength = 1 }
 		}
 	}
+	# The East's standing field armies (Notitia Dignitatum): its praesental legions are still in Italy with Stilicho,
+	# but the magistri of Thrace, Illyricum and the Orient keep theirs. The army of Thrace at Hadrianopolis
+	army = {
+		country = EAR
+		location = edirne
+		sub_units = {
+			a_footmen = { strength = 1 }
+			a_footmen = { strength = 1 }
+			a_footmen = { strength = 1 }
+			a_footmen = { strength = 1 }
+			a_footmen = { strength = 1 }
+			a_footmen = { strength = 1 }
+			a_archers = { strength = 1 }
+			a_archers = { strength = 1 }
+			a_armored_horsemen = { strength = 1 }
+			a_armored_horsemen = { strength = 1 }
+		}
+	}
+	# The army of Illyricum at Thessalonica
+	army = {
+		country = EAR
+		location = thessaloniki
+		sub_units = {
+			a_footmen = { strength = 1 }
+			a_footmen = { strength = 1 }
+			a_footmen = { strength = 1 }
+			a_footmen = { strength = 1 }
+			a_archers = { strength = 1 }
+			a_armored_horsemen = { strength = 1 }
+		}
+	}
+	# The army of the Orient at Antioch
+	army = {
+		country = EAR
+		location = antioch
+		sub_units = {
+			a_footmen = { strength = 1 }
+			a_footmen = { strength = 1 }
+			a_footmen = { strength = 1 }
+			a_footmen = { strength = 1 }
+			a_archers = { strength = 1 }
+			a_archers = { strength = 1 }
+			a_horsemen = { strength = 1 }
+			a_horsemen = { strength = 1 }
+		}
+	}
 }
