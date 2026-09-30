@@ -16,6 +16,9 @@
 
 	blockoverride "situation_panel_image" {
 		using = one_country_header_template
+		# the country goes here, not in blockoverride "CountryContext": the template uses that block twice, and the
+		# second must stay [Country.GetGovernment] or the ruler titles spam error.log every frame (as vanilla Timur does)
+		datacontext = "[GetCountry('WRE')]"
 
 		blockoverride "one_country_header_background" {
 			background = {
@@ -31,9 +34,6 @@
 			}
 		}
 
-		blockoverride "CountryContext" {
-			datacontext = "[GetCountry('WRE')]"
-		}
 		blockoverride "character_portrait_anchor" {
 			parentanchor = bottom|left
 		}
