@@ -1,0 +1,16 @@
+﻿# TFE: replaces Fate of the Phoenix's Byzantine loading scene (same file name, so it wins over the DLC's)
+loading_screen_scene_byzantine = {
+	ecs_illustration_image = {
+		list = "tfe_loading_issus"
+		pdxmesh = "layer_8_mesh"
+		name = "illustration_override_anims" #schematic
+	}
+	gfx_environment_file = "gfx/illustrations/environment2.txt"
+
+	camera = {
+		camera_near_far = {0.11 100000}
+		camera_fov_y_degrees = 37.5
+		camera_position = {0 0 -125}
+		camera_look_at = {0 0 1000}
+	}
+}

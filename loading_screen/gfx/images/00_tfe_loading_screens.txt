@@ -87,3 +87,21 @@ tfe_loading_forest_ambush = {
 	}
 	tag = "tfe_loading_forest_ambush"
 }
+
+tfe_loading_king = {
+	illustration_image = {
+		texture_file = "gfx/loading_screen_assets/00/images/tfe_loading_king.dds"
+		priority = 1
+		weight = 1
+	}
+	tag = "tfe_loading_king"
+}
+
+tfe_loading_issus = {
+	illustration_image = {
+		texture_file = "gfx/loading_screen_assets/00/images/tfe_loading_issus.dds"
+		priority = 1
+		weight = 1
+	}
+	tag = "tfe_loading_issus"
+}
