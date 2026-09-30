@@ -18,7 +18,7 @@ tfe_on_host_takes_roman_town = {
 			NOT = { has_location_modifier = tfe_fled_to_the_host }
 			owner ?= {
 				OR = {
-					has_or_had_tag = WRE
+					tfe_is_western_rome = yes
 					has_or_had_tag = EAR
 				}
 			}

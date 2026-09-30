@@ -1,7 +1,7 @@
 ﻿# TFE: the West fights with a paid army (comitatenses); its debased coin is the tfe_debased_currency reform.
 tfe_comitatenses = {
 	potential_trigger = {
-		has_or_had_tag = WRE
+		OR = { has_or_had_tag = WRE has_variable = tfe_western_rome }
 	}
 
 	discipline = 0.05

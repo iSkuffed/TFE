@@ -9,7 +9,7 @@ create_colonial_charter = {
 			is_rebel_country = no
 			NOT = { country_type = building }
 			modifier:can_colonize = yes
-			NOT = { tag = WRE }	# TFE: the Empire defends what it holds; it does not settle new land
+			NOT = { tfe_is_western_rome = yes }	# TFE: the Empire defends what it holds; it does not settle new land
 			NOT = { tag = EAR }
 			OR = {
 				is_ai = no

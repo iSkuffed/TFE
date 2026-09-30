@@ -4,7 +4,7 @@
 # The plebs are forbidden arms (Theodosian Code, on private weapons), so the state fields no levy and pays only professionals
 tfe_disarmed_plebs = {
 	potential = {
-		has_or_had_tag = WRE
+		OR = { has_or_had_tag = WRE has_variable = tfe_western_rome }
 	}
 	locked = {
 		always = yes
@@ -36,7 +36,7 @@ tfe_disarmed_demos = {
 # The soldiers' stipend and donatives are paid in gold, bought with a copper and silver coin worth less each year
 tfe_debased_currency = {
 	potential = {
-		has_or_had_tag = WRE
+		OR = { has_or_had_tag = WRE has_variable = tfe_western_rome }
 	}
 	locked = {
 		always = yes

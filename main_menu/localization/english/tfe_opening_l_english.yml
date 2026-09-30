@@ -28,8 +28,6 @@
  cb_tfe_suppress_usurper_desc: "A usurper holds a Roman province that is ours by right."
  cb_tfe_claim_the_purple: "Claim the Purple"
  cb_tfe_claim_the_purple_desc: "We have been proclaimed Augustus. The rest of the Empire must be won."
- STATIC_MODIFIER_NAME_tfe_stilicho_regency: "Stilicho's Regency"
- STATIC_MODIFIER_DESC_tfe_stilicho_regency: "The Magister Militum rules for the boy Honorius. The army is his and the great houses follow him."
  STATIC_MODIFIER_NAME_tfe_rufinus_prefecture: "Rufinus's Prefecture"
  STATIC_MODIFIER_DESC_tfe_rufinus_prefecture: "The praetorian prefect Rufinus rules Arcadius's court, sells its offices and squeezes its provinces."
  STATIC_MODIFIER_NAME_tfe_eutropius_chamber: "Rule of the Chamberlain"

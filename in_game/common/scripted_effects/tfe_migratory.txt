@@ -44,7 +44,7 @@ tfe_start_migration_effect = {
 	# a neighbouring people moves into the homeland, so it is not left empty; its pops stay, under new lords. Only with
 	# no such neighbour is it abandoned.
 	random_neighbor_country = {
-		limit = { NOT = { tag = WRE } NOT = { tag = EAR } NOT = { has_variable = tfe_migrating } }
+		limit = { NOT = { tfe_is_western_rome = yes } NOT = { tag = EAR } NOT = { has_variable = tfe_migrating } }
 		save_scope_as = tfe_heir_to_the_land
 	}
 	if = {
@@ -55,12 +55,15 @@ tfe_start_migration_effect = {
 		every_owned_location = { scope:tfe_host = { abandon_location = prev } }
 	}
 	if = {
-		limit = { country_exists = c:WRE }
-		add_casus_belli = { target = c:WRE type = casus_belli:cb_tfe_migration }
-	}
-	if = {
 		limit = { country_exists = c:EAR }
 		add_casus_belli = { target = c:EAR type = casus_belli:cb_tfe_migration }
+	}
+	# and on every western Rome: Stilicho's West too, once he rises
+	every_country = {
+		limit = { tfe_is_western_rome = yes }
+		scope:tfe_host = {
+			add_casus_belli = { target = prev type = casus_belli:cb_tfe_migration }
+		}
 	}
 	tfe_list_the_migrators = yes
 }

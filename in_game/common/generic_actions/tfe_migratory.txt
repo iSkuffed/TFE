@@ -87,7 +87,7 @@ tfe_migrate_west = {
 			tfe_is_migrator = yes
 			NOT = { has_variable = tfe_migrating }
 		}
-		country_exists = c:WRE
+		any_country = { tfe_is_western_rome = yes }
 	}
 	allow = {
 		custom_tooltip = {
@@ -123,8 +123,21 @@ tfe_migrate_west = {
 		custom_tooltip = tfe_migrate_WRE_tt
 		hidden_effect = {
 			scope:actor = {
+				# the western Rome the host borders, else the larger: Stilicho's West may stand beside Honorius's
+				random_neighbor_country = {
+					limit = { tfe_is_western_rome = yes }
+					save_scope_as = tfe_victim
+				}
+				if = {
+					limit = { NOT = { exists = scope:tfe_victim } }
+					ordered_country = {
+						order_by = country_economical_base
+						limit = { tfe_is_western_rome = yes }
+						save_scope_as = tfe_victim
+					}
+				}
 				tfe_start_migration_effect = yes	# scripted_effects/tfe_migratory.txt
-				declare_war_with_cb = { target = c:WRE type = casus_belli:cb_tfe_migration }
+				declare_war_with_cb = { target = scope:tfe_victim type = casus_belli:cb_tfe_migration }
 			}
 		}
 	}
@@ -141,7 +154,7 @@ tfe_migrate_west = {
 			}
 			# the empire across the river first
 			if = {
-				limit = { scope:actor = { any_neighbor_country = { tag = WRE } } }
+				limit = { scope:actor = { any_neighbor_country = { tfe_is_western_rome = yes } } }
 				add = 10
 			}
 			if = {

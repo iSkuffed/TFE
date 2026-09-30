@@ -110,7 +110,7 @@ def test_every_war_has_its_goal_and_its_treaty():
 def test_the_phases_open_on_named_causes():
     s = code(SITUATION)
     assert "set_variable = { name = tfe_storm_phase value = 1 }" in s
-    assert re.search(r"tfe_yoke_size >= 8\s*international_organization:tfe_hunnic_yoke \?= \{\s*any_international_organization_member = \{ OR = \{ tag = WRE tag = EAR \} \}", s)
+    assert re.search(r"tfe_yoke_size >= 8\s*international_organization:tfe_hunnic_yoke \?= \{\s*any_international_organization_member = \{ OR = \{ tfe_is_western_rome = yes tag = EAR \} \}", s)
     assert re.search(r"current_date >= 434\.1\.1\s*tfe_yoke_size >= 6", s)
     assert "var:tfe_scourge = { is_alive = no }" in s and "has_variable = tfe_reckoning_due" in s
     assert "set_variable = { name = tfe_reckoning_clock value = yes years = 10 }" in s

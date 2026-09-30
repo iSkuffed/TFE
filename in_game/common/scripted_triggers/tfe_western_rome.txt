@@ -1,0 +1,9 @@
+﻿# TFE: Stilicho's Glory (events/tfe_stilicho.txt). Scope: a country. The West is Honorius's WRE and, once Stilicho
+# rises, Stilicho's West (tfe_western_rome, set by tfe_stilicho.3). The barbarians march on both, and Rome's answers
+# to them (Hospitalitas, Man the Limes) belong to both. The Imperium Romanum's seat stays with WRE.
+tfe_is_western_rome = {
+	OR = {
+		tag = WRE
+		has_variable = tfe_western_rome
+	}
+}

@@ -1,0 +1,237 @@
+﻿namespace = tfe_stilicho
+
+# Stilicho's Glory (script/defs_stilicho.py): the warning at 80, the showdown with Honorius, the rising, and the
+# win when Stilicho's West takes Honorius's capital.
+# the first time Glory reaches 80 (tfe_add_stilicho_glory)
+tfe_stilicho.1 = {
+	type = country_event
+	title = tfe_stilicho.1.title
+	desc = tfe_stilicho.1.desc
+	outcome = negative
+	image = "gfx/interface/illustrations/event/backgrounds/interior/byz_nobles_interior.dds"
+	option = {
+		name = tfe_stilicho.1.a
+		custom_tooltip = tfe_stilicho.1.a.tt
+	}
+}
+
+# the showdown: yearly at Glory 90+, at once at 100, or on 22 Aug 408 (defs_stilicho.py)
+tfe_stilicho.2 = {
+	type = country_event
+	title = tfe_stilicho.2.title
+	desc = tfe_stilicho.2.desc
+	outcome = negative
+	image = "gfx/interface/illustrations/event/backgrounds/exterior/byz_soldiers_exterior.dds"
+	trigger = {
+		NOT = { has_global_variable = tfe_stilicho_showdown }
+		tfe_stilicho_serves_us = yes
+	}
+	immediate = {
+		set_global_variable = tfe_stilicho_showdown
+	}
+	# with Stilicho: he rises, and we follow him (tfe_stilicho_rises)
+	option = {
+		name = tfe_stilicho.2.a
+		trigger = {
+			custom_tooltip = {
+				text = tfe_stilicho_glory_70_tt
+				situation:tfe_decline_of_the_west ?= {
+					has_variable = tfe_stilicho_glory
+					var:tfe_stilicho_glory >= 70
+				}
+			}
+			custom_tooltip = {
+				text = tfe_stilicho_holds_gaul_tt
+				any_owned_location = {
+					OR = {
+						region = region:france_region
+						AND = {
+							region = region:iberia_region
+							situation:tfe_decline_of_the_west ?= {
+								has_variable = tfe_stilicho_glory
+								var:tfe_stilicho_glory >= 90
+							}
+						}
+					}
+				}
+			}
+		}
+		custom_tooltip = tfe_stilicho.2.a.tt
+		hidden_effect = { tfe_stilicho_rises = yes }
+		ai_chance = { base = 0 }
+	}
+	# with the Emperor: Stilicho and Eucherius die, and the East is pleased
+	option = {
+		name = tfe_stilicho.2.b
+		historical_option = yes
+		custom_tooltip = tfe_stilicho.2.b.tt
+		custom_tooltip = tfe_unity_up_20_tt
+		hidden_effect = {
+			# the East thanks us for putting him down, not for outliving him
+			if = {
+				limit = { character:tfe_stilicho ?= { is_alive = yes } }
+				international_organization:tfe_roman_empire ?= {
+					change_variable = { name = tfe_unity add = 20 }
+				}
+				c:EAR ?= { add_opinion = { target = root modifier = tfe_stilicho_brought_down } }
+			}
+			tfe_the_west_loses_stilicho = yes
+		}
+		ai_chance = { base = 1 }
+	}
+}
+
+# The day after the rising: the revolter becomes Stilicho's West, the player follows him, Honorius takes the
+# throne of what is left, and Britain and Africa go their own way (fired by tfe_stilicho_rises)
+tfe_stilicho.3 = {
+	type = country_event
+	hidden = yes
+	immediate = {
+		random_country = {
+			limit = {
+				# marked by tfe_stilicho_rises the moment the revolt started
+				has_variable = tfe_stilicho_revolter
+			}
+			save_scope_as = tfe_stilicho_west
+		}
+		scope:tfe_stilicho_west ?= {
+			define_unique_country_tag = STILI
+			change_country_name = TFE_STILICHO
+			change_country_adjective = TFE_STILICHO_ADJ
+			change_country_color = map_romansh
+			change_country_flag = TFE_STILICHO
+			set_country_rank = country_rank:rank_empire
+			change_government_type = government_type:monarchy
+			add_gold = 300
+			remove_variable = tfe_stilicho_revolter
+			set_variable = tfe_western_rome
+			set_variable = { name = tfe_usurper_against value = root years = 10 }
+			add_reform = government_reform:tfe_senatorial_immunities
+			add_reform = government_reform:tfe_patrocinium
+			add_reform = government_reform:tfe_disarmed_plebs
+			add_reform = government_reform:tfe_debased_currency
+			# Stilicho, or if he has died since the showdown, his son in his place
+			if = {
+				limit = { character:tfe_stilicho ?= { is_alive = yes } }
+				set_new_ruler = character:tfe_stilicho
+				if = {
+					limit = { character:tfe_eucherius ?= { is_alive = yes } }
+					character:tfe_eucherius = { move_country = scope:tfe_stilicho_west }
+					set_as_designated_heir = character:tfe_eucherius
+				}
+			}
+			else_if = {
+				limit = { character:tfe_eucherius ?= { is_alive = yes } }
+				set_new_ruler = character:tfe_eucherius
+			}
+			# a backer leading the rebel side turns Annex Revolter into a white peace: send the backers home
+			every_current_war = {
+				limit = { is_in_war = root }
+				save_scope_as = tfe_stilicho_war
+				every_war_participant = {
+					limit = { is_at_war_with = root NOT = { this = scope:tfe_stilicho_west } }
+					leave_war = {
+						war = scope:tfe_stilicho_war
+						actor = root
+					}
+				}
+			}
+		}
+		if = {
+			limit = { exists = scope:tfe_stilicho_west }
+			# the revolt hands him part of his land, or none of it
+			every_owned_location = {
+				limit = { tfe_stilicho_base_land = yes }
+				change_location_owner = scope:tfe_stilicho_west
+			}
+			# Arles, the prefecture of the Gauls from about 407, if he holds it
+			if = {
+				limit = { location:arles = { owner ?= scope:tfe_stilicho_west } }
+				scope:tfe_stilicho_west = { set_capital = location:arles }
+			}
+			# Honorius rules in his own name; the Britains and Africa break away, and Stilicho claims them all
+			if = {
+				limit = { character:tfe_honorius ?= { is_alive = yes } }
+				set_new_ruler = character:tfe_honorius
+			}
+			if = {
+				limit = {
+					NOT = { country_exists = c:CONST }	# tfe_constantine_rises builds his country out of London
+					location:london = { owner ?= root }
+				}
+				tfe_constantine_rises = yes
+			}
+			if = {
+				limit = { country_exists = c:GILDO }
+				every_owned_location = {
+					limit = { region = region:maghreb_region }
+					change_location_owner = c:GILDO
+				}
+			}
+			else = {
+				tfe_africa_breaks_away = yes
+			}
+			region:great_britain_region = {
+				every_location_in_region = { add_core = scope:tfe_stilicho_west }
+			}
+			region:maghreb_region = {
+				every_location_in_region = { add_core = scope:tfe_stilicho_west }
+			}
+			# the player follows Stilicho
+			if = {
+				limit = { is_ai = no }
+				change_player = scope:tfe_stilicho_west
+			}
+		}
+	}
+}
+
+# Stilicho's West holds Honorius's capital (on_action tfe_on_stilicho_takes_the_capital): it annexes the West,
+# takes its name and flag, and decides what becomes of Honorius. The Imperium Romanum, left with one member,
+# dissolves by its own auto_disband_trigger.
+tfe_stilicho.4 = {
+	type = country_event
+	title = tfe_stilicho.4.title
+	desc = tfe_stilicho.4.desc
+	outcome = positive
+	image = "gfx/interface/illustrations/event/backgrounds/exterior/byz_soldiers_exterior.dds"
+	trigger = { country_exists = c:WRE }
+	immediate = {
+		c:WRE = { capital = { save_scope_as = tfe_honorius_seat } }
+		annex_country = {
+			country = c:WRE
+			reason = CivilWar
+		}
+		change_country_name = WRE
+		change_country_adjective = WRE_ADJ
+		change_country_flag = WRE
+		set_capital = scope:tfe_honorius_seat
+	}
+	# no rival Augustus is left, but the East never forgives it
+	option = {
+		name = tfe_stilicho.4.a
+		trigger = { character:tfe_honorius ?= { is_alive = yes } }
+		custom_tooltip = tfe_stilicho.4.a.tt
+		kill_character = {
+			target = character:tfe_honorius
+			reason = execution
+		}
+		c:EAR ?= { add_opinion = { target = root modifier = tfe_honorius_executed } }
+	}
+	# he lives out his days at his brother's court in Constantinople
+	option = {
+		name = tfe_stilicho.4.b
+		historical_option = yes
+		trigger = {
+			character:tfe_honorius ?= { is_alive = yes }
+			country_exists = c:EAR
+		}
+		custom_tooltip = tfe_stilicho.4.b.tt
+		character:tfe_honorius = { move_country = c:EAR }
+	}
+	# Honorius did not live to see it
+	option = {
+		name = tfe_stilicho.4.c
+		trigger = { NOT = { character:tfe_honorius ?= { is_alive = yes } } }
+	}
+}

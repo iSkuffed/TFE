@@ -1,0 +1,71 @@
+﻿# TFE: Stilicho's Glory. Each applies while Stilicho serves the country, so all of them move with him if he rises.
+# his command: the army is his and the great houses follow him (was the 68-month tfe_stilicho_regency)
+tfe_stilicho_regency = {
+	potential_trigger = {
+		tfe_stilicho_serves_us = yes
+	}
+	land_morale_modifier = 0.1
+	global_nobles_estate_power = 0.2
+}
+
+tfe_glory_discredited = {
+	potential_trigger = {
+		tfe_stilicho_serves_us = yes
+		situation:tfe_decline_of_the_west ?= {
+			has_variable = tfe_stilicho_glory
+			var:tfe_stilicho_glory < 25
+		}
+	}
+	land_morale_modifier = -0.1
+	monthly_legitimacy = -0.1
+	global_estate_target_satisfaction = -0.05
+}
+
+tfe_glory_wanes = {
+	potential_trigger = {
+		tfe_stilicho_serves_us = yes
+		situation:tfe_decline_of_the_west ?= {
+			has_variable = tfe_stilicho_glory
+			var:tfe_stilicho_glory >= 25
+			var:tfe_stilicho_glory < 50
+		}
+	}
+	land_morale_modifier = -0.05
+	monthly_legitimacy = -0.05
+}
+
+tfe_glory_rises = {
+	potential_trigger = {
+		tfe_stilicho_serves_us = yes
+		situation:tfe_decline_of_the_west ?= {
+			has_variable = tfe_stilicho_glory
+			var:tfe_stilicho_glory >= 75
+			var:tfe_stilicho_glory < 90
+		}
+	}
+	land_morale_modifier = 0.1
+	global_manpower_modifier = 0.1
+}
+
+tfe_glory_idol = {
+	potential_trigger = {
+		tfe_stilicho_serves_us = yes
+		situation:tfe_decline_of_the_west ?= {
+			has_variable = tfe_stilicho_glory
+			var:tfe_stilicho_glory >= 90
+		}
+	}
+	land_morale_modifier = 0.2
+	global_manpower_modifier = 0.15
+}
+
+# Olympius rules for Honorius after Stilicho's fall: no Glory, no command, and every estate angry
+tfe_olympius_regency = {
+	potential_trigger = {
+		has_global_variable = tfe_stilicho_fell
+		tag = WRE
+		has_regent = yes
+	}
+	global_nobles_estate_power = 0.1
+	global_estate_target_satisfaction = -0.1
+}

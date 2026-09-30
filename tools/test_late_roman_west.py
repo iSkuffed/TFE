@@ -99,7 +99,7 @@ def test_both_burdens_are_locked_reforms_with_their_original_effects_and_slots()
     }
     for name, effects in expected.items():
         body = reforms[name]
-        assert re.search(r"potential = \{\s*has_or_had_tag = WRE\s*\}", body)
+        assert re.search(r"potential = \{\s*OR = \{\s*has_or_had_tag = WRE\s+has_variable = tfe_western_rome\s*\}\s*\}", body)
         assert re.search(r"locked = \{\s*always = yes\s*\}", body), name
         assert country_modifier(body) == effects, name
         assert "on_fully_activated" not in body and "on_deactivate" not in body, name
@@ -132,7 +132,9 @@ def test_the_disarmed_plebs_and_debased_currency_are_locked_reforms_with_a_slot_
     }
     assert set(reforms) == set(expected)
     for name, (tag, effects) in expected.items():
-        assert re.search(rf"potential = \{{\s*has_or_had_tag = {tag}\s*\}}", reforms[name]), name
+        potential = (r"potential = \{\s*OR = \{\s*has_or_had_tag = WRE\s+has_variable = tfe_western_rome\s*\}\s*\}"
+                     if tag == "WRE" else rf"potential = \{{\s*has_or_had_tag = {tag}\s*\}}")
+        assert re.search(potential, reforms[name]), name
         assert re.search(r"locked = \{\s*always = yes\s*\}", reforms[name]), name
         assert country_modifier(reforms[name]) == effects, name
     govs = [line.split(" = ", 1)[1] for line in (b.TOOLS / "governments.txt").read_text(encoding="utf-8").splitlines()

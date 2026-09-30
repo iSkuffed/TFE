@@ -13,6 +13,6 @@ def test_generated_script_files_are_up_to_date():
     assert not stale, f"rerun python script/run.py: {stale}"
 
 
-def test_generated_files_start_with_a_bom():
+def test_generated_files_start_with_a_bom_except_start_files():
     for rel in run.all_outputs():
-        assert (ROOT / rel).read_bytes().startswith(b"\xef\xbb\xbf"), rel
+        assert (ROOT / rel).read_bytes().startswith(b"\xef\xbb\xbf") == (run.encoding(rel) == "utf-8-sig"), rel

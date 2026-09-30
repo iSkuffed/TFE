@@ -7,7 +7,7 @@ cb_tfe_submit_to_the_yoke = {
 	create_enabled = {
 		scope:target = {
 			NOT = { tfe_is_under_the_yoke = yes }
-			NOT = { tag = WRE }
+			NOT = { tfe_is_western_rome = yes }
 			NOT = { tag = EAR }
 			any_neighbor_country = { tfe_is_under_the_yoke = yes }
 		}

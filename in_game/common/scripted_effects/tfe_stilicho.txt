@@ -1,0 +1,111 @@
+﻿# TFE: Stilicho's Glory. Scope: a country. Glory moves by $amount$ if Stilicho serves this country and the bar is
+# open (it closes when he falls). Kept 0-100. The first time it reaches 80 Olympius starts whispering
+# (tfe_stilicho.1); at 100 the showdown comes (tfe_stilicho.2).
+tfe_add_stilicho_glory = {
+	if = {
+		limit = { tfe_stilicho_serves_us = yes situation:tfe_decline_of_the_west ?= { has_variable = tfe_stilicho_glory } }
+		situation:tfe_decline_of_the_west = {
+			change_variable = { name = tfe_stilicho_glory add = $amount$ }
+			clamp_variable = {
+				name = tfe_stilicho_glory
+				min = 0
+				max = 100
+			}
+		}
+		if = {
+			limit = {
+				NOT = { has_global_variable = tfe_stilicho_warned }
+				NOT = { has_global_variable = tfe_stilicho_showdown }
+				situation:tfe_decline_of_the_west ?= {
+					has_variable = tfe_stilicho_glory
+					var:tfe_stilicho_glory >= 80
+				}
+			}
+			set_global_variable = tfe_stilicho_warned
+			trigger_event_non_silently = tfe_stilicho.1
+		}
+		if = {
+			limit = {
+				NOT = { has_global_variable = tfe_stilicho_showdown }
+				situation:tfe_decline_of_the_west ?= {
+					has_variable = tfe_stilicho_glory
+					var:tfe_stilicho_glory >= 100
+				}
+			}
+			trigger_event_non_silently = tfe_stilicho.2
+		}
+	}
+}
+
+# Scope: WRE. Stilicho is gone: put to death with his son at the showdown, or already dead. The Glory bar closes;
+# Olympius, the official who brought him down, rules until Honorius's regency ends; the estates are furious.
+tfe_the_west_loses_stilicho = {
+	set_global_variable = tfe_stilicho_fell
+	situation:tfe_decline_of_the_west ?= { remove_variable = tfe_stilicho_glory }
+	if = {
+		limit = { has_regent = yes }
+		create_character = {
+			first_name = name_olympius
+			adm = 30
+			age = 45
+			dip = 35
+			religion = religion:orthodox
+			estate = estate_type:nobles_estate
+			culture = culture:roman_culture
+			mil = 5
+			save_scope_as = tfe_olympius
+		}
+		set_regent = scope:tfe_olympius
+	}
+	if = {
+		limit = { character:tfe_stilicho ?= { is_alive = yes } }
+		kill_character = {
+			target = character:tfe_stilicho
+			reason = execution
+		}
+	}
+	if = {
+		limit = { character:tfe_eucherius ?= { is_alive = yes } }
+		kill_character = {
+			target = character:tfe_eucherius
+			reason = execution
+		}
+	}
+	add_stability = -50
+}
+
+# Scope: WRE. Stilicho's army rises as a revolt, not a war, as Gildo's did: Honorius can then annex it from the
+# war screen. The revolter exists as soon as the revolt starts, so it is marked here: a big revolt can come out
+# landless, and a host in Gaul is at war with us too. Tomorrow tfe_stilicho.3 makes it Stilicho's West, hands
+# it the land and moves the player to it.
+tfe_stilicho_rises = {
+	if = {
+		limit = { situation:tfe_decline_of_the_west ?= { has_variable = tfe_stilicho_glory var:tfe_stilicho_glory >= 90 } }
+		set_global_variable = tfe_stilicho_takes_hispania
+	}
+	create_rebel = {
+		category = nationalist
+		name = tfe_stilicho_rebels
+		religion = religion:orthodox
+		culture = culture:roman_culture
+		save_scope_as = tfe_stilicho_rebels
+	}
+	every_owned_location = {
+		limit = { tfe_stilicho_base_land = yes }
+		every_pop = { change_pop_allegiance = scope:tfe_stilicho_rebels }
+	}
+	every_country = {
+		limit = { is_at_war_with = root }
+		set_variable = tfe_old_enemy
+	}
+	scope:tfe_stilicho_rebels ?= { start_revolt = yes }
+	random_country = {
+		limit = { is_at_war_with = root NOT = { has_variable = tfe_old_enemy } }
+		set_variable = tfe_stilicho_revolter
+	}
+	every_country = {
+		limit = { has_variable = tfe_old_enemy }
+		remove_variable = tfe_old_enemy
+	}
+	trigger_event_silently = { id = tfe_stilicho.3 days = 1 }
+}

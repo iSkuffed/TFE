@@ -16,11 +16,16 @@ def modules():
                 yield p.stem, mod
 
 
+def encoding(rel):
+    """Script and localisation files take a BOM; the start loader chokes on one ("Unexpected token")."""
+    return "utf-8" if rel.startswith("main_menu/setup/start/") else "utf-8-sig"
+
+
 def all_outputs():
     return {rel: text for _, mod in modules() for rel, text in mod.outputs().items()}
 
 
 if __name__ == "__main__":
     for rel, text in all_outputs().items():
-        (ROOT / rel).write_text(text, encoding="utf-8-sig", newline="\n")
+        (ROOT / rel).write_text(text, encoding=encoding(rel), newline="\n")
         print("wrote", rel)

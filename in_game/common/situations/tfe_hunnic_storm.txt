@@ -15,7 +15,7 @@ tfe_hunnic_storm = {
 	visible = {
 		OR = {
 			tag = HNS
-			tag = WRE
+			tfe_is_western_rome = yes
 			tag = EAR
 			tfe_is_under_the_yoke = yes
 			any_neighbor_country = { tfe_is_under_the_yoke = yes }
@@ -35,7 +35,7 @@ tfe_hunnic_storm = {
 					AND = {
 						tfe_yoke_size >= 8
 						international_organization:tfe_hunnic_yoke ?= {
-							any_international_organization_member = { OR = { tag = WRE tag = EAR } }
+							any_international_organization_member = { OR = { tfe_is_western_rome = yes tag = EAR } }
 						}
 					}
 					AND = {
@@ -46,7 +46,7 @@ tfe_hunnic_storm = {
 			}
 			set_variable = { name = tfe_storm_phase value = 2 }
 			if = {
-				limit = { international_organization:tfe_hunnic_yoke ?= { any_international_organization_member = { OR = { tag = WRE tag = EAR } } } }
+				limit = { international_organization:tfe_hunnic_yoke ?= { any_international_organization_member = { OR = { tfe_is_western_rome = yes tag = EAR } } } }
 				set_variable = { name = tfe_storm_by_subsidy value = yes }
 			}
 			# the fallback Reckoning: any Hunnic ruler's death once this runs out (on_action/tfe_hunnic_storm.txt)
@@ -149,7 +149,7 @@ tfe_hunnic_storm = {
 			custom_tooltip = TFE_STORM_HUNS
 		}
 		else_if = {
-			limit = { owner ?= { OR = { tag = WRE tag = EAR } is_member_of_international_organization = international_organization:tfe_hunnic_yoke } }
+			limit = { owner ?= { OR = { tfe_is_western_rome = yes tag = EAR } is_member_of_international_organization = international_organization:tfe_hunnic_yoke } }
 			custom_tooltip = TFE_STORM_SUBSIDY
 		}
 		else_if = {
@@ -174,7 +174,7 @@ tfe_hunnic_storm = {
 	# Romans paying the subsidy are striped in the Huns' colour
 	secondary_map_color = {
 		if = {
-			limit = { owner ?= { OR = { tag = WRE tag = EAR } is_member_of_international_organization = international_organization:tfe_hunnic_yoke } }
+			limit = { owner ?= { OR = { tfe_is_western_rome = yes tag = EAR } is_member_of_international_organization = international_organization:tfe_hunnic_yoke } }
 			value = rgb { 90 35 20 }
 		}
 	}

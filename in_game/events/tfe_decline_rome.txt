@@ -51,21 +51,38 @@ tfe_decline_rome.1 = {
 				remove_variable = tfe_hospitalitas_area
 				clear_variable_list = tfe_hospitalitas_land
 			}
+			# Rome gives its land away: Stilicho's Glory -5 (script/defs_stilicho.py)
+			scope:tfe_rome = {
+				tfe_add_stilicho_glory = {
+					amount = -5
+				}
+			}
 		}
 		ai_chance = {
 			base = 1
-			# the war is going badly, or we are the weaker
-			modifier = {
-				factor = 4
-				is_at_war_with = scope:tfe_rome
-			}
+			# a host would rather win land than be given it: it settles when beaten in the field by the
+			# Rome that offers, or offered the land its people truly took; a weak Rome, losing its wars or
+			# outmatched by the host itself, has nothing to promise that the host cannot take
 			modifier = {
 				factor = 3
+				is_at_war_with = scope:tfe_rome
 				is_in_losing_war = yes
 			}
 			modifier = {
-				factor = 2
-				military_strength < scope:tfe_rome.military_strength
+				factor = 3
+				var:tfe_hospitalitas_area ?= {
+					tfe_is_historical_land_of = {
+						WHO = root
+					}
+				}
+			}
+			modifier = {
+				factor = 0.5
+				scope:tfe_rome = { is_in_losing_war = yes }
+			}
+			modifier = {
+				factor = 0.5
+				military_strength > scope:tfe_rome.military_strength
 			}
 		}
 	}
@@ -91,7 +108,7 @@ tfe_decline_rome.1 = {
 				clear_variable_list = tfe_hospitalitas_land
 			}
 		}
-		ai_chance = { base = 2 }
+		ai_chance = { base = 3 }
 	}
 }
 
