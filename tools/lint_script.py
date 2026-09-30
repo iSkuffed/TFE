@@ -221,7 +221,8 @@ def lint(vanilla=False):
                     lin.walk(rel, e.val, "effect" if folder == "scripted_effects" else "trigger")
         else:
             lin.walk(rel, tree, "other")
-    return lin.found
+    import lint_refs
+    return lin.found + lint_refs.refs(base, lint_refs.with_dlc(b.GAME, None if vanilla else b.MOD), vanilla)
 
 
 if __name__ == "__main__":

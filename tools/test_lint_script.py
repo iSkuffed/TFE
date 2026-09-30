@@ -44,3 +44,42 @@ def test_unbalanced_braces_are_an_error():
         ls.parse("a = { b = c")
     with pytest.raises(ValueError):
         ls.parse("a = b }")
+
+
+# --- cross-references (tools/lint_refs.py) -----------------------------------------------------------------------
+
+import lint_refs
+
+
+def refs(tmp_path, files):
+    for rel, text in files.items():
+        p = tmp_path / rel
+        p.parent.mkdir(parents=True, exist_ok=True)
+        p.write_text(text, encoding="utf-8-sig")
+    return lint_refs.refs(tmp_path, [b.GAME, tmp_path])
+
+
+EVENT = 'namespace = t\nt.1 = { title = t.1.title desc = t.1.desc option = { name = t.1.a %s } }\n'
+LOC = 'l_english:\n t.1.title: "T"\n t.1.desc: "D"\n t.1.a: "A"\n'
+LOC_FILE = "main_menu/localization/english/t_l_english.yml"
+
+
+def test_a_complete_event_is_clean(tmp_path):
+    assert refs(tmp_path, {"in_game/events/t.txt": EVENT % "", LOC_FILE: LOC}) == []
+
+
+@pytest.mark.parametrize("files, expect", [
+    ({"in_game/events/t.txt": EVENT % "trigger_event_silently = t.9", LOC_FILE: LOC}, "event t.9 is not defined"),
+    ({"in_game/events/t.txt": EVENT % "", LOC_FILE: LOC.replace(" t.1.a", " t.1.b")}, "localisation key t.1.a is missing"),
+    ({"in_game/events/t.txt": EVENT % "scope:ghost = { kill = yes }", LOC_FILE: LOC}, "scope:ghost is never saved"),
+    ({"in_game/common/building_types/t.txt": "tfe_no_icon = { }\n"}, "tfe_no_icon has no icon"),
+    ({"in_game/common/on_action/t.txt": "a = { effect = { trigger_event = { id = t.4 } } }\n"}, "event t.4 is not defined"),
+])
+def test_dangling_references_are_caught(tmp_path, files, expect):
+    assert any(expect in p for p in refs(tmp_path, files)), refs(tmp_path, files)
+
+
+def test_a_saved_scope_and_a_target_flag_count_as_saved(tmp_path):
+    files = {"in_game/events/t.txt": EVENT % "save_scope_as = w scope:w = { kill = yes } scope:t = { kill = yes }",
+             "in_game/common/generic_actions/t.txt": "a = { target_flag = t }\n", LOC_FILE: LOC}
+    assert refs(tmp_path, files) == []
