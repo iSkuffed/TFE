@@ -28,9 +28,11 @@ where a file is not generated, pytest under `tools/`, the game itself driven by 
   `$param$` names (`c.tfe_add_stilicho_glory(amount=5)`, once `gen_api.py` has seen the effect), `Doc.event(...,
   fire_only_once=...)` and `e.after()`, hidden events need no title/desc/outcome, `create_country_from_location`
   yields the new country's `CountryFx`, `extend_regency` takes a bare number, and `doc.modifier(name, potential=...,
-  **effects)` writes an auto-modifier (effect keys checked against `modifiers.log`). `doc.bias` writes only `value`,
-  so the two biases here stay hand-written in `tfe_biases.txt` (they need `max`/`min` and `yearly_decay`).
-  Anything still unmodelled: `x.raw("...")` with a `# GAP:` comment naming what is missing.
+  **effects)` writes an auto-modifier (effect keys checked against `modifiers.log`). PR #63 adds
+  `doc.bias(name, value, max=, min=, yearly_decay=, ...)` (the two biases are generated, in
+  `biases/tfe_stilicho.txt`), `Cmp(op, value)` from `pdx.core` for an operator inside a block, and typed returns from
+  `Body.effects/triggers`. **Rebase onto master after #63 merges, before Task 1.** `script/*.py` has no `raw()` left:
+  keep it that way. If something is truly unmodelled, `x.raw("...")` with a `# GAP:` comment, and report it.
 - Never hand-edit a file a `script/*.py` writes. Edit the Python, then `python script/run.py`.
 - After adding or renaming a scripted effect or trigger: `python tools/pdx/gen_api.py` (the typed API learns it).
 - Prefix for every Python command: `uv run --no-project --with numpy --with pytest --with pillow --with shapely --with pyright`.
@@ -85,7 +87,7 @@ where a file is not generated, pytest under `tools/`, the game itself driven by 
 | File | Status | Holds |
 |---|---|---|
 | `script/defs_western_rome.py` → `in_game/common/scripted_triggers/tfe_western_rome.txt` | new | `tfe_is_western_rome` |
-| `script/defs_stilicho.py` → `scripted_triggers/tfe_stilicho.txt`, `scripted_effects/tfe_stilicho.txt`, `on_action/tfe_stilicho.txt`, `auto_modifiers/tfe_stilicho.txt` | new | Glory, its tiers, its causes, the showdown's effects, the rising |
+| `script/defs_stilicho.py` → `scripted_triggers/tfe_stilicho.txt`, `scripted_effects/tfe_stilicho.txt`, `on_action/tfe_stilicho.txt`, `auto_modifiers/tfe_stilicho.txt`, `biases/tfe_stilicho.txt` | new | Glory, its tiers, its causes, the showdown's effects, the rising |
 | `script/stilicho_events.py` → `in_game/events/tfe_stilicho.txt`, `main_menu/localization/english/tfe_stilicho_l_english.yml` | new | Events `tfe_stilicho.1`–`.4`, and every string the feature adds to script |
 | `script/defs_usurpers.py` → `scripted_effects/tfe_usurpers.txt` | new | `tfe_constantine_rises` (moved out of `tfe_opening.5`), `tfe_africa_breaks_away` |
 | `script/migratory.py`, `script/defs_migratory.py`, `script/defs_defectors.py`, `script/decline_rome_events.py` | edit | Two Wests; Hospitalitas costs Glory |
@@ -94,7 +96,7 @@ where a file is not generated, pytest under `tools/`, the game itself driven by 
 | `in_game/gui/panels/situation/tfe_decline_of_the_west.gui`, `main_menu/localization/english/tfe_decline_of_the_west_l_english.yml` | edit | The Glory bar and its text |
 | `in_game/common/on_action/tfe_opening.txt`, `main_menu/common/static_modifiers/tfe_opening.txt`, `main_menu/localization/english/tfe_opening_l_english.yml` | edit | `tfe_stilicho_regency` stops being a timed static modifier |
 | `in_game/events/tfe_opening.txt` | edit | `tfe_opening.5` calls `tfe_constantine_rises`, and does not fire if CONST already exists |
-| `in_game/common/biases/tfe_biases.txt`, `main_menu/common/coat_of_arms/coat_of_arms/tfe_countries.txt`, `main_menu/localization/english/tfe_characters_l_english.yml` | edit | Two opinion modifiers, two flags, Olympius's name |
+| `main_menu/common/coat_of_arms/coat_of_arms/tfe_countries.txt`, `main_menu/localization/english/tfe_characters_l_english.yml` | edit | Two flags, Olympius's name |
 | `government_reforms/tfe_late_roman_west.txt`, `tfe_late_roman_burdens.txt`, `auto_modifiers/tfe_late_roman_west.txt`, `tfe_roman_fisc.txt` | edit | The late Roman reforms and modifiers also apply to Stilicho's West |
 | `tools/test_western_rome.py`, `tools/test_stilicho.py` | new | Static checks |
 | `tools/test_opening.py` | edit | The usurper counts now span two files |
@@ -534,12 +536,19 @@ def auto_modifiers():
     return doc
 
 
+def biases():
+    doc = Doc()
+    doc.note("TFE: what the East thinks of how the West settles Stilicho (events/tfe_stilicho.txt)")
+    return doc
+
+
 def outputs():
     """{repo-relative path: text}; write each with encoding="utf-8-sig" (the BOM is the writer's job)."""
     return {"in_game/common/scripted_triggers/tfe_stilicho.txt": triggers().text(),
             "in_game/common/scripted_effects/tfe_stilicho.txt": effects().text(),
             "in_game/common/on_action/tfe_stilicho.txt": on_actions().text(),
-            "in_game/common/auto_modifiers/tfe_stilicho.txt": auto_modifiers().text()}
+            "in_game/common/auto_modifiers/tfe_stilicho.txt": auto_modifiers().text(),
+            "in_game/common/biases/tfe_stilicho.txt": biases().text()}
 ```
 
   `tfe_stilicho.1` and `.2` do not exist yet, so `lint_refs` will flag them. Step 4 creates the events file with its
@@ -767,13 +776,15 @@ def test_hospitalitas_costs_glory():
             t.exists("scope:winner")
             t.exists("scope:loser")
         with a.effect(CountryFx) as e:
-            for enemy, won, lost in (("has_variable = tfe_migrating", 5, -8), ("tag = GILDO", 10, -10),
-                                     ("tag = HNS", 10, -10)):
+            enemies = ((lambda x: x.has_variable("tfe_migrating"), 5, -8), (lambda x: x.tag("GILDO"), 10, -10),
+                       (lambda x: x.tag("HNS"), 10, -10))
+            for enemy, won, lost in enemies:
                 for us, them, amount in (("scope:winner", "scope:loser", won), ("scope:loser", "scope:winner", lost)):
                     with e.if_() as i:
                         with i.limit() as t:
                             t.compare("this", "=", us)
-                            t.raw(f"{them} = {{ {enemy} }}")   # GAP: a scope link whose trigger is chosen at runtime
+                            with t.link(them, CountryTrig) as x:
+                                enemy(x)
                         i.tfe_add_stilicho_glory(amount=amount)
 
     d.note("Core land ceded in a peace. Not a migration's (that war's -8 counts) nor a usurper's (Gildo's -10 counts),\n"
@@ -791,10 +802,7 @@ def test_hospitalitas_costs_glory():
             loser.tfe_add_stilicho_glory(amount=-1)
 ```
 
-  Add `UnitFx, UnitTrig` to the imports. In the war hook, `t.raw(...)` is only needed if `link()` cannot take a
-  trigger chosen at runtime. The cleaner form is a small `enemy(t)` callable per row:
-  `lambda t: t.has_variable("tfe_migrating")` and so on, called inside `with t.link(them, CountryTrig) as x:`. Prefer
-  that form. Make sure the flattened text still contains `tag = GILDO` and `tag = HNS`.
+  Add `UnitFx, UnitTrig` to the imports.
 
 - [ ] **Step 4: Hospitalitas** (`script/decline_rome_events.py`, option a's `hidden_effect`, after `forget_offer(host)`):
 
@@ -827,7 +835,7 @@ def test_hospitalitas_costs_glory():
 **Files:**
 - Modify: `script/stilicho_events.py` (events 1 and 2), `script/defs_stilicho.py` (`tfe_the_west_loses_stilicho`,
   yearly roll, death hook, Olympius's auto-modifier)
-- Modify (hand-written): `in_game/common/biases/tfe_biases.txt`, `main_menu/localization/english/tfe_characters_l_english.yml`
+- Modify (hand-written): `main_menu/localization/english/tfe_characters_l_english.yml`
 - Test: `tools/test_stilicho.py`
 
 **Interfaces:**
@@ -1017,17 +1025,13 @@ def showdown_hooks(d):
     to `MODIFIER_TEXT`.
 
 - [ ] **Step 5: Hand-written text.**
-  - `tfe_biases.txt`: add the block below.
+  - `defs_stilicho.biases()`: add the bias below, before `return doc`.
   - `tfe_characters_l_english.yml`: add ` name_olympius: "Olympius"`.
   - The `stilicho_events.py` loc: add `doc.loc.add("tfe_stilicho_brought_down", "Rid the West of Stilicho")`.
 
-```
-# TFE: the West put Stilicho to death (events/tfe_stilicho.txt): the East never trusted him
-tfe_stilicho_brought_down = {
-	value = 50
-	max = 50
-	yearly_decay = 5
-}
+```python
+    doc.note("the West put Stilicho to death: the East never trusted him")
+    doc.bias("tfe_stilicho_brought_down", 50, max=50, yearly_decay=5)
 ```
 
 - [ ] **Step 6: Regenerate, check types, test.** All pass, and the lint is now clean (events 1 and 2 exist).
@@ -1102,8 +1106,7 @@ def test_constantine_rises_once():
 - [ ] **Step 3: `script/defs_usurpers.py`.**
   - Move `tfe_opening.5`'s `immediate` body verbatim into `tfe_constantine_rises`.
   - Write `tfe_africa_breaks_away` on the same pattern.
-  - `create_country_from_location`'s body is the new country's scope. Use the typed block if the pdx fix has landed,
-    else `raw()` with a GAP note.
+  - `create_country_from_location`'s body is the new country's scope (`with loc.create_country_from_location() as c:`).
 
 ```python
 """Usurpers who carve a country out of the West's land: Constantine III in Britain (tfe_opening.5, and when Stilicho
@@ -1367,7 +1370,7 @@ TFE_AFRICA = {
 ### Task 7: Stilicho enters Ravenna
 
 **Files:**
-- Modify: `script/defs_stilicho.py` (the capital hooks), `script/stilicho_events.py` (event 4), `in_game/common/biases/tfe_biases.txt`
+- Modify: `script/defs_stilicho.py` (the capital hooks and a bias), `script/stilicho_events.py` (event 4)
 - Test: `tools/test_stilicho.py`
 
 **Interfaces:**
@@ -1471,7 +1474,8 @@ def test_the_victor_takes_everything_and_decides_honorius_fate():
     doc.loc.add("tfe_honorius_executed", "Put Honorius to death")
 ```
 
-  - `tfe_biases.txt`: add `tfe_honorius_executed = { value = -75 min = -75 yearly_decay = 3 }` as a block, in the file's layout.
+  - `defs_stilicho.biases()`: add `doc.bias("tfe_honorius_executed", -75, min=-75, yearly_decay=3)` with the note
+    "Honorius put to death: the East is appalled".
   - The title interpolates the saved scope, as `tfe_decline_rome.1`'s desc does with `[tfe_rome.GetName]`.
 
 - [ ] **Step 5: Regenerate, check types, test.** All pass.
