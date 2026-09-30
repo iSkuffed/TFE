@@ -4,7 +4,7 @@
 # The clarissimi: senators excused the sordid munera, their land-tax arrears remitted, their estates beyond the census
 tfe_senatorial_immunities = {
 	potential = {
-		has_or_had_tag = WRE
+		OR = { has_or_had_tag = WRE has_variable = tfe_western_rome }
 	}
 	locked = {
 		always = yes	# a way to lift the burdens is still to be designed
@@ -20,7 +20,7 @@ tfe_senatorial_immunities = {
 # Patrocinium: coloni shelter under a great landlord, who hides them from the recruiting officer and pays gold instead
 tfe_patrocinium = {
 	potential = {
-		has_or_had_tag = WRE
+		OR = { has_or_had_tag = WRE has_variable = tfe_western_rome }
 	}
 	locked = {
 		always = yes	# a way to lift the burdens is still to be designed

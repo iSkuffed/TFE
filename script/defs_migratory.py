@@ -56,9 +56,10 @@ def raise_host(d: Defs):
                "no such neighbour is it abandoned.")
         with e.random_neighbor_country() as n:
             with n.limit() as t:
-                for tag in ("WRE", "EAR"):
-                    with t.not_() as x:
-                        x.tag(tag)
+                with t.not_() as x:
+                    x.tfe_is_western_rome()
+                with t.not_() as x:
+                    x.tag("EAR")
                 with t.not_() as x:
                     x.has_variable("tfe_migrating")
             n.save_scope_as("tfe_heir_to_the_land")
@@ -71,11 +72,16 @@ def raise_host(d: Defs):
             with i.every_owned_location() as loc:
                 with loc.link("scope:tfe_host", CountryFx) as host:
                     host.abandon_location("prev")
-        for tag in ("WRE", "EAR"):
-            with e.if_() as i:
-                with i.limit() as t:
-                    t.country_exists(f"c:{tag}")
-                i.add_casus_belli(target=f"c:{tag}", type=MIGRATION_CB)
+        with e.if_() as i:
+            with i.limit() as t:
+                t.country_exists("c:EAR")
+            i.add_casus_belli(target="c:EAR", type=MIGRATION_CB)
+        e.note("and on every western Rome: Stilicho's West too, once he rises")
+        with e.every_country() as w:
+            with w.limit() as t:
+                t.tfe_is_western_rome()
+            with w.link("scope:tfe_host", CountryFx) as host:
+                host.add_casus_belli(target="prev", type=MIGRATION_CB)
         e.tfe_list_the_migrators(True)
 
 

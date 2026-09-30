@@ -10,7 +10,7 @@ tfe_hospitalitas = {
 		situation:tfe_decline_of_the_west = { situation_is_active = yes }
 		scope:actor = {
 			OR = {
-				tag = WRE
+				tfe_is_western_rome = yes
 				tag = EAR
 			}
 		}
@@ -155,7 +155,7 @@ tfe_man_the_limes = {
 		situation:tfe_decline_of_the_west = { situation_is_active = yes }
 		scope:actor = {
 			OR = {
-				tag = WRE
+				tfe_is_western_rome = yes
 				tag = EAR
 			}
 		}

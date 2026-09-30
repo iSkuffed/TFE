@@ -26,7 +26,7 @@ def on_actions():
                     n.has_location_modifier("tfe_fled_to_the_host")
                 with loc.go_owner(op="?=") as owner:
                     with owner.or_() as o:
-                        o.has_or_had_tag("WRE")
+                        o.tfe_is_western_rome()
                         o.has_or_had_tag("EAR")
         with a.effect(CountryFx) as e:
             with e.link("scope:target", LocationFx) as loc:

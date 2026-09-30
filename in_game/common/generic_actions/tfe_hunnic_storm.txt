@@ -466,7 +466,7 @@ tfe_submit_to_the_huns = {
 			NOT = { tag = HNS }
 			NOT = { tfe_is_under_the_yoke = yes }
 			any_neighbor_country = { tfe_is_under_the_yoke = yes }
-			NOT = { tag = WRE }
+			NOT = { tfe_is_western_rome = yes }
 			NOT = { tag = EAR }
 		}
 	}
@@ -530,7 +530,7 @@ tfe_hire_hunnic_horsemen = {
 		country_exists = c:HNS
 		scope:actor = {
 			OR = {
-				tag = WRE
+				tfe_is_western_rome = yes
 				tag = EAR
 			}
 		}
@@ -618,7 +618,7 @@ tfe_pay_the_huns_for_peace = {
 		country_exists = c:HNS
 		scope:actor = {
 			OR = {
-				tag = WRE
+				tfe_is_western_rome = yes
 				tag = EAR
 			}
 		}

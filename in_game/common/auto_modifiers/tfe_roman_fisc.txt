@@ -6,6 +6,7 @@ tfe_roman_fisc = {
 	potential_trigger = {
 		OR = {
 			has_or_had_tag = WRE
+			has_variable = tfe_western_rome
 			has_or_had_tag = EAR
 		}
 	}

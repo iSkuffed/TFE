@@ -54,7 +54,7 @@ def test_start_migration_is_a_one_way_trip_for_the_peoples_beyond_the_rivers():
     assert effect.index("change_country_type = army") < effect.index("change_location_owner")
     # the homeland passes to a neighbouring people, never to Rome or another host; empty only with no neighbour
     heir = re.search(r"random_neighbor_country = \{(.*?)\n\t\}", effect, re.S).group(1)
-    assert all(s in heir for s in ("NOT = { tag = WRE }", "NOT = { tag = EAR }", "NOT = { has_variable = tfe_migrating }"))
+    assert all(s in heir for s in ("NOT = { tfe_is_western_rome = yes }", "NOT = { tag = EAR }", "NOT = { has_variable = tfe_migrating }"))
     assert effect.index("change_location_owner = scope:tfe_heir_to_the_land") < effect.index("abandon_location")
 
 
@@ -63,10 +63,19 @@ def test_one_button_per_empire_declares_war_on_it_after_the_first_month():
     start = re.search(r'START_DATE = "395\.1\.(\d+)"', (b.MOD / "loading_screen/common/defines/tfe_defines.txt").read_text(encoding="utf-8-sig"))
     acts = code(ACTIONS).split("tfe_migrate_west = {")
     for act, tag in zip(acts, ("EAR", "WRE")):
-        assert f"country_exists = c:{tag}" in act
+        if tag == "EAR":
+            assert "country_exists = c:EAR" in act
+        else:
+            assert "any_country = { tfe_is_western_rome = yes }" in act
+            assert re.search(r"random_neighbor_country = \{\s*limit = \{ tfe_is_western_rome = yes \}\s*save_scope_as = tfe_victim", act)
+            assert re.search(r"ordered_country = \{\s*order_by = country_economical_base\s*limit = \{ tfe_is_western_rome = yes \}\s*save_scope_as = tfe_victim", act)
+            assert "c:WRE" not in act
         assert f"current_date >= 395.2.{start.group(1)}" in act and "text = tfe_migration_not_yet_tt" in act
-        assert f"declare_war_with_cb = {{ target = c:{tag} type = casus_belli:cb_tfe_migration }}" in act
-        assert act.index("tfe_start_migration_effect = yes") < act.index("declare_war_with_cb")   # the CB first
+        target = "c:EAR" if tag == "EAR" else "scope:tfe_victim"
+        assert f"declare_war_with_cb = {{ target = {target} type = casus_belli:cb_tfe_migration }}" in act
+        assert act.index("tfe_start_migration_effect = yes") < act.index("declare_war_with_cb")
+        if tag == "WRE":
+            assert act.index("save_scope_as = tfe_victim") < act.index("tfe_start_migration_effect = yes")
 
 
 def test_the_ai_takes_the_road_one_people_at_a_time():
@@ -121,7 +130,8 @@ def test_a_landless_host_has_a_cheap_casus_belli_for_new_land():
     assert "has_variable = tfe_migrating" in visible and "any_owned_location" in visible   # gone once settled
     # the game never offers it on its own (a landless host has no neighbours to scan), so migrating grants it
     grants = re.findall(r"add_casus_belli = \{[^}]*target = c:(\w+)[^}]*type = casus_belli:cb_tfe_migration", code(EFFECT))
-    assert sorted(grants) == ["EAR", "WRE"], grants
+    assert grants == ["EAR"]
+    assert re.search(r"every_country = \{\s*limit = \{ tfe_is_western_rome = yes \}\s*scope:tfe_host = \{\s*add_casus_belli = \{ target = prev type = casus_belli:cb_tfe_migration", code(EFFECT))
     goal = re.search(r"war_goal_type = (\w+)", cb).group(1)
     assert top_keys(WARGOAL) == [goal] and "type = superiority" in code(WARGOAL)
     attacker = re.search(r"attacker = \{(.*?)\n\t\}", code(WARGOAL), re.S).group(1)

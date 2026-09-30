@@ -7056,6 +7056,7 @@ class AnyTrig(Scope):
     def tfe_hunnic_storm_is_over(self, _v: bool | str | float = True, /) -> None: self._call("tfe_hunnic_storm_is_over", _v)
     def tfe_is_migrator(self, _v: bool | str | float = True, /) -> None: self._call("tfe_is_migrator", _v)
     def tfe_is_under_the_yoke(self, _v: bool | str | float = True, /) -> None: self._call("tfe_is_under_the_yoke", _v)
+    def tfe_is_western_rome(self, _v: bool | str | float = True, /) -> None: self._call("tfe_is_western_rome", _v)
     def the_revolution_end_trigger(self, _v: bool | str | float = True, /) -> None: self._call("the_revolution_end_trigger", _v)
     def time_of_troubles_end_trigger(self, _v: bool | str | float = True, /) -> None: self._call("time_of_troubles_end_trigger", _v)
     def time_of_year(self, *, min: Any, max: Any) -> None: self._call("time_of_year", **_kw(min=min, max=max))

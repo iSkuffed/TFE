@@ -38,10 +38,10 @@ def test_it_starts_on_day_one_in_phase_one_and_ends_with_the_west():
     s = code(SITUATION)
     assert "set_variable = { name = tfe_decline_phase value = 1 }" in s
     assert "tfe_decline_phase value = 2" not in s   # later phases come in their own PR
-    # country_exists, not exists: a landless leftover tag still "exists" (CLAUDE.md)
+    # End only after both Western Roman countries are gone.
     can_end = re.search(r"can_end = \{(.*?)\n\t\}", s, re.S).group(1)
-    assert "NOT = { country_exists = c:WRE }" in can_end
-    assert re.search(r"limit = \{ NOT = \{ country_exists = c:WRE \} \}\s*end_situation = situation:tfe_decline_of_the_west", s)
+    assert "NOT = { any_country = { tfe_is_western_rome = yes } }" in can_end
+    assert re.search(r"limit = \{ NOT = \{ any_country = \{ tfe_is_western_rome = yes \} \} \}\s*end_situation = situation:tfe_decline_of_the_west", s)
 
 
 def test_the_migrators_are_the_peoples_of_germania_and_dacia():
@@ -57,7 +57,7 @@ def test_the_migrators_are_the_peoples_of_germania_and_dacia():
 
 def test_who_sees_it():
     visible = re.search(r"visible = \{(.*?)\n\t\}", code(SITUATION), re.S).group(1)
-    assert "tag = WRE" in visible and "tag = EAR" in visible and "tfe_is_migrator = yes" in visible
+    assert "tfe_is_western_rome = yes" in visible and "tag = EAR" in visible and "tfe_is_migrator = yes" in visible
     assert "tag = GILDO" in visible and "this = c:GILDO" not in visible   # c:GILDO errors until Gildo rises
 
 

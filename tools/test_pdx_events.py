@@ -111,7 +111,11 @@ def test_a_static_modifier_builder_matches_the_committed_entry():
 def test_an_auto_modifier_builder_matches_the_committed_entry():
     from pdx.objects import Doc
     d = Doc()
-    d.modifier("tfe_comitatenses", potential=lambda t: t.has_or_had_tag("WRE"), discipline=0.05)
+    def either_west(t):
+        with t.or_() as o:
+            o.has_or_had_tag("WRE")
+            o.has_variable("tfe_western_rome")
+    d.modifier("tfe_comitatenses", potential=either_west, discipline=0.05)
     _same_entry(d, "in_game/common/auto_modifiers/tfe_late_roman_west.txt", "tfe_comitatenses")
 
 

@@ -12,12 +12,12 @@ tfe_decline_of_the_west = {
 	can_end = {
 		custom_tooltip = {
 			text = tfe_decline_west_fallen_tt
-			NOT = { country_exists = c:WRE }
+			NOT = { any_country = { tfe_is_western_rome = yes } }
 		}
 	}
 	visible = {
 		OR = {
-			tag = WRE
+			tfe_is_western_rome = yes
 			tag = EAR
 			tfe_is_migrator = yes
 			tag = GILDO	# not `this = c:GILDO`: an error every check until Gildo rises
@@ -26,6 +26,7 @@ tfe_decline_of_the_west = {
 
 	on_start = {
 		set_variable = { name = tfe_decline_phase value = 1 }
+		set_variable = { name = tfe_stilicho_glory value = 50 }	# Stilicho's Glory (script/defs_stilicho.py)
 		tfe_list_the_migrators = yes	# scripted_effects/tfe_migratory.txt: the panel's three lists
 	}
 
@@ -33,14 +34,14 @@ tfe_decline_of_the_west = {
 		tfe_list_the_migrators = yes
 		# can_end alone is checked too rarely
 		if = {
-			limit = { NOT = { country_exists = c:WRE } }
+			limit = { NOT = { any_country = { tfe_is_western_rome = yes } } }
 			end_situation = situation:tfe_decline_of_the_west
 		}
 	}
 
 	tooltip = {
 		if = {
-			limit = { owner ?= c:WRE }
+			limit = { owner ?= { tfe_is_western_rome = yes } }
 			custom_tooltip = TFE_DECLINE_WEST
 		}
 		else_if = {
@@ -64,7 +65,7 @@ tfe_decline_of_the_west = {
 	# a host on the road owns no land, so its colour shows where it has settled
 	map_color = {
 		if = {
-			limit = { owner ?= c:WRE }
+			limit = { owner ?= { tfe_is_western_rome = yes } }
 			value = rgb { 110 40 120 }
 		}
 		else_if = {

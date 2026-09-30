@@ -73,7 +73,7 @@ tfe_grand_raid = {
 		if = {
 			limit = {
 				OR = {
-					scope:raid_target = { tag = WRE }
+					scope:raid_target = { tfe_is_western_rome = yes }
 					scope:raid_target = { tag = EAR }
 				}
 			}
