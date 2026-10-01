@@ -116,3 +116,15 @@ def test_the_limes_bars_the_peoples_beyond_it():
     trig = code(TRIGGERS)
     assert re.search(r"tfe_frontier_unmanned = \{\s*custom_tooltip", trig) and "NOT = {" in trig
     assert "any_owned_location" in trig and "any_neighbor_location" in trig and "has_location_modifier = tfe_limes_manned" in trig
+
+
+def test_actions_script_parses_equal_to_the_committed_file(tmp_path):
+    # script/decline_rome_actions.py writes ACTIONS: same tree as the file, and pyright clean
+    sys.path.insert(0, str(b.MOD / "script"))
+    import decline_rome_actions
+    import lint_script as ls
+    from test_pdx_events import pyright, tree
+    doc = decline_rome_actions.build()
+    assert tree(ls.parse(doc.text())) == tree(ls.parse(ACTIONS.read_text(encoding="utf-8-sig")))
+    assert [n.val for n in doc.find("target_flag")] == ["recipient", "host", "target_area", "recipient", "limes_region"]
+    assert pyright(tmp_path, b.MOD / "script/decline_rome_actions.py") == []

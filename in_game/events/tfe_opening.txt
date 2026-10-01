@@ -6,11 +6,8 @@ tfe_opening.1 = {
 	title = tfe_opening.1.title
 	desc = tfe_opening.1.desc
 	outcome = neutral
-
 	image = "gfx/interface/illustrations/event/backgrounds/exterior/byz_soldiers_exterior.dds"
-
 	trigger = { character:tfe_stilicho ?= { is_alive = yes } }
-
 	# send the Eastern legions home under Gainas
 	option = {
 		name = tfe_opening.1.a
@@ -18,10 +15,13 @@ tfe_opening.1 = {
 		set_variable = tfe_gainas_returned	# read by 2: the Goths are already in Constantinople
 		custom_tooltip = tfe_unity_up_5_tt
 		custom_tooltip = tfe_opening.1.a.tt
-		hidden_effect = { international_organization:tfe_roman_empire ?= { change_variable = { name = tfe_unity add = 5 } } }
+		hidden_effect = {
+			international_organization:tfe_roman_empire ?= {
+				change_variable = { name = tfe_unity add = 5 }
+			}
+		}
 		ai_chance = { base = 3 }
 	}
-
 	# the guardianship of the East too: march on Constantinople's prefect
 	option = {
 		name = tfe_opening.1.b
@@ -32,7 +32,11 @@ tfe_opening.1 = {
 			create_num_sub_unit_of_category = { count = 2 category = sub_unit_category:army_heavy_cavalry }
 		}
 		custom_tooltip = tfe_unity_down_15_tt
-		hidden_effect = { international_organization:tfe_roman_empire ?= { change_variable = { name = tfe_unity add = -15 } } }
+		hidden_effect = {
+			international_organization:tfe_roman_empire ?= {
+				change_variable = { name = tfe_unity add = -15 }
+			}
+		}
 		ai_chance = { base = 1 }
 	}
 }
@@ -43,11 +47,8 @@ tfe_opening.2 = {
 	title = tfe_opening.2.title
 	desc = tfe_opening.2.desc
 	outcome = neutral
-
 	image = "gfx/interface/illustrations/event/backgrounds/exterior/byz_soldiers_exterior.dds"
-
 	trigger = { character:tfe_rufinus ?= { is_alive = yes } }
-
 	immediate = {
 		kill_character = character:tfe_rufinus
 		remove_country_modifier = tfe_rufinus_prefecture
@@ -55,16 +56,23 @@ tfe_opening.2 = {
 		if = {
 			limit = { c:WRE ?= { has_variable = tfe_stilicho_claims_the_east } }
 			custom_tooltip = tfe_unity_down_5_tt
-			hidden_effect = { international_organization:tfe_roman_empire ?= { change_variable = { name = tfe_unity add = -5 } } }
+			hidden_effect = {
+				international_organization:tfe_roman_empire ?= {
+					change_variable = { name = tfe_unity add = -5 }
+				}
+			}
 		}
 		# Gainas's Goths were already inside the walls
 		if = {
 			limit = { c:WRE ?= { has_variable = tfe_gainas_returned } }
 			custom_tooltip = tfe_unity_up_5_tt
-			hidden_effect = { international_organization:tfe_roman_empire ?= { change_variable = { name = tfe_unity add = 5 } } }
+			hidden_effect = {
+				international_organization:tfe_roman_empire ?= {
+					change_variable = { name = tfe_unity add = 5 }
+				}
+			}
 		}
 	}
-
 	# the chamberlain holds the Augustus now
 	option = {
 		name = tfe_opening.2.a
@@ -73,7 +81,6 @@ tfe_opening.2 = {
 		add_country_modifier = { modifier = tfe_eutropius_chamber years = 4 }	# to his fall in 399
 		ai_chance = { base = 3 }
 	}
-
 	# Arcadius will rule for himself
 	option = {
 		name = tfe_opening.2.b
@@ -89,24 +96,21 @@ tfe_opening.3 = {
 	title = tfe_opening.3.title
 	desc = tfe_opening.3.desc
 	outcome = negative
-
 	image = "gfx/interface/illustrations/event/backgrounds/exterior/nobles/syrian_nobles_exterior.dds"
-
 	trigger = {
 		OR = {
 			location:cherchell = { owner ?= root }
 			location:constantine_ALG = { owner ?= root }
 		}
 	}
-
 	immediate = {
 		# a revolt, not a war: the war screen can then annex the revolter outright, with no antagonism.
 		# The revolter appears at once, named after its biggest town; tfe_opening.7 makes it Gildo's kingdom a day later.
 		create_rebel = {
 			category = nationalist
 			name = tfe_gildo_rebels
-			culture = culture:kabyle
 			religion = religion:donatism
+			culture = culture:kabyle
 			save_scope_as = tfe_gildo_rebels
 		}
 		every_owned_location = {
@@ -116,7 +120,6 @@ tfe_opening.3 = {
 		scope:tfe_gildo_rebels ?= { start_revolt = yes }
 		trigger_event_silently = { id = tfe_opening.7 days = 1 }
 	}
-
 	# his brother Mascezel knows Africa and hates him: send him
 	option = {
 		name = tfe_opening.3.a
@@ -129,7 +132,6 @@ tfe_opening.3 = {
 tfe_opening.7 = {
 	type = country_event
 	hidden = yes
-
 	immediate = {
 		random_country = {
 			limit = {
@@ -158,10 +160,10 @@ tfe_opening.7 = {
 				limit = { NOT = { exists = scope:tfe_usurper_ruler } }
 				create_character = {
 					first_name = name_gildo
-					culture = culture:kabyle
+					age = 35
 					religion = religion:donatism
 					estate = estate_type:nobles_estate
-					age = 35
+					culture = culture:kabyle
 					mil = 60
 					save_scope_as = tfe_usurper_ruler
 				}
@@ -174,11 +176,11 @@ tfe_opening.7 = {
 				limit = { is_in_war = root }
 				save_scope_as = tfe_gildo_war
 				every_war_participant = {
-					limit = {
-						is_at_war_with = root
-						NOT = { this = scope:tfe_usurper }
+					limit = { is_at_war_with = root NOT = { this = scope:tfe_usurper } }
+					leave_war = {
+						war = scope:tfe_gildo_war
+						actor = root
 					}
-					leave_war = { war = scope:tfe_gildo_war actor = root }
 				}
 			}
 			# the revolt system makes the revolter a Secessionist subject of its Kabyle backers (the Mauri); Gildo is
@@ -218,15 +220,11 @@ tfe_opening.4 = {
 	title = tfe_opening.4.title
 	desc = tfe_opening.4.desc
 	outcome = neutral
-
 	image = "gfx/interface/illustrations/event/backgrounds/interior/byz_nobles_interior.dds"
-
 	trigger = { c:WRE ?= { has_variable = tfe_usurper } }
-
 	immediate = {
 		c:WRE.var:tfe_usurper = { save_scope_as = tfe_usurper }
 	}
-
 	# accept it: Africa's grain now sails for Constantinople
 	option = {
 		name = tfe_opening.4.a
@@ -235,7 +233,11 @@ tfe_opening.4 = {
 		custom_tooltip = tfe_gildo_goes_east_tt
 		hidden_effect = { c:WRE = { set_variable = tfe_gildo_goes_east } }
 		custom_tooltip = tfe_unity_down_15_tt
-		hidden_effect = { international_organization:tfe_roman_empire ?= { change_variable = { name = tfe_unity add = -15 } } }
+		hidden_effect = {
+			international_organization:tfe_roman_empire ?= {
+				change_variable = { name = tfe_unity add = -15 }
+			}
+		}
 		ai_chance = {
 			base = 1
 			modifier = {
@@ -244,12 +246,15 @@ tfe_opening.4 = {
 			}
 		}
 	}
-
 	# one empire: send his envoys back to Carthage in chains
 	option = {
 		name = tfe_opening.4.b
 		custom_tooltip = tfe_unity_up_5_tt
-		hidden_effect = { international_organization:tfe_roman_empire ?= { change_variable = { name = tfe_unity add = 5 } } }
+		hidden_effect = {
+			international_organization:tfe_roman_empire ?= {
+				change_variable = { name = tfe_unity add = 5 }
+			}
+		}
 		ai_chance = { base = 1 }
 	}
 }
@@ -260,20 +265,20 @@ tfe_opening.5 = {
 	title = tfe_opening.5.title
 	desc = tfe_opening.5.desc
 	outcome = negative
-
 	image = "gfx/interface/illustrations/event/backgrounds/exterior/soldiers/north_german_soldiers_exterior.dds"
-
-	trigger = { location:london = { owner ?= root } NOT = { country_exists = c:CONST } }	# once: Stilicho's rising may crown him first
-
-	immediate = { tfe_constantine_rises = yes }	# scripted_effects/tfe_usurpers.txt
-
+	trigger = {
+		location:london = { owner ?= root }
+		NOT = { country_exists = c:CONST }
+	}	# once: Stilicho's rising may crown him first
+	immediate = {
+		tfe_constantine_rises = yes
+	}	# scripted_effects/tfe_usurpers.txt
 	# a soldier in the purple is a rebel: he will be hunted down
 	option = {
 		name = tfe_opening.5.a
 		add_prestige = 5
 		ai_chance = { base = 1 }
 	}
-
 	# with Alaric in Italy, better a colleague in Gaul than an enemy (409)
 	option = {
 		name = tfe_opening.5.b
@@ -291,12 +296,13 @@ tfe_opening.6 = {
 	type = country_event
 	hidden = yes
 	fire_only_once = yes
-
 	trigger = {
 		ruler ?= character:tfe_honorius
-		character:tfe_eucherius ?= { is_alive = yes employer ?= root }
+		character:tfe_eucherius ?= {
+			is_alive = yes
+			employer ?= root
+		}
 	}
-
 	immediate = {
 		set_as_designated_heir = character:tfe_eucherius
 	}

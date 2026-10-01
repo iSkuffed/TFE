@@ -1,11 +1,9 @@
 ﻿# TFE: Rome's answers on the Decline of the West's panel (situations/tfe_decline_of_the_west.txt). An Augustus may settle a
 # migrating host on Roman land as foederati (Hospitalitas; the host may refuse, events/tfe_decline_rome.txt), or pay to
 # garrison a stretch of the frontier so that no people beyond it may take the road (scripted_triggers/tfe_decline_rome.txt).
-
 # Hospitalitas: an area of the Empire for a host on the road, as Rome settled the Visigoths in Aquitaine in 418
 tfe_hospitalitas = {
 	type = situation
-
 	potential = {
 		situation:tfe_decline_of_the_west = { situation_is_active = yes }
 		scope:actor = {
@@ -16,28 +14,21 @@ tfe_hospitalitas = {
 		}
 	}
 	allow = {
-		scope:actor = {
-			is_subject = no
-		}
+		scope:actor = { is_subject = no }
 	}
-
 	ai_tick = monthly
 	ai_tick_frequency = 6
 	automation_tick = never
 	automation_tick_frequency = 12
-
 	# the land itself is the price; the cooldown paces the giving
 	cooldown = {
 		type = tfe_hospitalitas
 		years = 5
 	}
-
 	select_trigger = {
 		looking_for_a = situation
 		interaction_source_list = {
-			situation:tfe_decline_of_the_west = {
-				add_to_list = source
-			}
+			situation:tfe_decline_of_the_west = { add_to_list = source }
 		}
 		target_flag = recipient
 		name = "choose_situation"
@@ -49,17 +40,13 @@ tfe_hospitalitas = {
 			situation_is_active = yes
 		}
 	}
-
 	# the host: on the road, not yet settled, free and with no offer already before it, and not at war with the other
 	# Rome (the East may not buy off a host that marches on the West, nor the West one that marches on the East)
 	select_trigger = {
 		looking_for_a = country
 		interaction_source_list = {
 			every_country = {
-				limit = {
-					has_variable = tfe_migrating
-					NOT = { has_variable = tfe_settled }
-				}
+				limit = { has_variable = tfe_migrating NOT = { has_variable = tfe_settled } }
 				add_to_list = source
 			}
 		}
@@ -86,18 +73,13 @@ tfe_hospitalitas = {
 			}
 		}
 	}
-
 	# the land: a whole area where the actor holds provinces (a single province is too little to buy off a people),
 	# never the one that holds the capital. The East gives only Illyricum, Thrace and Greece (the Balkans), never Anatolia,
 	# Syria or Egypt: the peoples come over the Danube, and the East's heartlands are not for them
 	select_trigger = {
 		looking_for_a = area
 		interaction_source_list = {
-			scope:actor = {
-				every_area_with_owned_province = {
-					add_to_list = source
-				}
-			}
+			scope:actor = { every_area_with_owned_province = { add_to_list = source } }
 		}
 		target_flag = target_area
 		name = "tfe_hospitalitas_choose_area"
@@ -107,14 +89,18 @@ tfe_hospitalitas = {
 		}
 		visible = {
 			any_location_in_area = { owner ?= scope:actor }
-			NOT = { any_location_in_area = { owner ?= scope:actor is_capital = yes } }
+			NOT = {
+				any_location_in_area = {
+					owner ?= scope:actor
+					is_capital = yes
+				}
+			}
 			OR = {
 				scope:actor = { NOT = { tag = EAR } }
 				region = region:balkan_region
 			}
 		}
 	}
-
 	effect = {
 		custom_tooltip = tfe_hospitalitas_tt
 		hidden_effect = {
@@ -131,12 +117,9 @@ tfe_hospitalitas = {
 					}
 				}
 			}
-			scope:host = {
-				trigger_event_non_silently = { id = tfe_decline_rome.1 }
-			}
+			scope:host = { trigger_event_non_silently = { id = tfe_decline_rome.1 } }
 		}
 	}
-
 	ai_will_do = {
 		add = 0
 		# a host at our gates, and the war going badly: settle it before it settles itself
@@ -145,10 +128,7 @@ tfe_hospitalitas = {
 			add = 30
 		}
 		if = {
-			limit = {
-				scope:host = { is_at_war_with = scope:actor }
-				scope:actor = { is_in_losing_war = yes }
-			}
+			limit = { scope:host = { is_at_war_with = scope:actor } scope:actor = { is_in_losing_war = yes } }
 			add = 40
 		}
 		# give what Rome barely holds (the frontier, the deserted fields), never an area it truly rules
@@ -171,7 +151,6 @@ tfe_hospitalitas = {
 # Man the Limes: gold and men to garrison one stretch of the frontier for 10 years
 tfe_man_the_limes = {
 	type = situation
-
 	potential = {
 		situation:tfe_decline_of_the_west = { situation_is_active = yes }
 		scope:actor = {
@@ -182,11 +161,8 @@ tfe_man_the_limes = {
 		}
 	}
 	allow = {
-		scope:actor = {
-			any_owned_location = { tfe_has_frontier_works = yes }
-		}
+		scope:actor = { any_owned_location = { tfe_has_frontier_works = yes } }
 	}
-
 	price = price:tfe_man_the_limes_price
 	price_modifier = {
 		add = {
@@ -194,23 +170,18 @@ tfe_man_the_limes = {
 			value = 100
 		}
 	}
-
 	ai_tick = monthly
 	ai_tick_frequency = 6
 	automation_tick = never
 	automation_tick_frequency = 12
-
 	cooldown = {
 		type = tfe_man_the_limes
 		years = 1
 	}
-
 	select_trigger = {
 		looking_for_a = situation
 		interaction_source_list = {
-			situation:tfe_decline_of_the_west = {
-				add_to_list = source
-			}
+			situation:tfe_decline_of_the_west = { add_to_list = source }
 		}
 		target_flag = recipient
 		name = "choose_situation"
@@ -222,7 +193,6 @@ tfe_man_the_limes = {
 			situation_is_active = yes
 		}
 	}
-
 	# a whole diocese (region) at a time: one fort was too little to matter
 	select_trigger = {
 		looking_for_a = region
@@ -230,7 +200,9 @@ tfe_man_the_limes = {
 			scope:actor = {
 				every_owned_location = {
 					limit = { tfe_has_frontier_works = yes }
-					region = { add_to_list = source }
+					region = {
+						add_to_list = source
+					}
 				}
 			}
 		}
@@ -248,22 +220,17 @@ tfe_man_the_limes = {
 			}
 		}
 	}
-
 	effect = {
 		custom_tooltip = tfe_man_the_limes_tt
 		hidden_effect = {
 			scope:limes_region = {
 				every_location_in_region = {
-					limit = {
-						owner ?= scope:actor
-						tfe_has_frontier_works = yes
-					}
+					limit = { owner ?= scope:actor tfe_has_frontier_works = yes }
 					add_location_modifier = { modifier = tfe_limes_manned years = 10 mode = replace }
 				}
 			}
 		}
 	}
-
 	ai_will_do = {
 		add = 0
 		# a people still at home across that stretch of the frontier, and gold to spare
@@ -274,7 +241,12 @@ tfe_man_the_limes = {
 					any_location_in_region = {
 						owner ?= scope:actor
 						tfe_has_frontier_works = yes
-						any_neighbor_location = { owner ?= { tfe_is_migrator = yes NOT = { has_variable = tfe_migrating } } }
+						any_neighbor_location = {
+							owner ?= {
+								tfe_is_migrator = yes
+								NOT = { has_variable = tfe_migrating }
+							}
+						}
 					}
 				}
 			}
