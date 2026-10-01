@@ -101,7 +101,8 @@ def defined_names(root, folder):
     out = set()
     for p, tree in trees(root):
         if p.parent.name == folder:
-            out |= {e.key for e in tree if e.key and e.op == "="}
+            out |= {re.sub(r"^(?:REPLACE|INJECT|TRY_INJECT|REPLACE_OR_CREATE|TRY_REPLACE):", "", e.key)  # overrides name the vanilla entry
+                    for e in tree if e.key and e.op == "="}
     return out
 
 
