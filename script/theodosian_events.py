@@ -63,11 +63,11 @@ def arcadius_doc():
     with doc.event(1, type="country_event", title="Arcadius's Measure", desc="Hidden roll of the emperor's stats.",
                    outcome="neutral", hidden=True) as e:
         with e.immediate() as i, i.link("character:tfe_arcadius", CharacterFx) as a:
-            for stat in ("adm", "dip", "mil"):
+            for add in (CharacterFx.add_adm, CharacterFx.add_dip, CharacterFx.add_mil):
                 with a.random_list() as r:
                     for weight, delta in ARCADIUS_STEPS:
                         with r.weight(weight) as w:
-                            getattr(w, f"add_{stat}")(delta)
+                            add(w, delta)
     return doc
 
 
