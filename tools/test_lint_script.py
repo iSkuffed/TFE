@@ -83,3 +83,9 @@ def test_a_saved_scope_and_a_target_flag_count_as_saved(tmp_path):
     files = {"in_game/events/t.txt": EVENT % "save_scope_as = w scope:w = { kill = yes } scope:t = { kill = yes }",
              "in_game/common/generic_actions/t.txt": "a = { target_flag = t }\n", LOC_FILE: LOC}
     assert refs(tmp_path, files) == []
+
+
+def test_an_override_of_a_vanilla_building_uses_the_vanilla_icon(tmp_path):
+    # REPLACE:x names vanilla's x, whose icon is x.dds (MAZZO313's Theodosian Walls)
+    files = {"in_game/common/building_types/t.txt": "REPLACE:theodosian_walls = { }\n", LOC_FILE: LOC}
+    assert not [p for p in refs(tmp_path, files) if "icon" in p]
