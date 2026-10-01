@@ -260,3 +260,46 @@ tfe_historical_characters = {
 	}
 
 }
+
+# The Theodosian house shares one face shape (Theodosius's long head and aquiline nose), so Arcadius, Honorius and Placidia
+# read as siblings. A separate group from the one above because selection_behavior = max keeps one entry per group.
+tfe_theodosian_family = {
+	usage = game
+	selection_behavior = max
+	priority = 98
+
+	tfe_theodosian_face = {
+		dna_modifiers = {
+			morph = { mode = replace gene = gene_head_width template = template_1 value = 0.45 }
+			morph = { mode = replace gene = gene_head_height template = template_1 value = 0.6 }
+			morph = { mode = replace gene = gene_forehead_height template = template_1 value = 0.55 }
+			morph = { mode = replace gene = gene_forehead_brow_forward template = template_1 value = 0.55 }
+			morph = { mode = replace gene = gene_cheek_width template = template_1 value = 0.45 }
+			morph = { mode = replace gene = gene_jaw_width template = template_1 value = 0.45 }
+			morph = { mode = replace gene = gene_jaw_def template = template_1 value = 0.4 }
+			morph = { mode = replace gene = gene_chin_size template = template_1 value = 0.55 }
+			morph = { mode = replace gene = gene_chin_length template = template_1 value = 0.6 }
+			morph = { mode = replace gene = gene_nose_length template = template_1 value = 0.62 }
+			morph = { mode = replace gene = gene_nose_width template = template_1 value = 0.45 }
+			morph = { mode = replace gene = gene_nose_ridge_def template = template_1 value = 0.65 }
+			morph = { mode = replace gene = gene_nose_ridge_shape template = template_1 value = 0.6 }
+			morph = { mode = replace gene = gene_eye_angle template = template_1 value = 0.55 }
+			morph = { mode = replace gene = gene_eye_open template = template_1 value = 0.45 }
+			morph = { mode = replace gene = gene_mouth_width template = template_1 value = 0.5 }
+			morph = { mode = replace gene = gene_mouth_upper_lip_size template = template_1 value = 0.45 }
+			morph = { mode = replace gene = gene_mouth_lower_lip_size template = template_1 value = 0.55 }
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 500
+				exists = this
+				or = {
+					this = character:tfe_arcadius
+					this = character:tfe_honorius
+					this = character:tfe_galla_placidia
+				}
+			}
+		}
+	}
+}

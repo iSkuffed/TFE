@@ -1,0 +1,66 @@
+﻿namespace = tfe_arcadius
+
+# Arcadius's stats are rolled when the game starts (on_action/tfe_opening.txt), so no two games have the same
+# emperor, though each is the pious, guided ruler of history.
+tfe_arcadius.1 = {
+	type = country_event
+	title = tfe_arcadius.1.title
+	desc = tfe_arcadius.1.desc
+	outcome = neutral
+	hidden = yes
+	immediate = {
+		character:tfe_arcadius = {
+			random_list = {
+				15 = {
+					add_adm = -15
+				}
+				20 = {
+					add_adm = -10
+				}
+				30 = {
+					add_adm = -5
+				}
+				20 = {
+					add_adm = 0
+				}
+				15 = {
+					add_adm = 5
+				}
+			}
+			random_list = {
+				15 = {
+					add_dip = -15
+				}
+				20 = {
+					add_dip = -10
+				}
+				30 = {
+					add_dip = -5
+				}
+				20 = {
+					add_dip = 0
+				}
+				15 = {
+					add_dip = 5
+				}
+			}
+			random_list = {
+				15 = {
+					add_mil = -15
+				}
+				20 = {
+					add_mil = -10
+				}
+				30 = {
+					add_mil = -5
+				}
+				20 = {
+					add_mil = 0
+				}
+				15 = {
+					add_mil = 5
+				}
+			}
+		}
+	}
+}
