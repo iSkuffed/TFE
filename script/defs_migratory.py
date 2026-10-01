@@ -42,7 +42,6 @@ def raise_host(d: Defs):
             create_units(muster, "scope:tfe_host", "scope:tfe_muster", ((24, "a_footmen"), (8, "a_tribal_cavalry")))
         e.note("a fifth of our people take the road; the rest stay under the new lords. Counted by pop_size, whatever its unit.")
         e.set_variable(name="tfe_host_people", value=0)
-        e.set_variable(name="tfe_host_plantings", value=0)
         e.tail("change_variable fails on an unset variable")
         with e.every_owned_location() as loc:
             with loc.every_pop() as p:
@@ -124,10 +123,10 @@ def effects():
 
 def on_actions():
     d = Defs()
-    d.note("TFE: the first land a migrating host (generic_actions/tfe_migratory.txt) wins ends the migration. The great host\n"
-           "disbands back to the warband it started with; its free upkeep (auto_modifiers/tfe_migratory.txt) ends for good.\n"
-           "Its people settle the land it wins, beside the locals (tfe_on_host_plants_its_people).")
-    d.hook("on_location_changed_owner", "tfe_on_host_settles", "tfe_on_host_plants_its_people")
+    d.note("TFE: the first land a migrating host (generic_actions/tfe_migratory.txt) wins ends the migration. It becomes a\n"
+           "landed country again, that land is its capital, and the great host disbands back to the warband it started with\n"
+           "there; its free upkeep (auto_modifiers/tfe_migratory.txt) ends for good. Its people settle the capital.")
+    d.hook("on_location_changed_owner", "tfe_on_host_settles")
     with d.on_action("tfe_on_host_settles") as a:
         with a.trigger(LocationTrig) as t:
             t.exists("scope:winner")
@@ -136,37 +135,30 @@ def on_actions():
                 with w.not_() as n:
                     n.has_variable("tfe_settled")
         with a.effect(LocationFx) as e:
+            e.save_scope_as("tfe_homeland")
             with e.link("scope:winner", CountryFx) as w:
                 w.set_variable("tfe_settled")
                 w.tfe_list_the_migrators(True)
                 w.tail("the Decline of the West's panel moves it to \"settled\" now, not next month")
-                w.note("the host breaks up and its old warband (setup/start/27_armies.txt) re-forms where it stood. Whole armies\n"
-                       "go: destroying sub-units one by one crashed the game a tick later.")
-                with w.random_army() as army:
-                    with army.go_unit_location() as loc:
-                        loc.save_scope_as("tfe_warband_site")
+                w.note("user: a settled host could not disband its troops. An army-based country lives by its armies, so the game\n"
+                       "keeps them; vanilla's settling pirates and Timurids become landed countries (change_country_type).\n"
+                       "User: in a peace deal its people settled anywhere but by the capital. The first land is both.")
+                w.change_country_type("location")
+                w.set_capital("scope:tfe_homeland")
+                w.note("the host breaks up and its old warband (setup/start/27_armies.txt) re-forms at home, raised from it.\n"
+                       "Whole armies go: destroying sub-units one by one crashed the game a tick later.")
                 with w.every_army() as army:
                     army.destroy_unit(True)
-                with w.link("scope:tfe_warband_site", LocationFx) as site:
-                    create_units(site, "scope:winner", "scope:tfe_warband_site", ((4, "a_footmen"), (2, "a_tribal_cavalry")))
-    d.note("The people who followed the host (tfe_host_people, counted by tfe_start_migration_effect) settle the first four\n"
-           "locations it wins, a quarter in each, as peasants of its culture and faith. The same settlers are a majority in a\n"
-           "thinly peopled countryside and a minority in a great city: the shift follows how many already live there.")
-    with d.on_action("tfe_on_host_plants_its_people") as a:
-        with a.trigger(LocationTrig) as t:
-            t.exists("scope:winner")
-            with t.link("scope:winner", CountryTrig) as w:
-                w.has_variable("tfe_host_people")
-        with a.effect(LocationFx) as e:
-            e.add_pop(culture="scope:winner.culture", religion="scope:winner.religion", type="pop_type:peasants",
-                    size=dict(value="scope:winner.var:tfe_host_people", multiply=0.25))
-            with e.link("scope:winner", CountryFx) as w:
-                w.change_variable(name="tfe_host_plantings", add=1)
-                with w.if_() as i:
-                    with i.limit() as t:
-                        t.var("tfe_host_plantings", ">=", 4)
-                    i.remove_variable("tfe_host_people")
-                    i.remove_variable("tfe_host_plantings")
+            create_units(e, "scope:winner", "scope:tfe_homeland", ((4, "a_footmen"), (2, "a_tribal_cavalry")))
+            e.note("the people who followed the host (tfe_host_people, counted by tfe_start_migration_effect) settle the capital\n"
+                   "as peasants of its culture and faith: a majority in a thinly peopled countryside, a minority in a great city")
+            with e.if_() as i:
+                with i.limit() as t, t.link("scope:winner", CountryTrig) as w:
+                    w.has_variable("tfe_host_people")
+                i.add_pop(culture="scope:winner.culture", religion="scope:winner.religion", type="pop_type:peasants",
+                          size="scope:winner.var:tfe_host_people")
+                with i.link("scope:winner", CountryFx) as w:
+                    w.remove_variable("tfe_host_people")
     return d
 
 

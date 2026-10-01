@@ -11,6 +11,6 @@
  cb_tfe_migration: "Migration"
  cb_tfe_migration_desc: "Our people are on the road, and the road ends where we take land of our own."
  war_goal_superiority_tfe_migration: "Seize a Homeland"
- war_goal_superiority_tfe_migration_desc: "We will take land from them for our people to settle."
+ war_goal_superiority_tfe_migration_desc: "We will take land from them for our people to settle. $generic_war_goal_superiority_desc$"
  tfe_barbaricum: "Barbaricum"
  tfe_barbaricum_desc: "The lands beyond the limes, as Rome calls them. Their peoples raid, trade and marry across borders nobody polices, and a warband may cross a neighbour's land without asking leave. A host on the road goes where it will."

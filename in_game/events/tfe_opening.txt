@@ -181,6 +181,12 @@ tfe_opening.7 = {
 					leave_war = { war = scope:tfe_gildo_war actor = root }
 				}
 			}
+			# the revolt system makes the revolter a Secessionist subject of its Kabyle backers (the Mauri); Gildo is
+			# his own master, not the Mauri's
+			if = {
+				limit = { is_subject = yes }
+				overlord = { cancel_subject = prev }
+			}
 		}
 		if = {
 			limit = { exists = scope:tfe_usurper }

@@ -82,6 +82,8 @@ def test_gildo_rises_as_an_annexable_revolter():
     assert "NOT = { any_owned_location = { NOT = { tfe_gildo_base_land = yes } } }" in crowning
     # a backer leading the rebel side turns Annex Revolter into a white peace
     assert "leave_war = { war = scope:tfe_gildo_war actor = root }" in crowning
+    # user: he spawned as the Mauri's Secessionist subject (the revolt system's doing); the crowning frees him
+    assert re.search(r"limit = \{ is_subject = yes \}\s*overlord = \{ cancel_subject = prev \}", crowning)
     # a vassal of the East cannot be annexed and ends the revolt war: the homage waits for peace (tfe_gildo.6)
     assert "make_subject_of" not in east
     gildo = " ".join(code(b.MOD / "in_game/events/tfe_gildo.txt").split())  # script/gildo_events.py writes the layout

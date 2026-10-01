@@ -1,0 +1,24 @@
+﻿# TFE: in 395 every people from Rome to the steppe raises some tribute. Without Taxation a country has no taxes
+# and no stability investment, so every country starts with it and the advances it requires.
+on_game_start = {
+	on_actions = { tfe_on_start_taxation }
+}
+
+tfe_on_start_taxation = {
+	effect = {
+		every_country = {
+			if = {
+				limit = { NOT = { has_advance = written_alphabet } }
+				research_advance = advance_type:written_alphabet
+			}
+			if = {
+				limit = { NOT = { has_advance = codified_laws } }
+				research_advance = advance_type:codified_laws
+			}
+			if = {
+				limit = { NOT = { has_advance = taxation_advance } }
+				research_advance = advance_type:taxation_advance
+			}
+		}
+	}
+}

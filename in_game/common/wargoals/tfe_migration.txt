@@ -1,4 +1,6 @@
-﻿# TFE: land is the whole point of a migration (casus_belli/tfe_migration.txt), so taking it comes cheap.
+﻿# TFE: land is the whole point of a migration (casus_belli/tfe_migration.txt), so taking it comes cheap. A host cannot
+# siege its way to a peace: battles won are its war score, and once they pass the define's 10% they tick it up three
+# times as fast as vanilla's Show Superiority (user: the war goal was hopeless).
 superiority_tfe_migration = {
 	type = superiority
 
@@ -8,5 +10,5 @@ superiority_tfe_migration = {
 	}
 	defender = {
 	}
-	ticking_war_score = 0.5
+	ticking_war_score = 1.5
 }
