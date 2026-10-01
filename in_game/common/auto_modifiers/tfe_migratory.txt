@@ -1,5 +1,6 @@
 ﻿# TFE: a migrating host (generic_actions/tfe_migratory.txt) lives off the land it passes through: while it
-# owns no land its warriors cost nothing and endure the road. Winning land ends it for good.
+# owns no land its warriors cost nothing, endure the road and fight with nothing to lose, and a whole people
+# starves a castle or a limes fort out fast. Winning land ends it for good.
 tfe_migrating_host = {
 	potential_trigger = {
 		has_variable = tfe_migrating
@@ -10,4 +11,6 @@ tfe_migrating_host = {
 
 	army_maintenance_efficiency = 999	# pay 1 / (1 + 999) = 0.1% of upkeep
 	land_unit_attrition = -0.9
+	siege_ability = 0.5			# vanilla's best advance gives 0.2
+	land_morale_modifier = 0.2
 }
