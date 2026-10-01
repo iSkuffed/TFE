@@ -38,7 +38,7 @@ character_db = {
 	}
 	tfe_arcadius = { # Augustus since 383; approx birth
 		first_name = { name = name_arcadius }
-		culture = greek_culture
+		culture = roman_culture	# Theodosius' Latin-speaking court, like his brother; his subjects are Greek
 		religion = orthodox
 		adm = 45 dip = 45 mil = 25	# a middling emperor, steered by his ministers; never led an army
 		birth_date = 377.1.1
