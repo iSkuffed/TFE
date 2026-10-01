@@ -1,6 +1,9 @@
 ﻿crown_estate = {
 	type = country
 
+	# TFE: the West's estates under their Latin names (the Peasants are its Plebs, below)
+	text = { localization_key = tfe_palatium trigger = { tfe_is_western_rome = yes } }
+
 	text = {
 		localization_key = crown_estate_holy_order
 		trigger = {
@@ -81,6 +84,9 @@
 
 nobles_estate = {
 	type = country
+
+	# TFE: the West's estates under their Latin names (the Peasants are its Plebs, below)
+	text = { localization_key = tfe_senatores trigger = { tfe_is_western_rome = yes } }
 
 	text = {
 		localization_key = nobles_estate_holy_order
@@ -408,6 +414,9 @@ nobles_estate = {
 burghers_estate = {
 	type = country
 
+	# TFE: the West's estates under their Latin names (the Peasants are its Plebs, below)
+	text = { localization_key = tfe_curiales trigger = { tfe_is_western_rome = yes } }
+
 	text = {
 		localization_key = burghers_estate_greek
 		trigger = {
@@ -623,6 +632,9 @@ burghers_estate = {
 
 clergy_estate = {
 	type = country
+
+	# TFE: the West's estates under their Latin names (the Peasants are its Plebs, below)
+	text = { localization_key = tfe_clerus trigger = { tfe_is_western_rome = yes } }
 
 	text = {
 		localization_key = clergy_estate_greek
@@ -1089,6 +1101,9 @@ dhimmi_estate = {
 
 tribes_estate = {
 	type = country
+
+	# TFE: the West's estates under their Latin names (the Peasants are its Plebs, below)
+	text = { localization_key = tfe_gentes trigger = { tfe_is_western_rome = yes } }
 
 	text = {
 		localization_key = tribes_estate_gaelic

@@ -7,3 +7,8 @@
  tfe_debased_currency_desc: "The soldiers' stipend and donatives are owed in gold, and the copper and silver that buys it is worth less every year. The mint makes less, and men who are paid in bad coin fight badly."
  tfe_plebs: "Plebs"
  tfe_demos: "Demos"
+ tfe_palatium: "Palatium"
+ tfe_senatores: "Senatores"
+ tfe_curiales: "Curiales"
+ tfe_clerus: "Clerus"
+ tfe_gentes: "Gentes"

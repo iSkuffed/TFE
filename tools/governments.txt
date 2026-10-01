@@ -10,6 +10,8 @@ WRE = heir = tfe_honorius
 WRE = start_regency_date = 395.1.17
 WRE = end_regency_date = 400.9.9
 WRE = regnal_numbers = { name_valentinian = 2 }
+# The senatorial landlords judge and tax their own coloni: the ban is theirs long before the Franks name it.
+WRE = privilege = { banal_lordship }
 # the West's burdens are locked reforms; each carries its own slot
 WRE = reforms = { tfe_senatorial_immunities tfe_patrocinium tfe_disarmed_plebs tfe_debased_currency }
 
