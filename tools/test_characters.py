@@ -169,6 +169,8 @@ def test_the_sons_of_theodosius(chars):
     assert "raised_by_eunuchs" not in arc.get("ruler_trait", [])   # the eunuch system is not in play in 395
     assert "naive" in arc.get("ruler_trait", [])
     assert int(arc["adm"][0]) >= 40 and int(arc["dip"][0]) >= 40, (arc["adm"], arc["dip"])
+    # both sons of a Spanish-born, Latin-speaking emperor: Roman, ruling Greek-speaking provincials in the East
+    assert arc["culture"] == hon["culture"] == ["roman_culture"]
 
 def test_portrait_modifiers_target_defined_characters(chars):
     text = (b.MOD / "main_menu/gfx/portraits/portrait_modifiers/tfe_historical_chr.txt").read_text(encoding="utf-8-sig")
