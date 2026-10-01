@@ -7,8 +7,10 @@ FAMILY: the keyword arguments every iterator of a prefix shares (docs + vanilla)
 """
 
 
-def spec(shapes, req=(), opt=(), types=None):
-    return {"shapes": set(shapes.split()), "req": list(req), "opt": list(opt), "kinds": set(), "types": types or {}}
+def spec(shapes, req=(), opt=(), types=None, value=None):
+    """value: the annotation of a scalar call's one argument (a closed set the game itself defines)."""
+    return {"shapes": set(shapes.split()), "req": list(req), "opt": list(opt), "kinds": set(), "types": types or {},
+            "value": value}
 
 
 VAR = "name value days months years".split()
@@ -25,6 +27,7 @@ SPEC_FX = {
     # the body is the new country's scope: define_unique_country_tag, create_character, set_new_ruler run inside it
     "create_country_from_location": {**spec("block", opt="locations overlord reforms subject_type name save_scope_as capital ruler_or_regent".split()),
                                      "opens": "CountryFx"},
+    "change_country_type": spec("scalar", value="CountryType"),
     "extend_regency": spec("scalar"),  # a bare number of years: `extend_regency = 8`
     "add_country_modifier": MODIFIER,
     "add_character_modifier": spec("block", ["modifier"], "years months days mode size desc recalculate_immediately".split(),
@@ -47,6 +50,7 @@ SPEC_FX = {
     "kill_character_silently": KILL,
 }
 SPEC_TRIG = {
+    "country_type": spec("scalar", value="CountryType"),
     "save_temporary_scope_value_as": spec("block", ["name", "value"]),
 }
 
@@ -55,11 +59,18 @@ FAMILY = {"every": [], "random": ["weight"], "ordered": ["order_by", "position",
 ITER_EXTRA = ["list", "variable"]  # every_in_list, random_in_global_list, any_key_in_variable_map ...
 
 # names in these lists are replaced by the source below (and never generated); `{T}` is the matching Trig class name
-COMMON = '''
-    def link(self, text: str, cls: type[_S], *, op: Op = "=") -> ContextManager[_S]:  # pyright: ignore[reportIncompatibleMethodOverride]
-        """`scope:actor = {`, `c:EAR ?= {`, `var:x = {`: a scope block, typed by the class you pass."""
-        return self._open(text, cls, op=op)
+LINK = '''
+    @overload
+    def link(self, text: str, cls: type[_S], *, op: Op = "=") -> ContextManager[_S]: ...  # pyright: ignore[reportIncompatibleMethodOverride]
+    @overload
+    def link(self, text: str, cls: type[_S], body: Callable[[_S], Any], *, op: Op = "=") -> None: ...  # pyright: ignore[reportIncompatibleMethodOverride]
+    def link(self, text: str, cls: type[_S], body: Callable[[_S], Any] | None = None, *, op: Op = "=") -> Any:  # pyright: ignore[reportIncompatibleMethodOverride]
+        """`scope:actor = {`, `c:EAR ?= {`, `var:x = {`: a scope block, typed by the class you pass; or give the body as a lambda."""
+        return self._run(text, cls, body, op=op)
 
+'''
+
+COMMON = LINK + '''
     def custom_tooltip(self, text: Any, /) -> None:
         self._call("custom_tooltip", text)
 
@@ -108,23 +119,53 @@ FX = '''
 FX_NAMES = ["custom_description_no_bullet", "if", "else", "else_if", "while", "hidden_effect", "random", "random_list"]
 
 TRIG = '''
-    def limit(self: _T) -> ContextManager[_T]:
-        return self._open("limit", type(self))
+    @overload
+    def limit(self: _T) -> ContextManager[_T]: ...
+    @overload
+    def limit(self: _T, body: Callable[[_T], Any]) -> None: ...
+    def limit(self: _T, body: Callable[[_T], Any] | None = None) -> Any:
+        """`limit = { }`: a context manager, or give the body as a lambda for a one-liner: `t.limit(lambda n: n.has_advance(x))`."""
+        return self._run("limit", type(self), body)
 
-    def and_(self: _T) -> ContextManager[_T]:
-        return self._open("AND", type(self))
+    @overload
+    def and_(self: _T) -> ContextManager[_T]: ...
+    @overload
+    def and_(self: _T, body: Callable[[_T], Any]) -> None: ...
+    def and_(self: _T, body: Callable[[_T], Any] | None = None) -> Any:
+        """`AND = { }`: a context manager, or give the body as a lambda for a one-liner: `t.and_(lambda n: n.has_advance(x))`."""
+        return self._run("AND", type(self), body)
 
-    def or_(self: _T) -> ContextManager[_T]:
-        return self._open("OR", type(self))
+    @overload
+    def or_(self: _T) -> ContextManager[_T]: ...
+    @overload
+    def or_(self: _T, body: Callable[[_T], Any]) -> None: ...
+    def or_(self: _T, body: Callable[[_T], Any] | None = None) -> Any:
+        """`OR = { }`: a context manager, or give the body as a lambda for a one-liner: `t.or_(lambda n: n.has_advance(x))`."""
+        return self._run("OR", type(self), body)
 
-    def not_(self: _T) -> ContextManager[_T]:
-        return self._open("NOT", type(self))
+    @overload
+    def not_(self: _T) -> ContextManager[_T]: ...
+    @overload
+    def not_(self: _T, body: Callable[[_T], Any]) -> None: ...
+    def not_(self: _T, body: Callable[[_T], Any] | None = None) -> Any:
+        """`NOT = { }`: a context manager, or give the body as a lambda for a one-liner: `t.not_(lambda n: n.has_advance(x))`."""
+        return self._run("NOT", type(self), body)
 
-    def nor(self: _T) -> ContextManager[_T]:
-        return self._open("NOR", type(self))
+    @overload
+    def nor(self: _T) -> ContextManager[_T]: ...
+    @overload
+    def nor(self: _T, body: Callable[[_T], Any]) -> None: ...
+    def nor(self: _T, body: Callable[[_T], Any] | None = None) -> Any:
+        """`NOR = { }`: a context manager, or give the body as a lambda for a one-liner: `t.nor(lambda n: n.has_advance(x))`."""
+        return self._run("NOR", type(self), body)
 
-    def nand(self: _T) -> ContextManager[_T]:
-        return self._open("NAND", type(self))
+    @overload
+    def nand(self: _T) -> ContextManager[_T]: ...
+    @overload
+    def nand(self: _T, body: Callable[[_T], Any]) -> None: ...
+    def nand(self: _T, body: Callable[[_T], Any] | None = None) -> Any:
+        """`NAND = { }`: a context manager, or give the body as a lambda for a one-liner: `t.nand(lambda n: n.has_advance(x))`."""
+        return self._run("NAND", type(self), body)
 
     def compare(self, left: str, op: Op, value: Any, /) -> None:
         """`scope:x.gold >= 5`, `root.tfe_level < 3`: a comparison whose left side is a value path, not a trigger name."""
@@ -147,13 +188,18 @@ TRIG_NAMES = ["and", "or", "not", "nor", "nand", "trigger_if", "trigger_else", "
 
 # pasted into every Fx class (AnyFx included): `with c.if_() as i: with i.limit() as t:`
 LIMIT = '''
-    def limit(self) -> ContextManager[{T}]:
-        return self._open("limit", {T})
+    @overload
+    def limit(self) -> ContextManager[{T}]: ...
+    @overload
+    def limit(self, body: Callable[[{T}], Any]) -> None: ...
+    def limit(self, body: Callable[[{T}], Any] | None = None) -> Any:
+        return self._run("limit", {T}, body)
 '''
 
 # written once at the top of api.py, before the scope classes
 PRELUDE = '''
 Outcome = Literal["positive", "neutral", "negative"]
+CountryType = Literal["location", "army", "navy", "pop", "building"]  # vanilla's five: a country is a polity or a unit-owner
 Mode = Literal["add", "extend", "replace", "add_and_extend"]
 Op = Literal["<", "<=", "=", "!=", ">", ">=", "?="]
 _T = TypeVar("_T", bound=Scope)
@@ -195,10 +241,6 @@ class _Switch(Scope, Generic[_T]):
 
 # value blocks: ai_will_do, ai_chance, script values. Written after the scope classes (ValueModifier derives AnyTrig).
 VALUE_KEYS = "value base add subtract multiply divide min max factor".split()
-LINK = '''    def link(self, text: str, cls: type[_S], *, op: Op = "=") -> ContextManager[_S]:  # pyright: ignore[reportIncompatibleMethodOverride]
-        """`scope:actor = {`, `c:EAR ?= {`, `var:x = {`: a scope block, typed by the class you pass."""
-        return self._open(text, cls, op=op)
-'''
 POSTLUDE = ('''
 
 class _Value(Scope):

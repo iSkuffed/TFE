@@ -110,3 +110,42 @@ def test_census_identical_rate_does_not_regress():
     same, diff, skipped, _, _ = census.run()
     assert not skipped
     assert len(same) / (len(same) + len(diff)) >= 0.60
+
+
+def test_find_asks_the_model_not_the_text():
+    from core import find
+    nodes = []
+    s = Scope(nodes)
+    with s._open("e.1", Scope) as e:
+        with e._open("trigger", Scope) as t:
+            t._call("has_advance", "taxation_advance")
+            with t._open("NOT", Scope) as n:
+                n._call("has_advance", "x")
+        with e._open("immediate", Scope) as i:
+            i._call("has_advance", "x")
+    with s._open("e.2", Scope) as e:
+        e._call("has_advance", "x")
+    assert len(find(nodes, "has_advance")) == 4
+    assert len(find(nodes, "has_advance", "x")) == 3
+    assert len(find(nodes, "has_advance", "x", inside="e.1")) == 2
+    assert len(find(nodes, "has_advance", "x", inside=("e.1", "NOT"))) == 1
+    assert find(nodes, "has_advance", "x", inside=("NOT", "e.1")) == []  # outermost first
+    assert find(nodes, "has_advance", "x", inside="trigger")[0].val == "x"
+    assert [n.key for n in find(nodes, inside="NOT")] == ["has_advance"]
+    assert find(nodes, "no_such") == []
+
+
+def test_doc_and_defs_are_queryable():
+    from pdx.objects import Doc
+    from pdx.api import CountryFx
+    from pdx.objects_defs import Defs
+    d = Doc()
+    d.namespace("t")
+    with d.event(1, type="country_event", title="T", desc="D", outcome="neutral") as e:
+        with e.immediate() as i:
+            i.add_gold(5)
+    assert [n.val for n in d.find("add_gold", inside=("t.1", "immediate"))] == ["5"]
+    f = Defs()
+    with f.effect("tfe_x", CountryFx) as x:
+        x.add_gold(5)
+    assert [n.val for n in f.find("add_gold", inside="tfe_x")] == ["5"]

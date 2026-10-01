@@ -62,6 +62,24 @@ VERBS = ("set_", "change_", "add_", "clear_", "remove_", "create_", "trigger_", 
 ONE_LINE_DATA = {"text", "opinions", "color", "color2", "member_color", "game_data", "on_actions", "tags", "culture_groups"}
 
 
+def find(nodes, key=None, val=None, /, *, inside=()):
+    """every Node under nodes, depth first, whose key (and scalar value) match; a test asks the model instead of the text.
+    `inside` is a block key, or keys in order from outermost: only nodes below blocks with those keys (not necessarily
+    adjacent). find(doc.nodes, "has_advance", "taxation_advance", inside=("tfe_x.1", "trigger"))."""
+    inside = (inside,) if isinstance(inside, str) else tuple(inside)
+    want = None if val is None else fmt(val)
+
+    def walk(ns, path):
+        for n in ns:
+            ancestors = iter(path)
+            if ((key is None or n.key == key) and (want is None or n.val == want)
+                    and all(k in ancestors for k in inside)):  # `in` consumes the iterator: an ordered subsequence
+                yield n
+            if isinstance(n.val, list):
+                yield from walk(n.val, path + [n.key])
+    return list(walk(nodes, []))
+
+
 def _has_comment(n):
     """a comment on any node inside n (n's own tail is fine after a one-line block)."""
     return isinstance(n.val, list) and any(c.lead or c.tail or _has_comment(c) for c in n.val)
@@ -189,8 +207,16 @@ class Scope:
         node = self._add(Node(name.rstrip("_"), op, self._kw(kw)))
         yield cls(node.val)
 
-    def link(self, text, cls, *, op="="):
-        return self._open(text, cls, op=op)
+    def _run(self, name, cls, body=None, /, *, op="=", **kw):
+        """the block as a context manager, or, given body, written at once: body(inner scope)."""
+        cm = self._open(name, cls, op=op, **kw)
+        if body is None:
+            return cm
+        with cm as inner:
+            body(inner)
+
+    def link(self, text, cls, body=None, *, op="="):
+        return self._run(text, cls, body, op=op)
 
     def saved(self, name, cls):
         """`scope:name` as a typed scope: `with c.saved("x", CountryFx) as s:` writes `scope:x = {`; str() is the ref."""

@@ -6,12 +6,13 @@
 from __future__ import annotations
 
 from contextlib import contextmanager
-from typing import Any, ContextManager, Generic, Iterator, Literal, TypeVar
+from typing import Any, Callable, ContextManager, Generic, Iterator, Literal, TypeVar, overload
 
 from pdx.core import Cmp, Scope
 
 
 Outcome = Literal["positive", "neutral", "negative"]
+CountryType = Literal["location", "army", "navy", "pop", "building"]  # vanilla's five: a country is a polity or a unit-owner
 Mode = Literal["add", "extend", "replace", "add_and_extend"]
 Op = Literal["<", "<=", "=", "!=", ">", ">=", "?="]
 _T = TypeVar("_T", bound=Scope)
@@ -53,8 +54,12 @@ class _Switch(Scope, Generic[_T]):
 
 
 class AnyFx(Scope):
-    def limit(self) -> ContextManager[AnyTrig]:
-        return self._open("limit", AnyTrig)
+    @overload
+    def limit(self) -> ContextManager[AnyTrig]: ...
+    @overload
+    def limit(self, body: Callable[[AnyTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[AnyTrig], Any] | None = None) -> Any:
+        return self._run("limit", AnyTrig, body)
     def custom_description_no_bullet(self: _T, text: Any, *, subject: Any = None, object: Any = None, value: Any = None) -> ContextManager[_T]:
         return self._open("custom_description_no_bullet", type(self), **_kw(text=text, subject=subject, object=object, value=value))
 
@@ -82,9 +87,14 @@ class AnyFx(Scope):
             r._cls = type(self)
             yield r
 
-    def link(self, text: str, cls: type[_S], *, op: Op = "=") -> ContextManager[_S]:  # pyright: ignore[reportIncompatibleMethodOverride]
-        """`scope:actor = {`, `c:EAR ?= {`, `var:x = {`: a scope block, typed by the class you pass."""
-        return self._open(text, cls, op=op)
+    @overload
+    def link(self, text: str, cls: type[_S], *, op: Op = "=") -> ContextManager[_S]: ...  # pyright: ignore[reportIncompatibleMethodOverride]
+    @overload
+    def link(self, text: str, cls: type[_S], body: Callable[[_S], Any], *, op: Op = "=") -> None: ...  # pyright: ignore[reportIncompatibleMethodOverride]
+    def link(self, text: str, cls: type[_S], body: Callable[[_S], Any] | None = None, *, op: Op = "=") -> Any:  # pyright: ignore[reportIncompatibleMethodOverride]
+        """`scope:actor = {`, `c:EAR ?= {`, `var:x = {`: a scope block, typed by the class you pass; or give the body as a lambda."""
+        return self._run(text, cls, body, op=op)
+
 
     def custom_tooltip(self, text: Any, /) -> None:
         self._call("custom_tooltip", text)
@@ -1751,8 +1761,12 @@ class AnyFx(Scope):
 
 
 class ActiveResolutionFx(AnyFx):
-    def limit(self) -> ContextManager[ActiveResolutionTrig]:
-        return self._open("limit", ActiveResolutionTrig)
+    @overload
+    def limit(self) -> ContextManager[ActiveResolutionTrig]: ...
+    @overload
+    def limit(self, body: Callable[[ActiveResolutionTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[ActiveResolutionTrig], Any] | None = None) -> Any:
+        return self._run("limit", ActiveResolutionTrig, body)
     def every_voter(self) -> ContextManager[CountryFx]:
         return self._open("every_voter", CountryFx)
     def go_resolution(self, *, op: Op = "=") -> ContextManager[ResolutionFx]:
@@ -1766,25 +1780,41 @@ class ActiveResolutionFx(AnyFx):
 
 
 class AdvanceTypeFx(AnyFx):
-    def limit(self) -> ContextManager[AdvanceTypeTrig]:
-        return self._open("limit", AdvanceTypeTrig)
+    @overload
+    def limit(self) -> ContextManager[AdvanceTypeTrig]: ...
+    @overload
+    def limit(self, body: Callable[[AdvanceTypeTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[AdvanceTypeTrig], Any] | None = None) -> Any:
+        return self._run("limit", AdvanceTypeTrig, body)
     def go_advance_age(self, *, op: Op = "=") -> ContextManager[AgeFx]:
         return self.link("advance_age", AgeFx, op=op)
 
 
 class AgeFx(AnyFx):
-    def limit(self) -> ContextManager[AgeTrig]:
-        return self._open("limit", AgeTrig)
+    @overload
+    def limit(self) -> ContextManager[AgeTrig]: ...
+    @overload
+    def limit(self, body: Callable[[AgeTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[AgeTrig], Any] | None = None) -> Any:
+        return self._run("limit", AgeTrig, body)
 
 
 class AiPersonalityFx(AnyFx):
-    def limit(self) -> ContextManager[AiPersonalityTrig]:
-        return self._open("limit", AiPersonalityTrig)
+    @overload
+    def limit(self) -> ContextManager[AiPersonalityTrig]: ...
+    @overload
+    def limit(self, body: Callable[[AiPersonalityTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[AiPersonalityTrig], Any] | None = None) -> Any:
+        return self._run("limit", AiPersonalityTrig, body)
 
 
 class AreaFx(AnyFx):
-    def limit(self) -> ContextManager[AreaTrig]:
-        return self._open("limit", AreaTrig)
+    @overload
+    def limit(self) -> ContextManager[AreaTrig]: ...
+    @overload
+    def limit(self, body: Callable[[AreaTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[AreaTrig], Any] | None = None) -> Any:
+        return self._run("limit", AreaTrig, body)
     def dismiss_privateer(self, _v: Any, /) -> None: self._call("dismiss_privateer", _v)
     def every_adjacent_ports_to_area(self) -> ContextManager[LocationFx]:
         return self._open("every_adjacent_ports_to_area", LocationFx)
@@ -1860,13 +1890,21 @@ class AreaFx(AnyFx):
 
 
 class ArtistTypeFx(AnyFx):
-    def limit(self) -> ContextManager[ArtistTypeTrig]:
-        return self._open("limit", ArtistTypeTrig)
+    @overload
+    def limit(self) -> ContextManager[ArtistTypeTrig]: ...
+    @overload
+    def limit(self, body: Callable[[ArtistTypeTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[ArtistTypeTrig], Any] | None = None) -> Any:
+        return self._run("limit", ArtistTypeTrig, body)
 
 
 class AvatarFx(AnyFx):
-    def limit(self) -> ContextManager[AvatarTrig]:
-        return self._open("limit", AvatarTrig)
+    @overload
+    def limit(self) -> ContextManager[AvatarTrig]: ...
+    @overload
+    def limit(self, body: Callable[[AvatarTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[AvatarTrig], Any] | None = None) -> Any:
+        return self._run("limit", AvatarTrig, body)
     def go_god(self, *, op: Op = "=") -> ContextManager[GodFx]:
         return self.link("god", GodFx, op=op)
     def go_holy_site(self, *, op: Op = "=") -> ContextManager[HolySiteFx]:
@@ -1874,13 +1912,21 @@ class AvatarFx(AnyFx):
 
 
 class BooleanFx(AnyFx):
-    def limit(self) -> ContextManager[BooleanTrig]:
-        return self._open("limit", BooleanTrig)
+    @overload
+    def limit(self) -> ContextManager[BooleanTrig]: ...
+    @overload
+    def limit(self, body: Callable[[BooleanTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[BooleanTrig], Any] | None = None) -> Any:
+        return self._run("limit", BooleanTrig, body)
 
 
 class BuildingFx(AnyFx):
-    def limit(self) -> ContextManager[BuildingTrig]:
-        return self._open("limit", BuildingTrig)
+    @overload
+    def limit(self) -> ContextManager[BuildingTrig]: ...
+    @overload
+    def limit(self, body: Callable[[BuildingTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[BuildingTrig], Any] | None = None) -> Any:
+        return self._run("limit", BuildingTrig, body)
     def change_building_level(self, *args: Any, **kw: Any) -> None: self._call("change_building_level", *args, **kw)
     def change_building_owner(self, _v: Any, /) -> None: self._call("change_building_owner", _v)
     def every_production_method_of_building(self) -> ContextManager[ProductionMethodFx]:
@@ -1903,8 +1949,12 @@ class BuildingFx(AnyFx):
 
 
 class BuildingTypeFx(AnyFx):
-    def limit(self) -> ContextManager[BuildingTypeTrig]:
-        return self._open("limit", BuildingTypeTrig)
+    @overload
+    def limit(self) -> ContextManager[BuildingTypeTrig]: ...
+    @overload
+    def limit(self, body: Callable[[BuildingTypeTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[BuildingTypeTrig], Any] | None = None) -> Any:
+        return self._run("limit", BuildingTypeTrig, body)
     def every_construction_material_for_building_type(self) -> ContextManager[GoodsFx]:
         return self._open("every_construction_material_for_building_type", GoodsFx)
     def ordered_construction_material_for_building_type(self, *, order_by: Any = None, position: Any = None, min: Any = None, max: Any = None, check_range_bounds: Any = None) -> ContextManager[GoodsFx]:
@@ -1914,8 +1964,12 @@ class BuildingTypeFx(AnyFx):
 
 
 class BureaucracyFx(AnyFx):
-    def limit(self) -> ContextManager[BureaucracyTrig]:
-        return self._open("limit", BureaucracyTrig)
+    @overload
+    def limit(self) -> ContextManager[BureaucracyTrig]: ...
+    @overload
+    def limit(self, body: Callable[[BureaucracyTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[BureaucracyTrig], Any] | None = None) -> Any:
+        return self._run("limit", BureaucracyTrig, body)
     def change_entrenchment(self, _v: Any, /) -> None: self._call("change_entrenchment", _v)
     def go_bureaucracy_type(self, *, op: Op = "=") -> ContextManager[BureaucracyTypeFx]:
         return self.link("bureaucracy_type", BureaucracyTypeFx, op=op)
@@ -1931,8 +1985,12 @@ class BureaucracyFx(AnyFx):
 
 
 class BureaucracyTypeFx(AnyFx):
-    def limit(self) -> ContextManager[BureaucracyTypeTrig]:
-        return self._open("limit", BureaucracyTypeTrig)
+    @overload
+    def limit(self) -> ContextManager[BureaucracyTypeTrig]: ...
+    @overload
+    def limit(self, body: Callable[[BureaucracyTypeTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[BureaucracyTypeTrig], Any] | None = None) -> Any:
+        return self._run("limit", BureaucracyTypeTrig, body)
     def every_estate_type_that_dislikes_bureaucracy(self) -> ContextManager[EstateTypeFx]:
         return self._open("every_estate_type_that_dislikes_bureaucracy", EstateTypeFx)
     def every_estate_type_that_likes_bureaucracy(self) -> ContextManager[EstateTypeFx]:
@@ -1952,8 +2010,12 @@ class BureaucracyTypeFx(AnyFx):
 
 
 class CabinetFx(AnyFx):
-    def limit(self) -> ContextManager[CabinetTrig]:
-        return self._open("limit", CabinetTrig)
+    @overload
+    def limit(self) -> ContextManager[CabinetTrig]: ...
+    @overload
+    def limit(self, body: Callable[[CabinetTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[CabinetTrig], Any] | None = None) -> Any:
+        return self._run("limit", CabinetTrig, body)
     def add_to_cabinet(self, _v: Any, /) -> None: self._call("add_to_cabinet", _v)
     def go_cabinet_action(self, *, op: Op = "=") -> ContextManager[CabinetActionFx]:
         return self.link("cabinet_action", CabinetActionFx, op=op)
@@ -1965,13 +2027,21 @@ class CabinetFx(AnyFx):
 
 
 class CabinetActionFx(AnyFx):
-    def limit(self) -> ContextManager[CabinetActionTrig]:
-        return self._open("limit", CabinetActionTrig)
+    @overload
+    def limit(self) -> ContextManager[CabinetActionTrig]: ...
+    @overload
+    def limit(self, body: Callable[[CabinetActionTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[CabinetActionTrig], Any] | None = None) -> Any:
+        return self._run("limit", CabinetActionTrig, body)
 
 
 class CardinalFx(AnyFx):
-    def limit(self) -> ContextManager[CardinalTrig]:
-        return self._open("limit", CardinalTrig)
+    @overload
+    def limit(self) -> ContextManager[CardinalTrig]: ...
+    @overload
+    def limit(self, body: Callable[[CardinalTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[CardinalTrig], Any] | None = None) -> Any:
+        return self._run("limit", CardinalTrig, body)
     def go_location(self, *, op: Op = "=") -> ContextManager[LocationFx]:
         return self.link("location", LocationFx, op=op)
     def go_owner(self, *, op: Op = "=") -> ContextManager[CountryFx]:
@@ -1979,13 +2049,21 @@ class CardinalFx(AnyFx):
 
 
 class CasusBelliFx(AnyFx):
-    def limit(self) -> ContextManager[CasusBelliTrig]:
-        return self._open("limit", CasusBelliTrig)
+    @overload
+    def limit(self) -> ContextManager[CasusBelliTrig]: ...
+    @overload
+    def limit(self, body: Callable[[CasusBelliTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[CasusBelliTrig], Any] | None = None) -> Any:
+        return self._run("limit", CasusBelliTrig, body)
 
 
 class CharacterFx(AnyFx):
-    def limit(self) -> ContextManager[CharacterTrig]:
-        return self._open("limit", CharacterTrig)
+    @overload
+    def limit(self) -> ContextManager[CharacterTrig]: ...
+    @overload
+    def limit(self, body: Callable[[CharacterTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[CharacterTrig], Any] | None = None) -> Any:
+        return self._run("limit", CharacterTrig, body)
     def add_adm(self, _v: Any, /) -> None: self._call("add_adm", _v)
     def add_artist_skill(self, _v: Any, /) -> None: self._call("add_artist_skill", _v)
     def add_character_modifier(self, *, modifier: Any, years: Any = None, months: Any = None, days: Any = None, mode: Mode | None = None, size: Any = None, desc: Any = None, recalculate_immediately: Any = None) -> None: self._call("add_character_modifier", **_kw(modifier=modifier, years=years, months=months, days=days, mode=mode, size=size, desc=desc, recalculate_immediately=recalculate_immediately))
@@ -2134,28 +2212,48 @@ class CharacterFx(AnyFx):
 
 
 class CharacterInteractionFx(AnyFx):
-    def limit(self) -> ContextManager[CharacterInteractionTrig]:
-        return self._open("limit", CharacterInteractionTrig)
+    @overload
+    def limit(self) -> ContextManager[CharacterInteractionTrig]: ...
+    @overload
+    def limit(self, body: Callable[[CharacterInteractionTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[CharacterInteractionTrig], Any] | None = None) -> Any:
+        return self._run("limit", CharacterInteractionTrig, body)
 
 
 class ChildEducationFx(AnyFx):
-    def limit(self) -> ContextManager[ChildEducationTrig]:
-        return self._open("limit", ChildEducationTrig)
+    @overload
+    def limit(self) -> ContextManager[ChildEducationTrig]: ...
+    @overload
+    def limit(self, body: Callable[[ChildEducationTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[ChildEducationTrig], Any] | None = None) -> Any:
+        return self._run("limit", ChildEducationTrig, body)
 
 
 class ChivalricOrderFx(AnyFx):
-    def limit(self) -> ContextManager[ChivalricOrderTrig]:
-        return self._open("limit", ChivalricOrderTrig)
+    @overload
+    def limit(self) -> ContextManager[ChivalricOrderTrig]: ...
+    @overload
+    def limit(self, body: Callable[[ChivalricOrderTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[ChivalricOrderTrig], Any] | None = None) -> Any:
+        return self._run("limit", ChivalricOrderTrig, body)
 
 
 class ClimateFx(AnyFx):
-    def limit(self) -> ContextManager[ClimateTrig]:
-        return self._open("limit", ClimateTrig)
+    @overload
+    def limit(self) -> ContextManager[ClimateTrig]: ...
+    @overload
+    def limit(self, body: Callable[[ClimateTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[ClimateTrig], Any] | None = None) -> Any:
+        return self._run("limit", ClimateTrig, body)
 
 
 class ColonialCharterFx(AnyFx):
-    def limit(self) -> ContextManager[ColonialCharterTrig]:
-        return self._open("limit", ColonialCharterTrig)
+    @overload
+    def limit(self) -> ContextManager[ColonialCharterTrig]: ...
+    @overload
+    def limit(self, body: Callable[[ColonialCharterTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[ColonialCharterTrig], Any] | None = None) -> Any:
+        return self._run("limit", ColonialCharterTrig, body)
     def add_additional_migration(self, _v: Any, /) -> None: self._call("add_additional_migration", _v)
     def change_colonial_charter_owner(self, _v: Any, /) -> None: self._call("change_colonial_charter_owner", _v)
     def go_owner(self, *, op: Op = "=") -> ContextManager[CountryFx]:
@@ -2166,13 +2264,21 @@ class ColonialCharterFx(AnyFx):
 
 
 class ColorFx(AnyFx):
-    def limit(self) -> ContextManager[ColorTrig]:
-        return self._open("limit", ColorTrig)
+    @overload
+    def limit(self) -> ContextManager[ColorTrig]: ...
+    @overload
+    def limit(self, body: Callable[[ColorTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[ColorTrig], Any] | None = None) -> Any:
+        return self._run("limit", ColorTrig, body)
 
 
 class CombatFx(AnyFx):
-    def limit(self) -> ContextManager[CombatTrig]:
-        return self._open("limit", CombatTrig)
+    @overload
+    def limit(self) -> ContextManager[CombatTrig]: ...
+    @overload
+    def limit(self, body: Callable[[CombatTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[CombatTrig], Any] | None = None) -> Any:
+        return self._run("limit", CombatTrig, body)
     def go_combat_attacker(self, *, op: Op = "=") -> ContextManager[CombatSideFx]:
         return self.link("combat_attacker", CombatSideFx, op=op)
     def go_combat_defender(self, *, op: Op = "=") -> ContextManager[CombatSideFx]:
@@ -2182,8 +2288,12 @@ class CombatFx(AnyFx):
 
 
 class CombatSideFx(AnyFx):
-    def limit(self) -> ContextManager[CombatSideTrig]:
-        return self._open("limit", CombatSideTrig)
+    @overload
+    def limit(self) -> ContextManager[CombatSideTrig]: ...
+    @overload
+    def limit(self, body: Callable[[CombatSideTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[CombatSideTrig], Any] | None = None) -> Any:
+        return self._run("limit", CombatSideTrig, body)
     def every_center(self) -> ContextManager[SubUnitFx]:
         return self._open("every_center", SubUnitFx)
     def every_left_flank(self) -> ContextManager[SubUnitFx]:
@@ -2239,8 +2349,12 @@ class CombatSideFx(AnyFx):
 
 
 class ContinentFx(AnyFx):
-    def limit(self) -> ContextManager[ContinentTrig]:
-        return self._open("limit", ContinentTrig)
+    @overload
+    def limit(self) -> ContextManager[ContinentTrig]: ...
+    @overload
+    def limit(self, body: Callable[[ContinentTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[ContinentTrig], Any] | None = None) -> Any:
+        return self._run("limit", ContinentTrig, body)
     def every_country_with_capital_in_geography(self) -> ContextManager[CountryFx]:
         return self._open("every_country_with_capital_in_geography", CountryFx)
     def every_location_in_continent(self) -> ContextManager[LocationFx]:
@@ -2280,8 +2394,12 @@ class ContinentFx(AnyFx):
 
 
 class CountryFx(AnyFx):
-    def limit(self) -> ContextManager[CountryTrig]:
-        return self._open("limit", CountryTrig)
+    @overload
+    def limit(self) -> ContextManager[CountryTrig]: ...
+    @overload
+    def limit(self, body: Callable[[CountryTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[CountryTrig], Any] | None = None) -> Any:
+        return self._run("limit", CountryTrig, body)
     def abandon_location(self, _v: Any, /) -> None: self._call("abandon_location", _v)
     def add_accepted_culture(self, _v: Any, /) -> None: self._call("add_accepted_culture", _v)
     def add_antagonism(self, *, target: Any, modifier: Any) -> None: self._call("add_antagonism", **_kw(target=target, modifier=modifier))
@@ -2363,7 +2481,7 @@ class CountryFx(AnyFx):
     def change_country_flag(self, _v: Any, /) -> None: self._call("change_country_flag", _v)
     def change_country_modifier_size(self, *, modifier: Any = None, value: Any = None) -> None: self._call("change_country_modifier_size", **_kw(modifier=modifier, value=value))
     def change_country_name(self, _v: Any, /) -> None: self._call("change_country_name", _v)
-    def change_country_type(self, _v: Any, /) -> None: self._call("change_country_type", _v)
+    def change_country_type(self, _v: CountryType, /) -> None: self._call("change_country_type", _v)
     def change_creditworthiness(self, *args: Any, **kw: Any) -> None: self._call("change_creditworthiness", *args, **kw)
     def change_culture(self, _v: Any, /) -> None: self._call("change_culture", _v)
     def change_explorer(self, *, area: Any = None, character: Any = None) -> None: self._call("change_explorer", **_kw(area=area, character=character))
@@ -3416,18 +3534,30 @@ class CountryFx(AnyFx):
 
 
 class CountryInteractionFx(AnyFx):
-    def limit(self) -> ContextManager[CountryInteractionTrig]:
-        return self._open("limit", CountryInteractionTrig)
+    @overload
+    def limit(self) -> ContextManager[CountryInteractionTrig]: ...
+    @overload
+    def limit(self, body: Callable[[CountryInteractionTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[CountryInteractionTrig], Any] | None = None) -> Any:
+        return self._run("limit", CountryInteractionTrig, body)
 
 
 class CountryRankFx(AnyFx):
-    def limit(self) -> ContextManager[CountryRankTrig]:
-        return self._open("limit", CountryRankTrig)
+    @overload
+    def limit(self) -> ContextManager[CountryRankTrig]: ...
+    @overload
+    def limit(self, body: Callable[[CountryRankTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[CountryRankTrig], Any] | None = None) -> Any:
+        return self._run("limit", CountryRankTrig, body)
 
 
 class CultureFx(AnyFx):
-    def limit(self) -> ContextManager[CultureTrig]:
-        return self._open("limit", CultureTrig)
+    @overload
+    def limit(self) -> ContextManager[CultureTrig]: ...
+    @overload
+    def limit(self, body: Callable[[CultureTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[CultureTrig], Any] | None = None) -> Any:
+        return self._run("limit", CultureTrig, body)
     def add_cultural_influence(self, _v: Any, /) -> None: self._call("add_cultural_influence", _v)
     def add_cultural_tradition(self, _v: Any, /) -> None: self._call("add_cultural_tradition", _v)
     def change_cultural_view(self, *, target: Any, change: Any) -> None: self._call("change_cultural_view", **_kw(target=target, change=change))
@@ -3470,8 +3600,12 @@ class CultureFx(AnyFx):
 
 
 class CultureGroupFx(AnyFx):
-    def limit(self) -> ContextManager[CultureGroupTrig]:
-        return self._open("limit", CultureGroupTrig)
+    @overload
+    def limit(self) -> ContextManager[CultureGroupTrig]: ...
+    @overload
+    def limit(self, body: Callable[[CultureGroupTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[CultureGroupTrig], Any] | None = None) -> Any:
+        return self._run("limit", CultureGroupTrig, body)
     def every_country_in_culture_group(self) -> ContextManager[CountryFx]:
         return self._open("every_country_in_culture_group", CountryFx)
     def every_culture_in_culture_group(self) -> ContextManager[CultureFx]:
@@ -3487,13 +3621,21 @@ class CultureGroupFx(AnyFx):
 
 
 class DateFx(AnyFx):
-    def limit(self) -> ContextManager[DateTrig]:
-        return self._open("limit", DateTrig)
+    @overload
+    def limit(self) -> ContextManager[DateTrig]: ...
+    @overload
+    def limit(self, body: Callable[[DateTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[DateTrig], Any] | None = None) -> Any:
+        return self._run("limit", DateTrig, body)
 
 
 class DemandFx(AnyFx):
-    def limit(self) -> ContextManager[DemandTrig]:
-        return self._open("limit", DemandTrig)
+    @overload
+    def limit(self) -> ContextManager[DemandTrig]: ...
+    @overload
+    def limit(self, body: Callable[[DemandTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[DemandTrig], Any] | None = None) -> Any:
+        return self._run("limit", DemandTrig, body)
     def every_good_in_demand(self) -> ContextManager[GoodsFx]:
         return self._open("every_good_in_demand", GoodsFx)
     def ordered_good_in_demand(self, *, order_by: Any = None, position: Any = None, min: Any = None, max: Any = None, check_range_bounds: Any = None) -> ContextManager[GoodsFx]:
@@ -3503,15 +3645,23 @@ class DemandFx(AnyFx):
 
 
 class DialectFx(AnyFx):
-    def limit(self) -> ContextManager[DialectTrig]:
-        return self._open("limit", DialectTrig)
+    @overload
+    def limit(self) -> ContextManager[DialectTrig]: ...
+    @overload
+    def limit(self, body: Callable[[DialectTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[DialectTrig], Any] | None = None) -> Any:
+        return self._run("limit", DialectTrig, body)
     def go_language(self, *, op: Op = "=") -> ContextManager[LanguageFx]:
         return self.link("language", LanguageFx, op=op)
 
 
 class DisasterFx(AnyFx):
-    def limit(self) -> ContextManager[DisasterTrig]:
-        return self._open("limit", DisasterTrig)
+    @overload
+    def limit(self) -> ContextManager[DisasterTrig]: ...
+    @overload
+    def limit(self, body: Callable[[DisasterTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[DisasterTrig], Any] | None = None) -> Any:
+        return self._run("limit", DisasterTrig, body)
     def go_disaster_type(self, *, op: Op = "=") -> ContextManager[DisasterTypeFx]:
         return self.link("disaster_type", DisasterTypeFx, op=op)
     def go_owner(self, *, op: Op = "=") -> ContextManager[CountryFx]:
@@ -3519,13 +3669,21 @@ class DisasterFx(AnyFx):
 
 
 class DisasterTypeFx(AnyFx):
-    def limit(self) -> ContextManager[DisasterTypeTrig]:
-        return self._open("limit", DisasterTypeTrig)
+    @overload
+    def limit(self) -> ContextManager[DisasterTypeTrig]: ...
+    @overload
+    def limit(self, body: Callable[[DisasterTypeTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[DisasterTypeTrig], Any] | None = None) -> Any:
+        return self._run("limit", DisasterTypeTrig, body)
 
 
 class DiseaseFx(AnyFx):
-    def limit(self) -> ContextManager[DiseaseTrig]:
-        return self._open("limit", DiseaseTrig)
+    @overload
+    def limit(self) -> ContextManager[DiseaseTrig]: ...
+    @overload
+    def limit(self, body: Callable[[DiseaseTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[DiseaseTrig], Any] | None = None) -> Any:
+        return self._run("limit", DiseaseTrig, body)
     def go_origin(self, *, op: Op = "=") -> ContextManager[LocationFx]:
         return self.link("origin", LocationFx, op=op)
     def go_original_outbreak(self, *, op: Op = "=") -> ContextManager[DiseaseOutbreakFx]:
@@ -3533,8 +3691,12 @@ class DiseaseFx(AnyFx):
 
 
 class DiseaseOutbreakFx(AnyFx):
-    def limit(self) -> ContextManager[DiseaseOutbreakTrig]:
-        return self._open("limit", DiseaseOutbreakTrig)
+    @overload
+    def limit(self) -> ContextManager[DiseaseOutbreakTrig]: ...
+    @overload
+    def limit(self, body: Callable[[DiseaseOutbreakTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[DiseaseOutbreakTrig], Any] | None = None) -> Any:
+        return self._run("limit", DiseaseOutbreakTrig, body)
     def go_disease(self, *, op: Op = "=") -> ContextManager[DiseaseFx]:
         return self.link("disease", DiseaseFx, op=op)
     def go_origin(self, *, op: Op = "=") -> ContextManager[LocationFx]:
@@ -3542,8 +3704,12 @@ class DiseaseOutbreakFx(AnyFx):
 
 
 class DynastyFx(AnyFx):
-    def limit(self) -> ContextManager[DynastyTrig]:
-        return self._open("limit", DynastyTrig)
+    @overload
+    def limit(self) -> ContextManager[DynastyTrig]: ...
+    @overload
+    def limit(self, body: Callable[[DynastyTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[DynastyTrig], Any] | None = None) -> Any:
+        return self._run("limit", DynastyTrig, body)
     def add_dynasty_modifier(self, *, modifier: Any = None, days: Any = None, months: Any = None, years: Any = None, mode: Any = None, size: Any = None, desc: Any = None) -> None: self._call("add_dynasty_modifier", **_kw(modifier=modifier, days=days, months=months, years=years, mode=mode, size=size, desc=desc))
     def change_dynasty_modifier_size(self, *, modifier: Any = None, value: Any = None, recalculate_immediately: Any = None) -> None: self._call("change_dynasty_modifier_size", **_kw(modifier=modifier, value=value, recalculate_immediately=recalculate_immediately))
     def every_available_dynasty_member(self) -> ContextManager[CharacterFx]:
@@ -3585,13 +3751,21 @@ class DynastyFx(AnyFx):
 
 
 class EmploymentSystemFx(AnyFx):
-    def limit(self) -> ContextManager[EmploymentSystemTrig]:
-        return self._open("limit", EmploymentSystemTrig)
+    @overload
+    def limit(self) -> ContextManager[EmploymentSystemTrig]: ...
+    @overload
+    def limit(self, body: Callable[[EmploymentSystemTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[EmploymentSystemTrig], Any] | None = None) -> Any:
+        return self._run("limit", EmploymentSystemTrig, body)
 
 
 class EstateFx(AnyFx):
-    def limit(self) -> ContextManager[EstateTrig]:
-        return self._open("limit", EstateTrig)
+    @overload
+    def limit(self) -> ContextManager[EstateTrig]: ...
+    @overload
+    def limit(self, body: Callable[[EstateTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[EstateTrig], Any] | None = None) -> Any:
+        return self._run("limit", EstateTrig, body)
     def estate_add_gold(self, *args: Any, **kw: Any) -> None: self._call("estate_add_gold", *args, **kw)
     def every_building_owned_by_estate(self) -> ContextManager[BuildingFx]:
         return self._open("every_building_owned_by_estate", BuildingFx)
@@ -3618,25 +3792,41 @@ class EstateFx(AnyFx):
 
 
 class EstatePrivilegeFx(AnyFx):
-    def limit(self) -> ContextManager[EstatePrivilegeTrig]:
-        return self._open("limit", EstatePrivilegeTrig)
+    @overload
+    def limit(self) -> ContextManager[EstatePrivilegeTrig]: ...
+    @overload
+    def limit(self, body: Callable[[EstatePrivilegeTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[EstatePrivilegeTrig], Any] | None = None) -> Any:
+        return self._run("limit", EstatePrivilegeTrig, body)
     def go_estate_type(self, *, op: Op = "=") -> ContextManager[EstateTypeFx]:
         return self.link("estate_type", EstateTypeFx, op=op)
 
 
 class EstateTypeFx(AnyFx):
-    def limit(self) -> ContextManager[EstateTypeTrig]:
-        return self._open("limit", EstateTypeTrig)
+    @overload
+    def limit(self) -> ContextManager[EstateTypeTrig]: ...
+    @overload
+    def limit(self, body: Callable[[EstateTypeTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[EstateTypeTrig], Any] | None = None) -> Any:
+        return self._run("limit", EstateTypeTrig, body)
 
 
 class EthnicityFx(AnyFx):
-    def limit(self) -> ContextManager[EthnicityTrig]:
-        return self._open("limit", EthnicityTrig)
+    @overload
+    def limit(self) -> ContextManager[EthnicityTrig]: ...
+    @overload
+    def limit(self, body: Callable[[EthnicityTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[EthnicityTrig], Any] | None = None) -> Any:
+        return self._run("limit", EthnicityTrig, body)
 
 
 class ExplorationFx(AnyFx):
-    def limit(self) -> ContextManager[ExplorationTrig]:
-        return self._open("limit", ExplorationTrig)
+    @overload
+    def limit(self) -> ContextManager[ExplorationTrig]: ...
+    @overload
+    def limit(self, body: Callable[[ExplorationTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[ExplorationTrig], Any] | None = None) -> Any:
+        return self._run("limit", ExplorationTrig, body)
     def change_exploration_progress(self, *, value: Any = None, multiply: Any = None) -> None: self._call("change_exploration_progress", **_kw(value=value, multiply=multiply))
     def go_area(self, *, op: Op = "=") -> ContextManager[AreaFx]:
         return self.link("area", AreaFx, op=op)
@@ -3650,23 +3840,39 @@ class ExplorationFx(AnyFx):
 
 
 class FlagFx(AnyFx):
-    def limit(self) -> ContextManager[FlagTrig]:
-        return self._open("limit", FlagTrig)
+    @overload
+    def limit(self) -> ContextManager[FlagTrig]: ...
+    @overload
+    def limit(self, body: Callable[[FlagTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[FlagTrig], Any] | None = None) -> Any:
+        return self._run("limit", FlagTrig, body)
 
 
 class FormableCountryFx(AnyFx):
-    def limit(self) -> ContextManager[FormableCountryTrig]:
-        return self._open("limit", FormableCountryTrig)
+    @overload
+    def limit(self) -> ContextManager[FormableCountryTrig]: ...
+    @overload
+    def limit(self, body: Callable[[FormableCountryTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[FormableCountryTrig], Any] | None = None) -> Any:
+        return self._run("limit", FormableCountryTrig, body)
 
 
 class GenericActionFx(AnyFx):
-    def limit(self) -> ContextManager[GenericActionTrig]:
-        return self._open("limit", GenericActionTrig)
+    @overload
+    def limit(self) -> ContextManager[GenericActionTrig]: ...
+    @overload
+    def limit(self, body: Callable[[GenericActionTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[GenericActionTrig], Any] | None = None) -> Any:
+        return self._run("limit", GenericActionTrig, body)
 
 
 class GodFx(AnyFx):
-    def limit(self) -> ContextManager[GodTrig]:
-        return self._open("limit", GodTrig)
+    @overload
+    def limit(self) -> ContextManager[GodTrig]: ...
+    @overload
+    def limit(self, body: Callable[[GodTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[GodTrig], Any] | None = None) -> Any:
+        return self._run("limit", GodTrig, body)
     def every_avatar_for_god(self) -> ContextManager[AvatarFx]:
         return self._open("every_avatar_for_god", AvatarFx)
     def every_omen_in_god(self) -> ContextManager[OmenFx]:
@@ -3690,28 +3896,48 @@ class GodFx(AnyFx):
 
 
 class GoodsFx(AnyFx):
-    def limit(self) -> ContextManager[GoodsTrig]:
-        return self._open("limit", GoodsTrig)
+    @overload
+    def limit(self) -> ContextManager[GoodsTrig]: ...
+    @overload
+    def limit(self, body: Callable[[GoodsTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[GoodsTrig], Any] | None = None) -> Any:
+        return self._run("limit", GoodsTrig, body)
 
 
 class GovernmentFx(AnyFx):
-    def limit(self) -> ContextManager[GovernmentTrig]:
-        return self._open("limit", GovernmentTrig)
+    @overload
+    def limit(self) -> ContextManager[GovernmentTrig]: ...
+    @overload
+    def limit(self, body: Callable[[GovernmentTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[GovernmentTrig], Any] | None = None) -> Any:
+        return self._run("limit", GovernmentTrig, body)
 
 
 class GovernmentReformFx(AnyFx):
-    def limit(self) -> ContextManager[GovernmentReformTrig]:
-        return self._open("limit", GovernmentReformTrig)
+    @overload
+    def limit(self) -> ContextManager[GovernmentReformTrig]: ...
+    @overload
+    def limit(self, body: Callable[[GovernmentReformTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[GovernmentReformTrig], Any] | None = None) -> Any:
+        return self._run("limit", GovernmentReformTrig, body)
 
 
 class GraphicalCultureFx(AnyFx):
-    def limit(self) -> ContextManager[GraphicalCultureTrig]:
-        return self._open("limit", GraphicalCultureTrig)
+    @overload
+    def limit(self) -> ContextManager[GraphicalCultureTrig]: ...
+    @overload
+    def limit(self, body: Callable[[GraphicalCultureTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[GraphicalCultureTrig], Any] | None = None) -> Any:
+        return self._run("limit", GraphicalCultureTrig, body)
 
 
 class GroupFx(AnyFx):
-    def limit(self) -> ContextManager[GroupTrig]:
-        return self._open("limit", GroupTrig)
+    @overload
+    def limit(self) -> ContextManager[GroupTrig]: ...
+    @overload
+    def limit(self, body: Callable[[GroupTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[GroupTrig], Any] | None = None) -> Any:
+        return self._run("limit", GroupTrig, body)
     def every_country_in_religion_group(self) -> ContextManager[CountryFx]:
         return self._open("every_country_in_religion_group", CountryFx)
     def every_religion_in_religion_group(self) -> ContextManager[ReligionFx]:
@@ -3727,13 +3953,21 @@ class GroupFx(AnyFx):
 
 
 class HegemonyFx(AnyFx):
-    def limit(self) -> ContextManager[HegemonyTrig]:
-        return self._open("limit", HegemonyTrig)
+    @overload
+    def limit(self) -> ContextManager[HegemonyTrig]: ...
+    @overload
+    def limit(self, body: Callable[[HegemonyTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[HegemonyTrig], Any] | None = None) -> Any:
+        return self._run("limit", HegemonyTrig, body)
 
 
 class HeirSelectionFx(AnyFx):
-    def limit(self) -> ContextManager[HeirSelectionTrig]:
-        return self._open("limit", HeirSelectionTrig)
+    @overload
+    def limit(self) -> ContextManager[HeirSelectionTrig]: ...
+    @overload
+    def limit(self, body: Callable[[HeirSelectionTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[HeirSelectionTrig], Any] | None = None) -> Any:
+        return self._run("limit", HeirSelectionTrig, body)
     def every_allowed_estate_in_heir_selection(self) -> ContextManager[EstateTypeFx]:
         return self._open("every_allowed_estate_in_heir_selection", EstateTypeFx)
     def ordered_allowed_estate_in_heir_selection(self, *, order_by: Any = None, position: Any = None, min: Any = None, max: Any = None, check_range_bounds: Any = None) -> ContextManager[EstateTypeFx]:
@@ -3743,8 +3977,12 @@ class HeirSelectionFx(AnyFx):
 
 
 class HolySiteFx(AnyFx):
-    def limit(self) -> ContextManager[HolySiteTrig]:
-        return self._open("limit", HolySiteTrig)
+    @overload
+    def limit(self) -> ContextManager[HolySiteTrig]: ...
+    @overload
+    def limit(self, body: Callable[[HolySiteTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[HolySiteTrig], Any] | None = None) -> Any:
+        return self._run("limit", HolySiteTrig, body)
     def go_avatar(self, *, op: Op = "=") -> ContextManager[AvatarFx]:
         return self.link("avatar", AvatarFx, op=op)
     def go_god(self, *, op: Op = "=") -> ContextManager[GodFx]:
@@ -3754,18 +3992,30 @@ class HolySiteFx(AnyFx):
 
 
 class HolySiteDefinitionFx(AnyFx):
-    def limit(self) -> ContextManager[HolySiteDefinitionTrig]:
-        return self._open("limit", HolySiteDefinitionTrig)
+    @overload
+    def limit(self) -> ContextManager[HolySiteDefinitionTrig]: ...
+    @overload
+    def limit(self, body: Callable[[HolySiteDefinitionTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[HolySiteDefinitionTrig], Any] | None = None) -> Any:
+        return self._run("limit", HolySiteDefinitionTrig, body)
 
 
 class HolySiteTypeFx(AnyFx):
-    def limit(self) -> ContextManager[HolySiteTypeTrig]:
-        return self._open("limit", HolySiteTypeTrig)
+    @overload
+    def limit(self) -> ContextManager[HolySiteTypeTrig]: ...
+    @overload
+    def limit(self, body: Callable[[HolySiteTypeTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[HolySiteTypeTrig], Any] | None = None) -> Any:
+        return self._run("limit", HolySiteTypeTrig, body)
 
 
 class ImperialCircleFx(AnyFx):
-    def limit(self) -> ContextManager[ImperialCircleTrig]:
-        return self._open("limit", ImperialCircleTrig)
+    @overload
+    def limit(self) -> ContextManager[ImperialCircleTrig]: ...
+    @overload
+    def limit(self, body: Callable[[ImperialCircleTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[ImperialCircleTrig], Any] | None = None) -> Any:
+        return self._run("limit", ImperialCircleTrig, body)
     def add_circle_satisfaction(self, _v: Any, /) -> None: self._call("add_circle_satisfaction", _v)
     def add_country_to_circle(self, _v: Any, /) -> None: self._call("add_country_to_circle", _v)
     def clear_circle_leader(self, *args: Any, **kw: Any) -> None: self._call("clear_circle_leader", *args, **kw)
@@ -3784,15 +4034,23 @@ class ImperialCircleFx(AnyFx):
 
 
 class InstitutionFx(AnyFx):
-    def limit(self) -> ContextManager[InstitutionTrig]:
-        return self._open("limit", InstitutionTrig)
+    @overload
+    def limit(self) -> ContextManager[InstitutionTrig]: ...
+    @overload
+    def limit(self, body: Callable[[InstitutionTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[InstitutionTrig], Any] | None = None) -> Any:
+        return self._run("limit", InstitutionTrig, body)
     def go_origin(self, *, op: Op = "=") -> ContextManager[LocationFx]:
         return self.link("origin", LocationFx, op=op)
 
 
 class InternationalOrganizationFx(AnyFx):
-    def limit(self) -> ContextManager[InternationalOrganizationTrig]:
-        return self._open("limit", InternationalOrganizationTrig)
+    @overload
+    def limit(self) -> ContextManager[InternationalOrganizationTrig]: ...
+    @overload
+    def limit(self, body: Callable[[InternationalOrganizationTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[InternationalOrganizationTrig], Any] | None = None) -> Any:
+        return self._run("limit", InternationalOrganizationTrig, body)
     def add_army_tradition(self, _v: Any, /) -> None: self._call("add_army_tradition", _v)
     def add_complacency(self, _v: Any, /) -> None: self._call("add_complacency", _v)
     def add_cooldown(self, *, type: Any, days: Any = None, months: Any = None, years: Any = None) -> None: self._call("add_cooldown", **_kw(type=type, days=days, months=months, years=years))
@@ -3980,30 +4238,50 @@ class InternationalOrganizationFx(AnyFx):
 
 
 class InternationalOrganizationTypeFx(AnyFx):
-    def limit(self) -> ContextManager[InternationalOrganizationTypeTrig]:
-        return self._open("limit", InternationalOrganizationTypeTrig)
+    @overload
+    def limit(self) -> ContextManager[InternationalOrganizationTypeTrig]: ...
+    @overload
+    def limit(self, body: Callable[[InternationalOrganizationTypeTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[InternationalOrganizationTypeTrig], Any] | None = None) -> Any:
+        return self._run("limit", InternationalOrganizationTypeTrig, body)
 
 
 class LandOwnershipRuleFx(AnyFx):
-    def limit(self) -> ContextManager[LandOwnershipRuleTrig]:
-        return self._open("limit", LandOwnershipRuleTrig)
+    @overload
+    def limit(self) -> ContextManager[LandOwnershipRuleTrig]: ...
+    @overload
+    def limit(self, body: Callable[[LandOwnershipRuleTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[LandOwnershipRuleTrig], Any] | None = None) -> Any:
+        return self._run("limit", LandOwnershipRuleTrig, body)
 
 
 class LanguageFx(AnyFx):
-    def limit(self) -> ContextManager[LanguageTrig]:
-        return self._open("limit", LanguageTrig)
+    @overload
+    def limit(self) -> ContextManager[LanguageTrig]: ...
+    @overload
+    def limit(self, body: Callable[[LanguageTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[LanguageTrig], Any] | None = None) -> Any:
+        return self._run("limit", LanguageTrig, body)
     def go_language_family(self, *, op: Op = "=") -> ContextManager[LanguageFamilyFx]:
         return self.link("language_family", LanguageFamilyFx, op=op)
 
 
 class LanguageFamilyFx(AnyFx):
-    def limit(self) -> ContextManager[LanguageFamilyTrig]:
-        return self._open("limit", LanguageFamilyTrig)
+    @overload
+    def limit(self) -> ContextManager[LanguageFamilyTrig]: ...
+    @overload
+    def limit(self, body: Callable[[LanguageFamilyTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[LanguageFamilyTrig], Any] | None = None) -> Any:
+        return self._run("limit", LanguageFamilyTrig, body)
 
 
 class LawFx(AnyFx):
-    def limit(self) -> ContextManager[LawTrig]:
-        return self._open("limit", LawTrig)
+    @overload
+    def limit(self) -> ContextManager[LawTrig]: ...
+    @overload
+    def limit(self, body: Callable[[LawTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[LawTrig], Any] | None = None) -> Any:
+        return self._run("limit", LawTrig, body)
     def every_policy_in_law(self) -> ContextManager[PolicyFx]:
         return self._open("every_policy_in_law", PolicyFx)
     def ordered_policy_in_law(self, *, order_by: Any = None, position: Any = None, min: Any = None, max: Any = None, check_range_bounds: Any = None) -> ContextManager[PolicyFx]:
@@ -4013,13 +4291,21 @@ class LawFx(AnyFx):
 
 
 class LevySetupFx(AnyFx):
-    def limit(self) -> ContextManager[LevySetupTrig]:
-        return self._open("limit", LevySetupTrig)
+    @overload
+    def limit(self) -> ContextManager[LevySetupTrig]: ...
+    @overload
+    def limit(self, body: Callable[[LevySetupTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[LevySetupTrig], Any] | None = None) -> Any:
+        return self._run("limit", LevySetupTrig, body)
 
 
 class LoanFx(AnyFx):
-    def limit(self) -> ContextManager[LoanTrig]:
-        return self._open("limit", LoanTrig)
+    @overload
+    def limit(self) -> ContextManager[LoanTrig]: ...
+    @overload
+    def limit(self, body: Callable[[LoanTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[LoanTrig], Any] | None = None) -> Any:
+        return self._run("limit", LoanTrig, body)
     def change_loan_amount(self, *, value: Any = None, multiply: Any = None) -> None: self._call("change_loan_amount", **_kw(value=value, multiply=multiply))
     def change_loan_borrower(self, *args: Any, **kw: Any) -> None: self._call("change_loan_borrower", *args, **kw)
     def change_loan_interest(self, _v: Any, /) -> None: self._call("change_loan_interest", _v)
@@ -4032,8 +4318,12 @@ class LoanFx(AnyFx):
 
 
 class LocationFx(AnyFx):
-    def limit(self) -> ContextManager[LocationTrig]:
-        return self._open("limit", LocationTrig)
+    @overload
+    def limit(self) -> ContextManager[LocationTrig]: ...
+    @overload
+    def limit(self, body: Callable[[LocationTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[LocationTrig], Any] | None = None) -> Any:
+        return self._run("limit", LocationTrig, body)
     def add_core(self, _v: Any, /) -> None: self._call("add_core", _v)
     def add_location_modifier(self, *, modifier: Any, years: Any = None, months: Any = None, days: Any = None, mode: Mode | None = None, size: Any = None, desc: Any = None) -> None: self._call("add_location_modifier", **_kw(modifier=modifier, years=years, months=months, days=days, mode=mode, size=size, desc=desc))
     def add_pop(self, *, culture: Any, religion: Any, type: Any, size: Any) -> None: self._call("add_pop", **_kw(culture=culture, religion=religion, type=type, size=size))
@@ -4283,13 +4573,21 @@ class LocationFx(AnyFx):
 
 
 class LocationRankFx(AnyFx):
-    def limit(self) -> ContextManager[LocationRankTrig]:
-        return self._open("limit", LocationRankTrig)
+    @overload
+    def limit(self) -> ContextManager[LocationRankTrig]: ...
+    @overload
+    def limit(self, body: Callable[[LocationRankTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[LocationRankTrig], Any] | None = None) -> Any:
+        return self._run("limit", LocationRankTrig, body)
 
 
 class MarketFx(AnyFx):
-    def limit(self) -> ContextManager[MarketTrig]:
-        return self._open("limit", MarketTrig)
+    @overload
+    def limit(self) -> ContextManager[MarketTrig]: ...
+    @overload
+    def limit(self, body: Callable[[MarketTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[MarketTrig], Any] | None = None) -> Any:
+        return self._run("limit", MarketTrig, body)
     def add_goods_supply(self, *, goods: Any, amount: Any) -> None: self._call("add_goods_supply", **_kw(goods=goods, amount=amount))
     def add_merchant_power(self, *args: Any, **kw: Any) -> None: self._call("add_merchant_power", *args, **kw)
     def add_temporary_demand(self, *, type: Any, scale_with_pop: Any = None, years: Any) -> None: self._call("add_temporary_demand", **_kw(type=type, scale_with_pop=scale_with_pop, years=years))
@@ -4335,8 +4633,12 @@ class MarketFx(AnyFx):
 
 
 class MercenaryFx(AnyFx):
-    def limit(self) -> ContextManager[MercenaryTrig]:
-        return self._open("limit", MercenaryTrig)
+    @overload
+    def limit(self) -> ContextManager[MercenaryTrig]: ...
+    @overload
+    def limit(self, body: Callable[[MercenaryTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[MercenaryTrig], Any] | None = None) -> Any:
+        return self._run("limit", MercenaryTrig, body)
     def become_hired_by(self, *args: Any, **kw: Any) -> None: self._call("become_hired_by", *args, **kw)
     def every_mercenary_sub_unit(self) -> ContextManager[SubUnitFx]:
         return self._open("every_mercenary_sub_unit", SubUnitFx)
@@ -4359,23 +4661,39 @@ class MercenaryFx(AnyFx):
 
 
 class MilitaryStanceFx(AnyFx):
-    def limit(self) -> ContextManager[MilitaryStanceTrig]:
-        return self._open("limit", MilitaryStanceTrig)
+    @overload
+    def limit(self) -> ContextManager[MilitaryStanceTrig]: ...
+    @overload
+    def limit(self, body: Callable[[MilitaryStanceTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[MilitaryStanceTrig], Any] | None = None) -> Any:
+        return self._run("limit", MilitaryStanceTrig, body)
 
 
 class MissionFx(AnyFx):
-    def limit(self) -> ContextManager[MissionTrig]:
-        return self._open("limit", MissionTrig)
+    @overload
+    def limit(self) -> ContextManager[MissionTrig]: ...
+    @overload
+    def limit(self, body: Callable[[MissionTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[MissionTrig], Any] | None = None) -> Any:
+        return self._run("limit", MissionTrig, body)
 
 
 class MissionTaskFx(AnyFx):
-    def limit(self) -> ContextManager[MissionTaskTrig]:
-        return self._open("limit", MissionTaskTrig)
+    @overload
+    def limit(self) -> ContextManager[MissionTaskTrig]: ...
+    @overload
+    def limit(self, body: Callable[[MissionTaskTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[MissionTaskTrig], Any] | None = None) -> Any:
+        return self._run("limit", MissionTaskTrig, body)
 
 
 class MovementFx(AnyFx):
-    def limit(self) -> ContextManager[MovementTrig]:
-        return self._open("limit", MovementTrig)
+    @overload
+    def limit(self) -> ContextManager[MovementTrig]: ...
+    @overload
+    def limit(self, body: Callable[[MovementTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[MovementTrig], Any] | None = None) -> Any:
+        return self._run("limit", MovementTrig, body)
     def add_movement_modifier(self, *, modifier: Any = None, days: Any = None, months: Any = None, years: Any = None, mode: Any = None, size: Any = None, desc: Any = None) -> None: self._call("add_movement_modifier", **_kw(modifier=modifier, days=days, months=months, years=years, mode=mode, size=size, desc=desc))
     def add_spreader(self, *, character: Any = None, location: Any = None) -> None: self._call("add_spreader", **_kw(character=character, location=location))
     def destroy_movement(self, *args: Any, **kw: Any) -> None: self._call("destroy_movement", *args, **kw)
@@ -4397,25 +4715,41 @@ class MovementFx(AnyFx):
 
 
 class MovementDefinitionFx(AnyFx):
-    def limit(self) -> ContextManager[MovementDefinitionTrig]:
-        return self._open("limit", MovementDefinitionTrig)
+    @overload
+    def limit(self) -> ContextManager[MovementDefinitionTrig]: ...
+    @overload
+    def limit(self, body: Callable[[MovementDefinitionTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[MovementDefinitionTrig], Any] | None = None) -> Any:
+        return self._run("limit", MovementDefinitionTrig, body)
 
 
 class OmenFx(AnyFx):
-    def limit(self) -> ContextManager[OmenTrig]:
-        return self._open("limit", OmenTrig)
+    @overload
+    def limit(self) -> ContextManager[OmenTrig]: ...
+    @overload
+    def limit(self, body: Callable[[OmenTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[OmenTrig], Any] | None = None) -> Any:
+        return self._run("limit", OmenTrig, body)
     def go_god(self, *, op: Op = "=") -> ContextManager[GodFx]:
         return self.link("god", GodFx, op=op)
 
 
 class ParliamentAgendaFx(AnyFx):
-    def limit(self) -> ContextManager[ParliamentAgendaTrig]:
-        return self._open("limit", ParliamentAgendaTrig)
+    @overload
+    def limit(self) -> ContextManager[ParliamentAgendaTrig]: ...
+    @overload
+    def limit(self, body: Callable[[ParliamentAgendaTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[ParliamentAgendaTrig], Any] | None = None) -> Any:
+        return self._run("limit", ParliamentAgendaTrig, body)
 
 
 class ParliamentIssueFx(AnyFx):
-    def limit(self) -> ContextManager[ParliamentIssueTrig]:
-        return self._open("limit", ParliamentIssueTrig)
+    @overload
+    def limit(self) -> ContextManager[ParliamentIssueTrig]: ...
+    @overload
+    def limit(self, body: Callable[[ParliamentIssueTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[ParliamentIssueTrig], Any] | None = None) -> Any:
+        return self._run("limit", ParliamentIssueTrig, body)
     def go_estate_type(self, *, op: Op = "=") -> ContextManager[EstateTypeFx]:
         return self.link("estate_type", EstateTypeFx, op=op)
     def go_special_status(self, *, op: Op = "=") -> ContextManager[SpecialStatusFx]:
@@ -4423,23 +4757,39 @@ class ParliamentIssueFx(AnyFx):
 
 
 class ParliamentTypeFx(AnyFx):
-    def limit(self) -> ContextManager[ParliamentTypeTrig]:
-        return self._open("limit", ParliamentTypeTrig)
+    @overload
+    def limit(self) -> ContextManager[ParliamentTypeTrig]: ...
+    @overload
+    def limit(self, body: Callable[[ParliamentTypeTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[ParliamentTypeTrig], Any] | None = None) -> Any:
+        return self._run("limit", ParliamentTypeTrig, body)
 
 
 class PaymentFx(AnyFx):
-    def limit(self) -> ContextManager[PaymentTrig]:
-        return self._open("limit", PaymentTrig)
+    @overload
+    def limit(self) -> ContextManager[PaymentTrig]: ...
+    @overload
+    def limit(self, body: Callable[[PaymentTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[PaymentTrig], Any] | None = None) -> Any:
+        return self._run("limit", PaymentTrig, body)
 
 
 class PeaceTreatyFx(AnyFx):
-    def limit(self) -> ContextManager[PeaceTreatyTrig]:
-        return self._open("limit", PeaceTreatyTrig)
+    @overload
+    def limit(self) -> ContextManager[PeaceTreatyTrig]: ...
+    @overload
+    def limit(self, body: Callable[[PeaceTreatyTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[PeaceTreatyTrig], Any] | None = None) -> Any:
+        return self._run("limit", PeaceTreatyTrig, body)
 
 
 class PolicyFx(AnyFx):
-    def limit(self) -> ContextManager[PolicyTrig]:
-        return self._open("limit", PolicyTrig)
+    @overload
+    def limit(self) -> ContextManager[PolicyTrig]: ...
+    @overload
+    def limit(self, body: Callable[[PolicyTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[PolicyTrig], Any] | None = None) -> Any:
+        return self._run("limit", PolicyTrig, body)
     def every_estate_type_preferring(self) -> ContextManager[EstateTypeFx]:
         return self._open("every_estate_type_preferring", EstateTypeFx)
     def go_law(self, *, op: Op = "=") -> ContextManager[LawFx]:
@@ -4453,8 +4803,12 @@ class PolicyFx(AnyFx):
 
 
 class PopFx(AnyFx):
-    def limit(self) -> ContextManager[PopTrig]:
-        return self._open("limit", PopTrig)
+    @overload
+    def limit(self) -> ContextManager[PopTrig]: ...
+    @overload
+    def limit(self, body: Callable[[PopTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[PopTrig], Any] | None = None) -> Any:
+        return self._run("limit", PopTrig, body)
     def add_pop_satisfaction(self, _v: Any = None, /, *, value: Any = None) -> None: self._call("add_pop_satisfaction", *_pos(_v), **_kw(value=value))
     def add_pop_size(self, *, value: Any, multiply: Any = None, max: Any = None) -> None: self._call("add_pop_size", **_kw(value=value, multiply=multiply, max=max))
     def change_pop_allegiance(self, _v: Any, /) -> None: self._call("change_pop_allegiance", _v)
@@ -4483,18 +4837,30 @@ class PopFx(AnyFx):
 
 
 class PopTypeFx(AnyFx):
-    def limit(self) -> ContextManager[PopTypeTrig]:
-        return self._open("limit", PopTypeTrig)
+    @overload
+    def limit(self) -> ContextManager[PopTypeTrig]: ...
+    @overload
+    def limit(self, body: Callable[[PopTypeTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[PopTypeTrig], Any] | None = None) -> Any:
+        return self._run("limit", PopTypeTrig, body)
 
 
 class PriceFx(AnyFx):
-    def limit(self) -> ContextManager[PriceTrig]:
-        return self._open("limit", PriceTrig)
+    @overload
+    def limit(self) -> ContextManager[PriceTrig]: ...
+    @overload
+    def limit(self, body: Callable[[PriceTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[PriceTrig], Any] | None = None) -> Any:
+        return self._run("limit", PriceTrig, body)
 
 
 class PrivateerFx(AnyFx):
-    def limit(self) -> ContextManager[PrivateerTrig]:
-        return self._open("limit", PrivateerTrig)
+    @overload
+    def limit(self) -> ContextManager[PrivateerTrig]: ...
+    @overload
+    def limit(self, body: Callable[[PrivateerTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[PrivateerTrig], Any] | None = None) -> Any:
+        return self._run("limit", PrivateerTrig, body)
     def change_privateer_owner(self, *args: Any, **kw: Any) -> None: self._call("change_privateer_owner", *args, **kw)
     def change_privateer_power(self, *args: Any, **kw: Any) -> None: self._call("change_privateer_power", *args, **kw)
     def go_area(self, *, op: Op = "=") -> ContextManager[AreaFx]:
@@ -4504,8 +4870,12 @@ class PrivateerFx(AnyFx):
 
 
 class ProductionMethodFx(AnyFx):
-    def limit(self) -> ContextManager[ProductionMethodTrig]:
-        return self._open("limit", ProductionMethodTrig)
+    @overload
+    def limit(self) -> ContextManager[ProductionMethodTrig]: ...
+    @overload
+    def limit(self, body: Callable[[ProductionMethodTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[ProductionMethodTrig], Any] | None = None) -> Any:
+        return self._run("limit", ProductionMethodTrig, body)
     def every_required_goods(self) -> ContextManager[GoodsFx]:
         return self._open("every_required_goods", GoodsFx)
     def go_produced_goods(self, *, op: Op = "=") -> ContextManager[GoodsFx]:
@@ -4519,8 +4889,12 @@ class ProductionMethodFx(AnyFx):
 
 
 class ProvinceFx(AnyFx):
-    def limit(self) -> ContextManager[ProvinceTrig]:
-        return self._open("limit", ProvinceTrig)
+    @overload
+    def limit(self) -> ContextManager[ProvinceTrig]: ...
+    @overload
+    def limit(self, body: Callable[[ProvinceTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[ProvinceTrig], Any] | None = None) -> Any:
+        return self._run("limit", ProvinceTrig, body)
     def add_province_modifier(self, *, modifier: Any, months: Any = None, years: Any = None, mode: Any, size: Any = None) -> None: self._call("add_province_modifier", **_kw(modifier=modifier, months=months, years=years, mode=mode, size=size))
     def add_recovered_army_levy_percentage(self, *args: Any, **kw: Any) -> None: self._call("add_recovered_army_levy_percentage", *args, **kw)
     def add_recovered_navy_levy_percentage(self, *args: Any, **kw: Any) -> None: self._call("add_recovered_navy_levy_percentage", *args, **kw)
@@ -4566,8 +4940,12 @@ class ProvinceFx(AnyFx):
 
 
 class ProvinceDefinitionFx(AnyFx):
-    def limit(self) -> ContextManager[ProvinceDefinitionTrig]:
-        return self._open("limit", ProvinceDefinitionTrig)
+    @overload
+    def limit(self) -> ContextManager[ProvinceDefinitionTrig]: ...
+    @overload
+    def limit(self, body: Callable[[ProvinceDefinitionTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[ProvinceDefinitionTrig], Any] | None = None) -> Any:
+        return self._run("limit", ProvinceDefinitionTrig, body)
     def every_country_with_capital_in_geography(self) -> ContextManager[CountryFx]:
         return self._open("every_country_with_capital_in_geography", CountryFx)
     def every_east_of_province_definition(self) -> ContextManager[ProvinceDefinitionFx]:
@@ -4633,8 +5011,12 @@ class ProvinceDefinitionFx(AnyFx):
 
 
 class RebelsFx(AnyFx):
-    def limit(self) -> ContextManager[RebelsTrig]:
-        return self._open("limit", RebelsTrig)
+    @overload
+    def limit(self) -> ContextManager[RebelsTrig]: ...
+    @overload
+    def limit(self, body: Callable[[RebelsTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[RebelsTrig], Any] | None = None) -> Any:
+        return self._run("limit", RebelsTrig, body)
     def add_rebel_modifier(self, *, modifier: Any = None, days: Any = None, months: Any = None, years: Any = None, mode: Any = None, size: Any = None, desc: Any = None) -> None: self._call("add_rebel_modifier", **_kw(modifier=modifier, days=days, months=months, years=years, mode=mode, size=size, desc=desc))
     def add_rebel_progress(self, _v: Any, /) -> None: self._call("add_rebel_progress", _v)
     def change_rebel_modifier_size(self, *, modifier: Any = None, value: Any = None, recalculate_immediately: Any = None) -> None: self._call("change_rebel_modifier_size", **_kw(modifier=modifier, value=value, recalculate_immediately=recalculate_immediately))
@@ -4673,18 +5055,30 @@ class RebelsFx(AnyFx):
 
 
 class RecruitmentMethodFx(AnyFx):
-    def limit(self) -> ContextManager[RecruitmentMethodTrig]:
-        return self._open("limit", RecruitmentMethodTrig)
+    @overload
+    def limit(self) -> ContextManager[RecruitmentMethodTrig]: ...
+    @overload
+    def limit(self, body: Callable[[RecruitmentMethodTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[RecruitmentMethodTrig], Any] | None = None) -> Any:
+        return self._run("limit", RecruitmentMethodTrig, body)
 
 
 class RegencyTypeFx(AnyFx):
-    def limit(self) -> ContextManager[RegencyTypeTrig]:
-        return self._open("limit", RegencyTypeTrig)
+    @overload
+    def limit(self) -> ContextManager[RegencyTypeTrig]: ...
+    @overload
+    def limit(self, body: Callable[[RegencyTypeTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[RegencyTypeTrig], Any] | None = None) -> Any:
+        return self._run("limit", RegencyTypeTrig, body)
 
 
 class RegionFx(AnyFx):
-    def limit(self) -> ContextManager[RegionTrig]:
-        return self._open("limit", RegionTrig)
+    @overload
+    def limit(self) -> ContextManager[RegionTrig]: ...
+    @overload
+    def limit(self, body: Callable[[RegionTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[RegionTrig], Any] | None = None) -> Any:
+        return self._run("limit", RegionTrig, body)
     def every_area_in_region(self) -> ContextManager[AreaFx]:
         return self._open("every_area_in_region", AreaFx)
     def every_country_with_capital_in_geography(self) -> ContextManager[CountryFx]:
@@ -4734,13 +5128,21 @@ class RegionFx(AnyFx):
 
 
 class RelationTypeFx(AnyFx):
-    def limit(self) -> ContextManager[RelationTypeTrig]:
-        return self._open("limit", RelationTypeTrig)
+    @overload
+    def limit(self) -> ContextManager[RelationTypeTrig]: ...
+    @overload
+    def limit(self, body: Callable[[RelationTypeTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[RelationTypeTrig], Any] | None = None) -> Any:
+        return self._run("limit", RelationTypeTrig, body)
 
 
 class ReligionFx(AnyFx):
-    def limit(self) -> ContextManager[ReligionTrig]:
-        return self._open("limit", ReligionTrig)
+    @overload
+    def limit(self) -> ContextManager[ReligionTrig]: ...
+    @overload
+    def limit(self, body: Callable[[ReligionTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[ReligionTrig], Any] | None = None) -> Any:
+        return self._run("limit", ReligionTrig, body)
     def add_international_organization(self, *args: Any, **kw: Any) -> None: self._call("add_international_organization", *args, **kw)
     def add_reform_desire(self, *, value: Any = None, multiply: Any = None) -> None: self._call("add_reform_desire", **_kw(value=value, multiply=multiply))
     def add_religion_modifier(self, *, modifier: Any, years: Any = None, mode: Any = None, days: Any = None, desc: Any = None) -> None: self._call("add_religion_modifier", **_kw(modifier=modifier, years=years, mode=mode, days=days, desc=desc))
@@ -4825,8 +5227,12 @@ class ReligionFx(AnyFx):
 
 
 class ReligiousAspectFx(AnyFx):
-    def limit(self) -> ContextManager[ReligiousAspectTrig]:
-        return self._open("limit", ReligiousAspectTrig)
+    @overload
+    def limit(self) -> ContextManager[ReligiousAspectTrig]: ...
+    @overload
+    def limit(self, body: Callable[[ReligiousAspectTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[ReligiousAspectTrig], Any] | None = None) -> Any:
+        return self._run("limit", ReligiousAspectTrig, body)
     def every_valid_religion_for_aspect(self) -> ContextManager[ReligionFx]:
         return self._open("every_valid_religion_for_aspect", ReligionFx)
     def ordered_valid_religion_for_aspect(self, *, order_by: Any = None, position: Any = None, min: Any = None, max: Any = None, check_range_bounds: Any = None) -> ContextManager[ReligionFx]:
@@ -4836,23 +5242,39 @@ class ReligiousAspectFx(AnyFx):
 
 
 class ReligiousFactionFx(AnyFx):
-    def limit(self) -> ContextManager[ReligiousFactionTrig]:
-        return self._open("limit", ReligiousFactionTrig)
+    @overload
+    def limit(self) -> ContextManager[ReligiousFactionTrig]: ...
+    @overload
+    def limit(self, body: Callable[[ReligiousFactionTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[ReligiousFactionTrig], Any] | None = None) -> Any:
+        return self._run("limit", ReligiousFactionTrig, body)
 
 
 class ReligiousFigureFx(AnyFx):
-    def limit(self) -> ContextManager[ReligiousFigureTrig]:
-        return self._open("limit", ReligiousFigureTrig)
+    @overload
+    def limit(self) -> ContextManager[ReligiousFigureTrig]: ...
+    @overload
+    def limit(self, body: Callable[[ReligiousFigureTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[ReligiousFigureTrig], Any] | None = None) -> Any:
+        return self._run("limit", ReligiousFigureTrig, body)
 
 
 class ReligiousFocusFx(AnyFx):
-    def limit(self) -> ContextManager[ReligiousFocusTrig]:
-        return self._open("limit", ReligiousFocusTrig)
+    @overload
+    def limit(self) -> ContextManager[ReligiousFocusTrig]: ...
+    @overload
+    def limit(self, body: Callable[[ReligiousFocusTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[ReligiousFocusTrig], Any] | None = None) -> Any:
+        return self._run("limit", ReligiousFocusTrig, body)
 
 
 class ReligiousSchoolFx(AnyFx):
-    def limit(self) -> ContextManager[ReligiousSchoolTrig]:
-        return self._open("limit", ReligiousSchoolTrig)
+    @overload
+    def limit(self) -> ContextManager[ReligiousSchoolTrig]: ...
+    @overload
+    def limit(self, body: Callable[[ReligiousSchoolTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[ReligiousSchoolTrig], Any] | None = None) -> Any:
+        return self._run("limit", ReligiousSchoolTrig, body)
     def every_country_in_religious_school(self) -> ContextManager[CountryFx]:
         return self._open("every_country_in_religious_school", CountryFx)
     def ordered_country_in_religious_school(self, *, order_by: Any = None, position: Any = None, min: Any = None, max: Any = None, check_range_bounds: Any = None) -> ContextManager[CountryFx]:
@@ -4864,23 +5286,39 @@ class ReligiousSchoolFx(AnyFx):
 
 
 class ResolutionFx(AnyFx):
-    def limit(self) -> ContextManager[ResolutionTrig]:
-        return self._open("limit", ResolutionTrig)
+    @overload
+    def limit(self) -> ContextManager[ResolutionTrig]: ...
+    @overload
+    def limit(self, body: Callable[[ResolutionTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[ResolutionTrig], Any] | None = None) -> Any:
+        return self._run("limit", ResolutionTrig, body)
 
 
 class RoadTypeFx(AnyFx):
-    def limit(self) -> ContextManager[RoadTypeTrig]:
-        return self._open("limit", RoadTypeTrig)
+    @overload
+    def limit(self) -> ContextManager[RoadTypeTrig]: ...
+    @overload
+    def limit(self, body: Callable[[RoadTypeTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[RoadTypeTrig], Any] | None = None) -> Any:
+        return self._run("limit", RoadTypeTrig, body)
 
 
 class ScriptableHintDefinitionFx(AnyFx):
-    def limit(self) -> ContextManager[ScriptableHintDefinitionTrig]:
-        return self._open("limit", ScriptableHintDefinitionTrig)
+    @overload
+    def limit(self) -> ContextManager[ScriptableHintDefinitionTrig]: ...
+    @overload
+    def limit(self, body: Callable[[ScriptableHintDefinitionTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[ScriptableHintDefinitionTrig], Any] | None = None) -> Any:
+        return self._run("limit", ScriptableHintDefinitionTrig, body)
 
 
 class ScriptedGeographyFx(AnyFx):
-    def limit(self) -> ContextManager[ScriptedGeographyTrig]:
-        return self._open("limit", ScriptedGeographyTrig)
+    @overload
+    def limit(self) -> ContextManager[ScriptedGeographyTrig]: ...
+    @overload
+    def limit(self, body: Callable[[ScriptedGeographyTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[ScriptedGeographyTrig], Any] | None = None) -> Any:
+        return self._run("limit", ScriptedGeographyTrig, body)
     def every_area_in_scripted_geography(self) -> ContextManager[AreaFx]:
         return self._open("every_area_in_scripted_geography", AreaFx)
     def every_continent_in_scripted_geography(self) -> ContextManager[ContinentFx]:
@@ -4944,8 +5382,12 @@ class ScriptedGeographyFx(AnyFx):
 
 
 class SiegeFx(AnyFx):
-    def limit(self) -> ContextManager[SiegeTrig]:
-        return self._open("limit", SiegeTrig)
+    @overload
+    def limit(self) -> ContextManager[SiegeTrig]: ...
+    @overload
+    def limit(self, body: Callable[[SiegeTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[SiegeTrig], Any] | None = None) -> Any:
+        return self._run("limit", SiegeTrig, body)
     def add_breach(self, *args: Any, **kw: Any) -> None: self._call("add_breach", *args, **kw)
     def every_besieging_unit(self) -> ContextManager[UnitFx]:
         return self._open("every_besieging_unit", UnitFx)
@@ -4964,8 +5406,12 @@ class SiegeFx(AnyFx):
 
 
 class SituationFx(AnyFx):
-    def limit(self) -> ContextManager[SituationTrig]:
-        return self._open("limit", SituationTrig)
+    @overload
+    def limit(self) -> ContextManager[SituationTrig]: ...
+    @overload
+    def limit(self, body: Callable[[SituationTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[SituationTrig], Any] | None = None) -> Any:
+        return self._run("limit", SituationTrig, body)
     def end_vote(self, *, resolution: Any, vote: Any = None) -> None: self._call("end_vote", **_kw(resolution=resolution, vote=vote))
     def every_active_resolution(self) -> ContextManager[ActiveResolutionFx]:
         return self._open("every_active_resolution", ActiveResolutionFx)
@@ -4981,18 +5427,30 @@ class SituationFx(AnyFx):
 
 
 class SocietalValueTypeFx(AnyFx):
-    def limit(self) -> ContextManager[SocietalValueTypeTrig]:
-        return self._open("limit", SocietalValueTypeTrig)
+    @overload
+    def limit(self) -> ContextManager[SocietalValueTypeTrig]: ...
+    @overload
+    def limit(self, body: Callable[[SocietalValueTypeTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[SocietalValueTypeTrig], Any] | None = None) -> Any:
+        return self._run("limit", SocietalValueTypeTrig, body)
 
 
 class SpecialStatusFx(AnyFx):
-    def limit(self) -> ContextManager[SpecialStatusTrig]:
-        return self._open("limit", SpecialStatusTrig)
+    @overload
+    def limit(self) -> ContextManager[SpecialStatusTrig]: ...
+    @overload
+    def limit(self, body: Callable[[SpecialStatusTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[SpecialStatusTrig], Any] | None = None) -> Any:
+        return self._run("limit", SpecialStatusTrig, body)
 
 
 class SubContinentFx(AnyFx):
-    def limit(self) -> ContextManager[SubContinentTrig]:
-        return self._open("limit", SubContinentTrig)
+    @overload
+    def limit(self) -> ContextManager[SubContinentTrig]: ...
+    @overload
+    def limit(self, body: Callable[[SubContinentTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[SubContinentTrig], Any] | None = None) -> Any:
+        return self._run("limit", SubContinentTrig, body)
     def every_country_with_capital_in_geography(self) -> ContextManager[CountryFx]:
         return self._open("every_country_with_capital_in_geography", CountryFx)
     def every_location_in_sub_continent(self) -> ContextManager[LocationFx]:
@@ -5034,8 +5492,12 @@ class SubContinentFx(AnyFx):
 
 
 class SubUnitFx(AnyFx):
-    def limit(self) -> ContextManager[SubUnitTrig]:
-        return self._open("limit", SubUnitTrig)
+    @overload
+    def limit(self) -> ContextManager[SubUnitTrig]: ...
+    @overload
+    def limit(self, body: Callable[[SubUnitTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[SubUnitTrig], Any] | None = None) -> Any:
+        return self._run("limit", SubUnitTrig, body)
     def add_subunit_experience(self, *args: Any, **kw: Any) -> None: self._call("add_subunit_experience", *args, **kw)
     def add_subunit_morale(self, *, value: Any = None, divide: Any = None, subtract: Any = None) -> None: self._call("add_subunit_morale", **_kw(value=value, divide=divide, subtract=subtract))
     def add_subunit_strength(self, _v: Any, /) -> None: self._call("add_subunit_strength", _v)
@@ -5069,23 +5531,39 @@ class SubUnitFx(AnyFx):
 
 
 class SubUnitCategoryFx(AnyFx):
-    def limit(self) -> ContextManager[SubUnitCategoryTrig]:
-        return self._open("limit", SubUnitCategoryTrig)
+    @overload
+    def limit(self) -> ContextManager[SubUnitCategoryTrig]: ...
+    @overload
+    def limit(self, body: Callable[[SubUnitCategoryTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[SubUnitCategoryTrig], Any] | None = None) -> Any:
+        return self._run("limit", SubUnitCategoryTrig, body)
 
 
 class SubjectTypeFx(AnyFx):
-    def limit(self) -> ContextManager[SubjectTypeTrig]:
-        return self._open("limit", SubjectTypeTrig)
+    @overload
+    def limit(self) -> ContextManager[SubjectTypeTrig]: ...
+    @overload
+    def limit(self, body: Callable[[SubjectTypeTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[SubjectTypeTrig], Any] | None = None) -> Any:
+        return self._run("limit", SubjectTypeTrig, body)
 
 
 class TopographyFx(AnyFx):
-    def limit(self) -> ContextManager[TopographyTrig]:
-        return self._open("limit", TopographyTrig)
+    @overload
+    def limit(self) -> ContextManager[TopographyTrig]: ...
+    @overload
+    def limit(self, body: Callable[[TopographyTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[TopographyTrig], Any] | None = None) -> Any:
+        return self._run("limit", TopographyTrig, body)
 
 
 class TownRightsFx(AnyFx):
-    def limit(self) -> ContextManager[TownRightsTrig]:
-        return self._open("limit", TownRightsTrig)
+    @overload
+    def limit(self) -> ContextManager[TownRightsTrig]: ...
+    @overload
+    def limit(self, body: Callable[[TownRightsTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[TownRightsTrig], Any] | None = None) -> Any:
+        return self._run("limit", TownRightsTrig, body)
     def go_location(self, *, op: Op = "=") -> ContextManager[LocationFx]:
         return self.link("location", LocationFx, op=op)
     def go_town_rights_type(self, *, op: Op = "=") -> ContextManager[TownRightsTypeFx]:
@@ -5093,13 +5571,21 @@ class TownRightsFx(AnyFx):
 
 
 class TownRightsTypeFx(AnyFx):
-    def limit(self) -> ContextManager[TownRightsTypeTrig]:
-        return self._open("limit", TownRightsTypeTrig)
+    @overload
+    def limit(self) -> ContextManager[TownRightsTypeTrig]: ...
+    @overload
+    def limit(self, body: Callable[[TownRightsTypeTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[TownRightsTypeTrig], Any] | None = None) -> Any:
+        return self._run("limit", TownRightsTypeTrig, body)
 
 
 class TradeFx(AnyFx):
-    def limit(self) -> ContextManager[TradeTrig]:
-        return self._open("limit", TradeTrig)
+    @overload
+    def limit(self) -> ContextManager[TradeTrig]: ...
+    @overload
+    def limit(self, body: Callable[[TradeTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[TradeTrig], Any] | None = None) -> Any:
+        return self._run("limit", TradeTrig, body)
     def cancel_trade(self, *args: Any, **kw: Any) -> None: self._call("cancel_trade", *args, **kw)
     def change_assigned_merchant_capacity(self, *args: Any, **kw: Any) -> None: self._call("change_assigned_merchant_capacity", *args, **kw)
     def go_capacity_market(self, *, op: Op = "=") -> ContextManager[MarketFx]:
@@ -5116,13 +5602,21 @@ class TradeFx(AnyFx):
 
 
 class TraitFx(AnyFx):
-    def limit(self) -> ContextManager[TraitTrig]:
-        return self._open("limit", TraitTrig)
+    @overload
+    def limit(self) -> ContextManager[TraitTrig]: ...
+    @overload
+    def limit(self, body: Callable[[TraitTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[TraitTrig], Any] | None = None) -> Any:
+        return self._run("limit", TraitTrig, body)
 
 
 class UnitFx(AnyFx):
-    def limit(self) -> ContextManager[UnitTrig]:
-        return self._open("limit", UnitTrig)
+    @overload
+    def limit(self) -> ContextManager[UnitTrig]: ...
+    @overload
+    def limit(self, body: Callable[[UnitTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[UnitTrig], Any] | None = None) -> Any:
+        return self._run("limit", UnitTrig, body)
     def add_food(self, *args: Any, **kw: Any) -> None: self._call("add_food", *args, **kw)
     def add_food_percentage(self, *args: Any, **kw: Any) -> None: self._call("add_food_percentage", *args, **kw)
     def add_morale(self, *args: Any, **kw: Any) -> None: self._call("add_morale", *args, **kw)
@@ -5173,28 +5667,48 @@ class UnitFx(AnyFx):
 
 
 class UnitAbilityFx(AnyFx):
-    def limit(self) -> ContextManager[UnitAbilityTrig]:
-        return self._open("limit", UnitAbilityTrig)
+    @overload
+    def limit(self) -> ContextManager[UnitAbilityTrig]: ...
+    @overload
+    def limit(self, body: Callable[[UnitAbilityTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[UnitAbilityTrig], Any] | None = None) -> Any:
+        return self._run("limit", UnitAbilityTrig, body)
 
 
 class UnitFormationPreferenceFx(AnyFx):
-    def limit(self) -> ContextManager[UnitFormationPreferenceTrig]:
-        return self._open("limit", UnitFormationPreferenceTrig)
+    @overload
+    def limit(self) -> ContextManager[UnitFormationPreferenceTrig]: ...
+    @overload
+    def limit(self, body: Callable[[UnitFormationPreferenceTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[UnitFormationPreferenceTrig], Any] | None = None) -> Any:
+        return self._run("limit", UnitFormationPreferenceTrig, body)
 
 
 class UnitTypeFx(AnyFx):
-    def limit(self) -> ContextManager[UnitTypeTrig]:
-        return self._open("limit", UnitTypeTrig)
+    @overload
+    def limit(self) -> ContextManager[UnitTypeTrig]: ...
+    @overload
+    def limit(self, body: Callable[[UnitTypeTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[UnitTypeTrig], Any] | None = None) -> Any:
+        return self._run("limit", UnitTypeTrig, body)
 
 
 class VegetationFx(AnyFx):
-    def limit(self) -> ContextManager[VegetationTrig]:
-        return self._open("limit", VegetationTrig)
+    @overload
+    def limit(self) -> ContextManager[VegetationTrig]: ...
+    @overload
+    def limit(self, body: Callable[[VegetationTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[VegetationTrig], Any] | None = None) -> Any:
+        return self._run("limit", VegetationTrig, body)
 
 
 class WarFx(AnyFx):
-    def limit(self) -> ContextManager[WarTrig]:
-        return self._open("limit", WarTrig)
+    @overload
+    def limit(self) -> ContextManager[WarTrig]: ...
+    @overload
+    def limit(self, body: Callable[[WarTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[WarTrig], Any] | None = None) -> Any:
+        return self._run("limit", WarTrig, body)
     def add_access_for_attackers(self, _v: Any, /) -> None: self._call("add_access_for_attackers", _v)
     def add_access_for_defenders(self, _v: Any, /) -> None: self._call("add_access_for_defenders", _v)
     def add_bonus_warscore(self, *, country: Any = None, amount: Any = None) -> None: self._call("add_bonus_warscore", **_kw(country=country, amount=amount))
@@ -5231,13 +5745,21 @@ class WarFx(AnyFx):
 
 
 class WeatherSystemFx(AnyFx):
-    def limit(self) -> ContextManager[WeatherSystemTrig]:
-        return self._open("limit", WeatherSystemTrig)
+    @overload
+    def limit(self) -> ContextManager[WeatherSystemTrig]: ...
+    @overload
+    def limit(self, body: Callable[[WeatherSystemTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[WeatherSystemTrig], Any] | None = None) -> Any:
+        return self._run("limit", WeatherSystemTrig, body)
 
 
 class WorkOfArtFx(AnyFx):
-    def limit(self) -> ContextManager[WorkOfArtTrig]:
-        return self._open("limit", WorkOfArtTrig)
+    @overload
+    def limit(self) -> ContextManager[WorkOfArtTrig]: ...
+    @overload
+    def limit(self, body: Callable[[WorkOfArtTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[WorkOfArtTrig], Any] | None = None) -> Any:
+        return self._run("limit", WorkOfArtTrig, body)
     def change_art_quality(self, _v: Any, /) -> None: self._call("change_art_quality", _v)
     def change_art_worth(self, *args: Any, **kw: Any) -> None: self._call("change_art_worth", *args, **kw)
     def go_creator(self, *, op: Op = "=") -> ContextManager[CharacterFx]:
@@ -5257,28 +5779,62 @@ class WorkOfArtFx(AnyFx):
 
 
 class WorkOfArtTypeFx(AnyFx):
-    def limit(self) -> ContextManager[WorkOfArtTypeTrig]:
-        return self._open("limit", WorkOfArtTypeTrig)
+    @overload
+    def limit(self) -> ContextManager[WorkOfArtTypeTrig]: ...
+    @overload
+    def limit(self, body: Callable[[WorkOfArtTypeTrig], Any]) -> None: ...
+    def limit(self, body: Callable[[WorkOfArtTypeTrig], Any] | None = None) -> Any:
+        return self._run("limit", WorkOfArtTypeTrig, body)
 
 
 class AnyTrig(Scope):
-    def limit(self: _T) -> ContextManager[_T]:
-        return self._open("limit", type(self))
+    @overload
+    def limit(self: _T) -> ContextManager[_T]: ...
+    @overload
+    def limit(self: _T, body: Callable[[_T], Any]) -> None: ...
+    def limit(self: _T, body: Callable[[_T], Any] | None = None) -> Any:
+        """`limit = { }`: a context manager, or give the body as a lambda for a one-liner: `t.limit(lambda n: n.has_advance(x))`."""
+        return self._run("limit", type(self), body)
 
-    def and_(self: _T) -> ContextManager[_T]:
-        return self._open("AND", type(self))
+    @overload
+    def and_(self: _T) -> ContextManager[_T]: ...
+    @overload
+    def and_(self: _T, body: Callable[[_T], Any]) -> None: ...
+    def and_(self: _T, body: Callable[[_T], Any] | None = None) -> Any:
+        """`AND = { }`: a context manager, or give the body as a lambda for a one-liner: `t.and_(lambda n: n.has_advance(x))`."""
+        return self._run("AND", type(self), body)
 
-    def or_(self: _T) -> ContextManager[_T]:
-        return self._open("OR", type(self))
+    @overload
+    def or_(self: _T) -> ContextManager[_T]: ...
+    @overload
+    def or_(self: _T, body: Callable[[_T], Any]) -> None: ...
+    def or_(self: _T, body: Callable[[_T], Any] | None = None) -> Any:
+        """`OR = { }`: a context manager, or give the body as a lambda for a one-liner: `t.or_(lambda n: n.has_advance(x))`."""
+        return self._run("OR", type(self), body)
 
-    def not_(self: _T) -> ContextManager[_T]:
-        return self._open("NOT", type(self))
+    @overload
+    def not_(self: _T) -> ContextManager[_T]: ...
+    @overload
+    def not_(self: _T, body: Callable[[_T], Any]) -> None: ...
+    def not_(self: _T, body: Callable[[_T], Any] | None = None) -> Any:
+        """`NOT = { }`: a context manager, or give the body as a lambda for a one-liner: `t.not_(lambda n: n.has_advance(x))`."""
+        return self._run("NOT", type(self), body)
 
-    def nor(self: _T) -> ContextManager[_T]:
-        return self._open("NOR", type(self))
+    @overload
+    def nor(self: _T) -> ContextManager[_T]: ...
+    @overload
+    def nor(self: _T, body: Callable[[_T], Any]) -> None: ...
+    def nor(self: _T, body: Callable[[_T], Any] | None = None) -> Any:
+        """`NOR = { }`: a context manager, or give the body as a lambda for a one-liner: `t.nor(lambda n: n.has_advance(x))`."""
+        return self._run("NOR", type(self), body)
 
-    def nand(self: _T) -> ContextManager[_T]:
-        return self._open("NAND", type(self))
+    @overload
+    def nand(self: _T) -> ContextManager[_T]: ...
+    @overload
+    def nand(self: _T, body: Callable[[_T], Any]) -> None: ...
+    def nand(self: _T, body: Callable[[_T], Any] | None = None) -> Any:
+        """`NAND = { }`: a context manager, or give the body as a lambda for a one-liner: `t.nand(lambda n: n.has_advance(x))`."""
+        return self._run("NAND", type(self), body)
 
     def compare(self, left: str, op: Op, value: Any, /) -> None:
         """`scope:x.gold >= 5`, `root.tfe_level < 3`: a comparison whose left side is a value path, not a trigger name."""
@@ -5297,9 +5853,14 @@ class AnyTrig(Scope):
     def trigger_else(self: _T) -> ContextManager[_T]:
         return self._open("trigger_else", type(self))
 
-    def link(self, text: str, cls: type[_S], *, op: Op = "=") -> ContextManager[_S]:  # pyright: ignore[reportIncompatibleMethodOverride]
-        """`scope:actor = {`, `c:EAR ?= {`, `var:x = {`: a scope block, typed by the class you pass."""
-        return self._open(text, cls, op=op)
+    @overload
+    def link(self, text: str, cls: type[_S], *, op: Op = "=") -> ContextManager[_S]: ...  # pyright: ignore[reportIncompatibleMethodOverride]
+    @overload
+    def link(self, text: str, cls: type[_S], body: Callable[[_S], Any], *, op: Op = "=") -> None: ...  # pyright: ignore[reportIncompatibleMethodOverride]
+    def link(self, text: str, cls: type[_S], body: Callable[[_S], Any] | None = None, *, op: Op = "=") -> Any:  # pyright: ignore[reportIncompatibleMethodOverride]
+        """`scope:actor = {`, `c:EAR ?= {`, `var:x = {`: a scope block, typed by the class you pass; or give the body as a lambda."""
+        return self._run(text, cls, body, op=op)
+
 
     def custom_tooltip(self, text: Any, /) -> None:
         self._call("custom_tooltip", text)
@@ -8307,7 +8868,7 @@ class CountryTrig(AnyTrig):
         else:
             self._cmp("country_total_army_levy_size", op, _v)
     def country_total_navy_levy_size(self, _v: Any, /, op: Op = "=") -> None: self._cmp("country_total_navy_levy_size", op, _v)
-    def country_type(self, _v: Any, /) -> None: self._call("country_type", _v)
+    def country_type(self, _v: CountryType, /) -> None: self._call("country_type", _v)
     def court_maintenance(self, _v: Any, /, op: Op = "=") -> None: self._cmp("court_maintenance", op, _v)
     def create_market_utility(self, _v: Any = None, /, *, op: Op = "=", location: Any = None) -> None:
         if _v is None:
@@ -12005,9 +12566,15 @@ class WorkOfArtTypeTrig(AnyTrig):
 class _Value(Scope):
     """the keys of a value block. `add(5)` is `add = 5`; `with v.add_block() as a:` is `add = { value = x multiply = 2 }`."""
 
-    def link(self, text: str, cls: type[_S], *, op: Op = "=") -> ContextManager[_S]:  # pyright: ignore[reportIncompatibleMethodOverride]
-        """`scope:actor = {`, `c:EAR ?= {`, `var:x = {`: a scope block, typed by the class you pass."""
-        return self._open(text, cls, op=op)
+
+    @overload
+    def link(self, text: str, cls: type[_S], *, op: Op = "=") -> ContextManager[_S]: ...  # pyright: ignore[reportIncompatibleMethodOverride]
+    @overload
+    def link(self, text: str, cls: type[_S], body: Callable[[_S], Any], *, op: Op = "=") -> None: ...  # pyright: ignore[reportIncompatibleMethodOverride]
+    def link(self, text: str, cls: type[_S], body: Callable[[_S], Any] | None = None, *, op: Op = "=") -> Any:  # pyright: ignore[reportIncompatibleMethodOverride]
+        """`scope:actor = {`, `c:EAR ?= {`, `var:x = {`: a scope block, typed by the class you pass; or give the body as a lambda."""
+        return self._run(text, cls, body, op=op)
+
 
     def value(self, _v: Any, /) -> None:
         self._call("value", _v)
