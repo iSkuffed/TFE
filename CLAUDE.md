@@ -64,7 +64,9 @@ commands, not GitHub. If they decline or it breaks, plain git above still works.
 - `tools/lint_script.py` checks our script against the `script_docs` logs (unknown effects/triggers, `name =` in
   modifiers, bad `outcome`, undefined modifiers). `tools/lint_refs.py` (called by it) checks cross-references that only
   fail in game: events fired but never defined, an event's title/desc/option loc key missing, a `scope:x` no file
-  ever saves (a generic action's `target_flag` counts), a building type or reform with no icon. It runs inside the
+  ever saves (a generic action's `target_flag` counts), a value vanilla always takes from one registry that names no key
+  there or is written in the wrong form (`has_advance = x` is bare, `research_advance = advance_type:x` is prefixed;
+  advances, subject types, pop types and so on, the mod's own keys included), a building type or reform with no icon. It runs inside the
   pytest command above. After adding a new kind of script, run `--vanilla` and make sure it still reports almost
   nothing; a hit there is a linter false positive (vanilla's own gaps, like DHE events with no English loc, are real).
 - The tools find vanilla EU5 in Steam's default folder on Linux or Windows. Elsewhere, set `EU5_GAME` to the game's
@@ -94,6 +96,12 @@ is `tools/pdx/CONTRACT.md`.
 - Modifier files: `doc.modifier(name, category="country", <modifier keys>=...)` for a static modifier,
   `doc.modifier(name, potential=lambda t: ..., <keys>=...)` for an auto modifier (keys are checked against
   `modifiers.log`), `doc.bias(name, value)` for an opinion bias. `doc.entry(name)` covers anything else.
+- One-condition blocks take a body: `t.not_(lambda n: n.has_advance(x))`, `t.or_(...)`, `fx.limit(lambda t: ...)`,
+  `t.link("scope:w", CountryTrig, lambda w: w.has_variable(x))` write what the `with` form writes.
+  `change_country_type` and `country_type` take the closed `CountryType` set, so pyright rejects a typo; the open
+  registries (advances, subject types, pop types ...) are checked on the generated `.txt` by `lint_refs`, not by pyright.
+- Tests ask the model, not the text: `doc.find("has_advance", "x", inside=("my.1", "trigger"))` (also `Defs.find`,
+  `pdx.core.find`) returns the matching nodes, so a change in line wrapping breaks nothing.
 - `raw("...")` is the escape hatch for anything the bindings do not model. Put a `# GAP:` comment on it saying what is
   missing, and fix the binding when you meet the same gap twice.
 - `tools/pdx/api.py` is generated from the docs logs, vanilla's call shapes and the mod's own scripted effects and

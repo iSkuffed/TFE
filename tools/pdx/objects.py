@@ -5,7 +5,7 @@ from contextlib import contextmanager
 from typing import Any, Callable, ContextManager, Generic, Iterator, Literal, TypedDict, TypeVar, Unpack, get_args, overload
 
 from .api import AnyFx, AnyTrig, CountryFx, CountryTrig, Outcome
-from .core import Q, Scope, render
+from .core import Q, Scope, find, render
 
 @functools.cache
 def modifier_keys():
@@ -255,6 +255,10 @@ class Doc:
 
     def text(self):
         return render(self.nodes)
+
+    def find(self, key=None, val=None, /, *, inside=()):
+        """the nodes (core.find) with this key and value, optionally under the named blocks."""
+        return find(self.nodes, key, val, inside=inside)
 
     def write(self, path):
         with open(path, "w", encoding="utf-8-sig", newline="\n") as f:

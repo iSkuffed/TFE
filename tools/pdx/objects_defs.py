@@ -5,7 +5,7 @@ IS a typed Trig/Fx scope, and an on_action has its own shape)."""
 from typing import Any, ContextManager, TypeVar, overload
 
 from .api import AnyFx, AnyTrig
-from .core import Node, Scope, render
+from .core import Node, Scope, find, render
 
 T = TypeVar("T")
 
@@ -69,3 +69,7 @@ class Defs:
 
     def text(self) -> str:
         return render(self.nodes)
+
+    def find(self, key: str | None = None, val: Any = None, /, *, inside: str | tuple[str, ...] = ()) -> list[Node]:
+        """the nodes (core.find) with this key and value, optionally under the named blocks."""
+        return find(self.nodes, key, val, inside=inside)

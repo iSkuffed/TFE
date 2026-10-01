@@ -1,6 +1,7 @@
 """tools/pdx/api.py is generated and current, and its scope types catch a wrong-scope call."""
 import inspect
 import json
+import typing
 import subprocess
 import sys
 from pathlib import Path
@@ -116,9 +117,9 @@ def test_value_blocks():
 def test_limit_opens_the_matching_trigger_class():
     scopes = {n[:-2] for n in dir(api) if n.endswith("Fx") and n not in ("AnyFx", "ValueFx")}
     bad = [s for s in scopes if not hasattr(api, s + "Trig")
-           or inspect.signature(getattr(api, s + "Fx").limit).return_annotation != f"ContextManager[{s}Trig]"]
+           or typing.get_overloads(getattr(api, s + "Fx").limit)[0].__annotations__["return"] != f"ContextManager[{s}Trig]"]
     assert not bad, bad
-    assert inspect.signature(api.AnyFx.limit).return_annotation == "ContextManager[AnyTrig]"
+    assert typing.get_overloads(api.AnyFx.limit)[0].__annotations__["return"] == "ContextManager[AnyTrig]"
 
 
 def test_migratory_equals_the_committed_file():
@@ -222,3 +223,40 @@ def test_create_country_from_location_opens_the_new_countrys_scope():
         c.add_gold(200)
     assert [n.key for n in nodes[0].val] == ["overlord", "define_unique_country_tag", "add_gold"]
     assert nodes[0].key == "create_country_from_location" and CountryFx
+
+
+def test_a_group_or_link_takes_a_one_line_body_and_writes_what_the_with_form_writes():
+    from pdx.api import CountryFx, CountryTrig
+    one, two = [], []
+    t = CountryTrig(one)
+    t.not_(lambda n: n.has_advance("a"))
+    t.or_(lambda o: (o.has_advance("b"), o.has_advance("c")))
+    t.link("scope:x", CountryTrig, lambda w: w.has_variable("v"))
+    with CountryFx(two).limit() as _:
+        pass
+    u = CountryTrig(two)
+    with u.not_() as n:
+        n.has_advance("a")
+    with u.or_() as o:
+        o.has_advance("b")
+        o.has_advance("c")
+    with u.link("scope:x", CountryTrig) as w:
+        w.has_variable("v")
+    assert render(one) == render(two[1:])
+
+
+def test_limit_takes_a_one_line_body_too():
+    from pdx.api import CountryFx
+    fx, long = [], []
+    CountryFx(fx).limit(lambda t: t.not_(lambda n: n.has_advance("a")))
+    with CountryFx(long).limit() as t, t.not_() as n:
+        n.has_advance("a")
+    assert render(fx) == render(long)
+
+
+def test_a_country_type_is_a_closed_set_pyright_checks(tmp_path):
+    src = ('from pdx.api import CountryFx, CountryTrig\n\ndef f(c: CountryFx, t: CountryTrig):\n'
+           '    c.change_country_type("navy")\n    t.country_type("location")\n'
+           '    c.change_country_type("fleet")  # BAD\n    t.country_type("armee")  # BAD\n')
+    lines = {d["range"]["start"]["line"] + 1 for d in pyright(tmp_path, src, "ct.py")}
+    assert lines == {i for i, l in enumerate(src.splitlines(), 1) if "# BAD" in l}, lines

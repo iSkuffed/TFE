@@ -89,3 +89,24 @@ def test_an_override_of_a_vanilla_building_uses_the_vanilla_icon(tmp_path):
     # REPLACE:x names vanilla's x, whose icon is x.dds (MAZZO313's Theodosian Walls)
     files = {"in_game/common/building_types/t.txt": "REPLACE:theodosian_walls = { }\n", LOC_FILE: LOC}
     assert not [p for p in refs(tmp_path, files) if "icon" in p]
+
+
+def e(body):
+    return {"in_game/events/t.txt": EVENT % body, LOC_FILE: LOC}
+
+
+@pytest.mark.parametrize("body, expect", [
+    ("has_advance = no_such_advance", "no_such_advance is not defined in advances"),
+    ("research_advance = advance_type:no_such_advance", "no_such_advance is not defined in advances"),
+    ("research_advance = taxation_advance", "vanilla writes this as `advance_type:taxation_advance`"),
+    ("make_subject_of = { target = scope:x type = subject_type:tfe_foedrati }", "tfe_foedrati is not defined in subject_types"),
+    ("add_pop = { type = pop_type:nobles_typo culture = x religion = y size = 1 }", "nobles_typo is not defined in pop_types"),
+])
+def test_a_value_vanilla_takes_from_a_registry_must_name_a_key_in_the_right_form(tmp_path, body, expect):
+    assert any(expect in p for p in refs(tmp_path, e(body))), refs(tmp_path, e(body))
+
+
+def test_the_mods_own_keys_count_and_real_values_pass(tmp_path):
+    files = e("has_advance = taxation_advance research_advance = advance_type:taxation_advance has_advance = tfe_own_advance")
+    files["in_game/common/advances/t.txt"] = "tfe_own_advance = { }\n"
+    assert refs(tmp_path, files) == []
