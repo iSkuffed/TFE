@@ -14,8 +14,11 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import borders as b
 
-# the docs sit beside the mod folder; EU5_DOCS for a checkout elsewhere (a jj workspace, say)
-DOCS = Path(os.environ.get("EU5_DOCS") or b.MOD.parent.parent / "docs")
+# the docs sit beside the mod folder when the checkout lives in it; a checkout elsewhere (Windows, linked into the mod
+# folder) finds them in Documents; EU5_DOCS for anything else (a jj workspace, say)
+_USER_DIR = (b.MOD.parent.parent if b.MOD.parent.name == "mod"
+             else Path.home() / "Documents/Paradox Interactive/Europa Universalis V")
+DOCS = Path(os.environ.get("EU5_DOCS") or _USER_DIR / "docs")
 OUTCOMES = {"positive", "neutral", "negative"}
 # keys whose block is a list of effects / of triggers, wherever they appear
 EFFECT_BLOCKS = {"immediate", "after", "effect", "hidden_effect", "on_accept", "on_decline", "on_start", "on_end"}
