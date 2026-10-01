@@ -100,6 +100,17 @@ def test_the_host_disbands_back_to_its_old_warband_once_it_takes_land():
     assert Counter({t: int(n) for n, t in raised}) == Counter(re.findall(r"(a_\w+) = \{", host))
     trigger = re.search(r"potential_trigger = \{(.*?)\n\t\}", code(AUTO), re.S).group(1)
     assert "NOT = { has_variable = tfe_settled }" in trigger   # losing the land again does not make it free
+    # user: a settled host could not disband its troops; an army-based country cannot, so it becomes a landed one
+    # before its host goes, and the warband is raised from its new land, where it can be sent home
+    assert on.index("change_country_type = location") < on.index("every_army = { destroy_unit = yes }")
+    assert "origin = scope:tfe_homeland" in on and "tfe_warband_site" not in on
+
+
+def test_battles_won_tick_the_migration_war_score_up():
+    # user: the war goal was hopeless; a host wins its war in the field, so battles tick it, faster than vanilla's 0.5
+    goal = code(WARGOAL)
+    assert "type = superiority" in goal and float(re.search(r"ticking_war_score = ([\d.]+)", goal).group(1)) > 1
+    assert "$generic_war_goal_superiority_desc$" in LOC.read_text(encoding="utf-8-sig")
 
 
 def test_camp_warband_and_their_prices_are_gone():
@@ -222,7 +233,7 @@ def test_barbaricum_lets_the_peoples_beyond_the_rivers_pass():
     assert {"tfe_barbaricum", "tfe_barbaricum_desc"} <= keys
 
 
-def test_a_fifth_of_the_people_follow_the_host_and_settle_its_first_lands():
+def test_a_fifth_of_the_people_follow_the_host_and_settle_its_capital():
     # user: taking land shifts its people towards the host's culture and faith, by how many already live there
     effect = code(EFFECT)
     assert "limit = { culture = scope:tfe_host.culture }" in effect
@@ -230,11 +241,10 @@ def test_a_fifth_of_the_people_follow_the_host_and_settle_its_first_lands():
     left = re.search(r"add_pop_size = \{ value = pop_size multiply = -([\d.]+) \}", effect).group(1)
     assert taken == left   # the people are moved, not copied
     assert effect.index("tfe_host_people") < effect.index("change_location_owner")   # counted before the land goes
-    assert "set_variable = { name = tfe_host_plantings value = 0 }" in effect   # change_variable fails on an unset one
     on = code(SETTLE)
-    assert re.search(r"on_actions = \{ tfe_on_host_settles tfe_on_host_plants_its_people \}", on)
-    plant = on[on.index("tfe_on_host_plants_its_people = {"):]
-    assert "culture = scope:winner.culture" in plant and "religion = scope:winner.religion" in plant
-    share = float(re.search(r"multiply = ([\d.]+)", plant).group(1))
-    rounds = int(re.search(r"var:tfe_host_plantings >= (\d+)", plant).group(1))
-    assert share * rounds == 1   # every settler is planted, and no more
+    # user: in a peace deal the people settled anywhere but by the capital: the first land is made the capital, and
+    # every settler is planted there
+    settle = on[on.index("tfe_on_host_settles = {"):]
+    assert "set_capital = scope:tfe_homeland" in settle and "tfe_on_host_plants_its_people" not in on
+    assert "culture = scope:winner.culture" in settle and "religion = scope:winner.religion" in settle
+    assert "size = scope:winner.var:tfe_host_people\n" in settle   # all of them, once

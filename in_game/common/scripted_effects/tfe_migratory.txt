@@ -29,8 +29,7 @@ tfe_start_migration_effect = {
 		}
 	}
 	# a fifth of our people take the road; the rest stay under the new lords. Counted by pop_size, whatever its unit.
-	set_variable = { name = tfe_host_people value = 0 }
-	set_variable = { name = tfe_host_plantings value = 0 }	# change_variable fails on an unset variable
+	set_variable = { name = tfe_host_people value = 0 }	# change_variable fails on an unset variable
 	every_owned_location = {
 		every_pop = {
 			limit = { culture = scope:tfe_host.culture }

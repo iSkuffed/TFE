@@ -1,8 +1,8 @@
-﻿# TFE: the first land a migrating host (generic_actions/tfe_migratory.txt) wins ends the migration. The great host
-# disbands back to the warband it started with; its free upkeep (auto_modifiers/tfe_migratory.txt) ends for good.
-# Its people settle the land it wins, beside the locals (tfe_on_host_plants_its_people).
+﻿# TFE: the first land a migrating host (generic_actions/tfe_migratory.txt) wins ends the migration. It becomes a
+# landed country again, that land is its capital, and the great host disbands back to the warband it started with
+# there; its free upkeep (auto_modifiers/tfe_migratory.txt) ends for good. Its people settle the capital.
 on_location_changed_owner = {
-	on_actions = { tfe_on_host_settles tfe_on_host_plants_its_people }
+	on_actions = { tfe_on_host_settles }
 }
 
 tfe_on_host_settles = {
@@ -14,52 +14,38 @@ tfe_on_host_settles = {
 		}
 	}
 	effect = {
+		save_scope_as = tfe_homeland
 		scope:winner = {
 			set_variable = tfe_settled
 			tfe_list_the_migrators = yes	# the Decline of the West's panel moves it to "settled" now, not next month
-			# the host breaks up and its old warband (setup/start/27_armies.txt) re-forms where it stood. Whole armies
-			# go: destroying sub-units one by one crashed the game a tick later.
-			random_army = { unit_location = { save_scope_as = tfe_warband_site } }
+			# user: a settled host could not disband its troops. An army-based country lives by its armies, so the game
+			# keeps them; vanilla's settling pirates and Timurids become landed countries (change_country_type).
+			# User: in a peace deal its people settled anywhere but by the capital. The first land is both.
+			change_country_type = location
+			set_capital = scope:tfe_homeland
+			# the host breaks up and its old warband (setup/start/27_armies.txt) re-forms at home, raised from it.
+			# Whole armies go: destroying sub-units one by one crashed the game a tick later.
 			every_army = { destroy_unit = yes }
-			scope:tfe_warband_site = {
-				while = {
-					count = 4
-					create_sub_unit_with_owner = { type = a_footmen owner = scope:winner origin = scope:tfe_warband_site }
-				}
-				while = {
-					count = 2
-					create_sub_unit_with_owner = { type = a_tribal_cavalry owner = scope:winner origin = scope:tfe_warband_site }
-				}
-			}
 		}
-	}
-}
-
-# The people who followed the host (tfe_host_people, counted by tfe_start_migration_effect) settle the first four
-# locations it wins, a quarter in each, as peasants of its culture and faith. The same settlers are a majority in a
-# thinly peopled countryside and a minority in a great city: the shift follows how many already live there.
-tfe_on_host_plants_its_people = {
-	trigger = {
-		exists = scope:winner
-		scope:winner = { has_variable = tfe_host_people }
-	}
-	effect = {
-		add_pop = {
-			culture = scope:winner.culture
-			religion = scope:winner.religion
-			type = pop_type:peasants
-			size = {
-				value = scope:winner.var:tfe_host_people
-				multiply = 0.25
-			}
+		while = {
+			count = 4
+			create_sub_unit_with_owner = { type = a_footmen owner = scope:winner origin = scope:tfe_homeland }
 		}
-		scope:winner = {
-			change_variable = { name = tfe_host_plantings add = 1 }
-			if = {
-				limit = { var:tfe_host_plantings >= 4 }
-				remove_variable = tfe_host_people
-				remove_variable = tfe_host_plantings
+		while = {
+			count = 2
+			create_sub_unit_with_owner = { type = a_tribal_cavalry owner = scope:winner origin = scope:tfe_homeland }
+		}
+		# the people who followed the host (tfe_host_people, counted by tfe_start_migration_effect) settle the capital
+		# as peasants of its culture and faith: a majority in a thinly peopled countryside, a minority in a great city
+		if = {
+			limit = { scope:winner = { has_variable = tfe_host_people } }
+			add_pop = {
+				culture = scope:winner.culture
+				religion = scope:winner.religion
+				type = pop_type:peasants
+				size = scope:winner.var:tfe_host_people
 			}
+			scope:winner = { remove_variable = tfe_host_people }
 		}
 	}
 }
