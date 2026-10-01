@@ -10,7 +10,7 @@ from pdx.objects import Doc
 
 EXT = "gfx/interface/illustrations/event/backgrounds/exterior/"
 
-WALLS_COST = 0.67  # share of the tab's price the event charges: a third off
+WALLS_FEE = 150  # gold; the event pays for the whole build, so construction itself costs nothing more
 
 # Arcadius's base is 45/45/25 (05_characters.txt). History: pious, slight, led by his ministers, never took the field.
 # Each stat moves from that base by one of five steps, weighted to the middle; the result lands at adm 30-50,
@@ -23,7 +23,7 @@ def walls_doc():
     doc.namespace("tfe_walls")
     doc.note("1 Jan 405 (on_action/tfe_opening.txt): the great land walls are offered to Constantinople's owner, eight years\n"
              "before the historical date. in_game/common/building_types/tfe_theodosian_walls.txt keeps them out of the\n"
-             "buildings tab until then. Accepting starts construction at a third off the tab's price; refusing leaves the tab's price.")
+             "buildings tab until then. Accepting pays a fixed fee and starts construction at no further cost; refusing leaves the tab's price.")
     with doc.event(1, type="country_event", title="A Wall Across the Peninsula", outcome="positive",
                    desc="Constantine's wall, raised seventy years ago, now stands inside the city: the suburbs, the harbours and "
                         "the granaries have all spilled past it into open fields. Gothic bands raid Thrace within sight of the gates, "
@@ -32,17 +32,20 @@ def walls_doc():
                         "with towers every hundred feet. If it stands, no army will take the city from the land.\n\n"
                         "The stone would come from the quarries of Proconnesus and the labour from every guild in the city, "
                         "who would be taxed for their own safety. The ministers can begin this spring and have the work done "
-                        "for a third less than it would cost if the treasury waited and commissioned it later. Or the old "
+                        "for a fixed 150 gold, far less than the treasury would pay if it waited and commissioned it later. Or the old "
                         "wall may hold for a few more years, and the Theodosian Walls can still be raised later, at full price.",
                    image=EXT + "byz_burghers_exterior.dds") as e:
         with e.trigger() as t:
             t.owns("location:constantinople")
             with t.link("location:constantinople", LocationTrig) as c, c.not_() as n:
                 n.has_building("building_type:theodosian_walls")
-        e.note("start the walls now at a third off the tab's price")
-        with e.option("a", text="Raise the walls (a third cheaper than later)") as o:
+        e.note("a fixed fee, then the walls start building with no further cost")
+        with e.option("a", text="Raise the walls") as o:
+            with o.trigger() as t:
+                t.gold(WALLS_FEE, op=">=")
+            o.add_gold(-WALLS_FEE)
             with o.link("location:constantinople", LocationFx) as c:
-                c.construct_building(building_type="building_type:theodosian_walls", cost_multiplier=WALLS_COST,
+                c.construct_building(building_type="building_type:theodosian_walls", cost_multiplier=0,
                                      cost_multiplier_reason=Q("The wall levy"))
             o.add_prestige(10)
             o.ai_chance(3)

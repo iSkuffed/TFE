@@ -2,7 +2,7 @@
 
 # 1 Jan 405 (on_action/tfe_opening.txt): the great land walls are offered to Constantinople's owner, eight years
 # before the historical date. in_game/common/building_types/tfe_theodosian_walls.txt keeps them out of the
-# buildings tab until then. Accepting starts construction at a third off the tab's price; refusing leaves the tab's price.
+# buildings tab until then. Accepting pays a fixed fee and starts construction at no further cost; refusing leaves the tab's price.
 tfe_walls.1 = {
 	type = country_event
 	title = tfe_walls.1.title
@@ -13,13 +13,15 @@ tfe_walls.1 = {
 		owns = location:constantinople
 		location:constantinople = { NOT = { has_building = building_type:theodosian_walls } }
 	}
-	# start the walls now at a third off the tab's price
+	# a fixed fee, then the walls start building with no further cost
 	option = {
 		name = tfe_walls.1.a
+		trigger = { gold >= 150 }
+		add_gold = -150
 		location:constantinople = {
 			construct_building = {
 				building_type = building_type:theodosian_walls
-				cost_multiplier = 0.67
+				cost_multiplier = 0
 				cost_multiplier_reason = "The wall levy"
 			}
 		}
