@@ -86,8 +86,8 @@ bad `outcome` before EU5 does. Plan: `docs/specs/2026-09-30-python-script-layer-
 is `tools/pdx/CONTRACT.md`.
 
 - Sources are `script/*.py`, each with an `outputs()` returning `{repo path: text}`. Write them all with
-  `python script/run.py` (same `uv run ...` prefix as the tests). Ported so far: `migratory.py` (generic actions),
-  `gildo_events.py`, `decline_rome_events.py`, `foederati_events.py`, `hunnic_storm_events.py` (events; their loc
+  `python script/run.py` (same `uv run ...` prefix as the tests). Ported so far: `migratory.py` and `decline_rome_actions.py` (generic actions),
+  `gildo_events.py`, `opening_events.py`, `decline_rome_events.py`, `foederati_events.py`, `hunnic_storm_events.py` (events; their loc
   stays hand-written except Gildo's), and `defs_*.py` (scripted effects and triggers, on_actions). A test fails when a generated file is stale.
 - Start a new file by copying the nearest port. `Doc.event(...)` builds events; `with c.every_neighbor_country() as n:`
   changes scope; `with t.link("scope:actor", CountryTrig) as c:` is `scope:actor = { }`; comparison triggers read

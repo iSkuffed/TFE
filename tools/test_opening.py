@@ -4,7 +4,10 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "script"))
 import borders as b
+import opening_events
+from pdx.core import find
 
 EVENT = b.MOD / "in_game/events/tfe_opening.txt"
 ON_ACTION = b.MOD / "in_game/common/on_action/tfe_opening.txt"
@@ -74,16 +77,18 @@ def test_events_do_not_crash_the_game():
 def test_gildo_rises_as_an_annexable_revolter():
     ev = code(EVENT)
     rising = ev.split("tfe_opening.3 = {")[1].split("tfe_opening.7 = {")[0]
-    crowning = ev.split("tfe_opening.7 = {")[1].split("tfe_opening.4 = {")[0]
     east = ev.split("tfe_opening.4 = {")[1].split("tfe_opening.5 = {")[0]
+    doc = opening_events.build()   # script/opening_events.py writes the layout: ask the model
     # a revolt, not a civil war or a declared war: only a revolt war offers Annex Revolter
     assert "start_revolt = yes" in rising and "declare_war" not in rising and "create_country" not in rising
     # the Mauri back him from inside his own land: the revolter is the one holding nothing else
-    assert "NOT = { any_owned_location = { NOT = { tfe_gildo_base_land = yes } } }" in crowning
+    assert doc.find("tfe_gildo_base_land", "yes", inside=("tfe_opening.7", "random_country", "limit", "NOT", "any_owned_location", "NOT"))
     # a backer leading the rebel side turns Annex Revolter into a white peace
-    assert "leave_war = { war = scope:tfe_gildo_war actor = root }" in crowning
+    leave = doc.find("leave_war", inside=("tfe_opening.7", "every_war_participant"))
+    assert [(n.key, n.val) for n in leave[0].val] == [("war", "scope:tfe_gildo_war"), ("actor", "root")]
     # user: he spawned as the Mauri's Secessionist subject (the revolt system's doing); the crowning frees him
-    assert re.search(r"limit = \{ is_subject = yes \}\s*overlord = \{ cancel_subject = prev \}", crowning)
+    assert any(find(f.val, "is_subject", "yes", inside="limit") and find(f.val, "cancel_subject", "prev", inside="overlord")
+               for f in doc.find("if", inside="tfe_opening.7"))
     # a vassal of the East cannot be annexed and ends the revolt war: the homage waits for peace (tfe_gildo.6)
     assert "make_subject_of" not in east
     gildo = " ".join(code(b.MOD / "in_game/events/tfe_gildo.txt").split())  # script/gildo_events.py writes the layout
