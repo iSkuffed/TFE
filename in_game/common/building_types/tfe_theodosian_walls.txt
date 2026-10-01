@@ -1,5 +1,5 @@
 ﻿# TFE: vanilla's theodosian_walls with one change: Constantinople's great land walls cannot be raised before 1 Jan 405.
-# Anthemius began them around 405-413 (events/tfe_walls.txt offers them early at a third off); a player who refuses the
+# They were built around 412-413 (events/tfe_walls.txt offers them early at a third off); a player who refuses the
 # offer can still build them from the buildings tab at full price, and so can anyone holding the city after that date.
 # tools/test_vanilla_copies.py fails when an EU5 patch changes vanilla's original.
 REPLACE:theodosian_walls = {

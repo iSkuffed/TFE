@@ -13,7 +13,7 @@ tfe_on_start_opening = {
 			add_country_modifier = { modifier = tfe_rufinus_prefecture years = 5 }	# until the Campus Martius
 			trigger_event_silently = tfe_arcadius.1					# rolls Arcadius's stats
 			trigger_event_non_silently = { id = tfe_opening.2 days = 313 }		# Rufinus, 27 Nov 395
-			trigger_event_non_silently = { id = tfe_walls.1 days = 3636 }		# Anthemius's walls, 1 Jan 405
+			trigger_event_non_silently = { id = tfe_walls.1 days = 3636 }		# the great land walls offered, 1 Jan 405
 		}
 	}
 }

@@ -1,6 +1,6 @@
 ﻿namespace = tfe_walls
 
-# 1 Jan 405 (on_action/tfe_opening.txt): Anthemius's land walls are offered to Constantinople's owner, eight years
+# 1 Jan 405 (on_action/tfe_opening.txt): the great land walls are offered to Constantinople's owner, eight years
 # before the historical date. in_game/common/building_types/tfe_theodosian_walls.txt keeps them out of the
 # buildings tab until then. Accepting starts construction at a third off the tab's price; refusing leaves the tab's price.
 tfe_walls.1 = {
@@ -20,7 +20,7 @@ tfe_walls.1 = {
 			construct_building = {
 				building_type = building_type:theodosian_walls
 				cost_multiplier = 0.67
-				cost_multiplier_reason = "Anthemius's levy"
+				cost_multiplier_reason = "The wall levy"
 			}
 		}
 		add_prestige = 10

@@ -1,4 +1,4 @@
-"""tfe_walls and tfe_arcadius events: Anthemius's walls offered early, and Arcadius's stats rolled at the start."""
+"""tfe_walls and tfe_arcadius events: the great land walls offered early, and Arcadius's stats rolled at the start."""
 import sys
 from pathlib import Path
 
@@ -21,17 +21,19 @@ ARCADIUS_STEPS = ((15, -15), (20, -10), (30, -5), (20, 0), (15, 5))
 def walls_doc():
     doc = Doc()
     doc.namespace("tfe_walls")
-    doc.note("1 Jan 405 (on_action/tfe_opening.txt): Anthemius's land walls are offered to Constantinople's owner, eight years\n"
+    doc.note("1 Jan 405 (on_action/tfe_opening.txt): the great land walls are offered to Constantinople's owner, eight years\n"
              "before the historical date. in_game/common/building_types/tfe_theodosian_walls.txt keeps them out of the\n"
              "buildings tab until then. Accepting starts construction at a third off the tab's price; refusing leaves the tab's price.")
-    with doc.event(1, type="country_event", title="Anthemius Measures the Plain", outcome="positive",
-                   desc="The praetorian prefect Anthemius has walked the ground west of the city with a rope and a surveyor. "
-                        "The old wall of Constantine is a day's walk too close to the harbours, and every year the suburbs "
-                        "spill further past it. He proposes a new line across the whole peninsula: a moat, an outer wall, "
-                        "and behind it a great wall with towers every hundred feet.\n\n"
-                        "The stone would come from the quarries of Proconnesus, and the work from every guild and every "
-                        "landowner in the city, who would be taxed for their own safety. He offers to begin this spring, "
-                        "and to do it for a third less than the treasury would pay if it waited and commissioned the work itself.",
+    with doc.event(1, type="country_event", title="A Wall Across the Peninsula", outcome="positive",
+                   desc="Constantine's wall, raised seventy years ago, now stands inside the city: the suburbs, the harbours and "
+                        "the granaries have all spilled past it into open fields. Gothic bands raid Thrace within sight of the gates, "
+                        "and the Huns are on the Danube. The Emperor's ministers have a plan: a single great line of wall "
+                        "from the Propontis to the Golden Horn, with a moat, an outer wall, and behind it a high inner wall "
+                        "with towers every hundred feet. If it stands, no army will take the city from the land.\n\n"
+                        "The stone would come from the quarries of Proconnesus and the labour from every guild in the city, "
+                        "who would be taxed for their own safety. The ministers can begin this spring and have the work done "
+                        "for a third less than it would cost if the treasury waited and commissioned it later. Or the old "
+                        "wall may hold for a few more years, and the Theodosian Walls can still be raised later, at full price.",
                    image=EXT + "byz_burghers_exterior.dds") as e:
         with e.trigger() as t:
             t.owns("location:constantinople")
@@ -41,7 +43,7 @@ def walls_doc():
         with e.option("a", text="Raise the walls (a third cheaper than later)") as o:
             with o.link("location:constantinople", LocationFx) as c:
                 c.construct_building(building_type="building_type:theodosian_walls", cost_multiplier=WALLS_COST,
-                                     cost_multiplier_reason=Q("Anthemius's levy"))
+                                     cost_multiplier_reason=Q("The wall levy"))
             o.add_prestige(10)
             o.ai_chance(3)
         e.note("they stay in the buildings tab at full price")
