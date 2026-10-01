@@ -119,6 +119,7 @@ def test_an_auto_modifier_builder_matches_the_committed_entry():
     _same_entry(d, "in_game/common/auto_modifiers/tfe_late_roman_west.txt", "tfe_comitatenses")
 
 
+@pytest.mark.skipif(not (ls.DOCS / "modifiers.log").exists(), reason="no script_docs logs")
 def test_a_bias_builder_and_a_misspelt_modifier_key():
     from pdx.objects import Doc
     d = Doc()

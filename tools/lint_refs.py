@@ -172,10 +172,19 @@ def learn_slots(roots_vanilla, regs):
     return out
 
 
+@functools.lru_cache(maxsize=None)
+def learned_slots(vanilla_roots):
+    """learn_slots over vanilla and its DLC only, once per process: the mod's own files teach it nothing."""
+    return learn_slots(vanilla_roots, registries(vanilla_roots))
+
+
 def value_problems(base, roots, vanilla):
     roots = tuple(roots)
-    regs = registries(roots)
-    learned = learn_slots(tuple(r for r in roots if r != base or vanilla) if not vanilla else roots, regs)
+    theirs = roots if vanilla else tuple(r for r in roots if r != base)
+    regs, learned = registries(theirs), learned_slots(theirs)
+    ours = {} if vanilla else registries((base,))  # the mod's own keys: advances, subject types ... it defines itself
+    known = lambda folder: regs.get(folder, set()) | ours.get(folder, set())
+    anywhere = lambda key: any(key in ks for ks in regs.values()) or any(key in ks for ks in ours.values())
     for p, tree in trees(base):
         rel = p.relative_to(base)
         if rel.parts[:2] == ("main_menu", "setup"):  # start data names things defined in start data (dynasties, tags)
@@ -189,7 +198,7 @@ def value_problems(base, roots, vanilla):
             if prefix not in want[3] and want[2]:
                 right = f"{want[0]}:{key}" if want[0] else key
                 yield f"{rel}:{e.line}: {shown}: vanilla writes this as `{right}`"
-            elif prefix in want[3] and key not in regs[want[1]] and not any(key in ks for ks in regs.values()):
+            elif prefix in want[3] and key not in known(want[1]) and not anywhere(key):
                 yield f"{rel}:{e.line}: {shown}: {key} is not defined in {want[1]}"  # a key some other registry holds is a coincidence of names (rank_duchy is a location and a country rank)
 
 
