@@ -16,7 +16,7 @@ ROMAN = "OR = { tfe_is_western_rome = yes has_or_had_tag = EAR }"
 # ours: the vanilla unit it stands in for, and where its picture comes from. The Comitatenses take the DLC's East
 # Mediterranean armoured spearmen through a gfx tag named after that illustration (a unit's own tags are tried before
 # its soldiers' culture). The Limitanei have their own picture, army_infantry_<unit type>.dds, which the game tries
-# first of all: a copy of the base game's 2_light_tag, light spearmen in leather caps and hoods.
+# first of all: MAZZO313's own painting of late Roman spearmen with round painted shields.
 # Not the legionaries (the early Empire's, not 395's) nor light_tag (the pitchfork levy).
 OURS = {"tfe_comitatenses": ("a_footmen", "east_mediterranean_gfx"), "tfe_limitanei": ("a_archers", None)}
 ART = "gfx/interface/illustrations/units"
@@ -52,12 +52,14 @@ def test_the_roman_units_copy_vanillas_and_only_rome_recruits_them():
         assert art.exists() and (art.parent / "masks" / art.name).exists(), art
 
 
-def test_the_limitanei_picture_is_vanillas_light_spearmen_whole():
-    # MAZZO313: the cropped spearman's right side faded into a mirrored fog that looked broken on the Military tab,
-    # which shows the whole picture. A vanilla painting used whole already frames its front man for the small icons
-    for sub in ("", "masks/"):
-        ours = b.MOD / "main_menu" / ART / f"{sub}army_infantry_tfe_limitanei.dds"
-        assert ours.read_bytes() == (b.GAME / "main_menu" / ART / f"{sub}army_infantry_2_light_tag.dds").read_bytes(), sub
+def test_the_limitanei_picture_is_whole_and_keeps_its_own_colours():
+    # MAZZO313's own painting of late Roman spearmen (white and red tunics, wheel-painted shields), used whole: the
+    # Military tab shows the full picture and the small icons its left third, where the front man stands. Its mask is
+    # black, as the red channel marks where the country colour goes, so the painted colours stay in both empires
+    from PIL import Image
+    pic, mask = (Image.open(b.MOD / "main_menu" / ART / f"{sub}army_infantry_tfe_limitanei.dds") for sub in ("", "masks/"))
+    assert pic.size == mask.size and pic.size[0] / pic.size[1] > 2.3   # vanilla's are 1080 x 440 and 2000 x 840
+    assert mask.convert("RGB").getextrema()[0] == (0, 0)
 
 
 def test_vanillas_footmen_and_archers_are_barred_to_rome_and_otherwise_unchanged():
