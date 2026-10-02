@@ -7,7 +7,7 @@
 # (illustrations/units/army_infantry_<tag>.dds) shows it in both empires whatever the regiment's culture. The
 # Comitatenses' armoured spearmen are Fate of the Phoenix's, not copied; without it they fall back to the generic
 # infantry. The Limitanei have their own picture, main_menu/gfx/interface/illustrations/units/army_infantry_tfe_limitanei.dds
-# (and masks/), which the game tries before any tag: the helmeted spearman cropped from the base game's middle_east_gfx.
+# (and masks/), which the game tries before any tag: a copy of the base game's 2_light_tag light spearmen.
 
 tfe_comitatenses = {
 	copy_from = a_footmen
