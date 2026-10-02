@@ -1,0 +1,9 @@
+﻿l_english:
+ tfe_comitatenses: "Comitatenses"
+ tfe_comitatenses_desc: "The legions of the field armies, who march with the Augustus and his magistri militum. Armoured, drilled and paid in gold, they are the heart of every Roman battle line."
+ tfe_limitanei: "Limitanei"
+ tfe_limitanei_desc: "The soldiers of the frontier. They hold the forts of the limes, farm the land beside them and stand in the line behind the Comitatenses when the field army comes."
+ tfe_unlock_comitatenses_advance: "$tfe_comitatenses$"
+ tfe_unlock_comitatenses_advance_desc: "$tfe_comitatenses_desc$"
+ tfe_unlock_limitanei_advance: "$tfe_limitanei$"
+ tfe_unlock_limitanei_advance_desc: "$tfe_limitanei_desc$"

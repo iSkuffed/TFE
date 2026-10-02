@@ -1,0 +1,26 @@
+﻿# TFE: the empires' Footmen and Archers are their Comitatenses and Limitanei. Vanilla's are barred to them, so
+# both start with the advances that unlock their own.
+on_game_start = {
+	on_actions = { tfe_on_start_roman_units }
+}
+
+tfe_on_start_roman_units = {
+	effect = {
+		every_country = {
+			limit = {
+				OR = {
+					tfe_is_western_rome = yes
+					has_or_had_tag = EAR
+				}
+			}
+			if = {
+				limit = { NOT = { has_advance = tfe_unlock_comitatenses_advance } }
+				research_advance = advance_type:tfe_unlock_comitatenses_advance
+			}
+			if = {
+				limit = { NOT = { has_advance = tfe_unlock_limitanei_advance } }
+				research_advance = advance_type:tfe_unlock_limitanei_advance
+			}
+		}
+	}
+}

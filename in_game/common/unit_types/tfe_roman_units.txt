@@ -1,0 +1,72 @@
+﻿# TFE: the Roman empires field the late army's two grades of foot (Notitia Dignitatum): the Comitatenses of the field
+# armies and the Limitanei who held the frontier forts. They are vanilla's Footmen and Archers under Roman names and
+# pictures. A unit type cannot be renamed for one country, so they are new types, as vanilla's own legionaries are.
+# Rome cannot recruit Footmen or Archers, so its recruit list shows only these. The Stilicho opening's legions are
+# created by category, so they come out as Comitatenses too.
+# The pictures need Fate of the Phoenix: without it the game shows the generic infantry art under the Roman names.
+
+tfe_comitatenses = {
+	copy_from = a_footmen
+	country_potential = { OR = { tfe_is_western_rome = yes has_or_had_tag = EAR } }	# a copy keeps vanilla's, which bars Rome
+	gfx_tags = { legionary_tag sword_tag heavy_tag }	# the legionary helmet, shield and illustration
+}
+
+tfe_limitanei = {
+	copy_from = a_archers
+	country_potential = { OR = { tfe_is_western_rome = yes has_or_had_tag = EAR } }
+	gfx_tags = { light_tag medium_tag }	# the East Mediterranean light infantry
+}
+
+# Vanilla's two, from in_game/common/unit_types/2_unlocked_through_tech.txt, with one TFE line each: Rome is barred.
+# tools/test_roman_units.py fails when an EU5 patch changes vanilla's originals.
+REPLACE:a_footmen = {
+	default = yes
+	copy_from = a_age_1_traditions_heavy_infantry
+	strength_damage_taken = -0.05
+
+
+	country_potential = {
+		government_type != government_type:steppe_horde
+		NOT = { OR = { tfe_is_western_rome = yes has_or_had_tag = EAR } } # TFE
+	}
+
+	#root = location. Checks location_potential first so don't need that scripting in
+	mercenaries_per_location = {
+		pop_type = laborers
+		multiply = 0.1
+	}
+
+	upgrades_to = a_men_at_arms
+
+
+	maintenance_demand =  early_heavy_infantry_maintenance
+	construction_demand = early_heavy_infantry_construction
+
+	gfx_tags = { medium_tag }
+
+
+}
+
+REPLACE:a_archers = {
+	default = yes
+	copy_from = a_age_1_traditions_light_infantry
+
+
+	upgrades_to = a_crossbowmen
+
+
+	country_potential = {
+		government_type != government_type:steppe_horde
+		NOT = { OR = { tfe_is_western_rome = yes has_or_had_tag = EAR } } # TFE
+	}
+
+	#root = location. Checks location_potential first so don't need that scripting in
+	mercenaries_per_location = {
+		pop_type = peasants
+		multiply = 0.05
+	}
+
+	maintenance_demand = archer_infantry_maintenance
+	construction_demand = archer_infantry_construction
+	gfx_tags = { archer_tag medium_tag }
+}

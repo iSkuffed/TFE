@@ -1,0 +1,19 @@
+﻿# TFE: the advances that let Rome recruit its Comitatenses and Limitanei (unit_types/tfe_roman_units.txt), as vanilla's
+# unlock_footmen_advance and unlock_archers_advance do for everyone else. Both empires research them on day one
+# (on_action/tfe_roman_units.txt); a Rome born later (Stilicho's West) can research them after Codified Laws.
+
+tfe_unlock_comitatenses_advance = {
+	age = age_1_traditions
+	allow_children = no
+	requires = codified_laws
+	potential = { OR = { tfe_is_western_rome = yes has_or_had_tag = EAR } }
+	unlock_unit = tfe_comitatenses
+}
+
+tfe_unlock_limitanei_advance = {
+	age = age_1_traditions
+	allow_children = no
+	requires = codified_laws
+	potential = { OR = { tfe_is_western_rome = yes has_or_had_tag = EAR } }
+	unlock_unit = tfe_limitanei
+}

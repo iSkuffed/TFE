@@ -174,8 +174,15 @@ def test_the_map_carries_the_lands_modifiers():
     assert {m for m in tagged.values() if m not in specialities} == {p.stem for p in MODS}
     assert {l for l, m in tagged.items() if m == "tfe_granary_of_rome"} == set(lt.GRANARIES)
     assert len([m for m in tagged.values() if m == "tfe_pannonian_recruiting_grounds"]) > 40
+    for l in ("belgrad", "smederevo", "rudnik"):   # Singidunum, on the Pannonian bank of Moesia
+        assert tagged.get(l) == "tfe_pannonian_recruiting_grounds", l
     for l in lt.GRANARIES:
         assert re.search(rf"^{l} = \{{[^\n]*raw_material = wheat\b", ours, re.M), l
+
+
+def test_pannonia_gives_thirty_men_a_month_per_location():
+    # flat local_manpower is in thousands: 0.03 is 30 men
+    assert "local_manpower = 0.03" in blocks(MODS[1])["tfe_pannonian_recruiting_grounds"]
 
 
 def test_italy_gave_a_fifth_of_its_wheat_land_to_the_villas():
@@ -275,7 +282,9 @@ def test_every_location_with_our_modifier_tells_its_story():
     ours = (b.MOD / "in_game/map_data/location_templates.txt").read_text(encoding="utf-8-sig")
     tagged = set(re.findall(r"^(\w+) = \{ modifier = tfe_\w+ ", ours, re.M))
     keys = dict(re.findall(r'^ (\w+)_desc: "(.+)"$', flavor.read_text(encoding="utf-8-sig"), re.M))
-    assert set(keys) == tagged, sorted(set(keys) ^ tagged)
+    # a town with its own hand-written 395 description (Belgrade's Singidunum) keeps that one instead
+    cities = set(re.findall(r"^ (\w+)_desc:", lt.CITY_FLAVOR_FILE.read_text(encoding="utf-8-sig"), re.M))
+    assert set(keys) == tagged - cities, sorted(set(keys) ^ (tagged - cities))
     assert "Carthage" in keys["tunis"] and "Papacy" not in keys["rome"]
 
 

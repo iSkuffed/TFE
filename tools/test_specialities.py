@@ -80,3 +80,10 @@ def test_every_city_of_our_world_is_described_as_it_was_in_395():
     assert not want - set(defined), sorted(want - set(defined))
     cities = CITIES.read_text(encoding="utf-8-sig")
     assert CITIES.read_bytes().startswith(b"\xef\xbb\xbf") and "Umayyad" not in cities and "Abbasid" not in cities
+
+
+def test_no_town_is_described_twice():
+    # both files are in replace/: a key in both is a coin toss which text the game shows (Belgrade/Singidunum)
+    keys = [set(re.findall(r"^ (\w+):", p.read_text(encoding="utf-8-sig"), re.M)) for p in (FLAVOR, CITIES)]
+    assert not keys[0] & keys[1], sorted(keys[0] & keys[1])
+    assert FLAVOR.read_text(encoding="utf-8-sig") == lt.flavor(), "rerun tools/location_templates.py"

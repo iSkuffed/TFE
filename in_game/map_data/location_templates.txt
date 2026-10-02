@@ -5737,9 +5737,9 @@ brvenik = { topography = hills vegetation = forest climate = continental religio
 budimlja = { topography = mountains vegetation = woods climate = continental religion = orthodox culture = serbian raw_material = wool}
 sjenica = { topography = plateau vegetation = woods climate = continental religion = orthodox culture = serbian raw_material = livestock}
 dinaric_alps7 = { topography = mountain_wasteland vegetation = woods climate = arctic}
-belgrad = { topography = flatland vegetation = farmland climate = subtropical religion = orthodox culture = serbian raw_material = lead}
-smederevo = { topography = flatland vegetation = woods climate = subtropical religion = orthodox culture = serbian raw_material = marble}
-rudnik = { topography = hills vegetation = woods climate = continental religion = orthodox culture = serbian raw_material = silver}
+belgrad = { modifier = tfe_pannonian_recruiting_grounds topography = flatland vegetation = farmland climate = subtropical religion = orthodox culture = serbian raw_material = lead}
+smederevo = { modifier = tfe_pannonian_recruiting_grounds topography = flatland vegetation = woods climate = subtropical religion = orthodox culture = serbian raw_material = marble}
+rudnik = { modifier = tfe_pannonian_recruiting_grounds topography = hills vegetation = woods climate = continental religion = orthodox culture = serbian raw_material = silver}
 krusevac = { topography = flatland vegetation = woods climate = continental religion = orthodox culture = serbian raw_material = wine}
 jagodina = { topography = flatland vegetation = grasslands climate = continental religion = orthodox culture = serbian raw_material = fruit}
 stalac = { topography = flatland vegetation = grasslands climate = subtropical religion = orthodox culture = serbian raw_material = sand}
