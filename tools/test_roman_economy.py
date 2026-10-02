@@ -90,6 +90,12 @@ def test_diocesan_seats_start_with_local_governors():
     assert per["WRE"] >= 5 and per["EAR"] >= 4, dict(per)
 
 
+def test_both_capitals_start_with_a_sergeantry():
+    # MAZZO313: both empires start with a Sergeantry in their capitals (vanilla's is capital-only, one level)
+    _, caps = owners()
+    assert sorted(buildings("sergeantry")) == sorted((t, caps[t]) for t in ("WRE", "EAR"))
+
+
 def pops_by_location(text):
     return {m.group(1): sum(float(x) for x in re.findall(r"size = ([\d.]+)", m.group(2)))
             for m in re.finditer(r"^(\w+) = \{(.*?)^\}", text, re.M | re.S)}

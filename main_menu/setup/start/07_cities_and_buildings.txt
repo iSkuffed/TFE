@@ -709,6 +709,8 @@ building_manager = {
 	local_governor = { tag = EAR level = 1 location = kayseri }
 	local_governor = { tag = EAR level = 1 location = antioch }
 	local_governor = { tag = EAR level = 1 location = alexandria }
+	sergeantry = { tag = WRE level = 1 location = milano }
+	sergeantry = { tag = EAR level = 1 location = constantinople }
 	tfe_hadrians_wall = { tag = WRE level = 1 location = newcastle }
 	tfe_hadrians_wall = { tag = WRE level = 1 location = hexham }
 	tfe_limes = { tag = WRE level = 1 location = nijmegen }

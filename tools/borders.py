@@ -957,6 +957,8 @@ ROMAN_GOVERNORS = {
     "WRE": ("rome", "tunis", "merida", "arles", "trier", "london", "sremska_mitrovica"),
     "EAR": ("thessaloniki", "ayasuluk", "kayseri", "antioch", "alexandria"),
 }
+# a Sergeantry in each capital (Mediolanum, Constantinople): the court's own muster, recruiting where the emperor sits
+ROMAN_SERGEANTRIES = {"WRE": ("milano",), "EAR": ("constantinople",)}
 # the frontier works between those castles (building_types/tfe_frontier.txt): Hadrian's Wall, and the ripa of the Rhine
 # and the Danube, where the land across the river is not Roman. The Goths hold the Danube from Vidin to Ruse.
 ROMAN_FRONTIER = {
@@ -1012,7 +1014,7 @@ HUNNIC_BUILDINGS = (("barracks", "HNS", "adalaga"),)   # the horde's muster grou
 
 def roman_buildings():
     L = ["building_manager = {"]
-    for kind, places in (("castle", ROMAN_FORTS), ("local_governor", ROMAN_GOVERNORS)):
+    for kind, places in (("castle", ROMAN_FORTS), ("local_governor", ROMAN_GOVERNORS), ("sergeantry", ROMAN_SERGEANTRIES)):
         L += [f"\t{kind} = {{ tag = {t} level = 1 location = {l} }}" for t in ROMAN_EMPIRES for l in places[t]]
     for kind, places in ROMAN_FRONTIER.items():   # sparse: not every empire holds every kind of frontier
         L += [f"\t{kind} = {{ tag = {t} level = 1 location = {l} }}" for t in ROMAN_EMPIRES for l in places.get(t, ())]
