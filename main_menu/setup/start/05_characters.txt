@@ -139,7 +139,7 @@ character_db = {
 	}
 	tfe_gildo = { # comes Africae, son of Nubel; approx
 		first_name = { name = name_gildo }
-		culture = kabyle
+		culture = afro_roman	# the Moorish prince's son raised a Roman count: he rises as Africa's, not the Mauri's
 		religion = donatism
 		adm = 45 dip = 35 mil = 60
 		birth_date = 330.1.1
