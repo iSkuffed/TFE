@@ -115,7 +115,11 @@ Claude launches and drives EU5 itself; don't ask the human to test. Tests on a b
 been seen working in game, or you say plainly that it hasn't.
 
 - **Linux:** `tools/eu5ctl.sh` (start, wait, shot, click, hover, key, type, cmd, run, log, stop; usage in its header).
-- **Windows:** `tools/eu5ctl.ps1` (same commands as `eu5ctl.sh`).
+- **Windows:** `tools/eu5ctl.ps1` (same commands as `eu5ctl.sh`). Like gamescope, it leaves the PC to the human: the
+  game runs windowed just off the right edge of the screen, behind everything, and gets clicks and keys as window
+  messages, so the real mouse and keyboard are never touched. `stop` puts the human's display settings back; a run
+  killed without `stop` is mended by the next `start`. Hover only lasts until the next frame (SDL snaps its cursor back
+  to the real one), so a tooltip can't be held open; `EU5CTL_FOREGROUND=1` is the old way, in front with the real cursor.
 - **Probes beat screenshots.** Write an effect file with `debug_log = "..."` inside `if`/`else` checks, `run` it and
   read the log. Example: `location:tunis = { if = { limit = { is_full_expanded_rgo = yes } debug_log = "full" } }`.
 - **Load the mod:** the active playset is in `Documents/.../Europa Universalis V/playsets.json` (`isActive`). If the
