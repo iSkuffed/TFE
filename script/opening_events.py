@@ -179,19 +179,19 @@ def build():
                     lord.cancel_subject("prev")
         with i.if_() as f:
             f.limit(lambda t: t.exists("scope:tfe_usurper"))
-            f.note("the revolt hands him only part of it")
+            f.note("the revolt hands him only part of it: the rest of Africa but Tingitana is his by right")
             with f.every_owned_location() as loc:
                 loc.limit(lambda t: t.tfe_gildo_base_land())
                 loc.change_location_owner("scope:tfe_usurper")
-            f.note("his seat is Cherchell, or Cirta if Cherchell is lost; Carthage only if he wins it (tfe_gildo.6)")
-            for branch, seat in ((f.if_, "cherchell"), (f.else_if, "constantine_ALG")):
+            f.note("his seat is Carthage, which he takes with the rest of Africa; Cherchell or Cirta if the West holds it")
+            for branch, seat in ((f.if_, "tunis"), (f.else_if, "cherchell"), (f.else_if, "constantine_ALG")):
                 with branch() as g:
                     g.limit(lambda t: owns(t, seat, "scope:tfe_usurper"))
                     g.link("scope:tfe_usurper", CountryFx, lambda u: u.set_capital(f"location:{seat}"))
             f.set_variable(name="tfe_usurper", value="scope:tfe_usurper", years=10)
             f.set_variable(name="tfe_gildo_wave", value=0)
             f.trigger_event_silently(id="tfe_gildo.6", months=3)
-            f.tail("the grain coast and Tripolitania are still in play")
+            f.tail("the East's homage and his seat, monthly")
             f.link("c:EAR", CountryFx, lambda ear: ear.trigger_event_non_silently("tfe_opening.4"), op="?=")
 
     doc.note("The East is offered the diocese of Africa (fired by 7)")

@@ -93,3 +93,25 @@ def test_gildo_rises_as_an_annexable_revolter():
     assert "make_subject_of" not in east
     gildo = " ".join(code(b.MOD / "in_game/events/tfe_gildo.txt").split())  # script/gildo_events.py writes the layout
     assert "c:GILDO = { make_subject_of = { target = c:EAR type = subject_type:vassal } }" in gildo
+
+
+def test_gildo_rises_with_all_roman_africa_but_tingitana():
+    # MAZZO313: as in 397, he holds the whole diocese of Africa on the day he rises. Tingitana belonged to the diocese
+    # of Spain and stays loyal; nothing is left to win town by town
+    trig = code(b.MOD / "in_game/common/scripted_triggers/tfe_gildo.txt")
+    base = re.search(r"^tfe_gildo_base_land = \{(.*?)^\}", trig, re.M | re.S).group(1)
+    areas = set(re.findall(r"area = area:(\w+)", base))
+    provinces = set(re.findall(r"province_definition = province_definition:(\w+)", base))
+    anc = b.load_hierarchy()
+    countries = (b.MOD / "main_menu/setup/start/10_countries.txt").read_text(encoding="utf-8")
+    wre = re.search(r"\n\t\tWRE = \{.*?own_control_core = \{(.*?)\}", countries, re.S).group(1).split()
+    africa = [l for l in wre if anc[l][2] == "maghreb_region"]
+    his = {l for l in africa if anc[l][3] in areas or anc[l][4] in provinces}
+    assert {anc[l][3] for l in set(africa) - his} == {"morocco_area"}   # all but Tingitana
+    assert "tunis" in his and "tripoli" in his and "cherchell" in his
+    assert "tfe_gildo_contested_land" not in trig + code(b.MOD / "in_game/events/tfe_gildo.txt")
+    # Carthage is his seat from the first day
+    seven = code(EVENT).split("tfe_opening.7 = {")[1]
+    assert seven.index("location:tunis") < seven.index("location:cherchell")
+    guide = (b.MOD / "main_menu/localization/english/tfe_decline_of_the_west_l_english.yml").read_text(encoding="utf-8-sig")
+    assert "town by town" not in guide and "Tingitana" in guide

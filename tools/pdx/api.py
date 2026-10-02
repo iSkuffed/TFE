@@ -7617,7 +7617,6 @@ class AnyTrig(Scope):
     def teu_event_6_trigger(self, _v: bool | str | float = True, /) -> None: self._call("teu_event_6_trigger", _v)
     def tfe_frontier_unmanned(self, _v: bool | str | float = True, /) -> None: self._call("tfe_frontier_unmanned", _v)
     def tfe_gildo_base_land(self, _v: bool | str | float = True, /) -> None: self._call("tfe_gildo_base_land", _v)
-    def tfe_gildo_contested_land(self, _v: bool | str | float = True, /) -> None: self._call("tfe_gildo_contested_land", _v)
     def tfe_gildo_revolt_fires(self, _v: bool | str | float = True, /) -> None: self._call("tfe_gildo_revolt_fires", _v)
     def tfe_has_frontier_works(self, _v: bool | str | float = True, /) -> None: self._call("tfe_has_frontier_works", _v)
     def tfe_hunnic_storm_is_over(self, _v: bool | str | float = True, /) -> None: self._call("tfe_hunnic_storm_is_over", _v)

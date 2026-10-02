@@ -139,7 +139,8 @@ tfe_gildo.5 = {
 	}
 }
 
-# after the rising, Carthage and Tripolis are won or lost one town at a time (hidden, monthly for two years)
+# after the rising, monthly for two years: the East's homage once his war is over, and his seat (hidden).
+# He rises with all of Africa but Tingitana (scripted_triggers/tfe_gildo.txt), so no town is left to win.
 tfe_gildo.6 = {
 	type = country_event
 	title = tfe_gildo.6.title
@@ -149,16 +150,6 @@ tfe_gildo.6 = {
 	trigger = { country_exists = c:GILDO }
 	immediate = {
 		change_variable = { name = tfe_gildo_wave add = 1 }
-		every_owned_location = {
-			limit = { tfe_gildo_contested_land = yes }
-			if = {
-				limit = { religion_percentage = { religion = religion:donatism value >= 0.25 } }
-				random = { chance = 25 change_location_owner = c:GILDO }
-			}
-			else = {
-				random = { chance = 8 change_location_owner = c:GILDO }
-			}
-		}
 		# the East took his oath (tfe_opening.4): once his war with us is over, he is Constantinople's man
 		if = {
 			limit = { has_variable = tfe_gildo_goes_east c:GILDO = { NOT = { is_at_war_with = root } } }
