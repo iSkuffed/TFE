@@ -1,0 +1,37 @@
+﻿# TFE: the West's fleets of Ravenna and Misenum: 30 transports and 5 galleys on day one.
+on_game_start = {
+	on_actions = { tfe_on_start_western_fleet }
+}
+
+tfe_on_start_western_fleet = {
+	effect = {
+		# create_sub_unit one at a time: create_num_sub_unit = { count type } silently makes nothing. The ships
+		# made at one port gather into one fleet there, for its owner, beside the 13 the game gives the West at Rome.
+		location:ravenna = {
+			if = {
+				limit = { owner ?= { tfe_is_western_rome = yes } }
+				while = {
+					count = 18
+					create_sub_unit = unit_type:n_cog
+				}
+				while = {
+					count = 3
+					create_sub_unit = unit_type:n_traditional_galley
+				}
+			}
+		}
+		location:naples = {
+			if = {
+				limit = { owner ?= { tfe_is_western_rome = yes } }
+				while = {
+					count = 12
+					create_sub_unit = unit_type:n_cog
+				}
+				while = {
+					count = 2
+					create_sub_unit = unit_type:n_traditional_galley
+				}
+			}
+		}
+	}
+}
