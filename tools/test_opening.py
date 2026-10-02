@@ -83,6 +83,21 @@ def test_gildo_rises_as_an_annexable_revolter():
     assert "start_revolt = yes" in rising and "declare_war" not in rising and "create_country" not in rising
     # the Mauri back him from inside his own land: the revolter is the one holding nothing else
     assert doc.find("tfe_gildo_base_land", "yes", inside=("tfe_opening.7", "random_country", "limit", "NOT", "any_owned_location", "NOT"))
+    # user: risen with all Africa, the revolt splits into two rebel countries. Crowning the one that does not lead the
+    # war sends the leader home, and the war ends with it: Gildo held Africa at peace. The war's leader is crowned first
+    lead = doc.find("save_scope_as", "tfe_usurper", inside=("tfe_opening.7", "every_current_war", "attacker_leader"))
+    assert lead and doc.find("tfe_gildo_base_land", "yes",
+                             inside=("tfe_opening.7", "every_current_war", "limit", "attacker_leader", "NOT", "any_owned_location", "NOT"))
+    fallback = doc.find("random_country", inside=("tfe_opening.7", "if"))
+    assert fallback and doc.find("exists", "scope:tfe_usurper", inside=("tfe_opening.7", "if", "limit", "NOT"))
+    # only backers holding land beyond Africa go home: sending home the split-off rebel country ended the war (in game)
+    assert doc.find("tfe_gildo_base_land", "yes", inside=("tfe_opening.7", "every_war_participant", "limit",
+                                                         "any_owned_location", "NOT"))
+    # user: Gildo and his rebels are Afro-Roman, Africa's own, not the Mauri's
+    rising = code(EVENT).split("tfe_opening.3 = {")[1].split("tfe_opening.7 = {")[0]
+    assert "culture = culture:afro_roman" in rising and "culture:kabyle" not in code(EVENT)
+    chars = (b.MOD / "main_menu/setup/start/05_characters.txt").read_text(encoding="utf-8-sig")
+    assert re.search(r"tfe_gildo = \{[^\n]*\n[^\n]*\n\s*culture = afro_roman\b", chars)
     # a backer leading the rebel side turns Annex Revolter into a white peace
     leave = doc.find("leave_war", inside=("tfe_opening.7", "every_war_participant"))
     assert [(n.key, n.val) for n in leave[0].val] == [("war", "scope:tfe_gildo_war"), ("actor", "root")]

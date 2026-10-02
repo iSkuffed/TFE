@@ -117,7 +117,7 @@ def build():
         with e.immediate() as i:
             i.note("a revolt, not a war: the war screen can then annex the revolter outright, with no antagonism.\n"
                    "The revolter appears at once, named after its biggest town; tfe_opening.7 makes it Gildo's kingdom a day later.")
-            i.create_rebel(category="nationalist", name="tfe_gildo_rebels", culture="culture:kabyle",
+            i.create_rebel(category="nationalist", name="tfe_gildo_rebels", culture="culture:afro_roman",
                            religion="religion:donatism", save_scope_as="tfe_gildo_rebels")
             with i.every_owned_location() as loc:
                 loc.limit(lambda t: t.tfe_gildo_base_land())
@@ -131,16 +131,27 @@ def build():
             o.ai_chance(1)
 
     doc.note("The day after the rising: the revolter becomes Gildo's kingdom and takes the rest of his land (fired by 3)")
+    def revolter(t):
+        t.is_at_war_with("root")
+        with t.any_owned_location() as loc:
+            loc.tfe_gildo_base_land()
+        t.note("carved from his land alone: the Mauri who back him sit in Laghouat too, but hold land beyond it")
+        with t.not_() as n, n.any_owned_location() as loc:
+            loc.not_(lambda x: x.tfe_gildo_base_land())
+
     with doc.event(7, type="country_event", hidden=True) as e, e.immediate() as i:
-        with i.random_country() as c:
-            with c.limit() as t:
-                t.is_at_war_with("root")
-                with t.any_owned_location() as loc:
-                    loc.tfe_gildo_base_land()
-                t.note("carved from his land alone: the Mauri who back him sit in Laghouat too, but hold land beyond it")
-                with t.not_() as n, n.any_owned_location() as loc:
-                    loc.not_(lambda x: x.tfe_gildo_base_land())
-            c.save_scope_as("tfe_usurper")
+        i.note("risen with all Africa the revolt splits into more than one rebel country: crown the war's leader")
+        with i.every_current_war() as war:
+            with war.limit() as t, t.link("attacker_leader", CountryTrig) as lead:
+                revolter(lead)
+            war.link("attacker_leader", CountryFx, lambda lead: lead.save_scope_as("tfe_usurper"))
+        with i.if_() as f:
+            f.limit(lambda t: t.not_(lambda n: n.exists("scope:tfe_usurper")))
+            f.note("the Mauri lead the rebel side as backers: the revolter is the one holding nothing else")
+            with f.random_country() as c:
+                with c.limit() as t:
+                    revolter(t)
+                c.save_scope_as("tfe_usurper")
         i.note("Gildo, or if he has died before his hold ripens, his Moorish kinsman in his place")
         with i.if_() as f:
             f.limit(lambda t: alive(t, "tfe_gildo"))
@@ -157,12 +168,13 @@ def build():
             u.tail("Africa's taxes, kept back from Italy")
             with u.if_() as f:
                 f.limit(lambda t: t.not_(lambda n: n.exists("scope:tfe_usurper_ruler")))
-                f.create_character(first_name="name_gildo", culture="culture:kabyle", religion="religion:donatism",
+                f.create_character(first_name="name_gildo", culture="culture:afro_roman", religion="religion:donatism",
                                    estate="estate_type:nobles_estate", age=35, mil=60, save_scope_as="tfe_usurper_ruler")
             u.set_new_ruler("scope:tfe_usurper_ruler")
             u.set_variable(name="tfe_usurper_against", value="root", years=10)
             u.note("a neighbour backing the revolt (the Mauri) leads the rebel side, and Annex Revolter then only offers it\n"
-                   "a white peace: send the backers home so the war screen can annex Gildo")
+                   "a white peace: send the backers home so the war screen can annex Gildo. Only backers, which hold land\n"
+                   "beyond Africa: sending home the other rebel country the revolt split off ends the whole war (user, in game)")
             with u.every_current_war() as war:
                 war.limit(lambda t: t.is_in_war("root"))
                 war.save_scope_as("tfe_gildo_war")
@@ -170,6 +182,8 @@ def build():
                     with p.limit() as t:
                         t.is_at_war_with("root")
                         t.not_(lambda n: n.compare("this", "=", "scope:tfe_usurper"))
+                        with t.any_owned_location() as loc:
+                            loc.not_(lambda x: x.tfe_gildo_base_land())
                     p.leave_war(war="scope:tfe_gildo_war", actor="root")
             u.note("the revolt system makes the revolter a Secessionist subject of its Kabyle backers (the Mauri); Gildo is\n"
                    "his own master, not the Mauri's")

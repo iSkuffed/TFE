@@ -110,7 +110,7 @@ tfe_opening.3 = {
 			category = nationalist
 			name = tfe_gildo_rebels
 			religion = religion:donatism
-			culture = culture:kabyle
+			culture = culture:afro_roman
 			save_scope_as = tfe_gildo_rebels
 		}
 		every_owned_location = {
@@ -133,14 +133,32 @@ tfe_opening.7 = {
 	type = country_event
 	hidden = yes
 	immediate = {
-		random_country = {
+		# risen with all Africa the revolt splits into more than one rebel country: crown the war's leader
+		every_current_war = {
 			limit = {
-				is_at_war_with = root
-				any_owned_location = { tfe_gildo_base_land = yes }
-				# carved from his land alone: the Mauri who back him sit in Laghouat too, but hold land beyond it
-				NOT = { any_owned_location = { NOT = { tfe_gildo_base_land = yes } } }
+				attacker_leader = {
+					is_at_war_with = root
+					any_owned_location = { tfe_gildo_base_land = yes }
+					# carved from his land alone: the Mauri who back him sit in Laghouat too, but hold land beyond it
+					NOT = { any_owned_location = { NOT = { tfe_gildo_base_land = yes } } }
+				}
 			}
-			save_scope_as = tfe_usurper
+			attacker_leader = {
+				save_scope_as = tfe_usurper
+			}
+		}
+		if = {
+			limit = { NOT = { exists = scope:tfe_usurper } }
+			# the Mauri lead the rebel side as backers: the revolter is the one holding nothing else
+			random_country = {
+				limit = {
+					is_at_war_with = root
+					any_owned_location = { tfe_gildo_base_land = yes }
+					# carved from his land alone: the Mauri who back him sit in Laghouat too, but hold land beyond it
+					NOT = { any_owned_location = { NOT = { tfe_gildo_base_land = yes } } }
+				}
+				save_scope_as = tfe_usurper
+			}
 		}
 		# Gildo, or if he has died before his hold ripens, his Moorish kinsman in his place
 		if = {
@@ -163,7 +181,7 @@ tfe_opening.7 = {
 					age = 35
 					religion = religion:donatism
 					estate = estate_type:nobles_estate
-					culture = culture:kabyle
+					culture = culture:afro_roman
 					mil = 60
 					save_scope_as = tfe_usurper_ruler
 				}
@@ -171,12 +189,17 @@ tfe_opening.7 = {
 			set_new_ruler = scope:tfe_usurper_ruler
 			set_variable = { name = tfe_usurper_against value = root years = 10 }
 			# a neighbour backing the revolt (the Mauri) leads the rebel side, and Annex Revolter then only offers it
-			# a white peace: send the backers home so the war screen can annex Gildo
+			# a white peace: send the backers home so the war screen can annex Gildo. Only backers, which hold land
+			# beyond Africa: sending home the other rebel country the revolt split off ends the whole war (user, in game)
 			every_current_war = {
 				limit = { is_in_war = root }
 				save_scope_as = tfe_gildo_war
 				every_war_participant = {
-					limit = { is_at_war_with = root NOT = { this = scope:tfe_usurper } }
+					limit = {
+						is_at_war_with = root
+						NOT = { this = scope:tfe_usurper }
+						any_owned_location = { NOT = { tfe_gildo_base_land = yes } }
+					}
 					leave_war = {
 						war = scope:tfe_gildo_war
 						actor = root
