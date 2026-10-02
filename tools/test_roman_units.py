@@ -13,12 +13,15 @@ START = b.MOD / "in_game/common/on_action/tfe_roman_units.txt"
 LOC = b.MOD / "main_menu/localization/english/tfe_roman_units_l_english.yml"
 VANILLA = b.GAME / "in_game/common/unit_types/2_unlocked_through_tech.txt"
 ROMAN = "OR = { tfe_is_western_rome = yes has_or_had_tag = EAR }"
-# ours: the vanilla unit it stands in for, and the gfx tag that picks its picture. A unit's own tags are tried before
-# its soldiers' culture, so a tag named after an illustration (army_infantry_<tag>.dds) shows it for every culture:
-# the DLC's East Mediterranean armoured spearmen with their big shields, and the base game's lightly armed spearmen.
+# ours: the vanilla unit it stands in for, and where its picture comes from. The Comitatenses take the DLC's East
+# Mediterranean armoured spearmen through a gfx tag named after that illustration (a unit's own tags are tried before
+# its soldiers' culture). The Limitanei have their own picture, army_infantry_<unit type>.dds, which the game tries
+# first of all: the helmeted spearman cropped out of the base game's middle_east_gfx, without its turbaned front rank.
 # Not the legionaries (the early Empire's, not 395's) nor light_tag (the pitchfork levy).
-OURS = {"tfe_comitatenses": ("a_footmen", "east_mediterranean_gfx"), "tfe_limitanei": ("a_archers", "middle_east_gfx")}
-PICTURES = {"east_mediterranean_gfx": "dlc/D008_fate_of_the_phoenix/main_menu", "middle_east_gfx": "main_menu"}
+OURS = {"tfe_comitatenses": ("a_footmen", "east_mediterranean_gfx"), "tfe_limitanei": ("a_archers", None)}
+ART = "gfx/interface/illustrations/units"
+PICTURES = {"tfe_comitatenses": b.GAME / "dlc/D008_fate_of_the_phoenix/main_menu" / ART / "army_infantry_east_mediterranean_gfx.dds",
+            "tfe_limitanei": b.MOD / "main_menu" / ART / "army_infantry_tfe_limitanei.dds"}
 
 
 def code(p):
@@ -42,10 +45,20 @@ def test_the_roman_units_copy_vanillas_and_only_rome_recruits_them():
         body = block(units, unit)
         assert f"copy_from = {vanilla}" in body, unit
         assert f"country_potential = {{ {ROMAN} }}" in body, unit   # a copy inherits vanilla's, which bars Rome
-        assert re.search(rf"gfx_tags = {{ [^}}]*\b{tag}\b", body), unit
-        assert not re.search(r"\b(legionary_tag|light_tag|archer_tag)\b", body), unit   # each has its own picture
-        art = b.GAME / PICTURES[tag] / f"gfx/interface/illustrations/units/army_infantry_{tag}.dds"
+        if tag:
+            assert re.search(rf"gfx_tags = {{ [^}}]*\b{tag}\b", body), unit
+        assert not re.search(r"\b(legionary_tag|light_tag|archer_tag|middle_east_gfx)\b", body), unit
+        art = PICTURES[unit]
         assert art.exists() and (art.parent / "masks" / art.name).exists(), art
+
+
+def test_the_limitanei_picture_is_a_full_size_dds_with_its_mask():
+    from PIL import Image
+    vanilla = b.GAME / "main_menu" / ART / "army_infantry_middle_east_gfx.dds"
+    for sub in ("", "masks/"):
+        ours = b.MOD / "main_menu" / ART / f"{sub}army_infantry_tfe_limitanei.dds"
+        assert ours.read_bytes()[:4] == b"DDS "
+        assert Image.open(ours).size == Image.open(vanilla.parent / sub / vanilla.name).size   # 2000 x 840, as vanilla's
 
 
 def test_vanillas_footmen_and_archers_are_barred_to_rome_and_otherwise_unchanged():
