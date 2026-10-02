@@ -13,8 +13,12 @@ START = b.MOD / "in_game/common/on_action/tfe_roman_units.txt"
 LOC = b.MOD / "main_menu/localization/english/tfe_roman_units_l_english.yml"
 VANILLA = b.GAME / "in_game/common/unit_types/2_unlocked_through_tech.txt"
 ROMAN = "OR = { tfe_is_western_rome = yes has_or_had_tag = EAR }"
-# ours: the vanilla unit it stands in for, and the picture's tag (the DLC's legionary and light infantry art)
-OURS = {"tfe_comitatenses": ("a_footmen", "legionary_tag"), "tfe_limitanei": ("a_archers", "light_tag")}
+# ours: the vanilla unit it stands in for, and the gfx tag that picks its picture. A unit's own tags are tried before
+# its soldiers' culture, so a tag named after an illustration (army_infantry_<tag>.dds) shows it for every culture:
+# the DLC's East Mediterranean armoured spearmen with their big shields, and the base game's lightly armed spearmen.
+# Not the legionaries (the early Empire's, not 395's) nor light_tag (the pitchfork levy).
+OURS = {"tfe_comitatenses": ("a_footmen", "east_mediterranean_gfx"), "tfe_limitanei": ("a_archers", "middle_east_gfx")}
+PICTURES = {"east_mediterranean_gfx": "dlc/D008_fate_of_the_phoenix/main_menu", "middle_east_gfx": "main_menu"}
 
 
 def code(p):
@@ -39,6 +43,9 @@ def test_the_roman_units_copy_vanillas_and_only_rome_recruits_them():
         assert f"copy_from = {vanilla}" in body, unit
         assert f"country_potential = {{ {ROMAN} }}" in body, unit   # a copy inherits vanilla's, which bars Rome
         assert re.search(rf"gfx_tags = {{ [^}}]*\b{tag}\b", body), unit
+        assert not re.search(r"\b(legionary_tag|light_tag|archer_tag)\b", body), unit   # each has its own picture
+        art = b.GAME / PICTURES[tag] / f"gfx/interface/illustrations/units/army_infantry_{tag}.dds"
+        assert art.exists() and (art.parent / "masks" / art.name).exists(), art
 
 
 def test_vanillas_footmen_and_archers_are_barred_to_rome_and_otherwise_unchanged():
