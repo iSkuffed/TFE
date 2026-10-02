@@ -16,7 +16,7 @@ ROMAN = "OR = { tfe_is_western_rome = yes has_or_had_tag = EAR }"
 # ours: the vanilla unit it stands in for, and where its picture comes from. The Comitatenses take the DLC's East
 # Mediterranean armoured spearmen through a gfx tag named after that illustration (a unit's own tags are tried before
 # its soldiers' culture). The Limitanei have their own picture, army_infantry_<unit type>.dds, which the game tries
-# first of all: the helmeted spearman cropped out of the base game's middle_east_gfx, without its turbaned front rank.
+# first of all: a copy of the base game's 2_light_tag, light spearmen in leather caps and hoods.
 # Not the legionaries (the early Empire's, not 395's) nor light_tag (the pitchfork levy).
 OURS = {"tfe_comitatenses": ("a_footmen", "east_mediterranean_gfx"), "tfe_limitanei": ("a_archers", None)}
 ART = "gfx/interface/illustrations/units"
@@ -52,13 +52,12 @@ def test_the_roman_units_copy_vanillas_and_only_rome_recruits_them():
         assert art.exists() and (art.parent / "masks" / art.name).exists(), art
 
 
-def test_the_limitanei_picture_is_a_full_size_dds_with_its_mask():
-    from PIL import Image
-    vanilla = b.GAME / "main_menu" / ART / "army_infantry_middle_east_gfx.dds"
+def test_the_limitanei_picture_is_vanillas_light_spearmen_whole():
+    # MAZZO313: the cropped spearman's right side faded into a mirrored fog that looked broken on the Military tab,
+    # which shows the whole picture. A vanilla painting used whole already frames its front man for the small icons
     for sub in ("", "masks/"):
         ours = b.MOD / "main_menu" / ART / f"{sub}army_infantry_tfe_limitanei.dds"
-        assert ours.read_bytes()[:4] == b"DDS "
-        assert Image.open(ours).size == Image.open(vanilla.parent / sub / vanilla.name).size   # 2000 x 840, as vanilla's
+        assert ours.read_bytes() == (b.GAME / "main_menu" / ART / f"{sub}army_infantry_2_light_tag.dds").read_bytes(), sub
 
 
 def test_vanillas_footmen_and_archers_are_barred_to_rome_and_otherwise_unchanged():
