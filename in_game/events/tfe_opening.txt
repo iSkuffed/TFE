@@ -192,13 +192,17 @@ tfe_opening.7 = {
 		}
 		if = {
 			limit = { exists = scope:tfe_usurper }
-			# the revolt hands him only part of it
+			# the revolt hands him only part of it: the rest of Africa but Tingitana is his by right
 			every_owned_location = {
 				limit = { tfe_gildo_base_land = yes }
 				change_location_owner = scope:tfe_usurper
 			}
-			# his seat is Cherchell, or Cirta if Cherchell is lost; Carthage only if he wins it (tfe_gildo.6)
+			# his seat is Carthage, which he takes with the rest of Africa; Cherchell or Cirta if the West holds it
 			if = {
+				limit = { location:tunis = { owner ?= scope:tfe_usurper } }
+				scope:tfe_usurper = { set_capital = location:tunis }
+			}
+			else_if = {
 				limit = { location:cherchell = { owner ?= scope:tfe_usurper } }
 				scope:tfe_usurper = { set_capital = location:cherchell }
 			}
@@ -208,7 +212,7 @@ tfe_opening.7 = {
 			}
 			set_variable = { name = tfe_usurper value = scope:tfe_usurper years = 10 }
 			set_variable = { name = tfe_gildo_wave value = 0 }
-			trigger_event_silently = { id = tfe_gildo.6 months = 3 }	# the grain coast and Tripolitania are still in play
+			trigger_event_silently = { id = tfe_gildo.6 months = 3 }	# the East's homage and his seat, monthly
 			c:EAR ?= { trigger_event_non_silently = tfe_opening.4 }
 		}
 	}

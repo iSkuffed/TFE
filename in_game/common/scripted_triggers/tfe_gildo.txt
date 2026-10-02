@@ -1,28 +1,16 @@
 ﻿# TFE: Gildo's revolt (events/tfe_gildo.txt).
 
-# Scope: a location. The land Gildo holds on the day he rises: Caesariensis round Cherchell, the Numidian
-# provinces and the Aures.
+# Scope: a location. The land Gildo holds on the day he rises: the whole diocese of Africa, as in 397. Proconsularis,
+# Byzacena and Numidia (tunis_area), Tripolitania, Sitifensis (atlas_high_plateau) and Caesariensis (algiers_area,
+# with Oran and Tlemcen), and the Mauri's Laghouat. Tingitana (morocco_area) belonged to the diocese of Spain and stays
+# with the West.
 tfe_gildo_base_land = {
-	OR = {
-		province_definition = province_definition:dahra_province
-		province_definition = province_definition:mitidja_province
-		province_definition = province_definition:ouarsenis_province
-		province_definition = province_definition:titteri_province
-		province_definition = province_definition:laghouat_province
-		province_definition = province_definition:hodna_province
-		province_definition = province_definition:aures_province
-		province_definition = province_definition:kabylia_province
-		province_definition = province_definition:baghai_province
-		province_definition = province_definition:constantine_province
-		province_definition = province_definition:annaba_province
-	}
-}
-
-# Scope: a location. The grain coast and Tripolitania, which he has to earn. Tingitana never joins him.
-tfe_gildo_contested_land = {
 	OR = {
 		area = area:tunis_area
 		area = area:tripolitania_area
+		area = area:atlas_high_plateau
+		area = area:algiers_area
+		province_definition = province_definition:laghouat_province
 	}
 }
 

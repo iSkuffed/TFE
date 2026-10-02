@@ -5,7 +5,6 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 from pdx.api import CountryFx, CountryTrig, LocationTrig
-from pdx.core import Cmp
 from pdx.objects import Doc
 
 EXT, INT = "gfx/interface/illustrations/event/backgrounds/exterior/", "gfx/interface/illustrations/event/backgrounds/interior/"
@@ -118,24 +117,14 @@ def build():
             with o.hidden_effect() as h:
                 h.trigger_event_non_silently("tfe_opening.3")
 
-    doc.note("after the rising, Carthage and Tripolis are won or lost one town at a time (hidden, monthly for two years)")
+    doc.note("after the rising, monthly for two years: the East's homage once his war is over, and his seat (hidden).\n"
+             "He rises with all of Africa but Tingitana (scripted_triggers/tfe_gildo.txt), so no town is left to win.")
     with doc.event(6, type="country_event", title="Gildo's Reach", outcome="neutral", hidden=True,
-                   desc="Hidden monthly count of the towns that go over to Gildo.") as e:
+                   desc="Hidden monthly check on Gildo's homage to the East and his seat.") as e:
         with e.trigger() as t:
             t.country_exists("c:GILDO")
         with e.immediate() as i:
             i.change_variable(name="tfe_gildo_wave", add=1)
-            with i.every_owned_location() as loc:
-                with loc.limit() as t:
-                    t.tfe_gildo_contested_land()
-                with loc.if_() as f:
-                    with f.limit() as t:
-                        t.religion_percentage(religion="religion:donatism", value=Cmp(">=", 0.25))
-                    with f.random(25) as r:
-                        r.change_location_owner("c:GILDO")
-                with loc.else_() as f:
-                    with f.random(8) as r:
-                        r.change_location_owner("c:GILDO")
             i.note("the East took his oath (tfe_opening.4): once his war with us is over, he is Constantinople's man")
             with i.if_() as f:
                 with f.limit() as t:
