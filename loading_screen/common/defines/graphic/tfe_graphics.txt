@@ -13,9 +13,5 @@ NGraphics = {
 NMapColors = {
 	# unowned land is see-through, not grey
 	DEFAULT_COLOR = { 0.0 0.0 0.7 0 }
-	# the terrain map's sea in map modes: the same slate blue, laid over the water
-	WATER_MAP_COLOR = { 0.604 0.43 0.40 }
-	OCEAN_MAP_COLOR = { 0.604 0.45 0.34 }
-	WATER_MAP_ALPHA = 0.85
 }
 
