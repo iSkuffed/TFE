@@ -3,6 +3,8 @@ import re
 import sys
 from pathlib import Path
 
+import numpy as np
+
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import borders as b
 from test_vanilla_copies import _block
@@ -13,15 +15,13 @@ START = b.MOD / "in_game/common/on_action/tfe_roman_units.txt"
 LOC = b.MOD / "main_menu/localization/english/tfe_roman_units_l_english.yml"
 VANILLA = b.GAME / "in_game/common/unit_types/2_unlocked_through_tech.txt"
 ROMAN = "OR = { tfe_is_western_rome = yes has_or_had_tag = EAR }"
-# ours: the vanilla unit it stands in for, and where its picture comes from. The Comitatenses take the DLC's East
-# Mediterranean armoured spearmen through a gfx tag named after that illustration (a unit's own tags are tried before
-# its soldiers' culture). The Limitanei have their own picture, army_infantry_<unit type>.dds, which the game tries
-# first of all: MAZZO313's own painting of late Roman spearmen with round painted shields.
-# Not the legionaries (the early Empire's, not 395's) nor light_tag (the pitchfork levy).
-OURS = {"tfe_comitatenses": ("a_footmen", "east_mediterranean_gfx"), "tfe_limitanei": ("a_archers", None)}
+# ours, and the vanilla unit each stands in for. Each has its own picture, army_infantry_<unit type>.dds, which the game
+# tries before any gfx tag or culture: MAZZO313's paintings of late Roman spearmen, mailed behind eagle and sunburst
+# shields (Comitatenses), in striped tunics behind wheel-painted shields (Limitanei).
+# Not the legionaries' look (the early Empire's, not 395's) nor light_tag (the pitchfork levy).
+OURS = {"tfe_comitatenses": "a_footmen", "tfe_limitanei": "a_archers"}
 ART = "gfx/interface/illustrations/units"
-PICTURES = {"tfe_comitatenses": b.GAME / "dlc/D008_fate_of_the_phoenix/main_menu" / ART / "army_infantry_east_mediterranean_gfx.dds",
-            "tfe_limitanei": b.MOD / "main_menu" / ART / "army_infantry_tfe_limitanei.dds"}
+PICTURES = {unit: b.MOD / "main_menu" / ART / f"army_infantry_{unit}.dds" for unit in OURS}
 
 
 def code(p):
@@ -41,32 +41,48 @@ def test_files_are_bom_prefixed_and_balanced():
 
 def test_the_roman_units_copy_vanillas_and_only_rome_recruits_them():
     units = code(UNITS)
-    for unit, (vanilla, tag) in OURS.items():
+    for unit, vanilla in OURS.items():
         body = block(units, unit)
         assert f"copy_from = {vanilla}" in body, unit
         assert f"country_potential = {{ {ROMAN} }}" in body, unit   # a copy inherits vanilla's, which bars Rome
-        if tag:
-            assert re.search(rf"gfx_tags = {{ [^}}]*\b{tag}\b", body), unit
         assert not re.search(r"\b(legionary_tag|light_tag|archer_tag|middle_east_gfx)\b", body), unit
         art = PICTURES[unit]
         assert art.exists() and (art.parent / "masks" / art.name).exists(), art
 
 
-def test_the_limitanei_picture_is_whole_and_keeps_its_own_colours():
-    # MAZZO313's own painting of late Roman spearmen (white and red tunics, wheel-painted shields), used whole: the
-    # Military tab shows the full picture and the small icons its left third, where the front man stands. Its mask is
-    # black, as the red channel marks where the country colour goes, so the painted colours stay in both empires
+def overlay(base, colour, opacity):
+    # gui_threecolor_blendable_mask.shader: Overlay(picture, country colour, mask red * 0.75), Overlay as in utility.fxh
+    o = np.where(base < 0.5, 2 * base * colour, 1 - 2 * (1 - base) * (1 - colour))
+    return o * opacity + base * (1 - opacity)
+
+
+def test_the_pictures_are_red_in_the_west_and_purple_in_the_east():
+    # MAZZO313 painted each unit twice, red for the West and purple for the East. One picture serves both: its mask's
+    # red marks the stripes and shields, which the game tints with the country's colour. The Military tab shows the
+    # whole picture and the small icons its left third, where the front man stands
     from PIL import Image
-    pic, mask = (Image.open(b.MOD / "main_menu" / ART / f"{sub}army_infantry_tfe_limitanei.dds") for sub in ("", "masks/"))
-    assert pic.size == mask.size and pic.size[0] / pic.size[1] > 2.3   # vanilla's are 1080 x 440 and 2000 x 840
-    assert mask.convert("RGB").getextrema()[0] == (0, 0)
+    tags = b.load_tags()
+    for unit, art in PICTURES.items():
+        pic, mask = (np.asarray(Image.open(p).convert("RGB"), float) / 255 for p in (art, art.parent / "masks" / art.name))
+        assert pic.shape == mask.shape and pic.shape[1] / pic.shape[0] > 2.3, unit   # vanilla's are 1080 x 440, 2000 x 840
+        assert mask[..., 1:].max() == 0, unit   # green and blue would bring in the second and third colours
+        tinted = mask[..., 0] > 0.5
+        assert 0.05 < tinted.mean() < 0.5, unit
+        seen = {}
+        for tag in ("WRE", "EAR"):
+            colour = np.array(tags[tag]["rgb"]) / 255
+            r, g, bl = overlay(pic, colour, mask[..., :1] * 0.75)[tinted].mean(0)
+            seen[tag] = (r, g, bl)
+        assert seen["WRE"][0] > 2 * max(seen["WRE"][1:]), (unit, seen)   # red
+        r, g, bl = seen["EAR"]
+        assert bl > 1.5 * g and r > 1.5 * g, (unit, seen)                  # purple
 
 
 def test_vanillas_footmen_and_archers_are_barred_to_rome_and_otherwise_unchanged():
     # REPLACE: blocks are vanilla's own plus one TFE line; this fails when an EU5 patch changes the originals
     vanilla = VANILLA.read_text(encoding="utf-8-sig")
     units = UNITS.read_text(encoding="utf-8-sig")
-    for _, (unit, _) in OURS.items():
+    for unit in OURS.values():
         ours = block(units.replace(f"REPLACE:{unit} = {{", f"{unit} = {{"), unit)
         assert ours.replace(f" NOT = {{ {ROMAN} }} # TFE", "") == block(vanilla, unit), unit
         assert f"NOT = {{ {ROMAN} }}" in ours, unit
