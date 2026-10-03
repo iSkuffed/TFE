@@ -86,3 +86,11 @@ def test_both_empires_get_three_slots():
     t = " ".join(code(SLOTS).split())
     assert "global_max_bureaucracy_slots = 3" in t
     assert all(x in t for x in ("has_or_had_tag = WRE", "has_variable = tfe_western_rome", "has_or_had_tag = EAR"))
+
+
+def test_both_empires_start_with_all_three_offices_old_and_half_funded():
+    on_action = " ".join(code(b.MOD / "in_game/common/on_action/tfe_roman_bureaucracy.txt").split())
+    assert "on_game_start" in on_action and "tfe_on_start_roman_bureaucracy" in on_action
+    assert all(f"add_bureaucracy = bureaucracy_type:{n}" in on_action for n in NAMES)
+    assert "set_entrenchment = 60" in on_action and "set_maintenance = 0.5" in on_action
+    assert "tfe_is_western_rome = yes" in on_action and "has_or_had_tag = EAR" in on_action
