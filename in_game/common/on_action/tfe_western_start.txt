@@ -1,0 +1,15 @@
+﻿# TFE: the West opens at -25 stability, 35% inflation and 55 legitimacy: Stilicho's court holds a state
+# already paying its armies in debased coin. Day one only WRE exists (Stilicho's West comes later).
+on_game_start = {
+	on_actions = { tfe_on_start_western_state }
+}
+
+tfe_on_start_western_state = {
+	effect = {
+		c:WRE ?= {
+			set_stability = -25
+			set_inflation = 0.35
+			set_legitimacy = 55
+		}
+	}
+}
