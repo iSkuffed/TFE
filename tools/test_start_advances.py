@@ -13,7 +13,7 @@ ADVANCES = b.GAME / "in_game/common/advances/0_age_of_traditions.txt"
 def test_taxation_and_its_prerequisites_are_researched_in_order_on_day_one():
     text = ON_ACTION.read_text(encoding="utf-8-sig")
     assert "on_game_start = {" in text and "every_country = {" in text
-    granted = re.findall(r"research_advance = advance_type:(\w+)", text)
+    granted = re.findall(r"research_advance = advance_type:(\w+)", text.split("c:HNS")[0])   # every country; the Huns' own chain follows
     assert granted[-1] == "taxation_advance"
     # vanilla's chain: each granted advance requires the one before it, the first requires nothing
     vanilla = ADVANCES.read_text(encoding="utf-8-sig")

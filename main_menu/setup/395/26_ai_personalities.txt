@@ -1,5 +1,25 @@
-# TFE stub: 1337 content removed
+# TFE 395: the peoples beyond the limes open hungry. Every migrator is an expansionist, the Hunnic Horde an aggressor
 countries = {
 	countries = {
+		AMI = { ai_personality = ai_expansionist }
+		BGD = { ai_personality = ai_expansionist }
+		FRK = { ai_personality = ai_expansionist }
+		HAS = { ai_personality = ai_expansionist }
+		SLX = { ai_personality = ai_expansionist }
+		SAX = { ai_personality = ai_expansionist }
+		MKM = { ai_personality = ai_expansionist }
+		QAD = { ai_personality = ai_expansionist }
+		LGB = { ai_personality = ai_expansionist }
+		SLF = { ai_personality = ai_expansionist }
+		FRS = { ai_personality = ai_expansionist }
+		AGL = { ai_personality = ai_expansionist }
+		TGI = { ai_personality = ai_expansionist }
+		RUG = { ai_personality = ai_expansionist }
+		SCR = { ai_personality = ai_expansionist }
+		VIS = { ai_personality = ai_expansionist }
+		GEP = { ai_personality = ai_expansionist }
+		CRP = { ai_personality = ai_expansionist }
+		IAZ = { ai_personality = ai_expansionist }
+		HNS = { ai_personality = ai_aggressive }
 	}
 }
