@@ -6,7 +6,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import borders as b
 
-DEV = b.MOD / "main_menu/setup/start/14_development.txt"
+DEV = b.MOD / "main_menu/setup/395/14_development.txt"
 
 
 def test_no_bom():

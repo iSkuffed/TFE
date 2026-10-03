@@ -14,10 +14,10 @@ WEST = [
     ("trier", "WRE", "Augusta Treverorum, left bank of the Rhine"),
     ("cologne", "WRE", "Colonia Agrippina, left bank"),
     ("dusseldorf", "FRK", "right bank opposite Cologne: Franks"),
-    ("heidelberg", "ALM", "right bank of the upper Rhine: Alamanni"),
+    ("heidelberg", "AMI", "right bank of the upper Rhine: Alamanni"),
     ("mainz", "WRE", "Moguntiacum"),
     ("augsburg", "WRE", "Augusta Vindelicum, Raetia II"),
-    ("ulm", "ALM", "north of the Danube-Iller-Rhine limes"),
+    ("ulm", "AMI", "north of the Danube-Iller-Rhine limes"),
     ("regensburg", "WRE", "Castra Regina, south bank"),
     ("vienna", "WRE", "Vindobona"),
     ("krems", "MKM", "north bank of the Danube: Marcomanni (omniatlas 395)"),
@@ -96,7 +96,7 @@ def test_scenario_countries_are_landed_tfe_tags(state):
 @pytest.mark.parametrize("name", ["03_markets", "07_cities_and_buildings", "09_roads"])
 def test_start_files_only_touch_owned_land(state, name):
     # vanilla never has a market centre, town or road on unowned land; the start setup crashes on it
-    text = re.sub(r"#[^\n]*", "", (b.MOD / "main_menu/setup/start" / f"{name}.txt").read_text(encoding="utf-8"))
+    text = re.sub(r"#[^\n]*", "", (b.MOD / "main_menu/setup/395" / f"{name}.txt").read_text(encoding="utf-8"))
     owned = b.landed_locations(state["owner"], state["pop_based"])
     refs = {w for w in re.findall(r"\w+", text) if w in state["anc"]}
     assert refs and not refs - owned, sorted(refs - owned)[:10]
@@ -119,7 +119,7 @@ def test_the_two_roman_empires_see_all_of_each_others_land(state):
 
 
 def test_diplomacy_links_landed_tags(state):
-    text = re.sub(r"#[^\n]*", "", (b.MOD / "main_menu/setup/start/12_diplomacy.txt").read_text(encoding="utf-8"))
+    text = re.sub(r"#[^\n]*", "", (b.MOD / "main_menu/setup/395/12_diplomacy.txt").read_text(encoding="utf-8"))
     pairs = re.findall(r"first\s*=\s*(\w+)\s+second\s*=\s*(\w+)", text)
     assert ("EAR", "VIS") in pairs and ("WRE", "BAQ") in pairs
     assert all(t in state["owned"] for p in pairs for t in p), pairs
@@ -127,14 +127,14 @@ def test_diplomacy_links_landed_tags(state):
 
 def test_vandals_are_an_army_based_host(state):
     # pop-based countries cannot be played ("Cannot play pop based countries"); army-based hordes can
-    text = (b.MOD / "main_menu/setup/start/10_countries.txt").read_text(encoding="utf-8")
+    text = (b.MOD / "main_menu/setup/395/10_countries.txt").read_text(encoding="utf-8")
     block = text[text.index("\t\tHAS = {"):].split("\n\t\t}\n")[0]
     assert "type = army" in block and "own_control_core" in block
     assert state["country_types"]["HAS"] == "army" and "debrecen" in b.landed_locations(state["owner"], state["pop_based"])
 
 
 def test_vandal_locations_hold_vandal_tribesmen(state):
-    text = (b.MOD / "main_menu/setup/start/06_pops.txt").read_text(encoding="utf-8")
+    text = (b.MOD / "main_menu/setup/395/06_pops.txt").read_text(encoding="utf-8")
     block = re.search(r"^debrecen = \{(.*?)^\}", text, re.M | re.S).group(1)
     culture = state["tags"]["HAS"]["culture"]
     assert "type = tribesmen" in block and f"culture = {culture}" in block and "hungarian" not in block
@@ -177,7 +177,7 @@ def test_the_caucasus_has_no_empty_land(state):
 
 
 def test_caucasian_clients(state):
-    text = re.sub(r"#[^\n]*", "", (b.MOD / "main_menu/setup/start/12_diplomacy.txt").read_text(encoding="utf-8"))
+    text = re.sub(r"#[^\n]*", "", (b.MOD / "main_menu/setup/395/12_diplomacy.txt").read_text(encoding="utf-8"))
     pairs = set(re.findall(r"first\s*=\s*(\w+)\s+second\s*=\s*(\w+)", text))
     assert {("SAS", "ASK"), ("SAS", "IBR"), ("SAS", "AGV"), ("EAR", "LZC")} <= pairs
 
@@ -185,7 +185,7 @@ def test_caucasian_clients(state):
 @pytest.mark.parametrize("tag", ["IBR", "ASK", "LZC", "AGV", "ABG", "SUA", "MSQ", "SRR", "LPN", "DZR"])
 def test_caucasian_peasants_share_their_rulers_culture(state, tag):
     # the game warns when a country's biggest peasant culture is one it discriminates against
-    text = (b.MOD / "main_menu/setup/start/06_pops.txt").read_text(encoding="utf-8")
+    text = (b.MOD / "main_menu/setup/395/06_pops.txt").read_text(encoding="utf-8")
     pops = dict(re.findall(r"^(\w+) = \{(.*?)^\}", text, re.M | re.S))
     size = {}
     for loc in b.owned_by_tag(state["owner"])[tag]:
@@ -263,7 +263,7 @@ def test_asian_capitals_and_clients(state):
     for tag, cap in (("JIN", "jiangning"), ("LYN", "anxi_dingzhou"), ("LLI", "xiliang"), ("GOG", "ganggye"),
                      ("BAE", "namgyeong"), ("SIL", "gyeongju"), ("WAK", "nara"), ("FUN", "vyadhapura")):
         assert state["caps"][tag] == cap, (tag, state["caps"][tag])
-    text = re.sub(r"#[^\n]*", "", (b.MOD / "main_menu/setup/start/12_diplomacy.txt").read_text(encoding="utf-8"))
+    text = re.sub(r"#[^\n]*", "", (b.MOD / "main_menu/setup/395/12_diplomacy.txt").read_text(encoding="utf-8"))
     pairs = set(re.findall(r"first\s*=\s*(\w+)\s+second\s*=\s*(\w+)", text))
     assert {("JIN", "CNZ"), ("JIN", "DIC"), ("GOG", "BUY"), ("GOG", "SIL"), ("WAK", "KIB"), ("WAK", "IZM"),
             ("WAK", "KNU"), ("WAK", "TSU"), ("FUN", "JNL"), ("FUN", "TNS")} <= pairs
@@ -325,7 +325,7 @@ def test_arabian_horn_and_central_asian_capitals_and_clients(state):
     for tag, cap in (("LKM", "kufa"), ("KDT", "balkh"), ("SGD", "samarkand"), ("KHW", "kath"), ("ALK", "kabul"),
                      ("YTB", "medina"), ("KZA", "mecca"), ("SLH", "dumat_al_jandal"), ("BBS", "berbera"), ("HIM", "dhafar")):
         assert state["caps"][tag] == cap, (tag, state["caps"][tag])
-    text = re.sub(r"#[^\n]*", "", (b.MOD / "main_menu/setup/start/12_diplomacy.txt").read_text(encoding="utf-8"))
+    text = re.sub(r"#[^\n]*", "", (b.MOD / "main_menu/setup/395/12_diplomacy.txt").read_text(encoding="utf-8"))
     pairs = set(re.findall(r"first\s*=\s*(\w+)\s+second\s*=\s*(\w+)", text))
     assert {("SAS", "LKM"), ("SAS", "AZD"), ("EAR", "SLH"), ("HIM", "KIN"), ("HIM", "KZA"), ("AXU", "AGA")} <= pairs
 
@@ -358,7 +358,7 @@ def test_india_has_no_empty_land(state, region):
 
 
 def test_the_pillars_frontier_kings_serve_the_guptas():
-    text = re.sub(r"#[^\n]*", "", (b.MOD / "main_menu/setup/start/12_diplomacy.txt").read_text(encoding="utf-8"))
+    text = re.sub(r"#[^\n]*", "", (b.MOD / "main_menu/setup/395/12_diplomacy.txt").read_text(encoding="utf-8"))
     pairs = set(re.findall(r"first\s*=\s*(\w+)\s+second\s*=\s*(\w+)", text))
     assert {("GUP", "LCV"), ("GUP", "KTP"), ("GUP", "KMR")} <= pairs
 
@@ -374,3 +374,17 @@ def test_middle_and_southern_arabia_are_unknown_to_rome(state):
     assert {"hedjaz_area", "hail_area", "bahrein_area", "oman_area"} <= areas
     assert not areas & {"najd_area", "north_yemen_area", "south_yemen_area", "arabian_area"}
     assert "arabia_region" not in state["discovered"]["WRE"]
+
+
+def test_every_country_has_a_government_type():
+    # 1.4's subsaharan_monarchy template dropped its `type =`: a country with none floods error.log every tick
+    text = (b.MOD / "main_menu/setup/395/10_countries.txt").read_text(encoding="utf-8")
+    typeless = []
+    for tag, body in re.findall(r"\n\t\t(\w+) = \{(.*?)\n\t\t\}", text, re.S):
+        own = "\ttype = " in body
+        inc = re.findall(r'include = "(\w+)"', body)
+        from_template = any(re.search(r"^\s*type = \w+", (b.GAME / f"main_menu/setup/templates/{t}.txt")
+                                      .read_text(encoding="utf-8-sig"), re.M) for t in inc)
+        if not (own or from_template):
+            typeless.append(tag)
+    assert not typeless, typeless

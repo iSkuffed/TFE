@@ -16,7 +16,7 @@ CB = COMMON / "casus_belli/tfe_migration.txt"
 WARGOAL = COMMON / "wargoals/tfe_migration.txt"
 SETTLE = COMMON / "on_action/tfe_migratory.txt"
 LOC = b.MOD / "main_menu/localization/english/tfe_migratory_l_english.yml"
-ARMIES = b.MOD / "main_menu/setup/start/27_armies.txt"
+ARMIES = b.MOD / "main_menu/setup/395/27_armies.txt"
 SCRIPTS = (ACTIONS, EFFECT, AUTO, AI_LIST, CB, WARGOAL, SETTLE)
 NEW_ACTIONS = ("tfe_migrate_east", "tfe_migrate_west")
 
@@ -168,7 +168,7 @@ def test_everything_is_localized():
 
 
 def test_vandal_host_starts_in_its_homeland():
-    text = (b.MOD / "main_menu/setup/start/10_countries.txt").read_text(encoding="utf-8")
+    text = (b.MOD / "main_menu/setup/395/10_countries.txt").read_text(encoding="utf-8")
     block = text[text.index("\t\tHAS = {"):].split("\n\t\t}\n")[0]
     land = set(re.search(r"own_control_core = \{([^}]*)\}", block).group(1).split())
     hosts = re.findall(r"army = \{\s*country = HAS\s+location = (\w+)", code(ARMIES))
@@ -225,7 +225,7 @@ def test_barbaricum_lets_the_peoples_beyond_the_rivers_pass():
     for s in ("can_join_trigger = { always = no }", "can_leave_trigger = { always = no }", "gives_food_access_to_members = yes"):
         assert s in body, s
     assert "expel_members_who_are_attackers_at_war_with_other_members = no" in body   # the tribes fight each other
-    setup = code(b.MOD / "main_menu/setup/start/15_international_organizations.txt")
+    setup = code(b.MOD / "main_menu/setup/395/15_international_organizations.txt")
     members = re.search(r"type = tfe_barbaricum.*?members = \{([^}]*)\}", setup, re.S).group(1).split()
     trigger = re.search(r"tfe_is_migrator = \{(.*?)\n\}", code(COMMON / "scripted_triggers/tfe_decline_of_the_west.txt"), re.S).group(1)
     assert sorted(members) == sorted(re.findall(r"tag = (\w+)", trigger))

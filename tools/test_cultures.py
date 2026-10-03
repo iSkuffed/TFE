@@ -49,7 +49,7 @@ def test_cultures_are_localized_and_roman_is_roman():
 
 
 RULES = b.TOOLS / "cultures.txt"
-POPS = b.MOD / "main_menu/setup/start/06_pops.txt"
+POPS = b.MOD / "main_menu/setup/395/06_pops.txt"
 
 
 def pops_cultures():
@@ -129,13 +129,13 @@ def test_tags_and_characters_use_395_cultures():
     tags = b.load_tags()
     for t, d in tags.items():
         assert d["culture"] in known and d["culture"] not in STAND_INS, (t, d["culture"])
-    chars = (b.MOD / "main_menu/setup/start/05_characters.txt").read_text(encoding="utf-8-sig")
+    chars = (b.MOD / "main_menu/setup/395/05_characters.txt").read_text(encoding="utf-8-sig")
     used = set(re.findall(r"culture = (\w+)", chars))
     assert used <= known and not used & STAND_INS, used & STAND_INS
 
 
 def test_the_empires_accept_their_provincials():
-    text = (b.MOD / "main_menu/setup/start/10_countries.txt").read_text(encoding="utf-8")
+    text = (b.MOD / "main_menu/setup/395/10_countries.txt").read_text(encoding="utf-8")
     for tag, people in b.ACCEPTED_CULTURES.items():
         people = set(people)
         block = text[text.index(f"\t\t{tag} = {{"):].split("\n\t\t}\n")[0]
@@ -264,7 +264,7 @@ def test_balkans_and_britain():
         assert top(loc) == "briton", loc
     for loc in ("pembroke", "carmarthen", "anglesey", "carnarvon"):
         assert top(loc) == "irish", loc
-    text = (b.MOD / "main_menu/setup/start/10_countries.txt").read_text(encoding="utf-8")
+    text = (b.MOD / "main_menu/setup/395/10_countries.txt").read_text(encoding="utf-8")
     for tag in ("WRE", "EAR"):
         block = text[text.index(f"\t\t{tag} = {{"):].split("\n\t\t}\n")[0]
         accepted = set(re.search(r"accepted_cultures = \{([^}]*)\}", block).group(1).split())

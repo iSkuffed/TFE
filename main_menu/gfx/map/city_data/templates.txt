@@ -1506,6 +1506,8 @@ template rgo_all {
 		load_template raw_resource_seed { contributor = raw_resource:livestock		required_contributor = continent:america	mesh_list = raw_turkey_mesh_list			scale = 0.02 	size = small	can_build_over = yes}
 		load_template raw_resource_seeded { contributor = raw_resource:horses			mesh_list = raw_horses_mesh_list			scale = 0.05 	size = small	can_build_over = no}
 		load_template raw_resource_seed { contributor = raw_resource:horses			mesh_list = raw_horses_mesh_list			scale = 0.01 	size = small	can_build_over = no}
+		load_template raw_resource_seeded { contributor = raw_resource:camels			mesh_list = raw_camels_mesh_list			scale = 0.05 	size = small	can_build_over = no}
+		load_template raw_resource_seed { contributor = raw_resource:camels			mesh_list = raw_camels_mesh_list			scale = 0.01 	size = small	can_build_over = no}
 		load_template raw_resource_seeded { contributor = raw_resource:wild_game		required_contributor = continent:asia	mesh_list = raw_wild_game_mesh_list			scale = 0.05 	size = small	can_build_over = no}
 		load_template raw_resource_seed { contributor = raw_resource:wild_game		required_contributor = continent:asia	mesh_list = raw_wild_game_mesh_list			scale = 0.02 	size = small	can_build_over = no}
 		load_template raw_resource_seeded { contributor = raw_resource:wild_game		required_contributor = subcontinent:north_america	mesh_list = raw_wild_game_america_mesh_list			scale = 0.05 	size = small	can_build_over = no}

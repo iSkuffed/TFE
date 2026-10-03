@@ -18,7 +18,7 @@ sys.path.insert(0, str(ROOT / "tools" / "pdx"))
 from core import from_entries, render  # noqa: E402
 import lint_script  # noqa: E402
 
-SKIP = [("in_game", "map_data"), ("main_menu", "setup", "start"), ("in_game", "common", "formable_countries")]
+SKIP = [("in_game", "map_data"), ("main_menu", "setup", "395"), ("in_game", "common", "formable_countries")]
 SKIP_DIRS = {"coat_of_arms", "town_setups", "city_data", "gfx"}
 COMMENT = re.compile(r'("(?:[^"\\\n]|\\.)*")|#[^\n]*')
 TAG = re.compile(r'([=<>]\s*)[A-Za-z_][\w.]*\s*\{')

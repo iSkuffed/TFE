@@ -14,3 +14,29 @@ REPLACE:local_wheat_output_modifier = {	# vanilla maps only the plus; Italy's wh
 	positive = "gfx/interface/icons/modifier_types/wheat_positive.dds"
 	negative = "gfx/interface/icons/modifier_types/wheat_negative.dds"
 }
+
+# TFE: icons for the modifier types 1.4 asks for (modifier_type_definitions/tfe_statuses_and_prices.txt), borrowed from vanilla
+tfe_senior_augustus_can_participate_in_parliament = {
+	positive = "gfx/interface/icons/modifier_types/emperor_can_participate_in_parliament.dds"
+}
+tfe_senior_augustus_agenda_impact = {
+	positive = "gfx/interface/icons/modifier_types/emperor_agenda_impact.dds"
+}
+tfe_hunnic_overlord_can_participate_in_parliament = {
+	positive = "gfx/interface/icons/modifier_types/emperor_can_participate_in_parliament.dds"
+}
+tfe_hunnic_overlord_agenda_impact = {
+	positive = "gfx/interface/icons/modifier_types/emperor_agenda_impact.dds"
+}
+tfe_hunnic_raid_prestige_cost_modifier = {
+	positive = "gfx/interface/icons/modifier_types/allow_privateers_slave_raid.dds"
+}
+tfe_hunnic_storm_gold_cost_modifier = {
+	positive = "gfx/interface/icons/modifier_types/bribe_units_cost_modifier.dds"
+}
+tfe_hunnic_tribute_price_cost_modifier = {
+	positive = "gfx/interface/icons/modifier_types/allow_tribute_in_silver.dds"
+}
+tfe_man_the_limes_price_cost_modifier = {
+	positive = "gfx/interface/icons/modifier_types/can_assume_fort_command.dds"
+}

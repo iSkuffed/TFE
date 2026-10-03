@@ -28,7 +28,7 @@ east_banat_province | * | roxolan 60 iazyges 40
 # ---- barbarian land: the people who hold it ----
 FRK | * | frankish
 SLF | * | frankish
-ALM | * | alamannic
+AMI | * | alamannic
 MKM | * | suebian
 QAD | * | suebian
 LGB | * | suebian

@@ -32,7 +32,7 @@ tfe_qad_historical_lands = {
 	area = north_portugal_area
 }
 
-tfe_alm_historical_lands = {
+tfe_ami_historical_lands = {
 	preference_type = conquest
 	modifier = 10
 	area = alsace_area

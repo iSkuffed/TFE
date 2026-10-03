@@ -25,7 +25,7 @@ EVENT = b.MOD / "in_game/events/tfe_hunnic_storm.txt"
 MODIFIER = b.MOD / "main_menu/common/static_modifiers/tfe_hunnic_storm.txt"
 PANEL = b.MOD / "in_game/gui/panels/situation/tfe_hunnic_storm.gui"
 LOC = b.MOD / "main_menu/localization/english/tfe_hunnic_storm_l_english.yml"
-START = b.MOD / "main_menu/setup/start"
+START = b.MOD / "main_menu/setup/395"
 SCRIPTS = (SITUATION, END, YOKE, STATUS, TRIBUTE, PRICE, CB, WARGOAL, TREATY, ACTIONS, RAID, TRAIT, ON_ACTION, MIGRATION, EVENT,
            MODIFIER)
 TRIBUTARIES = {"ANE", "CRP", "MRD", "IMK", "SRT"}

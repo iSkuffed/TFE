@@ -1042,6 +1042,64 @@ tfe_unfortified_toledo_city = {
 	marketplace = 2
 }
 
+tfe_unfortified_granada_city = {
+	temple = 1
+	tools_guild = 4
+	mason = 2
+	pottery_guild = 3
+	furniture_guild = 1
+	distillers_guild = 1
+	weapon_guild = 2
+	brewery = 1
+	cloth_guild = 1
+	fine_cloth_guild = 4
+	paper_guild = 2
+	scriptorium = 3
+	jewelry_guild = 2
+	glass_guild = 1
+	granary = 3
+	tannery = 3
+	marketplace = 3
+	dyes_guild = 1
+}
+
+tfe_unfortified_malaga_city = {
+	temple = 1
+	tools_guild = 4
+	mason = 2
+	pottery_guild = 2
+	furniture_guild = 1
+	weapon_guild = 2
+	cloth_guild = 1
+	fine_cloth_guild = 3
+	paper_guild = 1
+	scriptorium = 1
+	jewelry_guild = 1
+	glass_guild = 2
+	granary = 3
+	marketplace = 4
+	tannery = 3
+	naval_supplies_guild = 2
+	wharf = 1
+	winery = 2
+}
+
+tfe_unfortified_almeria_town = {
+	temple = 1
+	marketplace = 3
+	tools_guild = 3
+	weapon_guild = 1
+	mason = 1
+	pottery_guild = 2
+	paper_guild = 1
+	granary = 1
+	brewery = 1
+	tannery = 1
+	wharf = 1
+	fine_cloth_guild = 2
+	naval_supplies_guild = 1
+}
+
 tfe_unfortified_damascus_city = {
 	temple = 1
 	tools_guild = 1

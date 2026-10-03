@@ -7,7 +7,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import borders as b
 
-START = b.MOD / "main_menu/setup/start"
+START = b.MOD / "main_menu/setup/395"
 CITIES = START / "07_cities_and_buildings.txt"
 TWINS = b.MOD / "in_game/common/town_setups/tfe_unfortified.txt"
 VANILLA_SETUPS = b.GAME / "in_game/common/town_setups/00_default.txt"
@@ -105,7 +105,7 @@ def test_roman_regions_have_395_populations():
     own, _ = owners()
     anc = b.load_hierarchy()
     ours = pops_by_location((START / "06_pops.txt").read_text(encoding="utf-8"))
-    vanilla = pops_by_location((b.GAME / "main_menu/setup/start/06_pops.txt").read_text(encoding="utf-8-sig"))
+    vanilla = pops_by_location((b.GAME / "main_menu/setup/1337/06_pops.txt").read_text(encoding="utf-8-sig"))
     total = defaultdict(float)
     for l, t in own.items():
         total[t, anc[l][2]] += ours.get(l, 0)
@@ -119,7 +119,7 @@ def test_the_rest_of_the_world_has_395_populations():
     own, _ = owners()
     anc = b.load_hierarchy()
     ours = pops_by_location((START / "06_pops.txt").read_text(encoding="utf-8"))
-    vanilla = pops_by_location((b.GAME / "main_menu/setup/start/06_pops.txt").read_text(encoding="utf-8-sig"))
+    vanilla = pops_by_location((b.GAME / "main_menu/setup/1337/06_pops.txt").read_text(encoding="utf-8-sig"))
     total = defaultdict(float)
     for l, p in ours.items():
         if l not in own:

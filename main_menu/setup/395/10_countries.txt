@@ -161,7 +161,7 @@ countries = {
 				ruler = random
 			}
 		}
-		ALM = { # Alamanni
+		AMI = { # Alamanni
 			own_control_core = {
 				baden balingen bensheim biberach bonndorf bruchsal buchen budingen calw darmstadt
 				diez dillenburg dinkelsbuhl durlach ellwangen erbach erbach_swabia frankfurt freiburg friedberg_hesse
@@ -268,6 +268,7 @@ countries = {
 			include = "subsaharan_monarchy"
 			country_rank = rank_kingdom
 			government = {
+				type = monarchy
 				ruler = random
 			}
 		}
@@ -2300,6 +2301,7 @@ countries = {
 			include = "subsaharan_monarchy"
 			country_rank = rank_duchy
 			government = {
+				type = monarchy
 				ruler = random
 			}
 		}

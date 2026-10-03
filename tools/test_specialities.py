@@ -35,7 +35,7 @@ def test_no_speciality_from_after_395_is_left():
 
 def test_the_setup_gives_no_town_a_medieval_market_or_mine():
     # vanilla's 21_locations gave Malmo its herring market (c. 1200) and Freiberg its silver (1168)
-    setup = (b.MOD / "main_menu/setup/start/21_locations.txt").read_text(encoding="utf-8")
+    setup = (b.MOD / "main_menu/setup/395/21_locations.txt").read_text(encoding="utf-8")
     assert "locations" in setup and "modifier" not in re.sub(r"#[^\n]*", "", setup)
     assert not setup.startswith("﻿")   # start files take no BOM
 

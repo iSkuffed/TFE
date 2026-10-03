@@ -27,3 +27,12 @@ tfe_hunnic_gifts = {
 	max = 30
 	yearly_decay = 3
 }
+
+# TFE: 1.4 wants every organisation to say how its members regard each other.
+# The peoples of the Barbaricum share a frontier and an enemy; the Huns' subjects share only a master.
+io_opinion_tfe_barbaricum = {
+	value = 10
+}
+io_opinion_tfe_hunnic_yoke = {
+	value = 0
+}

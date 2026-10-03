@@ -28,3 +28,5 @@
  cb_tfe_war_of_the_augusti_desc: "Unity has collapsed. The other Augustus is a usurper in all but name."
  diplomatic_status_tfe_roman_empire_name: "Imperium Romanum"
  diplomatic_status_tfe_roman_empire_tooltip: "#T Imperium Romanum#!\nThis [country|e] is one half of the Roman Empire."
+ tfe_roman_empire_list_who_tt: "$WHO$ shares the Imperium Romanum with $LIST$"
+ io_opinion_tfe_roman_empire: "One Empire"

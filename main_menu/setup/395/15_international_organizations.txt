@@ -20,6 +20,6 @@ international_organization_manager = {
 		type = tfe_barbaricum
 		creation_date = 395.1.17
 		map_color = hsv360 { 95 45 40 }
-		members = { ALM BGD FRK HAS SLX SAX MKM QAD LGB SLF FRS AGL TGI RUG SCR VIS GEP CRP IAZ }
+		members = { AMI BGD FRK HAS SLX SAX MKM QAD LGB SLF FRS AGL TGI RUG SCR VIS GEP CRP IAZ }
 	}
 }

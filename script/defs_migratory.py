@@ -145,7 +145,7 @@ def on_actions():
                        "User: in a peace deal its people settled anywhere but by the capital. The first land is both.")
                 w.change_country_type("location")
                 w.set_capital("scope:tfe_homeland")
-                w.note("the host breaks up and its old warband (setup/start/27_armies.txt) re-forms at home, raised from it.\n"
+                w.note("the host breaks up and its old warband (setup/395/27_armies.txt) re-forms at home, raised from it.\n"
                        "Whole armies go: destroying sub-units one by one crashed the game a tick later.")
                 with w.every_army() as army:
                     army.destroy_unit(True)

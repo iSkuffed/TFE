@@ -175,7 +175,7 @@ QAD = {
 	}
 }
 
-ALM = {
+AMI = {
 	pattern = "pattern_solid.dds"
 	color1 = "blue_light"
 	color2 = "white"

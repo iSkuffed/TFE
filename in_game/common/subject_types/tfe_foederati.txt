@@ -6,7 +6,6 @@ tfe_foederati = {
 	color = subject_tributary
 	level = 0
 	annullment_favours_required = 5
-	counts_as_external = yes
 
 	# only an Augustus can strike a foedus, and not with the other half of the Empire
 	visible = {
@@ -31,7 +30,6 @@ tfe_foederati = {
 	# the foederati march in all of Rome's wars; Rome does not march in theirs
 	join_offensive_wars_always = { NOT = { scope:actor ?= { is_subject_of = scope:recipient } } }
 	join_defensive_wars_always = { NOT = { scope:actor ?= { is_subject_of = scope:recipient } } }
-	overlord_protects_external = no
 
 	# the annona: Rome feeds and pays its foederati
 	on_monthly = {

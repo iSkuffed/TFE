@@ -1,5 +1,5 @@
 ﻿# TFE: the Hunnic Yoke, the Huns' tribute empire (vanilla tatar_yoke without its tax collector). Seeded at start
-# (setup/start/15_international_organizations.txt). Nobody joins or leaves by diplomacy: war does it
+# (setup/395/15_international_organizations.txt). Nobody joins or leaves by diplomacy: war does it
 # (casus_belli/tfe_hunnic_storm.txt), and the Hunnic Storm situation (situations/tfe_hunnic_storm.txt) may break it.
 tfe_hunnic_yoke = {
 	has_target = no

@@ -73,10 +73,12 @@ def build():
                 with t.not_() as n:
                     n.is_at_war_with("c:HNS")
             o.note("a tributary of the Huns just stops paying; a free member goes to war")
-            with o.custom_tooltip_block("tfe_break_the_yoke_tt") as c, c.trigger() as t:
-                t.is_subject(False)
-            with o.custom_tooltip_block("tfe_cast_off_the_tribute_tt") as c, c.trigger() as t:
-                t.is_subject_type("tributary")
+            with o.if_() as f:
+                f.limit(lambda t: t.is_subject(False))
+                f.custom_tooltip("tfe_break_the_yoke_tt")
+            with o.if_() as f:
+                f.limit(lambda t: t.is_subject_type("tributary"))
+                f.custom_tooltip("tfe_cast_off_the_tribute_tt")
             with o.hidden_effect() as h:
                 with h.if_() as f:
                     with f.limit() as t:

@@ -105,7 +105,7 @@ venedi = {
 REPLACE:roman_culture = {
 	language = roman_dialect
 	color = map_ROM
-	tags = { roman_gfx greek_gfx east_mediterranean_gfx mediterranean_gfx eastern_european_gfx european_gfx }
+	tags = { roman_gfx greek_gfx east_mediterranean_gfx eastern_mediterranean_and_turkish_gfx mediterranean_gfx eastern_european_gfx european_gfx }
 
 	opinions = {
 		greek_culture = kindred
@@ -142,7 +142,7 @@ thracian = {	# the Bessi of the Rhodopes, still speaking Thracian in the 6th cen
 REPLACE:greek_culture = {
 	language = greek_language
 	color = map_BYZ
-	tags = { greek_gfx east_mediterranean_gfx mediterranean_gfx eastern_european_gfx european_gfx }
+	tags = { greek_gfx east_mediterranean_gfx eastern_mediterranean_and_turkish_gfx mediterranean_gfx eastern_european_gfx european_gfx }
 
 	opinions = {
 		cappadocian_greek_culture = kindred
@@ -169,7 +169,7 @@ REPLACE:greek_culture = {
 REPLACE:cappadocian_greek_culture = {
 	language = greek_language
 	color = color_culture_cappadocian_greek
-	tags = { greek_gfx east_mediterranean_gfx mediterranean_gfx eastern_european_gfx european_gfx }
+	tags = { greek_gfx east_mediterranean_gfx eastern_mediterranean_and_turkish_gfx mediterranean_gfx eastern_european_gfx european_gfx }
 
 	opinions = {
 		greek_culture = kindred
@@ -195,7 +195,7 @@ REPLACE:cappadocian_greek_culture = {
 REPLACE:pontic_greek_culture = {
 	language = greek_language
 	color = map_FEO
-	tags = { greek_gfx east_mediterranean_gfx mediterranean_gfx eastern_european_gfx european_gfx }
+	tags = { greek_gfx east_mediterranean_gfx eastern_mediterranean_and_turkish_gfx mediterranean_gfx eastern_european_gfx european_gfx }
 
 	opinions = {
 		greek_culture = kindred
@@ -221,7 +221,7 @@ REPLACE:pontic_greek_culture = {
 REPLACE:griko_culture = {
 	language = greek_language
 	color = color_culture_griko
-	tags = { greek_gfx east_mediterranean_gfx mediterranean_gfx eastern_european_gfx european_gfx }
+	tags = { greek_gfx east_mediterranean_gfx eastern_mediterranean_and_turkish_gfx mediterranean_gfx eastern_european_gfx european_gfx }
 
 	opinions = {
 		cappadocian_greek_culture = kindred
@@ -248,7 +248,7 @@ REPLACE:griko_culture = {
 REPLACE:romanyoti = {	# Greek-speaking Jews
 	language = greek_language
 	color = map_romanyoti
-	tags = { jewish_gfx greek_gfx east_mediterranean_gfx mediterranean_gfx european_gfx }
+	tags = { jewish_gfx greek_gfx east_mediterranean_gfx eastern_mediterranean_and_turkish_gfx mediterranean_gfx european_gfx }
 
 	opinions = {
 		ashkenazi = kindred
@@ -276,7 +276,7 @@ REPLACE:romanyoti = {	# Greek-speaking Jews
 REPLACE:gothic_culture = {
 	language = gothic_language
 	color = color_culture_gothic
-	tags = { gothic_gfx greek_gfx east_mediterranean_gfx mediterranean_gfx eastern_european_gfx european_gfx }
+	tags = { gothic_gfx greek_gfx east_mediterranean_gfx eastern_mediterranean_and_turkish_gfx mediterranean_gfx eastern_european_gfx european_gfx }
 
 	opinions = {
 		greek_culture = positive
@@ -295,7 +295,7 @@ REPLACE:gothic_culture = {
 REPLACE:syriac_culture = {
 	language = aramaic_language
 	color = color_culture_syriac
-	tags = { levantine_gfx middle_east_gfx }
+	tags = { levantine_gfx middle_east_gfx afrasian_gfx }
 
 	opinions = {
 		greek_culture = positive
@@ -309,7 +309,7 @@ REPLACE:syriac_culture = {
 REPLACE:mandean_culture = {
 	language = iraqi_dialect
 	color = religion_mandeaism
-	tags = { levantine_gfx middle_east_gfx }
+	tags = { levantine_gfx middle_east_gfx afrasian_gfx }
 
 	culture_groups = {
 		tfe_aramaic_group
@@ -319,7 +319,7 @@ REPLACE:mandean_culture = {
 REPLACE:samaritan_culture = {
 	language = hebrew_language
 	color = religion_samaritanism
-	tags = { levantine_gfx middle_east_gfx }
+	tags = { levantine_gfx middle_east_gfx afrasian_gfx }
 
 	culture_groups = {
 		tfe_aramaic_group

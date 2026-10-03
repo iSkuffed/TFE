@@ -96,7 +96,7 @@ def test_gildo_rises_as_an_annexable_revolter():
     # user: Gildo and his rebels are Afro-Roman, Africa's own, not the Mauri's
     rising = code(EVENT).split("tfe_opening.3 = {")[1].split("tfe_opening.7 = {")[0]
     assert "culture = culture:afro_roman" in rising and "culture:kabyle" not in code(EVENT)
-    chars = (b.MOD / "main_menu/setup/start/05_characters.txt").read_text(encoding="utf-8-sig")
+    chars = (b.MOD / "main_menu/setup/395/05_characters.txt").read_text(encoding="utf-8-sig")
     assert re.search(r"tfe_gildo = \{[^\n]*\n[^\n]*\n\s*culture = afro_roman\b", chars)
     # a backer leading the rebel side turns Annex Revolter into a white peace
     leave = doc.find("leave_war", inside=("tfe_opening.7", "every_war_participant"))
@@ -118,7 +118,7 @@ def test_gildo_rises_with_all_roman_africa_but_tingitana():
     areas = set(re.findall(r"area = area:(\w+)", base))
     provinces = set(re.findall(r"province_definition = province_definition:(\w+)", base))
     anc = b.load_hierarchy()
-    countries = (b.MOD / "main_menu/setup/start/10_countries.txt").read_text(encoding="utf-8")
+    countries = (b.MOD / "main_menu/setup/395/10_countries.txt").read_text(encoding="utf-8")
     wre = re.search(r"\n\t\tWRE = \{.*?own_control_core = \{(.*?)\}", countries, re.S).group(1).split()
     africa = [l for l in wre if anc[l][2] == "maghreb_region"]
     his = {l for l in africa if anc[l][3] in areas or anc[l][4] in provinces}
