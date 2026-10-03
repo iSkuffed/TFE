@@ -2,9 +2,10 @@
 import functools
 import re
 from contextlib import contextmanager
-from typing import Any, Callable, ContextManager, Generic, Iterator, Literal, TypedDict, TypeVar, Unpack, get_args, overload
+from typing import (Any, Callable, ContextManager, Generic, Iterator, Literal, Sequence, TypedDict, TypeVar, Unpack, get_args,
+                    overload)
 
-from .api import AnyFx, AnyTrig, CountryFx, CountryTrig, Outcome, ValueFx
+from .api import AnyFx, AnyTrig, CountryFx, CountryTrig, ModifierKeys, Outcome, ValueFx
 from .core import Q, Scope, find, render
 
 @functools.cache
@@ -198,6 +199,16 @@ class Event(Scope, Generic[F, T, O]):
             yield o
 
 
+IMPACT_ICON = "gfx/interface/icons/modifier_types/global_max_bureaucracy_slots.dds"   # vanilla's bureaucracies wear it
+
+
+def check_modifier_keys(name, keys):
+    known = modifier_keys()
+    for k in keys:
+        if known and k not in known:
+            raise ValueError(f"{name}: {k} is not a modifier key in modifiers.log")
+
+
 class Doc:
     def __init__(self):
         self.nodes = []
@@ -269,13 +280,11 @@ class Doc:
     def note(self, text):
         self._top.note(text)
 
-    def modifier(self, name, *, category=None, potential: Callable[[CountryTrig], Any] | None = None, **effects):
+    def modifier(self, name, *, category=None, potential: Callable[[CountryTrig], Any] | None = None,
+                 **effects: Unpack[ModifierKeys]):
         """a static modifier (`category="country"` writes `game_data = { category = country }`) or an auto modifier
         (`potential` writes `potential_trigger`); the keywords are the modifier's own keys, checked against modifiers.log."""
-        known = modifier_keys()
-        for k in effects:
-            if known and k not in known:
-                raise ValueError(f"{name}: {k} is not a modifier key in modifiers.log")
+        check_modifier_keys(name, effects)
         with self.entry(name) as m:
             if category:
                 m.data("game_data", category=category)
@@ -297,6 +306,73 @@ class Doc:
 
     def entry(self, name):
         return self._top._open(name, Body)
+
+    @functools.cached_property
+    def types(self) -> "Doc":
+        """the modifier_type_definitions this file's entries need (a bureaucracy's impact modifier)"""
+        return Doc()
+
+    @functools.cached_property
+    def icons(self) -> "Doc":
+        """the modifier_icons for self.types"""
+        return Doc()
+
+    def bureaucracy(self, name, *, title, desc, potential: Callable[[CountryTrig], Any], likes: Sequence[str],
+                    dislikes: Sequence[str], neutral: ModifierKeys, positive: ModifierKeys, negative: ModifierKeys,
+                    allow: Callable[[CountryTrig], Any] | None = None, maintenance_multiply=0.004,
+                    on_activate: Callable[[CountryFx], Any] | None = None,
+                    on_fully_activated: Callable[[CountryFx], Any] | None = None,
+                    on_deactivate: Callable[[CountryFx], Any] | None = None,
+                    on_maintenance_changed: Callable[[CountryFx], Any] | None = None, impact_icon=IMPACT_ICON):
+        """a bureaucracy (in_game/common/bureaucracies/, vanilla's readme there) at vanilla's standard prices. The positive
+        side scales with maintenance and the negative with 1 - maintenance; a key on both sides must flip its sign. Also
+        writes its `<name>_impact_modifier` to self.types and self.icons, and its name, desc and impact loc."""
+        for side, keys in (("neutral", neutral), ("positive", positive), ("negative", negative)):
+            check_modifier_keys(f"{name} {side}", keys)
+        for k in positive.keys() & negative.keys():
+            if positive[k] * negative[k] >= 0:  # type: ignore[operator]  # a script value on either side is the caller's to check
+                raise ValueError(f"{name}: {k} is {positive[k]} funded and {negative[k]} neglected; neglect must flip it")
+        if not likes:
+            raise ValueError(f"{name}: an office some estate likes (estates_that_like)")
+        impact = f"{name}_impact_modifier"
+        self.loc.add(name, title)
+        self.loc.add(f"{name}_desc", desc)
+        self.loc.add(f"MODIFIER_TYPE_NAME_{impact}", f"${name}$ Impact")
+        self.loc.add(f"MODIFIER_TYPE_DESC_{impact}",
+                     f"How much [ShowBureaucracyTypeName('{name}')] [bureaucracy|e] affects the [country|e].")
+        with self.types.entry(impact) as t:
+            t.field("percent", True)
+            t.data("game_data", category="country")
+        with self.icons.entry(impact) as i:
+            i.field("positive", Q(impact_icon))
+        with self.entry(name) as e:
+            e.field("implementation_price", "price:implement_bureaucracy_price")
+            e.field("maintenance_price", "price:maintain_bureaucracy_price")
+            e.field("removal_price", "price:remove_bureaucracy_price")
+            e.data("maintenance_price_modifier", value="country_economical_base", multiply=maintenance_multiply)
+            for key, fn in (("potential", potential), ("allow", allow)):
+                if fn:
+                    with e.triggers(key, CountryTrig) as tr:
+                        fn(tr)
+            for key, estates in (("estates_that_like", likes), ("estates_that_dislike", dislikes)):
+                if estates:
+                    with e.block(key) as b:
+                        for x in estates:
+                            b._call(x)
+            with e.block("neutral_modifier") as m:
+                for k, v in neutral.items():
+                    m.field(k, v)
+            for key, keys, scale in (("positive_modifier", positive, {"value": "scope:maintenance"}),
+                                     ("negative_modifier", negative, {"value": 1, "subtract": "scope:maintenance"})):
+                with e.block(key) as m:
+                    m.data("scale", **scale)
+                    for k, v in keys.items():
+                        m.field(k, v)
+            for key, fn in (("on_activate", on_activate), ("on_fully_activated", on_fully_activated),
+                            ("on_deactivate", on_deactivate), ("on_maintenance_changed", on_maintenance_changed)):
+                if fn:
+                    with e.effects(key, CountryFx) as fx:
+                        fn(fx)
 
     def generic_action(self, name) -> ContextManager[GenericAction]:
         return self._top._open(name, GenericAction)

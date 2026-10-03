@@ -139,7 +139,9 @@ def test_the_empires_run_an_imperial_fisc():
     text = FISC.read_text(encoding="utf-8-sig")
     assert FISC.read_bytes().startswith(b"\xef\xbb\xbf") and text.count("{") == text.count("}")
     body = re.search(r"^tfe_roman_fisc = \{(.*)^\}", text, re.M | re.S).group(1)
-    trigger = re.search(r"potential_trigger = \{(.*?)\n\t\}", body, re.S).group(1)
+    assert re.search(r"potential_trigger = \{ tfe_is_roman_empire = yes \}", body)
+    roman = (b.MOD / "in_game/common/scripted_triggers/tfe_western_rome.txt").read_text(encoding="utf-8-sig")
+    trigger = roman[roman.index("tfe_is_roman_empire = {"):]
     assert set(re.findall(r"has_or_had_tag = (\w+)", trigger)) == set(b.ROMAN_EMPIRES)
     values = dict((k, float(v)) for k, v in re.findall(r"^\t(\w+) = (-?[\d.]+)", body, re.M))
     assert "tax_income_efficiency" not in values and values["court_spending_efficiency"] > 0   # accepted cultures tax in full

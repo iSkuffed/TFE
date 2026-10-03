@@ -1,4 +1,5 @@
-﻿# TFE: Stilicho's Glory. Each applies while Stilicho serves the country, so all of them move with him if he rises.
+﻿# honorius-only: Olympius rules for Honorius, not for Stilicho (tools/test_western_rome.py)
+# TFE: Stilicho's Glory. Each applies while Stilicho serves the country, so all of them move with him if he rises.
 # his command: the army is his and the great houses follow him (was the 68-month tfe_stilicho_regency)
 tfe_stilicho_regency = {
 	potential_trigger = {

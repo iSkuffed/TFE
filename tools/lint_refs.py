@@ -5,7 +5,7 @@ until the moment they fire, and often not even then).
     loc        an event's title, desc and option names, a decision's <name>.title/.desc and option names and a
                decision category's name_key are localisation keys that exist
     scopes     `scope:x` is saved (or read by vanilla, for scopes the game itself provides) somewhere
-    assets     a building type or government reform has its icon file
+    assets     a building type, government reform or bureaucracy has its icon file
     values     `has_advance = x`, `research_advance = advance_type:x`, `subject_type = subject_type:x`: a value that vanilla
                always takes from one registry (and in one form, bare or prefixed) names a key that exists, in that form
 
@@ -24,7 +24,7 @@ LOC_LINE = re.compile(r"^\s+([\w.\-]+):\d*\s+\"", re.M)
 SAVES = ("save_scope_as", "save_temporary_scope_as", "target_flag")  # a generic action's target_flag is scope:<flag>
 SAVE_VALUES = ("save_scope_value_as", "save_temporary_scope_value_as")
 EVENT_CALLS = ("id", "trigger_event_silently", "trigger_event_non_silently")
-ICONS = {"building_types": "buildings", "government_reforms": "government_reforms/illustrations"}
+ICONS = {"building_types": "buildings", "government_reforms": "government_reforms/illustrations", "bureaucracies": "bureaucracy"}
 
 
 def with_dlc(game, mod):

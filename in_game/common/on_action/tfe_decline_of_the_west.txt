@@ -1,4 +1,5 @@
-﻿# TFE: the Decline of the West (situations/tfe_decline_of_the_west.txt) begins on day one.
+﻿# honorius-only: day one: only WRE exists (tools/test_western_rome.py)
+# TFE: the Decline of the West (situations/tfe_decline_of_the_west.txt) begins on day one.
 on_game_start = {
 	on_actions = { tfe_on_start_decline_of_the_west }
 }

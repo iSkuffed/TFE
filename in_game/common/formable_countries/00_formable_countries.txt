@@ -1,4 +1,5 @@
-﻿SCA_f = {
+﻿# TFE honorius-only: the empires may not form vanilla countries (tools/test_western_rome.py)
+SCA_f = {
 
 	level = 3
 	required_locations_fraction = 0.75

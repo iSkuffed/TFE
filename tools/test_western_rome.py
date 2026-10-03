@@ -25,24 +25,10 @@ def block(text, head):
 
 
 TRIGGER = "in_game/common/scripted_triggers/tfe_western_rome.txt"
-# files that may name WRE by tag: Honorius's own things. Every other file must say which West it means.
-STAY = {
-    "in_game/common/international_organizations/tfe_roman_empire.txt",   # the Imperium Romanum's seat and Unity
-    "in_game/common/generic_actions/tfe_roman_empire.txt",
-    "in_game/common/decisions/tfe_fall_of_the_west.txt",   # Stilicho's Claims is Honorius's
-    "in_game/common/on_action/tfe_opening.txt", "in_game/events/tfe_opening.txt",   # the 395 opening
-    "in_game/common/on_action/tfe_gildo.txt", "in_game/events/tfe_gildo.txt",
-    "in_game/common/on_action/tfe_decline_of_the_west.txt",   # day one: only WRE exists
-    "in_game/common/on_action/tfe_western_start.txt",   # day one: the 395 opening state of Honorius's West
-    "in_game/common/situations/tfe_decline_of_the_west.txt",  # can_start is the WRE-only 395 opening
-    "in_game/common/on_action/tfe_stilicho.txt", "in_game/events/tfe_stilicho.txt",   # the showdown is Honorius's
-    "in_game/common/scripted_effects/tfe_stilicho.txt", "in_game/common/scripted_effects/tfe_usurpers.txt",
-    "in_game/common/auto_modifiers/tfe_stilicho.txt",   # Olympius rules for Honorius, not for Stilicho
-    "in_game/common/customizable_localization/country_history.txt",
-    "in_game/gui/panels/situation/tfe_decline_of_the_west.gui",   # the header and Gildo's hold are WRE's
-    "in_game/common/formable_countries/00_formable_countries.txt",   # vanilla, left alone
-    TRIGGER,
-}
+# A file may name WRE by tag only if it is Honorius's own (the 395 opening, his showdown with Stilicho...) and says so in a
+# comment: `honorius-only: <why>` (from a script, `doc.note("honorius-only: ...")`). Every other file must say which West
+# it means (tfe_is_western_rome).
+MARK = "honorius-only:"
 BY_TAG = re.compile(r"c:WRE\b|(?<![\w])tag = WRE\b|GetCountry\('WRE'\)")
 
 
@@ -52,14 +38,18 @@ def test_the_west_is_either_rome():
 
 
 def test_only_honorius_files_name_wre_by_tag():
-    named = set()
+    named, marked = set(), set()
     for base in ("in_game", "main_menu/common"):
         for p in (ROOT / base).rglob("*.txt"):
-            if BY_TAG.search(re.sub(r"#[^\n]*", "", p.read_text(encoding="utf-8-sig"))):
-                named.add(p.relative_to(ROOT).as_posix())
+            text, rel = p.read_text(encoding="utf-8-sig"), p.relative_to(ROOT).as_posix()
+            if BY_TAG.search(re.sub(r"#[^\n]*", "", text)):
+                named.add(rel)
+            if MARK in text:
+                marked.add(rel)
     named -= {n for n in named if n.startswith(("main_menu/setup/", "in_game/setup/", "main_menu/common/scenarios/",
                                                 "main_menu/common/coat_of_arms/"))}
-    assert named <= STAY, sorted(named - STAY)
+    assert named <= marked, f"name the West with tfe_is_western_rome, or mark the file `{MARK} <why>`: {sorted(named - marked)}"
+    assert marked <= named, f"marked {MARK} but names no WRE by tag: {sorted(marked - named)}"
 
 
 def test_migrate_west_marches_on_either_west():

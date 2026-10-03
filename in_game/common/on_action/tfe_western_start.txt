@@ -1,4 +1,5 @@
-﻿# TFE: the West opens at -25 stability, 35% inflation and 55 legitimacy: Stilicho's court holds a state
+﻿# honorius-only: day one: the 395 opening state of Honorius's West (tools/test_western_rome.py)
+# TFE: the West opens at -25 stability, 35% inflation and 55 legitimacy: Stilicho's court holds a state
 # already paying its armies in debased coin. Day one only WRE exists (Stilicho's West comes later).
 on_game_start = {
 	on_actions = { tfe_on_start_western_state }

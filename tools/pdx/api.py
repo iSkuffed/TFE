@@ -6,7 +6,7 @@
 from __future__ import annotations
 
 from contextlib import contextmanager
-from typing import Any, Callable, ContextManager, Generic, Iterator, Literal, TypeVar, overload
+from typing import Any, Callable, ContextManager, Generic, Iterator, Literal, TypedDict, TypeVar, overload
 
 from pdx.core import Cmp, Scope
 
@@ -143,7 +143,7 @@ class AnyFx(Scope):
         _scripted(self, "add_influence_over_granada_towards_trend", _v, dict(value=value))
     def add_internal_flag(self, *args: Any, **kw: Any) -> None: self._call("add_internal_flag", *args, **kw)
     def add_italian_wars_militarization_demands(self, _v: bool | str | float = True, /) -> None: self._call("add_italian_wars_militarization_demands", _v)
-    def add_migration(self, *, owner: Any = None, to_owner: Any = None, from_: Any = None, from_location: Any = None, to: Any = None, to_location: Any = None, religion: Any = None, culture: Any = None, type: Any = None, amount: Any, months: Any, keep_nationality: Any = None) -> None: self._call("add_migration", **_kw(owner=owner, to_owner=to_owner, from_=from_, from_location=from_location, to=to, to_location=to_location, religion=religion, culture=culture, type=type, amount=amount, months=months, keep_nationality=keep_nationality))
+    def add_migration(self, *, owner: Any = None, to_owner: Any = None, from_: Any = None, from_location: Any = None, to: Any = None, to_location: Any = None, religion: Any = None, culture: Any = None, type: Any = None, amount: Any, only_from_owned_locations: Any = None, months: Any, keep_nationality: Any = None) -> None: self._call("add_migration", **_kw(owner=owner, to_owner=to_owner, from_=from_, from_location=from_location, to=to, to_location=to_location, religion=religion, culture=culture, type=type, amount=amount, only_from_owned_locations=only_from_owned_locations, months=months, keep_nationality=keep_nationality))
     def add_opinion_mutual_effect(self, _v: bool | str | float | None = None, /, *, target: Any = None, modifier: Any = None) -> None:
         _scripted(self, "add_opinion_mutual_effect", _v, dict(target=target, modifier=modifier))
     def add_organization_donation_opinion_bonus(self, _v: bool | str | float | None = None, /, *, target: Any = None, value: Any = None, international_organization: Any = None) -> None:
@@ -941,8 +941,8 @@ class AnyFx(Scope):
     def hre_parliament_debate_failed_effect(self, _v: bool | str | float = True, /) -> None: self._call("hre_parliament_debate_failed_effect", _v)
     def hre_repeal_fixed_succession(self, _v: bool | str | float | None = None, /, *, policy: Any = None) -> None:
         _scripted(self, "hre_repeal_fixed_succession", _v, dict(policy=policy))
-    def hre_set_imperial_religion(self, _v: bool | str | float | None = None, /, *, value: Any = None, type: Any = None) -> None:
-        _scripted(self, "hre_set_imperial_religion", _v, dict(value=value, type=type))
+    def hre_set_imperial_religion(self, _v: bool | str | float | None = None, /, *, type: Any = None, value: Any = None) -> None:
+        _scripted(self, "hre_set_imperial_religion", _v, dict(type=type, value=value))
     def hre_set_imperial_religion_group_value(self, _v: bool | str | float | None = None, /, *, value: Any = None) -> None:
         _scripted(self, "hre_set_imperial_religion_group_value", _v, dict(value=value))
     def hre_set_imperial_religion_value(self, _v: bool | str | float | None = None, /, *, value: Any = None) -> None:
@@ -1450,7 +1450,7 @@ class AnyFx(Scope):
     def remove_list_local_variable(self, *, name: Any = None, target: Any = None) -> None: self._call("remove_list_local_variable", **_kw(name=name, target=target))
     def remove_list_variable(self, *, name: Any, target: Any) -> None: self._call("remove_list_variable", **_kw(name=name, target=target))
     def remove_local_variable(self, _v: Any, /) -> None: self._call("remove_local_variable", _v)
-    def remove_migration(self, *args: Any, **kw: Any) -> None: self._call("remove_migration", *args, **kw)
+    def remove_migration(self, *, owner: Any, from_: Any, to: Any) -> None: self._call("remove_migration", **_kw(owner=owner, from_=from_, to=to))
     def remove_opinion_mutual_effect(self, _v: bool | str | float | None = None, /, *, modifier: Any = None, target: Any = None) -> None:
         _scripted(self, "remove_opinion_mutual_effect", _v, dict(modifier=modifier, target=target))
     def remove_pentarchy_modifier(self, _v: bool | str | float | None = None, /, *, location: Any = None) -> None:
@@ -2445,13 +2445,13 @@ class ColonialCharterFx(AnyFx):
     def limit(self, body: Callable[[ColonialCharterTrig], Any]) -> None: ...
     def limit(self, body: Callable[[ColonialCharterTrig], Any] | None = None) -> Any:
         return self._run("limit", ColonialCharterTrig, body)
-    def add_additional_migration(self, _v: Any, /) -> None: self._call("add_additional_migration", _v)
+    def add_additional_migration(self, *, province: Any = None, cabinet: Any = None) -> None: self._call("add_additional_migration", **_kw(province=province, cabinet=cabinet))
     def change_colonial_charter_owner(self, _v: Any, /) -> None: self._call("change_colonial_charter_owner", _v)
     def go_owner(self, *, op: Op = "=") -> ContextManager[CountryFx]:
         return self.link("owner", CountryFx, op=op)
     def go_province_definition(self, *, op: Op = "=") -> ContextManager[ProvinceDefinitionFx]:
         return self.link("province_definition", ProvinceDefinitionFx, op=op)
-    def remove_additional_migration(self, _v: Any, /) -> None: self._call("remove_additional_migration", _v)
+    def remove_additional_migration(self, *, province: Any = None, cabinet: Any = None) -> None: self._call("remove_additional_migration", **_kw(province=province, cabinet=cabinet))
 
 
 class ColonialCharterGoalFx(AnyFx):
@@ -3003,7 +3003,7 @@ class CountryFx(AnyFx):
     def extend_regency(self, _v: Any, /) -> None: self._call("extend_regency", _v)
     def force_union(self, _v: Any, /) -> None: self._call("force_union", _v)
     def form_country(self, _v: Any, /) -> None: self._call("form_country", _v)
-    def form_new_culture(self, *args: Any, **kw: Any) -> None: self._call("form_new_culture", *args, **kw)
+    def form_new_culture(self, _v: bool | str, /) -> None: self._call("form_new_culture", _v)
     def give_loan(self, *, target: Any = None, amount: Any = None, interest: Any = None, months: Any = None) -> None: self._call("give_loan", **_kw(target=target, amount=amount, interest=interest, months=months))
     def go_active_chivalric_order(self, *, op: Op = "=") -> ContextManager[ChivalricOrderFx]:
         return self.link("active_chivalric_order", ChivalricOrderFx, op=op)
@@ -3133,7 +3133,7 @@ class CountryFx(AnyFx):
     def lift_fog_of_war(self, _v: Any, /) -> None: self._call("lift_fog_of_war", _v)
     def loot_location(self, _v: Any, /) -> None: self._call("loot_location", _v)
     def make_subject_of(self, *, target: Any, type: Any, war: Any = None) -> None: self._call("make_subject_of", **_kw(target=target, type=type, war=war))
-    def merge_culture_group(self, *args: Any, **kw: Any) -> None: self._call("merge_culture_group", *args, **kw)
+    def merge_culture_group(self, _v: Any, /) -> None: self._call("merge_culture_group", _v)
     def ordered_accepted_culture(self, *, order_by: Any = None, position: Any = None, min: Any = None, max: Any = None, check_range_bounds: Any = None) -> ContextManager[CultureFx]:
         return self._open("ordered_accepted_culture", CultureFx, **_kw(order_by=order_by, position=position, min=min, max=max, check_range_bounds=check_range_bounds))
     def ordered_active_disaster(self, *, order_by: Any = None, position: Any = None, min: Any = None, max: Any = None, check_range_bounds: Any = None) -> ContextManager[DisasterFx]:
@@ -3732,7 +3732,7 @@ class CountryFx(AnyFx):
     def remove_historical_rival(self, _v: Any, /) -> None: self._call("remove_historical_rival", _v)
     def remove_law(self, _v: Any, /) -> None: self._call("remove_law", _v)
     def remove_omen(self, *args: Any, **kw: Any) -> None: self._call("remove_omen", *args, **kw)
-    def remove_opinion(self, *, modifier: Any, target: Any) -> None: self._call("remove_opinion", **_kw(modifier=modifier, target=target))
+    def remove_opinion(self, *, target: Any, modifier: Any) -> None: self._call("remove_opinion", **_kw(target=target, modifier=modifier))
     def remove_policy(self, _v: Any, /) -> None: self._call("remove_policy", _v)
     def remove_reform(self, _v: Any, /) -> None: self._call("remove_reform", _v)
     def remove_religious_aspect(self, _v: Any, /) -> None: self._call("remove_religious_aspect", _v)
@@ -3759,21 +3759,21 @@ class CountryFx(AnyFx):
     def set_country_employment_system(self, _v: Any, /) -> None: self._call("set_country_employment_system", _v)
     def set_country_rank(self, _v: Any, /) -> None: self._call("set_country_rank", _v)
     def set_court_language(self, _v: Any, /) -> None: self._call("set_court_language", _v)
-    def set_devotion(self, *args: Any, **kw: Any) -> None: self._call("set_devotion", *args, **kw)
-    def set_doom(self, *args: Any, **kw: Any) -> None: self._call("set_doom", *args, **kw)
+    def set_devotion(self, _v: Any, /) -> None: self._call("set_devotion", _v)
+    def set_doom(self, _v: Any, /) -> None: self._call("set_doom", _v)
     def set_gold(self, *, value: Any = None, multiply: Any = None, min: Any = None, max: Any = None) -> None: self._call("set_gold", **_kw(value=value, multiply=multiply, min=min, max=max))
     def set_goods_export_trade_policy(self, *, goods: Any = None, modifier: Any = None) -> None: self._call("set_goods_export_trade_policy", **_kw(goods=goods, modifier=modifier))
     def set_goods_import_trade_policy(self, *, goods: Any = None, modifier: Any = None) -> None: self._call("set_goods_import_trade_policy", **_kw(goods=goods, modifier=modifier))
-    def set_government_power(self, *args: Any, **kw: Any) -> None: self._call("set_government_power", *args, **kw)
-    def set_harmony(self, *args: Any, **kw: Any) -> None: self._call("set_harmony", *args, **kw)
+    def set_government_power(self, _v: Any, /) -> None: self._call("set_government_power", _v)
+    def set_harmony(self, _v: Any, /) -> None: self._call("set_harmony", _v)
     def set_honor(self, *args: Any, **kw: Any) -> None: self._call("set_honor", *args, **kw)
-    def set_horde_unity(self, *args: Any, **kw: Any) -> None: self._call("set_horde_unity", *args, **kw)
+    def set_horde_unity(self, _v: Any, /) -> None: self._call("set_horde_unity", _v)
     def set_inflation(self, _v: Any, /) -> None: self._call("set_inflation", _v)
-    def set_karma(self, *args: Any, **kw: Any) -> None: self._call("set_karma", *args, **kw)
+    def set_karma(self, _v: Any, /) -> None: self._call("set_karma", _v)
     def set_legitimacy(self, _v: Any, /) -> None: self._call("set_legitimacy", _v)
     def set_liturgical_language(self, _v: Any, /) -> None: self._call("set_liturgical_language", _v)
-    def set_manpower(self, *args: Any, **kw: Any) -> None: self._call("set_manpower", *args, **kw)
-    def set_navy_tradition(self, *args: Any, **kw: Any) -> None: self._call("set_navy_tradition", *args, **kw)
+    def set_manpower(self, _v: Any, /) -> None: self._call("set_manpower", _v)
+    def set_navy_tradition(self, _v: Any, /) -> None: self._call("set_navy_tradition", _v)
     def set_new_foreign_ruler(self, _v: Any, /) -> None: self._call("set_new_foreign_ruler", _v)
     def set_new_foreign_ruler_no_update(self, _v: Any, /) -> None: self._call("set_new_foreign_ruler_no_update", _v)
     def set_new_ruler(self, _v: Any, /) -> None: self._call("set_new_ruler", _v)
@@ -3785,25 +3785,25 @@ class CountryFx(AnyFx):
     def set_parliament_type(self, _v: Any, /) -> None: self._call("set_parliament_type", _v)
     def set_participated_in_parliament(self, *, international_organization: Any, vote: Any = None) -> None: self._call("set_participated_in_parliament", **_kw(international_organization=international_organization, vote=vote))
     def set_personality(self, _v: Any, /) -> None: self._call("set_personality", _v)
-    def set_political_influence(self, *args: Any, **kw: Any) -> None: self._call("set_political_influence", *args, **kw)
-    def set_prestige(self, *args: Any, **kw: Any) -> None: self._call("set_prestige", *args, **kw)
-    def set_purity(self, *args: Any, **kw: Any) -> None: self._call("set_purity", *args, **kw)
+    def set_political_influence(self, _v: Any, /) -> None: self._call("set_political_influence", _v)
+    def set_prestige(self, _v: Any, /) -> None: self._call("set_prestige", _v)
+    def set_purity(self, _v: Any, /) -> None: self._call("set_purity", _v)
     def set_regent(self, _v: Any, /) -> None: self._call("set_regent", _v)
-    def set_religious_influence(self, *args: Any, **kw: Any) -> None: self._call("set_religious_influence", *args, **kw)
+    def set_religious_influence(self, _v: Any, /) -> None: self._call("set_religious_influence", _v)
     def set_religious_school(self, _v: Any, /) -> None: self._call("set_religious_school", _v)
-    def set_republican_tradition(self, *args: Any, **kw: Any) -> None: self._call("set_republican_tradition", *args, **kw)
+    def set_republican_tradition(self, _v: Any, /) -> None: self._call("set_republican_tradition", _v)
     def set_revolution(self, _v: bool | str, /) -> None: self._call("set_revolution", _v)
     def set_revolution_target(self, _v: bool | str, /) -> None: self._call("set_revolution_target", _v)
-    def set_righteousness(self, *args: Any, **kw: Any) -> None: self._call("set_righteousness", *args, **kw)
+    def set_righteousness(self, _v: Any, /) -> None: self._call("set_righteousness", _v)
     def set_rite_power(self, *args: Any, **kw: Any) -> None: self._call("set_rite_power", *args, **kw)
-    def set_sailors(self, *args: Any, **kw: Any) -> None: self._call("set_sailors", *args, **kw)
-    def set_self_control(self, *args: Any, **kw: Any) -> None: self._call("set_self_control", *args, **kw)
+    def set_sailors(self, _v: Any, /) -> None: self._call("set_sailors", _v)
+    def set_self_control(self, _v: Any, /) -> None: self._call("set_self_control", _v)
     def set_societal_value(self, *, value: Any, type: Any) -> None: self._call("set_societal_value", **_kw(value=value, type=type))
     def set_stability(self, _v: Any, /) -> None: self._call("set_stability", _v)
-    def set_tribal_cohesion(self, *args: Any, **kw: Any) -> None: self._call("set_tribal_cohesion", *args, **kw)
-    def set_war_exhaustion(self, *args: Any, **kw: Any) -> None: self._call("set_war_exhaustion", *args, **kw)
+    def set_tribal_cohesion(self, _v: Any, /) -> None: self._call("set_tribal_cohesion", _v)
+    def set_war_exhaustion(self, _v: Any, /) -> None: self._call("set_war_exhaustion", _v)
     def set_war_leader(self, *, war: Any) -> None: self._call("set_war_leader", **_kw(war=war))
-    def set_yanantin(self, *args: Any, **kw: Any) -> None: self._call("set_yanantin", *args, **kw)
+    def set_yanantin(self, _v: Any, /) -> None: self._call("set_yanantin", _v)
     def start_conquistador(self, *, area: Any = None, location: Any = None, character: Any = None, price: Any = None, price_modifier: Any = None) -> None: self._call("start_conquistador", **_kw(area=area, location=location, character=character, price=price, price_modifier=price_modifier))
     def start_expedition(self, *, type: Any, leader: Any) -> None: self._call("start_expedition", **_kw(type=type, leader=leader))
     def start_exploration(self, *, area: Any = None, location: Any = None, character: Any = None, price: Any = None, price_modifier: Any = None) -> None: self._call("start_exploration", **_kw(area=area, location=location, character=character, price=price, price_modifier=price_modifier))
@@ -4545,40 +4545,40 @@ class InternationalOrganizationFx(AnyFx):
     def remove_policy_from_international_organization(self, _v: Any, /) -> None: self._call("remove_policy_from_international_organization", _v)
     def remove_vote(self, *, voter: Any = None, resolution: Any = None) -> None: self._call("remove_vote", **_kw(voter=voter, resolution=resolution))
     def set_army_tradition(self, _v: Any, /) -> None: self._call("set_army_tradition", _v)
-    def set_devotion(self, *args: Any, **kw: Any) -> None: self._call("set_devotion", *args, **kw)
-    def set_doom(self, *args: Any, **kw: Any) -> None: self._call("set_doom", *args, **kw)
+    def set_devotion(self, _v: Any, /) -> None: self._call("set_devotion", _v)
+    def set_doom(self, _v: Any, /) -> None: self._call("set_doom", _v)
     def set_gold(self, *, value: Any = None, multiply: Any = None, min: Any = None, max: Any = None) -> None: self._call("set_gold", **_kw(value=value, multiply=multiply, min=min, max=max))
-    def set_government_power(self, *args: Any, **kw: Any) -> None: self._call("set_government_power", *args, **kw)
-    def set_harmony(self, *args: Any, **kw: Any) -> None: self._call("set_harmony", *args, **kw)
+    def set_government_power(self, _v: Any, /) -> None: self._call("set_government_power", _v)
+    def set_harmony(self, _v: Any, /) -> None: self._call("set_harmony", _v)
     def set_honor(self, *args: Any, **kw: Any) -> None: self._call("set_honor", *args, **kw)
-    def set_horde_unity(self, *args: Any, **kw: Any) -> None: self._call("set_horde_unity", *args, **kw)
+    def set_horde_unity(self, _v: Any, /) -> None: self._call("set_horde_unity", _v)
     def set_inflation(self, _v: Any, /) -> None: self._call("set_inflation", _v)
     def set_international_organization_icon(self, _v: Any, /) -> None: self._call("set_international_organization_icon", _v)
-    def set_karma(self, *args: Any, **kw: Any) -> None: self._call("set_karma", *args, **kw)
+    def set_karma(self, _v: Any, /) -> None: self._call("set_karma", _v)
     def set_leader_country(self, _v: Any, /) -> None: self._call("set_leader_country", _v)
     def set_legitimacy(self, _v: Any, /) -> None: self._call("set_legitimacy", _v)
-    def set_manpower(self, *args: Any, **kw: Any) -> None: self._call("set_manpower", *args, **kw)
-    def set_navy_tradition(self, *args: Any, **kw: Any) -> None: self._call("set_navy_tradition", *args, **kw)
+    def set_manpower(self, _v: Any, /) -> None: self._call("set_manpower", _v)
+    def set_navy_tradition(self, _v: Any, /) -> None: self._call("set_navy_tradition", _v)
     def set_parliament_active(self, _v: bool | str, /) -> None: self._call("set_parliament_active", _v)
     def set_parliament_issue(self, _v: Any, /) -> None: self._call("set_parliament_issue", _v)
     def set_parliament_issue_support(self, _v: Any = None, /, *, add: Any = None, value: Any = None, if_: Any = None) -> None: self._call("set_parliament_issue_support", *_pos(_v), **_kw(add=add, value=value, if_=if_))
     def set_parliament_location(self, _v: Any, /) -> None: self._call("set_parliament_location", _v)
     def set_parliament_type(self, _v: Any, /) -> None: self._call("set_parliament_type", _v)
-    def set_political_influence(self, *args: Any, **kw: Any) -> None: self._call("set_political_influence", *args, **kw)
-    def set_prestige(self, *args: Any, **kw: Any) -> None: self._call("set_prestige", *args, **kw)
-    def set_purity(self, *args: Any, **kw: Any) -> None: self._call("set_purity", *args, **kw)
-    def set_religious_influence(self, *args: Any, **kw: Any) -> None: self._call("set_religious_influence", *args, **kw)
-    def set_republican_tradition(self, *args: Any, **kw: Any) -> None: self._call("set_republican_tradition", *args, **kw)
-    def set_righteousness(self, *args: Any, **kw: Any) -> None: self._call("set_righteousness", *args, **kw)
+    def set_political_influence(self, _v: Any, /) -> None: self._call("set_political_influence", _v)
+    def set_prestige(self, _v: Any, /) -> None: self._call("set_prestige", _v)
+    def set_purity(self, _v: Any, /) -> None: self._call("set_purity", _v)
+    def set_religious_influence(self, _v: Any, /) -> None: self._call("set_religious_influence", _v)
+    def set_republican_tradition(self, _v: Any, /) -> None: self._call("set_republican_tradition", _v)
+    def set_righteousness(self, _v: Any, /) -> None: self._call("set_righteousness", _v)
     def set_rite_power(self, *args: Any, **kw: Any) -> None: self._call("set_rite_power", *args, **kw)
-    def set_sailors(self, *args: Any, **kw: Any) -> None: self._call("set_sailors", *args, **kw)
-    def set_self_control(self, *args: Any, **kw: Any) -> None: self._call("set_self_control", *args, **kw)
+    def set_sailors(self, _v: Any, /) -> None: self._call("set_sailors", _v)
+    def set_self_control(self, _v: Any, /) -> None: self._call("set_self_control", _v)
     def set_stability(self, _v: Any, /) -> None: self._call("set_stability", _v)
     def set_target_of_international_organization(self, *args: Any, **kw: Any) -> None: self._call("set_target_of_international_organization", *args, **kw)
-    def set_tribal_cohesion(self, *args: Any, **kw: Any) -> None: self._call("set_tribal_cohesion", *args, **kw)
+    def set_tribal_cohesion(self, _v: Any, /) -> None: self._call("set_tribal_cohesion", _v)
     def set_vote(self, *, voter: Any, resolution: Any, vote: Any = None, lock_reason: Any = None, locked: Any = None) -> None: self._call("set_vote", **_kw(voter=voter, resolution=resolution, vote=vote, lock_reason=lock_reason, locked=locked))
-    def set_war_exhaustion(self, *args: Any, **kw: Any) -> None: self._call("set_war_exhaustion", *args, **kw)
-    def set_yanantin(self, *args: Any, **kw: Any) -> None: self._call("set_yanantin", *args, **kw)
+    def set_war_exhaustion(self, _v: Any, /) -> None: self._call("set_war_exhaustion", _v)
+    def set_yanantin(self, _v: Any, /) -> None: self._call("set_yanantin", _v)
 
 
 class InternationalOrganizationTypeFx(AnyFx):
@@ -4923,7 +4923,7 @@ class LocationFx(AnyFx):
         return self._open("random_work_of_art_in_location", WorkOfArtFx, **_kw(weight=weight))
     def remove_all_religious_orders(self, _v: Any, /) -> None: self._call("remove_all_religious_orders", _v)
     def remove_core(self, _v: Any, /) -> None: self._call("remove_core", _v)
-    def remove_from_international_organization(self, *args: Any, **kw: Any) -> None: self._call("remove_from_international_organization", *args, **kw)
+    def remove_from_international_organization(self, _v: Any, /) -> None: self._call("remove_from_international_organization", _v)
     def remove_location_modifier(self, _v: Any, /) -> None: self._call("remove_location_modifier", _v)
     def remove_religious_order(self, _v: Any, /) -> None: self._call("remove_religious_order", _v)
     def remove_scripted_proximity_from(self, *args: Any, **kw: Any) -> None: self._call("remove_scripted_proximity_from", *args, **kw)
@@ -8137,6 +8137,7 @@ class AnyTrig(Scope):
     def tfe_is_historical_land_of(self, _v: bool | str | float | None = None, /, *, WHO: Any = None) -> None:
         _scripted(self, "tfe_is_historical_land_of", _v, dict(WHO=WHO))
     def tfe_is_migrator(self, _v: bool | str | float = True, /) -> None: self._call("tfe_is_migrator", _v)
+    def tfe_is_roman_empire(self, _v: bool | str | float = True, /) -> None: self._call("tfe_is_roman_empire", _v)
     def tfe_is_under_the_yoke(self, _v: bool | str | float = True, /) -> None: self._call("tfe_is_under_the_yoke", _v)
     def tfe_is_western_rome(self, _v: bool | str | float = True, /) -> None: self._call("tfe_is_western_rome", _v)
     def tfe_stilicho_base_land(self, _v: bool | str | float = True, /) -> None: self._call("tfe_stilicho_base_land", _v)
@@ -13555,6 +13556,5427 @@ class ValueModifier(_Value, AnyTrig):
 
 
 
+class ModifierKeys(TypedDict, total=False):
+    """the keys of a modifier block, from modifiers.log. The line under each is its category: a Unit or Location
+    key in a country block works only where vanilla does the same (discipline, army_maintenance_efficiency)."""
+    ai_require_cb_for_war: float | str
+    """Country"""
+    ai_opinion_bias: float | str
+    """Country"""
+    can_recruit_explorer: float | str
+    """Country"""
+    can_invite_settlers: float | str
+    """Country"""
+    allow_rgo_slave_demand: float | str
+    """Country"""
+    allow_mysticism_vs_jurisprudence: float | str
+    """Country"""
+    shared_border_impact: float | str
+    """Country"""
+    army_logistics_distance: float | str
+    """Unit"""
+    army_logistics_distance_modifier: float | str
+    """Unit"""
+    army_artillery_power: float | str
+    """Unit"""
+    army_auxiliary_power: float | str
+    """Unit"""
+    army_light_cavalry_power: float | str
+    """Unit"""
+    army_heavy_cavalry_power: float | str
+    """Unit"""
+    army_light_infantry_power: float | str
+    """Unit"""
+    army_heavy_infantry_power: float | str
+    """Unit"""
+    navy_galley_power: float | str
+    """Unit"""
+    navy_heavy_ship_power: float | str
+    """Unit"""
+    navy_light_ship_power: float | str
+    """Unit"""
+    navy_transport_power: float | str
+    """Unit"""
+    scaled_lost_war_cost_modifier: float | str
+    """Country"""
+    call_jihad_cost_modifier: float | str
+    """Country"""
+    national_church_power_cost_modifier: float | str
+    """Country"""
+    hussite_wars_actions_price_cost_modifier: float | str
+    """Country"""
+    join_sect_cost_modifier: float | str
+    """Country"""
+    disfavor_sect_cost_modifier: float | str
+    """Country"""
+    stop_disfavoring_sect_cost_modifier: float | str
+    """Country"""
+    promote_sect_cost_modifier: float | str
+    """Country"""
+    stop_promoting_sect_cost_modifier: float | str
+    """Country"""
+    leave_sect_cost_modifier: float | str
+    """Country"""
+    perform_tantric_ritual_cost_modifier: float | str
+    """Country"""
+    organize_spiritual_retreat_cost_modifier: float | str
+    """Country"""
+    commission_religious_images_cost_modifier: float | str
+    """Country"""
+    join_branch_cost_modifier: float | str
+    """Country"""
+    activate_avatar_cost_modifier: float | str
+    """Country"""
+    deactivate_avatar_cost_modifier: float | str
+    """Country"""
+    reroll_avatar_cost_modifier: float | str
+    """Country"""
+    perform_yoga_cost_modifier: float | str
+    """Country"""
+    indulge_in_feasts_cost_modifier: float | str
+    """Country"""
+    discard_worldly_possessions_cost_modifier: float | str
+    """Country"""
+    indulge_in_bloodbath_cost_modifier: float | str
+    """Country"""
+    favor_god_cost_modifier: float | str
+    """Country"""
+    nanbokuchou_change_sides_cost_modifier: float | str
+    """Country"""
+    nanbokuchou_declare_neutrality_cost_modifier: float | str
+    """Country"""
+    sengoku_attempt_imperial_restoration_cost_modifier: float | str
+    """Country"""
+    sengoku_force_end_war_cost_modifier: float | str
+    """Country"""
+    sengoku_revoke_clans_land_cost_modifier: float | str
+    """Country"""
+    sengoku_limit_clans_autonomy_cost_modifier: float | str
+    """Country"""
+    sengoku_summon_to_court_cost_modifier: float | str
+    """Country"""
+    sengoku_proclaim_clan_independence_cost_modifier: float | str
+    """Country"""
+    sengoku_increment_recruitment_cost_modifier: float | str
+    """Country"""
+    sengoku_offer_hostage_cost_modifier: float | str
+    """Country"""
+    sengoku_ask_for_hostage_cost_modifier: float | str
+    """Country"""
+    sengoku_prove_heritage_cost_modifier: float | str
+    """Country"""
+    grant_shugo_office_cost_modifier: float | str
+    """Country"""
+    revoke_shugo_office_cost_modifier: float | str
+    """Country"""
+    claim_shugo_office_cost_modifier: float | str
+    """Country"""
+    join_autocephalous_patriarchate_cost_modifier: float | str
+    """Country"""
+    create_autocephalous_patriarchate_cost_modifier: float | str
+    """Country"""
+    third_rome_cost_modifier: float | str
+    """Country"""
+    relocate_ecumenical_patriarchate_cost_modifier: float | str
+    """Country"""
+    cleansing_ritual_purity_cost_modifier: float | str
+    """Country"""
+    cleansing_ritual_yanantin_cost_modifier: float | str
+    """Country"""
+    get_claim_from_imperial_court_cost_modifier: float | str
+    """Country"""
+    get_marriage_from_imperial_court_cost_modifier: float | str
+    """Country"""
+    become_shogun_from_imperial_court_cost_modifier: float | str
+    """Country"""
+    appease_nobles_estate_from_shogun_court_cost_modifier: float | str
+    """Country"""
+    increase_levies_from_shogun_court_cost_modifier: float | str
+    """Country"""
+    increase_tax_income_from_shogun_court_cost_modifier: float | str
+    """Country"""
+    demand_extra_payment_from_shogun_court_cost_modifier: float | str
+    """Country"""
+    increase_peasant_satisfaction_from_ikko_ikki_cost_modifier: float | str
+    """Country"""
+    reduce_rebels_from_ikko_ikki_cost_modifier: float | str
+    """Country"""
+    allow_safe_refuge_cost_modifier: float | str
+    """Country"""
+    crackdown_their_strongholds_cost_modifier: float | str
+    """Country"""
+    increase_literacy_from_religious_sects_cost_modifier: float | str
+    """Country"""
+    increase_clergy_satisfaction_from_religious_sects_cost_modifier: float | str
+    """Country"""
+    favor_buddhist_schools_from_religious_sects_cost_modifier: float | str
+    """Country"""
+    favor_kami_worship_from_religious_sects_cost_modifier: float | str
+    """Country"""
+    keep_kami_and_buddha_balanced_from_religious_sects_cost_modifier: float | str
+    """Country"""
+    baptize_ruler_from_kirishitan_cost_modifier: float | str
+    """Country"""
+    hold_public_kirishitan_mass_cost_modifier: float | str
+    """Country"""
+    establish_treaty_with_kirishitan_cost_modifier: float | str
+    """Country"""
+    limit_movement_of_kirishitan_cost_modifier: float | str
+    """Country"""
+    pilgrimage_action_cost_modifier: float | str
+    """Country"""
+    estate_emergency_action_cost_modifier: float | str
+    """Country"""
+    ask_for_extra_levies_cost_modifier: float | str
+    """Country"""
+    extraordinary_taxes_cost_modifier: float | str
+    """Country"""
+    ask_clergy_for_legitimacy_cost_modifier: float | str
+    """Country"""
+    ask_nobility_for_diplomats_cost_modifier: float | str
+    """Country"""
+    ask_burghers_for_loan_cost_modifier: float | str
+    """Country"""
+    ask_commoners_for_stability_cost_modifier: float | str
+    """Country"""
+    ask_tribes_for_manpower_cost_modifier: float | str
+    """Country"""
+    nahuatl_religious_actions_price_cost_modifier: float | str
+    """Country"""
+    inti_ceremonial_festivals_cost_modifier: float | str
+    """Country"""
+    mayan_ceremonial_festivals_cost_modifier: float | str
+    """Country"""
+    sacrifice_noble_blood_cost_modifier: float | str
+    """Country"""
+    change_main_school_cost_modifier: float | str
+    """Country"""
+    sell_icon_cost_modifier: float | str
+    """Country"""
+    religious_offering_cost_modifier: float | str
+    """Country"""
+    migrate_pop_based_country_cost_modifier: float | str
+    """Country"""
+    add_location_to_international_organization_cost_modifier: float | str
+    """Country"""
+    remove_location_from_international_organization_cost_modifier: float | str
+    """Country"""
+    army_losses_in_war_cost_modifier: float | str
+    """Country"""
+    enemy_army_losses_in_war_cost_modifier: float | str
+    """Country"""
+    losses_to_disease_cost_modifier: float | str
+    """Country"""
+    damage_done_versus_heathens_modifier: float | str
+    """Unit"""
+    damage_done_versus_heretics_modifier: float | str
+    """Unit"""
+    cardinal_price_cost_modifier: float | str
+    """Country"""
+    invite_religious_order_price_cost_modifier: float | str
+    """Country"""
+    found_religious_order_price_cost_modifier: float | str
+    """Country"""
+    cabalgada_raids_price_cost_modifier: float | str
+    """Country"""
+    feed_the_poor_price_cost_modifier: float | str
+    """Country"""
+    bless_the_banners_price_cost_modifier: float | str
+    """Country"""
+    escort_the_sea_lanes_price_cost_modifier: float | str
+    """Country"""
+    entrust_the_chancery_price_cost_modifier: float | str
+    """Country"""
+    pray_for_the_realm_price_cost_modifier: float | str
+    """Country"""
+    open_the_scriptoria_price_cost_modifier: float | str
+    """Country"""
+    break_new_ground_price_cost_modifier: float | str
+    """Country"""
+    preach_a_mission_price_cost_modifier: float | str
+    """Country"""
+    absolve_the_court_price_cost_modifier: float | str
+    """Country"""
+    change_order_calling_price_cost_modifier: float | str
+    """Country"""
+    expel_order_holding_price_cost_modifier: float | str
+    """Country"""
+    navy_heavy_ship_build_cost_modifier: float | str
+    """Country"""
+    navy_light_ship_build_cost_modifier: float | str
+    """Country"""
+    build_gravel_road_cost_modifier: float | str
+    """Country"""
+    build_paved_road_cost_modifier: float | str
+    """Country"""
+    build_modern_road_cost_modifier: float | str
+    """Country"""
+    build_railroad_cost_modifier: float | str
+    """Country"""
+    hire_mercenary_leader_cost_modifier: float | str
+    """Country"""
+    hire_mercenary_premium_cost_modifier: float | str
+    """Country"""
+    bribe_units_cost_modifier: float | str
+    """Country"""
+    hire_prisoners_cost_modifier: float | str
+    """Country"""
+    ransom_units_cost_modifier: float | str
+    """Country"""
+    subject_pays_colonial_cost_modifier: float | str
+    """Country"""
+    subject_pays_tributary_cost_modifier: float | str
+    """Country"""
+    negotiate_rebels_buy_off_price_cost_modifier: float | str
+    """Country"""
+    army_heavy_cavalry_reinforce_cost_modifier: float | str
+    """Country"""
+    army_heavy_cavalry_maintenance_cost_modifier: float | str
+    """Country"""
+    army_light_cavalry_reinforce_cost_modifier: float | str
+    """Country"""
+    army_light_cavalry_maintenance_cost_modifier: float | str
+    """Country"""
+    revoke_privilege_cost_modifier: float | str
+    """Country"""
+    local_nobles_desired_pop_scaled: float | str
+    """Location"""
+    local_nobles_desired_pop: float | str
+    """Location"""
+    global_nobles_desired_pop_scaled: float | str
+    """Country"""
+    global_nobles_desired_pop: float | str
+    """Country"""
+    global_nobles_city_desired_pop_scaled: float | str
+    """Country"""
+    global_nobles_city_desired_pop: float | str
+    """Country"""
+    global_nobles_rural_desired_pop_scaled: float | str
+    """Country"""
+    global_nobles_rural_desired_pop: float | str
+    """Country"""
+    global_nobles_migration_allowed: float | str
+    """Country"""
+    local_nobles_migration_allowed: float | str
+    """Location"""
+    local_nobles_max_literacy: float | str
+    """Location"""
+    global_nobles_max_literacy: float | str
+    """Country"""
+    local_clergy_desired_pop_scaled: float | str
+    """Location"""
+    local_clergy_desired_pop: float | str
+    """Location"""
+    global_clergy_desired_pop_scaled: float | str
+    """Country"""
+    global_clergy_desired_pop: float | str
+    """Country"""
+    global_clergy_city_desired_pop_scaled: float | str
+    """Country"""
+    global_clergy_city_desired_pop: float | str
+    """Country"""
+    global_clergy_rural_desired_pop_scaled: float | str
+    """Country"""
+    global_clergy_rural_desired_pop: float | str
+    """Country"""
+    global_clergy_migration_allowed: float | str
+    """Country"""
+    local_clergy_migration_allowed: float | str
+    """Location"""
+    local_clergy_max_literacy: float | str
+    """Location"""
+    global_clergy_max_literacy: float | str
+    """Country"""
+    local_burghers_desired_pop_scaled: float | str
+    """Location"""
+    local_burghers_desired_pop: float | str
+    """Location"""
+    global_burghers_desired_pop_scaled: float | str
+    """Country"""
+    global_burghers_desired_pop: float | str
+    """Country"""
+    global_burghers_city_desired_pop_scaled: float | str
+    """Country"""
+    global_burghers_city_desired_pop: float | str
+    """Country"""
+    global_burghers_rural_desired_pop_scaled: float | str
+    """Country"""
+    global_burghers_rural_desired_pop: float | str
+    """Country"""
+    global_burghers_migration_allowed: float | str
+    """Country"""
+    local_burghers_migration_allowed: float | str
+    """Location"""
+    local_burghers_max_literacy: float | str
+    """Location"""
+    global_burghers_max_literacy: float | str
+    """Country"""
+    local_peasants_desired_pop_scaled: float | str
+    """Location"""
+    local_peasants_desired_pop: float | str
+    """Location"""
+    global_peasants_desired_pop_scaled: float | str
+    """Country"""
+    global_peasants_desired_pop: float | str
+    """Country"""
+    global_peasants_city_desired_pop_scaled: float | str
+    """Country"""
+    global_peasants_city_desired_pop: float | str
+    """Country"""
+    global_peasants_rural_desired_pop_scaled: float | str
+    """Country"""
+    global_peasants_rural_desired_pop: float | str
+    """Country"""
+    global_peasants_migration_allowed: float | str
+    """Country"""
+    local_peasants_migration_allowed: float | str
+    """Location"""
+    local_peasants_max_literacy: float | str
+    """Location"""
+    global_peasants_max_literacy: float | str
+    """Country"""
+    local_laborers_desired_pop_scaled: float | str
+    """Location"""
+    local_laborers_desired_pop: float | str
+    """Location"""
+    global_laborers_desired_pop_scaled: float | str
+    """Country"""
+    global_laborers_desired_pop: float | str
+    """Country"""
+    global_laborers_rural_desired_pop_scaled: float | str
+    """Country"""
+    global_laborers_rural_desired_pop: float | str
+    """Country"""
+    global_laborers_city_desired_pop_scaled: float | str
+    """Country"""
+    global_laborers_city_desired_pop: float | str
+    """Country"""
+    global_laborers_migration_allowed: float | str
+    """Country"""
+    local_laborers_migration_allowed: float | str
+    """Location"""
+    local_laborers_max_literacy: float | str
+    """Location"""
+    global_laborers_max_literacy: float | str
+    """Country"""
+    local_soldiers_desired_pop_scaled: float | str
+    """Location"""
+    local_soldiers_desired_pop: float | str
+    """Location"""
+    global_soldiers_desired_pop_scaled: float | str
+    """Country"""
+    global_soldiers_desired_pop: float | str
+    """Country"""
+    global_soldiers_rural_desired_pop_scaled: float | str
+    """Country"""
+    global_soldiers_rural_desired_pop: float | str
+    """Country"""
+    global_soldiers_city_desired_pop_scaled: float | str
+    """Country"""
+    global_soldiers_city_desired_pop: float | str
+    """Country"""
+    global_soldiers_migration_allowed: float | str
+    """Country"""
+    local_soldiers_migration_allowed: float | str
+    """Location"""
+    local_soldiers_max_literacy: float | str
+    """Location"""
+    global_soldiers_max_literacy: float | str
+    """Country"""
+    local_slaves_desired_pop_scaled: float | str
+    """Location"""
+    local_slaves_desired_pop: float | str
+    """Location"""
+    global_slaves_desired_pop_scaled: float | str
+    """Country"""
+    global_slaves_desired_pop: float | str
+    """Country"""
+    global_slaves_city_desired_pop_scaled: float | str
+    """Country"""
+    global_slaves_city_desired_pop: float | str
+    """Country"""
+    global_slaves_rural_desired_pop_scaled: float | str
+    """Country"""
+    global_slaves_rural_desired_pop: float | str
+    """Country"""
+    global_slaves_migration_allowed: float | str
+    """Country"""
+    local_slaves_migration_allowed: float | str
+    """Location"""
+    local_slaves_max_literacy: float | str
+    """Location"""
+    global_slaves_max_literacy: float | str
+    """Country"""
+    local_tribesmen_desired_pop_scaled: float | str
+    """Location"""
+    local_tribesmen_desired_pop: float | str
+    """Location"""
+    global_tribesmen_desired_pop_scaled: float | str
+    """Country"""
+    global_tribesmen_desired_pop: float | str
+    """Country"""
+    global_tribesmen_city_desired_pop_scaled: float | str
+    """Country"""
+    global_tribesmen_city_desired_pop: float | str
+    """Country"""
+    global_tribesmen_rural_desired_pop_scaled: float | str
+    """Country"""
+    global_tribesmen_rural_desired_pop: float | str
+    """Country"""
+    global_tribesmen_migration_allowed: float | str
+    """Country"""
+    local_tribesmen_migration_allowed: float | str
+    """Location"""
+    local_tribesmen_max_literacy: float | str
+    """Location"""
+    global_tribesmen_max_literacy: float | str
+    """Country"""
+    local_nobles_pop_growth: float | str
+    """Location"""
+    global_nobles_pop_growth: float | str
+    """Country"""
+    local_clergy_pop_growth: float | str
+    """Location"""
+    global_clergy_pop_growth: float | str
+    """Country"""
+    local_burghers_pop_growth: float | str
+    """Location"""
+    global_burghers_pop_growth: float | str
+    """Country"""
+    local_laborers_pop_growth: float | str
+    """Location"""
+    global_laborers_pop_growth: float | str
+    """Country"""
+    local_soldiers_pop_growth: float | str
+    """Location"""
+    global_soldiers_pop_growth: float | str
+    """Country"""
+    local_peasants_pop_growth: float | str
+    """Location"""
+    global_peasants_pop_growth: float | str
+    """Country"""
+    local_tribesmen_pop_growth: float | str
+    """Location"""
+    global_tribesmen_pop_growth: float | str
+    """Country"""
+    local_slaves_pop_growth: float | str
+    """Location"""
+    global_slaves_pop_growth: float | str
+    """Country"""
+    block_from_crown_estate: float | str
+    """Character"""
+    crown_estate_target_satisfaction: float | str
+    """Country"""
+    crown_estate_satisfaction_decay: float | str
+    """Country"""
+    crown_estate_satisfaction_recovery: float | str
+    """Country"""
+    crown_estate_max_tax: float | str
+    """Country"""
+    crown_estate_min_tax: float | str
+    """Country"""
+    crown_estate_levy_size: float | str
+    """Country"""
+    local_crown_estate_power: float | str
+    """Location"""
+    crown_power_from_population: float | str
+    """Country"""
+    global_crown_estate_power: float | str
+    """Country"""
+    base_crown_estate_power_modifier: float | str
+    """Country"""
+    dhimmi_estate_target_satisfaction: float | str
+    """Country"""
+    dhimmi_estate_satisfaction_decay: float | str
+    """Country"""
+    dhimmi_estate_satisfaction_recovery: float | str
+    """Country"""
+    dhimmi_estate_max_tax: float | str
+    """Country"""
+    dhimmi_estate_min_tax: float | str
+    """Country"""
+    dhimmi_estate_levy_size: float | str
+    """Country"""
+    local_dhimmi_estate_power: float | str
+    """Location"""
+    global_dhimmi_estate_power: float | str
+    """Country"""
+    base_dhimmi_estate_power_modifier: float | str
+    """Country"""
+    local_slaves_food_consumption: float | str
+    """Location"""
+    global_slaves_food_consumption: float | str
+    """Country"""
+    local_tribesmen_food_consumption: float | str
+    """Location"""
+    global_tribesmen_food_consumption: float | str
+    """Country"""
+    estate_satisfaction_from_building: float | str
+    """Country"""
+    global_estate_power: float | str
+    """Country"""
+    global_estate_target_satisfaction: float | str
+    """Country"""
+    global_estate_satisfaction_decay: float | str
+    """Country"""
+    global_estate_satisfaction_recovery: float | str
+    """Country"""
+    global_estate_max_tax: float | str
+    """Country"""
+    global_estate_min_tax: float | str
+    """Country"""
+    global_pop_food_consumption: float | str
+    """Country"""
+    local_pop_food_consumption: float | str
+    """Location"""
+    global_food_decay: float | str
+    """Country"""
+    local_food_decay: float | str
+    """Location"""
+    local_food_preservation_efficiency_modifier: float | str
+    """Location"""
+    nobles_estate_target_satisfaction: float | str
+    """Country"""
+    nobles_estate_satisfaction_decay: float | str
+    """Country"""
+    nobles_estate_satisfaction_recovery: float | str
+    """Country"""
+    nobles_estate_max_tax: float | str
+    """Country"""
+    nobles_estate_min_tax: float | str
+    """Country"""
+    nobles_estate_levy_size: float | str
+    """Country"""
+    local_nobles_estate_power: float | str
+    """Location"""
+    global_nobles_estate_power: float | str
+    """Country"""
+    base_nobles_estate_power_modifier: float | str
+    """Country"""
+    local_nobles_food_consumption: float | str
+    """Location"""
+    global_nobles_food_consumption: float | str
+    """Country"""
+    clergy_estate_target_satisfaction: float | str
+    """Country"""
+    clergy_estate_satisfaction_decay: float | str
+    """Country"""
+    clergy_estate_satisfaction_recovery: float | str
+    """Country"""
+    clergy_estate_max_tax: float | str
+    """Country"""
+    clergy_estate_min_tax: float | str
+    """Country"""
+    clergy_estate_levy_size: float | str
+    """Country"""
+    local_clergy_estate_power: float | str
+    """Location"""
+    global_clergy_estate_power: float | str
+    """Country"""
+    base_clergy_estate_power_modifier: float | str
+    """Country"""
+    local_clergy_food_consumption: float | str
+    """Location"""
+    global_clergy_food_consumption: float | str
+    """Country"""
+    burghers_estate_target_satisfaction: float | str
+    """Country"""
+    burghers_estate_satisfaction_decay: float | str
+    """Country"""
+    burghers_estate_satisfaction_recovery: float | str
+    """Country"""
+    burghers_estate_max_tax: float | str
+    """Country"""
+    burghers_estate_min_tax: float | str
+    """Country"""
+    burghers_estate_levy_size: float | str
+    """Country"""
+    local_burghers_estate_power: float | str
+    """Location"""
+    global_burghers_estate_power: float | str
+    """Country"""
+    base_burghers_estate_power_modifier: float | str
+    """Country"""
+    local_burghers_food_consumption: float | str
+    """Location"""
+    global_burghers_food_consumption: float | str
+    """Country"""
+    peasants_estate_target_satisfaction: float | str
+    """Country"""
+    peasants_estate_satisfaction_decay: float | str
+    """Country"""
+    peasants_estate_satisfaction_recovery: float | str
+    """Country"""
+    peasants_estate_max_tax: float | str
+    """Country"""
+    peasants_estate_min_tax: float | str
+    """Country"""
+    peasants_estate_levy_size: float | str
+    """Country"""
+    local_peasants_estate_power: float | str
+    """Location"""
+    global_peasants_estate_power: float | str
+    """Country"""
+    base_peasants_estate_power_modifier: float | str
+    """Country"""
+    local_peasants_food_consumption: float | str
+    """Location"""
+    global_peasants_food_consumption: float | str
+    """Country"""
+    local_laborers_food_consumption: float | str
+    """Location"""
+    global_laborers_food_consumption: float | str
+    """Country"""
+    local_soldiers_food_consumption: float | str
+    """Location"""
+    global_soldiers_food_consumption: float | str
+    """Country"""
+    crown_estate_cannot_marry: float | str
+    """Country"""
+    nobles_estate_cannot_marry: float | str
+    """Country"""
+    clergy_estate_cannot_marry: float | str
+    """Country"""
+    burghers_estate_cannot_marry: float | str
+    """Country"""
+    peasants_estate_cannot_marry: float | str
+    """Country"""
+    dhimmi_estate_cannot_marry: float | str
+    """Country"""
+    empty_unit_maintenance_cost_modifier: float | str
+    """Country"""
+    change_heir_selection_cost_modifier: float | str
+    """Country"""
+    expand_rgo_mining_cost_modifier: float | str
+    """Country"""
+    expand_rgo_farming_cost_modifier: float | str
+    """Country"""
+    expand_aqueduct_system_cost_modifier: float | str
+    """Country"""
+    build_hippodrome_price_cost_modifier: float | str
+    """Country"""
+    expand_rgo_hunting_cost_modifier: float | str
+    """Country"""
+    expand_rgo_gathering_cost_modifier: float | str
+    """Country"""
+    expand_rgo_forestry_cost_modifier: float | str
+    """Country"""
+    embrace_institution_cost_modifier: float | str
+    """Country"""
+    grant_privilege_cost_modifier: float | str
+    """Country"""
+    create_supply_depot_cost_modifier: float | str
+    """Country"""
+    remove_government_reform_cost_modifier: float | str
+    """Country"""
+    set_cabine_action_cost_modifier: float | str
+    """Country"""
+    set_cabinet_member_cost_modifier: float | str
+    """Country"""
+    replace_cabinet_member_cost_modifier: float | str
+    """Country"""
+    vacate_cabinet_for_command_cost_modifier: float | str
+    """Country"""
+    set_policy_cost_modifier: float | str
+    """Country"""
+    change_policy_cost_modifier: float | str
+    """Country"""
+    declaring_war_cost_modifier: float | str
+    """Country"""
+    honoring_alliance_call_cost_modifier: float | str
+    """Country"""
+    war_breaking_truce_cost_modifier: float | str
+    """Country"""
+    war_breaking_truce_with_guarantor_cost_modifier: float | str
+    """Country"""
+    war_great_relations_cost_modifier: float | str
+    """Country"""
+    war_good_relations_cost_modifier: float | str
+    """Country"""
+    war_when_military_acces_cost_modifier: float | str
+    """Country"""
+    war_no_cb_cost_modifier: float | str
+    """Country"""
+    war_on_subject_cost_modifier: float | str
+    """Country"""
+    war_on_same_religion_cb_cost_modifier: float | str
+    """Country"""
+    war_on_same_religion_no_cb_cost_modifier: float | str
+    """Country"""
+    war_on_different_religion_cost_modifier: float | str
+    """Country"""
+    send_gift_cost_modifier: float | str
+    """Country"""
+    replace_rival_cost_modifier: float | str
+    """Country"""
+    create_colonial_charter_cost_modifier: float | str
+    """Country"""
+    abandon_colonial_charter_cost_modifier: float | str
+    """Country"""
+    capital_movement_cost_modifier: float | str
+    """Country"""
+    set_province_capital_cost_modifier: float | str
+    """Country"""
+    create_market_cost_modifier: float | str
+    """Country"""
+    relocate_market_cost_modifier: float | str
+    """Country"""
+    hire_advisor_cost_modifier: float | str
+    """Country"""
+    hire_artist_cost_modifier: float | str
+    """Country"""
+    train_general_cost_modifier: float | str
+    """Country"""
+    train_admiral_cost_modifier: float | str
+    """Country"""
+    invite_foreign_cleric_cost_modifier: float | str
+    """Country"""
+    select_omen_god_cost_modifier: float | str
+    """Country"""
+    host_olympiad_cost_modifier: float | str
+    """Country"""
+    sponsor_troop_feast_cost_modifier: float | str
+    """Country"""
+    grant_a_triumph_cost_modifier: float | str
+    """Country"""
+    roman_festivals_cost_modifier: float | str
+    """Country"""
+    greek_festivals_cost_modifier: float | str
+    """Country"""
+    destroy_market_cost_modifier: float | str
+    """Country"""
+    change_court_language_cost_modifier: float | str
+    """Country"""
+    change_liturgical_language_cost_modifier: float | str
+    """Country"""
+    invite_religious_figure_same_school_cost_modifier: float | str
+    """Country"""
+    invite_religious_figure_different_school_cost_modifier: float | str
+    """Country"""
+    dismiss_religious_figure_cost_modifier: float | str
+    """Country"""
+    propose_curia_action_cost_modifier: float | str
+    """Country"""
+    change_curia_vote_cost_modifier: float | str
+    """Country"""
+    invite_artist_cost_modifier: float | str
+    """Country"""
+    convert_religion_cost_modifier: float | str
+    """Country"""
+    policy_vote_cost_modifier: float | str
+    """Country"""
+    orthodox_synod_cost_modifier: float | str
+    """Country"""
+    periphora_cost_modifier: float | str
+    """Country"""
+    invite_patriarch_delegation_cost_modifier: float | str
+    """Country"""
+    canonize_cost_modifier: float | str
+    """Country"""
+    change_parliament_type_cost_modifier: float | str
+    """Country"""
+    change_organization_parliament_type_cost_modifier: float | str
+    """Country"""
+    add_accepted_culture_cost_modifier: float | str
+    """Country"""
+    remove_accepted_culture_cost_modifier: float | str
+    """Country"""
+    add_tolerated_culture_cost_modifier: float | str
+    """Country"""
+    remove_tolerated_culture_cost_modifier: float | str
+    """Country"""
+    add_discriminated_culture_cost_modifier: float | str
+    """Country"""
+    remove_discriminated_culture_cost_modifier: float | str
+    """Country"""
+    accepted_culture_maintenance_cost_modifier: float | str
+    """Country"""
+    tolerated_culture_maintenance_cost_modifier: float | str
+    """Country"""
+    change_primary_culture_cost_modifier: float | str
+    """Country"""
+    settle_country_cost_modifier: float | str
+    """Country"""
+    extend_regency_cost_modifier: float | str
+    """Country"""
+    hire_privateer_cost_modifier: float | str
+    """Country"""
+    dismiss_privateer_cost_modifier: float | str
+    """Country"""
+    privateer_maintenance_cost_modifier: float | str
+    """Country"""
+    select_expensive_child_education_cost_modifier: float | str
+    """Country"""
+    deselect_expensive_child_education_cost_modifier: float | str
+    """Country"""
+    select_orthodox_education_cost_modifier: float | str
+    """Country"""
+    deselect_orthodox_education_cost_modifier: float | str
+    """Country"""
+    start_exploration_land_cost_modifier: float | str
+    """Country"""
+    start_exploration_sea_cost_modifier: float | str
+    """Country"""
+    recruit_explorer_cost_modifier: float | str
+    """Country"""
+    megalopolis_upgrade_cost_modifier: float | str
+    """Country"""
+    city_upgrade_cost_modifier: float | str
+    """Country"""
+    town_upgrade_cost_modifier: float | str
+    """Country"""
+    rural_settlement_upgrade_cost_modifier: float | str
+    """Country"""
+    rural_settlement_downgrade_cost_modifier: float | str
+    """Country"""
+    hre_army_building_cost_modifier: float | str
+    """Country"""
+    hre_imperial_armory_level: float | str
+    """InternationalOrganization"""
+    global_foreign_build_buildings_efficiency: float | str
+    """Country"""
+    small_estate_building_cost_modifier: float | str
+    """Country"""
+    expensive_estate_building_cost_modifier: float | str
+    """Country"""
+    orthodox_monastery_building_cost_modifier: float | str
+    """Country"""
+    miaphysite_monastery_building_cost_modifier: float | str
+    """Country"""
+    free_building_cost_modifier: float | str
+    """Country"""
+    remove_panaqa_early_cost_modifier: float | str
+    """Country"""
+    merchant_guild_chapel_price_cost_modifier: float | str
+    """Country"""
+    remove_lutheran_preacher_cost_modifier: float | str
+    """Country"""
+    army_light_infantry_build_cost_modifier: float | str
+    """Country"""
+    army_light_infantry_reinforce_cost_modifier: float | str
+    """Country"""
+    army_light_infantry_maintenance_cost_modifier: float | str
+    """Country"""
+    army_heavy_infantry_build_cost_modifier: float | str
+    """Country"""
+    army_heavy_infantry_reinforce_cost_modifier: float | str
+    """Country"""
+    army_heavy_infantry_maintenance_cost_modifier: float | str
+    """Country"""
+    army_light_cavalry_build_cost_modifier: float | str
+    """Country"""
+    army_heavy_cavalry_build_cost_modifier: float | str
+    """Country"""
+    army_artillery_build_cost_modifier: float | str
+    """Country"""
+    army_artillery_reinforce_cost_modifier: float | str
+    """Country"""
+    army_artillery_maintenance_cost_modifier: float | str
+    """Country"""
+    army_auxiliary_build_cost_modifier: float | str
+    """Country"""
+    army_auxiliary_reinforce_cost_modifier: float | str
+    """Country"""
+    army_auxiliary_maintenance_cost_modifier: float | str
+    """Country"""
+    navy_heavy_ship_reinforce_cost_modifier: float | str
+    """Country"""
+    navy_heavy_ship_maintenance_cost_modifier: float | str
+    """Country"""
+    navy_light_ship_reinforce_cost_modifier: float | str
+    """Country"""
+    navy_light_ship_maintenance_cost_modifier: float | str
+    """Country"""
+    navy_galley_build_cost_modifier: float | str
+    """Country"""
+    navy_galley_reinforce_cost_modifier: float | str
+    """Country"""
+    navy_galley_maintenance_cost_modifier: float | str
+    """Country"""
+    navy_transport_build_cost_modifier: float | str
+    """Country"""
+    navy_transport_reinforce_cost_modifier: float | str
+    """Country"""
+    navy_transport_maintenance_cost_modifier: float | str
+    """Country"""
+    subject_pays_vassal_cost_modifier: float | str
+    """Country"""
+    subject_pays_samanta_cost_modifier: float | str
+    """Country"""
+    subject_pays_maha_samanta_cost_modifier: float | str
+    """Country"""
+    subject_pays_pradhana_maha_samanta_cost_modifier: float | str
+    """Country"""
+    subject_pays_march_cost_modifier: float | str
+    """Country"""
+    hanseatic_member_cost_cost_modifier: float | str
+    """Country"""
+    subject_pays_trade_company_cost_modifier: float | str
+    """Country"""
+    subject_pays_pronoia_cost_modifier: float | str
+    """Country"""
+    subject_pays_familial_governor_cost_modifier: float | str
+    """Country"""
+    rank_empire_upgrade_cost_modifier: float | str
+    """Country"""
+    rank_kingdom_upgrade_cost_modifier: float | str
+    """Country"""
+    rank_duchy_upgrade_cost_modifier: float | str
+    """Country"""
+    can_grant_town_rights: float | str
+    """Country"""
+    local_possible_town_rights: float | str
+    """Location"""
+    capital_possible_town_rights: float | str
+    """Country"""
+    can_promote_industry: float | str
+    """Country"""
+    possible_industry_promotions: float | str
+    """Country"""
+    allow_open_sea_exploration: float | str
+    """Country"""
+    may_explore: float | str
+    """Country"""
+    may_not_take_land_in_peace_treaties: float | str
+    """Country"""
+    exploration_maintenance_efficiency: float | str
+    """Country"""
+    exploration_mission_speed: float | str
+    """Country"""
+    exploration_mission_speed_modifier: float | str
+    """Country"""
+    exploration_preparation_time_modifier: float | str
+    """Country"""
+    character_mil_child_education: float | str
+    """Character"""
+    character_dip_child_education: float | str
+    """Character"""
+    character_adm_child_education: float | str
+    """Character"""
+    character_child_education: float | str
+    """Character"""
+    character_mil_child_education_modifier: float | str
+    """Character"""
+    character_dip_child_education_modifier: float | str
+    """Character"""
+    character_adm_child_education_modifier: float | str
+    """Character"""
+    character_child_education_modifier: float | str
+    """Character"""
+    country_child_education: float | str
+    """Country"""
+    can_hire_privateers: float | str
+    """Country"""
+    allow_subjects: float | str
+    """Country"""
+    force_convert_created_subjects: float | str
+    """Country"""
+    disallow_migration_beyond_borders: float | str
+    """Country"""
+    disallow_diplomatic_subjugation: float | str
+    """Country"""
+    disallow_military_subjugation: float | str
+    """Country"""
+    has_cultural_maintenance: float | str
+    """Country"""
+    has_stability_investment: float | str
+    """Country"""
+    has_codified_laws: float | str
+    """Country"""
+    has_road_building: float | str
+    """Country"""
+    can_build_cities: float | str
+    """Country"""
+    can_host_olympiads: float | str
+    """Country"""
+    enable_taxation: float | str
+    """Country"""
+    privateer_durability: float | str
+    """Country"""
+    num_bailiffs: float | str
+    """Country"""
+    num_local_governors: float | str
+    """Country"""
+    minimum_num_local_governors: float | str
+    """Country"""
+    num_ostrogs: float | str
+    """Country"""
+    num_lieutenancy: float | str
+    """Country"""
+    num_naval_governors: float | str
+    """Country"""
+    election_term_in_months: float | str
+    """Country"""
+    subject_not_obligated_to_join_war: float | str
+    """Country"""
+    own_coast_naval_combat_bonus: float | str
+    """Unit"""
+    gender_equality: float | str
+    """Country"""
+    cultures_capacity: float | str
+    """Country"""
+    cultures_capacity_modifier: float | str
+    """Country"""
+    food_purchase_efficiency: float | str
+    """Country"""
+    diplomatic_annexation_efficiency: float | str
+    """Country"""
+    hostile_diplomatic_annexation_efficiency: float | str
+    """Country"""
+    merchant_maintenance_efficiency: float | str
+    """Country"""
+    monthly_reform_desire: float | str
+    """Religion"""
+    global_peasant_enfranchisment: float | str
+    """Country"""
+    local_peasant_enfranchisment: float | str
+    """Location"""
+    global_max_rgo_size_modifier: float | str
+    """Country"""
+    local_max_rgo_size_modifier: float | str
+    """Location"""
+    global_max_rgo_size_modifier_in_rural: float | str
+    """Country"""
+    global_max_rgo_size_modifier_in_non_rural: float | str
+    """Country"""
+    local_max_rgo_size: float | str
+    """Location"""
+    gives_cardinal: float | str
+    """Location"""
+    blocked_from_cabinet: float | str
+    """Character"""
+    cannot_be_removed_from_from_cabinet: float | str
+    """Character"""
+    monthly_religious_influence: float | str
+    """Country"""
+    monthly_purity: float | str
+    """Country"""
+    monthly_honor: float | str
+    """Country"""
+    monthly_yanantin: float | str
+    """Country"""
+    allow_righteousness: float | str
+    """Country"""
+    monthly_righteousness: float | str
+    """Country"""
+    allow_harmony: float | str
+    """Country"""
+    harmony_stability: float | str
+    """Country"""
+    monthly_harmony: float | str
+    """Country"""
+    allow_self_control: float | str
+    """Country"""
+    monthly_self_control: float | str
+    """Country"""
+    monthly_political_influence: float | str
+    """Country"""
+    monthly_political_influence_gain_modifier: float | str
+    """Country"""
+    allow_smartism_gods: float | str
+    """Country"""
+    monthly_doom: float | str
+    """Country"""
+    monthly_karma: float | str
+    """Country"""
+    monthly_karma_decay: float | str
+    """Country"""
+    number_of_allowed_religious_figures: float | str
+    """Country"""
+    number_of_allowed_avatars: float | str
+    """Country"""
+    tax_income_efficiency: float | str
+    """Country"""
+    global_sailors_modifier: float | str
+    """Country"""
+    global_manpower_modifier: float | str
+    """Country"""
+    max_sailors: float | str
+    """Country"""
+    max_manpower: float | str
+    """Country"""
+    local_sailors_modifier: float | str
+    """Location"""
+    local_manpower_modifier: float | str
+    """Location"""
+    free_building_levels: float | str
+    """Location"""
+    global_free_building_levels_modifier: float | str
+    """Country"""
+    global_build_buildings_efficiency: float | str
+    """Country"""
+    global_fort_build_buildings_efficiency: float | str
+    """Country"""
+    global_port_build_buildings_efficiency: float | str
+    """Country"""
+    local_port_build_buildings_efficiency: float | str
+    """Location"""
+    global_urban_build_buildings_efficiency: float | str
+    """Country"""
+    global_rural_build_buildings_efficiency: float | str
+    """Country"""
+    global_mills_build_buildings_efficiency: float | str
+    """Country"""
+    local_mills_build_buildings_efficiency: float | str
+    """Location"""
+    local_build_buildings_efficiency: float | str
+    """Location"""
+    local_build_new_buildings_efficiency: float | str
+    """Location"""
+    combined_arms_max_threshold: float | str
+    """Unit"""
+    combined_arms_min_percent_for_bonus: float | str
+    """Unit"""
+    combined_bonus_per_type: float | str
+    """Unit"""
+    army_weight_modifier: float | str
+    """Unit"""
+    navy_weight_modifier: float | str
+    """Unit"""
+    monthly_experience_gain: float | str
+    """Unit"""
+    experience_decay: float | str
+    """Unit"""
+    land_morale: float | str
+    """Unit"""
+    land_morale_modifier: float | str
+    """Unit"""
+    naval_morale: float | str
+    """Unit"""
+    naval_morale_modifier: float | str
+    """Unit"""
+    max_war_exhaustion: float | str
+    """Country"""
+    force_army_maintenance: float | str
+    """Unit"""
+    army_maintenance_efficiency: float | str
+    """Unit"""
+    navy_maintenance_efficiency: float | str
+    """Unit"""
+    mercenary_maintenance_efficiency: float | str
+    """Country"""
+    army_reinforce_efficiency: float | str
+    """Unit"""
+    navy_repair_efficiency: float | str
+    """Unit"""
+    land_morale_attrition_cost: float | str
+    """Unit"""
+    naval_morale_attrition_cost: float | str
+    """Unit"""
+    land_morale_movement_cost: float | str
+    """Unit"""
+    naval_morale_movement_cost: float | str
+    """Unit"""
+    morale_recovery_in_friendly: float | str
+    """Unit"""
+    land_morale_recovery: float | str
+    """Unit"""
+    naval_morale_recovery: float | str
+    """Unit"""
+    land_unit_attrition: float | str
+    """Unit"""
+    naval_unit_attrition: float | str
+    """Unit"""
+    movement_cost: float | str
+    """Location"""
+    hostile_movement_cost: float | str
+    """Location"""
+    friendly_movement_cost: float | str
+    """Location"""
+    army_movement_speed: float | str
+    """Unit"""
+    army_disembark_speed: float | str
+    """Unit"""
+    navy_movement_speed: float | str
+    """Unit"""
+    movement_speed_if_no_road: float | str
+    """Unit"""
+    fort_level: float | str
+    """Location"""
+    minimum_fort_level: float | str
+    """Location"""
+    ignore_zone_of_control: float | str
+    """Country"""
+    propagating_zone_of_control: float | str
+    """Location"""
+    regiment_reinforcement_speed: float | str
+    """Unit"""
+    local_repair_speed: float | str
+    """Location"""
+    ship_repair_at_sea: float | str
+    """Unit"""
+    ship_repair_at_sea_to_max_strength: float | str
+    """Unit"""
+    cultural_tradition: float | str
+    """Country"""
+    cultural_tradition_modifier: float | str
+    """Country"""
+    local_cultural_tradition: float | str
+    """Location"""
+    cultural_influence: float | str
+    """Country"""
+    cultural_influence_modifier: float | str
+    """Country"""
+    local_cultural_influence: float | str
+    """Location"""
+    stability_investment: float | str
+    """Country"""
+    stability_decay: float | str
+    """Country"""
+    monthly_war_exhaustion: float | str
+    """Country"""
+    monthly_inflation: float | str
+    """Country"""
+    local_pop_promotion_speed_scaled: float | str
+    """Location"""
+    local_pop_promotion_speed: float | str
+    """Location"""
+    global_pop_promotion_speed: float | str
+    """Country"""
+    local_pop_promotion_speed_modifier: float | str
+    """Location"""
+    global_pop_promotion_speed_modifier: float | str
+    """Country"""
+    local_pop_demotion_speed: float | str
+    """Location"""
+    global_pop_demotion_speed: float | str
+    """Country"""
+    local_pop_demotion_speed_modifier: float | str
+    """Location"""
+    global_pop_demotion_speed_modifier: float | str
+    """Country"""
+    local_migration_attraction: float | str
+    """Location"""
+    local_migration_speed: float | str
+    """Location"""
+    global_migration_speed: float | str
+    """Country"""
+    local_migration_speed_modifier: float | str
+    """Location"""
+    global_migration_speed_modifier: float | str
+    """Country"""
+    local_pop_conversion_speed: float | str
+    """Location"""
+    global_pop_conversion_speed: float | str
+    """Country"""
+    local_pop_conversion_speed_modifier: float | str
+    """Location"""
+    global_pop_conversion_speed_modifier: float | str
+    """Country"""
+    global_heretic_pop_conversion_speed_modifier: float | str
+    """Country"""
+    local_heretic_pop_conversion_speed_modifier: float | str
+    """Location"""
+    global_heathen_pop_conversion_speed_modifier: float | str
+    """Country"""
+    local_heathen_pop_conversion_speed_modifier: float | str
+    """Location"""
+    local_pop_assimilation_speed: float | str
+    """Location"""
+    global_pop_assimilation_speed: float | str
+    """Country"""
+    local_pop_assimilation_speed_modifier: float | str
+    """Location"""
+    global_pop_assimilation_speed_modifier: float | str
+    """Country"""
+    local_raw_material_output: float | str
+    """Location"""
+    global_raw_material_output: float | str
+    """Country"""
+    raw_material_in_province_impact: float | str
+    """Country"""
+    local_monthly_prosperity: float | str
+    """Location"""
+    local_monthly_development: float | str
+    """Location"""
+    global_monthly_prosperity: float | str
+    """Country"""
+    global_non_rural_monthly_prosperity: float | str
+    """Country"""
+    global_monthly_development: float | str
+    """Country"""
+    global_non_rural_monthly_development: float | str
+    """Country"""
+    global_monthly_development_modifier: float | str
+    """Country"""
+    power_projection: float | str
+    """Country"""
+    local_max_control: float | str
+    """Location"""
+    global_max_control: float | str
+    """Country"""
+    local_max_rural_control: float | str
+    """Location"""
+    global_max_rural_control: float | str
+    """Country"""
+    local_max_urban_control: float | str
+    """Location"""
+    global_max_urban_control: float | str
+    """Country"""
+    local_monthly_control: float | str
+    """Location"""
+    global_monthly_control: float | str
+    """Country"""
+    local_monthly_rural_control: float | str
+    """Location"""
+    global_monthly_rural_control: float | str
+    """Country"""
+    local_monthly_urban_control: float | str
+    """Location"""
+    global_monthly_urban_control: float | str
+    """Country"""
+    local_monthly_control_decline: float | str
+    """Location"""
+    global_monthly_control_decline: float | str
+    """Country"""
+    local_rgo_build_time: float | str
+    """Location"""
+    global_rgo_build_time: float | str
+    """Country"""
+    lack_of_control_impact_on_warscore: float | str
+    """Country"""
+    building_owner_maritime_presence: float | str
+    """Location"""
+    local_maritime_presence: float | str
+    """Location"""
+    global_maritime_presence_modifier: float | str
+    """Unit"""
+    global_maritime_presence_decay: float | str
+    """Country"""
+    sea_land_transition_cost_distance_from_capital: float | str
+    """Country"""
+    port_cost_distance_from_capital: float | str
+    """Country"""
+    sea_cost_on_distance_from_capital_when_maritime: float | str
+    """Country"""
+    sea_cost_on_distance_from_capital: float | str
+    """Country"""
+    road_cost_on_distance_from_capital: float | str
+    """Country"""
+    land_cost_on_distance_from_capital: float | str
+    """Country"""
+    land_cost_on_distance_from_capital_speed_propagation: float | str
+    """Country"""
+    land_cost_going_upstream: float | str
+    """Country"""
+    land_cost_going_downstream: float | str
+    """Country"""
+    land_cost_on_frozen_water: float | str
+    """Country"""
+    grant_town_rights_cost_modifier: float | str
+    """Country"""
+    grant_industry_promotion_cost_modifier: float | str
+    """Country"""
+    revoke_town_rights_cost_modifier: float | str
+    """Country"""
+    upgrade_town_rights_cost_modifier: float | str
+    """Country"""
+    p_building_age_1_traditions_cost_modifier: float | str
+    """Country"""
+    p_building_age_2_renaissance_cost_modifier: float | str
+    """Country"""
+    p_building_age_3_discovery_cost_modifier: float | str
+    """Country"""
+    p_building_age_4_reformation_cost_modifier: float | str
+    """Country"""
+    p_building_age_5_absolutism_cost_modifier: float | str
+    """Country"""
+    p_building_age_6_revolutions_cost_modifier: float | str
+    """Country"""
+    p_expensive_building_age_1_traditions_cost_modifier: float | str
+    """Country"""
+    p_expensive_building_age_2_renaissance_cost_modifier: float | str
+    """Country"""
+    p_expensive_building_age_3_discovery_cost_modifier: float | str
+    """Country"""
+    p_expensive_building_age_4_reformation_cost_modifier: float | str
+    """Country"""
+    p_expensive_building_age_5_absolutism_cost_modifier: float | str
+    """Country"""
+    p_expensive_building_age_6_revolutions_cost_modifier: float | str
+    """Country"""
+    global_distance_from_capital_speed_propagation: float | str
+    """Country"""
+    local_distance_from_capital_speed_propagation: float | str
+    """Location"""
+    local_port_cost_distance_impact: float | str
+    """Location"""
+    local_proximity_source: float | str
+    """Location"""
+    local_road_building_time: float | str
+    """Location"""
+    global_road_building_time: float | str
+    """Country"""
+    local_manpower: float | str
+    """Location"""
+    local_sailors: float | str
+    """Location"""
+    local_population_growth: float | str
+    """Location"""
+    cap_maximum_population_growth_at_zero: float | str
+    """Location"""
+    global_population_growth: float | str
+    """Country"""
+    local_population_capacity: float | str
+    """Location"""
+    local_population_capacity_modifier: float | str
+    """Location"""
+    global_population_capacity_modifier: float | str
+    """Country"""
+    total_population_capacity_modifier: float | str
+    """Location"""
+    local_food_capacity: float | str
+    """Location"""
+    global_food_capacity: float | str
+    """Country"""
+    local_food_capacity_modifier: float | str
+    """Location"""
+    global_food_capacity_modifier: float | str
+    """Country"""
+    local_monthly_food: float | str
+    """Location"""
+    local_monthly_food_modifier: float | str
+    """Location"""
+    local_food_production_mult: float | str
+    """Location"""
+    global_monthly_food_modifier: float | str
+    """Country"""
+    hostile_food_multiplier: float | str
+    """Location"""
+    local_navy_attrition: float | str
+    """Location"""
+    local_army_attrition: float | str
+    """Location"""
+    local_forced_attrition: float | str
+    """Location"""
+    local_hostile_attrition: float | str
+    """Location"""
+    global_hostile_attrition: float | str
+    """Country"""
+    hostile_fleet_attrition: float | str
+    """Location"""
+    max_attrition: float | str
+    """Location"""
+    supply_limit: float | str
+    """Location"""
+    local_supply_limit_modifier: float | str
+    """Location"""
+    global_supply_limit_modifier: float | str
+    """Country"""
+    bank_interest: float | str
+    """Country"""
+    bond_interest: float | str
+    """Country"""
+    max_bonds: float | str
+    """Country"""
+    max_bonds_modifier: float | str
+    """Country"""
+    bond_size_modifier: float | str
+    """Country"""
+    can_sell_bonds: float | str
+    """Country"""
+    creditworthiness_bonus: float | str
+    """Country"""
+    monthly_creditworthiness_change: float | str
+    """Country"""
+    merchant_power_from_maritime: float | str
+    """Country"""
+    merchant_power_from_maritime_modifier: float | str
+    """Country"""
+    merchant_power_from_building: float | str
+    """Location"""
+    local_merchant_power: float | str
+    """Location"""
+    local_merchant_capacity: float | str
+    """Location"""
+    local_merchant_capacity_modifier: float | str
+    """Location"""
+    merchant_capacity_from_building: float | str
+    """Location"""
+    global_merchant_capacity_modifier: float | str
+    """Country"""
+    local_market_access: float | str
+    """Location"""
+    monthly_prestige: float | str
+    """Country"""
+    monthly_rite_power: float | str
+    """Country"""
+    monthly_gold_income: float | str
+    """Country"""
+    monthly_gold_expense: float | str
+    """Country"""
+    prestige_decay: float | str
+    """Country"""
+    character_fertility: float | str
+    """Character"""
+    adm: float | str
+    """Character"""
+    dip: float | str
+    """Character"""
+    mil: float | str
+    """Character"""
+    global_garrison_growth: float | str
+    """Country"""
+    local_garrison_growth: float | str
+    """Location"""
+    global_garrison_size_modifier: float | str
+    """Country"""
+    local_garrison_size: float | str
+    """Location"""
+    global_defensive: float | str
+    """Country"""
+    local_defensive: float | str
+    """Location"""
+    movement_blocked: float | str
+    """Location"""
+    occupation_time: float | str
+    """Location"""
+    max_siege_memory: float | str
+    """Location"""
+    retreat_delay: float | str
+    """Country"""
+    siege_ability: float | str
+    """Unit"""
+    assault_ability: float | str
+    """Unit"""
+    naval_damage_done: float | str
+    """Unit"""
+    naval_damage_taken: float | str
+    """Unit"""
+    discipline: float | str
+    """Unit"""
+    military_tactics: float | str
+    """Unit"""
+    commander_combat_bonus: float | str
+    """Unit"""
+    ship_capture_chance: float | str
+    """Country"""
+    blockade_force_required: float | str
+    """Location"""
+    blockade_efficiency: float | str
+    """Unit"""
+    monthly_army_tradition: float | str
+    """Country"""
+    army_tradition_decay: float | str
+    """Country"""
+    monthly_navy_tradition: float | str
+    """Country"""
+    navy_tradition_decay: float | str
+    """Country"""
+    expected_army_size: float | str
+    """Country"""
+    expected_army_size_modifier: float | str
+    """Country"""
+    expected_navy_size: float | str
+    """Country"""
+    expected_navy_size_modifier: float | str
+    """Country"""
+    local_frontage_allowed: float | str
+    """Location"""
+    move_to_assist_on_adjacent_combat: float | str
+    """Unit"""
+    movement_speed_when_attached_to_another_unit: float | str
+    """Unit"""
+    possible_frontage_modifier: float | str
+    """Unit"""
+    army_initiative: float | str
+    """Unit"""
+    navy_initiative: float | str
+    """Unit"""
+    combat_speed_modifier: float | str
+    """Unit"""
+    food_consumption_modifier: float | str
+    """Unit"""
+    artillery_bonus_vs_fort: float | str
+    """Country"""
+    research_speed: float | str
+    """Country"""
+    research_speed_modifier: float | str
+    """Country"""
+    local_monthly_literacy: float | str
+    """Location"""
+    global_monthly_literacy: float | str
+    """Country"""
+    local_max_literacy: float | str
+    """Location"""
+    global_max_literacy: float | str
+    """Country"""
+    institution_growth: float | str
+    """Country"""
+    local_institution_growth_modifier: float | str
+    """Location"""
+    global_institution_growth_modifier: float | str
+    """Country"""
+    promote_institution_chance: float | str
+    """Location"""
+    estate_enrichment: float | str
+    """Country"""
+    supply_depot_capacity: float | str
+    """Country"""
+    annexation_speed_base: float | str
+    """Country"""
+    annexation_speed_modifier: float | str
+    """Country"""
+    province_integration_speed: float | str
+    """Province"""
+    local_integration_speed: float | str
+    """Location"""
+    local_integration_speed_modifier: float | str
+    """Location"""
+    global_integration_speed_modifier: float | str
+    """Country"""
+    government_reform_slots: float | str
+    """Country"""
+    omens_offered: float | str
+    """Country"""
+    omen_time_modifier: float | str
+    """Country"""
+    omen_strength_modifier: float | str
+    """Country"""
+    government_size: float | str
+    """Country"""
+    num_possible_artists: float | str
+    """Country"""
+    artist_salary_modifier: float | str
+    """Country"""
+    artist_salary_modifier_on_character: float | str
+    """Character"""
+    art_creation_speed: float | str
+    """Character"""
+    artist_impact: float | str
+    """Character"""
+    work_of_art_quality_modifier: float | str
+    """Character"""
+    work_of_art_sell_value_modifier: float | str
+    """Country"""
+    artist_skill_level_gain: float | str
+    """Character"""
+    skill_of_new_artists: float | str
+    """Country"""
+    global_monthly_art_start_chance: float | str
+    """Country"""
+    artist_monthly_start_chance: float | str
+    """Character"""
+    global_merchant_power: float | str
+    """Country"""
+    monthly_legitimacy: float | str
+    """Country"""
+    monthly_republican_tradition: float | str
+    """Country"""
+    monthly_devotion: float | str
+    """Country"""
+    monthly_horde_unity: float | str
+    """Country"""
+    monthly_tribal_cohesion: float | str
+    """Country"""
+    character_cabinet_efficiency: float | str
+    """Character"""
+    cabinet_trait_impact_modifier: float | str
+    """Character"""
+    country_cabinet_efficiency: float | str
+    """Country"""
+    subject_loyalty: float | str
+    """Country"""
+    loyalty_to_overlord: float | str
+    """Country"""
+    care_about_producing_heirs: float | str
+    """Country"""
+    prevented_from_changing_court_language_by_overlord: float | str
+    """Country"""
+    diplomatic_range: float | str
+    """Country"""
+    diplomatic_range_modifier: float | str
+    """Country"""
+    improve_relation_impact: float | str
+    """Country"""
+    casus_belli_creation_speed: float | str
+    """Country"""
+    casus_belli_creation_speed_modifier: float | str
+    """Country"""
+    subject_opinions: float | str
+    """Country"""
+    pop_countries_opinions: float | str
+    """Country"""
+    antagonism_received_modifier: float | str
+    """Country"""
+    antagonism_culture_influence: float | str
+    """Country"""
+    antagonism_societal_value_influence: float | str
+    """Country"""
+    antagonism_religion_influence: float | str
+    """Country"""
+    antagonism_government_type_influence: float | str
+    """Country"""
+    antagonism_revolution_influence: float | str
+    """Country"""
+    antagonism_language_influence: float | str
+    """Country"""
+    antagonism_peace_treaty_demands_giving_modifier: float | str
+    """Country"""
+    antagonism_taking_land_giving_modifier: float | str
+    """Country"""
+    antagonism_breaking_truce_giving_modifier: float | str
+    """Country"""
+    antagonism_declared_war_no_cb_giving_modifier: float | str
+    """Country"""
+    antagonism_monthly_change_modifier: float | str
+    """Country"""
+    antagonism_development_impact: float | str
+    """Country"""
+    global_war_score_efficiency: float | str
+    """Country"""
+    war_score_vs_other_religion_efficiency: float | str
+    """Country"""
+    local_war_score_efficiency: float | str
+    """Location"""
+    block_tribal_promotion: float | str
+    """Country"""
+    global_tribal_promotion: float | str
+    """Country"""
+    local_tribal_promotion: float | str
+    """Location"""
+    enslave_tribals: float | str
+    """Country"""
+    expel_tribals: float | str
+    """Country"""
+    make_tribals_peasants: float | str
+    """Country"""
+    subject_income_modifier: float | str
+    """Country"""
+    payment_to_overlord_modifier: float | str
+    """Country"""
+    diplomatic_reputation: float | str
+    """Country"""
+    diplomatic_capacity: float | str
+    """Country"""
+    diplomatic_capacity_modifier: float | str
+    """Country"""
+    max_diplomats: float | str
+    """Country"""
+    monthly_diplomats: float | str
+    """Country"""
+    alliance_weight: float | str
+    """Country"""
+    union_weight: float | str
+    """Country"""
+    counter_espionage: float | str
+    """Country"""
+    spy_network_construction: float | str
+    """Country"""
+    naval_range: float | str
+    """Country"""
+    naval_range_modifier: float | str
+    """Country"""
+    colonial_range: float | str
+    """Country"""
+    colonial_range_modifier: float | str
+    """Country"""
+    blocked_from_forming_countries: float | str
+    """Country"""
+    ignore_same_religion_colonial_claim: float | str
+    """Country"""
+    army_tradition_from_battle: float | str
+    """Country"""
+    navy_tradition_from_battle: float | str
+    """Country"""
+    prestige_from_land_battle: float | str
+    """Country"""
+    prestige_from_naval_battle: float | str
+    """Country"""
+    wrong_culture_levy_size: float | str
+    """Country"""
+    local_levy_size_modifier: float | str
+    """Location"""
+    global_levy_size_modifier: float | str
+    """Country"""
+    levy_recovery_modifier: float | str
+    """Unit"""
+    levy_combat_efficiency_modifier: float | str
+    """Unit"""
+    levy_maintenance_modifier: float | str
+    """Country"""
+    local_army_levy_size_modifier: float | str
+    """Location"""
+    global_army_levy_size_modifier: float | str
+    """Country"""
+    local_navy_levy_size_modifier: float | str
+    """Location"""
+    global_navy_levy_size_modifier: float | str
+    """Country"""
+    local_levy_recruitment_speed_modifier: float | str
+    """Location"""
+    global_levy_recruitment_speed_modifier: float | str
+    """Country"""
+    regiment_recruit_speed: float | str
+    """Country"""
+    ship_build_speed: float | str
+    """Country"""
+    local_ship_build_speed: float | str
+    """Location"""
+    max_ships_built_at_same_time: float | str
+    """Location"""
+    max_regiments_trained_at_same_time: float | str
+    """Location"""
+    max_constructions_at_same_time: float | str
+    """Location"""
+    selling_efficiency: float | str
+    """Country"""
+    export_efficiency: float | str
+    """Country"""
+    import_efficiency: float | str
+    """Country"""
+    trade_income: float | str
+    """Country"""
+    local_production_efficiency: float | str
+    """Location"""
+    global_production_efficiency: float | str
+    """Country"""
+    local_building_establishment_speed: float | str
+    """Location"""
+    local_building_establishment_reduction: float | str
+    """Location"""
+    global_building_establishment_speed: float | str
+    """Country"""
+    hostile_disembark_time_modifier: float | str
+    """Location"""
+    friendly_disembark_time_modifier: float | str
+    """Location"""
+    natural_harbor_suitability: float | str
+    """Location"""
+    harbor_suitability: float | str
+    """Location"""
+    colonial_migration_size: float | str
+    """Country"""
+    colonial_migration_size_modifier: float | str
+    """Country"""
+    colonial_maintenance_efficiency: float | str
+    """Country"""
+    building_missionary_effort_scaled: float | str
+    """Location"""
+    building_missionary_effort: float | str
+    """Location"""
+    building_missionary_effort_modifier: float | str
+    """Country"""
+    building_enslavement_power: float | str
+    """Location"""
+    local_monthly_development_modifier: float | str
+    """Location"""
+    local_trade_center_power: float | str
+    """Location"""
+    global_trade_center_power: float | str
+    """Country"""
+    local_trade_protection_factor: float | str
+    """Location"""
+    global_trade_protection_factor: float | str
+    """Country"""
+    court_spending_efficiency: float | str
+    """Country"""
+    diplomatic_spending_cost: float | str
+    """Country"""
+    stability_cost_efficiency: float | str
+    """Country"""
+    local_unrest: float | str
+    """Location"""
+    local_crown_estate_unrest: float | str
+    """Location"""
+    local_nobles_estate_unrest: float | str
+    """Location"""
+    local_clergy_estate_unrest: float | str
+    """Location"""
+    local_burghers_estate_unrest: float | str
+    """Location"""
+    local_peasants_estate_unrest: float | str
+    """Location"""
+    local_dhimmi_estate_unrest: float | str
+    """Location"""
+    local_tribes_estate_unrest: float | str
+    """Location"""
+    local_cossacks_estate_unrest: float | str
+    """Location"""
+    win_war_chance_threshold: float | str
+    """Country"""
+    win_war_chance_lower_limit: float | str
+    """Country"""
+    unintegrated_land_expansion_penalty_modifier: float | str
+    """Country"""
+    war_declaration_stab_hit_tolerance: float | str
+    """Country"""
+    war_declaration_war_exhaustion_tolerance: float | str
+    """Country"""
+    local_separatism: float | str
+    """Location"""
+    global_separatism: float | str
+    """Country"""
+    tolerance_own: float | str
+    """Country"""
+    tolerance_heretic: float | str
+    """Country"""
+    tolerance_heathen: float | str
+    """Country"""
+    monthly_rebel_growth: float | str
+    """Country"""
+    monthly_nationalist_rebel_growth: float | str
+    """Country"""
+    monthly_religious_rebel_growth: float | str
+    """Country"""
+    monthly_pretender_rebel_growth: float | str
+    """Country"""
+    monthly_slave_rebel_growth: float | str
+    """Country"""
+    monthly_crown_estate_rebel_growth: float | str
+    """Country"""
+    monthly_nobles_estate_rebel_growth: float | str
+    """Country"""
+    monthly_clergy_estate_rebel_growth: float | str
+    """Country"""
+    monthly_burghers_estate_rebel_growth: float | str
+    """Country"""
+    monthly_peasants_estate_rebel_growth: float | str
+    """Country"""
+    monthly_dhimmi_estate_rebel_growth: float | str
+    """Country"""
+    monthly_tribes_estate_rebel_growth: float | str
+    """Country"""
+    monthly_cossacks_estate_rebel_growth: float | str
+    """Country"""
+    fort_limit: float | str
+    """Country"""
+    fort_limit_modifier: float | str
+    """Country"""
+    fort_maintenance_efficiency: float | str
+    """Country"""
+    local_fort_maintenance_efficiency: float | str
+    """Location"""
+    local_pop_join_rebel_threshold: float | str
+    """Location"""
+    pop_join_rebel_threshold: float | str
+    """Country"""
+    local_pop_leave_rebels_threshold: float | str
+    """Location"""
+    pop_leave_rebels_threshold: float | str
+    """Country"""
+    allow_slave_conversion: float | str
+    """Country"""
+    unemployed_slave_promotion: float | str
+    """Country"""
+    can_extract_camels: float | str
+    """Country"""
+    can_extract_horses: float | str
+    """Country"""
+    can_extract_clay: float | str
+    """Country"""
+    can_extract_sand: float | str
+    """Country"""
+    can_extract_coal: float | str
+    """Country"""
+    can_extract_iron: float | str
+    """Country"""
+    can_extract_copper: float | str
+    """Country"""
+    can_extract_goods_gold: float | str
+    """Country"""
+    can_extract_silver: float | str
+    """Country"""
+    can_extract_stone: float | str
+    """Country"""
+    can_extract_tin: float | str
+    """Country"""
+    can_extract_lead: float | str
+    """Country"""
+    can_extract_silk: float | str
+    """Country"""
+    can_extract_dyes: float | str
+    """Country"""
+    can_extract_incense: float | str
+    """Country"""
+    can_extract_tea: float | str
+    """Country"""
+    can_extract_cocoa: float | str
+    """Country"""
+    can_extract_coffee: float | str
+    """Country"""
+    can_extract_fiber_crops: float | str
+    """Country"""
+    can_extract_ivory: float | str
+    """Country"""
+    can_extract_fur: float | str
+    """Country"""
+    can_extract_lumber: float | str
+    """Country"""
+    can_extract_salt: float | str
+    """Country"""
+    can_extract_medicaments: float | str
+    """Country"""
+    can_extract_gems: float | str
+    """Country"""
+    can_extract_pearls: float | str
+    """Country"""
+    can_extract_amber: float | str
+    """Country"""
+    can_extract_saltpeter: float | str
+    """Country"""
+    can_extract_alum: float | str
+    """Country"""
+    can_extract_wine: float | str
+    """Country"""
+    can_extract_elephants: float | str
+    """Country"""
+    can_extract_marble: float | str
+    """Country"""
+    can_extract_mercury: float | str
+    """Country"""
+    can_extract_cotton: float | str
+    """Country"""
+    can_extract_sugar: float | str
+    """Country"""
+    can_extract_tobacco: float | str
+    """Country"""
+    can_extract_tar: float | str
+    """Country"""
+    can_extract_porcelain: float | str
+    """Country"""
+    can_extract_naval_supplies: float | str
+    """Country"""
+    can_extract_firearms: float | str
+    """Country"""
+    can_extract_cannons: float | str
+    """Country"""
+    can_extract_weaponry: float | str
+    """Country"""
+    can_extract_glass: float | str
+    """Country"""
+    can_extract_steel: float | str
+    """Country"""
+    can_extract_cloth: float | str
+    """Country"""
+    can_extract_fine_cloth: float | str
+    """Country"""
+    can_extract_liquor: float | str
+    """Country"""
+    can_extract_beer: float | str
+    """Country"""
+    can_extract_paper: float | str
+    """Country"""
+    can_extract_books: float | str
+    """Country"""
+    can_extract_jewelry: float | str
+    """Country"""
+    can_extract_leather: float | str
+    """Country"""
+    can_extract_tools: float | str
+    """Country"""
+    can_extract_masonry: float | str
+    """Country"""
+    can_extract_lacquerware: float | str
+    """Country"""
+    can_extract_wool: float | str
+    """Country"""
+    can_extract_wild_game: float | str
+    """Country"""
+    can_extract_fish: float | str
+    """Country"""
+    can_extract_wheat: float | str
+    """Country"""
+    can_extract_maize: float | str
+    """Country"""
+    can_extract_rice: float | str
+    """Country"""
+    can_extract_millet: float | str
+    """Country"""
+    can_extract_legumes: float | str
+    """Country"""
+    can_extract_potato: float | str
+    """Country"""
+    can_extract_livestock: float | str
+    """Country"""
+    can_extract_olives: float | str
+    """Country"""
+    can_extract_fruit: float | str
+    """Country"""
+    can_extract_slaves_goods: float | str
+    """Country"""
+    can_extract_cloves: float | str
+    """Country"""
+    can_extract_pepper: float | str
+    """Country"""
+    can_extract_saffron: float | str
+    """Country"""
+    can_extract_beeswax: float | str
+    """Country"""
+    can_extract_chili: float | str
+    """Country"""
+    can_extract_pottery: float | str
+    """Country"""
+    can_extract_furniture: float | str
+    """Country"""
+    ban_exports_of_cotton: float | str
+    """Country"""
+    ban_exports_of_sugar: float | str
+    """Country"""
+    ban_exports_of_tobacco: float | str
+    """Country"""
+    ban_exports_of_horses: float | str
+    """Country"""
+    ban_exports_of_clay: float | str
+    """Country"""
+    ban_exports_of_sand: float | str
+    """Country"""
+    ban_exports_of_coal: float | str
+    """Country"""
+    ban_exports_of_iron: float | str
+    """Country"""
+    ban_exports_of_copper: float | str
+    """Country"""
+    ban_exports_of_goods_gold: float | str
+    """Country"""
+    ban_exports_of_silver: float | str
+    """Country"""
+    ban_exports_of_stone: float | str
+    """Country"""
+    ban_exports_of_tin: float | str
+    """Country"""
+    ban_exports_of_lead: float | str
+    """Country"""
+    ban_exports_of_wool: float | str
+    """Country"""
+    ban_exports_of_silk: float | str
+    """Country"""
+    ban_exports_of_dyes: float | str
+    """Country"""
+    ban_exports_of_incense: float | str
+    """Country"""
+    ban_exports_of_tea: float | str
+    """Country"""
+    ban_exports_of_cocoa: float | str
+    """Country"""
+    ban_exports_of_coffee: float | str
+    """Country"""
+    ban_exports_of_fiber_crops: float | str
+    """Country"""
+    ban_exports_of_ivory: float | str
+    """Country"""
+    ban_exports_of_fur: float | str
+    """Country"""
+    ban_exports_of_lumber: float | str
+    """Country"""
+    ban_exports_of_salt: float | str
+    """Country"""
+    ban_exports_of_medicaments: float | str
+    """Country"""
+    ban_exports_of_gems: float | str
+    """Country"""
+    ban_exports_of_pearls: float | str
+    """Country"""
+    ban_exports_of_amber: float | str
+    """Country"""
+    ban_exports_of_saltpeter: float | str
+    """Country"""
+    ban_exports_of_alum: float | str
+    """Country"""
+    ban_exports_of_wine: float | str
+    """Country"""
+    ban_exports_of_elephants: float | str
+    """Country"""
+    ban_exports_of_slaves_goods: float | str
+    """Country"""
+    ban_exports_of_wild_game: float | str
+    """Country"""
+    ban_exports_of_fish: float | str
+    """Country"""
+    ban_exports_of_wheat: float | str
+    """Country"""
+    ban_exports_of_maize: float | str
+    """Country"""
+    ban_exports_of_rice: float | str
+    """Country"""
+    ban_exports_of_millet: float | str
+    """Country"""
+    ban_exports_of_legumes: float | str
+    """Country"""
+    ban_exports_of_potato: float | str
+    """Country"""
+    ban_exports_of_livestock: float | str
+    """Country"""
+    ban_exports_of_olives: float | str
+    """Country"""
+    ban_exports_of_fruit: float | str
+    """Country"""
+    ban_exports_of_tar: float | str
+    """Country"""
+    ban_exports_of_porcelain: float | str
+    """Country"""
+    ban_exports_of_naval_supplies: float | str
+    """Country"""
+    ban_exports_of_weaponry: float | str
+    """Country"""
+    ban_exports_of_glass: float | str
+    """Country"""
+    ban_exports_of_steel: float | str
+    """Country"""
+    ban_exports_of_cloth: float | str
+    """Country"""
+    ban_exports_of_fine_cloth: float | str
+    """Country"""
+    ban_exports_of_liquor: float | str
+    """Country"""
+    ban_exports_of_beer: float | str
+    """Country"""
+    ban_exports_of_paper: float | str
+    """Country"""
+    ban_exports_of_books: float | str
+    """Country"""
+    ban_exports_of_jewelry: float | str
+    """Country"""
+    ban_exports_of_leather: float | str
+    """Country"""
+    ban_exports_of_tools: float | str
+    """Country"""
+    ban_exports_of_lacquerware: float | str
+    """Country"""
+    ban_exports_of_camels: float | str
+    """Country"""
+    ban_imports_of_camels: float | str
+    """Country"""
+    ban_imports_of_cotton: float | str
+    """Country"""
+    ban_imports_of_sugar: float | str
+    """Country"""
+    ban_imports_of_tobacco: float | str
+    """Country"""
+    ban_imports_of_horses: float | str
+    """Country"""
+    ban_imports_of_clay: float | str
+    """Country"""
+    ban_imports_of_sand: float | str
+    """Country"""
+    ban_imports_of_coal: float | str
+    """Country"""
+    ban_imports_of_iron: float | str
+    """Country"""
+    ban_imports_of_copper: float | str
+    """Country"""
+    ban_imports_of_goods_gold: float | str
+    """Country"""
+    ban_imports_of_silver: float | str
+    """Country"""
+    ban_imports_of_stone: float | str
+    """Country"""
+    ban_imports_of_tin: float | str
+    """Country"""
+    ban_imports_of_lead: float | str
+    """Country"""
+    ban_imports_of_wool: float | str
+    """Country"""
+    ban_imports_of_silk: float | str
+    """Country"""
+    ban_imports_of_dyes: float | str
+    """Country"""
+    ban_imports_of_incense: float | str
+    """Country"""
+    ban_imports_of_tea: float | str
+    """Country"""
+    ban_imports_of_cocoa: float | str
+    """Country"""
+    ban_imports_of_coffee: float | str
+    """Country"""
+    ban_imports_of_fiber_crops: float | str
+    """Country"""
+    ban_imports_of_ivory: float | str
+    """Country"""
+    ban_imports_of_fur: float | str
+    """Country"""
+    ban_imports_of_lumber: float | str
+    """Country"""
+    ban_imports_of_salt: float | str
+    """Country"""
+    ban_imports_of_medicaments: float | str
+    """Country"""
+    ban_imports_of_gems: float | str
+    """Country"""
+    ban_imports_of_pearls: float | str
+    """Country"""
+    ban_imports_of_amber: float | str
+    """Country"""
+    ban_imports_of_saltpeter: float | str
+    """Country"""
+    ban_imports_of_alum: float | str
+    """Country"""
+    ban_imports_of_wine: float | str
+    """Country"""
+    ban_imports_of_elephants: float | str
+    """Country"""
+    ban_imports_of_slaves_goods: float | str
+    """Country"""
+    ban_imports_of_wild_game: float | str
+    """Country"""
+    ban_imports_of_fish: float | str
+    """Country"""
+    ban_imports_of_wheat: float | str
+    """Country"""
+    ban_imports_of_maize: float | str
+    """Country"""
+    ban_imports_of_rice: float | str
+    """Country"""
+    ban_imports_of_millet: float | str
+    """Country"""
+    ban_imports_of_legumes: float | str
+    """Country"""
+    ban_imports_of_potato: float | str
+    """Country"""
+    ban_imports_of_livestock: float | str
+    """Country"""
+    ban_imports_of_olives: float | str
+    """Country"""
+    ban_imports_of_fruit: float | str
+    """Country"""
+    ban_imports_of_tar: float | str
+    """Country"""
+    ban_imports_of_porcelain: float | str
+    """Country"""
+    ban_imports_of_naval_supplies: float | str
+    """Country"""
+    ban_imports_of_weaponry: float | str
+    """Country"""
+    ban_imports_of_glass: float | str
+    """Country"""
+    ban_imports_of_steel: float | str
+    """Country"""
+    ban_imports_of_cloth: float | str
+    """Country"""
+    ban_imports_of_fine_cloth: float | str
+    """Country"""
+    ban_imports_of_liquor: float | str
+    """Country"""
+    ban_imports_of_beer: float | str
+    """Country"""
+    ban_imports_of_paper: float | str
+    """Country"""
+    ban_imports_of_books: float | str
+    """Country"""
+    ban_imports_of_jewelry: float | str
+    """Country"""
+    ban_imports_of_leather: float | str
+    """Country"""
+    ban_imports_of_tools: float | str
+    """Country"""
+    ban_imports_of_lacquerware: float | str
+    """Country"""
+    local_camels_output_modifier: float | str
+    """Location"""
+    local_cotton_output_modifier: float | str
+    """Location"""
+    local_sugar_output_modifier: float | str
+    """Location"""
+    local_tobacco_output_modifier: float | str
+    """Location"""
+    local_horses_output_modifier: float | str
+    """Location"""
+    local_clay_output_modifier: float | str
+    """Location"""
+    local_sand_output_modifier: float | str
+    """Location"""
+    local_coal_output_modifier: float | str
+    """Location"""
+    local_iron_output_modifier: float | str
+    """Location"""
+    local_copper_output_modifier: float | str
+    """Location"""
+    local_goods_gold_output_modifier: float | str
+    """Location"""
+    local_silver_output_modifier: float | str
+    """Location"""
+    local_stone_output_modifier: float | str
+    """Location"""
+    local_tin_output_modifier: float | str
+    """Location"""
+    local_lead_output_modifier: float | str
+    """Location"""
+    local_wool_output_modifier: float | str
+    """Location"""
+    local_silk_output_modifier: float | str
+    """Location"""
+    local_dyes_output_modifier: float | str
+    """Location"""
+    local_incense_output_modifier: float | str
+    """Location"""
+    local_tea_output_modifier: float | str
+    """Location"""
+    local_cocoa_output_modifier: float | str
+    """Location"""
+    local_coffee_output_modifier: float | str
+    """Location"""
+    local_fiber_crops_output_modifier: float | str
+    """Location"""
+    local_ivory_output_modifier: float | str
+    """Location"""
+    local_fur_output_modifier: float | str
+    """Location"""
+    local_lumber_output_modifier: float | str
+    """Location"""
+    local_salt_output_modifier: float | str
+    """Location"""
+    local_medicaments_output_modifier: float | str
+    """Location"""
+    local_gems_output_modifier: float | str
+    """Location"""
+    local_pearls_output_modifier: float | str
+    """Location"""
+    local_amber_output_modifier: float | str
+    """Location"""
+    local_saltpeter_output_modifier: float | str
+    """Location"""
+    local_alum_output_modifier: float | str
+    """Location"""
+    local_wine_output_modifier: float | str
+    """Location"""
+    local_wine_establishment_speed: float | str
+    """Location"""
+    local_elephants_output_modifier: float | str
+    """Location"""
+    local_slaves_goods_output_modifier: float | str
+    """Location"""
+    local_wild_game_output_modifier: float | str
+    """Location"""
+    local_fish_output_modifier: float | str
+    """Location"""
+    local_wheat_output_modifier: float | str
+    """Location"""
+    local_maize_output_modifier: float | str
+    """Location"""
+    local_rice_output_modifier: float | str
+    """Location"""
+    local_millet_output_modifier: float | str
+    """Location"""
+    local_legumes_output_modifier: float | str
+    """Location"""
+    local_potato_output_modifier: float | str
+    """Location"""
+    local_livestock_output_modifier: float | str
+    """Location"""
+    local_olives_output_modifier: float | str
+    """Location"""
+    local_fruit_output_modifier: float | str
+    """Location"""
+    local_tar_output_modifier: float | str
+    """Location"""
+    local_tar_establishment_speed: float | str
+    """Location"""
+    local_porcelain_output_modifier: float | str
+    """Location"""
+    local_porcelain_establishment_speed: float | str
+    """Location"""
+    local_naval_supplies_output_modifier: float | str
+    """Location"""
+    local_naval_supplies_establishment_speed: float | str
+    """Location"""
+    local_weaponry_output_modifier: float | str
+    """Location"""
+    local_weaponry_establishment_speed: float | str
+    """Location"""
+    local_glass_output_modifier: float | str
+    """Location"""
+    local_glass_establishment_speed: float | str
+    """Location"""
+    local_steel_output_modifier: float | str
+    """Location"""
+    local_steel_establishment_speed: float | str
+    """Location"""
+    local_cloth_output_modifier: float | str
+    """Location"""
+    local_cloth_establishment_speed: float | str
+    """Location"""
+    local_fine_cloth_output_modifier: float | str
+    """Location"""
+    local_fine_cloth_establishment_speed: float | str
+    """Location"""
+    local_liquor_output_modifier: float | str
+    """Location"""
+    local_liquor_establishment_speed: float | str
+    """Location"""
+    local_beer_output_modifier: float | str
+    """Location"""
+    local_beer_establishment_speed: float | str
+    """Location"""
+    local_paper_output_modifier: float | str
+    """Location"""
+    local_paper_establishment_speed: float | str
+    """Location"""
+    local_books_output_modifier: float | str
+    """Location"""
+    local_books_establishment_speed: float | str
+    """Location"""
+    local_jewelry_output_modifier: float | str
+    """Location"""
+    local_jewelry_establishment_speed: float | str
+    """Location"""
+    local_leather_output_modifier: float | str
+    """Location"""
+    local_leather_establishment_speed: float | str
+    """Location"""
+    local_tools_output_modifier: float | str
+    """Location"""
+    local_tools_establishment_speed: float | str
+    """Location"""
+    local_lacquerware_output_modifier: float | str
+    """Location"""
+    local_lacquerware_establishment_speed: float | str
+    """Location"""
+    global_camels_output_modifier: float | str
+    """Country"""
+    global_cotton_output_modifier: float | str
+    """Country"""
+    global_sugar_output_modifier: float | str
+    """Country"""
+    global_tobacco_output_modifier: float | str
+    """Country"""
+    global_horses_output_modifier: float | str
+    """Country"""
+    global_clay_output_modifier: float | str
+    """Country"""
+    global_sand_output_modifier: float | str
+    """Country"""
+    global_coal_output_modifier: float | str
+    """Country"""
+    global_iron_output_modifier: float | str
+    """Country"""
+    global_copper_output_modifier: float | str
+    """Country"""
+    global_goods_gold_output_modifier: float | str
+    """Country"""
+    global_silver_output_modifier: float | str
+    """Country"""
+    global_stone_output_modifier: float | str
+    """Country"""
+    global_tin_output_modifier: float | str
+    """Country"""
+    global_lead_output_modifier: float | str
+    """Country"""
+    global_wool_output_modifier: float | str
+    """Country"""
+    global_silk_output_modifier: float | str
+    """Country"""
+    global_dyes_output_modifier: float | str
+    """Country"""
+    global_incense_output_modifier: float | str
+    """Country"""
+    global_tea_output_modifier: float | str
+    """Country"""
+    global_cocoa_output_modifier: float | str
+    """Country"""
+    global_coffee_output_modifier: float | str
+    """Country"""
+    global_fiber_crops_output_modifier: float | str
+    """Country"""
+    global_ivory_output_modifier: float | str
+    """Country"""
+    global_fur_output_modifier: float | str
+    """Country"""
+    global_lumber_output_modifier: float | str
+    """Country"""
+    global_salt_output_modifier: float | str
+    """Country"""
+    global_medicaments_output_modifier: float | str
+    """Country"""
+    global_gems_output_modifier: float | str
+    """Country"""
+    global_pearls_output_modifier: float | str
+    """Country"""
+    global_amber_output_modifier: float | str
+    """Country"""
+    global_saltpeter_output_modifier: float | str
+    """Country"""
+    global_alum_output_modifier: float | str
+    """Country"""
+    global_wine_output_modifier: float | str
+    """Country"""
+    global_wine_establishment_speed: float | str
+    """Country"""
+    global_elephants_output_modifier: float | str
+    """Country"""
+    global_slaves_goods_output_modifier: float | str
+    """Country"""
+    global_wild_game_output_modifier: float | str
+    """Country"""
+    global_fish_output_modifier: float | str
+    """Country"""
+    global_wheat_output_modifier: float | str
+    """Country"""
+    global_maize_output_modifier: float | str
+    """Country"""
+    global_rice_output_modifier: float | str
+    """Country"""
+    global_millet_output_modifier: float | str
+    """Country"""
+    global_legumes_output_modifier: float | str
+    """Country"""
+    global_potato_output_modifier: float | str
+    """Country"""
+    global_livestock_output_modifier: float | str
+    """Country"""
+    global_olives_output_modifier: float | str
+    """Country"""
+    global_fruit_output_modifier: float | str
+    """Country"""
+    global_tar_output_modifier: float | str
+    """Country"""
+    global_tar_establishment_speed: float | str
+    """Country"""
+    global_porcelain_output_modifier: float | str
+    """Country"""
+    global_porcelain_establishment_speed: float | str
+    """Country"""
+    global_naval_supplies_output_modifier: float | str
+    """Country"""
+    global_naval_supplies_establishment_speed: float | str
+    """Country"""
+    global_weaponry_output_modifier: float | str
+    """Country"""
+    global_weaponry_establishment_speed: float | str
+    """Country"""
+    global_glass_output_modifier: float | str
+    """Country"""
+    global_glass_establishment_speed: float | str
+    """Country"""
+    global_steel_output_modifier: float | str
+    """Country"""
+    global_steel_establishment_speed: float | str
+    """Country"""
+    global_cloth_output_modifier: float | str
+    """Country"""
+    global_cloth_establishment_speed: float | str
+    """Country"""
+    global_fine_cloth_output_modifier: float | str
+    """Country"""
+    global_fine_cloth_establishment_speed: float | str
+    """Country"""
+    global_liquor_output_modifier: float | str
+    """Country"""
+    global_liquor_establishment_speed: float | str
+    """Country"""
+    global_beer_output_modifier: float | str
+    """Country"""
+    global_beer_establishment_speed: float | str
+    """Country"""
+    global_paper_output_modifier: float | str
+    """Country"""
+    global_paper_establishment_speed: float | str
+    """Country"""
+    global_books_output_modifier: float | str
+    """Country"""
+    global_books_establishment_speed: float | str
+    """Country"""
+    global_jewelry_output_modifier: float | str
+    """Country"""
+    global_jewelry_establishment_speed: float | str
+    """Country"""
+    global_leather_output_modifier: float | str
+    """Country"""
+    global_leather_establishment_speed: float | str
+    """Country"""
+    global_tools_output_modifier: float | str
+    """Country"""
+    global_tools_establishment_speed: float | str
+    """Country"""
+    global_lacquerware_output_modifier: float | str
+    """Country"""
+    global_lacquerware_establishment_speed: float | str
+    """Country"""
+    anti_piracy_warfare_modifier: float | str
+    """Unit"""
+    amount_looted_modifier: float | str
+    """Unit"""
+    local_pirate_spawn_chance: float | str
+    """Location"""
+    global_pirate_spawn_chance: float | str
+    """Country"""
+    correct_box_chance: float | str
+    """Unit"""
+    estate_building_destruction_satisfaction_impact: float | str
+    """Country"""
+    local_mercenaries_modifier: float | str
+    """Location"""
+    global_mercenaries_modifier: float | str
+    """Country"""
+    mercenary_cost_for_enemies: float | str
+    """Country"""
+    mercenary_payment_to_owner: float | str
+    """Country"""
+    curia_actions_blocked: float | str
+    """Religion"""
+    no_lowborn_leaders: float | str
+    """Country"""
+    blocked_from_being_leader: float | str
+    """Character"""
+    maximum_stockpile_capacity: float | str
+    """Location"""
+    foreign_export_from_market_efficiency: float | str
+    """Country"""
+    export_impact_on_demand: float | str
+    """Country"""
+    tariff_impact_on_price: float | str
+    """Country"""
+    max_tariff: float | str
+    """Country"""
+    max_trade_subventions: float | str
+    """Country"""
+    tariff_income: float | str
+    """Country"""
+    ban_exports_of_marble: float | str
+    """Country"""
+    ban_imports_of_marble: float | str
+    """Country"""
+    local_marble_output_modifier: float | str
+    """Location"""
+    global_marble_output_modifier: float | str
+    """Country"""
+    ban_exports_of_firearms: float | str
+    """Country"""
+    ban_imports_of_firearms: float | str
+    """Country"""
+    local_firearms_output_modifier: float | str
+    """Location"""
+    local_firearms_establishment_speed: float | str
+    """Location"""
+    global_firearms_output_modifier: float | str
+    """Country"""
+    global_firearms_establishment_speed: float | str
+    """Country"""
+    ban_exports_of_cannons: float | str
+    """Country"""
+    ban_imports_of_cannons: float | str
+    """Country"""
+    local_cannons_output_modifier: float | str
+    """Location"""
+    local_cannons_establishment_speed: float | str
+    """Location"""
+    global_cannons_output_modifier: float | str
+    """Country"""
+    global_cannons_establishment_speed: float | str
+    """Country"""
+    ban_exports_of_masonry: float | str
+    """Country"""
+    ban_imports_of_masonry: float | str
+    """Country"""
+    local_masonry_output_modifier: float | str
+    """Location"""
+    local_masonry_establishment_speed: float | str
+    """Location"""
+    global_masonry_output_modifier: float | str
+    """Country"""
+    global_masonry_establishment_speed: float | str
+    """Country"""
+    ban_exports_of_mercury: float | str
+    """Country"""
+    ban_imports_of_mercury: float | str
+    """Country"""
+    local_mercury_output_modifier: float | str
+    """Location"""
+    global_mercury_output_modifier: float | str
+    """Country"""
+    ban_exports_of_beeswax: float | str
+    """Country"""
+    ban_imports_of_beeswax: float | str
+    """Country"""
+    local_beeswax_output_modifier: float | str
+    """Location"""
+    global_beeswax_output_modifier: float | str
+    """Country"""
+    ban_exports_of_saffron: float | str
+    """Country"""
+    ban_imports_of_saffron: float | str
+    """Country"""
+    local_saffron_output_modifier: float | str
+    """Location"""
+    global_saffron_output_modifier: float | str
+    """Country"""
+    ban_exports_of_pepper: float | str
+    """Country"""
+    ban_imports_of_pepper: float | str
+    """Country"""
+    local_pepper_output_modifier: float | str
+    """Location"""
+    global_pepper_output_modifier: float | str
+    """Country"""
+    ban_exports_of_cloves: float | str
+    """Country"""
+    ban_imports_of_cloves: float | str
+    """Country"""
+    local_cloves_output_modifier: float | str
+    """Location"""
+    global_cloves_output_modifier: float | str
+    """Country"""
+    ban_exports_of_chili: float | str
+    """Country"""
+    ban_imports_of_chili: float | str
+    """Country"""
+    local_chili_output_modifier: float | str
+    """Location"""
+    global_chili_output_modifier: float | str
+    """Country"""
+    ban_exports_of_pottery: float | str
+    """Country"""
+    ban_imports_of_pottery: float | str
+    """Country"""
+    local_pottery_output_modifier: float | str
+    """Location"""
+    local_pottery_establishment_speed: float | str
+    """Location"""
+    global_pottery_output_modifier: float | str
+    """Country"""
+    global_pottery_establishment_speed: float | str
+    """Country"""
+    ban_exports_of_furniture: float | str
+    """Country"""
+    ban_imports_of_furniture: float | str
+    """Country"""
+    local_furniture_output_modifier: float | str
+    """Location"""
+    local_furniture_establishment_speed: float | str
+    """Location"""
+    global_furniture_output_modifier: float | str
+    """Country"""
+    global_furniture_establishment_speed: float | str
+    """Country"""
+    global_may_build_nahuatl_units: float | str
+    """Country"""
+    local_may_build_nahuatl_units: float | str
+    """Location"""
+    local_may_build_north_american_units: float | str
+    """Location"""
+    may_build_sofa_units: float | str
+    """Location"""
+    religious_icon_power_modifier: float | str
+    """Country"""
+    is_battles_preordained: float | str
+    """Country"""
+    minting_inflation_threshold: float | str
+    """Country"""
+    minting_income_factor: float | str
+    """Country"""
+    bribe_voter_for_policy_cost_modifier: float | str
+    """Country"""
+    hide_from_black_death_cost_modifier: float | str
+    """Country"""
+    control_the_food_market_cost_modifier: float | str
+    """Country"""
+    close_the_borders_cost_modifier: float | str
+    """Country"""
+    no_contact_with_outsiders_cost_modifier: float | str
+    """Country"""
+    segregate_the_infected_cost_modifier: float | str
+    """Country"""
+    strict_quarantines_cost_modifier: float | str
+    """Country"""
+    isolate_cities_black_death_cost_modifier: float | str
+    """Country"""
+    procure_remedies_cost_modifier: float | str
+    """Country"""
+    stop_procure_remedies_cost_modifier: float | str
+    """Country"""
+    sponsor_sin_forgiveness_cost_modifier: float | str
+    """Country"""
+    stop_sponsor_sin_forgiveness_cost_modifier: float | str
+    """Country"""
+    blame_the_minorities_cost_modifier: float | str
+    """Country"""
+    stop_blame_the_minorities_cost_modifier: float | str
+    """Country"""
+    road_building_blocked: float | str
+    """Location"""
+    constructions_stalled: float | str
+    """Location"""
+    recruit_conquistador_cost_modifier: float | str
+    """Country"""
+    allow_conquistadors: float | str
+    """Country"""
+    auto_conquer_at_war: float | str
+    """Country"""
+    auto_conquer_different_religion_at_war: float | str
+    """Country"""
+    can_colonize: float | str
+    """Country"""
+    always_allow_navy_levies: float | str
+    """Country"""
+    always_allow_army_levies: float | str
+    """Country"""
+    global_migration_attraction: float | str
+    """Country"""
+    rural_migration_attraction: float | str
+    """Country"""
+    non_rural_migration_attraction: float | str
+    """Country"""
+    prevented_from_being_heir: float | str
+    """Character"""
+    byz_born_in_the_purple: float | str
+    """Character"""
+    can_recruit_regiment_in_this_location: float | str
+    """Location"""
+    can_build_ships_in_this_location: float | str
+    """Location"""
+    block_from_change_to_empire_rank: float | str
+    """Country"""
+    block_from_change_to_empire_rank_catholic: float | str
+    """Country"""
+    block_from_change_to_kingdom_rank: float | str
+    """Country"""
+    block_from_change_to_duchy_rank: float | str
+    """Country"""
+    character_life_expectancy: float | str
+    """Character"""
+    local_life_expectancy: float | str
+    """Location"""
+    character_mortality_chance_by_bubonic_plague: float | str
+    """Country"""
+    global_life_expectancy_squared: float | str
+    """Country"""
+    global_life_expectancy: float | str
+    """Country"""
+    is_immortal: float | str
+    """Character"""
+    blocked_from_declaring_war: float | str
+    """Country"""
+    union_blocked_from_declaring_war: float | str
+    """Country"""
+    trade_range: float | str
+    """Country"""
+    trade_range_modifier: float | str
+    """Country"""
+    mercenary_range: float | str
+    """Country"""
+    mercenary_range_modifier: float | str
+    """Country"""
+    local_trade_embark_disembark_efficiency: float | str
+    """Location"""
+    trade_land_efficiency: float | str
+    """Country"""
+    trade_sea_efficiency: float | str
+    """Country"""
+    add_religious_aspect_christian_cost_modifier: float | str
+    """Country"""
+    remove_religious_aspect_christian_cost_modifier: float | str
+    """Country"""
+    add_religious_aspect_inti_cost_modifier: float | str
+    """Country"""
+    change_religious_aspect_inti_cost_modifier: float | str
+    """Country"""
+    remove_religious_aspect_inti_cost_modifier: float | str
+    """Country"""
+    add_religious_aspect_hellenism_cost_modifier: float | str
+    """Country"""
+    change_religious_aspect_hellenism_cost_modifier: float | str
+    """Country"""
+    remove_religious_aspect_hellenism_cost_modifier: float | str
+    """Country"""
+    blocked_from_marriage: float | str
+    """Character"""
+    marriage_desirability: float | str
+    """Character"""
+    allow_privateers_slave_raid: float | str
+    """Country"""
+    blocks_privateer_raids: float | str
+    """Location"""
+    auto_slave_raid: float | str
+    """Country"""
+    auto_slave_raid_different_religion: float | str
+    """Country"""
+    slave_raid_efficiency: float | str
+    """Country"""
+    rural_disease_resistance: float | str
+    """Country"""
+    local_disease_resistance: float | str
+    """Location"""
+    global_disease_resistance: float | str
+    """Country"""
+    casualty_pop_losses: float | str
+    """Country"""
+    local_prosperity_decay: float | str
+    """Location"""
+    global_prosperity_decay: float | str
+    """Country"""
+    local_devastation_recovery: float | str
+    """Location"""
+    global_devastation_recovery: float | str
+    """Country"""
+    can_have_monasteries: float | str
+    """Country"""
+    slavery_blocked: float | str
+    """Country"""
+    any_pop_can_be_slave: float | str
+    """Country"""
+    global_nobles_conversion_blocked: float | str
+    """Country"""
+    local_nobles_conversion_blocked: float | str
+    """Location"""
+    global_clergy_conversion_blocked: float | str
+    """Country"""
+    local_clergy_conversion_blocked: float | str
+    """Location"""
+    global_burghers_conversion_blocked: float | str
+    """Country"""
+    local_burghers_conversion_blocked: float | str
+    """Location"""
+    global_peasants_conversion_blocked: float | str
+    """Country"""
+    local_peasants_conversion_blocked: float | str
+    """Location"""
+    global_laborers_conversion_blocked: float | str
+    """Country"""
+    local_laborers_conversion_blocked: float | str
+    """Location"""
+    global_soldiers_conversion_blocked: float | str
+    """Country"""
+    local_soldiers_conversion_blocked: float | str
+    """Location"""
+    global_slaves_conversion_blocked: float | str
+    """Country"""
+    local_slaves_conversion_blocked: float | str
+    """Location"""
+    global_tribesmen_conversion_blocked: float | str
+    """Country"""
+    local_tribesmen_conversion_blocked: float | str
+    """Location"""
+    global_nobles_assimilation_blocked: float | str
+    """Country"""
+    local_nobles_assimilation_blocked: float | str
+    """Location"""
+    global_clergy_assimilation_blocked: float | str
+    """Country"""
+    local_clergy_assimilation_blocked: float | str
+    """Location"""
+    global_burghers_assimilation_blocked: float | str
+    """Country"""
+    local_burghers_assimilation_blocked: float | str
+    """Location"""
+    global_peasants_assimilation_blocked: float | str
+    """Country"""
+    local_peasants_assimilation_blocked: float | str
+    """Location"""
+    global_laborers_assimilation_blocked: float | str
+    """Country"""
+    local_laborers_assimilation_blocked: float | str
+    """Location"""
+    global_soldiers_assimilation_blocked: float | str
+    """Country"""
+    local_soldiers_assimilation_blocked: float | str
+    """Location"""
+    global_slaves_assimilation_blocked: float | str
+    """Country"""
+    local_slaves_assimilation_blocked: float | str
+    """Location"""
+    global_tribesmen_assimilation_blocked: float | str
+    """Country"""
+    local_tribesmen_assimilation_blocked: float | str
+    """Location"""
+    building_upkeep_efficiency: float | str
+    """Country"""
+    building_upkeep_multiplier: float | str
+    """Country"""
+    legislative_efficiency: float | str
+    """Country"""
+    local_bubonic_plague_impact_modifier: float | str
+    """Location"""
+    local_smallpox_impact_modifier: float | str
+    """Location"""
+    local_typhus_impact_modifier: float | str
+    """Location"""
+    local_influenza_impact_modifier: float | str
+    """Location"""
+    local_measles_impact_modifier: float | str
+    """Location"""
+    local_great_pestilence_impact_modifier: float | str
+    """Location"""
+    local_malaria_impact_modifier: float | str
+    """Location"""
+    local_egyptian_plague_impact_modifier: float | str
+    """Location"""
+    national_bubonic_plague_resistance_modifier: float | str
+    """Country"""
+    national_smallpox_resistance_modifier: float | str
+    """Country"""
+    national_typhus_resistance_modifier: float | str
+    """Country"""
+    national_influenza_resistance_modifier: float | str
+    """Country"""
+    national_measles_resistance_modifier: float | str
+    """Country"""
+    national_great_pestilence_resistance_modifier: float | str
+    """Country"""
+    national_malaria_resistance_modifier: float | str
+    """Country"""
+    national_egyptian_plague_resistance_modifier: float | str
+    """Country"""
+    local_bubonic_plague_resistance_modifier: float | str
+    """Location"""
+    local_smallpox_resistance_modifier: float | str
+    """Location"""
+    local_typhus_resistance_modifier: float | str
+    """Location"""
+    local_influenza_resistance_modifier: float | str
+    """Location"""
+    local_measles_resistance_modifier: float | str
+    """Location"""
+    local_great_pestilence_resistance_modifier: float | str
+    """Location"""
+    local_malaria_resistance_modifier: float | str
+    """Location"""
+    local_egyptian_plague_resistance_modifier: float | str
+    """Location"""
+    national_bubonic_plague_growth_modifier: float | str
+    """Country"""
+    national_smallpox_growth_modifier: float | str
+    """Country"""
+    national_typhus_growth_modifier: float | str
+    """Country"""
+    national_influenza_growth_modifier: float | str
+    """Country"""
+    national_measles_growth_modifier: float | str
+    """Country"""
+    national_great_pestilence_growth_modifier: float | str
+    """Country"""
+    national_malaria_growth_modifier: float | str
+    """Country"""
+    national_egyptian_plague_growth_modifier: float | str
+    """Country"""
+    local_bubonic_plague_growth_modifier: float | str
+    """Location"""
+    local_smallpox_growth_modifier: float | str
+    """Location"""
+    local_typhus_growth_modifier: float | str
+    """Location"""
+    local_influenza_growth_modifier: float | str
+    """Location"""
+    local_measles_growth_modifier: float | str
+    """Location"""
+    local_great_pestilence_growth_modifier: float | str
+    """Location"""
+    local_malaria_growth_modifier: float | str
+    """Location"""
+    local_egyptian_plague_growth_modifier: float | str
+    """Location"""
+    female_spouses: float | str
+    """Country"""
+    male_spouses: float | str
+    """Country"""
+    parliament_abolished: float | str
+    """Country"""
+    ruler_name_in_court_language: float | str
+    """Country"""
+    enable_doom: float | str
+    """Country"""
+    ignore_doom: float | str
+    """Country"""
+    has_parliament_seat: float | str
+    """Location"""
+    parliament_duration_modifier: float | str
+    """Country"""
+    organization_parliament_duration_modifier: float | str
+    """InternationalOrganization"""
+    has_a_parliamentary_system: float | str
+    """Country"""
+    has_international_parliament: float | str
+    """InternationalOrganization"""
+    uses_parliament_for_law_votes: float | str
+    """InternationalOrganization"""
+    can_reassign_cleric: float | str
+    """Country"""
+    no_beards: float | str
+    """Country"""
+    can_call_rural_parliaments: float | str
+    """Country"""
+    parliament_base_support: float | str
+    """Country"""
+    university_construction_blocked: float | str
+    """Country"""
+    can_create_anti_piracy_cb: float | str
+    """Country"""
+    can_be_target_of_anti_piracy_cb: float | str
+    """Country"""
+    can_be_member_of_a_high_kingship: float | str
+    """Country"""
+    demand_church_tax_price_cost_modifier: float | str
+    """Country"""
+    mobilize_the_shurat_price_cost_modifier: float | str
+    """Country"""
+    elect_imam_price_cost_modifier: float | str
+    """Country"""
+    request_aid_price_cost_modifier: float | str
+    """Country"""
+    profess_trust_price_cost_modifier: float | str
+    """Country"""
+    has_panaqas: float | str
+    """Country"""
+    can_use_nustas_marriages: float | str
+    """Country"""
+    can_use_aclla_distribution: float | str
+    """Country"""
+    estate_power_from_cabinet: float | str
+    """Country"""
+    estate_power_from_command: float | str
+    """Country"""
+    buy_military_access_cost_modifier: float | str
+    """Country"""
+    buy_fleet_basing_rights_cost_modifier: float | str
+    """Country"""
+    inheritance_contract_cost_cost_modifier: float | str
+    """Country"""
+    force_allow_as_leader: float | str
+    """Character"""
+    maximum_religious_influence: float | str
+    """Country"""
+    manpower_to_building_owner: float | str
+    """Location"""
+    sailors_to_building_owner: float | str
+    """Location"""
+    gold_to_building_owner: float | str
+    """Location"""
+    scaled_gold_to_building_owner: float | str
+    """Location"""
+    monthly_loan_capacity_investment: float | str
+    """Country"""
+    total_loan_capacity_modifier: float | str
+    """Country"""
+    hire_for_cabinet_efficiency: float | str
+    """Character"""
+    blocks_vision_from_land: float | str
+    """Location"""
+    blocks_vision_from_sea: float | str
+    """Location"""
+    blocks_country_formation: float | str
+    """Country"""
+    local_upper_class_capacity_modifier: float | str
+    """Location"""
+    global_upper_class_capacity_modifier: float | str
+    """Country"""
+    target_of_military_sponsorships: float | str
+    """Country"""
+    characters_use_country_coa: float | str
+    """Country"""
+    is_praefecta: float | str
+    """Character"""
+    is_appointed_as_heir: float | str
+    """Character"""
+    papal_relations: float | str
+    """Country"""
+    blocked_from_creating_subjects: float | str
+    """Country"""
+    coalition_strength_tolerance: float | str
+    """Country"""
+    trade_isolation: float | str
+    """Country"""
+    allowed_to_become_shogun: float | str
+    """Character"""
+    favoring_buddhism: float | str
+    """Country"""
+    n_panokseon_build_cost_modifier: float | str
+    """Country"""
+    n_panokseon_reinforce_cost_modifier: float | str
+    """Country"""
+    n_panokseon_maintenance_cost_modifier: float | str
+    """Country"""
+    a_clan_retainers_build_cost_modifier: float | str
+    """Country"""
+    a_clan_retainers_reinforce_cost_modifier: float | str
+    """Country"""
+    a_clan_retainers_maintenance_cost_modifier: float | str
+    """Country"""
+    a_clan_retainer_cavalry_build_cost_modifier: float | str
+    """Country"""
+    a_clan_retainer_cavalry_reinforce_cost_modifier: float | str
+    """Country"""
+    a_clan_retainer_cavalry_maintenance_cost_modifier: float | str
+    """Country"""
+    has_ashta_pradham_council_policies: float | str
+    """Country"""
+    can_send_royal_inspectors: float | str
+    """Country"""
+    blocked_from_being_ruler: float | str
+    """Character"""
+    blocked_from_character_interactions: float | str
+    """Character"""
+    can_execute_characters: float | str
+    """Country"""
+    can_banish_characters: float | str
+    """Country"""
+    can_marry_only_overlord_dynasty_characters: float | str
+    """Country"""
+    forbid_marrying_lowborn: float | str
+    """Country"""
+    block_marrying_lowborn: float | str
+    """Character"""
+    ruler_must_be_commander_during_war: float | str
+    """Country"""
+    character_overthrew_high_king: float | str
+    """Character"""
+    character_blocked_from_high_kingship: float | str
+    """Character"""
+    shameless_privateering_modifier: float | str
+    """Country"""
+    sheikh_ul_islam_modifier: float | str
+    """Character"""
+    peace_offer_fairness: float | str
+    """Country"""
+    peace_offer_negotiation_power: float | str
+    """Country"""
+    language_change_threshold_modifier: float | str
+    """Country"""
+    monthly_imperial_authority: float | str
+    """None, Location, Country, Unit, Character, Religion, Mercenary, Province, InternationalOrganization, Rebel, Dynasty, Movement, Ambition"""
+    imperial_authority_modifier: float | str
+    """None, Location, Country, Unit, Character, Religion, Mercenary, Province, InternationalOrganization, Rebel, Dynasty, Movement, Ambition"""
+    allow_self_vote: float | str
+    """InternationalOrganization"""
+    is_hre_elector: float | str
+    """Country"""
+    can_revoke_electorship: float | str
+    """Country"""
+    is_excluded_from_electorship: float | str
+    """Country"""
+    reasons_to_elect: float | str
+    """Country"""
+    reasons_to_vote: float | str
+    """Country"""
+    allow_landfriede: float | str
+    """Country"""
+    landfriede_flat_cost: float | str
+    """Country"""
+    landfriede_cooldown: float | str
+    """Country"""
+    allow_overrule_imperial_diet: float | str
+    """InternationalOrganization"""
+    monthly_papal_authority: float | str
+    """None, Location, Country, Unit, Character, Religion, Mercenary, Province, InternationalOrganization, Rebel, Dynasty, Movement, Ambition"""
+    papal_authority_modifier: float | str
+    """None, Location, Country, Unit, Character, Religion, Mercenary, Province, InternationalOrganization, Rebel, Dynasty, Movement, Ambition"""
+    can_ignore_papal_bulls: float | str
+    """Country"""
+    is_pope: float | str
+    """Country"""
+    blocked_from_conversion: float | str
+    """Country"""
+    papacy_blocked: float | str
+    """Religion"""
+    excommunication_price_cost_modifier: float | str
+    """Country"""
+    catholic_country_interaction_cost_modifier: float | str
+    """Country"""
+    offer_cardinal_seat_for_crusade_price_cost_modifier: float | str
+    """Country"""
+    offer_recognition_for_jihad_price_cost_modifier: float | str
+    """Country"""
+    preach_the_crusade_price_cost_modifier: float | str
+    """Country"""
+    issue_a_fatwa_price_cost_modifier: float | str
+    """Country"""
+    proclaim_jihad_privileges_price_cost_modifier: float | str
+    """Country"""
+    grant_indulgence_price_cost_modifier: float | str
+    """Country"""
+    promise_of_martyrdom_price_cost_modifier: float | str
+    """Country"""
+    convert_occupied_territory_price_cost_modifier: float | str
+    """Country"""
+    hasten_holy_war_preparations_price_cost_modifier: float | str
+    """Country"""
+    petition_for_the_bula_de_cruzada_price_cost_modifier: float | str
+    """Country"""
+    summon_iberian_military_orders_price_cost_modifier: float | str
+    """Country"""
+    summon_volunteers_of_the_faith_price_cost_modifier: float | str
+    """Country"""
+    request_divorce_price_cost_modifier: float | str
+    """Country"""
+    middle_kingdom_tribute_price_cost_modifier: float | str
+    """Country"""
+    tribute_payment_received_modifier: float | str
+    """Country"""
+    excluded_from_paying_imperial_contribution: float | str
+    """Country"""
+    imperial_contribution_price_cost_modifier: float | str
+    """Country"""
+    imperial_treasury_contribution_price_cost_modifier: float | str
+    """Country"""
+    imperial_army_contribution_price_cost_modifier: float | str
+    """Country"""
+    crusade_treasury_contribution_price_cost_modifier: float | str
+    """Country"""
+    jihad_treasury_contribution_price_cost_modifier: float | str
+    """Country"""
+    union_contribution_price_cost_modifier: float | str
+    """Country"""
+    tithe_price_cost_modifier: float | str
+    """Country"""
+    excluded_from_imperial_protection: float | str
+    """Country"""
+    ghibelline_imperial_protection: float | str
+    """Country"""
+    head_of_cabinet_promotion_cost_modifier: float | str
+    """Country"""
+    is_head_of_cabinet: float | str
+    """Character"""
+    can_convert_galleys_to_light: float | str
+    """Country"""
+    treasure_voyage_cargo_size_modifier: float | str
+    """Country"""
+    eunuch_power: float | str
+    """Country"""
+    global_pop_demand: float | str
+    """Country"""
+    local_pop_demand: float | str
+    """Location"""
+    global_camels_pop_demand: float | str
+    """Country"""
+    global_fine_cloth_pop_demand: float | str
+    """Country"""
+    global_paper_pop_demand: float | str
+    """Country"""
+    global_books_pop_demand: float | str
+    """Country"""
+    global_livestock_pop_demand: float | str
+    """Country"""
+    global_silver_pop_demand: float | str
+    """Country"""
+    global_wine_pop_demand: float | str
+    """Country"""
+    global_liquor_pop_demand: float | str
+    """Country"""
+    global_beer_pop_demand: float | str
+    """Country"""
+    global_fur_pop_demand: float | str
+    """Country"""
+    global_beeswax_pop_demand: float | str
+    """Country"""
+    global_lumber_pop_demand: float | str
+    """Country"""
+    global_coal_pop_demand: float | str
+    """Country"""
+    global_pearls_pop_demand: float | str
+    """Country"""
+    global_amber_pop_demand: float | str
+    """Country"""
+    global_goods_gold_pop_demand: float | str
+    """Country"""
+    global_ivory_pop_demand: float | str
+    """Country"""
+    global_incense_pop_demand: float | str
+    """Country"""
+    global_gems_pop_demand: float | str
+    """Country"""
+    global_marble_pop_demand: float | str
+    """Country"""
+    global_horses_pop_demand: float | str
+    """Country"""
+    global_elephants_pop_demand: float | str
+    """Country"""
+    global_medicaments_pop_demand: float | str
+    """Country"""
+    global_masonry_pop_demand: float | str
+    """Country"""
+    global_mercury_pop_demand: float | str
+    """Country"""
+    global_tools_pop_demand: float | str
+    """Country"""
+    global_glass_pop_demand: float | str
+    """Country"""
+    global_pottery_pop_demand: float | str
+    """Country"""
+    global_furniture_pop_demand: float | str
+    """Country"""
+    global_porcelain_pop_demand: float | str
+    """Country"""
+    global_lacquerware_pop_demand: float | str
+    """Country"""
+    global_jewelry_pop_demand: float | str
+    """Country"""
+    global_cloth_pop_demand: float | str
+    """Country"""
+    global_weaponry_pop_demand: float | str
+    """Country"""
+    global_firearms_pop_demand: float | str
+    """Country"""
+    global_salt_pop_demand: float | str
+    """Country"""
+    global_sugar_pop_demand: float | str
+    """Country"""
+    global_tobacco_pop_demand: float | str
+    """Country"""
+    global_tea_pop_demand: float | str
+    """Country"""
+    global_cocoa_pop_demand: float | str
+    """Country"""
+    global_coffee_pop_demand: float | str
+    """Country"""
+    global_saffron_pop_demand: float | str
+    """Country"""
+    global_pepper_pop_demand: float | str
+    """Country"""
+    global_cloves_pop_demand: float | str
+    """Country"""
+    global_chili_pop_demand: float | str
+    """Country"""
+    global_potato_pop_demand: float | str
+    """Country"""
+    global_maize_pop_demand: float | str
+    """Country"""
+    global_millet_pop_demand: float | str
+    """Country"""
+    global_wild_game_pop_demand: float | str
+    """Country"""
+    global_fish_pop_demand: float | str
+    """Country"""
+    global_legumes_pop_demand: float | str
+    """Country"""
+    global_olives_pop_demand: float | str
+    """Country"""
+    global_wheat_pop_demand: float | str
+    """Country"""
+    global_fruit_pop_demand: float | str
+    """Country"""
+    global_rice_pop_demand: float | str
+    """Country"""
+    global_clay_pop_demand: float | str
+    """Country"""
+    global_sand_pop_demand: float | str
+    """Country"""
+    global_iron_pop_demand: float | str
+    """Country"""
+    global_copper_pop_demand: float | str
+    """Country"""
+    global_stone_pop_demand: float | str
+    """Country"""
+    global_tin_pop_demand: float | str
+    """Country"""
+    global_lead_pop_demand: float | str
+    """Country"""
+    global_silk_pop_demand: float | str
+    """Country"""
+    global_dyes_pop_demand: float | str
+    """Country"""
+    global_fiber_crops_pop_demand: float | str
+    """Country"""
+    global_saltpeter_pop_demand: float | str
+    """Country"""
+    global_alum_pop_demand: float | str
+    """Country"""
+    global_cotton_pop_demand: float | str
+    """Country"""
+    global_tar_pop_demand: float | str
+    """Country"""
+    global_naval_supplies_pop_demand: float | str
+    """Country"""
+    global_cannons_pop_demand: float | str
+    """Country"""
+    global_steel_pop_demand: float | str
+    """Country"""
+    global_leather_pop_demand: float | str
+    """Country"""
+    global_wool_pop_demand: float | str
+    """Country"""
+    global_slaves_goods_pop_demand: float | str
+    """Country"""
+    enables_german_migration: float | str
+    """Country"""
+    german_migration_attraction_modifier: float | str
+    """Country"""
+    mercenary_units_preference_modifier: float | str
+    """Country"""
+    has_appanages_subjects: float | str
+    """Country"""
+    french_subject_prevented_from_call_to_war: float | str
+    """Country"""
+    heir_of_same_religion: float | str
+    """Country"""
+    heir_of_same_religion_group: float | str
+    """Country"""
+    heir_of_any_religion: float | str
+    """Country"""
+    permanent_parliament_location: float | str
+    """Country"""
+    parliament_request_issue_support_needed: float | str
+    """Country"""
+    overlord_blocked_from_recruiting_regiments: float | str
+    """Country"""
+    overlord_blocked_from_building_ships: float | str
+    """Country"""
+    overlord_blocked_from_building_rgos: float | str
+    """Country"""
+    overlord_blocked_from_building_roads: float | str
+    """Country"""
+    overlord_blocked_from_building_buildings: float | str
+    """Country"""
+    ai_months_between_wars: float | str
+    """Country"""
+    aggressiveness_modifier: float | str
+    """Country"""
+    ai_conquer_desire_religion_mult: float | str
+    """Country"""
+    ai_amount_of_parallel_charters: float | str
+    """Country"""
+    carefulness_modifier: float | str
+    """Country"""
+    subjugation_preference_modifier: float | str
+    """Country"""
+    dynastic_acquisition_preference_modifier: float | str
+    """Country"""
+    ai_force_annexation_modifier: float | str
+    """Country"""
+    ai_stability_target_modifier: float | str
+    """Country"""
+    ai_government_power_target_modifier: float | str
+    """Country"""
+    expected_warscore_modifier: float | str
+    """Country"""
+    cannot_move_capital: float | str
+    """Country"""
+    gold_importance_modifier: float | str
+    """Country"""
+    court_language_is_liturgical_language_importance_modifier: float | str
+    """Country"""
+    court_language_is_common_language_importance_modifier: float | str
+    """Country"""
+    court_language_is_market_language_importance_modifier: float | str
+    """Country"""
+    stability_importance_modifier: float | str
+    """Country"""
+    manpower_importance_modifier: float | str
+    """Country"""
+    control_importance_modifier: float | str
+    """Country"""
+    diplomacy_importance_modifier: float | str
+    """Country"""
+    religious_unity_importance_modifier: float | str
+    """Country"""
+    defence_importance_modifier: float | str
+    """Country"""
+    institution_importance_modifier: float | str
+    """Country"""
+    trade_importance_modifier: float | str
+    """Country"""
+    societal_value_importance_modifier: float | str
+    """Country"""
+    growth_is_primary_culture: float | str
+    """Location"""
+    owner_gets_vision_when_occupied: float | str
+    """Location"""
+    allow_native_subjugation_cb: float | str
+    """Country"""
+    market_building_levels: float | str
+    """Country"""
+    local_jewelry_guild_building_levels: float | str
+    """Location"""
+    local_marketplace_building_levels: float | str
+    """Location"""
+    local_market_upgrade_building_levels: float | str
+    """Location"""
+    local_cloth_guild_building_levels: float | str
+    """Location"""
+    local_fine_cloth_guild_building_levels: float | str
+    """Location"""
+    irrigant_cap_level: float | str
+    """Country"""
+    chancery_cap_level: float | str
+    """Country"""
+    allow_paik_levies: float | str
+    """Country"""
+    global_may_build_paik_units: float | str
+    """Country"""
+    global_trades_per_burgher: float | str
+    """Country"""
+    local_trades_per_burgher: float | str
+    """Location"""
+    can_assume_fort_command: float | str
+    """Country"""
+    can_assume_fort_command_character: float | str
+    """Character"""
+    fort_assumed_efficiency_character: float | str
+    """Character"""
+    ennoble_price_cost_modifier: float | str
+    """Country"""
+    pardon_price_cost_modifier: float | str
+    """Country"""
+    appoint_as_heir_price_cost_modifier: float | str
+    """Country"""
+    grant_cabinet_right_price_cost_modifier: float | str
+    """Country"""
+    sow_discontent_monthly_cost_cost_modifier: float | str
+    """Country"""
+    corrupt_officials_monthly_cost_cost_modifier: float | str
+    """Country"""
+    commission_art_price_cost_modifier: float | str
+    """Country"""
+    sell_work_of_art_cost_modifier: float | str
+    """Country"""
+    request_work_of_art_purchase_cost_modifier: float | str
+    """Country"""
+    lutheran_preachers_building_cost_modifier: float | str
+    """Country"""
+    calvinist_preachers_building_cost_modifier: float | str
+    """Country"""
+    abdicate_price_cost_modifier: float | str
+    """Country"""
+    cannot_declare_no_cb_wars: float | str
+    """Country"""
+    cannot_declare_no_cb_wars_on_religion_head: float | str
+    """Country"""
+    has_taluqdar_tax_collection: float | str
+    """Country"""
+    allow_extensive_conscription_cabinet_action: float | str
+    """Country"""
+    allow_thema_headquarters: float | str
+    """Country"""
+    num_of_varangian_units: float | str
+    """Country"""
+    num_of_legionaries_modifier: float | str
+    """Country"""
+    can_use_council_of_three_lands_modifier: float | str
+    """Country"""
+    allowed_alliance: float | str
+    """Country"""
+    allowed_guarantee: float | str
+    """Country"""
+    allowed_support_rebels: float | str
+    """Country"""
+    allowed_intervene_in_war: float | str
+    """Country"""
+    allowed_enforce_peace: float | str
+    """Country"""
+    allowed_threaten_war: float | str
+    """Country"""
+    blocked_from_peace: float | str
+    """Country"""
+    allow_tribute_in_silver: float | str
+    """Country"""
+    may_convert_vassals_to_celestial_governors: float | str
+    """Country"""
+    num_of_banner_cavalry: float | str
+    """Country"""
+    monthly_celestial_authority: float | str
+    """None, Location, Country, Unit, Character, Religion, Mercenary, Province, InternationalOrganization, Rebel, Dynasty, Movement, Ambition"""
+    conduct_keju_examination_cost_modifier: float | str
+    """Country"""
+    reshape_bureaucracy_cost_modifier: float | str
+    """Country"""
+    strengthen_ministry_cost_modifier: float | str
+    """Country"""
+    proclaim_decree_cost_modifier: float | str
+    """Country"""
+    exempt_from_tribute_cost_modifier: float | str
+    """Country"""
+    can_create_red_turban_rebellions_cb: float | str
+    """Country"""
+    rtr_grant_titles_price_cost_modifier: float | str
+    """Country"""
+    rtr_negotiate_with_rebels_price_cost_modifier: float | str
+    """Country"""
+    change_government_type_price_cost_modifier: float | str
+    """Country"""
+    rtr_appease_the_court_price_cost_modifier: float | str
+    """Country"""
+    rtr_rein_in_area_price_cost_modifier: float | str
+    """Country"""
+    rtr_demand_annexation_price_cost_modifier: float | str
+    """Country"""
+    change_employment_system_cost_modifier: float | str
+    """Country"""
+    restrict_peranakan_trading_rights_price_cost_modifier: float | str
+    """Country"""
+    ban_conversion_of_adipatis_price_cost_modifier: float | str
+    """Country"""
+    control_the_bhres_price_cost_modifier: float | str
+    """Country"""
+    gag_support_guelphs: float | str
+    """Country"""
+    crown_estate_can_participate_in_parliament: float | str
+    """Country"""
+    nobles_estate_can_participate_in_parliament: float | str
+    """Country"""
+    clergy_estate_can_participate_in_parliament: float | str
+    """Country"""
+    burghers_estate_can_participate_in_parliament: float | str
+    """Country"""
+    peasants_estate_can_participate_in_parliament: float | str
+    """Country"""
+    dhimmi_estate_can_participate_in_parliament: float | str
+    """Country"""
+    crown_estate_blocked_from_parliament: float | str
+    """Country"""
+    nobles_estate_blocked_from_parliament: float | str
+    """Country"""
+    clergy_estate_blocked_from_parliament: float | str
+    """Country"""
+    burghers_estate_blocked_from_parliament: float | str
+    """Country"""
+    peasants_estate_blocked_from_parliament: float | str
+    """Country"""
+    dhimmi_estate_blocked_from_parliament: float | str
+    """Country"""
+    tribes_estate_blocked_from_parliament: float | str
+    """Country"""
+    cossacks_estate_blocked_from_parliament: float | str
+    """Country"""
+    crown_estate_agenda_impact: float | str
+    """Country"""
+    nobles_estate_agenda_impact: float | str
+    """Country"""
+    clergy_estate_agenda_impact: float | str
+    """Country"""
+    burghers_estate_agenda_impact: float | str
+    """Country"""
+    peasants_estate_agenda_impact: float | str
+    """Country"""
+    dhimmi_estate_agenda_impact: float | str
+    """Country"""
+    tribes_estate_target_satisfaction: float | str
+    """Country"""
+    tribes_estate_satisfaction_decay: float | str
+    """Country"""
+    tribes_estate_satisfaction_recovery: float | str
+    """Country"""
+    tribes_estate_max_tax: float | str
+    """Country"""
+    tribes_estate_min_tax: float | str
+    """Country"""
+    tribes_estate_levy_size: float | str
+    """Country"""
+    local_tribes_estate_power: float | str
+    """Location"""
+    global_tribes_estate_power: float | str
+    """Country"""
+    base_tribes_estate_power_modifier: float | str
+    """Country"""
+    tribes_estate_can_participate_in_parliament: float | str
+    """Country"""
+    tribes_estate_cannot_marry: float | str
+    """Country"""
+    tribes_estate_agenda_impact: float | str
+    """Country"""
+    cossacks_estate_target_satisfaction: float | str
+    """Country"""
+    cossacks_estate_satisfaction_decay: float | str
+    """Country"""
+    cossacks_estate_satisfaction_recovery: float | str
+    """Country"""
+    cossacks_estate_max_tax: float | str
+    """Country"""
+    cossacks_estate_min_tax: float | str
+    """Country"""
+    cossacks_estate_levy_size: float | str
+    """Country"""
+    local_cossacks_estate_power: float | str
+    """Location"""
+    global_cossacks_estate_power: float | str
+    """Country"""
+    base_cossacks_estate_power_modifier: float | str
+    """Country"""
+    cossacks_estate_can_participate_in_parliament: float | str
+    """Country"""
+    cossacks_estate_cannot_marry: float | str
+    """Country"""
+    cossacks_estate_agenda_impact: float | str
+    """Country"""
+    local_construction_speed: float | str
+    """Location"""
+    global_construction_speed: float | str
+    """Country"""
+    num_possible_rivals: float | str
+    """Country"""
+    mercury_patio_max_level: float | str
+    """Country"""
+    hanseatic_shipwright_guild_max_level: float | str
+    """Country"""
+    construction_center_max_level: float | str
+    """Country"""
+    allows_hanseatic_federation_buildings: float | str
+    """Country"""
+    always_allow_levies: float | str
+    """Country"""
+    excluded_from_paying_tithe: float | str
+    """Country"""
+    tithe_cost_modifier: float | str
+    """Country"""
+    join_italian_wars_price_cost_modifier: float | str
+    """Country"""
+    create_italian_league_price_cost_modifier: float | str
+    """Country"""
+    plan_italian_campaign_wars_price_cost_modifier: float | str
+    """Country"""
+    italian_league_sponsor_gold_price_cost_modifier: float | str
+    """Country"""
+    italian_league_sponsor_manpower_price_cost_modifier: float | str
+    """Country"""
+    intervene_in_italian_campaign_price_cost_modifier: float | str
+    """Country"""
+    iw_send_aid_price_cost_modifier: float | str
+    """Country"""
+    fortify_key_location_price_cost_modifier: float | str
+    """Country"""
+    establish_italian_administration_center_price_cost_modifier: float | str
+    """Country"""
+    challenge_league_leadership_price_cost_modifier: float | str
+    """Country"""
+    enable_pest_house: float | str
+    """Country"""
+    rto_press_claims_price_cost_modifier: float | str
+    """Country"""
+    rto_create_uc_bey_cost_modifier: float | str
+    """Country"""
+    succession_crisis_price_cost_modifier: float | str
+    """Country"""
+    fate_of_phoenix_actions_price_cost_modifier: float | str
+    """Country"""
+    loan_icon_price_cost_modifier: float | str
+    """Country"""
+    mend_schism_price_cost_modifier: float | str
+    """Country"""
+    restore_rome_primacy_price_cost_modifier: float | str
+    """Country"""
+    reestablish_hellenism_price_cost_modifier: float | str
+    """Country"""
+    assign_despot_price_cost_modifier: float | str
+    """Country"""
+    compose_strategikon_price_cost_modifier: float | str
+    """Country"""
+    castrate_character_price_cost_modifier: float | str
+    """Country"""
+    blind_character_price_cost_modifier: float | str
+    """Country"""
+    wotr_action_price_cost_modifier: float | str
+    """Country"""
+    peasants_war_actions_price_cost_modifier: float | str
+    """Country"""
+    rise_of_the_szlachta_actions_price_cost_modifier: float | str
+    """Country"""
+    religious_turmoil_actions_price_cost_modifier: float | str
+    """Country"""
+    seek_relations_with_the_byzantines_price_cost_modifier: float | str
+    """Country"""
+    examine_our_fortifications_price_cost_modifier: float | str
+    """Country"""
+    offer_diplomatic_protection_price_cost_modifier: float | str
+    """Country"""
+    invade_neighbor_beylik_price_cost_modifier: float | str
+    """Country"""
+    rot_select_core_region_price_cost_modifier: float | str
+    """Country"""
+    rot_reform_into_monarchy_price_cost_modifier: float | str
+    """Country"""
+    free_capacity_attracts_pops: float | str
+    """Location"""
+    cannot_upgrade_location: float | str
+    """Location"""
+    horde_unity_hit_at_ruler_death: float | str
+    """Country"""
+    can_promote_mamluks: float | str
+    """Country"""
+    can_build_mamluk_barracks: float | str
+    """Country"""
+    army_food_gathering: float | str
+    """Unit"""
+    army_food_gathering_modifier: float | str
+    """Unit"""
+    tribes_estate_blocked_from_cabinet: float | str
+    """Country"""
+    cossacks_estate_blocked_from_cabinet: float | str
+    """Country"""
+    crown_estate_blocked_from_cabinet: float | str
+    """Country"""
+    nobles_estate_blocked_from_cabinet: float | str
+    """Country"""
+    clergy_estate_blocked_from_cabinet: float | str
+    """Country"""
+    burghers_estate_blocked_from_cabinet: float | str
+    """Country"""
+    peasants_estate_blocked_from_cabinet: float | str
+    """Country"""
+    dhimmi_estate_blocked_from_cabinet: float | str
+    """Country"""
+    tribes_estate_allowed_in_cabinet: float | str
+    """Country"""
+    cossacks_estate_allowed_in_cabinet: float | str
+    """Country"""
+    crown_estate_allowed_in_cabinet: float | str
+    """Country"""
+    nobles_estate_allowed_in_cabinet: float | str
+    """Country"""
+    clergy_estate_allowed_in_cabinet: float | str
+    """Country"""
+    burghers_estate_allowed_in_cabinet: float | str
+    """Country"""
+    peasants_estate_allowed_in_cabinet: float | str
+    """Country"""
+    dhimmi_estate_allowed_in_cabinet: float | str
+    """Country"""
+    tribes_estate_allowed_noble_marriage: float | str
+    """Country"""
+    cossacks_estate_allowed_noble_marriage: float | str
+    """Country"""
+    crown_estate_allowed_noble_marriage: float | str
+    """Country"""
+    nobles_estate_allowed_noble_marriage: float | str
+    """Country"""
+    clergy_estate_allowed_noble_marriage: float | str
+    """Country"""
+    burghers_estate_allowed_noble_marriage: float | str
+    """Country"""
+    peasants_estate_allowed_noble_marriage: float | str
+    """Country"""
+    dhimmi_estate_allowed_noble_marriage: float | str
+    """Country"""
+    tribes_estate_blocked_from_leading_military: float | str
+    """Country"""
+    cossacks_estate_blocked_from_leading_military: float | str
+    """Country"""
+    crown_estate_blocked_from_leading_military: float | str
+    """Country"""
+    nobles_estate_blocked_from_leading_military: float | str
+    """Country"""
+    clergy_estate_blocked_from_leading_military: float | str
+    """Country"""
+    burghers_estate_blocked_from_leading_military: float | str
+    """Country"""
+    peasants_estate_blocked_from_leading_military: float | str
+    """Country"""
+    dhimmi_estate_blocked_from_leading_military: float | str
+    """Country"""
+    tribes_estate_allowed_leading_military: float | str
+    """Country"""
+    cossacks_estate_allowed_leading_military: float | str
+    """Country"""
+    crown_estate_allowed_leading_military: float | str
+    """Country"""
+    nobles_estate_allowed_leading_military: float | str
+    """Country"""
+    clergy_estate_allowed_leading_military: float | str
+    """Country"""
+    burghers_estate_allowed_leading_military: float | str
+    """Country"""
+    peasants_estate_allowed_leading_military: float | str
+    """Country"""
+    dhimmi_estate_allowed_leading_military: float | str
+    """Country"""
+    tribes_estate_allowed_to_build_roads: float | str
+    """Country"""
+    cossacks_estate_allowed_to_build_roads: float | str
+    """Country"""
+    crown_estate_allowed_to_build_roads: float | str
+    """Country"""
+    nobles_estate_allowed_to_build_roads: float | str
+    """Country"""
+    clergy_estate_allowed_to_build_roads: float | str
+    """Country"""
+    burghers_estate_allowed_to_build_roads: float | str
+    """Country"""
+    peasants_estate_allowed_to_build_roads: float | str
+    """Country"""
+    dhimmi_estate_allowed_to_build_roads: float | str
+    """Country"""
+    tribes_estate_allowed_to_build_rgo: float | str
+    """Country"""
+    cossacks_estate_allowed_to_build_rgo: float | str
+    """Country"""
+    crown_estate_allowed_to_build_rgo: float | str
+    """Country"""
+    nobles_estate_allowed_to_build_rgo: float | str
+    """Country"""
+    clergy_estate_allowed_to_build_rgo: float | str
+    """Country"""
+    burghers_estate_allowed_to_build_rgo: float | str
+    """Country"""
+    peasants_estate_allowed_to_build_rgo: float | str
+    """Country"""
+    dhimmi_estate_allowed_to_build_rgo: float | str
+    """Country"""
+    ignore_gender_block_leader: float | str
+    """Character"""
+    block_male_leader: float | str
+    """Country"""
+    block_female_leader: float | str
+    """Country"""
+    allow_male_leader: float | str
+    """Country"""
+    allow_female_leader: float | str
+    """Country"""
+    ignore_gender_block_cabinet: float | str
+    """Character"""
+    block_male_cabinet: float | str
+    """Country"""
+    block_female_cabinet: float | str
+    """Country"""
+    allow_male_cabinet: float | str
+    """Country"""
+    allow_female_cabinet: float | str
+    """Country"""
+    can_build_kurmina_headquarter: float | str
+    """Country"""
+    christian_tenet_price_cost_modifier: float | str
+    """Country"""
+    jurchen_confederation_law_price_cost_modifier: float | str
+    """Country"""
+    allow_tributary_subject: float | str
+    """Country"""
+    enable_black_market_buildings: float | str
+    """Country"""
+    enable_pronoia_subject: float | str
+    """Country"""
+    send_diplomat_cost_modifier: float | str
+    """Country"""
+    abandon_piracy_cost_modifier: float | str
+    """Country"""
+    violate_treaty_of_tordesillas_cost_modifier: float | str
+    """Country"""
+    tordesillas_claim_area_price_cost_modifier: float | str
+    """Country"""
+    tordesillas_swap_sides_cost_modifier: float | str
+    """Country"""
+    tordesillas_move_the_line_cost_modifier: float | str
+    """Country"""
+    tordesillas_claim_conflicting_area_price_cost_modifier: float | str
+    """Country"""
+    tordesillas_push_to_settle_treaty_cost_modifier: float | str
+    """Country"""
+    tordesillas_upheld_treaty_relevance_cost_modifier: float | str
+    """Country"""
+    tordesillas_revoke_claim_cost_modifier: float | str
+    """Country"""
+    tordesillas_demand_transfer_colony_cost_modifier: float | str
+    """Country"""
+    tordesillas_swap_claim_cost_modifier: float | str
+    """Country"""
+    migrate_to_new_waters_cost_modifier: float | str
+    """Country"""
+    move_good_to_new_location_cost_modifier: float | str
+    """Country"""
+    decline_of_empire_actions_price_cost_modifier: float | str
+    """Country"""
+    learn_from_foreigners_cost_modifier: float | str
+    """Country"""
+    absorb_institutions_cost_modifier: float | str
+    """Country"""
+    slave_market_max_level: float | str
+    """Country"""
+    aqueduct_system_max_level: float | str
+    """Country"""
+    allow_diplomacy_force_embargo: float | str
+    """Country"""
+    allow_cabinet_naval_focus: float | str
+    """Country"""
+    allow_diplomacy_violate_sovereignty: float | str
+    """Country"""
+    allow_cabinet_soldiers_as_workforce: float | str
+    """Country"""
+    allow_diplomacy_force_divert_trade: float | str
+    """Country"""
+    allow_cabinet_reduced_paperwork: float | str
+    """Country"""
+    allow_diplomacy_force_change_court_language: float | str
+    """Country"""
+    allow_cabinet_assimilate_area: float | str
+    """Country"""
+    allow_diplomacy_influence_nation: float | str
+    """Country"""
+    allow_cabinet_diplomatic_corps: float | str
+    """Country"""
+    seek_alliance_with_overlord_rival_cost_modifier: float | str
+    """Country"""
+    declare_independence_war_cost_modifier: float | str
+    """Country"""
+    give_colony_representation_cost_modifier: float | str
+    """Country"""
+    establish_goods_act_cost_modifier: float | str
+    """Country"""
+    aid_colonial_war_cost_modifier: float | str
+    """Country"""
+    give_colony_rebellion_support_cost_modifier: float | str
+    """Country"""
+    allow_assembly_parliament: float | str
+    """Country"""
+    allow_council_parliament: float | str
+    """Country"""
+    allow_estate_parliament: float | str
+    """Country"""
+    allow_autocratic_parliament: float | str
+    """Country"""
+    allow_constitutional_parliament: float | str
+    """Country"""
+    reach_compromise_with_huguenots_price_cost_modifier: float | str
+    """Country"""
+    can_assign_governors: float | str
+    """Country"""
+    take_on_debt_cost_modifier: float | str
+    """Country"""
+    available_organization_parliament_agendas: float | str
+    """InternationalOrganization"""
+    emperor_can_participate_in_parliament: float | str
+    """InternationalOrganization"""
+    emperor_agenda_impact: float | str
+    """InternationalOrganization"""
+    elector_can_participate_in_parliament: float | str
+    """InternationalOrganization"""
+    elector_agenda_impact: float | str
+    """InternationalOrganization"""
+    archbishop_elector_can_participate_in_parliament: float | str
+    """InternationalOrganization"""
+    archbishop_elector_agenda_impact: float | str
+    """InternationalOrganization"""
+    free_city_can_participate_in_parliament: float | str
+    """InternationalOrganization"""
+    free_city_agenda_impact: float | str
+    """InternationalOrganization"""
+    primas_germaniae_can_participate_in_parliament: float | str
+    """InternationalOrganization"""
+    primas_germaniae_agenda_impact: float | str
+    """InternationalOrganization"""
+    legatus_natus_can_participate_in_parliament: float | str
+    """InternationalOrganization"""
+    legatus_natus_agenda_impact: float | str
+    """InternationalOrganization"""
+    imperial_prelate_can_participate_in_parliament: float | str
+    """InternationalOrganization"""
+    imperial_prelate_agenda_impact: float | str
+    """InternationalOrganization"""
+    imperial_prince_can_participate_in_parliament: float | str
+    """InternationalOrganization"""
+    imperial_prince_agenda_impact: float | str
+    """InternationalOrganization"""
+    imperial_peasant_republic_can_participate_in_parliament: float | str
+    """InternationalOrganization"""
+    imperial_peasant_republic_agenda_impact: float | str
+    """InternationalOrganization"""
+    curia_can_participate_in_parliament: float | str
+    """InternationalOrganization"""
+    curia_agenda_impact: float | str
+    """InternationalOrganization"""
+    military_order_can_participate_in_parliament: float | str
+    """InternationalOrganization"""
+    military_order_agenda_impact: float | str
+    """InternationalOrganization"""
+    bishopric_can_participate_in_parliament: float | str
+    """InternationalOrganization"""
+    bishopric_agenda_impact: float | str
+    """InternationalOrganization"""
+    crusade_spiritual_leader_can_participate_in_parliament: float | str
+    """InternationalOrganization"""
+    crusade_spiritual_leader_agenda_impact: float | str
+    """InternationalOrganization"""
+    crusade_temporal_leader_can_participate_in_parliament: float | str
+    """InternationalOrganization"""
+    crusade_temporal_leader_agenda_impact: float | str
+    """InternationalOrganization"""
+    jihad_spiritual_leader_can_participate_in_parliament: float | str
+    """InternationalOrganization"""
+    jihad_spiritual_leader_agenda_impact: float | str
+    """InternationalOrganization"""
+    ilkhan_claimant_can_participate_in_parliament: float | str
+    """InternationalOrganization"""
+    ilkhan_claimant_agenda_impact: float | str
+    """InternationalOrganization"""
+    japanese_emperor_can_participate_in_parliament: float | str
+    """InternationalOrganization"""
+    japanese_emperor_agenda_impact: float | str
+    """InternationalOrganization"""
+    shugo_daimyo_can_participate_in_parliament: float | str
+    """InternationalOrganization"""
+    shugo_daimyo_agenda_impact: float | str
+    """InternationalOrganization"""
+    lieutenant_can_participate_in_parliament: float | str
+    """InternationalOrganization"""
+    lieutenant_agenda_impact: float | str
+    """InternationalOrganization"""
+    loyalist_can_participate_in_parliament: float | str
+    """InternationalOrganization"""
+    loyalist_agenda_impact: float | str
+    """InternationalOrganization"""
+    absentee_can_participate_in_parliament: float | str
+    """InternationalOrganization"""
+    absentee_agenda_impact: float | str
+    """InternationalOrganization"""
+    high_king_can_participate_in_parliament: float | str
+    """InternationalOrganization"""
+    high_king_agenda_impact: float | str
+    """InternationalOrganization"""
+    lord_of_ireland_can_participate_in_parliament: float | str
+    """InternationalOrganization"""
+    lord_of_ireland_agenda_impact: float | str
+    """InternationalOrganization"""
+    celestial_governor_can_participate_in_parliament: float | str
+    """InternationalOrganization"""
+    celestial_governor_agenda_impact: float | str
+    """InternationalOrganization"""
+    member_can_participate_in_parliament: float | str
+    """InternationalOrganization"""
+    member_agenda_impact: float | str
+    """InternationalOrganization"""
+    tatar_overlord_can_participate_in_parliament: float | str
+    """InternationalOrganization"""
+    tatar_overlord_agenda_impact: float | str
+    """InternationalOrganization"""
+    tatar_tax_collector_can_participate_in_parliament: float | str
+    """InternationalOrganization"""
+    tatar_tax_collector_agenda_impact: float | str
+    """InternationalOrganization"""
+    italian_league_sponsor_can_participate_in_parliament: float | str
+    """InternationalOrganization"""
+    italian_league_sponsor_agenda_impact: float | str
+    """InternationalOrganization"""
+    senior_partner_can_participate_in_parliament: float | str
+    """InternationalOrganization"""
+    senior_partner_agenda_impact: float | str
+    """InternationalOrganization"""
+    junior_partner_can_participate_in_parliament: float | str
+    """InternationalOrganization"""
+    junior_partner_agenda_impact: float | str
+    """InternationalOrganization"""
+    unlock_contribute_to_organization_treasury: float | str
+    """InternationalOrganization"""
+    unlock_withdraw_from_organization_treasury: float | str
+    """InternationalOrganization"""
+    unlock_hire_cabinet_character_from_member: float | str
+    """InternationalOrganization"""
+    unlock_hire_military_leader_from_member: float | str
+    """InternationalOrganization"""
+    unlock_hire_artist_from_member: float | str
+    """InternationalOrganization"""
+    unlock_force_convert_member: float | str
+    """InternationalOrganization"""
+    unlock_align_societal_values_member: float | str
+    """InternationalOrganization"""
+    unlock_improve_relations_member: float | str
+    """InternationalOrganization"""
+    unlock_invest_in_members_economy: float | str
+    """InternationalOrganization"""
+    unlock_invest_in_members_administration: float | str
+    """InternationalOrganization"""
+    unlock_invest_in_members_military: float | str
+    """InternationalOrganization"""
+    policy_vote_delay: float | str
+    """InternationalOrganization"""
+    policy_vote_required_vote_ratio: float | str
+    """InternationalOrganization"""
+    character_on_task_modifier: float | str
+    """Country"""
+    bias_for_administrative_policies: float | str
+    """Country"""
+    bias_for_balanced_policies: float | str
+    """Country"""
+    bias_for_colonialist_policies: float | str
+    """Country"""
+    bias_for_diplomat_policies: float | str
+    """Country"""
+    bias_for_militarist_policies: float | str
+    """Country"""
+    bias_for_capitalist_policies: float | str
+    """Country"""
+    bias_for_tolerant_policies: float | str
+    """Country"""
+    bias_for_spiritualist_policies: float | str
+    """Country"""
+    bias_for_scholar_policies: float | str
+    """Country"""
+    bias_for_isolationist_policies: float | str
+    """Country"""
+    bias_for_patron_of_arts_policies: float | str
+    """Country"""
+    reject_subjugation_reasons: float | str
+    """Country"""
+    accept_subjugation_reasons: float | str
+    """Country"""
+    enforced_internal_peace: float | str
+    """InternationalOrganization"""
+    union_integration_level: float | str
+    """InternationalOrganization"""
+    hre_max_elector: float | str
+    """InternationalOrganization"""
+    hre_max_archbishop_elector: float | str
+    """InternationalOrganization"""
+    hre_allow_female_emperors: float | str
+    """InternationalOrganization"""
+    hre_enable_leave_hre_peace_treaty: float | str
+    """InternationalOrganization"""
+    imperial_ban_allowed: float | str
+    """InternationalOrganization"""
+    revoke_privileges_importance_modifier: float | str
+    """Country"""
+    revoke_privileges_stability_tolerance: float | str
+    """Country"""
+    coup_attempt_disaster_actions_price_cost_modifier: float | str
+    """Country"""
+    oligarchic_capture_disaster_actions_price_cost_modifier: float | str
+    """Country"""
+    crisis_of_faith_disaster_actions_price_cost_modifier: float | str
+    """Country"""
+    hyw_main_actions_price_cost_modifier: float | str
+    """Country"""
+    revolution_actions_price_cost_modifier: float | str
+    """Country"""
+    western_schism_ri_actions_price_cost_modifier: float | str
+    """Country"""
+    western_schism_gold_actions_price_cost_modifier: float | str
+    """Country"""
+    lia_actions_price_cost_modifier: float | str
+    """Country"""
+    direct_excommunication_allowed: float | str
+    """InternationalOrganization"""
+    excommunication_disabled: float | str
+    """InternationalOrganization"""
+    tatar_yoke_contribution_price_cost_modifier: float | str
+    """Country"""
+    tatar_yoke_leader_payments_price_cost_modifier: float | str
+    """Country"""
+    uc_bey_pays_cost_modifier: float | str
+    """Country"""
+    rebel_monthly_progress: float | str
+    """Rebel"""
+    cannot_declare_no_cb_wars_on_members: float | str
+    """InternationalOrganization"""
+    blocked_from_changing_heir_selection: float | str
+    """Country"""
+    allow_member_call_parliament: float | str
+    """InternationalOrganization"""
+    can_call_organization_parliament: float | str
+    """InternationalOrganization"""
+    blocked_from_ruling_the_hre: float | str
+    """Character"""
+    years_to_annex_members: float | str
+    """InternationalOrganization"""
+    enable_annexation_of_members: float | str
+    """InternationalOrganization"""
+    monthly_towards_land: float | str
+    """Country"""
+    monthly_towards_naval: float | str
+    """Country"""
+    monthly_towards_centralization: float | str
+    """Country"""
+    monthly_towards_decentralization: float | str
+    """Country"""
+    monthly_towards_innovative: float | str
+    """Country"""
+    monthly_towards_traditionalist: float | str
+    """Country"""
+    monthly_towards_humanist: float | str
+    """Country"""
+    monthly_towards_spiritualist: float | str
+    """Country"""
+    monthly_towards_aristocracy: float | str
+    """Country"""
+    monthly_towards_plutocracy: float | str
+    """Country"""
+    monthly_towards_serfdom: float | str
+    """Country"""
+    monthly_towards_free_subjects: float | str
+    """Country"""
+    monthly_towards_mercantilism: float | str
+    """Country"""
+    monthly_towards_free_trade: float | str
+    """Country"""
+    monthly_towards_belligerent: float | str
+    """Country"""
+    monthly_towards_conciliatory: float | str
+    """Country"""
+    monthly_towards_quality: float | str
+    """Country"""
+    monthly_towards_quantity: float | str
+    """Country"""
+    monthly_towards_offensive: float | str
+    """Country"""
+    monthly_towards_defensive: float | str
+    """Country"""
+    monthly_towards_capital_economy: float | str
+    """Country"""
+    monthly_towards_traditional_economy: float | str
+    """Country"""
+    monthly_towards_individualism: float | str
+    """Country"""
+    monthly_towards_communalism: float | str
+    """Country"""
+    monthly_towards_outward: float | str
+    """Country"""
+    monthly_towards_inward: float | str
+    """Country"""
+    monthly_towards_sinicized: float | str
+    """Country"""
+    monthly_towards_unsinicized: float | str
+    """Country"""
+    monthly_towards_liberalism: float | str
+    """Country"""
+    monthly_towards_absolutism: float | str
+    """Country"""
+    monthly_towards_mysticism: float | str
+    """Country"""
+    monthly_towards_jurisprudence: float | str
+    """Country"""
+    monthly_towards_latinization: float | str
+    """Country"""
+    monthly_towards_hellenization: float | str
+    """Country"""
+    disallows_female_rulers: float | str
+    """Country"""
+    diplomatic_upkeep_efficiency: float | str
+    """Country"""
+    global_bureaucracy_implementation_efficiency: float | str
+    """Country"""
+    global_bureaucracy_removal_efficiency: float | str
+    """Country"""
+    global_bureaucracy_maintenance_efficiency: float | str
+    """Country"""
+    global_bureaucracy_entrenchment_speed_modifier: float | str
+    """Country"""
+    global_max_bureaucracy_slots: float | str
+    """Country"""
+    allow_bureaucracy: float | str
+    """Country"""
+    country_allow_canonization: float | str
+    """Country"""
+    building_owner_overlord_maritime_presence: float | str
+    """Location"""
+    gold_to_building_owner_overlord: float | str
+    """Location"""
+    scaled_gold_to_building_owner_overlord: float | str
+    """Location"""
+    number_of_satellite_trade_buildings: float | str
+    """Country"""
+    trade_company_headquarters_level: float | str
+    """Country"""
+    is_senior_partner: float | str
+    """Country"""
+    hre_emperor_comfort_policies_counter: float | str
+    """InternationalOrganization"""
+    enabled_negotiate_succession_law: float | str
+    """InternationalOrganization"""
+    enabled_union_enforcement_actions: float | str
+    """InternationalOrganization"""
+    country_bans_saffron_shirts: float | str
+    """Country"""
+    country_can_use_lordship_of_ireland_cb: float | str
+    """Country"""
+    country_marriage_banned: float | str
+    """Country"""
+    country_celtic_marriage_banned: float | str
+    """Country"""
+    num_of_cataphracts_modifier: float | str
+    """Country"""
+    lordship_of_ireland_casus_belli_cost_modifier: float | str
+    """Country"""
+    lordship_of_ireland_invite_planters_cost_modifier: float | str
+    """Country"""
+    lordship_of_ireland_form_kingdom_cost_modifier: float | str
+    """Country"""
+    high_kingship_reclaim_land_cost_modifier: float | str
+    """Country"""
+    high_kingship_overthrow_cost_modifier: float | str
+    """Country"""
+    high_kingship_subjugate_member_cost_modifier: float | str
+    """Country"""
+    forbid_multiple_policies_vote: float | str
+    """InternationalOrganization"""
+    union_allowed_enforce_peace: float | str
+    """InternationalOrganization"""
+    union_unlock_rein_in_junior_diplomacy: float | str
+    """InternationalOrganization"""
+    unlock_prikazi_reform_cabinet_actions: float | str
+    """Country"""
+    allow_nobility_fortifications: float | str
+    """Country"""
+    allow_noble_villa: float | str
+    """Country"""
+    allow_local_noble_delegation: float | str
+    """Country"""
+    allow_nobles_recruitment_center: float | str
+    """Country"""
+    allow_clerical_archives: float | str
+    """Country"""
+    allow_warrior_monks_training_grounds: float | str
+    """Country"""
+    allow_guild_hall: float | str
+    """Country"""
+    allow_peasants_training_grounds: float | str
+    """Country"""
+    allow_peasants_hunting_grounds: float | str
+    """Country"""
+    allow_dun_fort: float | str
+    """Country"""
+    allow_ville_franche_town_rights: float | str
+    """Country"""
+    allow_magdeburg_rights_town_rights: float | str
+    """Country"""
+    allow_nuremberg_rights_town_rights: float | str
+    """Country"""
+    allow_kulm_town_rights: float | str
+    """Country"""
+    allow_novi_fori_town_rights: float | str
+    """Country"""
+    block_forums_of_thought: float | str
+    """Country"""
+    allow_theocratic_education: float | str
+    """Country"""
+    allow_apprenticeships_education: float | str
+    """Country"""
+    allow_guilds_of_florence_law: float | str
+    """Country"""
+    can_recruit_crusader_regiments: float | str
+    """None, Location, Country, Unit, Character, Religion, Mercenary, Province, InternationalOrganization, Rebel, Dynasty, Movement, Ambition"""
+    can_raise_crusader_levies: float | str
+    """None, Location, Country, Unit, Character, Religion, Mercenary, Province, InternationalOrganization, Rebel, Dynasty, Movement, Ambition"""
+    cannot_be_subjugated: float | str
+    """Country"""
+    global_slave_pop_satisfaction: float | str
+    """Country"""
+    local_slave_pop_satisfaction: float | str
+    """Location"""
+    flatland_proximity_impact: float | str
+    """Country"""
+    mountains_proximity_impact: float | str
+    """Country"""
+    hills_proximity_impact: float | str
+    """Country"""
+    plateau_proximity_impact: float | str
+    """Country"""
+    wetlands_proximity_impact: float | str
+    """Country"""
+    ocean_proximity_impact: float | str
+    """Country"""
+    deep_ocean_proximity_impact: float | str
+    """Country"""
+    coastal_ocean_proximity_impact: float | str
+    """Country"""
+    inland_sea_proximity_impact: float | str
+    """Country"""
+    narrows_proximity_impact: float | str
+    """Country"""
+    lakes_proximity_impact: float | str
+    """Country"""
+    high_lakes_proximity_impact: float | str
+    """Country"""
+    salt_pans_proximity_impact: float | str
+    """Country"""
+    atoll_proximity_impact: float | str
+    """Country"""
+    flatland_wasteland_proximity_impact: float | str
+    """Country"""
+    hills_wasteland_proximity_impact: float | str
+    """Country"""
+    plateau_wasteland_proximity_impact: float | str
+    """Country"""
+    wetlands_wasteland_proximity_impact: float | str
+    """Country"""
+    dune_wasteland_proximity_impact: float | str
+    """Country"""
+    mesa_wasteland_proximity_impact: float | str
+    """Country"""
+    mountain_wasteland_proximity_impact: float | str
+    """Country"""
+    ocean_wasteland_proximity_impact: float | str
+    """Country"""
+    camels_impacts_inflation: float | str
+    """Country"""
+    horses_impacts_inflation: float | str
+    """Country"""
+    clay_impacts_inflation: float | str
+    """Country"""
+    sand_impacts_inflation: float | str
+    """Country"""
+    coal_impacts_inflation: float | str
+    """Country"""
+    iron_impacts_inflation: float | str
+    """Country"""
+    copper_impacts_inflation: float | str
+    """Country"""
+    goods_gold_impacts_inflation: float | str
+    """Country"""
+    silver_impacts_inflation: float | str
+    """Country"""
+    stone_impacts_inflation: float | str
+    """Country"""
+    tin_impacts_inflation: float | str
+    """Country"""
+    lead_impacts_inflation: float | str
+    """Country"""
+    silk_impacts_inflation: float | str
+    """Country"""
+    dyes_impacts_inflation: float | str
+    """Country"""
+    incense_impacts_inflation: float | str
+    """Country"""
+    tea_impacts_inflation: float | str
+    """Country"""
+    cocoa_impacts_inflation: float | str
+    """Country"""
+    coffee_impacts_inflation: float | str
+    """Country"""
+    fiber_crops_impacts_inflation: float | str
+    """Country"""
+    ivory_impacts_inflation: float | str
+    """Country"""
+    lumber_impacts_inflation: float | str
+    """Country"""
+    salt_impacts_inflation: float | str
+    """Country"""
+    medicaments_impacts_inflation: float | str
+    """Country"""
+    gems_impacts_inflation: float | str
+    """Country"""
+    pearls_impacts_inflation: float | str
+    """Country"""
+    amber_impacts_inflation: float | str
+    """Country"""
+    saltpeter_impacts_inflation: float | str
+    """Country"""
+    alum_impacts_inflation: float | str
+    """Country"""
+    wine_impacts_inflation: float | str
+    """Country"""
+    elephants_impacts_inflation: float | str
+    """Country"""
+    marble_impacts_inflation: float | str
+    """Country"""
+    mercury_impacts_inflation: float | str
+    """Country"""
+    saffron_impacts_inflation: float | str
+    """Country"""
+    pepper_impacts_inflation: float | str
+    """Country"""
+    cloves_impacts_inflation: float | str
+    """Country"""
+    chili_impacts_inflation: float | str
+    """Country"""
+    cotton_impacts_inflation: float | str
+    """Country"""
+    sugar_impacts_inflation: float | str
+    """Country"""
+    tobacco_impacts_inflation: float | str
+    """Country"""
+    tar_impacts_inflation: float | str
+    """Country"""
+    porcelain_impacts_inflation: float | str
+    """Country"""
+    naval_supplies_impacts_inflation: float | str
+    """Country"""
+    firearms_impacts_inflation: float | str
+    """Country"""
+    cannons_impacts_inflation: float | str
+    """Country"""
+    weaponry_impacts_inflation: float | str
+    """Country"""
+    glass_impacts_inflation: float | str
+    """Country"""
+    steel_impacts_inflation: float | str
+    """Country"""
+    cloth_impacts_inflation: float | str
+    """Country"""
+    fine_cloth_impacts_inflation: float | str
+    """Country"""
+    liquor_impacts_inflation: float | str
+    """Country"""
+    beer_impacts_inflation: float | str
+    """Country"""
+    paper_impacts_inflation: float | str
+    """Country"""
+    books_impacts_inflation: float | str
+    """Country"""
+    jewelry_impacts_inflation: float | str
+    """Country"""
+    leather_impacts_inflation: float | str
+    """Country"""
+    tools_impacts_inflation: float | str
+    """Country"""
+    masonry_impacts_inflation: float | str
+    """Country"""
+    lacquerware_impacts_inflation: float | str
+    """Country"""
+    pottery_impacts_inflation: float | str
+    """Country"""
+    furniture_impacts_inflation: float | str
+    """Country"""
+    wool_impacts_inflation: float | str
+    """Country"""
+    wild_game_impacts_inflation: float | str
+    """Country"""
+    fur_impacts_inflation: float | str
+    """Country"""
+    fish_impacts_inflation: float | str
+    """Country"""
+    wheat_impacts_inflation: float | str
+    """Country"""
+    maize_impacts_inflation: float | str
+    """Country"""
+    rice_impacts_inflation: float | str
+    """Country"""
+    millet_impacts_inflation: float | str
+    """Country"""
+    legumes_impacts_inflation: float | str
+    """Country"""
+    potato_impacts_inflation: float | str
+    """Country"""
+    livestock_impacts_inflation: float | str
+    """Country"""
+    olives_impacts_inflation: float | str
+    """Country"""
+    fruit_impacts_inflation: float | str
+    """Country"""
+    beeswax_impacts_inflation: float | str
+    """Country"""
+    slaves_goods_impacts_inflation: float | str
+    """Country"""
+    camels_used_for_minting: float | str
+    """Country"""
+    horses_used_for_minting: float | str
+    """Country"""
+    clay_used_for_minting: float | str
+    """Country"""
+    sand_used_for_minting: float | str
+    """Country"""
+    coal_used_for_minting: float | str
+    """Country"""
+    iron_used_for_minting: float | str
+    """Country"""
+    copper_used_for_minting: float | str
+    """Country"""
+    goods_gold_used_for_minting: float | str
+    """Country"""
+    silver_used_for_minting: float | str
+    """Country"""
+    stone_used_for_minting: float | str
+    """Country"""
+    tin_used_for_minting: float | str
+    """Country"""
+    lead_used_for_minting: float | str
+    """Country"""
+    silk_used_for_minting: float | str
+    """Country"""
+    dyes_used_for_minting: float | str
+    """Country"""
+    incense_used_for_minting: float | str
+    """Country"""
+    tea_used_for_minting: float | str
+    """Country"""
+    enable_religious_courts: float | str
+    """Country"""
+    cocoa_used_for_minting: float | str
+    """Country"""
+    coffee_used_for_minting: float | str
+    """Country"""
+    fiber_crops_used_for_minting: float | str
+    """Country"""
+    ivory_used_for_minting: float | str
+    """Country"""
+    lumber_used_for_minting: float | str
+    """Country"""
+    salt_used_for_minting: float | str
+    """Country"""
+    medicaments_used_for_minting: float | str
+    """Country"""
+    gems_used_for_minting: float | str
+    """Country"""
+    pearls_used_for_minting: float | str
+    """Country"""
+    amber_used_for_minting: float | str
+    """Country"""
+    saltpeter_used_for_minting: float | str
+    """Country"""
+    alum_used_for_minting: float | str
+    """Country"""
+    wine_used_for_minting: float | str
+    """Country"""
+    elephants_used_for_minting: float | str
+    """Country"""
+    marble_used_for_minting: float | str
+    """Country"""
+    mercury_used_for_minting: float | str
+    """Country"""
+    saffron_used_for_minting: float | str
+    """Country"""
+    pepper_used_for_minting: float | str
+    """Country"""
+    cloves_used_for_minting: float | str
+    """Country"""
+    chili_used_for_minting: float | str
+    """Country"""
+    cotton_used_for_minting: float | str
+    """Country"""
+    sugar_used_for_minting: float | str
+    """Country"""
+    tobacco_used_for_minting: float | str
+    """Country"""
+    tar_used_for_minting: float | str
+    """Country"""
+    porcelain_used_for_minting: float | str
+    """Country"""
+    naval_supplies_used_for_minting: float | str
+    """Country"""
+    firearms_used_for_minting: float | str
+    """Country"""
+    cannons_used_for_minting: float | str
+    """Country"""
+    weaponry_used_for_minting: float | str
+    """Country"""
+    glass_used_for_minting: float | str
+    """Country"""
+    steel_used_for_minting: float | str
+    """Country"""
+    cloth_used_for_minting: float | str
+    """Country"""
+    fine_cloth_used_for_minting: float | str
+    """Country"""
+    liquor_used_for_minting: float | str
+    """Country"""
+    beer_used_for_minting: float | str
+    """Country"""
+    paper_used_for_minting: float | str
+    """Country"""
+    books_used_for_minting: float | str
+    """Country"""
+    jewelry_used_for_minting: float | str
+    """Country"""
+    leather_used_for_minting: float | str
+    """Country"""
+    tools_used_for_minting: float | str
+    """Country"""
+    masonry_used_for_minting: float | str
+    """Country"""
+    lacquerware_used_for_minting: float | str
+    """Country"""
+    pottery_used_for_minting: float | str
+    """Country"""
+    furniture_used_for_minting: float | str
+    """Country"""
+    wool_used_for_minting: float | str
+    """Country"""
+    wild_game_used_for_minting: float | str
+    """Country"""
+    fur_used_for_minting: float | str
+    """Country"""
+    fish_used_for_minting: float | str
+    """Country"""
+    wheat_used_for_minting: float | str
+    """Country"""
+    maize_used_for_minting: float | str
+    """Country"""
+    rice_used_for_minting: float | str
+    """Country"""
+    millet_used_for_minting: float | str
+    """Country"""
+    legumes_used_for_minting: float | str
+    """Country"""
+    potato_used_for_minting: float | str
+    """Country"""
+    livestock_used_for_minting: float | str
+    """Country"""
+    olives_used_for_minting: float | str
+    """Country"""
+    fruit_used_for_minting: float | str
+    """Country"""
+    beeswax_used_for_minting: float | str
+    """Country"""
+    slaves_goods_used_for_minting: float | str
+    """Country"""
+    improve_our_cultural_view_price_cost_modifier: float | str
+    """Country"""
+    provoke_rebels_price_cost_modifier: float | str
+    """Country"""
+    transfer_subject_price_cost_modifier: float | str
+    """Country"""
+    merge_colonies_price_cost_modifier: float | str
+    """Country"""
+    global_estate_satisfaction_from_legitimacy: float | str
+    """Country"""
+    may_hire_eunuch_advisors: float | str
+    """Country"""
+    train_general_ability: float | str
+    """Country"""
+    train_admiral_ability: float | str
+    """Country"""
+    frankokratia_vassal_state_may_declare_war: float | str
+    """Country"""
+    lat_access_to_reconquest_cb: float | str
+    """Country"""
+    lat_access_to_latin_reintegration_cabinet: float | str
+    """Country"""
+    may_use_integrate_area_cabinet_action: float | str
+    """Country"""
+    allow_ibadi_majlis_ammi_said_council_parliament: float | str
+    """Country"""
+    monthly_nahualt_reform_progress: float | str
+    """Country"""
+    local_lutheranism_movement_growth_modifier: float | str
+    """Location"""
+    national_lutheranism_movement_growth_modifier: float | str
+    """Country"""
+    local_lutheranism_movement_resistance_modifier: float | str
+    """Location"""
+    national_lutheranism_movement_resistance_modifier: float | str
+    """Country"""
+    local_calvinism_movement_growth_modifier: float | str
+    """Location"""
+    national_calvinism_movement_growth_modifier: float | str
+    """Country"""
+    local_calvinism_movement_resistance_modifier: float | str
+    """Location"""
+    national_calvinism_movement_resistance_modifier: float | str
+    """Country"""
+    start_expedition_cost_modifier: float | str
+    """Country"""
+    nobles_estate_allowed_private_army: float | str
+    """Country"""
+    burghers_estate_allowed_private_army: float | str
+    """Country"""
+    clergy_estate_allowed_private_army: float | str
+    """Country"""
+    peasants_estate_allowed_private_army: float | str
+    """Country"""
+    cossacks_estate_allowed_private_army: float | str
+    """Country"""
+    crown_estate_allowed_private_army: float | str
+    """Country"""
+    dhimmi_estate_allowed_private_army: float | str
+    """Country"""
+    tribes_estate_allowed_private_army: float | str
+    """Country"""
+    twilight_of_the_tsardom_disaster_actions_price_cost_modifier: float | str
+    """Country"""
+    num_italian_administrations: float | str
+    """Country"""
+    sponsor_the_reformation_cost_modifier: float | str
+    """Country"""
+    ambition_slots: float | str
+    """Country"""
+    contesting_ambition_slots: float | str
+    """Country"""
+    crown_estate_power_from_cabinet: float | str
+    """Country"""
+    nobles_estate_power_from_cabinet: float | str
+    """Country"""
+    clergy_estate_power_from_cabinet: float | str
+    """Country"""
+    burghers_estate_power_from_cabinet: float | str
+    """Country"""
+    peasants_estate_power_from_cabinet: float | str
+    """Country"""
+    dhimmi_estate_power_from_cabinet: float | str
+    """Country"""
+    tribes_estate_power_from_cabinet: float | str
+    """Country"""
+    cossacks_estate_power_from_cabinet: float | str
+    """Country"""
+    local_horses_establishment_speed: float | str
+    """Location"""
+    global_horses_establishment_speed: float | str
+    """Country"""
+    local_clay_establishment_speed: float | str
+    """Location"""
+    global_clay_establishment_speed: float | str
+    """Country"""
+    local_sand_establishment_speed: float | str
+    """Location"""
+    global_sand_establishment_speed: float | str
+    """Country"""
+    local_coal_establishment_speed: float | str
+    """Location"""
+    global_coal_establishment_speed: float | str
+    """Country"""
+    local_iron_establishment_speed: float | str
+    """Location"""
+    global_iron_establishment_speed: float | str
+    """Country"""
+    local_copper_establishment_speed: float | str
+    """Location"""
+    global_copper_establishment_speed: float | str
+    """Country"""
+    local_goods_gold_establishment_speed: float | str
+    """Location"""
+    global_goods_gold_establishment_speed: float | str
+    """Country"""
+    local_silver_establishment_speed: float | str
+    """Location"""
+    global_silver_establishment_speed: float | str
+    """Country"""
+    local_stone_establishment_speed: float | str
+    """Location"""
+    global_stone_establishment_speed: float | str
+    """Country"""
+    local_tin_establishment_speed: float | str
+    """Location"""
+    global_tin_establishment_speed: float | str
+    """Country"""
+    local_lead_establishment_speed: float | str
+    """Location"""
+    global_lead_establishment_speed: float | str
+    """Country"""
+    local_silk_establishment_speed: float | str
+    """Location"""
+    global_silk_establishment_speed: float | str
+    """Country"""
+    local_dyes_establishment_speed: float | str
+    """Location"""
+    global_dyes_establishment_speed: float | str
+    """Country"""
+    local_incense_establishment_speed: float | str
+    """Location"""
+    global_incense_establishment_speed: float | str
+    """Country"""
+    local_tea_establishment_speed: float | str
+    """Location"""
+    global_tea_establishment_speed: float | str
+    """Country"""
+    local_cocoa_establishment_speed: float | str
+    """Location"""
+    global_cocoa_establishment_speed: float | str
+    """Country"""
+    local_coffee_establishment_speed: float | str
+    """Location"""
+    global_coffee_establishment_speed: float | str
+    """Country"""
+    local_fiber_crops_establishment_speed: float | str
+    """Location"""
+    global_fiber_crops_establishment_speed: float | str
+    """Country"""
+    local_ivory_establishment_speed: float | str
+    """Location"""
+    global_ivory_establishment_speed: float | str
+    """Country"""
+    local_lumber_establishment_speed: float | str
+    """Location"""
+    global_lumber_establishment_speed: float | str
+    """Country"""
+    local_salt_establishment_speed: float | str
+    """Location"""
+    global_salt_establishment_speed: float | str
+    """Country"""
+    local_medicaments_establishment_speed: float | str
+    """Location"""
+    global_medicaments_establishment_speed: float | str
+    """Country"""
+    local_gems_establishment_speed: float | str
+    """Location"""
+    global_gems_establishment_speed: float | str
+    """Country"""
+    local_pearls_establishment_speed: float | str
+    """Location"""
+    global_pearls_establishment_speed: float | str
+    """Country"""
+    local_amber_establishment_speed: float | str
+    """Location"""
+    global_amber_establishment_speed: float | str
+    """Country"""
+    local_saltpeter_establishment_speed: float | str
+    """Location"""
+    global_saltpeter_establishment_speed: float | str
+    """Country"""
+    local_alum_establishment_speed: float | str
+    """Location"""
+    global_alum_establishment_speed: float | str
+    """Country"""
+    local_elephants_establishment_speed: float | str
+    """Location"""
+    global_elephants_establishment_speed: float | str
+    """Country"""
+    local_marble_establishment_speed: float | str
+    """Location"""
+    global_marble_establishment_speed: float | str
+    """Country"""
+    local_mercury_establishment_speed: float | str
+    """Location"""
+    global_mercury_establishment_speed: float | str
+    """Country"""
+    local_saffron_establishment_speed: float | str
+    """Location"""
+    global_saffron_establishment_speed: float | str
+    """Country"""
+    local_pepper_establishment_speed: float | str
+    """Location"""
+    global_pepper_establishment_speed: float | str
+    """Country"""
+    local_cloves_establishment_speed: float | str
+    """Location"""
+    global_cloves_establishment_speed: float | str
+    """Country"""
+    local_chili_establishment_speed: float | str
+    """Location"""
+    global_chili_establishment_speed: float | str
+    """Country"""
+    local_wool_establishment_speed: float | str
+    """Location"""
+    global_wool_establishment_speed: float | str
+    """Country"""
+    local_cotton_establishment_speed: float | str
+    """Location"""
+    global_cotton_establishment_speed: float | str
+    """Country"""
+    local_sugar_establishment_speed: float | str
+    """Location"""
+    global_sugar_establishment_speed: float | str
+    """Country"""
+    local_tobacco_establishment_speed: float | str
+    """Location"""
+    global_tobacco_establishment_speed: float | str
+    """Country"""
+    local_wild_game_establishment_speed: float | str
+    """Location"""
+    global_wild_game_establishment_speed: float | str
+    """Country"""
+    local_fur_establishment_speed: float | str
+    """Location"""
+    global_fur_establishment_speed: float | str
+    """Country"""
+    local_fish_establishment_speed: float | str
+    """Location"""
+    global_fish_establishment_speed: float | str
+    """Country"""
+    local_wheat_establishment_speed: float | str
+    """Location"""
+    global_wheat_establishment_speed: float | str
+    """Country"""
+    local_maize_establishment_speed: float | str
+    """Location"""
+    global_maize_establishment_speed: float | str
+    """Country"""
+    local_rice_establishment_speed: float | str
+    """Location"""
+    global_rice_establishment_speed: float | str
+    """Country"""
+    local_millet_establishment_speed: float | str
+    """Location"""
+    global_millet_establishment_speed: float | str
+    """Country"""
+    local_legumes_establishment_speed: float | str
+    """Location"""
+    global_legumes_establishment_speed: float | str
+    """Country"""
+    local_potato_establishment_speed: float | str
+    """Location"""
+    global_potato_establishment_speed: float | str
+    """Country"""
+    local_livestock_establishment_speed: float | str
+    """Location"""
+    global_livestock_establishment_speed: float | str
+    """Country"""
+    local_olives_establishment_speed: float | str
+    """Location"""
+    global_olives_establishment_speed: float | str
+    """Country"""
+    local_fruit_establishment_speed: float | str
+    """Location"""
+    global_fruit_establishment_speed: float | str
+    """Country"""
+    local_beeswax_establishment_speed: float | str
+    """Location"""
+    global_beeswax_establishment_speed: float | str
+    """Country"""
+    local_slaves_goods_establishment_speed: float | str
+    """Location"""
+    global_slaves_goods_establishment_speed: float | str
+    """Country"""
+    local_camels_establishment_speed: float | str
+    """Location"""
+    global_camels_establishment_speed: float | str
+    """Country"""
+    unlocked_consulate_sea_town_right: float | str
+    """Country"""
+    allow_appoint_adelantado_mayor: float | str
+    """Country"""
+    contact_patriarch_of_constantinople_cost_modifier: float | str
+    """Country"""
+    maintain_bureaucracy_price_cost_modifier: float | str
+    """Country"""
+    remove_bureaucracy_price_cost_modifier: float | str
+    """Country"""
+    implement_bureaucracy_price_cost_modifier: float | str
+    """Country"""
+    allow_roman_movement: float | str
+    """Country"""
+    global_roman_culture_movement_resistance_modifier: float | str
+    """Movement"""
+    national_roman_culture_movement_resistance_modifier: float | str
+    """Country"""
+    local_roman_culture_movement_resistance_modifier: float | str
+    """Location"""
+    global_roman_culture_movement_growth_modifier: float | str
+    """Movement"""
+    national_roman_culture_movement_growth_modifier: float | str
+    """Country"""
+    local_roman_culture_movement_growth_modifier: float | str
+    """Location"""
+    local_hellenism_religion_movement_impact_modifier: float | str
+    """Location"""
+    global_hellenism_religion_movement_resistance_modifier: float | str
+    """Movement"""
+    national_hellenism_religion_movement_resistance_modifier: float | str
+    """Country"""
+    local_hellenism_religion_movement_resistance_modifier: float | str
+    """Location"""
+    global_hellenism_religion_movement_growth_modifier: float | str
+    """Movement"""
+    national_hellenism_religion_movement_growth_modifier: float | str
+    """Country"""
+    local_hellenism_religion_movement_growth_modifier: float | str
+    """Location"""
+    nomos_empsychos_bureaucracy_impact_modifier: float | str
+    """Country"""
+    honorary_titles_bureaucracy_impact_modifier: float | str
+    """Country"""
+    court_eunuchs_bureaucracy_impact_modifier: float | str
+    """Country"""
+    ritualistic_court_bureaucracy_impact_modifier: float | str
+    """Country"""
+    sixty_books_of_the_basilika_bureaucracy_impact_modifier: float | str
+    """Country"""
+    romanitas_bureaucracy_impact_modifier: float | str
+    """Country"""
+    imperial_senate_bureaucracy_impact_modifier: float | str
+    """Country"""
+    kephalai_bureaucracy_impact_modifier: float | str
+    """Country"""
+    magister_militum_bureaucracy_impact_modifier: float | str
+    """Country"""
+    themata_bureaucracy_impact_modifier: float | str
+    """Country"""
+    allelengyon_bureaucracy_impact_modifier: float | str
+    """Country"""
+    board_of_revenue_bureaucracy_impact_modifier: float | str
+    """Country"""
+    privy_council_bureaucracy_impact_modifier: float | str
+    """Country"""
+    audit_bureau_bureaucracy_impact_modifier: float | str
+    """Country"""
+    colonial_office_bureaucracy_impact_modifier: float | str
+    """Country"""
+    admiralty_board_bureaucracy_impact_modifier: float | str
+    """Country"""
+    foreign_ministry_bureaucracy_impact_modifier: float | str
+    """Country"""
+    trade_commission_bureaucracy_impact_modifier: float | str
+    """Country"""
+    war_council_bureaucracy_impact_modifier: float | str
+    """Country"""
+    ordnance_board_bureaucracy_impact_modifier: float | str
+    """Country"""
+    commissariat_bureaucracy_impact_modifier: float | str
+    """Country"""
+    central_secretariat_bureaucracy_impact_modifier: float | str
+    """Country"""
+    imperial_censorate_bureaucracy_impact_modifier: float | str
+    """Country"""
+    six_boards_bureaucracy_impact_modifier: float | str
+    """Country"""
+    grand_secretariat_bureaucracy_impact_modifier: float | str
+    """Country"""
+    bayt_al_mal_bureaucracy_impact_modifier: float | str
+    """Country"""
+    hisba_bureaucracy_impact_modifier: float | str
+    """Country"""
+    mazalim_court_bureaucracy_impact_modifier: float | str
+    """Country"""
+    diwan_al_insha_bureaucracy_impact_modifier: float | str
+    """Country"""
+    barid_bureaucracy_impact_modifier: float | str
+    """Country"""
+    diwan_al_hajj_bureaucracy_impact_modifier: float | str
+    """Country"""
+    diwan_al_jund_bureaucracy_impact_modifier: float | str
+    """Country"""
+    shurta_bureaucracy_impact_modifier: float | str
+    """Country"""
+    shurat_bureaucracy_impact_modifier: float | str
+    """Country"""
+
+
 UNVERIFIED = frozenset({
     "Fx.add_breach",
     "Fx.add_estate_private_regiment",
@@ -13633,7 +19055,6 @@ UNVERIFIED = frozenset({
     "Fx.find_route",
     "Fx.force_city_gfx_rebuild",
     "Fx.force_refresh_culture_and_religion",
-    "Fx.form_new_culture",
     "Fx.found_religious_order",
     "Fx.grant_parliament_agenda",
     "Fx.grant_parliament_agenda_for_estate",
@@ -13645,7 +19066,6 @@ UNVERIFIED = frozenset({
     "Fx.lock_maintenance",
     "Fx.lock_unit",
     "Fx.marry_character_ignore_blocks",
-    "Fx.merge_culture_group",
     "Fx.move_prisoners_to_safety",
     "Fx.move_to_assist_on_adjacent_combat",
     "Fx.pay_price",
@@ -13662,11 +19082,9 @@ UNVERIFIED = frozenset({
     "Fx.remove_country_from_circle",
     "Fx.remove_estate_private_regiment",
     "Fx.remove_extended_winter",
-    "Fx.remove_from_international_organization",
     "Fx.remove_from_local_variable_map",
     "Fx.remove_god",
     "Fx.remove_merchant_power",
-    "Fx.remove_migration",
     "Fx.remove_omen",
     "Fx.remove_religious_focus",
     "Fx.remove_rival",
@@ -13689,43 +19107,24 @@ UNVERIFIED = frozenset({
     "Fx.set_bankruptcy",
     "Fx.set_canal_open",
     "Fx.set_cultural_view",
-    "Fx.set_devotion",
-    "Fx.set_doom",
     "Fx.set_dynasty_name_type",
     "Fx.set_ethnicity",
     "Fx.set_first_name",
     "Fx.set_garrison_size",
-    "Fx.set_government_power",
-    "Fx.set_harmony",
     "Fx.set_head_character",
     "Fx.set_honor",
-    "Fx.set_horde_unity",
-    "Fx.set_karma",
     "Fx.set_loc_key",
     "Fx.set_locked",
     "Fx.set_lowborn",
-    "Fx.set_manpower",
-    "Fx.set_navy_tradition",
     "Fx.set_needs_reform",
-    "Fx.set_political_influence",
-    "Fx.set_prestige",
     "Fx.set_production_method",
-    "Fx.set_purity",
-    "Fx.set_religious_influence",
     "Fx.set_religious_order_zeal",
-    "Fx.set_republican_tradition",
     "Fx.set_revolt_target",
-    "Fx.set_righteousness",
     "Fx.set_rite_power",
-    "Fx.set_sailors",
     "Fx.set_school_opinion",
-    "Fx.set_self_control",
     "Fx.set_subsidized",
     "Fx.set_target_of_international_organization",
-    "Fx.set_tribal_cohesion",
     "Fx.set_unit_size",
-    "Fx.set_war_exhaustion",
-    "Fx.set_yanantin",
     "Fx.show_as_tooltip",
     "Fx.spawn_army_levy_unit",
     "Fx.spawn_navy_levy_unit",

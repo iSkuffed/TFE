@@ -46,6 +46,7 @@ def owns(t: CountryTrig, loc: str, who: str):
 
 def build():
     doc = Doc()
+    doc.note("honorius-only: the 395 opening (tools/test_western_rome.py)")
     doc.namespace("tfe_opening")
 
     doc.note("395: Stilicho says the dying Theodosius gave him both sons to guard (on_action/tfe_opening.txt, game start)")

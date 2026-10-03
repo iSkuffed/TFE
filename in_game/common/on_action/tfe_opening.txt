@@ -1,4 +1,5 @@
-﻿# TFE: the 395 opening (events/tfe_opening.txt). Each date is when it happened; each event checks its people are still alive.
+﻿# honorius-only: the 395 opening (tools/test_western_rome.py)
+# TFE: the 395 opening (events/tfe_opening.txt). Each date is when it happened; each event checks its people are still alive.
 on_game_start = {
 	on_actions = { tfe_on_start_opening }
 }

@@ -1,4 +1,5 @@
-﻿# TFE: the Imperium Romanum - one empire under two Augusti (395). Unity decides how far the halves act as one.
+﻿# honorius-only: the Imperium Romanum's seat and Unity (tools/test_western_rome.py)
+# TFE: the Imperium Romanum - one empire under two Augusti (395). Unity decides how far the halves act as one.
 tfe_roman_empire = {
 	has_target = no
 	unique = yes

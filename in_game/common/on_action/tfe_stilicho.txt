@@ -1,4 +1,5 @@
-﻿# TFE: Stilicho's Glory. On day one his regency is stretched to 408 (the setup ends it at Honorius's majority,
+﻿# honorius-only: the showdown is Honorius's (tools/test_western_rome.py)
+# TFE: Stilicho's Glory. On day one his regency is stretched to 408 (the setup ends it at Honorius's majority,
 # 9 Sep 400), and the showdown is set for 22 Aug 408 in case Glory never forces it sooner.
 on_game_start = {
 	on_actions = { tfe_on_start_stilicho }

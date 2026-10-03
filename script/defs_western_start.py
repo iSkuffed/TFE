@@ -13,6 +13,7 @@ LEGITIMACY = 55
 
 def on_actions():
     d = Defs()
+    d.note("honorius-only: day one: the 395 opening state of Honorius's West (tools/test_western_rome.py)")
     d.note("TFE: the West opens at -25 stability, 35% inflation and 55 legitimacy: Stilicho's court holds a state\n"
            "already paying its armies in debased coin. Day one only WRE exists (Stilicho's West comes later).")
     d.hook("on_game_start", "tfe_on_start_western_state")

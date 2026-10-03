@@ -1,4 +1,5 @@
-﻿# TFE: the Fall of the West's decisions (written by script/decisions.py).
+﻿# honorius-only: Stilicho's Claims is Honorius's (tools/test_western_rome.py)
+# TFE: the Fall of the West's decisions (written by script/decisions.py).
 # Migrate: a people of Germania or Dacia (tfe_is_migrator) may once give up its homeland, while the Decline of the West
 # runs, for a great host that costs nothing while it owns no land (auto_modifiers/tfe_migratory.txt). It cannot
 # replenish: landless, it has no manpower, so every warrior lost is gone until it wins land of its own. One decision per

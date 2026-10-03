@@ -1,4 +1,5 @@
-﻿# TFE: replaces vanilla's file of the same name, whose histories are all of 1337 (Italy's city-states, Renaissance
+﻿# honorius-only: the history text of Honorius's own country (tools/test_western_rome.py)
+# TFE: replaces vanilla's file of the same name, whose histories are all of 1337 (Italy's city-states, Renaissance
 # Europe). One text per 395 country, in tfe_country_history_l_english.yml; countries born in play get the fallback.
 country_history = {
 	type = country

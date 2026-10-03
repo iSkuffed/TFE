@@ -1,13 +1,8 @@
-﻿# TFE: the Roman state keeps three offices at once (in_game/common/bureaucracies/tfe_roman.txt). Vanilla gives no base
-# slot and its sources (advances, laws, capital rank) reach the empires late, so each starts with the three it needs.
+﻿# TFE: the Roman state keeps three offices at once (bureaucracies/tfe_roman.txt). Vanilla gives no base slot and
+# its sources (advances, laws, capital rank) reach the empires late, so each starts with the three it needs.
 tfe_roman_bureaucracy_slots = {
 	potential_trigger = {
-		OR = {
-			has_or_had_tag = WRE
-			has_variable = tfe_western_rome
-			has_or_had_tag = EAR
-		}
+		tfe_is_roman_empire = yes
 	}
-
 	global_max_bureaucracy_slots = 3
 }
