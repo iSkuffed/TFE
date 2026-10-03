@@ -129,6 +129,8 @@ been seen working in game, or you say plainly that it hasn't.
   you click (diplomacy, laws, IO actions) is silently ignored. To test a player action, pick the country in the lobby:
   New Game, click its land, move the mouse off the tooltip, then "Play as".
 - After a test, check `logs/error.log` for lines naming `tfe_` files. Many vanilla errors are always there; ignore them.
+- Never change mod files while the game runs. `-debug_mode` hot-reloads them, and a mass rewrite (`script/run.py`, a
+  generator) crashes 1.4 with an access violation. Stop the game first.
 
 ## EU5 script traps found the hard way
 
@@ -150,6 +152,11 @@ been seen working in game, or you say plainly that it hasn't.
 - A child ruler under a regency goes in `heir =` with no `ruler =` (vanilla DAN, RSO). A regency ends by crowning its
   heir, so a `ruler =` under a regent never takes power. `unsuited_for_country_ruling` is vanilla's blind/mad trait and
   blocks a character for life, not until majority.
+- A start is read only from a bookmark's `setup_folder` (1.4): ours is `bookmark_395` in
+  `main_menu/common/bookmarks/00_bookmarks.txt`, its files in `main_menu/setup/395/`. A setup file we do not change
+  is one line, `include = "setup/1337/<file>"`. Every scenario needs `bookmark = bookmark_395`.
+- Each international organisation needs an `io_opinion_<type>` bias and `diplomatic_status_<type>_name`/`_tooltip`
+  and `<type>_list_who_tt` loc; a subject type needs `AM_<type>` and `LEAD_<type>`.
 - Map modes (`in_game/gfx/map/map_modes/`) are first-in-wins: a mod's `political = {...}` only replaces vanilla's from
   a file that sorts before `map_modes.txt` (`00_tfe_map_modes.txt`). The pre-game lobby opens in a paper-map mode,
   not Political: press the Political button before judging a change to it.

@@ -133,3 +133,6 @@
  tfe_hunnic_feast: "Feasted by the Huns"
  tfe_hunnic_greater_tribute: "Bled by the Huns"
  tfe_hunnic_gifts: "Sent Gifts"
+ diplomatic_status_tfe_hunnic_yoke_name: "Hunnic Yoke"
+ diplomatic_status_tfe_hunnic_yoke_tooltip: "#T Hunnic Yoke#!\nThis [country|e] answers to the Huns."
+ tfe_hunnic_yoke_list_who_tt: "$WHO$ bears the Hunnic Yoke with $LIST$"

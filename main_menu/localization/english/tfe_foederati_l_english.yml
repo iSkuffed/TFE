@@ -23,3 +23,5 @@
  CANCEL_tfe_foederati_NEWDESC: "Do we wish to break the foedus with [COUNTRY.GetName]?"
  OFFER_tfe_foederati_DESC: "They swear to serve the Augustus and march in Rome's wars; Rome pays them the annona."
  CANCEL_tfe_foederati_DESC: "Break the foedus with @[COUNTRY.GetFlag]! [COUNTRY.GetName]."
+ LEAD_tfe_foederati: "$LIST$ is a [SUBJECT_TYPE.GetName]"
+ AM_tfe_foederati: "[SUBJECT_TYPE.GetName] of $LIST$."

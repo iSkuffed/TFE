@@ -14,3 +14,6 @@
  war_goal_superiority_tfe_migration_desc: "We will take land from them for our people to settle. $generic_war_goal_superiority_desc$"
  tfe_barbaricum: "Barbaricum"
  tfe_barbaricum_desc: "The lands beyond the limes, as Rome calls them. Their peoples raid, trade and marry across borders nobody polices, and a warband may cross a neighbour's land without asking leave. A host on the road goes where it will."
+ diplomatic_status_tfe_barbaricum_name: "Barbaricum"
+ diplomatic_status_tfe_barbaricum_tooltip: "#T Barbaricum#!\nThis [country|e] is one of the free peoples beyond the limes."
+ tfe_barbaricum_list_who_tt: "$WHO$ shares the Barbaricum with $LIST$"
