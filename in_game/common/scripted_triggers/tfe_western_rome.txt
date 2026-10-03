@@ -1,9 +1,20 @@
-﻿# TFE: Stilicho's Glory (events/tfe_stilicho.txt). Scope: a country. The West is Honorius's WRE and, once Stilicho
+﻿# honorius-only: this file says which West is which (tools/test_western_rome.py)
+# TFE: Stilicho's Glory (events/tfe_stilicho.txt). Scope: a country. The West is Honorius's WRE and, once Stilicho
 # rises, Stilicho's West (tfe_western_rome, set by tfe_stilicho.3). The barbarians march on both, and Rome's answers
 # to them (Hospitalitas, Man the Limes) belong to both. The Imperium Romanum's seat stays with WRE.
 tfe_is_western_rome = {
 	OR = {
 		tag = WRE
 		has_variable = tfe_western_rome
+	}
+}
+
+# Either Roman empire, as the Roman offices and the fisc see it: the West (by its tag or its variable) or the East.
+# has_or_had_tag keeps a renamed empire Roman.
+tfe_is_roman_empire = {
+	OR = {
+		has_or_had_tag = WRE
+		has_variable = tfe_western_rome
+		has_or_had_tag = EAR
 	}
 }

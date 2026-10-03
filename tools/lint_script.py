@@ -21,7 +21,9 @@ _USER_DIR = (b.MOD.parent.parent if b.MOD.parent.name == "mod"
 DOCS = Path(os.environ.get("EU5_DOCS") or _USER_DIR / "docs")
 OUTCOMES = {"positive", "neutral", "negative"}
 # keys whose block is a list of effects / of triggers, wherever they appear
-EFFECT_BLOCKS = {"immediate", "after", "effect", "hidden_effect", "on_accept", "on_decline", "on_start", "on_end"}
+EFFECT_BLOCKS = {"immediate", "after", "effect", "hidden_effect", "on_accept", "on_decline", "on_start", "on_end",
+                 "on_activate", "on_fully_activated", "on_deactivate", "on_maintenance_changed"}
+SIDES = ("neutral_modifier", "positive_modifier", "negative_modifier")   # a bureaucracy's modifier blocks
 TRIGGER_BLOCKS = {"trigger", "limit", "potential", "allow", "is_shown", "is_valid", "can_start", "can_end", "visible"}
 BOOLEAN = {"AND", "OR", "NOT", "NAND", "NOR"}
 DESCEND = BOOLEAN | {"if", "else_if", "else", "while"}
@@ -201,6 +203,31 @@ class Linter:
                     self.say(path, c, f"{key} names a modifier that is not defined: {c.val}")
 
 
+def number(v):
+    try:
+        return float(v)
+    except (TypeError, ValueError):
+        return None
+
+
+def bureaucracy_problems(lin, rel, tree):
+    """each modifier key exists, and a key on both sides flips its sign (neglect undoes what funding gives)."""
+    for e in tree:
+        if not isinstance(e.val, list):
+            continue
+        sides = {c.key: c for c in e.val if c.key in SIDES and isinstance(c.val, list)}
+        for side in sides.values():
+            for m in side.val:
+                if m.key not in ("scale", "potential_trigger") and m.key not in lin.know.modifier_keys:
+                    lin.say(rel, m, f"{e.key} {side.key}: {m.key} is not a modifier key in modifiers.log")
+        if {"positive_modifier", "negative_modifier"} <= sides.keys():
+            neg = {m.key: number(m.val) for m in sides["negative_modifier"].val}
+            for m in sides["positive_modifier"].val:
+                p, n = number(m.val), neg.get(m.key)
+                if p is not None and n is not None and p * n >= 0:
+                    lin.say(rel, m, f"{e.key}: {m.key} is {m.val} funded and {n:g} neglected; neglect must flip it")
+
+
 def lint(vanilla=False):
     if not (DOCS / "effects.log").exists():
         print(f"skipped: no {DOCS}/effects.log (run `script_docs` in the game console)")
@@ -224,6 +251,8 @@ def lint(vanilla=False):
                     lin.walk(rel, e.val, "effect" if folder == "scripted_effects" else "trigger")
         else:
             lin.walk(rel, tree, "other")
+        if folder == "bureaucracies":
+            bureaucracy_problems(lin, rel, tree)
     import lint_refs
     return lin.found + lint_refs.refs(base, lint_refs.with_dlc(b.GAME, None if vanilla else b.MOD), vanilla)
 

@@ -1,4 +1,5 @@
-﻿# TFE: Gildo's revolt grows over the first years instead of arriving on one date (events/tfe_gildo.txt).
+﻿# honorius-only: Gildo's revolt is against Honorius (tools/test_western_rome.py)
+# TFE: Gildo's revolt grows over the first years instead of arriving on one date (events/tfe_gildo.txt).
 # The West's tfe_gildo_progress starts at 0; a hidden monthly event feeds it and fires the revolt at 100.
 on_game_start = {
 	on_actions = { tfe_on_start_gildo }

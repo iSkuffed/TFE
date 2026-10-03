@@ -131,6 +131,7 @@ def illyricum(doc: Doc):
 def build():
     """(the category file, the decisions file); both share one localisation."""
     cats, doc = Doc(), Doc()
+    doc.note("honorius-only: Stilicho's Claims is Honorius's (tools/test_western_rome.py)")
     cats.loc = doc.loc
     cats.note("TFE: the Fall of the West's decisions (decisions/tfe_fall_of_the_west.txt), near the top of the list.")
     cats.decision_category(CATEGORY, title="Fall of the West", sort_order=0)

@@ -26,7 +26,9 @@ def generated():
 
 @needs_docs
 def test_api_is_up_to_date(generated):
-    assert gen_api.OUT.read_text(encoding="utf-8") == generated, "run `python tools/pdx/gen_api.py`"
+    assert gen_api.OUT.read_text(encoding="utf-8") == generated, (
+        "run `python tools/pdx/gen_api.py`: api.py learns call shapes from vanilla and from the mod's own script, so a new "
+        "scripted effect or trigger, or the first call of a name in UNVERIFIED (or of a key vanilla never writes), changes it")
 
 
 @needs_docs

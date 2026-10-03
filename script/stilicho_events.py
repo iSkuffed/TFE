@@ -122,6 +122,7 @@ def crowning(i: CountryFx):
 
 def build():
     doc = Doc()
+    doc.note("honorius-only: the showdown is Honorius's (tools/test_western_rome.py)")
     doc.namespace("tfe_stilicho")
     doc.note("Stilicho's Glory (script/defs_stilicho.py): the warning at 80, the showdown with Honorius, the rising, and the\n"
              "win when Stilicho's West takes Honorius's capital.")

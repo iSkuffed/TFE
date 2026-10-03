@@ -34,6 +34,25 @@ def test_traps_are_caught(text, expect):
     assert any(expect in p for p in problems(text)), problems(text)
 
 
+OFFICE = """x_bureaucracy = {
+    potential = { always = yes }
+    on_activate = { add_gold_typo = 5 }
+    neutral_modifier = { monthly_legitimacy = 0.05 }
+    positive_modifier = { scale = { value = scope:maintenance } discipline = 0.05 global_estate_max_tax = 0.05 }
+    negative_modifier = { scale = { value = 1 subtract = scope:maintenance } discipline = 0.05 global_estate_max_tx = -0.05 }
+}"""
+
+
+def test_a_bureaucracy_has_real_keys_flips_its_neglect_and_checks_its_effects():
+    lin = ls.Linter(ls.Knowledge([b.GAME, b.MOD]))
+    tree = ls.parse(OFFICE)
+    lin.walk("t.txt", tree, "other")
+    ls.bureaucracy_problems(lin, "t.txt", tree)
+    found = " | ".join(lin.found)
+    assert "unknown effect `add_gold_typo`" in found and "global_estate_max_tx is not a modifier key" in found, found
+    assert "discipline is 0.05 funded and 0.05 neglected" in found and len(lin.found) == 3, found
+
+
 def test_valid_script_passes():
     ok = "e = { outcome = neutral trigger = { NOT = { has_variable = x } } immediate = { if = { limit = { var:x > 1 } set_variable = y } } }"
     assert problems(ok) == []
@@ -77,6 +96,11 @@ def test_a_complete_event_is_clean(tmp_path):
 ])
 def test_dangling_references_are_caught(tmp_path, files, expect):
     assert any(expect in p for p in refs(tmp_path, files)), refs(tmp_path, files)
+
+
+def test_a_bureaucracy_needs_its_icon(tmp_path):
+    found = refs(tmp_path, {"in_game/common/bureaucracies/t.txt": "tfe_iconless_bureaucracy = { }"})
+    assert any("bureaucracies tfe_iconless_bureaucracy has no icon" in p for p in found), found
 
 
 def test_a_saved_scope_and_a_target_flag_count_as_saved(tmp_path):

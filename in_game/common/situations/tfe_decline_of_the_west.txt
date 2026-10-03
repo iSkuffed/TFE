@@ -1,4 +1,5 @@
-﻿# TFE: the Decline of the West (RoadMap #6). The West's slow fall, in phases kept in var:tfe_decline_phase.
+﻿# honorius-only: can_start is the WRE-only 395 opening (tools/test_western_rome.py)
+# TFE: the Decline of the West (RoadMap #6). The West's slow fall, in phases kept in var:tfe_decline_phase.
 # Phase 1, the Frontiers Give Way: Gildo's Africa (events/tfe_gildo.txt, read from the West's tfe_gildo_progress)
 # and the peoples beyond the Rhine and Danube (scripted_triggers/tfe_decline_of_the_west.txt's tfe_is_migrator), who
 # take the road into the Empire through the Migrate decisions (decisions/tfe_fall_of_the_west.txt). Started on day one by

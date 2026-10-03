@@ -1,4 +1,5 @@
-﻿# TFE: the Imperium Romanum window's button for the West (Stilicho's Claims is a decision now,
+﻿# honorius-only: the Imperium Romanum's seat (tools/test_western_rome.py)
+# TFE: the Imperium Romanum window's button for the West (Stilicho's Claims is a decision now,
 # decisions/tfe_fall_of_the_west.txt). It costs Unity (the effects run as the West's actor).
 tfe_align_visigoths = {
 	type = internationalorganization

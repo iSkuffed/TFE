@@ -1,4 +1,5 @@
-﻿namespace = tfe_opening
+﻿# honorius-only: the 395 opening (tools/test_western_rome.py)
+namespace = tfe_opening
 
 # 395: Stilicho says the dying Theodosius gave him both sons to guard (on_action/tfe_opening.txt, game start)
 tfe_opening.1 = {

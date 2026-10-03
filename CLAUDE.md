@@ -66,7 +66,9 @@ commands, not GitHub. If they decline or it breaks, plain git above still works.
   fail in game: events fired but never defined, an event's title/desc/option loc key missing, a `scope:x` no file
   ever saves (a generic action's `target_flag` counts), a value vanilla always takes from one registry that names no key
   there or is written in the wrong form (`has_advance = x` is bare, `research_advance = advance_type:x` is prefixed;
-  advances, subject types, pop types and so on, the mod's own keys included), a building type or reform with no icon. It runs inside the
+  advances, subject types, pop types and so on, the mod's own keys included), a building type, reform or bureaucracy
+  with no icon, a bureaucracy's modifier key missing from `modifiers.log` or a neglect that does not flip what funding
+  gives. It runs inside the
   pytest command above. After adding a new kind of script, run `--vanilla` and make sure it still reports almost
   nothing; a hit there is a linter false positive (vanilla's own gaps, like DHE events with no English loc, are real).
 - The tools find vanilla EU5 in Steam's default folder on Linux or Windows. Elsewhere, set `EU5_GAME` to the game's
@@ -88,14 +90,21 @@ is `tools/pdx/CONTRACT.md`.
 - Sources are `script/*.py`, each with an `outputs()` returning `{repo path: text}`. Write them all with
   `python script/run.py` (same `uv run ...` prefix as the tests). Ported so far: `decline_rome_actions.py` (generic actions), `decisions.py` (the Fall of the West decisions and their loc),
   `gildo_events.py`, `opening_events.py`, `decline_rome_events.py`, `foederati_events.py`, `hunnic_storm_events.py` (events; their loc
-  stays hand-written except Gildo's), and `defs_*.py` (scripted effects and triggers, on_actions). A test fails when a generated file is stale.
+  stays hand-written except Gildo's), `bureaucracies.py` (the Roman offices, their impact modifiers and loc), and `defs_*.py` (scripted effects and triggers, on_actions). A test fails when a generated file is stale.
 - Start a new file by copying the nearest port. `Doc.event(...)` builds events; `with c.every_neighbor_country() as n:`
   changes scope; `with t.link("scope:actor", CountryTrig) as c:` is `scope:actor = { }`; comparison triggers read
   `t.gold(100, op=">=")`; `t.var("x", "<", 50)`; a value block (ai_will_do) is `body.effects("ai_will_do", ValueFx)`.
 - Generic actions: `doc.generic_action(name)`, whose `select_trigger(looking_for_a, SituationTrig, name=..., source=...)` yields the `visible` triggers. A block with `value >= x` inside takes `value=Cmp(">=", x)` (`from pdx.core import Cmp`). `doc.bias(name, value, max=..., yearly_decay=...)` keeps the keys in the order given.
 - Modifier files: `doc.modifier(name, category="country", <modifier keys>=...)` for a static modifier,
-  `doc.modifier(name, potential=lambda t: ..., <keys>=...)` for an auto modifier (keys are checked against
-  `modifiers.log`), `doc.bias(name, value)` for an opinion bias. `doc.entry(name)` covers anything else.
+  `doc.modifier(name, potential=lambda t: ..., <keys>=...)` for an auto modifier, `doc.bias(name, value)` for an opinion
+  bias. `doc.entry(name)` covers anything else (a file of named entries with trigger and value blocks: `e.triggers(key,
+  CountryTrig)`, `e.effects(key, ValueFx)`, `e.field`). Modifier keys are typed (`ModifierKeys` in `api.py`, from
+  `modifiers.log`), so pyright rejects a misspelt one; hover a key for its category (Country, Unit, Location ...).
+- Bureaucracies: `doc.bureaucracy(name, title=, desc=, potential=, likes=, dislikes=, neutral={..}, positive={..},
+  negative={..})` writes vanilla's prices and both scale blocks, refuses a neglect that does not flip a funded key, and
+  fills `doc.types`/`doc.icons` (its `_impact_modifier`) and `doc.loc`; the icon `.dds` is yours to draw.
+- A file that names Honorius's West by tag (`c:WRE`, `tag = WRE`) carries a `honorius-only: <why>` comment
+  (`doc.note(...)` from a script); any other file says `tfe_is_western_rome` (`tools/test_western_rome.py`).
 - One-condition blocks take a body: `t.not_(lambda n: n.has_advance(x))`, `t.or_(...)`, `fx.limit(lambda t: ...)`,
   `t.link("scope:w", CountryTrig, lambda w: w.has_variable(x))` write what the `with` form writes.
   `change_country_type` and `country_type` take the closed `CountryType` set, so pyright rejects a typo; the open
@@ -106,7 +115,8 @@ is `tools/pdx/CONTRACT.md`.
   missing, and fix the binding when you meet the same gap twice.
 - `tools/pdx/api.py` is generated from the docs logs, vanilla's call shapes and the mod's own scripted effects and
   triggers: `python tools/pdx/gen_api.py`. Rerun it after an EU5 patch and after adding a scripted effect or trigger;
-  a test fails when it is stale. Names it could not infer a signature for are in `UNVERIFIED`.
+  a test fails when it is stale. Names it could not infer a signature for are in `UNVERIFIED`. It also learns from the
+  mod's own calls, so the first call of an `UNVERIFIED` name (or a key vanilla never writes) makes it stale too.
 - Check a change with `pyright` (`uv run --no-project --with pyright python -m pyright`), then `tools/lint_script.py`.
 
 ## Testing in game
@@ -157,7 +167,8 @@ been seen working in game, or you say plainly that it hasn't.
   `army_maintenance_efficiency` are Unit-category keys that vanilla still puts in country-scope blocks.
 - Bureaucracies (`in_game/common/bureaucracies/`): a country has no base slot (`global_max_bureaucracy_slots` from
   advances, laws, reforms, capital rank or an auto modifier). Each entry needs its `<key>_impact_modifier` type, loc
-  and `icons/bureaucracy/<key>.dds`; `potential` is where a mod entry is tag-gated, and `has_dlc` is not ours to use.
+  and `icons/bureaucracy/<key>.dds` (`doc.bureaucracy` writes all but the icon); `potential` is where a mod entry is
+  tag-gated, and `has_dlc` is not ours to use.
 - A child ruler under a regency goes in `heir =` with no `ruler =` (vanilla DAN, RSO). A regency ends by crowning its
   heir, so a `ruler =` under a regent never takes power. `unsuited_for_country_ruling` is vanilla's blind/mad trait and
   blocks a character for life, not until majority.

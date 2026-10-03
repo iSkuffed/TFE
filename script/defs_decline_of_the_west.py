@@ -24,6 +24,7 @@ def triggers():
 
 def on_actions():
     d = Defs()
+    d.note("honorius-only: day one: only WRE exists (tools/test_western_rome.py)")
     d.note("TFE: the Decline of the West (situations/tfe_decline_of_the_west.txt) begins on day one.")
     d.hook("on_game_start", "tfe_on_start_decline_of_the_west")
     with d.on_action("tfe_on_start_decline_of_the_west") as a:

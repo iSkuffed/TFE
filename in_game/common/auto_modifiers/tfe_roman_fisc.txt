@@ -3,13 +3,7 @@
 # and their size made that more than their whole income. Tuned so that at default sliders they scrape by.
 # No tax bonus: with the provincials accepted (10_countries accepted_cultures) the West already taxes in full.
 tfe_roman_fisc = {
-	potential_trigger = {
-		OR = {
-			has_or_had_tag = WRE
-			has_variable = tfe_western_rome
-			has_or_had_tag = EAR
-		}
-	}
+	potential_trigger = { tfe_is_roman_empire = yes }	# scripted_triggers/tfe_western_rome.txt
 
 	court_spending_efficiency = 1.0	# pay 1 / (1 + 1) of the court
 	diplomatic_spending_cost = -0.5

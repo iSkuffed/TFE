@@ -157,6 +157,7 @@ def rises(d):
 
 def on_actions():
     d = Defs()
+    d.note("honorius-only: the showdown is Honorius's (tools/test_western_rome.py)")
     d.note("TFE: Stilicho's Glory. On day one his regency is stretched to 408 (the setup ends it at Honorius's majority,\n"
            "9 Sep 400), and the showdown is set for 22 Aug 408 in case Glory never forces it sooner.")
     d.hook("on_game_start", "tfe_on_start_stilicho")
@@ -263,6 +264,7 @@ def showdown_hooks(d):
 
 def auto_modifiers():
     doc = Doc()
+    doc.note("honorius-only: Olympius rules for Honorius, not for Stilicho (tools/test_western_rome.py)")
     doc.note("TFE: Stilicho's Glory. Each applies while Stilicho serves the country, so all of them move with him if he rises.")
     doc.note("his command: the army is his and the great houses follow him (was the 68-month tfe_stilicho_regency)")
     doc.modifier("tfe_stilicho_regency", potential=lambda t: t.tfe_stilicho_serves_us(),

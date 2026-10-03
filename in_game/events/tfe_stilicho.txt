@@ -1,4 +1,5 @@
-﻿namespace = tfe_stilicho
+﻿# honorius-only: the showdown is Honorius's (tools/test_western_rome.py)
+namespace = tfe_stilicho
 
 # Stilicho's Glory (script/defs_stilicho.py): the warning at 80, the showdown with Honorius, the rising, and the
 # win when Stilicho's West takes Honorius's capital.

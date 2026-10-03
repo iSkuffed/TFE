@@ -1,0 +1,12 @@
+﻿# TFE: the Roman bureaucracies' impact modifiers, badged as vanilla's are (script/bureaucracies.py)
+tfe_sacrae_largitiones_bureaucracy_impact_modifier = {
+	positive = "gfx/interface/icons/modifier_types/global_max_bureaucracy_slots.dds"
+}
+
+tfe_magister_officiorum_bureaucracy_impact_modifier = {
+	positive = "gfx/interface/icons/modifier_types/global_max_bureaucracy_slots.dds"
+}
+
+tfe_magister_peditum_bureaucracy_impact_modifier = {
+	positive = "gfx/interface/icons/modifier_types/global_max_bureaucracy_slots.dds"
+}
