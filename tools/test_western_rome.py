@@ -33,6 +33,7 @@ STAY = {
     "in_game/common/on_action/tfe_opening.txt", "in_game/events/tfe_opening.txt",   # the 395 opening
     "in_game/common/on_action/tfe_gildo.txt", "in_game/events/tfe_gildo.txt",
     "in_game/common/on_action/tfe_decline_of_the_west.txt",   # day one: only WRE exists
+    "in_game/common/on_action/tfe_western_start.txt",   # day one: the 395 opening state of Honorius's West
     "in_game/common/situations/tfe_decline_of_the_west.txt",  # can_start is the WRE-only 395 opening
     "in_game/common/on_action/tfe_stilicho.txt", "in_game/events/tfe_stilicho.txt",   # the showdown is Honorius's
     "in_game/common/scripted_effects/tfe_stilicho.txt", "in_game/common/scripted_effects/tfe_usurpers.txt",

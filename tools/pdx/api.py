@@ -3768,9 +3768,9 @@ class CountryFx(AnyFx):
     def set_harmony(self, *args: Any, **kw: Any) -> None: self._call("set_harmony", *args, **kw)
     def set_honor(self, *args: Any, **kw: Any) -> None: self._call("set_honor", *args, **kw)
     def set_horde_unity(self, *args: Any, **kw: Any) -> None: self._call("set_horde_unity", *args, **kw)
-    def set_inflation(self, *args: Any, **kw: Any) -> None: self._call("set_inflation", *args, **kw)
+    def set_inflation(self, _v: Any, /) -> None: self._call("set_inflation", _v)
     def set_karma(self, *args: Any, **kw: Any) -> None: self._call("set_karma", *args, **kw)
-    def set_legitimacy(self, *args: Any, **kw: Any) -> None: self._call("set_legitimacy", *args, **kw)
+    def set_legitimacy(self, _v: Any, /) -> None: self._call("set_legitimacy", _v)
     def set_liturgical_language(self, _v: Any, /) -> None: self._call("set_liturgical_language", _v)
     def set_manpower(self, *args: Any, **kw: Any) -> None: self._call("set_manpower", *args, **kw)
     def set_navy_tradition(self, *args: Any, **kw: Any) -> None: self._call("set_navy_tradition", *args, **kw)
@@ -4552,11 +4552,11 @@ class InternationalOrganizationFx(AnyFx):
     def set_harmony(self, *args: Any, **kw: Any) -> None: self._call("set_harmony", *args, **kw)
     def set_honor(self, *args: Any, **kw: Any) -> None: self._call("set_honor", *args, **kw)
     def set_horde_unity(self, *args: Any, **kw: Any) -> None: self._call("set_horde_unity", *args, **kw)
-    def set_inflation(self, *args: Any, **kw: Any) -> None: self._call("set_inflation", *args, **kw)
+    def set_inflation(self, _v: Any, /) -> None: self._call("set_inflation", _v)
     def set_international_organization_icon(self, _v: Any, /) -> None: self._call("set_international_organization_icon", _v)
     def set_karma(self, *args: Any, **kw: Any) -> None: self._call("set_karma", *args, **kw)
     def set_leader_country(self, _v: Any, /) -> None: self._call("set_leader_country", _v)
-    def set_legitimacy(self, *args: Any, **kw: Any) -> None: self._call("set_legitimacy", *args, **kw)
+    def set_legitimacy(self, _v: Any, /) -> None: self._call("set_legitimacy", _v)
     def set_manpower(self, *args: Any, **kw: Any) -> None: self._call("set_manpower", *args, **kw)
     def set_navy_tradition(self, *args: Any, **kw: Any) -> None: self._call("set_navy_tradition", *args, **kw)
     def set_parliament_active(self, _v: bool | str, /) -> None: self._call("set_parliament_active", _v)
@@ -13700,9 +13700,7 @@ UNVERIFIED = frozenset({
     "Fx.set_head_character",
     "Fx.set_honor",
     "Fx.set_horde_unity",
-    "Fx.set_inflation",
     "Fx.set_karma",
-    "Fx.set_legitimacy",
     "Fx.set_loc_key",
     "Fx.set_locked",
     "Fx.set_lowborn",
