@@ -23,7 +23,7 @@ tfe_on_host_settles = {
 			# User: in a peace deal its people settled anywhere but by the capital. The first land is both.
 			change_country_type = location
 			set_capital = scope:tfe_homeland
-			# the host breaks up and its old warband (setup/start/27_armies.txt) re-forms at home, raised from it.
+			# the host breaks up and its old warband (setup/395/27_armies.txt) re-forms at home, raised from it.
 			# Whole armies go: destroying sub-units one by one crashed the game a tick later.
 			every_army = { destroy_unit = yes }
 		}

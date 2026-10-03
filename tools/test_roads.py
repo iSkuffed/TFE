@@ -6,7 +6,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import borders as b
 
-ROADS = b.MOD / "main_menu/setup/start/09_roads.txt"
+ROADS = b.MOD / "main_menu/setup/395/09_roads.txt"
 
 
 def network():

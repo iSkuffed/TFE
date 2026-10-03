@@ -7,7 +7,7 @@ from pdx.api import AnyFx, CountryTrig
 from pdx.objects_defs import Defs
 
 # the peoples of Germania and Dacia, in the file's order
-MIGRATORS = "ALM BGD FRK HAS SLX SAX MKM QAD LGB SLF FRS AGL TGI RUG SCR VIS GEP CRP IAZ".split()
+MIGRATORS = "AMI BGD FRK HAS SLX SAX MKM QAD LGB SLF FRS AGL TGI RUG SCR VIS GEP CRP IAZ".split()
 
 
 def triggers():

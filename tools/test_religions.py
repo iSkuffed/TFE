@@ -28,14 +28,14 @@ def blocks(text):
 
 
 def pops():
-    text = (b.MOD / "main_menu/setup/start/06_pops.txt").read_text(encoding="utf-8")
+    text = (b.MOD / "main_menu/setup/395/06_pops.txt").read_text(encoding="utf-8")
     return {loc: re.findall(r"type = (\w+)\s+size = [\d.]+\s+culture = (\w+)\s+religion = (\w+)", body)
             for loc, body in re.findall(r"^(\w+) = \{(.*?)^\}", text, re.M | re.S)}
 
 
 def majority(loc):
     # the faith with the most people, which is what the map shows
-    text = (b.MOD / "main_menu/setup/start/06_pops.txt").read_text(encoding="utf-8")
+    text = (b.MOD / "main_menu/setup/395/06_pops.txt").read_text(encoding="utf-8")
     body = re.search(rf"^{loc} = \{{(.*?)^\}}", text, re.M | re.S).group(1)
     size = {}
     for s, r in re.findall(r"size = ([\d.]+)\s+culture = \w+\s+religion = (\w+)", body):
@@ -172,7 +172,7 @@ def test_no_faith_born_after_395_anywhere():
     assert not late, sorted(late)[:20]
     assert {"sunni", "shia", "catholic", "miaphysite", "tibetan_buddhism"} <= b.LATE_FAITHS
     assert not {d["religion"] for d in b.load_tags(b.TOOLS / "tags.txt").values()} & b.LATE_FAITHS
-    chars = (b.MOD / "main_menu/setup/start/05_characters.txt").read_text(encoding="utf-8-sig")
+    chars = (b.MOD / "main_menu/setup/395/05_characters.txt").read_text(encoding="utf-8-sig")
     assert not set(re.findall(r"religion = (\w+)", chars)) & b.LATE_FAITHS
 
 

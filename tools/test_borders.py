@@ -2,7 +2,7 @@ import re
 from pathlib import Path
 
 MOD = Path(__file__).resolve().parent.parent
-START = MOD / "main_menu/setup/start"
+START = MOD / "main_menu/setup/395"
 STUBS = ["05_characters", "07_cities_and_buildings", "11_art", "12_diplomacy", "13_religion",
          "15_international_organizations", "16_wars", "18_opinions", "20_rivals", "23_colonies", "24_town_rights", "03_markets", "09_roads",
          "25_area_preferences", "26_ai_personalities", "27_armies"]
@@ -31,7 +31,7 @@ def test_hierarchy_places_rome_in_italy():
 
 def test_land_topographies_cover_vanilla_owned():
     topo = b.load_topography()
-    text = (b.GAME / "main_menu/setup/start/10_countries.txt").read_text(encoding="utf-8-sig")
+    text = (b.GAME / "main_menu/setup/1337/10_countries.txt").read_text(encoding="utf-8-sig")
     owned = set()
     for block in re.findall(r"own_control_\w+\s*=\s*\{([^}]*)\}", re.sub(r"#[^\n]*", "", text)):
         owned.update(b.tokens(block))

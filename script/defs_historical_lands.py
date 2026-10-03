@@ -15,7 +15,7 @@ HISTORICAL_LANDS: dict[str, list[str]] = {
     "HAS": ["galicia", "tunis", "algiers"],  # Gallaecia 409, then Carthage 439 and Numidia
     "SLX": ["andalusia", "granada"],  # Baetica 409, before Gunderic's crossing to Africa
     "QAD": ["galicia", "north_portugal"],  # the Quadi joined the Suebi in Gallaecia
-    "ALM": ["alsace", "upper_rhine", "eastern_switzerland", "central_switzerland"],  # Strasbourg and Raetia, 5th century
+    "AMI": ["alsace", "upper_rhine", "eastern_switzerland", "central_switzerland"],  # Strasbourg and Raetia, 5th century
     "BGD": ["hesse", "western_switzerland", "franche_comte", "savoy", "lyonnais", "burgundy"],  # Worms 413, Sapaudia 443, Lyon 461
     "FRK": ["rhineland", "lorraine", "wallonia"],  # the Ripuarians: Cologne and Trier
     "SLF": ["brabant", "flanders", "wallonia", "picardy", "ile_de_france", "champagne"],  # Toxandria 358, Tournai, Clovis
@@ -33,7 +33,7 @@ HISTORICAL_LANDS: dict[str, list[str]] = {
 
 PREF_FILE = "in_game/common/area_preferences/tfe_historical_lands.txt"
 TRIG_FILE = "in_game/common/scripted_triggers/tfe_historical_lands.txt"
-SETUP_FILE = "main_menu/setup/start/25_area_preferences.txt"
+SETUP_FILE = "main_menu/setup/395/25_area_preferences.txt"
 LOC_FILE = "main_menu/localization/english/tfe_historical_lands_l_english.yml"
 WRITER = "script/defs_historical_lands.py"
 

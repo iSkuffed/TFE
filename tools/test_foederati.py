@@ -59,6 +59,6 @@ def test_the_foedus_lapses_on_either_death_and_at_start():
 
 
 def test_the_empires_foederati_at_start():
-    dip = code(b.MOD / "main_menu/setup/start/12_diplomacy.txt")
+    dip = code(b.MOD / "main_menu/setup/395/12_diplomacy.txt")
     for sub in ("VIS", "SLH"):
         assert re.search(rf"first = EAR second = {sub} subject_type = tfe_foederati\b", dip), sub

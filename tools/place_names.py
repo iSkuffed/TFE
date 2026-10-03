@@ -74,7 +74,7 @@ def vanilla_per_language():
 
 
 def owners():
-    text = (b.MOD / "main_menu/setup/start/10_countries.txt").read_text(encoding="utf-8-sig")
+    text = (b.MOD / "main_menu/setup/395/10_countries.txt").read_text(encoding="utf-8-sig")
     own = {}
     for m in re.finditer(r"^\t\t(\w{3}) = \{.*?own_control_core = \{(.*?)\}", text, re.M | re.S):
         for l in m.group(2).split():

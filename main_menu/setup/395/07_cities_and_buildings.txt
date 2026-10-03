@@ -15,7 +15,6 @@ locations={
 	coruna = { rank = town town_setup = tfe_unfortified_iberian_town_port }
 	volubilis = { rank = town town_setup = maghreb_town }
 	ceuta = { rank = town town_setup = maghreb_coastal_town }
-	sale = { rank = town town_setup = maghreb_coastal_town }
 	aleria = { rank = town town_setup = italian_coastal_town }
 	bonn = { rank = town town_setup = tfe_unfortified_german_town }
 	neuss = { rank = town town_setup = tfe_unfortified_german_town }
@@ -311,6 +310,7 @@ locations={
 	tunis = { rank = city 		town_setup = tfe_unfortified_maghreb_coastal_city }
 	
 	algiers = { rank = town 	town_setup = maghreb_coastal_town }
+	sale = { rank = town 		town_setup = maghreb_coastal_town }
 	cherchell = { rank = city 	town_setup = maghreb_coastal_town }
 	
 	# Carpathia
@@ -323,9 +323,9 @@ locations={
 	# Iberia
 	barcelona = { rank = city 	town_setup = tfe_unfortified_barcelona_city }
 	cordoba = { rank = city town_setup = tfe_unfortified_cordoba_city }
-	granada = { rank = town town_setup = tfe_unfortified_iberian_city }
+	granada = { rank = town town_setup = tfe_unfortified_granada_city }
 	lisbon = { rank = city town_setup = tfe_unfortified_iberian_city_port }
-	malaga = { rank = city town_setup = tfe_unfortified_iberian_city_port }
+	malaga = { rank = city town_setup = tfe_unfortified_malaga_city }
 	sevilla = { rank = city town_setup = tfe_unfortified_iberian_city }
 	toledo = { rank = city town_setup = tfe_unfortified_toledo_city }
 	valencia = { rank = city town_setup = tfe_unfortified_iberian_city_port }

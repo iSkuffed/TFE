@@ -8,7 +8,7 @@ import borders as b
 
 RULES = b.MOD / "in_game/common/customizable_localization/country_history.txt"
 LOC = b.MOD / "main_menu/localization/english/tfe_country_history_l_english.yml"
-START = b.MOD / "main_menu/setup/start/10_countries.txt"
+START = b.MOD / "main_menu/setup/395/10_countries.txt"
 
 
 def test_every_start_country_has_its_history():

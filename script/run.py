@@ -18,7 +18,7 @@ def modules():
 
 def encoding(rel):
     """Script and localisation files take a BOM; the start loader chokes on one ("Unexpected token")."""
-    return "utf-8" if rel.startswith("main_menu/setup/start/") else "utf-8-sig"
+    return "utf-8" if rel.startswith("main_menu/setup/395/") else "utf-8-sig"
 
 
 def all_outputs():

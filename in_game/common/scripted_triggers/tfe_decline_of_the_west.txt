@@ -3,7 +3,7 @@
 # (generic_actions/tfe_migratory.txt's Start Migration, on the Decline's panel).
 tfe_is_migrator = {
 	OR = {
-		tag = ALM
+		tag = AMI
 		tag = BGD
 		tag = FRK
 		tag = HAS

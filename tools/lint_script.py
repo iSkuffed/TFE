@@ -187,7 +187,7 @@ class Linter:
     def check_keyword(self, path, e):
         """the traps that are wrong wherever they appear."""
         key = e.key
-        if key == "outcome" and e.val not in OUTCOMES:
+        if key == "outcome" and isinstance(e.val, str) and e.val not in OUTCOMES:   # 1.4 disasters: outcome = { ... }
             self.say(path, e, f"outcome = {e.val}: must be positive, neutral or negative")
         if key == "exists" and isinstance(e.val, str) and e.val.startswith(("c:", "country:")):
             self.say(path, e, f"exists = {e.val}: use country_exists, exists is true for landless leftovers")
@@ -209,8 +209,8 @@ def lint(vanilla=False):
     lin = Linter(Knowledge([b.GAME] if vanilla else [b.GAME, b.MOD]))
     for p in script_files(base):
         rel = p.relative_to(base)
-        # vanilla's setup/start files carry no BOM, so ours (generated to match) needn't either
-        if not vanilla and rel.parts[:3] != ("main_menu", "setup", "start") and not p.read_bytes().startswith(b"\xef\xbb\xbf"):
+        # vanilla's setup/395 files carry no BOM, so ours (generated to match) needn't either
+        if not vanilla and rel.parts[:3] != ("main_menu", "setup", "395") and not p.read_bytes().startswith(b"\xef\xbb\xbf"):
             lin.found.append(f"{rel}:1: no UTF-8 BOM")
         try:
             tree = tree_of(p)

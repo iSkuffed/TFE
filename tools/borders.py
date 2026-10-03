@@ -488,7 +488,7 @@ def resolve_capitals(tags, owned):
     return caps, warnings, errors
 
 
-COUNTRIES_OUT = MOD / "main_menu/setup/start/10_countries.txt"
+COUNTRIES_OUT = MOD / "main_menu/setup/395/10_countries.txt"
 DEFS_OUT = MOD / "in_game/setup/countries/tfe_countries.txt"
 LOC_OUT = MOD / "main_menu/localization/english/tfe_countries_l_english.yml"
 WATER, WASTE, UNOWNED, UNSOURCED = (40, 60, 90), (110, 110, 110), (205, 195, 175), (255, 0, 255)
@@ -1069,7 +1069,7 @@ def emit_filtered_start(anc, owner, pop_based, settlements):
     (MOD / "in_game/common/town_setups").mkdir(parents=True, exist_ok=True)
     (MOD / "in_game/common/town_setups/tfe_unfortified.txt").write_text(twins, encoding="utf-8-sig")
     for name in FILTERED_START:
-        text = (GAME / f"main_menu/setup/start/{name}.txt").read_text(encoding="utf-8-sig")
+        text = (GAME / f"main_menu/setup/1337/{name}.txt").read_text(encoding="utf-8-sig")
         if name == "07_cities_and_buildings":   # its buildings are 1337 tag-owned
             text = settle(text[:text.index("building_manager")], settlements)
             text = roman_town_setups(text, owner, twins) + roman_buildings()
@@ -1078,7 +1078,7 @@ def emit_filtered_start(anc, owner, pop_based, settlements):
         if name == "09_roads":
             text = curate_roads(filter_unowned(text, set(anc), owned), owner, load_centroids(), load_adjacency(),
                                 load_trunk_roads(TOOLS / "roads.txt"))
-        (MOD / f"main_menu/setup/start/{name}.txt").write_text(
+        (MOD / f"main_menu/setup/395/{name}.txt").write_text(
             text if name == "09_roads" else filter_unowned(text, set(anc), owned), encoding="utf-8")
 
 
@@ -1101,11 +1101,11 @@ def build():
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(text, encoding="utf-8-sig" if path == DEFS_OUT else "utf-8")
     emit_filtered_start(s["anc"], s["owner"], s["pop_based"], s["settlements"])
-    dyn = splice_dynasties((GAME / "main_menu/setup/start/04_dynasties.txt").read_text(encoding="utf-8-sig"),
+    dyn = splice_dynasties((GAME / "main_menu/setup/1337/04_dynasties.txt").read_text(encoding="utf-8-sig"),
                            (TOOLS / "tfe_dynasties.txt").read_text(encoding="utf-8"))
-    (MOD / "main_menu/setup/start/04_dynasties.txt").write_text(dyn, encoding="utf-8")
+    (MOD / "main_menu/setup/395/04_dynasties.txt").write_text(dyn, encoding="utf-8")
     people = {l: (s["tags"][t]["culture"], s["tags"][t]["religion"]) for t in s["country_types"] for l in s["owned"][t]}
-    pops = pop_society_pops((GAME / "main_menu/setup/start/06_pops.txt").read_text(encoding="utf-8-sig"), people)
+    pops = pop_society_pops((GAME / "main_menu/setup/1337/06_pops.txt").read_text(encoding="utf-8-sig"), people)
     scopes = set(s["tags"]) | set(s["anc"]) | {n for a in s["anc"].values() for n in a}
     rules = load_culture_rules(TOOLS / "cultures.txt", scopes, known_cultures())
     pops = pop_cultures(pops, s["owner"], s["anc"], rules)
@@ -1115,7 +1115,7 @@ def build():
     if lost:
         sys.exit(f"no faith of 395 near {lost[:20]}: add a rule to tools/religions.txt")
     pops = region_pops(pops, s["owner"], s["anc"], {l: p for l, (_, p, _) in s["settlements"].items() if p})
-    (MOD / "main_menu/setup/start/06_pops.txt").write_text(pops, encoding="utf-8")
+    (MOD / "main_menu/setup/395/06_pops.txt").write_text(pops, encoding="utf-8")
     formables = "in_game/common/formable_countries/00_formable_countries.txt"
     (MOD / formables).parent.mkdir(parents=True, exist_ok=True)
     (MOD / formables).write_text(bar_empires_from_formables((GAME / formables).read_text(encoding="utf-8-sig")),

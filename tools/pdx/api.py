@@ -110,6 +110,7 @@ class AnyFx(Scope):
         with self._open("switch", _Switch, trigger=trigger) as s:
             s._cls = type(self)
             yield s
+    def GFS_ahmed_buffs(self, _v: bool | str | float = True, /) -> None: self._call("GFS_ahmed_buffs", _v)
     def TEU_increase_crusader_fervor(self, _v: bool | str | float = True, /) -> None: self._call("TEU_increase_crusader_fervor", _v)
     def TEU_increase_crusader_fervor_bonus(self, _v: bool | str | float = True, /) -> None: self._call("TEU_increase_crusader_fervor_bonus", _v)
     def TEU_reduce_crusader_fervor(self, _v: bool | str | float = True, /) -> None: self._call("TEU_reduce_crusader_fervor", _v)
@@ -132,13 +133,17 @@ class AnyFx(Scope):
     def add_effect_scaling_with_societal_value(self, _v: bool | str | float | None = None, /, *, effect: Any = None, societal_value: Any = None, operator: Any = None, value: Any = None) -> None:
         _scripted(self, "add_effect_scaling_with_societal_value", _v, dict(effect=effect, societal_value=societal_value, operator=operator, value=value))
     def add_extended_winter(self, _v: Any, /) -> None: self._call("add_extended_winter", _v)
+    def add_hafsid_governor_content(self, _v: bool | str | float | None = None, /, *, country: Any = None) -> None:
+        _scripted(self, "add_hafsid_governor_content", _v, dict(country=country))
     def add_head_of_cabinet_modifier(self, _v: bool | str | float | None = None, /, *, estate: Any = None) -> None:
         _scripted(self, "add_head_of_cabinet_modifier", _v, dict(estate=estate))
     def add_historical_rival_scripted(self, _v: bool | str | float | None = None, /, *, target: Any = None, trigger_recipient_event: Any = None) -> None:
         _scripted(self, "add_historical_rival_scripted", _v, dict(target=target, trigger_recipient_event=trigger_recipient_event))
+    def add_influence_over_granada_towards_trend(self, _v: bool | str | float | None = None, /, *, value: Any = None) -> None:
+        _scripted(self, "add_influence_over_granada_towards_trend", _v, dict(value=value))
     def add_internal_flag(self, *args: Any, **kw: Any) -> None: self._call("add_internal_flag", *args, **kw)
     def add_italian_wars_militarization_demands(self, _v: bool | str | float = True, /) -> None: self._call("add_italian_wars_militarization_demands", _v)
-    def add_migration(self, *, owner: Any = None, to_owner: Any = None, from_: Any = None, from_location: Any = None, to_location: Any = None, to: Any = None, religion: Any = None, culture: Any = None, type: Any = None, amount: Any, months: Any) -> None: self._call("add_migration", **_kw(owner=owner, to_owner=to_owner, from_=from_, from_location=from_location, to_location=to_location, to=to, religion=religion, culture=culture, type=type, amount=amount, months=months))
+    def add_migration(self, *, owner: Any = None, to_owner: Any = None, from_: Any = None, from_location: Any = None, to: Any = None, to_location: Any = None, religion: Any = None, culture: Any = None, type: Any = None, amount: Any, months: Any, keep_nationality: Any = None) -> None: self._call("add_migration", **_kw(owner=owner, to_owner=to_owner, from_=from_, from_location=from_location, to=to, to_location=to_location, religion=religion, culture=culture, type=type, amount=amount, months=months, keep_nationality=keep_nationality))
     def add_opinion_mutual_effect(self, _v: bool | str | float | None = None, /, *, target: Any = None, modifier: Any = None) -> None:
         _scripted(self, "add_opinion_mutual_effect", _v, dict(target=target, modifier=modifier))
     def add_organization_donation_opinion_bonus(self, _v: bool | str | float | None = None, /, *, target: Any = None, value: Any = None, international_organization: Any = None) -> None:
@@ -147,6 +152,7 @@ class AnyFx(Scope):
         _scripted(self, "add_pentarchy_modifier", _v, dict(location=location))
     def add_random_dip_regent_trait(self, _v: bool | str | float = True, /) -> None: self._call("add_random_dip_regent_trait", _v)
     def add_random_dip_ruler_trait(self, _v: bool | str | float = True, /) -> None: self._call("add_random_dip_ruler_trait", _v)
+    def add_random_positive_cabinet_trait(self, _v: bool | str | float = True, /) -> None: self._call("add_random_positive_cabinet_trait", _v)
     def add_religious_currency_pilgrimage(self, _v: bool | str | float | None = None, /, *, currency: Any = None) -> None:
         _scripted(self, "add_religious_currency_pilgrimage", _v, dict(currency=currency))
     def add_religious_influence_if_valid(self, _v: bool | str | float | None = None, /, *, VALUE: Any = None) -> None:
@@ -173,6 +179,7 @@ class AnyFx(Scope):
         _scripted(self, "adopt_compatible_heir_religion_law", _v, dict(country=country))
     def ai_international_organization_diplo_action_cooldown(self, _v: bool | str | float | None = None, /, *, international_organization: Any = None, key: Any = None, target: Any = None) -> None:
         _scripted(self, "ai_international_organization_diplo_action_cooldown", _v, dict(international_organization=international_organization, key=key, target=target))
+    def align_subject_curia_votes_effect(self, _v: bool | str | float = True, /) -> None: self._call("align_subject_curia_votes_effect", _v)
     def annex_country_diplomatically(self, _v: bool | str | float | None = None, /, *, country: Any = None) -> None:
         _scripted(self, "annex_country_diplomatically", _v, dict(country=country))
     def append_info_if_SMC_is_player(self, _v: bool | str | float = True, /) -> None: self._call("append_info_if_SMC_is_player", _v)
@@ -198,8 +205,14 @@ class AnyFx(Scope):
         _scripted(self, "apply_societal_value_push_modifiers", _v, dict(country=country, years=years, size=size))
     def apply_union_levels(self, _v: bool | str | float | None = None, /, *, level: Any = None) -> None:
         _scripted(self, "apply_union_levels", _v, dict(level=level))
+    def ara_university_event_rewards(self, _v: bool | str | float = True, /) -> None: self._call("ara_university_event_rewards", _v)
     def assert_if(self, *, limit_: Any, text: Any) -> None: self._call("assert_if", **_kw(limit_=limit_, text=text))
     def assert_read(self, _v: Any, /) -> None: self._call("assert_read", _v)
+    def assimilate_group_into_merged_culture(self, _v: bool | str | float = True, /) -> None: self._call("assimilate_group_into_merged_culture", _v)
+    def assimilate_location(self, _v: bool | str | float | None = None, /, *, culture: Any = None, value: Any = None) -> None:
+        _scripted(self, "assimilate_location", _v, dict(culture=culture, value=value))
+    def assimilate_location_with_randomness(self, _v: bool | str | float | None = None, /, *, culture: Any = None, min: Any = None, max: Any = None) -> None:
+        _scripted(self, "assimilate_location_with_randomness", _v, dict(culture=culture, min=min, max=max))
     def banish_character(self, _v: bool | str | float = True, /) -> None: self._call("banish_character", _v)
     def banish_character_to_country_effect(self, _v: bool | str | float | None = None, /, *, target: Any = None) -> None:
         _scripted(self, "banish_character_to_country_effect", _v, dict(target=target))
@@ -218,14 +231,23 @@ class AnyFx(Scope):
     def buff_timur_effect(self, _v: bool | str | float = True, /) -> None: self._call("buff_timur_effect", _v)
     def build_miaphysite_monastery(self, _v: bool | str | float = True, /) -> None: self._call("build_miaphysite_monastery", _v)
     def byz_set_up(self, _v: bool | str | float = True, /) -> None: self._call("byz_set_up", _v)
+    def cache_distance_map(self, _v: bool | str | float | None = None, /, *, country: Any = None) -> None:
+        _scripted(self, "cache_distance_map", _v, dict(country=country))
+    def cache_locations_in_maghreb_for_andalusian_migration(self, _v: bool | str | float = True, /) -> None: self._call("cache_locations_in_maghreb_for_andalusian_migration", _v)
     def call_io_parliament(self, _v: bool | str | float | None = None, /, *, international_organization: Any = None) -> None:
         _scripted(self, "call_io_parliament", _v, dict(international_organization=international_organization))
     def call_parliament_for_law_change(self, _v: bool | str | float = True, /) -> None: self._call("call_parliament_for_law_change", _v)
     def call_recursive_scripted_effect(self, _v: bool | str | float | None = None, /, *, effect: Any = None) -> None:
         _scripted(self, "call_recursive_scripted_effect", _v, dict(effect=effect))
+    def cancel_bfts_gold_trade(self, _v: bool | str | float = True, /) -> None: self._call("cancel_bfts_gold_trade", _v)
     def cancel_exploration(self, *args: Any, **kw: Any) -> None: self._call("cancel_exploration", *args, **kw)
     def cancel_loan(self, _v: Any, /) -> None: self._call("cancel_loan", _v)
     def cap_parliament_support(self, _v: bool | str | float = True, /) -> None: self._call("cap_parliament_support", _v)
+    def cas_appoint_adelantado_mayor_effect(self, _v: bool | str | float | None = None, /, *, target: Any = None) -> None:
+        _scripted(self, "cas_appoint_adelantado_mayor_effect", _v, dict(target=target))
+    def cas_create_cultural_revolt(self, _v: bool | str | float | None = None, /, *, REBEL: Any = None, CULTURE: Any = None) -> None:
+        _scripted(self, "cas_create_cultural_revolt", _v, dict(REBEL=REBEL, CULTURE=CULTURE))
+    def cas_repeal_adelantado_mayor_effect(self, _v: bool | str | float = True, /) -> None: self._call("cas_repeal_adelantado_mayor_effect", _v)
     def cast_vote(self, _v: bool | str | float | None = None, /, *, voter: Any = None, vote: Any = None, resolution: Any = None) -> None:
         _scripted(self, "cast_vote", _v, dict(voter=voter, vote=vote, resolution=resolution))
     def catastrophic_destroy_building_levels_in_location(self, _v: bool | str | float = True, /) -> None: self._call("catastrophic_destroy_building_levels_in_location", _v)
@@ -258,20 +280,26 @@ class AnyFx(Scope):
     def ccw_support_war_side_not_war_join_effect(self, _v: bool | str | float = True, /) -> None: self._call("ccw_support_war_side_not_war_join_effect", _v)
     def ccw_support_war_side_not_war_join_effect_gold(self, _v: bool | str | float = True, /) -> None: self._call("ccw_support_war_side_not_war_join_effect_gold", _v)
     def ccw_support_war_side_not_war_join_effect_mercs(self, _v: bool | str | float = True, /) -> None: self._call("ccw_support_war_side_not_war_join_effect_mercs", _v)
+    def change_all_pop_satisfaction(self, _v: bool | str | float | None = None, /, *, value: Any = None) -> None:
+        _scripted(self, "change_all_pop_satisfaction", _v, dict(value=value))
     def change_amount_of_treasure_voyage(self, _v: bool | str | float = True, /) -> None: self._call("change_amount_of_treasure_voyage", _v)
     def change_celestial_authority(self, _v: bool | str | float | None = None, /, *, value: Any = None) -> None:
         _scripted(self, "change_celestial_authority", _v, dict(value=value))
+    def change_culture_for_ruler_and_family(self, _v: bool | str | float | None = None, /, *, country: Any = None, culture: Any = None) -> None:
+        _scripted(self, "change_culture_for_ruler_and_family", _v, dict(country=country, culture=culture))
     def change_estate_gold_effect(self, _v: bool | str | float | None = None, /, *, estate: Any = None, scale: Any = None) -> None:
         _scripted(self, "change_estate_gold_effect", _v, dict(estate=estate, scale=scale))
-    def change_expedition_state(self, _v: bool | str | float | None = None, /, *, status: Any = None) -> None:
-        _scripted(self, "change_expedition_state", _v, dict(status=status))
     def change_global_variable(self, *, name: Any, add: Any = None, subtract: Any = None, multiply: Any = None, divide: Any = None, modulo: Any = None, min: Any = None, max: Any = None) -> None: self._call("change_global_variable", **_kw(name=name, add=add, subtract=subtract, multiply=multiply, divide=divide, modulo=modulo, min=min, max=max))
     def change_gold_effect(self, _v: bool | str | float | None = None, /, *, scale: Any = None) -> None:
         _scripted(self, "change_gold_effect", _v, dict(scale=scale))
     def change_gold_effect_bounded(self, _v: bool | str | float | None = None, /, *, scale: Any = None, min: Any = None, max: Any = None) -> None:
         _scripted(self, "change_gold_effect_bounded", _v, dict(scale=scale, min=min, max=max))
+    def change_granadan_sovereignty_effect(self, _v: bool | str | float | None = None, /, *, value: Any = None) -> None:
+        _scripted(self, "change_granadan_sovereignty_effect", _v, dict(value=value))
     def change_imperial_authority(self, _v: bool | str | float | None = None, /, *, value: Any = None) -> None:
         _scripted(self, "change_imperial_authority", _v, dict(value=value))
+    def change_influence_over_granada_effect(self, _v: bool | str | float | None = None, /, *, value: Any = None) -> None:
+        _scripted(self, "change_influence_over_granada_effect", _v, dict(value=value))
     def change_local_variable(self, *, name: Any, add: Any = None, subtract: Any = None, multiply: Any = None, divide: Any = None, modulo: Any = None, min: Any = None, max: Any = None) -> None: self._call("change_local_variable", **_kw(name=name, add=add, subtract=subtract, multiply=multiply, divide=divide, modulo=modulo, min=min, max=max))
     def change_location_rank_effect(self, _v: bool | str | float | None = None, /, *, location_rank: Any = None) -> None:
         _scripted(self, "change_location_rank_effect", _v, dict(location_rank=location_rank))
@@ -291,6 +319,8 @@ class AnyFx(Scope):
     def change_union_integration_level(self, _v: bool | str | float | None = None, /, *, value: Any = None) -> None:
         _scripted(self, "change_union_integration_level", _v, dict(value=value))
     def change_variable(self, *, name: Any, add: Any = None, subtract: Any = None, multiply: Any = None, divide: Any = None, modulo: Any = None, min: Any = None, max: Any = None) -> None: self._call("change_variable", **_kw(name=name, add=add, subtract=subtract, multiply=multiply, divide=divide, modulo=modulo, min=min, max=max))
+    def check_situation_and_change_granadan_sovereignty(self, _v: bool | str | float | None = None, /, *, value: Any = None) -> None:
+        _scripted(self, "check_situation_and_change_granadan_sovereignty", _v, dict(value=value))
     def chi_adjust_pre_rtr_modifiers(self, _v: bool | str | float | None = None, /, *, value: Any = None) -> None:
         _scripted(self, "chi_adjust_pre_rtr_modifiers", _v, dict(value=value))
     def chi_expedition_resolution_negative(self, _v: bool | str | float = True, /) -> None: self._call("chi_expedition_resolution_negative", _v)
@@ -303,22 +333,14 @@ class AnyFx(Scope):
     def chi_select_recommendation(self, _v: bool | str | float = True, /) -> None: self._call("chi_select_recommendation", _v)
     def china_set_up(self, _v: bool | str | float = True, /) -> None: self._call("china_set_up", _v)
     def chinese_expedition_calculate_gift_for_this(self, _v: bool | str | float = True, /) -> None: self._call("chinese_expedition_calculate_gift_for_this", _v)
-    def chinese_expedition_set_expedition_to_return(self, _v: bool | str | float = True, /) -> None: self._call("chinese_expedition_set_expedition_to_return", _v)
-    def chinese_expedition_status_change(self, _v: bool | str | float = True, /) -> None: self._call("chinese_expedition_status_change", _v)
-    def chinese_expedition_status_deviation(self, _v: bool | str | float = True, /) -> None: self._call("chinese_expedition_status_deviation", _v)
-    def chinese_expedition_status_deviation_return(self, _v: bool | str | float = True, /) -> None: self._call("chinese_expedition_status_deviation_return", _v)
-    def chinese_expedition_status_port_stay(self, _v: bool | str | float = True, /) -> None: self._call("chinese_expedition_status_port_stay", _v)
-    def chinese_expedition_status_travel_from(self, _v: bool | str | float = True, /) -> None: self._call("chinese_expedition_status_travel_from", _v)
-    def chinese_expedition_status_travel_to(self, _v: bool | str | float = True, /) -> None: self._call("chinese_expedition_status_travel_to", _v)
     def chinese_treasure_depart_from_port(self, _v: bool | str | float = True, /) -> None: self._call("chinese_treasure_depart_from_port", _v)
-    def chinese_treasure_sail_to(self, _v: bool | str | float | None = None, /, *, to: Any = None) -> None:
-        _scripted(self, "chinese_treasure_sail_to", _v, dict(to=to))
     def claim_non_conflicting_owned_areas(self, _v: bool | str | float | None = None, /, *, the_owner: Any = None) -> None:
         _scripted(self, "claim_non_conflicting_owned_areas", _v, dict(the_owner=the_owner))
     def clamp_global_variable(self, *args: Any, **kw: Any) -> None: self._call("clamp_global_variable", *args, **kw)
     def clamp_local_variable(self, *args: Any, **kw: Any) -> None: self._call("clamp_local_variable", *args, **kw)
     def clamp_variable(self, *, name: Any, min: Any = None, max: Any = None) -> None: self._call("clamp_variable", **_kw(name=name, min=min, max=max))
-    def clear_chinese_expedition_status_variables(self, _v: bool | str | float = True, /) -> None: self._call("clear_chinese_expedition_status_variables", _v)
+    def cleanup_chinese_treasure_voyage_state(self, _v: bool | str | float = True, /) -> None: self._call("cleanup_chinese_treasure_voyage_state", _v)
+    def clear_crisis_of_faith_heresiarch_effect(self, _v: bool | str | float = True, /) -> None: self._call("clear_crisis_of_faith_heresiarch_effect", _v)
     def clear_factionalism_flags_and_modifiers(self, _v: bool | str | float = True, /) -> None: self._call("clear_factionalism_flags_and_modifiers", _v)
     def clear_global_variable_list(self, _v: Any, /) -> None: self._call("clear_global_variable_list", _v)
     def clear_global_variable_map(self, *args: Any, **kw: Any) -> None: self._call("clear_global_variable_map", *args, **kw)
@@ -342,7 +364,12 @@ class AnyFx(Scope):
     def competent_governance(self, _v: bool | str | float = True, /) -> None: self._call("competent_governance", _v)
     def conditional_effect(self, *, effect: Any = None, limit_: Any = None, else_: Any = None) -> None: self._call("conditional_effect", **_kw(effect=effect, limit_=limit_, else_=else_))
     def construct_delhi_tombs(self, _v: bool | str | float = True, /) -> None: self._call("construct_delhi_tombs", _v)
-    def construct_latest_fort_building(self, _v: bool | str | float = True, /) -> None: self._call("construct_latest_fort_building", _v)
+    def construct_latest_fort_building(self, _v: bool | str | float | None = None, /, *, cost_multiplier: Any = None) -> None:
+        _scripted(self, "construct_latest_fort_building", _v, dict(cost_multiplier=cost_multiplier))
+    def convert_location(self, _v: bool | str | float | None = None, /, *, religion: Any = None, value: Any = None) -> None:
+        _scripted(self, "convert_location", _v, dict(religion=religion, value=value))
+    def convert_location_with_randomness(self, _v: bool | str | float | None = None, /, *, religion: Any = None, min: Any = None, max: Any = None) -> None:
+        _scripted(self, "convert_location_with_randomness", _v, dict(religion=religion, min=min, max=max))
     def convert_pops_in_location_to_catholic(self, _v: bool | str | float = True, /) -> None: self._call("convert_pops_in_location_to_catholic", _v)
     def copy_country_color(self, *args: Any, **kw: Any) -> None: self._call("copy_country_color", *args, **kw)
     def copy_country_flag(self, *args: Any, **kw: Any) -> None: self._call("copy_country_flag", *args, **kw)
@@ -358,21 +385,23 @@ class AnyFx(Scope):
     def create_alliance(self, _v: bool | str | float | None = None, /, *, target: Any = None) -> None:
         _scripted(self, "create_alliance", _v, dict(target=target))
     def create_corsican_rebels(self, _v: bool | str | float = True, /) -> None: self._call("create_corsican_rebels", _v)
+    def create_familial_governor_in_location_effect(self, _v: bool | str | float | None = None, /, *, location: Any = None, character: Any = None, country: Any = None) -> None:
+        _scripted(self, "create_familial_governor_in_location_effect", _v, dict(location=location, character=character, country=country))
     def create_gui_variable(self, _v: bool | str | float | None = None, /, *, type: Any = None, target: Any = None) -> None:
         _scripted(self, "create_gui_variable", _v, dict(type=type, target=target))
-    def create_holy_site(self, *, name: Any = None, type: Any = None, importance: Any = None, location: Any = None, religions: Any = None, save_scope_as: Any = None) -> None: self._call("create_holy_site", **_kw(name=name, type=type, importance=importance, location=location, religions=religions, save_scope_as=save_scope_as))
+    def create_holy_site(self, *, name: Any, type: Any, importance: Any, location: Any, religions: Any) -> None: self._call("create_holy_site", **_kw(name=name, type=type, importance=importance, location=location, religions=religions))
     def create_instant_rebellion(self, _v: bool | str | float | None = None, /, *, rebel: Any = None, list: Any = None) -> None:
         _scripted(self, "create_instant_rebellion", _v, dict(rebel=rebel, list=list))
     def create_international_organization(self, *, type: Any, creator: Any = None, add_country_to_international_organization: Any = None, target: Any = None, set_leader_country: Any = None) -> None: self._call("create_international_organization", **_kw(type=type, creator=creator, add_country_to_international_organization=add_country_to_international_organization, target=target, set_leader_country=set_leader_country))
     def create_malacca_tag_here(self, _v: bool | str | float = True, /) -> None: self._call("create_malacca_tag_here", _v)
     def create_market(self, *, builder: Any = None, location: Any = None, price: Any = None, instant: Any = None, price_modifier: Any = None) -> None: self._call("create_market", **_kw(builder=builder, location=location, price=price, instant=instant, price_modifier=price_modifier))
-    def create_mercenary(self, *, name: Any, home: Any, leader: Any = None, categories: Any = None, definitions: Any = None, cost_multiplier: Any = None, save_scope_as: Any, months: Any = None) -> None: self._call("create_mercenary", **_kw(name=name, home=home, leader=leader, categories=categories, definitions=definitions, cost_multiplier=cost_multiplier, save_scope_as=save_scope_as, months=months))
+    def create_mercenary(self, *, name: Any = None, home: Any, categories: Any = None, leader: Any = None, definitions: Any = None, cost_multiplier: Any = None, save_scope_as: Any, months: Any = None) -> None: self._call("create_mercenary", **_kw(name=name, home=home, categories=categories, leader=leader, definitions=definitions, cost_multiplier=cost_multiplier, save_scope_as=save_scope_as, months=months))
     def create_newborn_female_ruler_child(self, _v: bool | str | float = True, /) -> None: self._call("create_newborn_female_ruler_child", _v)
     def create_newborn_ruler_child(self, _v: bool | str | float = True, /) -> None: self._call("create_newborn_ruler_child", _v)
     def create_no_mans_land_scopes(self, _v: bool | str | float = True, /) -> None: self._call("create_no_mans_land_scopes", _v)
     def create_or_target_eunuch_character(self, _v: bool | str | float = True, /) -> None: self._call("create_or_target_eunuch_character", _v)
     def create_relation(self, *, first: Any, second: Any, type: Any, months: Any = None, years: Any = None) -> None: self._call("create_relation", **_kw(first=first, second=second, type=type, months=months, years=years))
-    def create_route(self, *args: Any, **kw: Any) -> None: self._call("create_route", *args, **kw)
+    def create_route(self, *, start: Any = None, end: Any = None, limit_: Any = None, weight: Any = None, movement_cost: Any = None, effect: Any = None) -> None: self._call("create_route", **_kw(start=start, end=end, limit_=limit_, weight=weight, movement_cost=movement_cost, effect=effect))
     def create_some_heretics(self, _v: bool | str | float = True, /) -> None: self._call("create_some_heretics", _v)
     def create_theologian_with_semi_random_stats(self, _v: bool | str | float = True, /) -> None: self._call("create_theologian_with_semi_random_stats", _v)
     def create_union_of_integration_level(self, _v: bool | str | float | None = None, /, *, target: Any = None, level: Any = None) -> None:
@@ -384,6 +413,7 @@ class AnyFx(Scope):
         _scripted(self, "create_work_of_art_with_artist_input", _v, dict(artist=artist, key=key, type=type, base_quality=base_quality))
     def crusade_effect(self, _v: bool | str | float | None = None, /, *, target: Any = None) -> None:
         _scripted(self, "crusade_effect", _v, dict(target=target))
+    def crusade_track_contribution(self, _v: bool | str | float = True, /) -> None: self._call("crusade_track_contribution", _v)
     def custom_label(self, _v: Any, /) -> None: self._call("custom_label", _v)
     def damage_regiment(self, _v: bool | str | float = True, /) -> None: self._call("damage_regiment", _v)
     def damage_the_crown(self, _v: bool | str | float = True, /) -> None: self._call("damage_the_crown", _v)
@@ -401,7 +431,7 @@ class AnyFx(Scope):
         _scripted(self, "destroy_every_sub_unit_of_type", _v, dict(sub_unit_type=sub_unit_type))
     def destroy_grand_canal_china(self, _v: bool | str | float = True, /) -> None: self._call("destroy_grand_canal_china", _v)
     def destroy_holy_site(self, *args: Any, **kw: Any) -> None: self._call("destroy_holy_site", *args, **kw)
-    def destroy_international_organization_no_instigator(self, *, target: Any = None, reason: Any = None) -> None: self._call("destroy_international_organization_no_instigator", **_kw(target=target, reason=reason))
+    def destroy_international_organization_no_instigator(self, *, target: Any = None) -> None: self._call("destroy_international_organization_no_instigator", **_kw(target=target))
     def destroy_mercenary(self, _v: Any, /) -> None: self._call("destroy_mercenary", _v)
     def destroy_pop(self, *args: Any, **kw: Any) -> None: self._call("destroy_pop", *args, **kw)
     def destroy_rebel(self, _v: Any, /) -> None: self._call("destroy_rebel", _v)
@@ -415,6 +445,8 @@ class AnyFx(Scope):
     def disable_situation_effect(self, _v: bool | str | float | None = None, /, *, type: Any = None) -> None:
         _scripted(self, "disable_situation_effect", _v, dict(type=type))
     def disable_treasure_voyages(self, _v: bool | str | float = True, /) -> None: self._call("disable_treasure_voyages", _v)
+    def dispatch_bad_mining_event(self, _v: bool | str | float = True, /) -> None: self._call("dispatch_bad_mining_event", _v)
+    def dispatch_good_mining_event(self, _v: bool | str | float = True, /) -> None: self._call("dispatch_good_mining_event", _v)
     def distribute_world(self, _v: bool | str | float = True, /) -> None: self._call("distribute_world", _v)
     def donate_gold_to_international_organization(self, _v: bool | str | float | None = None, /, *, international_organization: Any = None, value: Any = None) -> None:
         _scripted(self, "donate_gold_to_international_organization", _v, dict(international_organization=international_organization, value=value))
@@ -428,8 +460,7 @@ class AnyFx(Scope):
     def enable_situation_effect(self, _v: bool | str | float | None = None, /, *, type: Any = None) -> None:
         _scripted(self, "enable_situation_effect", _v, dict(type=type))
     def enable_treasure_voyages(self, _v: bool | str | float = True, /) -> None: self._call("enable_treasure_voyages", _v)
-    def end_grand_embassy(self, _v: bool | str | float = True, /) -> None: self._call("end_grand_embassy", _v)
-    def end_situation(self, _v: Any, /) -> None: self._call("end_situation", _v)
+    def end_situation(self, *, situation: Any, outcome: Any) -> None: self._call("end_situation", **_kw(situation=situation, outcome=outcome))
     def enforce_culture_effect(self, _v: bool | str | float | None = None, /, *, actor: Any = None, target: Any = None) -> None:
         _scripted(self, "enforce_culture_effect", _v, dict(actor=actor, target=target))
     def enforce_religion_effect(self, _v: bool | str | float | None = None, /, *, actor: Any = None, target: Any = None) -> None:
@@ -437,6 +468,8 @@ class AnyFx(Scope):
     def enslave_pop(self, _v: bool | str | float | None = None, /, *, target: Any = None, operator: Any = None, value: Any = None) -> None:
         _scripted(self, "enslave_pop", _v, dict(target=target, operator=operator, value=value))
     def error_log(self, _v: Any, /) -> None: self._call("error_log", _v)
+    def establish_cape_route_post(self, _v: bool | str | float | None = None, /, *, feitoria_count: Any = None, gold_scale: Any = None) -> None:
+        _scripted(self, "establish_cape_route_post", _v, dict(feitoria_count=feitoria_count, gold_scale=gold_scale))
     def establish_feitoria_effect(self, _v: bool | str | float = True, /) -> None: self._call("establish_feitoria_effect", _v)
     def event_illustration_culture_effect(self, _v: bool | str | float | None = None, /, *, culture: Any = None) -> None:
         _scripted(self, "event_illustration_culture_effect", _v, dict(culture=culture))
@@ -546,13 +579,14 @@ class AnyFx(Scope):
     def expand_siena_ports(self, _v: bool | str | float = True, /) -> None: self._call("expand_siena_ports", _v)
     def fail_vote(self, _v: bool | str | float | None = None, /, *, resolution: Any = None) -> None:
         _scripted(self, "fail_vote", _v, dict(resolution=resolution))
-    def find_route(self, *, start: Any = None, end: Any = None, limit_: Any = None, weight: Any = None, movement_cost: Any = None, effect: Any = None) -> None: self._call("find_route", **_kw(start=start, end=end, limit_=limit_, weight=weight, movement_cost=movement_cost, effect=effect))
+    def find_route(self, *args: Any, **kw: Any) -> None: self._call("find_route", *args, **kw)
     def fire_generic_action(self, *, type: Any = None, actor: Any = None, recipient: Any = None) -> None: self._call("fire_generic_action", **_kw(type=type, actor=actor, recipient=recipient))
     def fire_post_expedition_events(self, _v: bool | str | float = True, /) -> None: self._call("fire_post_expedition_events", _v)
     def first_option_location_effect(self, _v: bool | str | float = True, /) -> None: self._call("first_option_location_effect", _v)
     def fix_grand_canal_repair(self, _v: bool | str | float = True, /) -> None: self._call("fix_grand_canal_repair", _v)
     def flag_situation_event(self, _v: bool | str | float | None = None, /, *, situation: Any = None, event: Any = None) -> None:
         _scripted(self, "flag_situation_event", _v, dict(situation=situation, event=event))
+    def flavor_tun_4_appoint_heir_effect(self, _v: bool | str | float = True, /) -> None: self._call("flavor_tun_4_appoint_heir_effect", _v)
     def flavor_wls_13_create_revolt(self, _v: bool | str | float = True, /) -> None: self._call("flavor_wls_13_create_revolt", _v)
     def flee_to_location_effect(self, _v: bool | str | float = True, /) -> None: self._call("flee_to_location_effect", _v)
     def flee_to_location_effect_setup(self, _v: bool | str | float | None = None, /, *, from_: Any = None, to: Any = None) -> None:
@@ -690,7 +724,6 @@ class AnyFx(Scope):
         return self.link("no", BooleanFx, op=op)
     def go_omen(self, data: Any, /, *, op: Op = "=") -> ContextManager[OmenFx]:
         return self.link(f"omen:{data}", OmenFx, op=op)
-    def go_on_embassy_to_new_country(self, _v: bool | str | float = True, /) -> None: self._call("go_on_embassy_to_new_country", _v)
     def go_parliament_agenda(self, data: Any, /, *, op: Op = "=") -> ContextManager[ParliamentAgendaFx]:
         return self.link(f"parliament_agenda:{data}", ParliamentAgendaFx, op=op)
     def go_parliament_issue_data(self, data: Any, /, *, op: Op = "=") -> ContextManager[ParliamentIssueFx]:
@@ -779,8 +812,21 @@ class AnyFx(Scope):
         return self.link("yes", BooleanFx, op=op)
     def grant_benefits_to_estate(self, _v: bool | str | float = True, /) -> None: self._call("grant_benefits_to_estate", _v)
     def grant_effects_of_opinion(self, _v: bool | str | float = True, /) -> None: self._call("grant_effects_of_opinion", _v)
+    def grant_seven_cities_expedition_loot_effect(self, _v: bool | str | float = True, /) -> None: self._call("grant_seven_cities_expedition_loot_effect", _v)
     def grant_special_unit_experience(self, _v: bool | str | float | None = None, /, *, value: Any = None) -> None:
         _scripted(self, "grant_special_unit_experience", _v, dict(value=value))
+    def gt_connections_courtly_effect(self, _v: bool | str | float = True, /) -> None: self._call("gt_connections_courtly_effect", _v)
+    def gt_experience_handson_effect(self, _v: bool | str | float = True, /) -> None: self._call("gt_experience_handson_effect", _v)
+    def gt_friend_encounter_roll_effect(self, _v: bool | str | float = True, /) -> None: self._call("gt_friend_encounter_roll_effect", _v)
+    def gt_knowledge_study_effect(self, _v: bool | str | float = True, /) -> None: self._call("gt_knowledge_study_effect", _v)
+    def gt_opportunity_chain_roll_effect(self, _v: bool | str | float | None = None, /, *, DAYS: Any = None) -> None:
+        _scripted(self, "gt_opportunity_chain_roll_effect", _v, dict(DAYS=DAYS))
+    def gt_party_effect(self, _v: bool | str | float = True, /) -> None: self._call("gt_party_effect", _v)
+    def gt_party_trait_roll_effect(self, _v: bool | str | float = True, /) -> None: self._call("gt_party_trait_roll_effect", _v)
+    def gt_prodigy_connections_reward_effect(self, _v: bool | str | float = True, /) -> None: self._call("gt_prodigy_connections_reward_effect", _v)
+    def gt_prodigy_experience_reward_effect(self, _v: bool | str | float = True, /) -> None: self._call("gt_prodigy_experience_reward_effect", _v)
+    def gt_prodigy_knowledge_reward_effect(self, _v: bool | str | float = True, /) -> None: self._call("gt_prodigy_knowledge_reward_effect", _v)
+    def gt_roll_hidden_path_effect(self, _v: bool | str | float = True, /) -> None: self._call("gt_roll_hidden_path_effect", _v)
     def hacw_change_enemy_faction_score(self, _v: bool | str | float = True, /) -> None: self._call("hacw_change_enemy_faction_score", _v)
     def hacw_change_faction_score(self, _v: bool | str | float = True, /) -> None: self._call("hacw_change_faction_score", _v)
     def hacw_change_faction_score_dynamic_coloring(self, _v: bool | str | float = True, /) -> None: self._call("hacw_change_faction_score_dynamic_coloring", _v)
@@ -800,11 +846,28 @@ class AnyFx(Scope):
     def hacw_side_with_faction_effect(self, _v: bool | str | float = True, /) -> None: self._call("hacw_side_with_faction_effect", _v)
     def hacw_side_with_faction_effect_cod(self, _v: bool | str | float = True, /) -> None: self._call("hacw_side_with_faction_effect_cod", _v)
     def hacw_side_with_faction_effect_hook(self, _v: bool | str | float = True, /) -> None: self._call("hacw_side_with_faction_effect_hook", _v)
+    def hafsid_caliphate_effect(self, _v: bool | str | float = True, /) -> None: self._call("hafsid_caliphate_effect", _v)
+    def hafsid_succession_effect(self, _v: bool | str | float = True, /) -> None: self._call("hafsid_succession_effect", _v)
+    def hafsid_succession_unite_two_countries(self, _v: bool | str | float | None = None, /, *, country_first: Any = None, country_second: Any = None) -> None:
+        _scripted(self, "hafsid_succession_unite_two_countries", _v, dict(country_first=country_first, country_second=country_second))
+    def hajj_display_of_wealth_effect(self, _v: bool | str | float = True, /) -> None: self._call("hajj_display_of_wealth_effect", _v)
     def harmony_mild_towards_equilibrium(self, _v: bool | str | float = True, /) -> None: self._call("harmony_mild_towards_equilibrium", _v)
     def harmony_weak_towards_equilibrium(self, _v: bool | str | float = True, /) -> None: self._call("harmony_weak_towards_equilibrium", _v)
     def has_lost_religious_debate_effect(self, _v: bool | str | float = True, /) -> None: self._call("has_lost_religious_debate_effect", _v)
     def has_won_religious_debate_effect(self, _v: bool | str | float = True, /) -> None: self._call("has_won_religious_debate_effect", _v)
     def hire_prisoners_as_mercenaries_effect(self, _v: bool | str | float = True, /) -> None: self._call("hire_prisoners_as_mercenaries_effect", _v)
+    def holy_war_desertion_penalty_effect(self, _v: bool | str | float = True, /) -> None: self._call("holy_war_desertion_penalty_effect", _v)
+    def holy_war_discipline_penalty_effect(self, _v: bool | str | float = True, /) -> None: self._call("holy_war_discipline_penalty_effect", _v)
+    def holy_war_levy_payment_effect(self, _v: bool | str | float | None = None, /, *, tithe: Any = None, min: Any = None, max: Any = None) -> None:
+        _scripted(self, "holy_war_levy_payment_effect", _v, dict(tithe=tithe, min=min, max=max))
+    def holy_war_payout_equal_share(self, _v: bool | str | float = True, /) -> None: self._call("holy_war_payout_equal_share", _v)
+    def holy_war_payout_largesse(self, _v: bool | str | float = True, /) -> None: self._call("holy_war_payout_largesse", _v)
+    def holy_war_payout_war_end(self, _v: bool | str | float = True, /) -> None: self._call("holy_war_payout_war_end", _v)
+    def holy_war_plunder_to_treasury_effect(self, _v: bool | str | float = True, /) -> None: self._call("holy_war_plunder_to_treasury_effect", _v)
+    def holy_war_scaled_gold_transfer_effect(self, _v: bool | str | float | None = None, /, *, payer: Any = None, payee: Any = None, scale: Any = None) -> None:
+        _scripted(self, "holy_war_scaled_gold_transfer_effect", _v, dict(payer=payer, payee=payee, scale=scale))
+    def holy_war_snapshot_participation(self, _v: bool | str | float = True, /) -> None: self._call("holy_war_snapshot_participation", _v)
+    def holy_war_victory_credit_effect(self, _v: bool | str | float = True, /) -> None: self._call("holy_war_victory_credit_effect", _v)
     def horde_assign_pretender_leader_character(self, _v: bool | str | float = True, /) -> None: self._call("horde_assign_pretender_leader_character", _v)
     def horde_break_fiefdom_or_kill_ruler(self, _v: bool | str | float = True, /) -> None: self._call("horde_break_fiefdom_or_kill_ruler", _v)
     def horde_clr_variables(self, _v: bool | str | float = True, /) -> None: self._call("horde_clr_variables", _v)
@@ -834,6 +897,8 @@ class AnyFx(Scope):
     def hre_enable_free_city_subjects(self, _v: bool | str | float = True, /) -> None: self._call("hre_enable_free_city_subjects", _v)
     def hre_enable_imperial_privileges(self, _v: bool | str | float = True, /) -> None: self._call("hre_enable_imperial_privileges", _v)
     def hre_enact_fixed_succession(self, _v: bool | str | float = True, /) -> None: self._call("hre_enact_fixed_succession", _v)
+    def hre_grant_elector_role(self, _v: bool | str | float | None = None, /, *, country: Any = None) -> None:
+        _scripted(self, "hre_grant_elector_role", _v, dict(country=country))
     def hre_join_imperial_circle_effect(self, _v: bool | str | float | None = None, /, *, circle: Any = None) -> None:
         _scripted(self, "hre_join_imperial_circle_effect", _v, dict(circle=circle))
     def hre_lock_law(self, _v: bool | str | float | None = None, /, *, law: Any = None) -> None:
@@ -866,10 +931,18 @@ class AnyFx(Scope):
     def hre_update_kingdom_title(self, _v: bool | str | float | None = None, /, *, scripted_geography: Any = None) -> None:
         _scripted(self, "hre_update_kingdom_title", _v, dict(scripted_geography=scripted_geography))
     def hun_ven_list_of_provinces(self, _v: bool | str | float = True, /) -> None: self._call("hun_ven_list_of_provinces", _v)
+    def hussite_wars_add_country_to_side_effect(self, _v: bool | str | float | None = None, /, *, LIST: Any = None, STRENGTH: Any = None) -> None:
+        _scripted(self, "hussite_wars_add_country_to_side_effect", _v, dict(LIST=LIST, STRENGTH=STRENGTH))
+    def hussite_wars_add_war_joiner_to_side_effect(self, _v: bool | str | float = True, /) -> None: self._call("hussite_wars_add_war_joiner_to_side_effect", _v)
+    def hussite_wars_clear_sides_effect(self, _v: bool | str | float = True, /) -> None: self._call("hussite_wars_clear_sides_effect", _v)
+    def hussite_wars_recompute_relative_strength_effect(self, _v: bool | str | float = True, /) -> None: self._call("hussite_wars_recompute_relative_strength_effect", _v)
+    def hussite_wars_resolve_current_war_effect(self, _v: bool | str | float = True, /) -> None: self._call("hussite_wars_resolve_current_war_effect", _v)
+    def hussite_wars_update_sides_effect(self, _v: bool | str | float = True, /) -> None: self._call("hussite_wars_update_sides_effect", _v)
     def ibn_battuta_first_round_travels_effect(self, _v: bool | str | float = True, /) -> None: self._call("ibn_battuta_first_round_travels_effect", _v)
     def ibn_battuta_second_round_travels_effect(self, _v: bool | str | float = True, /) -> None: self._call("ibn_battuta_second_round_travels_effect", _v)
     def if_exists_destroy_monastery(self, _v: bool | str | float = True, /) -> None: self._call("if_exists_destroy_monastery", _v)
     def if_possible_make_tributary(self, _v: bool | str | float = True, /) -> None: self._call("if_possible_make_tributary", _v)
+    def ifriqiya_reunited_decision_effect(self, _v: bool | str | float = True, /) -> None: self._call("ifriqiya_reunited_decision_effect", _v)
     def ignore_succesion_effect(self, _v: bool | str | float = True, /) -> None: self._call("ignore_succesion_effect", _v)
     def ikko_ikki_convert_to_mahayana(self, _v: bool | str | float = True, /) -> None: self._call("ikko_ikki_convert_to_mahayana", _v)
     def ikko_ikki_lots_of_mahayana(self, _v: bool | str | float = True, /) -> None: self._call("ikko_ikki_lots_of_mahayana", _v)
@@ -906,6 +979,8 @@ class AnyFx(Scope):
     def international_organization_unlock_policy_effect(self, _v: bool | str | float | None = None, /, *, type: Any = None) -> None:
         _scripted(self, "international_organization_unlock_policy_effect", _v, dict(type=type))
     def io_recalculate_leader(self, _v: Any, /) -> None: self._call("io_recalculate_leader", _v)
+    def iu_save_wedding_candidate_of_gender_effect(self, _v: bool | str | float | None = None, /, *, save_as: Any = None, is_female: Any = None) -> None:
+        _scripted(self, "iu_save_wedding_candidate_of_gender_effect", _v, dict(save_as=save_as, is_female=is_female))
     def iw_foreign_league_triumph_events(self, _v: bool | str | float | None = None, /, *, winner_io: Any = None) -> None:
         _scripted(self, "iw_foreign_league_triumph_events", _v, dict(winner_io=winner_io))
     def iw_increase_tension_effect(self, _v: bool | str | float | None = None, /, *, value: Any = None) -> None:
@@ -915,6 +990,7 @@ class AnyFx(Scope):
     def iw_reset_tension_effect(self, _v: bool | str | float = True, /) -> None: self._call("iw_reset_tension_effect", _v)
     def japan_set_up(self, _v: bool | str | float = True, /) -> None: self._call("japan_set_up", _v)
     def jc_leader(self, _v: bool | str | float = True, /) -> None: self._call("jc_leader", _v)
+    def jihad_track_contribution(self, _v: bool | str | float = True, /) -> None: self._call("jihad_track_contribution", _v)
     def join_situation_faction(self, _v: bool | str | float | None = None, /, *, target: Any = None, international_organization: Any = None, join_variable: Any = None, join_years: Any = None, leave_variable: Any = None) -> None:
         _scripted(self, "join_situation_faction", _v, dict(target=target, international_organization=international_organization, join_variable=join_variable, join_years=join_years, leave_variable=leave_variable))
     def kill_character(self, _v: Any = None, /, *, target: Any = None, killer: Any = None, reason: Any = None, location: Any = None) -> None: self._call("kill_character", *_pos(_v), **_kw(target=target, killer=killer, reason=reason, location=location))
@@ -944,8 +1020,8 @@ class AnyFx(Scope):
     def lesser_flooding_damage(self, _v: bool | str | float = True, /) -> None: self._call("lesser_flooding_damage", _v)
     def lift_excommunication_effect(self, _v: bool | str | float = True, /) -> None: self._call("lift_excommunication_effect", _v)
     def lift_interdict_effect(self, _v: bool | str | float = True, /) -> None: self._call("lift_interdict_effect", _v)
-    def limit_variable(self, _v: bool | str | float | None = None, /, *, mode: Any = None, name: Any = None, value: Any = None) -> None:
-        _scripted(self, "limit_variable", _v, dict(mode=mode, name=name, value=value))
+    def limit_variable(self, _v: bool | str | float | None = None, /, *, name: Any = None, value: Any = None, mode: Any = None) -> None:
+        _scripted(self, "limit_variable", _v, dict(name=name, value=value, mode=mode))
     def limit_variable_to_max(self, _v: bool | str | float | None = None, /, *, name: Any = None, value: Any = None) -> None:
         _scripted(self, "limit_variable_to_max", _v, dict(name=name, value=value))
     def limit_variable_to_min(self, _v: bool | str | float | None = None, /, *, name: Any = None, value: Any = None) -> None:
@@ -1032,6 +1108,7 @@ class AnyFx(Scope):
     def lots_of_religion(self, _v: bool | str | float | None = None, /, *, religion: Any = None, other_religion: Any = None) -> None:
         _scripted(self, "lots_of_religion", _v, dict(religion=religion, other_religion=other_religion))
     def lots_of_sikhs(self, _v: bool | str | float = True, /) -> None: self._call("lots_of_sikhs", _v)
+    def maghreb_set_up(self, _v: bool | str | float = True, /) -> None: self._call("maghreb_set_up", _v)
     def majapahit_set_up(self, _v: bool | str | float = True, /) -> None: self._call("majapahit_set_up", _v)
     def major_destroy_building_levels_in_location(self, _v: bool | str | float = True, /) -> None: self._call("major_destroy_building_levels_in_location", _v)
     def major_earthquake_damage(self, _v: bool | str | float = True, /) -> None: self._call("major_earthquake_damage", _v)
@@ -1056,10 +1133,11 @@ class AnyFx(Scope):
     def minor_volcano_damage(self, _v: bool | str | float = True, /) -> None: self._call("minor_volcano_damage", _v)
     def minor_volcano_damage_cost(self, _v: bool | str | float = True, /) -> None: self._call("minor_volcano_damage_cost", _v)
     def minor_volcano_damage_with_rebuild(self, _v: bool | str | float = True, /) -> None: self._call("minor_volcano_damage_with_rebuild", _v)
+    def morocco_penalties_for_failing_loyalty(self, _v: bool | str | float = True, /) -> None: self._call("morocco_penalties_for_failing_loyalty", _v)
     def move_art_and_owner(self, _v: bool | str | float | None = None, /, *, location: Any = None, country: Any = None) -> None:
         _scripted(self, "move_art_and_owner", _v, dict(location=location, country=country))
-    def move_building(self, _v: bool | str | float | None = None, /, *, from_: Any = None, building_type: Any = None, owner: Any = None) -> None:
-        _scripted(self, "move_building", _v, dict(from_=from_, building_type=building_type, owner=owner))
+    def move_building(self, _v: bool | str | float | None = None, /, *, from_: Any = None, type: Any = None, owner: Any = None) -> None:
+        _scripted(self, "move_building", _v, dict(from_=from_, type=type, owner=owner))
     def move_capital_event_effect(self, _v: bool | str | float | None = None, /, *, to: Any = None, from_: Any = None) -> None:
         _scripted(self, "move_capital_event_effect", _v, dict(to=to, from_=from_))
     def move_country_with_family(self, _v: bool | str | float | None = None, /, *, country: Any = None) -> None:
@@ -1077,9 +1155,10 @@ class AnyFx(Scope):
     def offer_legatus_natus(self, _v: bool | str | float = True, /) -> None: self._call("offer_legatus_natus", _v)
     def oman_coast_to_oman(self, _v: bool | str | float = True, /) -> None: self._call("oman_coast_to_oman", _v)
     def on_bribe_default_effect(self, _v: bool | str | float = True, /) -> None: self._call("on_bribe_default_effect", _v)
-    def on_chinese_expedition_location_move(self, _v: bool | str | float = True, /) -> None: self._call("on_chinese_expedition_location_move", _v)
     def on_country_formation_effect(self, _v: bool | str | float | None = None, /, *, tag: Any = None) -> None:
         _scripted(self, "on_country_formation_effect", _v, dict(tag=tag))
+    def on_ibadi_ruler_change(self, _v: bool | str | float | None = None, /, *, character: Any = None, policy: Any = None, has_policy: Any = None) -> None:
+        _scripted(self, "on_ibadi_ruler_change", _v, dict(character=character, policy=policy, has_policy=has_policy))
     def on_timurid_occupy_location_effect(self, _v: bool | str | float = True, /) -> None: self._call("on_timurid_occupy_location_effect", _v)
     def on_union_policy_change_effect(self, _v: bool | str | float = True, /) -> None: self._call("on_union_policy_change_effect", _v)
     def ordered_active_estate(self, *, order_by: Any = None, position: Any = None, min: Any = None, max: Any = None, check_range_bounds: Any = None) -> ContextManager[EstateTypeFx]:
@@ -1275,6 +1354,7 @@ class AnyFx(Scope):
     def recalculate_parliament_vote_for_law_change_for_agenda(self, _v: bool | str | float = True, /) -> None: self._call("recalculate_parliament_vote_for_law_change_for_agenda", _v)
     def recalculate_union_parliament_issue_support(self, _v: bool | str | float | None = None, /, *, io: Any = None) -> None:
         _scripted(self, "recalculate_union_parliament_issue_support", _v, dict(io=io))
+    def reconcile_hre_league_leadership(self, _v: bool | str | float = True, /) -> None: self._call("reconcile_hre_league_leadership", _v)
     def reconcile_italian_wars_league_land(self, _v: bool | str | float = True, /) -> None: self._call("reconcile_italian_wars_league_land", _v)
     def reconcile_single_italian_wars_league_land(self, _v: bool | str | float = True, /) -> None: self._call("reconcile_single_italian_wars_league_land", _v)
     def redeem_bonds(self, *args: Any, **kw: Any) -> None: self._call("redeem_bonds", *args, **kw)
@@ -1288,9 +1368,19 @@ class AnyFx(Scope):
     def release_gujarat_effect(self, _v: bool | str | float = True, /) -> None: self._call("release_gujarat_effect", _v)
     def release_jaunpur_effect(self, _v: bool | str | float = True, /) -> None: self._call("release_jaunpur_effect", _v)
     def release_malwa_effect(self, _v: bool | str | float = True, /) -> None: self._call("release_malwa_effect", _v)
+    def relic_expedition_announce_holy_lance_effect(self, _v: bool | str | float = True, /) -> None: self._call("relic_expedition_announce_holy_lance_effect", _v)
+    def relic_expedition_announce_holy_shroud_effect(self, _v: bool | str | float = True, /) -> None: self._call("relic_expedition_announce_holy_shroud_effect", _v)
+    def relic_expedition_announce_true_cross_effect(self, _v: bool | str | float = True, /) -> None: self._call("relic_expedition_announce_true_cross_effect", _v)
+    def relic_expedition_grant_minor_relic_effect(self, _v: bool | str | float | None = None, /, *, quality: Any = None, base_key: Any = None) -> None:
+        _scripted(self, "relic_expedition_grant_minor_relic_effect", _v, dict(quality=quality, base_key=base_key))
+    def relic_expedition_grant_relic_effect(self, _v: bool | str | float | None = None, /, *, quality: Any = None, key: Any = None) -> None:
+        _scripted(self, "relic_expedition_grant_relic_effect", _v, dict(quality=quality, key=key))
+    def relic_expedition_grant_relic_effect_procedural(self, _v: bool | str | float | None = None, /, *, quality: Any = None) -> None:
+        _scripted(self, "relic_expedition_grant_relic_effect_procedural", _v, dict(quality=quality))
     def remove_all_pentarchy_modifiers(self, _v: bool | str | float = True, /) -> None: self._call("remove_all_pentarchy_modifiers", _v)
     def remove_all_timmy_cbs(self, _v: bool | str | float = True, /) -> None: self._call("remove_all_timmy_cbs", _v)
     def remove_all_timmy_cbs_tim(self, _v: bool | str | float = True, /) -> None: self._call("remove_all_timmy_cbs_tim", _v)
+    def remove_cardinal_variables(self, _v: bool | str | float = True, /) -> None: self._call("remove_cardinal_variables", _v)
     def remove_casus_belli_mutual_effect(self, _v: bool | str | float | None = None, /, *, target: Any = None, type: Any = None) -> None:
         _scripted(self, "remove_casus_belli_mutual_effect", _v, dict(target=target, type=type))
     def remove_colonial_claim(self, _v: Any, /) -> None: self._call("remove_colonial_claim", _v)
@@ -1306,6 +1396,7 @@ class AnyFx(Scope):
     def remove_global_variable(self, _v: Any, /) -> None: self._call("remove_global_variable", _v)
     def remove_head_of_cabinet_country_effect(self, _v: bool | str | float = True, /) -> None: self._call("remove_head_of_cabinet_country_effect", _v)
     def remove_head_of_cabinet_effect(self, _v: bool | str | float = True, /) -> None: self._call("remove_head_of_cabinet_effect", _v)
+    def remove_high_kingship_reclamation_cb_effect(self, _v: bool | str | float = True, /) -> None: self._call("remove_high_kingship_reclamation_cb_effect", _v)
     def remove_historical_rival_scripted(self, _v: bool | str | float | None = None, /, *, target: Any = None, trigger_recipient_event: Any = None) -> None:
         _scripted(self, "remove_historical_rival_scripted", _v, dict(target=target, trigger_recipient_event=trigger_recipient_event))
     def remove_italian_wars_militarization_demands(self, _v: bool | str | float = True, /) -> None: self._call("remove_italian_wars_militarization_demands", _v)
@@ -1319,7 +1410,7 @@ class AnyFx(Scope):
         _scripted(self, "remove_opinion_mutual_effect", _v, dict(modifier=modifier, target=target))
     def remove_pentarchy_modifier(self, _v: bool | str | float | None = None, /, *, location: Any = None) -> None:
         _scripted(self, "remove_pentarchy_modifier", _v, dict(location=location))
-    def remove_relation(self, *, type: Any, first: Any, second: Any) -> None: self._call("remove_relation", **_kw(type=type, first=first, second=second))
+    def remove_relation(self, *, first: Any, type: Any, second: Any) -> None: self._call("remove_relation", **_kw(first=first, type=type, second=second))
     def remove_revolution(self, _v: bool | str | float = True, /) -> None: self._call("remove_revolution", _v)
     def remove_trust_equilibrium_mutual_effect(self, _v: bool | str | float | None = None, /, *, target: Any = None, modifier: Any = None) -> None:
         _scripted(self, "remove_trust_equilibrium_mutual_effect", _v, dict(target=target, modifier=modifier))
@@ -1329,7 +1420,7 @@ class AnyFx(Scope):
     def replaceCountryInTordesillas(self, _v: bool | str | float | None = None, /, *, replaced: Any = None, replacer: Any = None) -> None:
         _scripted(self, "replaceCountryInTordesillas", _v, dict(replaced=replaced, replacer=replacer))
     def reset_all_societal_values(self, _v: bool | str | float = True, /) -> None: self._call("reset_all_societal_values", _v)
-    def reset_complacency(self, _v: bool | str | float = True, /) -> None: self._call("reset_complacency", _v)
+    def reset_influence_over_granada_effect(self, _v: bool | str | float = True, /) -> None: self._call("reset_influence_over_granada_effect", _v)
     def reset_societal_value(self, _v: bool | str | float | None = None, /, *, type: Any = None) -> None:
         _scripted(self, "reset_societal_value", _v, dict(type=type))
     def rev_chaos_side_effect(self, _v: bool | str | float = True, /) -> None: self._call("rev_chaos_side_effect", _v)
@@ -1377,7 +1468,9 @@ class AnyFx(Scope):
     def ruler_withdraws_with_shiva(self, _v: bool | str | float = True, /) -> None: self._call("ruler_withdraws_with_shiva", _v)
     def ruler_withdraws_with_surya(self, _v: bool | str | float = True, /) -> None: self._call("ruler_withdraws_with_surya", _v)
     def ruler_withdraws_with_vishnu(self, _v: bool | str | float = True, /) -> None: self._call("ruler_withdraws_with_vishnu", _v)
+    def rustamid_legacy_effect(self, _v: bool | str | float = True, /) -> None: self._call("rustamid_legacy_effect", _v)
     def sacrifice_prisoners_effect(self, _v: bool | str | float = True, /) -> None: self._call("sacrifice_prisoners_effect", _v)
+    def save_arrival_holy_site_effect(self, _v: bool | str | float = True, /) -> None: self._call("save_arrival_holy_site_effect", _v)
     def save_cardinal_scope(self, _v: bool | str | float = True, /) -> None: self._call("save_cardinal_scope", _v)
     def save_constantinople_patriarch_as_scope(self, _v: bool | str | float = True, /) -> None: self._call("save_constantinople_patriarch_as_scope", _v)
     def save_random_strategos_as_target_character(self, _v: bool | str | float = True, /) -> None: self._call("save_random_strategos_as_target_character", _v)
@@ -1393,13 +1486,18 @@ class AnyFx(Scope):
     def scaligeri_war_demand_antagonism_medium(self, _v: bool | str | float = True, /) -> None: self._call("scaligeri_war_demand_antagonism_medium", _v)
     def scaligeri_war_peace_treaty_choice(self, _v: bool | str | float = True, /) -> None: self._call("scaligeri_war_peace_treaty_choice", _v)
     def second_option_location_effect(self, _v: bool | str | float = True, /) -> None: self._call("second_option_location_effect", _v)
+    def seed_crisis_of_faith_heresiarch_effect(self, _v: bool | str | float = True, /) -> None: self._call("seed_crisis_of_faith_heresiarch_effect", _v)
     def select_baron_province(self, _v: bool | str | float = True, /) -> None: self._call("select_baron_province", _v)
     def select_insignificant_gov_reform(self, _v: bool | str | float | None = None, /, *, save_scope_as: Any = None) -> None:
         _scripted(self, "select_insignificant_gov_reform", _v, dict(save_scope_as=save_scope_as))
+    def select_or_create_braganca_ruler(self, _v: bool | str | float = True, /) -> None: self._call("select_or_create_braganca_ruler", _v)
     def select_random_wokou_nation(self, _v: bool | str | float = True, /) -> None: self._call("select_random_wokou_nation", _v)
     def select_suitable_patriarch(self, _v: bool | str | float | None = None, /, *, pentarchy: Any = None) -> None:
         _scripted(self, "select_suitable_patriarch", _v, dict(pentarchy=pentarchy))
+    def select_target_location_for_andalusian_migration(self, _v: bool | str | float | None = None, /, *, scope_name: Any = None) -> None:
+        _scripted(self, "select_target_location_for_andalusian_migration", _v, dict(scope_name=scope_name))
     def sell_prisoners_into_slavery_effect(self, _v: bool | str | float = True, /) -> None: self._call("sell_prisoners_into_slavery_effect", _v)
+    def sell_tripoli_to_this_effect(self, _v: bool | str | float = True, /) -> None: self._call("sell_tripoli_to_this_effect", _v)
     def sengoku_reevaluate_strongest_daimyos(self, _v: bool | str | float = True, /) -> None: self._call("sengoku_reevaluate_strongest_daimyos", _v)
     def set_as_designated_heir_effect(self, _v: bool | str | float | None = None, /, *, target: Any = None) -> None:
         _scripted(self, "set_as_designated_heir_effect", _v, dict(target=target))
@@ -1458,6 +1556,7 @@ class AnyFx(Scope):
     def set_to_limited_random_stats(self, _v: bool | str | float | None = None, /, *, max_adm: Any = None, min_adm: Any = None, max_dip: Any = None, min_dip: Any = None, max_mil: Any = None, min_mil: Any = None) -> None:
         _scripted(self, "set_to_limited_random_stats", _v, dict(max_adm=max_adm, min_adm=min_adm, max_dip=max_dip, min_dip=min_dip, max_mil=max_mil, min_mil=min_mil))
     def set_tutorial_var(self, _v: Any = None, /, *, name: Any = None, value: Any = None) -> None: self._call("set_tutorial_var", *_pos(_v), **_kw(name=name, value=value))
+    def set_up_cardinal(self, _v: bool | str | float = True, /) -> None: self._call("set_up_cardinal", _v)
     def set_up_della_scala_targets(self, _v: bool | str | float = True, /) -> None: self._call("set_up_della_scala_targets", _v)
     def set_up_oirat(self, _v: bool | str | float = True, /) -> None: self._call("set_up_oirat", _v)
     def set_up_patriarch(self, _v: bool | str | float | None = None, /, *, organization: Any = None, leader: Any = None) -> None:
@@ -1474,6 +1573,9 @@ class AnyFx(Scope):
     def setup_societal_values(self, _v: bool | str | float | None = None, /, *, centralization_vs_decentralization: Any = None, traditionalist_vs_innovative: Any = None, spiritualist_vs_humanist: Any = None, aristocracy_vs_plutocracy: Any = None, serfdom_vs_free_subjects: Any = None, mercantilism_vs_free_trade: Any = None, belligerent_vs_conciliatory: Any = None, quality_vs_quantity: Any = None, offensive_vs_defensive: Any = None, land_vs_naval: Any = None, capital_economy_vs_traditional_economy: Any = None, individualism_vs_communalism: Any = None, outward_vs_inward: Any = None) -> None:
         _scripted(self, "setup_societal_values", _v, dict(centralization_vs_decentralization=centralization_vs_decentralization, traditionalist_vs_innovative=traditionalist_vs_innovative, spiritualist_vs_humanist=spiritualist_vs_humanist, aristocracy_vs_plutocracy=aristocracy_vs_plutocracy, serfdom_vs_free_subjects=serfdom_vs_free_subjects, mercantilism_vs_free_trade=mercantilism_vs_free_trade, belligerent_vs_conciliatory=belligerent_vs_conciliatory, quality_vs_quantity=quality_vs_quantity, offensive_vs_defensive=offensive_vs_defensive, land_vs_naval=land_vs_naval, capital_economy_vs_traditional_economy=capital_economy_vs_traditional_economy, individualism_vs_communalism=individualism_vs_communalism, outward_vs_inward=outward_vs_inward))
     def setup_spawn_location(self, _v: bool | str | float = True, /) -> None: self._call("setup_spawn_location", _v)
+    def seven_cities_expedition_calamity_effect(self, _v: bool | str | float = True, /) -> None: self._call("seven_cities_expedition_calamity_effect", _v)
+    def seven_cities_expedition_stall_effect(self, _v: bool | str | float | None = None, /, *, MIN: Any = None, MAX: Any = None) -> None:
+        _scripted(self, "seven_cities_expedition_stall_effect", _v, dict(MIN=MIN, MAX=MAX))
     def sforza_gains_support(self, _v: bool | str | float = True, /) -> None: self._call("sforza_gains_support", _v)
     def show_all_event_targets(self, _v: bool | str | float | None = None, /, *, advance_type: Any = None, artist_type: Any = None, work_of_art_type: Any = None, avatar: Any = None, building_type: Any = None, cabinet_action: Any = None, casus_belli: Any = None, character_interaction: Any = None, child_education: Any = None, country_interaction: Any = None, country_rank: Any = None, culture_group: Any = None, culture: Any = None, disaster_type: Any = None, disease: Any = None, estate_privilege: Any = None, estate_type: Any = None, formable_country: Any = None, generic_action: Any = None, god: Any = None, goods: Any = None, demand: Any = None, government_reform: Any = None, government_type: Any = None, hegemony: Any = None, heir_selection: Any = None, holy_site_definition: Any = None, holy_site_type: Any = None, institution: Any = None, international_organization: Any = None, language_family: Any = None, language: Any = None, law: Any = None, policy: Any = None, levy_setup: Any = None, location_rank: Any = None, mission: Any = None, mission_task: Any = None, parliament_agenda: Any = None, parliament_issue: Any = None, pop_type: Any = None, peace_treaty: Any = None, production_method: Any = None, recruitment_method: Any = None, regency_type: Any = None, religion_group: Any = None, religion: Any = None, religious_aspect: Any = None, religious_faction: Any = None, religious_focus: Any = None, religious_school: Any = None, resolution: Any = None, relation_type: Any = None, societal_value_type: Any = None, subject_type: Any = None, trait: Any = None, unit_ability: Any = None, sub_unit_category: Any = None, unit_type: Any = None, climate: Any = None, vegetation: Any = None, topography: Any = None) -> None:
         _scripted(self, "show_all_event_targets", _v, dict(advance_type=advance_type, artist_type=artist_type, work_of_art_type=work_of_art_type, avatar=avatar, building_type=building_type, cabinet_action=cabinet_action, casus_belli=casus_belli, character_interaction=character_interaction, child_education=child_education, country_interaction=country_interaction, country_rank=country_rank, culture_group=culture_group, culture=culture, disaster_type=disaster_type, disease=disease, estate_privilege=estate_privilege, estate_type=estate_type, formable_country=formable_country, generic_action=generic_action, god=god, goods=goods, demand=demand, government_reform=government_reform, government_type=government_type, hegemony=hegemony, heir_selection=heir_selection, holy_site_definition=holy_site_definition, holy_site_type=holy_site_type, institution=institution, international_organization=international_organization, language_family=language_family, language=language, law=law, policy=policy, levy_setup=levy_setup, location_rank=location_rank, mission=mission, mission_task=mission_task, parliament_agenda=parliament_agenda, parliament_issue=parliament_issue, pop_type=pop_type, peace_treaty=peace_treaty, production_method=production_method, recruitment_method=recruitment_method, regency_type=regency_type, religion_group=religion_group, religion=religion, religious_aspect=religious_aspect, religious_faction=religious_faction, religious_focus=religious_focus, religious_school=religious_school, resolution=resolution, relation_type=relation_type, societal_value_type=societal_value_type, subject_type=subject_type, trait=trait, unit_ability=unit_ability, sub_unit_category=sub_unit_category, unit_type=unit_type, climate=climate, vegetation=vegetation, topography=topography))
@@ -1621,9 +1723,12 @@ class AnyFx(Scope):
     def stop_tutorial(self, *args: Any, **kw: Any) -> None: self._call("stop_tutorial", *args, **kw)
     def subtract_imperial_authority(self, _v: bool | str | float | None = None, /, *, value: Any = None) -> None:
         _scripted(self, "subtract_imperial_authority", _v, dict(value=value))
+    def subtract_influence_over_granada_trend(self, _v: bool | str | float | None = None, /, *, value: Any = None) -> None:
+        _scripted(self, "subtract_influence_over_granada_trend", _v, dict(value=value))
     def subtract_papal_authority(self, _v: bool | str | float | None = None, /, *, value: Any = None) -> None:
         _scripted(self, "subtract_papal_authority", _v, dict(value=value))
     def success_of_qarachil(self, _v: bool | str | float = True, /) -> None: self._call("success_of_qarachil", _v)
+    def summon_iberian_military_orders_effect(self, _v: bool | str | float = True, /) -> None: self._call("summon_iberian_military_orders_effect", _v)
     def support_faction(self, _v: bool | str | float = True, /) -> None: self._call("support_faction", _v)
     def support_faction_gwan_hak(self, _v: bool | str | float = True, /) -> None: self._call("support_faction_gwan_hak", _v)
     def support_faction_hungu(self, _v: bool | str | float = True, /) -> None: self._call("support_faction_hungu", _v)
@@ -1642,9 +1747,12 @@ class AnyFx(Scope):
     def tfe_work_granary_to_the_limit(self, _v: bool | str | float = True, /) -> None: self._call("tfe_work_granary_to_the_limit", _v)
     def third_option_location_effect(self, _v: bool | str | float = True, /) -> None: self._call("third_option_location_effect", _v)
     def timurs_demands(self, _v: bool | str | float = True, /) -> None: self._call("timurs_demands", _v)
+    def tle_zayyanid_benefits(self, _v: bool | str | float = True, /) -> None: self._call("tle_zayyanid_benefits", _v)
     def toleranzedikt_effect(self, _v: bool | str | float = True, /) -> None: self._call("toleranzedikt_effect", _v)
     def transfer_claims(self, _v: bool | str | float | None = None, /, *, country_losing_claims: Any = None, country_gaining_claims: Any = None) -> None:
         _scripted(self, "transfer_claims", _v, dict(country_losing_claims=country_losing_claims, country_gaining_claims=country_gaining_claims))
+    def transfer_gold_effect_bounded(self, _v: bool | str | float | None = None, /, *, target: Any = None, scale: Any = None, min: Any = None, max: Any = None) -> None:
+        _scripted(self, "transfer_gold_effect_bounded", _v, dict(target=target, scale=scale, min=min, max=max))
     def transfer_gold_to_org_country_effect(self, _v: bool | str | float | None = None, /, *, international_organization: Any = None, country: Any = None, value: Any = None) -> None:
         _scripted(self, "transfer_gold_to_org_country_effect", _v, dict(international_organization=international_organization, country=country, value=value))
     def transfer_pop(self, _v: bool | str | float | None = None, /, *, target: Any = None, operator: Any = None, value: Any = None) -> None:
@@ -1740,6 +1848,8 @@ class AnyFx(Scope):
         _scripted(self, "unlock_work_of_art_definition_effect", _v, dict(type=type))
     def unsinicized_legitimacy_effect(self, _v: bool | str | float = True, /) -> None: self._call("unsinicized_legitimacy_effect", _v)
     def unsinicized_stab_effect(self, _v: bool | str | float = True, /) -> None: self._call("unsinicized_stab_effect", _v)
+    def update_chinese_treasure_leg_progress(self, _v: bool | str | float = True, /) -> None: self._call("update_chinese_treasure_leg_progress", _v)
+    def update_cloth_silk_guild_industry_variable(self, _v: bool | str | float = True, /) -> None: self._call("update_cloth_silk_guild_industry_variable", _v)
     def update_leader_country(self, _v: bool | str | float = True, /) -> None: self._call("update_leader_country", _v)
     def update_leadership(self, _v: Any, /) -> None: self._call("update_leadership", _v)
     def upgrade_great_wall(self, _v: bool | str | float = True, /) -> None: self._call("upgrade_great_wall", _v)
@@ -1748,8 +1858,10 @@ class AnyFx(Scope):
     def upset_countries_of_religion(self, _v: bool | str | float | None = None, /, *, religion: Any = None, modifier: Any = None) -> None:
         _scripted(self, "upset_countries_of_religion", _v, dict(religion=religion, modifier=modifier))
     def ver_set_up(self, _v: bool | str | float = True, /) -> None: self._call("ver_set_up", _v)
-    def visit_port(self, _v: bool | str | float = True, /) -> None: self._call("visit_port", _v)
     def visitation_event_pulse(self, _v: bool | str | float = True, /) -> None: self._call("visitation_event_pulse", _v)
+    def wardens_raid_loss_effect(self, _v: bool | str | float | None = None, /, *, SEVERITY: Any = None) -> None:
+        _scripted(self, "wardens_raid_loss_effect", _v, dict(SEVERITY=SEVERITY))
+    def warn_and_setup_info_about_zayyanid_pretenders(self, _v: bool | str | float = True, /) -> None: self._call("warn_and_setup_info_about_zayyanid_pretenders", _v)
     def weak_volcano_damage(self, _v: bool | str | float = True, /) -> None: self._call("weak_volcano_damage", _v)
     def weak_volcano_damage_cost(self, _v: bool | str | float = True, /) -> None: self._call("weak_volcano_damage_cost", _v)
     def weak_volcano_damage_with_rebuild(self, _v: bool | str | float = True, /) -> None: self._call("weak_volcano_damage_with_rebuild", _v)
@@ -2064,12 +2176,12 @@ class CharacterFx(AnyFx):
     def limit(self, body: Callable[[CharacterTrig], Any]) -> None: ...
     def limit(self, body: Callable[[CharacterTrig], Any] | None = None) -> Any:
         return self._run("limit", CharacterTrig, body)
-    def add_adm(self, _v: Any, /) -> None: self._call("add_adm", _v)
+    def add_adm(self, _v: Any = None, /, *, value: Any = None, add: Any = None) -> None: self._call("add_adm", *_pos(_v), **_kw(value=value, add=add))
     def add_artist_skill(self, _v: Any, /) -> None: self._call("add_artist_skill", _v)
     def add_character_modifier(self, *, modifier: Any, years: Any = None, months: Any = None, days: Any = None, mode: Mode | None = None, size: Any = None, desc: Any = None, recalculate_immediately: Any = None) -> None: self._call("add_character_modifier", **_kw(modifier=modifier, years=years, months=months, days=days, mode=mode, size=size, desc=desc, recalculate_immediately=recalculate_immediately))
-    def add_dip(self, _v: Any, /) -> None: self._call("add_dip", _v)
+    def add_dip(self, _v: Any = None, /, *, value: Any = None, add: Any = None) -> None: self._call("add_dip", *_pos(_v), **_kw(value=value, add=add))
     def add_fertility(self, _v: Any, /) -> None: self._call("add_fertility", _v)
-    def add_mil(self, _v: Any, /) -> None: self._call("add_mil", _v)
+    def add_mil(self, _v: Any = None, /, *, value: Any = None, add: Any = None) -> None: self._call("add_mil", *_pos(_v), **_kw(value=value, add=add))
     def add_random_trait_from_category(self, _v: Any, /) -> None: self._call("add_random_trait_from_category", _v)
     def add_trait(self, _v: Any, /) -> None: self._call("add_trait", _v)
     def adopt_character(self, *args: Any, **kw: Any) -> None: self._call("adopt_character", *args, **kw)
@@ -2404,12 +2516,12 @@ class CountryFx(AnyFx):
     def add_accepted_culture(self, _v: Any, /) -> None: self._call("add_accepted_culture", _v)
     def add_antagonism(self, *, target: Any, modifier: Any) -> None: self._call("add_antagonism", **_kw(target=target, modifier=modifier))
     def add_area_preference(self, _v: Any, /) -> None: self._call("add_area_preference", _v)
-    def add_army_tradition(self, _v: Any, /) -> None: self._call("add_army_tradition", _v)
+    def add_army_tradition(self, _v: Any = None, /, *, value: Any = None, multiply: Any = None) -> None: self._call("add_army_tradition", *_pos(_v), **_kw(value=value, multiply=multiply))
     def add_avatar(self, _v: Any, /) -> None: self._call("add_avatar", _v)
     def add_bureaucracy(self, _v: Any, /) -> None: self._call("add_bureaucracy", _v)
     def add_casus_belli(self, *, target: Any, type: Any, province: Any = None, years: Any = None) -> None: self._call("add_casus_belli", **_kw(target=target, type=type, province=province, years=years))
     def add_colonial_claim(self, *, province_definition: Any, reason: Any, category: Any) -> None: self._call("add_colonial_claim", **_kw(province_definition=province_definition, reason=reason, category=category))
-    def add_complacency(self, _v: Any, /) -> None: self._call("add_complacency", _v)
+    def add_complacency(self, *args: Any, **kw: Any) -> None: self._call("add_complacency", *args, **kw)
     def add_cooldown(self, *, type: Any, days: Any = None, months: Any = None, years: Any = None) -> None: self._call("add_cooldown", **_kw(type=type, days=days, months=months, years=years))
     def add_country_modifier(self, *, modifier: Any, years: Any = None, months: Any = None, days: Any = None, mode: Mode | None = None, size: Any = None, desc: Any = None) -> None: self._call("add_country_modifier", **_kw(modifier=modifier, years=years, months=months, days=days, mode=mode, size=size, desc=desc))
     def add_devotion(self, _v: Any, /) -> None: self._call("add_devotion", _v)
@@ -2418,7 +2530,7 @@ class CountryFx(AnyFx):
     def add_estate_satisfaction(self, *, type: Any, value: Any) -> None: self._call("add_estate_satisfaction", **_kw(type=type, value=value))
     def add_favors(self, *, target: Any, value: Any) -> None: self._call("add_favors", **_kw(target=target, value=value))
     def add_god(self, _v: Any, /) -> None: self._call("add_god", _v)
-    def add_gold(self, _v: Any = None, /, *, value: Any = None, add: Any = None, min: Any = None, max: Any = None, multiply: Any = None) -> None: self._call("add_gold", *_pos(_v), **_kw(value=value, add=add, min=min, max=max, multiply=multiply))
+    def add_gold(self, _v: Any = None, /, *, save_temporary_value_as: Any = None, value: Any = None, add: Any = None, min: Any = None, divide: Any = None, multiply: Any = None, max: Any = None, subtract: Any = None) -> None: self._call("add_gold", *_pos(_v), **_kw(save_temporary_value_as=save_temporary_value_as, value=value, add=add, min=min, divide=divide, multiply=multiply, max=max, subtract=subtract))
     def add_gold_to_estate(self, *, estate_type: Any, value: Any) -> None: self._call("add_gold_to_estate", **_kw(estate_type=estate_type, value=value))
     def add_government_power(self, _v: Any = None, /, *, value: Any = None, multiply: Any = None, floor: Any = None, if_: Any = None) -> None: self._call("add_government_power", *_pos(_v), **_kw(value=value, multiply=multiply, floor=floor, if_=if_))
     def add_harmony(self, _v: Any = None, /, *, value: Any = None, max: Any = None, multiply: Any = None) -> None: self._call("add_harmony", *_pos(_v), **_kw(value=value, max=max, multiply=multiply))
@@ -2427,24 +2539,24 @@ class CountryFx(AnyFx):
     def add_horde_unity(self, _v: Any, /) -> None: self._call("add_horde_unity", _v)
     def add_inflation(self, _v: Any = None, /, *, value: Any = None, multiply: Any = None) -> None: self._call("add_inflation", *_pos(_v), **_kw(value=value, multiply=multiply))
     def add_karma(self, _v: Any, /) -> None: self._call("add_karma", _v)
-    def add_legitimacy(self, _v: Any = None, /, *, value: Any = None, divide: Any = None) -> None: self._call("add_legitimacy", *_pos(_v), **_kw(value=value, divide=divide))
+    def add_legitimacy(self, _v: Any = None, /, *, value: Any = None, multiply: Any = None, divide: Any = None) -> None: self._call("add_legitimacy", *_pos(_v), **_kw(value=value, multiply=multiply, divide=divide))
     def add_liberty_desire(self, _v: Any = None, /, *, add: Any = None, value: Any = None, multiply: Any = None) -> None: self._call("add_liberty_desire", *_pos(_v), **_kw(add=add, value=value, multiply=multiply))
     def add_location_as_core(self, *args: Any, **kw: Any) -> None: self._call("add_location_as_core", *args, **kw)
     def add_manpower(self, _v: Any = None, /, *, value: Any = None, multiply: Any = None) -> None: self._call("add_manpower", *_pos(_v), **_kw(value=value, multiply=multiply))
-    def add_navy_tradition(self, _v: Any, /) -> None: self._call("add_navy_tradition", _v)
+    def add_navy_tradition(self, _v: Any = None, /, *, value: Any = None, multiply: Any = None) -> None: self._call("add_navy_tradition", *_pos(_v), **_kw(value=value, multiply=multiply))
     def add_omen(self, _v: Any, /) -> None: self._call("add_omen", _v)
     def add_omen_god(self, _v: Any, /) -> None: self._call("add_omen_god", _v)
     def add_opinion(self, *, target: Any, modifier: Any, scale: Any = None) -> None: self._call("add_opinion", **_kw(target=target, modifier=modifier, scale=scale))
     def add_policy(self, _v: Any, /) -> None: self._call("add_policy", _v)
     def add_policy_wanted_by_estate(self, *args: Any, **kw: Any) -> None: self._call("add_policy_wanted_by_estate", *args, **kw)
-    def add_prestige(self, _v: Any = None, /, *, value: Any = None, multiply: Any = None, divide: Any = None, min: Any = None) -> None: self._call("add_prestige", *_pos(_v), **_kw(value=value, multiply=multiply, divide=divide, min=min))
+    def add_prestige(self, _v: Any = None, /, *, value: Any = None, divide: Any = None, multiply: Any = None, max: Any = None, min: Any = None) -> None: self._call("add_prestige", *_pos(_v), **_kw(value=value, divide=divide, multiply=multiply, max=max, min=min))
     def add_purity(self, _v: Any, /) -> None: self._call("add_purity", _v)
     def add_reform(self, _v: Any, /) -> None: self._call("add_reform", _v)
     def add_religious_aspect(self, _v: Any, /) -> None: self._call("add_religious_aspect", _v)
     def add_religious_focus(self, *args: Any, **kw: Any) -> None: self._call("add_religious_focus", *args, **kw)
     def add_religious_focus_progress(self, *args: Any, **kw: Any) -> None: self._call("add_religious_focus_progress", *args, **kw)
     def add_religious_influence(self, _v: Any = None, /, *, value: Any = None, multiply: Any = None) -> None: self._call("add_religious_influence", *_pos(_v), **_kw(value=value, multiply=multiply))
-    def add_republican_tradition(self, *args: Any, **kw: Any) -> None: self._call("add_republican_tradition", *args, **kw)
+    def add_republican_tradition(self, _v: Any, /) -> None: self._call("add_republican_tradition", _v)
     def add_research_progress(self, _v: Any = None, /, *, value: Any = None, multiply: Any = None) -> None: self._call("add_research_progress", *_pos(_v), **_kw(value=value, multiply=multiply))
     def add_righteousness(self, _v: Any, /) -> None: self._call("add_righteousness", _v)
     def add_rite_power(self, *args: Any, **kw: Any) -> None: self._call("add_rite_power", *args, **kw)
@@ -2452,9 +2564,9 @@ class CountryFx(AnyFx):
     def add_sailors(self, _v: Any = None, /, *, value: Any = None, multiply: Any = None, min: Any = None) -> None: self._call("add_sailors", *_pos(_v), **_kw(value=value, multiply=multiply, min=min))
     def add_self_control(self, _v: Any, /) -> None: self._call("add_self_control", _v)
     def add_spy_network(self, *, target: Any, value: Any) -> None: self._call("add_spy_network", **_kw(target=target, value=value))
-    def add_stability(self, _v: Any, /) -> None: self._call("add_stability", _v)
+    def add_stability(self, _v: Any = None, /, *, value: Any = None, multiply: Any = None) -> None: self._call("add_stability", *_pos(_v), **_kw(value=value, multiply=multiply))
     def add_tolerated_culture(self, _v: Any, /) -> None: self._call("add_tolerated_culture", _v)
-    def add_tribal_cohesion(self, *args: Any, **kw: Any) -> None: self._call("add_tribal_cohesion", *args, **kw)
+    def add_tribal_cohesion(self, _v: Any, /) -> None: self._call("add_tribal_cohesion", _v)
     def add_truce_with(self, *, target: Any, years: Any = None, mutual: Any = None, months: Any = None) -> None: self._call("add_truce_with", **_kw(target=target, years=years, mutual=mutual, months=months))
     def add_trust(self, *args: Any, **kw: Any) -> None: self._call("add_trust", *args, **kw)
     def add_trust_equilibrium(self, *, modifier: Any, target: Any) -> None: self._call("add_trust_equilibrium", **_kw(modifier=modifier, target=target))
@@ -2482,7 +2594,7 @@ class CountryFx(AnyFx):
     def change_country_modifier_size(self, *, modifier: Any = None, value: Any = None) -> None: self._call("change_country_modifier_size", **_kw(modifier=modifier, value=value))
     def change_country_name(self, _v: Any, /) -> None: self._call("change_country_name", _v)
     def change_country_type(self, _v: CountryType, /) -> None: self._call("change_country_type", _v)
-    def change_creditworthiness(self, *args: Any, **kw: Any) -> None: self._call("change_creditworthiness", *args, **kw)
+    def change_creditworthiness(self, _v: Any, /) -> None: self._call("change_creditworthiness", _v)
     def change_culture(self, _v: Any, /) -> None: self._call("change_culture", _v)
     def change_explorer(self, *, area: Any = None, character: Any = None) -> None: self._call("change_explorer", **_kw(area=area, character=character))
     def change_government_type(self, _v: Any, /) -> None: self._call("change_government_type", _v)
@@ -2495,12 +2607,12 @@ class CountryFx(AnyFx):
     def change_subject_type(self, _v: Any, /) -> None: self._call("change_subject_type", _v)
     def complete_mission_task(self, *args: Any, **kw: Any) -> None: self._call("complete_mission_task", *args, **kw)
     def construct_road(self, *, road_type: Any = None, from_: Any = None, to: Any = None) -> None: self._call("construct_road", **_kw(road_type=road_type, from_=from_, to=to))
-    def create_character(self, *, important_character_counts: Any = None, first_name: Any = None, last_name: Any = None, skip_update_inheritance: Any = None, nickname: Any = None, skip_on_created_action: Any = None, dynasty: Any = None, adm: Any = None, use_random_core_location: Any = None, age: Any = None, fertility: Any = None, birth_date: Any = None, min_age: Any = None, dip: Any = None, trait_category: Any = None, religion: Any = None, estate: Any = None, culture: Any = None, birth_location: Any = None, ethnicity: Any = None, random_estate_type_trigger: Any = None, female: Any = None, mil: Any = None, mother: Any = None, father: Any = None, religious_school: Any = None, artist_skill: Any = None, artist: Any = None, no_stats: Any = None, religious_figure: Any = None, prev: Any = None, script: Any = None, save_scope_as: Any = None, create_in_limbo: Any = None, root: Any = None) -> None: self._call("create_character", **_kw(important_character_counts=important_character_counts, first_name=first_name, last_name=last_name, skip_update_inheritance=skip_update_inheritance, nickname=nickname, skip_on_created_action=skip_on_created_action, dynasty=dynasty, adm=adm, use_random_core_location=use_random_core_location, age=age, fertility=fertility, birth_date=birth_date, min_age=min_age, dip=dip, trait_category=trait_category, religion=religion, estate=estate, culture=culture, birth_location=birth_location, ethnicity=ethnicity, random_estate_type_trigger=random_estate_type_trigger, female=female, mil=mil, mother=mother, father=father, religious_school=religious_school, artist_skill=artist_skill, artist=artist, no_stats=no_stats, religious_figure=religious_figure, prev=prev, script=script, save_scope_as=save_scope_as, create_in_limbo=create_in_limbo, root=root))
-    def create_colonial_charter(self, *, target: Any = None) -> None: self._call("create_colonial_charter", **_kw(target=target))
+    def create_character(self, *, important_character_counts: Any = None, religious_order: Any = None, first_name: Any = None, last_name: Any = None, skip_update_inheritance: Any = None, nickname: Any = None, dynasty: Any = None, skip_on_created_action: Any = None, adm: Any = None, use_random_core_location: Any = None, age: Any = None, min_age: Any = None, fertility: Any = None, birth_date: Any = None, dip: Any = None, max_age: Any = None, trait_category: Any = None, religion: Any = None, estate: Any = None, culture: Any = None, birth_location: Any = None, random_estate_type_trigger: Any = None, ethnicity: Any = None, female: Any = None, mil: Any = None, father: Any = None, mother: Any = None, artist_skill: Any = None, religious_school: Any = None, artist: Any = None, no_stats: Any = None, religious_figure: Any = None, prev: Any = None, script: Any = None, save_scope_as: Any = None, create_in_limbo: Any = None, root: Any = None) -> None: self._call("create_character", **_kw(important_character_counts=important_character_counts, religious_order=religious_order, first_name=first_name, last_name=last_name, skip_update_inheritance=skip_update_inheritance, nickname=nickname, dynasty=dynasty, skip_on_created_action=skip_on_created_action, adm=adm, use_random_core_location=use_random_core_location, age=age, min_age=min_age, fertility=fertility, birth_date=birth_date, dip=dip, max_age=max_age, trait_category=trait_category, religion=religion, estate=estate, culture=culture, birth_location=birth_location, random_estate_type_trigger=random_estate_type_trigger, ethnicity=ethnicity, female=female, mil=mil, father=father, mother=mother, artist_skill=artist_skill, religious_school=religious_school, artist=artist, no_stats=no_stats, religious_figure=religious_figure, prev=prev, script=script, save_scope_as=save_scope_as, create_in_limbo=create_in_limbo, root=root))
+    def create_colonial_charter(self, *args: Any, **kw: Any) -> None: self._call("create_colonial_charter", *args, **kw)
     def create_country_from_cores_in_our_locations(self, _v: Any, /) -> None: self._call("create_country_from_cores_in_our_locations", _v)
     def create_estate_loan(self, *args: Any, **kw: Any) -> None: self._call("create_estate_loan", *args, **kw)
     def create_named_dynasty(self, _v: Any, /) -> None: self._call("create_named_dynasty", _v)
-    def create_rebel(self, *, category: Any, rebel_gov_type: Any = None, name: Any = None, estate: Any = None, religion: Any = None, culture: Any = None, save_scope_as: Any = None, root: Any = None) -> None: self._call("create_rebel", **_kw(category=category, rebel_gov_type=rebel_gov_type, name=name, estate=estate, religion=religion, culture=culture, save_scope_as=save_scope_as, root=root))
+    def create_rebel(self, *, category: Any, rebel_gov_type: Any = None, name: Any = None, estate: Any = None, religion: Any = None, culture: Any = None, rebel_demand: Any = None, save_scope_as: Any = None, root: Any = None) -> None: self._call("create_rebel", **_kw(category=category, rebel_gov_type=rebel_gov_type, name=name, estate=estate, religion=religion, culture=culture, rebel_demand=rebel_demand, save_scope_as=save_scope_as, root=root))
     def create_trade(self, *, from_: Any = None, to: Any = None, merchant: Any = None, goods: Any = None, desired: Any = None, locked: Any = None) -> None: self._call("create_trade", **_kw(from_=from_, to=to, merchant=merchant, goods=goods, desired=desired, locked=locked))
     def create_union(self, _v: Any, /) -> None: self._call("create_union", _v)
     def declare_war(self, *args: Any, **kw: Any) -> None: self._call("declare_war", *args, **kw)
@@ -3169,7 +3281,7 @@ class CountryFx(AnyFx):
         return self._open("ordered_work_of_art_in_country", WorkOfArtFx, **_kw(order_by=order_by, position=position, min=min, max=max, check_range_bounds=check_range_bounds))
     def pay_off_loans(self, *, fraction: Any = None, payer: Any = None) -> None: self._call("pay_off_loans", **_kw(fraction=fraction, payer=payer))
     def pay_policy_price_effect(self, _v: Any, /) -> None: self._call("pay_policy_price_effect", _v)
-    def pay_price(self, _v: Any, /) -> None: self._call("pay_price", _v)
+    def pay_price(self, *args: Any, **kw: Any) -> None: self._call("pay_price", *args, **kw)
     def perform_diplomatic_action(self, *, type: Any, actor: Any, recipient: Any, target: Any = None, mode: Any) -> None: self._call("perform_diplomatic_action", **_kw(type=type, actor=actor, recipient=recipient, target=target, mode=mode))
     def raise_all_levies(self, *, type: Any = None, instant: Any = None) -> None: self._call("raise_all_levies", **_kw(type=type, instant=instant))
     def random_accepted_culture(self, *, weight: Any = None) -> ContextManager[CultureFx]:
@@ -3437,7 +3549,7 @@ class CountryFx(AnyFx):
     def remove_accepted_culture(self, *args: Any, **kw: Any) -> None: self._call("remove_accepted_culture", *args, **kw)
     def remove_all_area_preferences(self, *args: Any, **kw: Any) -> None: self._call("remove_all_area_preferences", *args, **kw)
     def remove_all_casus_belli(self, *args: Any, **kw: Any) -> None: self._call("remove_all_casus_belli", *args, **kw)
-    def remove_all_casus_belli_of_type(self, *args: Any, **kw: Any) -> None: self._call("remove_all_casus_belli_of_type", *args, **kw)
+    def remove_all_casus_belli_of_type(self, _v: Any, /) -> None: self._call("remove_all_casus_belli_of_type", _v)
     def remove_antagonism(self, *, target: Any = None, modifier: Any = None) -> None: self._call("remove_antagonism", **_kw(target=target, modifier=modifier))
     def remove_area_preference(self, _v: Any, /) -> None: self._call("remove_area_preference", _v)
     def remove_avatar(self, _v: Any, /) -> None: self._call("remove_avatar", _v)
@@ -3448,7 +3560,7 @@ class CountryFx(AnyFx):
     def remove_from_cabinet(self, _v: Any, /) -> None: self._call("remove_from_cabinet", _v)
     def remove_god(self, *args: Any, **kw: Any) -> None: self._call("remove_god", *args, **kw)
     def remove_historical_rival(self, _v: Any, /) -> None: self._call("remove_historical_rival", _v)
-    def remove_law(self, *args: Any, **kw: Any) -> None: self._call("remove_law", *args, **kw)
+    def remove_law(self, _v: Any, /) -> None: self._call("remove_law", _v)
     def remove_omen(self, *args: Any, **kw: Any) -> None: self._call("remove_omen", *args, **kw)
     def remove_opinion(self, *, modifier: Any, target: Any) -> None: self._call("remove_opinion", **_kw(modifier=modifier, target=target))
     def remove_policy(self, _v: Any, /) -> None: self._call("remove_policy", _v)
@@ -3525,7 +3637,7 @@ class CountryFx(AnyFx):
     def stop_annexing_country(self, *args: Any, **kw: Any) -> None: self._call("stop_annexing_country", *args, **kw)
     def support_rebel(self, *args: Any, **kw: Any) -> None: self._call("support_rebel", *args, **kw)
     def take_over_all_wars(self, *args: Any, **kw: Any) -> None: self._call("take_over_all_wars", *args, **kw)
-    def transfer_gold_from_estate(self, *, estate_type: Any = None, value: Any = None) -> None: self._call("transfer_gold_from_estate", **_kw(estate_type=estate_type, value=value))
+    def transfer_gold_from_estate(self, *, estate_type: Any, value: Any) -> None: self._call("transfer_gold_from_estate", **_kw(estate_type=estate_type, value=value))
     def transfer_subject(self, _v: Any, /) -> None: self._call("transfer_subject", _v)
     def transfer_yearly_gold(self, *, value: Any, target: Any) -> None: self._call("transfer_yearly_gold", **_kw(value=value, target=target))
     def transfer_yearly_manpower(self, *, value: Any = None, target: Any = None) -> None: self._call("transfer_yearly_manpower", **_kw(value=value, target=target))
@@ -4051,15 +4163,15 @@ class InternationalOrganizationFx(AnyFx):
     def limit(self, body: Callable[[InternationalOrganizationTrig], Any]) -> None: ...
     def limit(self, body: Callable[[InternationalOrganizationTrig], Any] | None = None) -> Any:
         return self._run("limit", InternationalOrganizationTrig, body)
-    def add_army_tradition(self, _v: Any, /) -> None: self._call("add_army_tradition", _v)
-    def add_complacency(self, _v: Any, /) -> None: self._call("add_complacency", _v)
+    def add_army_tradition(self, _v: Any = None, /, *, value: Any = None, multiply: Any = None) -> None: self._call("add_army_tradition", *_pos(_v), **_kw(value=value, multiply=multiply))
+    def add_complacency(self, *args: Any, **kw: Any) -> None: self._call("add_complacency", *args, **kw)
     def add_cooldown(self, *, type: Any, days: Any = None, months: Any = None, years: Any = None) -> None: self._call("add_cooldown", **_kw(type=type, days=days, months=months, years=years))
     def add_country_to_international_organization(self, _v: Any, /) -> None: self._call("add_country_to_international_organization", _v)
     def add_country_to_international_organization_no_update(self, _v: Any, /) -> None: self._call("add_country_to_international_organization_no_update", _v)
     def add_devotion(self, _v: Any, /) -> None: self._call("add_devotion", _v)
     def add_doom(self, _v: Any = None, /, *, add: Any = None) -> None: self._call("add_doom", *_pos(_v), **_kw(add=add))
     def add_enemy_to_international_organization(self, _v: Any, /) -> None: self._call("add_enemy_to_international_organization", _v)
-    def add_gold(self, _v: Any = None, /, *, value: Any = None, add: Any = None, min: Any = None, max: Any = None, multiply: Any = None) -> None: self._call("add_gold", *_pos(_v), **_kw(value=value, add=add, min=min, max=max, multiply=multiply))
+    def add_gold(self, _v: Any = None, /, *, save_temporary_value_as: Any = None, value: Any = None, add: Any = None, min: Any = None, divide: Any = None, multiply: Any = None, max: Any = None, subtract: Any = None) -> None: self._call("add_gold", *_pos(_v), **_kw(save_temporary_value_as=save_temporary_value_as, value=value, add=add, min=min, divide=divide, multiply=multiply, max=max, subtract=subtract))
     def add_government_power(self, _v: Any = None, /, *, value: Any = None, multiply: Any = None, floor: Any = None, if_: Any = None) -> None: self._call("add_government_power", *_pos(_v), **_kw(value=value, multiply=multiply, floor=floor, if_=if_))
     def add_harmony(self, _v: Any = None, /, *, value: Any = None, max: Any = None, multiply: Any = None) -> None: self._call("add_harmony", *_pos(_v), **_kw(value=value, max=max, multiply=multiply))
     def add_honor(self, *args: Any, **kw: Any) -> None: self._call("add_honor", *args, **kw)
@@ -4067,21 +4179,21 @@ class InternationalOrganizationFx(AnyFx):
     def add_inflation(self, _v: Any = None, /, *, value: Any = None, multiply: Any = None) -> None: self._call("add_inflation", *_pos(_v), **_kw(value=value, multiply=multiply))
     def add_international_organization_modifier(self, *, modifier: Any, mode: Any, years: Any) -> None: self._call("add_international_organization_modifier", **_kw(modifier=modifier, mode=mode, years=years))
     def add_karma(self, _v: Any, /) -> None: self._call("add_karma", _v)
-    def add_legitimacy(self, _v: Any = None, /, *, value: Any = None, divide: Any = None) -> None: self._call("add_legitimacy", *_pos(_v), **_kw(value=value, divide=divide))
+    def add_legitimacy(self, _v: Any = None, /, *, value: Any = None, multiply: Any = None, divide: Any = None) -> None: self._call("add_legitimacy", *_pos(_v), **_kw(value=value, multiply=multiply, divide=divide))
     def add_location_to_international_organization(self, _v: Any, /) -> None: self._call("add_location_to_international_organization", _v)
     def add_manpower(self, _v: Any = None, /, *, value: Any = None, multiply: Any = None) -> None: self._call("add_manpower", *_pos(_v), **_kw(value=value, multiply=multiply))
-    def add_navy_tradition(self, _v: Any, /) -> None: self._call("add_navy_tradition", _v)
+    def add_navy_tradition(self, _v: Any = None, /, *, value: Any = None, multiply: Any = None) -> None: self._call("add_navy_tradition", *_pos(_v), **_kw(value=value, multiply=multiply))
     def add_policy_to_international_organization(self, _v: Any, /) -> None: self._call("add_policy_to_international_organization", _v)
-    def add_prestige(self, _v: Any = None, /, *, value: Any = None, multiply: Any = None, divide: Any = None, min: Any = None) -> None: self._call("add_prestige", *_pos(_v), **_kw(value=value, multiply=multiply, divide=divide, min=min))
+    def add_prestige(self, _v: Any = None, /, *, value: Any = None, divide: Any = None, multiply: Any = None, max: Any = None, min: Any = None) -> None: self._call("add_prestige", *_pos(_v), **_kw(value=value, divide=divide, multiply=multiply, max=max, min=min))
     def add_purity(self, _v: Any, /) -> None: self._call("add_purity", _v)
     def add_religious_influence(self, _v: Any = None, /, *, value: Any = None, multiply: Any = None) -> None: self._call("add_religious_influence", *_pos(_v), **_kw(value=value, multiply=multiply))
-    def add_republican_tradition(self, *args: Any, **kw: Any) -> None: self._call("add_republican_tradition", *args, **kw)
+    def add_republican_tradition(self, _v: Any, /) -> None: self._call("add_republican_tradition", _v)
     def add_righteousness(self, _v: Any, /) -> None: self._call("add_righteousness", _v)
     def add_rite_power(self, *args: Any, **kw: Any) -> None: self._call("add_rite_power", *args, **kw)
     def add_sailors(self, _v: Any = None, /, *, value: Any = None, multiply: Any = None, min: Any = None) -> None: self._call("add_sailors", *_pos(_v), **_kw(value=value, multiply=multiply, min=min))
     def add_self_control(self, _v: Any, /) -> None: self._call("add_self_control", _v)
-    def add_stability(self, _v: Any, /) -> None: self._call("add_stability", _v)
-    def add_tribal_cohesion(self, *args: Any, **kw: Any) -> None: self._call("add_tribal_cohesion", *args, **kw)
+    def add_stability(self, _v: Any = None, /, *, value: Any = None, multiply: Any = None) -> None: self._call("add_stability", *_pos(_v), **_kw(value=value, multiply=multiply))
+    def add_tribal_cohesion(self, _v: Any, /) -> None: self._call("add_tribal_cohesion", _v)
     def add_war_exhaustion(self, _v: Any, /) -> None: self._call("add_war_exhaustion", _v)
     def add_yanantin(self, _v: Any, /) -> None: self._call("add_yanantin", _v)
     def change_international_organization_modifier_size(self, *, modifier: Any = None, value: Any = None, recalculate_immediately: Any = None) -> None: self._call("change_international_organization_modifier_size", **_kw(modifier=modifier, value=value, recalculate_immediately=recalculate_immediately))
@@ -4336,7 +4448,7 @@ class LocationFx(AnyFx):
     def change_garrison_size(self, _v: Any, /) -> None: self._call("change_garrison_size", _v)
     def change_institution_progress(self, *, type: Any, value: Any) -> None: self._call("change_institution_progress", **_kw(type=type, value=value))
     def change_integration_level(self, _v: Any, /) -> None: self._call("change_integration_level", _v)
-    def change_integration_progress(self, _v: Any, /) -> None: self._call("change_integration_progress", _v)
+    def change_integration_progress(self, _v: Any = None, /, *, value: Any = None, multiply: Any = None) -> None: self._call("change_integration_progress", *_pos(_v), **_kw(value=value, multiply=multiply))
     def change_location_controller(self, _v: Any, /) -> None: self._call("change_location_controller", _v)
     def change_location_modifier_size(self, *, modifier: Any = None, value: Any = None, recalculate_immediately: Any = None) -> None: self._call("change_location_modifier_size", **_kw(modifier=modifier, value=value, recalculate_immediately=recalculate_immediately))
     def change_location_owner(self, _v: Any, /) -> None: self._call("change_location_owner", _v)
@@ -4353,7 +4465,7 @@ class LocationFx(AnyFx):
     def construct_rgo_upgrade(self, *args: Any, **kw: Any) -> None: self._call("construct_rgo_upgrade", *args, **kw)
     def create_army_country_in_location(self, *, reforms: Any = None, overlord: Any = None, culture: Any = None, religion: Any = None, subject_type: Any = None, ruler: Any = None, save_scope_as: Any = None) -> None: self._call("create_army_country_in_location", **_kw(reforms=reforms, overlord=overlord, culture=culture, religion=religion, subject_type=subject_type, ruler=ruler, save_scope_as=save_scope_as))
     def create_art(self, *, artist: Any = None, quality: Any, location: Any = None, type: Any, key: Any = None) -> None: self._call("create_art", **_kw(artist=artist, quality=quality, location=location, type=type, key=key))
-    def create_building_country_in_location(self, *, name: Any = None, region: Any = None, reforms: Any = None, ruler: Any = None, save_scope_as: Any = None, subject_type: Any = None, hidden_effect: Any = None, overlord: Any = None) -> None: self._call("create_building_country_in_location", **_kw(name=name, region=region, reforms=reforms, ruler=ruler, save_scope_as=save_scope_as, subject_type=subject_type, hidden_effect=hidden_effect, overlord=overlord))
+    def create_building_country_in_location(self, *, name: Any = None, region: Any = None, ruler: Any = None, reforms: Any = None, subject_type: Any = None, save_scope_as: Any, overlord: Any = None, hidden_effect: Any = None) -> None: self._call("create_building_country_in_location", **_kw(name=name, region=region, ruler=ruler, reforms=reforms, subject_type=subject_type, save_scope_as=save_scope_as, overlord=overlord, hidden_effect=hidden_effect))
     def create_country_from_location(self, *, locations: Any = None, overlord: Any = None, reforms: Any = None, subject_type: Any = None, name: Any = None, save_scope_as: Any = None, capital: Any = None, ruler_or_regent: Any = None) -> ContextManager[CountryFx]:
         return self._open("create_country_from_location", CountryFx, **_kw(locations=locations, overlord=overlord, reforms=reforms, subject_type=subject_type, name=name, save_scope_as=save_scope_as, capital=capital, ruler_or_regent=ruler_or_regent))
     def create_dynasty_from_location(self, _v: Any, /) -> None: self._call("create_dynasty_from_location", _v)
@@ -4411,7 +4523,7 @@ class LocationFx(AnyFx):
         return self._open("every_weather_system_in_location", WeatherSystemFx)
     def every_work_of_art_in_location(self) -> ContextManager[WorkOfArtFx]:
         return self._open("every_work_of_art_in_location", WorkOfArtFx)
-    def floodfill_locations(self, *, limit_: Any = None, add_core: Any = None, if_: Any = None) -> None: self._call("floodfill_locations", **_kw(limit_=limit_, add_core=add_core, if_=if_))
+    def floodfill_locations(self, *, limit_: Any, add_core: Any = None) -> None: self._call("floodfill_locations", **_kw(limit_=limit_, add_core=add_core))
     def go_active_outbreak(self, data: Any, /, *, op: Op = "=") -> ContextManager[DiseaseOutbreakFx]:
         return self.link(f"active_outbreak:{data}", DiseaseOutbreakFx, op=op)
     def go_area(self, *, op: Op = "=") -> ContextManager[AreaFx]:
@@ -4590,7 +4702,7 @@ class MarketFx(AnyFx):
         return self._run("limit", MarketTrig, body)
     def add_goods_supply(self, *, goods: Any, amount: Any) -> None: self._call("add_goods_supply", **_kw(goods=goods, amount=amount))
     def add_merchant_power(self, *args: Any, **kw: Any) -> None: self._call("add_merchant_power", *args, **kw)
-    def add_temporary_demand(self, *, type: Any, scale_with_pop: Any = None, years: Any) -> None: self._call("add_temporary_demand", **_kw(type=type, scale_with_pop=scale_with_pop, years=years))
+    def add_temporary_demand(self, *, type: Any, scale_with_pop: Any = None, months: Any = None, years: Any = None) -> None: self._call("add_temporary_demand", **_kw(type=type, scale_with_pop=scale_with_pop, months=months, years=years))
     def destroy_market(self, *args: Any, **kw: Any) -> None: self._call("destroy_market", *args, **kw)
     def every_export(self) -> ContextManager[TradeFx]:
         return self._open("every_export", TradeFx)
@@ -4815,7 +4927,7 @@ class PopFx(AnyFx):
     def change_pop_culture(self, _v: Any, /) -> None: self._call("change_pop_culture", _v)
     def change_pop_owner(self, _v: Any, /) -> None: self._call("change_pop_owner", _v)
     def change_pop_religion(self, _v: Any, /) -> None: self._call("change_pop_religion", _v)
-    def change_pop_type(self, *args: Any, **kw: Any) -> None: self._call("change_pop_type", *args, **kw)
+    def change_pop_type(self, _v: Any, /) -> None: self._call("change_pop_type", _v)
     def go_culture(self, *, op: Op = "=") -> ContextManager[CultureFx]:
         return self.link("culture", CultureFx, op=op)
     def go_dialect(self, *, op: Op = "=") -> ContextManager[DialectFx]:
@@ -4899,12 +5011,12 @@ class ProvinceFx(AnyFx):
     def add_recovered_army_levy_percentage(self, *args: Any, **kw: Any) -> None: self._call("add_recovered_army_levy_percentage", *args, **kw)
     def add_recovered_navy_levy_percentage(self, *args: Any, **kw: Any) -> None: self._call("add_recovered_navy_levy_percentage", *args, **kw)
     def change_province_food(self, _v: Any = None, /, *, value: Any = None, multiply: Any = None) -> None: self._call("change_province_food", *_pos(_v), **_kw(value=value, multiply=multiply))
-    def change_province_food_percentage(self, _v: Any = None, /, *, value: Any = None) -> None: self._call("change_province_food_percentage", *_pos(_v), **_kw(value=value))
+    def change_province_food_percentage(self, _v: Any = None, /, *, value: Any = None, multiply: Any = None) -> None: self._call("change_province_food_percentage", *_pos(_v), **_kw(value=value, multiply=multiply))
     def change_province_integration(self, _v: Any, /) -> None: self._call("change_province_integration", _v)
     def change_province_modifier_size(self, *, modifier: Any = None, value: Any = None, recalculate_immediately: Any = None) -> None: self._call("change_province_modifier_size", **_kw(modifier=modifier, value=value, recalculate_immediately=recalculate_immediately))
     def change_province_owner(self, _v: Any, /) -> None: self._call("change_province_owner", _v)
     def create_army_country_from_province(self, *args: Any, **kw: Any) -> None: self._call("create_army_country_from_province", *args, **kw)
-    def create_location_country_from_province(self, *, ruler: Any = None, name: Any = None, subject_type: Any = None, save_scope_as: Any = None, capital: Any = None) -> None: self._call("create_location_country_from_province", **_kw(ruler=ruler, name=name, subject_type=subject_type, save_scope_as=save_scope_as, capital=capital))
+    def create_location_country_from_province(self, *, add_military: Any = None, ruler: Any = None, subject_type: Any = None, name: Any = None, save_scope_as: Any = None, capital: Any = None, add_truce_with: Any = None) -> None: self._call("create_location_country_from_province", **_kw(add_military=add_military, ruler=ruler, subject_type=subject_type, name=name, save_scope_as=save_scope_as, capital=capital, add_truce_with=add_truce_with))
     def create_navy_country_from_province(self, *args: Any, **kw: Any) -> None: self._call("create_navy_country_from_province", *args, **kw)
     def every_location_in_province(self) -> ContextManager[LocationFx]:
         return self._open("every_location_in_province", LocationFx)
@@ -5144,7 +5256,7 @@ class ReligionFx(AnyFx):
     def limit(self, body: Callable[[ReligionTrig], Any] | None = None) -> Any:
         return self._run("limit", ReligionTrig, body)
     def add_international_organization(self, *args: Any, **kw: Any) -> None: self._call("add_international_organization", *args, **kw)
-    def add_reform_desire(self, *, value: Any = None, multiply: Any = None) -> None: self._call("add_reform_desire", **_kw(value=value, multiply=multiply))
+    def add_reform_desire(self, _v: Any = None, /, *, value: Any = None, multiply: Any = None) -> None: self._call("add_reform_desire", *_pos(_v), **_kw(value=value, multiply=multiply))
     def add_religion_modifier(self, *, modifier: Any, years: Any = None, mode: Any = None, days: Any = None, desc: Any = None) -> None: self._call("add_religion_modifier", **_kw(modifier=modifier, years=years, mode=mode, days=days, desc=desc))
     def change_religion_modifier_size(self, *, modifier: Any = None, value: Any = None, recalculate_immediately: Any = None) -> None: self._call("change_religion_modifier_size", **_kw(modifier=modifier, value=value, recalculate_immediately=recalculate_immediately))
     def change_religion_view(self, *, target: Any = None, value: Any = None) -> None: self._call("change_religion_view", **_kw(target=target, value=value))
@@ -5876,8 +5988,9 @@ class AnyTrig(Scope):
         with self._open("switch", _Switch, trigger=trigger) as s:
             s._cls = type(self)
             yield s
+    def actor_has_order_of_calling_trigger(self, _v: bool | str | float | None = None, /, *, CALLING: Any = None) -> None:
+        _scripted(self, "actor_has_order_of_calling_trigger", _v, dict(CALLING=CALLING))
     def add_to_temporary_list(self, *args: Any, **kw: Any) -> None: self._call("add_to_temporary_list", *args, **kw)
-    def ai_country_should_colonize(self, _v: bool | str | float = True, /) -> None: self._call("ai_country_should_colonize", _v)
     def ai_international_organization_diplo_action_cooldown(self, _v: bool | str | float | None = None, /, *, key: Any = None, target: Any = None, international_organization: Any = None) -> None:
         _scripted(self, "ai_international_organization_diplo_action_cooldown", _v, dict(key=key, target=target, international_organization=international_organization))
     def ai_issue_voting_bias(self, _v: Any, /, op: Op = "=") -> None: self._cmp("ai_issue_voting_bias", op, _v)
@@ -6002,6 +6115,13 @@ class AnyTrig(Scope):
     def bard_10_neighbor_country_trigger(self, _v: bool | str | float = True, /) -> None: self._call("bard_10_neighbor_country_trigger", _v)
     def basic_checks_character(self, _v: bool | str | float = True, /) -> None: self._call("basic_checks_character", _v)
     def basic_checks_for_calculating_foreign_league_leaders(self, _v: bool | str | float = True, /) -> None: self._call("basic_checks_for_calculating_foreign_league_leaders", _v)
+    def battle_for_the_strait_castile_holds_the_strait(self, _v: bool | str | float = True, /) -> None: self._call("battle_for_the_strait_castile_holds_the_strait", _v)
+    def battle_for_the_strait_castile_requirements_met(self, _v: bool | str | float = True, /) -> None: self._call("battle_for_the_strait_castile_requirements_met", _v)
+    def battle_for_the_strait_contender_eliminated(self, _v: bool | str | float = True, /) -> None: self._call("battle_for_the_strait_contender_eliminated", _v)
+    def battle_for_the_strait_granada_holds_the_strait(self, _v: bool | str | float = True, /) -> None: self._call("battle_for_the_strait_granada_holds_the_strait", _v)
+    def battle_for_the_strait_granada_requirements_met(self, _v: bool | str | float = True, /) -> None: self._call("battle_for_the_strait_granada_requirements_met", _v)
+    def battle_for_the_strait_morocco_holds_the_strait(self, _v: bool | str | float = True, /) -> None: self._call("battle_for_the_strait_morocco_holds_the_strait", _v)
+    def battle_for_the_strait_morocco_requirements_met(self, _v: bool | str | float = True, /) -> None: self._call("battle_for_the_strait_morocco_requirements_met", _v)
     def bias_value(self, _v: Any = None, /, *, op: Op = "=", modifier: Any = None) -> None:
         if _v is None:
             self._call("bias_value", **_kw(modifier=modifier))
@@ -6018,16 +6138,27 @@ class AnyTrig(Scope):
     def byzantine_succession_crisis_end_trigger(self, _v: bool | str | float = True, /) -> None: self._call("byzantine_succession_crisis_end_trigger", _v)
     def cabinet_already_performing_same_task_on_target(self, _v: bool | str | float | None = None, /, *, cabinet_action: Any = None, interaction_target: Any = None) -> None:
         _scripted(self, "cabinet_already_performing_same_task_on_target", _v, dict(cabinet_action=cabinet_action, interaction_target=interaction_target))
-    def calc_true_if(self, *, any_unit: Any = None, amount: Cmp) -> None: self._call("calc_true_if", **_kw(any_unit=any_unit, amount=amount))
+    def cabinet_control_area_action_covers_province(self, _v: bool | str | float = True, /) -> None: self._call("cabinet_control_area_action_covers_province", _v)
+    def cabinet_control_province_action_in_area(self, _v: bool | str | float | None = None, /, *, cabinet_action: Any = None) -> None:
+        _scripted(self, "cabinet_control_province_action_in_area", _v, dict(cabinet_action=cabinet_action))
+    def calc_true_if(self, *, amount: Cmp) -> None: self._call("calc_true_if", **_kw(amount=amount))
     def can_add_relation(self, *, first: Any = None, second: Any = None, type: Any = None) -> None: self._call("can_add_relation", **_kw(first=first, second=second, type=type))
     def can_adopt_compatible_religion_law(self, _v: bool | str | float | None = None, /, *, country: Any = None) -> None:
         _scripted(self, "can_adopt_compatible_religion_law", _v, dict(country=country))
     def can_be_attacked(self, _v: bool | str | float = True, /) -> None: self._call("can_be_attacked", _v)
+    def can_be_changed_to_via_generic_action(self, _v: bool | str | float | None = None, /, *, action: Any = None) -> None:
+        _scripted(self, "can_be_changed_to_via_generic_action", _v, dict(action=action))
     def can_be_targetted_by_decline_of_majapahit_3(self, _v: bool | str | float = True, /) -> None: self._call("can_be_targetted_by_decline_of_majapahit_3", _v)
     def can_be_targetted_by_gajah_mada(self, _v: bool | str | float = True, /) -> None: self._call("can_be_targetted_by_gajah_mada", _v)
+    def can_be_targetted_by_tun_tax_raid(self, _v: bool | str | float = True, /) -> None: self._call("can_be_targetted_by_tun_tax_raid", _v)
     def can_become_a_leader(self, _v: bool | str | float = True, /) -> None: self._call("can_become_a_leader", _v)
     def can_become_a_regent(self, _v: bool | str | float = True, /) -> None: self._call("can_become_a_regent", _v)
     def can_become_a_ruler(self, _v: bool | str | float = True, /) -> None: self._call("can_become_a_ruler", _v)
+    def can_become_familial_governor_trigger(self, _v: bool | str | float = True, /) -> None: self._call("can_become_familial_governor_trigger", _v)
+    def can_become_strong_imam(self, _v: bool | str | float | None = None, /, *, country: Any = None) -> None:
+        _scripted(self, "can_become_strong_imam", _v, dict(country=country))
+    def can_become_weak_imam(self, _v: bool | str | float | None = None, /, *, country: Any = None) -> None:
+        _scripted(self, "can_become_weak_imam", _v, dict(country=country))
     def can_bribe_default_trigger(self, _v: bool | str | float = True, /) -> None: self._call("can_bribe_default_trigger", _v)
     def can_build_satellite_trade_building(self, _v: bool | str | float | None = None, /, *, BUILDING_TYPE: Any = None) -> None:
         _scripted(self, "can_build_satellite_trade_building", _v, dict(BUILDING_TYPE=BUILDING_TYPE))
@@ -6048,6 +6179,13 @@ class AnyTrig(Scope):
     def can_have_parliament_called_by(self, _v: bool | str | float | None = None, /, *, country: Any = None) -> None:
         _scripted(self, "can_have_parliament_called_by", _v, dict(country=country))
     def can_have_robber_barons(self, _v: bool | str | float = True, /) -> None: self._call("can_have_robber_barons", _v)
+    def can_potentially_become_familial_governor_trigger(self, _v: bool | str | float | None = None, /, *, country: Any = None) -> None:
+        _scripted(self, "can_potentially_become_familial_governor_trigger", _v, dict(country=country))
+    def can_revoke_tle_support_banu_al_wad_reform(self, _v: bool | str | float | None = None, /, *, scale: Any = None) -> None:
+        _scripted(self, "can_revoke_tle_support_banu_al_wad_reform", _v, dict(scale=scale))
+    def can_select_location_for_familial_governor(self, _v: bool | str | float = True, /) -> None: self._call("can_select_location_for_familial_governor", _v)
+    def can_sell_tripoli_to(self, _v: bool | str | float | None = None, /, *, who: Any = None) -> None:
+        _scripted(self, "can_sell_tripoli_to", _v, dict(who=who))
     def can_spawn_wokou_nation_here(self, _v: bool | str | float = True, /) -> None: self._call("can_spawn_wokou_nation_here", _v)
     def can_start_tutorial_lesson(self, _v: Any, /) -> None: self._call("can_start_tutorial_lesson", _v)
     def can_target_livonian_lands(self, _v: bool | str | float = True, /) -> None: self._call("can_target_livonian_lands", _v)
@@ -6062,6 +6200,14 @@ class AnyTrig(Scope):
     def character_address_imperial_ruler_trigger(self, _v: bool | str | float = True, /) -> None: self._call("character_address_imperial_ruler_trigger", _v)
     def character_address_royal_ruler_trigger(self, _v: bool | str | float = True, /) -> None: self._call("character_address_royal_ruler_trigger", _v)
     def character_age_filter_trigger(self, _v: bool | str | float = True, /) -> None: self._call("character_age_filter_trigger", _v)
+    def character_bg_use_admiral(self, _v: bool | str | float = True, /) -> None: self._call("character_bg_use_admiral", _v)
+    def character_bg_use_artist(self, _v: bool | str | float = True, /) -> None: self._call("character_bg_use_artist", _v)
+    def character_bg_use_burghers(self, _v: bool | str | float = True, /) -> None: self._call("character_bg_use_burghers", _v)
+    def character_bg_use_clergy(self, _v: bool | str | float = True, /) -> None: self._call("character_bg_use_clergy", _v)
+    def character_bg_use_general(self, _v: bool | str | float = True, /) -> None: self._call("character_bg_use_general", _v)
+    def character_bg_use_nobles(self, _v: bool | str | float = True, /) -> None: self._call("character_bg_use_nobles", _v)
+    def character_bg_use_peasants(self, _v: bool | str | float = True, /) -> None: self._call("character_bg_use_peasants", _v)
+    def character_bg_use_royalty(self, _v: bool | str | float = True, /) -> None: self._call("character_bg_use_royalty", _v)
     def character_can_marry_recipient_trigger(self, _v: bool | str | float = True, /) -> None: self._call("character_can_marry_recipient_trigger", _v)
     def character_can_marry_trigger(self, _v: bool | str | float = True, /) -> None: self._call("character_can_marry_trigger", _v)
     def character_eng_44_trigger(self, _v: bool | str | float = True, /) -> None: self._call("character_eng_44_trigger", _v)
@@ -6592,7 +6738,7 @@ class AnyTrig(Scope):
     def control_all_bohemia_moravia_silesia_trigger(self, _v: bool | str | float = True, /) -> None: self._call("control_all_bohemia_moravia_silesia_trigger", _v)
     def controls_and_owns_pentarchy(self, _v: bool | str | float = True, /) -> None: self._call("controls_and_owns_pentarchy", _v)
     def cossack_colonization_valid_neighbor_province_definition(self, _v: bool | str | float = True, /) -> None: self._call("cossack_colonization_valid_neighbor_province_definition", _v)
-    def council_of_trent_end_trigger(self, _v: bool | str | float = True, /) -> None: self._call("council_of_trent_end_trigger", _v)
+    def country_allows_a_weak_imam(self, _v: bool | str | float = True, /) -> None: self._call("country_allows_a_weak_imam", _v)
     def country_belongs_to_jodou_shinshuu(self, _v: bool | str | float = True, /) -> None: self._call("country_belongs_to_jodou_shinshuu", _v)
     def country_can_build_in_location(self, _v: bool | str | float | None = None, /, *, building_type: Any = None, location: Any = None) -> None:
         _scripted(self, "country_can_build_in_location", _v, dict(building_type=building_type, location=location))
@@ -6608,6 +6754,8 @@ class AnyTrig(Scope):
     def country_has_dynasty(self, _v: bool | str | float | None = None, /, *, dynasty: Any = None) -> None:
         _scripted(self, "country_has_dynasty", _v, dict(dynasty=dynasty))
     def country_has_gallowglass_trigger(self, _v: bool | str | float = True, /) -> None: self._call("country_has_gallowglass_trigger", _v)
+    def country_has_no_other_copy_of_building(self, _v: bool | str | float | None = None, /, *, type: Any = None) -> None:
+        _scripted(self, "country_has_no_other_copy_of_building", _v, dict(type=type))
     def country_has_recently_joined_situation_faction(self, _v: bool | str | float | None = None, /, *, situation: Any = None, years: Any = None, variable: Any = None) -> None:
         _scripted(self, "country_has_recently_joined_situation_faction", _v, dict(situation=situation, years=years, variable=variable))
     def country_has_recently_left_situation_faction(self, _v: bool | str | float | None = None, /, *, situation: Any = None, years: Any = None, variable: Any = None) -> None:
@@ -6624,6 +6772,8 @@ class AnyTrig(Scope):
         _scripted(self, "country_rank_is_what", _v, dict(target_rank=target_rank))
     def coup_attempt_end_trigger(self, _v: bool | str | float = True, /) -> None: self._call("coup_attempt_end_trigger", _v)
     def court_and_country_end_trigger(self, _v: bool | str | float = True, /) -> None: self._call("court_and_country_end_trigger", _v)
+    def crisis_of_faith_end_trigger(self, _v: bool | str | float = True, /) -> None: self._call("crisis_of_faith_end_trigger", _v)
+    def crisis_of_faith_qualifies_trigger(self, _v: bool | str | float = True, /) -> None: self._call("crisis_of_faith_qualifies_trigger", _v)
     def crisis_of_the_chinese_dynasty_end_trigger(self, _v: bool | str | float = True, /) -> None: self._call("crisis_of_the_chinese_dynasty_end_trigger", _v)
     def crisis_of_the_sayfawa_dynasty_end_trigger(self, _v: bool | str | float = True, /) -> None: self._call("crisis_of_the_sayfawa_dynasty_end_trigger", _v)
     def crusade_allow_trigger(self, _v: bool | str | float = True, /) -> None: self._call("crusade_allow_trigger", _v)
@@ -6695,14 +6845,11 @@ class AnyTrig(Scope):
     def excommunicate_allow_trigger(self, _v: bool | str | float = True, /) -> None: self._call("excommunicate_allow_trigger", _v)
     def excommunicate_target_trigger(self, _v: bool | str | float = True, /) -> None: self._call("excommunicate_target_trigger", _v)
     def exists(self, _v: Any, /) -> None: self._call("exists", _v)
-    def expedition_status(self, _v: bool | str | float | None = None, /, *, status: Any = None) -> None:
-        _scripted(self, "expedition_status", _v, dict(status=status))
     def exploration_monthly_16_pop_trigger(self, _v: bool | str | float = True, /) -> None: self._call("exploration_monthly_16_pop_trigger", _v)
     def exploration_monthly_17_pop_trigger(self, _v: bool | str | float = True, /) -> None: self._call("exploration_monthly_17_pop_trigger", _v)
     def exploration_monthly_21_pop_trigger(self, _v: bool | str | float = True, /) -> None: self._call("exploration_monthly_21_pop_trigger", _v)
     def exploration_monthly_3_location_trigger(self, _v: bool | str | float = True, /) -> None: self._call("exploration_monthly_3_location_trigger", _v)
     def exploration_monthly_4_core_port_trigger(self, _v: bool | str | float = True, /) -> None: self._call("exploration_monthly_4_core_port_trigger", _v)
-    def fall_of_delhi_end_trigger(self, _v: bool | str | float = True, /) -> None: self._call("fall_of_delhi_end_trigger", _v)
     def fate_of_the_phoenix_end_trigger(self, _v: bool | str | float = True, /) -> None: self._call("fate_of_the_phoenix_end_trigger", _v)
     def female_eligible_for_hookup(self, _v: bool | str | float = True, /) -> None: self._call("female_eligible_for_hookup", _v)
     def flavor_mlo_23_location_trigger(self, _v: bool | str | float = True, /) -> None: self._call("flavor_mlo_23_location_trigger", _v)
@@ -6930,12 +7077,11 @@ class AnyTrig(Scope):
         return self.link(f"work_of_art_type:{data}", WorkOfArtTypeTrig, op=op)
     def go_yes(self, *, op: Op = "=") -> ContextManager[BooleanTrig]:
         return self.link("yes", BooleanTrig, op=op)
-    def golden_age_of_piracy_end_trigger(self, _v: bool | str | float = True, /) -> None: self._call("golden_age_of_piracy_end_trigger", _v)
     def good_candidate_for_capitulations(self, _v: bool | str | float = True, /) -> None: self._call("good_candidate_for_capitulations", _v)
     def government_reforms_is_not_locked(self, _v: bool | str | float | None = None, /, *, type: Any = None) -> None:
         _scripted(self, "government_reforms_is_not_locked", _v, dict(type=type))
+    def grand_embassy_host_knows_ruler(self, _v: bool | str | float = True, /) -> None: self._call("grand_embassy_host_knows_ruler", _v)
     def great_ruler_or_regent_trigger(self, _v: bool | str | float = True, /) -> None: self._call("great_ruler_or_regent_trigger", _v)
-    def guelphs_and_ghibellines_end_trigger(self, _v: bool | str | float = True, /) -> None: self._call("guelphs_and_ghibellines_end_trigger", _v)
     def guelphs_and_ghibellines_ghibellines_end_trigger(self, _v: bool | str | float = True, /) -> None: self._call("guelphs_and_ghibellines_ghibellines_end_trigger", _v)
     def guelphs_and_ghibellines_guelphs_end_trigger(self, _v: bool | str | float = True, /) -> None: self._call("guelphs_and_ghibellines_guelphs_end_trigger", _v)
     def guelphs_and_ghibellines_guelphs_stalemate_trigger(self, _v: bool | str | float = True, /) -> None: self._call("guelphs_and_ghibellines_guelphs_stalemate_trigger", _v)
@@ -6946,6 +7092,13 @@ class AnyTrig(Scope):
     def had_for_elective_heir_selection(self, _v: bool | str | float = True, /) -> None: self._call("had_for_elective_heir_selection", _v)
     def had_situation_trigger(self, _v: bool | str | float | None = None, /, *, situation: Any = None) -> None:
         _scripted(self, "had_situation_trigger", _v, dict(situation=situation))
+    def hajj_caravan_capital_has_route_to_mecca(self, _v: bool | str | float = True, /) -> None: self._call("hajj_caravan_capital_has_route_to_mecca", _v)
+    def hajj_caravan_routes_via_arabia(self, _v: bool | str | float = True, /) -> None: self._call("hajj_caravan_routes_via_arabia", _v)
+    def hajj_caravan_routes_via_bab_el_mandeb(self, _v: bool | str | float = True, /) -> None: self._call("hajj_caravan_routes_via_bab_el_mandeb", _v)
+    def hajj_caravan_routes_via_baghdad(self, _v: bool | str | float = True, /) -> None: self._call("hajj_caravan_routes_via_baghdad", _v)
+    def hajj_caravan_routes_via_cairo(self, _v: bool | str | float = True, /) -> None: self._call("hajj_caravan_routes_via_cairo", _v)
+    def hajj_caravan_routes_via_damascus(self, _v: bool | str | float = True, /) -> None: self._call("hajj_caravan_routes_via_damascus", _v)
+    def hajj_caravan_routes_via_jeddah(self, _v: bool | str | float = True, /) -> None: self._call("hajj_caravan_routes_via_jeddah", _v)
     def has_abstained_vote(self, _v: bool | str | float | None = None, /, *, voter: Any = None, resolution: Any = None) -> None:
         _scripted(self, "has_abstained_vote", _v, dict(voter=voter, resolution=resolution))
     def has_access_to_god_holy_site(self, _v: bool | str | float | None = None, /, *, god: Any = None) -> None:
@@ -6980,7 +7133,7 @@ class AnyTrig(Scope):
     def has_expensive_procure_remedies_goods(self, _v: bool | str | float = True, /) -> None: self._call("has_expensive_procure_remedies_goods", _v)
     def has_fired_situation_event(self, _v: bool | str | float | None = None, /, *, situation: Any = None, event: Any = None) -> None:
         _scripted(self, "has_fired_situation_event", _v, dict(situation=situation, event=event))
-    def has_fired_unique_event(self, *args: Any, **kw: Any) -> None: self._call("has_fired_unique_event", *args, **kw)
+    def has_fired_unique_event(self, _v: Any, /) -> None: self._call("has_fired_unique_event", _v)
     def has_for_elective_heir_selection(self, _v: bool | str | float = True, /) -> None: self._call("has_for_elective_heir_selection", _v)
     def has_foreign_league_won_the_italian_wars(self, _v: bool | str | float = True, /) -> None: self._call("has_foreign_league_won_the_italian_wars", _v)
     def has_game_rule(self, _v: Any, /) -> None: self._call("has_game_rule", _v)
@@ -7011,6 +7164,7 @@ class AnyTrig(Scope):
     def has_locked_religious_aspect_trigger(self, _v: bool | str | float | None = None, /, *, type: Any = None) -> None:
         _scripted(self, "has_locked_religious_aspect_trigger", _v, dict(type=type))
     def has_main_grain_crops(self, _v: bool | str | float = True, /) -> None: self._call("has_main_grain_crops", _v)
+    def has_meaningful_holy_war_participation(self, _v: bool | str | float = True, /) -> None: self._call("has_meaningful_holy_war_participation", _v)
     def has_merchant_in_constantinople(self, _v: bool | str | float = True, /) -> None: self._call("has_merchant_in_constantinople", _v)
     def has_midgame_manufactory_building(self, _v: bool | str | float = True, /) -> None: self._call("has_midgame_manufactory_building", _v)
     def has_military_producing_building(self, _v: bool | str | float = True, /) -> None: self._call("has_military_producing_building", _v)
@@ -7025,6 +7179,7 @@ class AnyTrig(Scope):
         _scripted(self, "has_proposed_parliament_issue_in", _v, dict(international_organization=international_organization))
     def has_religion_of_country_heir_law(self, _v: bool | str | float | None = None, /, *, country: Any = None) -> None:
         _scripted(self, "has_religion_of_country_heir_law", _v, dict(country=country))
+    def has_religious_order_holding_florence(self, _v: bool | str | float = True, /) -> None: self._call("has_religious_order_holding_florence", _v)
     def has_ruler_in_country(self, _v: bool | str | float = True, /) -> None: self._call("has_ruler_in_country", _v)
     def has_sarim_hungu_factions(self, _v: bool | str | float = True, /) -> None: self._call("has_sarim_hungu_factions", _v)
     def has_savonarola(self, _v: bool | str | float = True, /) -> None: self._call("has_savonarola", _v)
@@ -7111,7 +7266,7 @@ class AnyTrig(Scope):
     def heir_selection_is_not_locked(self, _v: bool | str | float = True, /) -> None: self._call("heir_selection_is_not_locked", _v)
     def hellenism_religion_movement_location_trigger(self, _v: bool | str | float = True, /) -> None: self._call("hellenism_religion_movement_location_trigger", _v)
     def heretic_cabinet_member_not_banned(self, _v: bool | str | float = True, /) -> None: self._call("heretic_cabinet_member_not_banned", _v)
-    def hidden_trigger(self, *, NAND: Any = None, OR: Any = None, province: Any = None, revolutionary_target: Any = None, NOT: Any = None, NOR: Any = None) -> None: self._call("hidden_trigger", **_kw(NAND=NAND, OR=OR, province=province, revolutionary_target=revolutionary_target, NOT=NOT, NOR=NOR))
+    def hidden_trigger(self, *, NAND: Any = None, OR: Any = None, owner: Any = None, province: Any = None, revolutionary_target: Any = None, NOT: Any = None, NOR: Any = None) -> None: self._call("hidden_trigger", **_kw(NAND=NAND, OR=OR, owner=owner, province=province, revolutionary_target=revolutionary_target, NOT=NOT, NOR=NOR))
     def hobelars_location_trigger(self, _v: bool | str | float = True, /) -> None: self._call("hobelars_location_trigger", _v)
     def hook_and_cod_wars_end_trigger(self, _v: bool | str | float = True, /) -> None: self._call("hook_and_cod_wars_end_trigger", _v)
     def horde_character_valid_pretender_trigger(self, _v: bool | str | float = True, /) -> None: self._call("horde_character_valid_pretender_trigger", _v)
@@ -7142,6 +7297,8 @@ class AnyTrig(Scope):
     def hre_has_direct_free_city_subjects(self, _v: bool | str | float = True, /) -> None: self._call("hre_has_direct_free_city_subjects", _v)
     def hre_has_disabled_all_imperial_laws(self, _v: bool | str | float = True, /) -> None: self._call("hre_has_disabled_all_imperial_laws", _v)
     def hre_has_disabled_imperial_privileges(self, _v: bool | str | float = True, /) -> None: self._call("hre_has_disabled_imperial_privileges", _v)
+    def hre_has_eligible_leader_candidate(self, _v: bool | str | float | None = None, /, *, religion: Any = None) -> None:
+        _scripted(self, "hre_has_eligible_leader_candidate", _v, dict(religion=religion))
     def hre_has_enabled_all_imperial_laws(self, _v: bool | str | float = True, /) -> None: self._call("hre_has_enabled_all_imperial_laws", _v)
     def hre_has_enabled_imperial_privileges(self, _v: bool | str | float = True, /) -> None: self._call("hre_has_enabled_imperial_privileges", _v)
     def hre_has_fixed_succession(self, _v: bool | str | float = True, /) -> None: self._call("hre_has_fixed_succession", _v)
@@ -7166,7 +7323,6 @@ class AnyTrig(Scope):
     def hundred_years_war_unified_requirements(self, _v: bool | str | float = True, /) -> None: self._call("hundred_years_war_unified_requirements", _v)
     def hussite_loc_root_region_with_temple_or_cathedral(self, _v: bool | str | float = True, /) -> None: self._call("hussite_loc_root_region_with_temple_or_cathedral", _v)
     def hussite_loc_with_other_christian_dominant(self, _v: bool | str | float = True, /) -> None: self._call("hussite_loc_with_other_christian_dominant", _v)
-    def hussite_wars_unified_requirements(self, _v: bool | str | float = True, /) -> None: self._call("hussite_wars_unified_requirements", _v)
     def ikko_ikki_present_in_country(self, _v: bool | str | float = True, /) -> None: self._call("ikko_ikki_present_in_country", _v)
     def imperial_work_of_art_can_be_moved(self, _v: bool | str | float | None = None, /, *, work_of_art: Any = None, country: Any = None, international_organization: Any = None) -> None:
         _scripted(self, "imperial_work_of_art_can_be_moved", _v, dict(work_of_art=work_of_art, country=country, international_organization=international_organization))
@@ -7205,6 +7361,7 @@ class AnyTrig(Scope):
     def is_allied_with(self, _v: bool | str | float | None = None, /, *, target: Any = None) -> None:
         _scripted(self, "is_allied_with", _v, dict(target=target))
     def is_almost_crimean_khanate(self, _v: bool | str | float = True, /) -> None: self._call("is_almost_crimean_khanate", _v)
+    def is_amazigh(self, _v: bool | str | float = True, /) -> None: self._call("is_amazigh", _v)
     def is_aragonese_catalan_spain(self, _v: bool | str | float = True, /) -> None: self._call("is_aragonese_catalan_spain", _v)
     def is_bad_relative_ruler(self, _v: bool | str | float = True, /) -> None: self._call("is_bad_relative_ruler", _v)
     def is_barbary_state(self, _v: bool | str | float = True, /) -> None: self._call("is_barbary_state", _v)
@@ -7236,6 +7393,7 @@ class AnyTrig(Scope):
     def is_country_valid_for_tusi_subject(self, _v: bool | str | float = True, /) -> None: self._call("is_country_valid_for_tusi_subject", _v)
     def is_crimean_khanate(self, _v: bool | str | float = True, /) -> None: self._call("is_crimean_khanate", _v)
     def is_culture_native_american(self, _v: bool | str | float = True, /) -> None: self._call("is_culture_native_american", _v)
+    def is_current_treasure_fleet_host(self, _v: bool | str | float = True, /) -> None: self._call("is_current_treasure_fleet_host", _v)
     def is_dhimmi(self, _v: bool | str | float = True, /) -> None: self._call("is_dhimmi", _v)
     def is_dictator_of_yuan(self, _v: bool | str | float = True, /) -> None: self._call("is_dictator_of_yuan", _v)
     def is_dvina_lands(self, _v: bool | str | float = True, /) -> None: self._call("is_dvina_lands", _v)
@@ -7249,21 +7407,24 @@ class AnyTrig(Scope):
         _scripted(self, "is_favoring_god", _v, dict(god=god))
     def is_finalising(self, _v: bool | str | float | None = None, /, *, resolution: Any = None, international_organization: Any = None) -> None:
         _scripted(self, "is_finalising", _v, dict(resolution=resolution, international_organization=international_organization))
+    def is_forced_into_kitman_state(self, _v: bool | str | float = True, /) -> None: self._call("is_forced_into_kitman_state", _v)
     def is_former_or_current_nomadic_steppe_culture(self, _v: bool | str | float = True, /) -> None: self._call("is_former_or_current_nomadic_steppe_culture", _v)
     def is_frankokratia_state(self, _v: bool | str | float = True, /) -> None: self._call("is_frankokratia_state", _v)
     def is_free_or_tributary_trigger(self, _v: bool | str | float = True, /) -> None: self._call("is_free_or_tributary_trigger", _v)
     def is_gaelic_clans(self, _v: bool | str | float = True, /) -> None: self._call("is_gaelic_clans", _v)
+    def is_galician_spain(self, _v: bool | str | float = True, /) -> None: self._call("is_galician_spain", _v)
     def is_gamestate_tutorial_active(self, _v: Any, /, op: Op = "=") -> None: self._cmp("is_gamestate_tutorial_active", op, _v)
     def is_garrison_strong_enough_to_come_out(self, _v: bool | str | float = True, /) -> None: self._call("is_garrison_strong_enough_to_come_out", _v)
     def is_geographically_correct(self, _v: bool | str | float = True, /) -> None: self._call("is_geographically_correct", _v)
     def is_german_and_in_bad_shape(self, _v: bool | str | float = True, /) -> None: self._call("is_german_and_in_bad_shape", _v)
+    def is_hafsid_governor_trigger(self, _v: bool | str | float = True, /) -> None: self._call("is_hafsid_governor_trigger", _v)
     def is_heathen(self, _v: bool | str | float | None = None, /, *, religion: Any = None) -> None:
         _scripted(self, "is_heathen", _v, dict(religion=religion))
     def is_heretic(self, _v: bool | str | float | None = None, /, *, religion: Any = None) -> None:
         _scripted(self, "is_heretic", _v, dict(religion=religion))
     def is_historical_route_of_great_wall(self, _v: bool | str | float = True, /) -> None: self._call("is_historical_route_of_great_wall", _v)
     def is_huron_country(self, _v: bool | str | float = True, /) -> None: self._call("is_huron_country", _v)
-    def is_in_13_colonies(self, _v: bool | str | float = True, /) -> None: self._call("is_in_13_colonies", _v)
+    def is_iberian_wedding_crown(self, _v: bool | str | float = True, /) -> None: self._call("is_iberian_wedding_crown", _v)
     def is_in_defensive_war(self, _v: bool | str | float = True, /) -> None: self._call("is_in_defensive_war", _v)
     def is_in_list(self, _v: Any, /) -> None: self._call("is_in_list", _v)
     def is_in_offensive_war(self, _v: bool | str | float = True, /) -> None: self._call("is_in_offensive_war", _v)
@@ -7271,6 +7432,7 @@ class AnyTrig(Scope):
     def is_in_union(self, _v: bool | str | float = True, /) -> None: self._call("is_in_union", _v)
     def is_independent_or_autonomous_subject(self, _v: bool | str | float = True, /) -> None: self._call("is_independent_or_autonomous_subject", _v)
     def is_industrial_revolution_valid(self, _v: bool | str | float = True, /) -> None: self._call("is_industrial_revolution_valid", _v)
+    def is_interested_in_news_from_root_trigger(self, _v: bool | str | float = True, /) -> None: self._call("is_interested_in_news_from_root_trigger", _v)
     def is_iroquois_country(self, _v: bool | str | float = True, /) -> None: self._call("is_iroquois_country", _v)
     def is_japanese_emperor_or_shogun(self, _v: bool | str | float = True, /) -> None: self._call("is_japanese_emperor_or_shogun", _v)
     def is_jc_member(self, _v: bool | str | float = True, /) -> None: self._call("is_jc_member", _v)
@@ -7278,7 +7440,7 @@ class AnyTrig(Scope):
     def is_junior_monarchy(self, _v: bool | str | float = True, /) -> None: self._call("is_junior_monarchy", _v)
     def is_junior_partner(self, _v: bool | str | float = True, /) -> None: self._call("is_junior_partner", _v)
     def is_jurisprudence_school(self, _v: bool | str | float = True, /) -> None: self._call("is_jurisprudence_school", _v)
-    def is_key_in_global_variable_map(self, *, name: Any, target: Any) -> None: self._call("is_key_in_global_variable_map", **_kw(name=name, target=target))
+    def is_key_in_global_variable_map(self, *, name: Any = None, target: Any = None) -> None: self._call("is_key_in_global_variable_map", **_kw(name=name, target=target))
     def is_key_in_local_variable_map(self, *, name: Any = None, target: Any = None) -> None: self._call("is_key_in_local_variable_map", **_kw(name=name, target=target))
     def is_key_in_variable_map(self, *, name: Any, target: Any) -> None: self._call("is_key_in_variable_map", **_kw(name=name, target=target))
     def is_latin_state_check(self, _v: bool | str | float = True, /) -> None: self._call("is_latin_state_check", _v)
@@ -7286,6 +7448,7 @@ class AnyTrig(Scope):
     def is_leader_of_international_organization_of_type(self, _v: bool | str | float | None = None, /, *, type: Any = None) -> None:
         _scripted(self, "is_leader_of_international_organization_of_type", _v, dict(type=type))
     def is_legally_male(self, _v: bool | str | float = True, /) -> None: self._call("is_legally_male", _v)
+    def is_leonese_spain(self, _v: bool | str | float = True, /) -> None: self._call("is_leonese_spain", _v)
     def is_levee_en_masse_valid(self, _v: bool | str | float = True, /) -> None: self._call("is_levee_en_masse_valid", _v)
     def is_livonian_or_associated(self, _v: bool | str | float = True, /) -> None: self._call("is_livonian_or_associated", _v)
     def is_location_affected_by_little_ice_age(self, _v: bool | str | float = True, /) -> None: self._call("is_location_affected_by_little_ice_age", _v)
@@ -7319,6 +7482,7 @@ class AnyTrig(Scope):
     def is_multiplayer_session(self, _v: Any, /, op: Op = "=") -> None: self._cmp("is_multiplayer_session", op, _v)
     def is_no_junior_monarchy(self, _v: bool | str | float = True, /) -> None: self._call("is_no_junior_monarchy", _v)
     def is_no_longer_capital(self, _v: bool | str | float = True, /) -> None: self._call("is_no_longer_capital", _v)
+    def is_no_longer_current_capital(self, _v: bool | str | float = True, /) -> None: self._call("is_no_longer_current_capital", _v)
     def is_not_an_autonomous_subject(self, _v: bool | str | float = True, /) -> None: self._call("is_not_an_autonomous_subject", _v)
     def is_not_protected_from_conversion(self, _v: bool | str | float = True, /) -> None: self._call("is_not_protected_from_conversion", _v)
     def is_our_jc_leader(self, _v: bool | str | float = True, /) -> None: self._call("is_our_jc_leader", _v)
@@ -7378,6 +7542,7 @@ class AnyTrig(Scope):
     def is_valid_for_scientific_rev_location(self, _v: bool | str | float = True, /) -> None: self._call("is_valid_for_scientific_rev_location", _v)
     def is_valid_indochina_country(self, _v: bool | str | float = True, /) -> None: self._call("is_valid_indochina_country", _v)
     def is_valid_landable_daimyo(self, _v: bool | str | float = True, /) -> None: self._call("is_valid_landable_daimyo", _v)
+    def is_valid_liaisons_target_for_candidate(self, _v: bool | str | float = True, /) -> None: self._call("is_valid_liaisons_target_for_candidate", _v)
     def is_valid_luxembourg_heir(self, _v: bool | str | float = True, /) -> None: self._call("is_valid_luxembourg_heir", _v)
     def is_valid_muslim_sufi_country(self, _v: bool | str | float = True, /) -> None: self._call("is_valid_muslim_sufi_country", _v)
     def is_valid_nanbokuchou_cb_target(self, _v: bool | str | float = True, /) -> None: self._call("is_valid_nanbokuchou_cb_target", _v)
@@ -7387,7 +7552,7 @@ class AnyTrig(Scope):
     def is_valid_raid_location_target(self, _v: bool | str | float = True, /) -> None: self._call("is_valid_raid_location_target", _v)
     def is_valid_target_for_crusade(self, _v: bool | str | float = True, /) -> None: self._call("is_valid_target_for_crusade", _v)
     def is_valid_target_for_jihad(self, _v: bool | str | float = True, /) -> None: self._call("is_valid_target_for_jihad", _v)
-    def is_value_in_global_variable_map(self, *, name: Any = None, target: Any = None) -> None: self._call("is_value_in_global_variable_map", **_kw(name=name, target=target))
+    def is_value_in_global_variable_map(self, *args: Any, **kw: Any) -> None: self._call("is_value_in_global_variable_map", *args, **kw)
     def is_value_in_local_variable_map(self, *args: Any, **kw: Any) -> None: self._call("is_value_in_local_variable_map", *args, **kw)
     def is_value_in_variable_map(self, *args: Any, **kw: Any) -> None: self._call("is_value_in_variable_map", *args, **kw)
     def is_vote(self, _v: bool | str | float | None = None, /, *, international_organization: Any = None, resolution: Any = None) -> None:
@@ -7396,7 +7561,9 @@ class AnyTrig(Scope):
     def is_widgetid_open(self, _v: Any, /) -> None: self._call("is_widgetid_open", _v)
     def is_wokou_nation(self, _v: bool | str | float = True, /) -> None: self._call("is_wokou_nation", _v)
     def is_yuan_china(self, _v: bool | str | float = True, /) -> None: self._call("is_yuan_china", _v)
-    def italian_wars_end_requirements(self, _v: bool | str | float = True, /) -> None: self._call("italian_wars_end_requirements", _v)
+    def iu_has_wedding_candidate_of_gender_trigger(self, _v: bool | str | float | None = None, /, *, is_female: Any = None) -> None:
+        _scripted(self, "iu_has_wedding_candidate_of_gender_trigger", _v, dict(is_female=is_female))
+    def iu_is_suitable_wedding_candidate_trigger(self, _v: bool | str | float = True, /) -> None: self._call("iu_is_suitable_wedding_candidate_trigger", _v)
     def jc_has_leader(self, _v: bool | str | float = True, /) -> None: self._call("jc_has_leader", _v)
     def jc_member_decentralized(self, _v: bool | str | float = True, /) -> None: self._call("jc_member_decentralized", _v)
     def john_kantakouzenos_is_co_emperor(self, _v: bool | str | float = True, /) -> None: self._call("john_kantakouzenos_is_co_emperor", _v)
@@ -7426,6 +7593,7 @@ class AnyTrig(Scope):
     def location_and_owner_can_build(self, _v: bool | str | float | None = None, /, *, building_type: Any = None) -> None:
         _scripted(self, "location_and_owner_can_build", _v, dict(building_type=building_type))
     def location_can_be_settled(self, _v: bool | str | float = True, /) -> None: self._call("location_can_be_settled", _v)
+    def location_can_host_order_holding_trigger(self, _v: bool | str | float = True, /) -> None: self._call("location_can_host_order_holding_trigger", _v)
     def location_catholic_flavor_8_trigger(self, _v: bool | str | float = True, /) -> None: self._call("location_catholic_flavor_8_trigger", _v)
     def location_catholic_flavor_9_trigger(self, _v: bool | str | float = True, /) -> None: self._call("location_catholic_flavor_9_trigger", _v)
     def location_eisteddfod_trigger(self, _v: bool | str | float = True, /) -> None: self._call("location_eisteddfod_trigger", _v)
@@ -7441,7 +7609,7 @@ class AnyTrig(Scope):
     def location_paved_with_gold_trigger(self, _v: bool | str | float = True, /) -> None: self._call("location_paved_with_gold_trigger", _v)
     def location_preaching_potential(self, _v: bool | str | float = True, /) -> None: self._call("location_preaching_potential", _v)
     def location_sikhism_influence_areas(self, _v: bool | str | float = True, /) -> None: self._call("location_sikhism_influence_areas", _v)
-    def location_wants_lumber_trigger(self, _v: bool | str | float = True, /) -> None: self._call("location_wants_lumber_trigger", _v)
+    def location_wants_camels_trigger(self, _v: bool | str | float = True, /) -> None: self._call("location_wants_camels_trigger", _v)
     def lordship_of_ireland_can_declare_wars_trigger(self, _v: bool | str | float = True, /) -> None: self._call("lordship_of_ireland_can_declare_wars_trigger", _v)
     def male_eligible_for_hookup(self, _v: bool | str | float = True, /) -> None: self._call("male_eligible_for_hookup", _v)
     def manufactories_plausible_location(self, _v: bool | str | float = True, /) -> None: self._call("manufactories_plausible_location", _v)
@@ -7457,10 +7625,11 @@ class AnyTrig(Scope):
     def mysticism_vs_jurisprudence_11_pop_trigger(self, _v: bool | str | float = True, /) -> None: self._call("mysticism_vs_jurisprudence_11_pop_trigger", _v)
     def mysticism_vs_jurisprudence_13_pop_trigger(self, _v: bool | str | float = True, /) -> None: self._call("mysticism_vs_jurisprudence_13_pop_trigger", _v)
     def mysticism_vs_jurisprudence_14_pop_trigger(self, _v: bool | str | float = True, /) -> None: self._call("mysticism_vs_jurisprudence_14_pop_trigger", _v)
-    def nanbokuchou_end_trigger(self, _v: bool | str | float = True, /) -> None: self._call("nanbokuchou_end_trigger", _v)
     def new_world_event_61_trigger(self, _v: bool | str | float = True, /) -> None: self._call("new_world_event_61_trigger", _v)
     def new_world_plausible_location(self, _v: bool | str | float = True, /) -> None: self._call("new_world_plausible_location", _v)
-    def no_papal_bull_active(self, _v: bool | str | float = True, /) -> None: self._call("no_papal_bull_active", _v)
+    def no_papal_bull_debate_active(self, _v: bool | str | float = True, /) -> None: self._call("no_papal_bull_debate_active", _v)
+    def oligarchic_capture_end_trigger(self, _v: bool | str | float = True, /) -> None: self._call("oligarchic_capture_end_trigger", _v)
+    def oligarchic_capture_qualifies_trigger(self, _v: bool | str | float = True, /) -> None: self._call("oligarchic_capture_qualifies_trigger", _v)
     def owner_from_old_world(self, _v: bool | str | float = True, /) -> None: self._call("owner_from_old_world", _v)
     def owner_owns_no_copies_of_building(self, _v: bool | str | float | None = None, /, *, type: Any = None) -> None:
         _scripted(self, "owner_owns_no_copies_of_building", _v, dict(type=type))
@@ -7516,6 +7685,7 @@ class AnyTrig(Scope):
     def portrait_low_nobility_trigger(self, _v: bool | str | float | None = None, /, *, CULTURE_GFX: Any = None) -> None:
         _scripted(self, "portrait_low_nobility_trigger", _v, dict(CULTURE_GFX=CULTURE_GFX))
     def portrait_mid_trigger(self, _v: bool | str | float = True, /) -> None: self._call("portrait_mid_trigger", _v)
+    def portrait_military_order_trigger(self, _v: bool | str | float = True, /) -> None: self._call("portrait_military_order_trigger", _v)
     def portrait_muslim_trigger(self, _v: bool | str | float | None = None, /, *, RANK: Any = None) -> None:
         _scripted(self, "portrait_muslim_trigger", _v, dict(RANK=RANK))
     def portrait_pox_scars_trigger(self, _v: bool | str | float = True, /) -> None: self._call("portrait_pox_scars_trigger", _v)
@@ -7528,7 +7698,6 @@ class AnyTrig(Scope):
     def portrait_wear_armor_trigger(self, _v: bool | str | float = True, /) -> None: self._call("portrait_wear_armor_trigger", _v)
     def portrait_wear_crowned_helmet_trigger(self, _v: bool | str | float = True, /) -> None: self._call("portrait_wear_crowned_helmet_trigger", _v)
     def portrait_wear_helmet_trigger(self, _v: bool | str | float = True, /) -> None: self._call("portrait_wear_helmet_trigger", _v)
-    def possibly_impacted_by_treasure_voyages(self, _v: bool | str | float = True, /) -> None: self._call("possibly_impacted_by_treasure_voyages", _v)
     def presence_in_eligible_regions_or_member_of_any_league(self, _v: bool | str | float = True, /) -> None: self._call("presence_in_eligible_regions_or_member_of_any_league", _v)
     def printing_press_plausible_location(self, _v: bool | str | float = True, /) -> None: self._call("printing_press_plausible_location", _v)
     def privilege_events_100_is_in_bad_shape(self, _v: bool | str | float = True, /) -> None: self._call("privilege_events_100_is_in_bad_shape", _v)
@@ -7547,9 +7716,6 @@ class AnyTrig(Scope):
     def renaissance_plausible_location(self, _v: bool | str | float = True, /) -> None: self._call("renaissance_plausible_location", _v)
     def revolution_disaster_end_trigger(self, _v: bool | str | float = True, /) -> None: self._call("revolution_disaster_end_trigger", _v)
     def revolutionary_chaos_end_trigger(self, _v: bool | str | float = True, /) -> None: self._call("revolutionary_chaos_end_trigger", _v)
-    def rise_of_the_ottomans_end_trigger(self, _v: bool | str | float = True, /) -> None: self._call("rise_of_the_ottomans_end_trigger", _v)
-    def rise_of_the_szlachta_end_trigger(self, _v: bool | str | float = True, /) -> None: self._call("rise_of_the_szlachta_end_trigger", _v)
-    def rise_of_timur_end_conditions(self, _v: bool | str | float = True, /) -> None: self._call("rise_of_timur_end_conditions", _v)
     def rival_or_enemy_with_relative_income_in_market(self, _v: bool | str | float = True, /) -> None: self._call("rival_or_enemy_with_relative_income_in_market", _v)
     def roman_culture_movement_location_trigger(self, _v: bool | str | float = True, /) -> None: self._call("roman_culture_movement_location_trigger", _v)
     def root_or_scaligeri_war_participant_controls(self, _v: bool | str | float | None = None, /, *, location: Any = None) -> None:
@@ -7561,7 +7727,6 @@ class AnyTrig(Scope):
     def rtr_is_neutral(self, _v: bool | str | float = True, /) -> None: self._call("rtr_is_neutral", _v)
     def rtr_is_rebellious(self, _v: bool | str | float = True, /) -> None: self._call("rtr_is_rebellious", _v)
     def rtr_manchu_to_release_trigger(self, _v: bool | str | float = True, /) -> None: self._call("rtr_manchu_to_release_trigger", _v)
-    def rtr_situation_end_requirements(self, _v: bool | str | float = True, /) -> None: self._call("rtr_situation_end_requirements", _v)
     def ruler_can_withdraw_with_god(self, _v: bool | str | float = True, /) -> None: self._call("ruler_can_withdraw_with_god", _v)
     def ruler_can_withdraw_with_shakti(self, _v: bool | str | float = True, /) -> None: self._call("ruler_can_withdraw_with_shakti", _v)
     def ruler_can_withdraw_with_shiva(self, _v: bool | str | float = True, /) -> None: self._call("ruler_can_withdraw_with_shiva", _v)
@@ -7573,6 +7738,7 @@ class AnyTrig(Scope):
     def ruler_has_withdrawn_with_surya(self, _v: bool | str | float = True, /) -> None: self._call("ruler_has_withdrawn_with_surya", _v)
     def ruler_has_withdrawn_with_vishnu(self, _v: bool | str | float = True, /) -> None: self._call("ruler_has_withdrawn_with_vishnu", _v)
     def rural_illustration_trigger(self, _v: bool | str | float = True, /) -> None: self._call("rural_illustration_trigger", _v)
+    def rustamid_legacy_trigger(self, _v: bool | str | float = True, /) -> None: self._call("rustamid_legacy_trigger", _v)
     def same_dynasty_as(self, _v: bool | str | float | None = None, /, *, target: Any = None) -> None:
         _scripted(self, "same_dynasty_as", _v, dict(target=target))
     def save_temporary_scope_as(self, _v: Any, /) -> None: self._call("save_temporary_scope_as", _v)
@@ -7589,7 +7755,6 @@ class AnyTrig(Scope):
     def scope_country_can_join_coalition_against(self, _v: bool | str | float | None = None, /, *, target: Any = None) -> None:
         _scripted(self, "scope_country_can_join_coalition_against", _v, dict(target=target))
     def scope_type(self, _v: Any, /) -> None: self._call("scope_type", _v)
-    def sengoku_end_trigger(self, _v: bool | str | float = True, /) -> None: self._call("sengoku_end_trigger", _v)
     def senior_union_with(self, _v: bool | str | float | None = None, /, *, target: Any = None) -> None:
         _scripted(self, "senior_union_with", _v, dict(target=target))
     def ser_valid_male_for_ruler(self, _v: bool | str | float = True, /) -> None: self._call("ser_valid_male_for_ruler", _v)
@@ -7601,6 +7766,7 @@ class AnyTrig(Scope):
     def smartism_balanced_gods(self, _v: bool | str | float = True, /) -> None: self._call("smartism_balanced_gods", _v)
     def societal_values_1808_target_trigger(self, _v: bool | str | float = True, /) -> None: self._call("societal_values_1808_target_trigger", _v)
     def struggle_for_royal_power_end_trigger(self, _v: bool | str | float = True, /) -> None: self._call("struggle_for_royal_power_end_trigger", _v)
+    def sub_unit_called_camelry_trigger(self, _v: bool | str | float = True, /) -> None: self._call("sub_unit_called_camelry_trigger", _v)
     def sub_unit_called_cataphracts_trigger(self, _v: bool | str | float = True, /) -> None: self._call("sub_unit_called_cataphracts_trigger", _v)
     def sub_unit_called_knights_trigger(self, _v: bool | str | float = True, /) -> None: self._call("sub_unit_called_knights_trigger", _v)
     def subject_type_is_not_locked(self, _v: bool | str | float = True, /) -> None: self._call("subject_type_is_not_locked", _v)
@@ -7645,6 +7811,8 @@ class AnyTrig(Scope):
     def unit_almogavars_location_trigger(self, _v: bool | str | float = True, /) -> None: self._call("unit_almogavars_location_trigger", _v)
     def unit_almogavars_pop_trigger(self, _v: bool | str | float = True, /) -> None: self._call("unit_almogavars_pop_trigger", _v)
     def unit_byzantine_cataphracts_location_trigger(self, _v: bool | str | float = True, /) -> None: self._call("unit_byzantine_cataphracts_location_trigger", _v)
+    def unit_camelry_country_trigger(self, _v: bool | str | float = True, /) -> None: self._call("unit_camelry_country_trigger", _v)
+    def unit_camelry_location_trigger(self, _v: bool | str | float = True, /) -> None: self._call("unit_camelry_location_trigger", _v)
     def unit_catalan_crossbowmen_location_trigger(self, _v: bool | str | float = True, /) -> None: self._call("unit_catalan_crossbowmen_location_trigger", _v)
     def unit_catalan_crossbowmen_pop_trigger(self, _v: bool | str | float = True, /) -> None: self._call("unit_catalan_crossbowmen_pop_trigger", _v)
     def unit_catalan_ship_location_trigger(self, _v: bool | str | float = True, /) -> None: self._call("unit_catalan_ship_location_trigger", _v)
@@ -7670,6 +7838,8 @@ class AnyTrig(Scope):
     def unit_longbowmen_pop_trigger(self, _v: bool | str | float = True, /) -> None: self._call("unit_longbowmen_pop_trigger", _v)
     def unit_moa_hunter_location_trigger(self, _v: bool | str | float = True, /) -> None: self._call("unit_moa_hunter_location_trigger", _v)
     def unit_moa_hunter_pop_trigger(self, _v: bool | str | float = True, /) -> None: self._call("unit_moa_hunter_pop_trigger", _v)
+    def unit_navarrese_crossbowmen_location_trigger(self, _v: bool | str | float = True, /) -> None: self._call("unit_navarrese_crossbowmen_location_trigger", _v)
+    def unit_navarrese_crossbowmen_pop_trigger(self, _v: bool | str | float = True, /) -> None: self._call("unit_navarrese_crossbowmen_pop_trigger", _v)
     def unit_ship_of_the_line_location_trigger(self, _v: bool | str | float = True, /) -> None: self._call("unit_ship_of_the_line_location_trigger", _v)
     def unit_war_galleon_location_trigger(self, _v: bool | str | float = True, /) -> None: self._call("unit_war_galleon_location_trigger", _v)
     def uses_parliament_for_law_votes_trigger(self, _v: bool | str | float = True, /) -> None: self._call("uses_parliament_for_law_votes_trigger", _v)
@@ -7689,12 +7859,10 @@ class AnyTrig(Scope):
     def valid_york_growth(self, _v: bool | str | float = True, /) -> None: self._call("valid_york_growth", _v)
     def variable_list_size(self, *, name: Any, value: Cmp) -> None: self._call("variable_list_size", **_kw(name=name, value=value))
     def variable_map_size(self, *, name: Any = None) -> None: self._call("variable_map_size", **_kw(name=name))
-    def war_of_religions_end_trigger(self, _v: bool | str | float = True, /) -> None: self._call("war_of_religions_end_trigger", _v)
     def war_of_the_aragonese_union_disaster_end_trigger(self, _v: bool | str | float = True, /) -> None: self._call("war_of_the_aragonese_union_disaster_end_trigger", _v)
     def war_of_the_roses_end_trigger(self, _v: bool | str | float = True, /) -> None: self._call("war_of_the_roses_end_trigger", _v)
     def was_recently_under_interdict(self, _v: bool | str | float = True, /) -> None: self._call("was_recently_under_interdict", _v)
     def weighted_calc_true_if(self, *, amount: Cmp) -> None: self._call("weighted_calc_true_if", **_kw(amount=amount))
-    def western_schism_end_trigger(self, _v: bool | str | float = True, /) -> None: self._call("western_schism_end_trigger", _v)
     def wokou_events_5_target_trigger(self, _v: bool | str | float = True, /) -> None: self._call("wokou_events_5_target_trigger", _v)
     def wokou_has_sponsor(self, _v: bool | str | float = True, /) -> None: self._call("wokou_has_sponsor", _v)
     def work_of_art_exists(self, _v: bool | str | float | None = None, /, *, work_of_art: Any = None) -> None:
@@ -8266,7 +8434,7 @@ class CharacterTrig(AnyTrig):
             self._call("religion_modifier_strength", **_kw(modifier=modifier))
         else:
             self._cmp("religion_modifier_strength", op, _v)
-    def religious_figure_type(self, *args: Any, **kw: Any) -> None: self._call("religious_figure_type", *args, **kw)
+    def religious_figure_type(self, _v: Any, /) -> None: self._call("religious_figure_type", _v)
     def remove_static_modifier_utility(self, _v: Any = None, /, *, op: Op = "=", modifier: Any = None) -> None:
         if _v is None:
             self._call("remove_static_modifier_utility", **_kw(modifier=modifier))
@@ -8914,7 +9082,11 @@ class CountryTrig(AnyTrig):
             self._call("destroy_market_utility", **_kw(location=location))
         else:
             self._cmp("destroy_market_utility", op, _v)
-    def devotion(self, _v: Any, /, op: Op = "=") -> None: self._cmp("devotion", op, _v)
+    def devotion(self, _v: Any = None, /, *, op: Op = "=", value: Any = None, add: Any = None, max: Any = None) -> None:
+        if _v is None:
+            self._call("devotion", **_kw(value=value, add=add, max=max))
+        else:
+            self._cmp("devotion", op, _v)
     def devotion_percentage(self, _v: Any, /, op: Op = "=") -> None: self._cmp("devotion_percentage", op, _v)
     def diplomatic_capacity_of_new_relation(self, _v: Any, /, op: Op = "=") -> None: self._cmp("diplomatic_capacity_of_new_relation", op, _v)
     def diplomatic_capacity_without_maintenance(self, _v: Any, /, op: Op = "=") -> None: self._cmp("diplomatic_capacity_without_maintenance", op, _v)
@@ -8967,7 +9139,7 @@ class CountryTrig(AnyTrig):
             self._cmp("estate_satisfaction", op, _v)
     def estate_type_allowed_in_cabinet(self, *, estate_type: Any = None) -> None: self._call("estate_type_allowed_in_cabinet", **_kw(estate_type=estate_type))
     def estate_type_allowed_in_command(self, *args: Any, **kw: Any) -> None: self._call("estate_type_allowed_in_command", *args, **kw)
-    def estate_type_allowed_in_parliament(self, *args: Any, **kw: Any) -> None: self._call("estate_type_allowed_in_parliament", *args, **kw)
+    def estate_type_allowed_in_parliament(self, *, estate_type: Any = None) -> None: self._call("estate_type_allowed_in_parliament", **_kw(estate_type=estate_type))
     def expected_army_size(self, _v: Any, /, op: Op = "=") -> None: self._cmp("expected_army_size", op, _v)
     def expected_navy_size(self, _v: Any, /, op: Op = "=") -> None: self._cmp("expected_navy_size", op, _v)
     def exploration_maintenance(self, _v: Any, /, op: Op = "=") -> None: self._cmp("exploration_maintenance", op, _v)
@@ -9115,9 +9287,9 @@ class CountryTrig(AnyTrig):
         return self.link("union", InternationalOrganizationTrig, op=op)
     def go_war_with_country(self, data: Any, /, *, op: Op = "=") -> ContextManager[WarTrig]:
         return self.link(f"war_with_country:{data}", WarTrig, op=op)
-    def gold(self, _v: Any = None, /, *, op: Op = "=", value: Any = None, min: Any = None, multiply: Any = None, max: Any = None) -> None:
+    def gold(self, _v: Any = None, /, *, op: Op = "=", save_temporary_value_as: Any = None, value: Any = None, min: Any = None, multiply: Any = None, max: Any = None) -> None:
         if _v is None:
-            self._call("gold", **_kw(value=value, min=min, multiply=multiply, max=max))
+            self._call("gold", **_kw(save_temporary_value_as=save_temporary_value_as, value=value, min=min, multiply=multiply, max=max))
         else:
             self._cmp("gold", op, _v)
     def gold_percentage(self, _v: Any, /, op: Op = "=") -> None: self._cmp("gold_percentage", op, _v)
@@ -9129,7 +9301,11 @@ class CountryTrig(AnyTrig):
     def government_power_percentage(self, _v: Any, /, op: Op = "=") -> None: self._cmp("government_power_percentage", op, _v)
     def great_power_points(self, _v: Any, /, op: Op = "=") -> None: self._cmp("great_power_points", op, _v)
     def great_power_ranking(self, _v: Any, /, op: Op = "=") -> None: self._cmp("great_power_ranking", op, _v)
-    def great_power_score(self, _v: Any, /, op: Op = "=") -> None: self._cmp("great_power_score", op, _v)
+    def great_power_score(self, _v: Any = None, /, *, op: Op = "=", value: Any = None, multiply: Any = None) -> None:
+        if _v is None:
+            self._call("great_power_score", **_kw(value=value, multiply=multiply))
+        else:
+            self._cmp("great_power_score", op, _v)
     def had_country_rank_level(self, *args: Any, **kw: Any) -> None: self._call("had_country_rank_level", *args, **kw)
     def had_disaster_for_years(self, _v: Any = None, /, *, op: Op = "=", disaster_type: Any = None, years: Cmp | None = None) -> None:
         if _v is None:
@@ -9465,9 +9641,9 @@ class CountryTrig(AnyTrig):
         else:
             self._cmp("num_of_locations_with_high_conquer_desire", op, _v)
     def num_of_markets_with_merchants(self, _v: Any, /, op: Op = "=") -> None: self._cmp("num_of_markets_with_merchants", op, _v)
-    def num_of_non_rural(self, _v: Any = None, /, *, op: Op = "=", value: Any = None, divide: Any = None) -> None:
+    def num_of_non_rural(self, _v: Any = None, /, *, op: Op = "=", value: Any = None, divide: Any = None, multiply: Any = None) -> None:
         if _v is None:
-            self._call("num_of_non_rural", **_kw(value=value, divide=divide))
+            self._call("num_of_non_rural", **_kw(value=value, divide=divide, multiply=multiply))
         else:
             self._cmp("num_of_non_rural", op, _v)
     def num_of_non_rural_ports(self, _v: Any, /, op: Op = "=") -> None: self._cmp("num_of_non_rural_ports", op, _v)
@@ -9652,7 +9828,11 @@ class CountryTrig(AnyTrig):
             self._call("remove_static_modifier_utility", **_kw(modifier=modifier))
         else:
             self._cmp("remove_static_modifier_utility", op, _v)
-    def republican_tradition(self, _v: Any, /, op: Op = "=") -> None: self._cmp("republican_tradition", op, _v)
+    def republican_tradition(self, _v: Any = None, /, *, op: Op = "=", value: Any = None, add: Any = None, max: Any = None) -> None:
+        if _v is None:
+            self._call("republican_tradition", **_kw(value=value, add=add, max=max))
+        else:
+            self._cmp("republican_tradition", op, _v)
     def republican_tradition_percentage(self, _v: Any, /, op: Op = "=") -> None: self._cmp("republican_tradition_percentage", op, _v)
     def request_relation_acceptance(self, _v: Any = None, /, *, op: Op = "=", type: Any = None, target: Any = None) -> None:
         if _v is None:
@@ -10089,7 +10269,11 @@ class EstateTrig(AnyTrig):
     def num_possible_privileges(self, _v: Any, /, op: Op = "=") -> None: self._cmp("num_possible_privileges", op, _v)
     def num_privileges(self, _v: Any, /, op: Op = "=") -> None: self._cmp("num_privileges", op, _v)
     def power(self, _v: Any, /, op: Op = "=") -> None: self._cmp("power", op, _v)
-    def satisfaction(self, _v: Any, /, op: Op = "=") -> None: self._cmp("satisfaction", op, _v)
+    def satisfaction(self, _v: Any = None, /, *, op: Op = "=", value: Any = None, add: Any = None) -> None:
+        if _v is None:
+            self._call("satisfaction", **_kw(value=value, add=add))
+        else:
+            self._cmp("satisfaction", op, _v)
     def target_satisfaction(self, _v: Any, /, op: Op = "=") -> None: self._cmp("target_satisfaction", op, _v)
 
 
@@ -10338,7 +10522,11 @@ class InternationalOrganizationTrig(AnyTrig):
         else:
             self._cmp("country_modifier_strength", op, _v)
     def currency_percentage_towards_limit(self, _v: Any, /, op: Op = "=") -> None: self._cmp("currency_percentage_towards_limit", op, _v)
-    def devotion(self, _v: Any, /, op: Op = "=") -> None: self._cmp("devotion", op, _v)
+    def devotion(self, _v: Any = None, /, *, op: Op = "=", value: Any = None, add: Any = None, max: Any = None) -> None:
+        if _v is None:
+            self._call("devotion", **_kw(value=value, add=add, max=max))
+        else:
+            self._cmp("devotion", op, _v)
     def devotion_percentage(self, _v: Any, /, op: Op = "=") -> None: self._cmp("devotion_percentage", op, _v)
     def doom(self, _v: Any, /, op: Op = "=") -> None: self._cmp("doom", op, _v)
     def doom_percentage(self, _v: Any, /, op: Op = "=") -> None: self._cmp("doom_percentage", op, _v)
@@ -10373,9 +10561,9 @@ class InternationalOrganizationTrig(AnyTrig):
         return self.link("parliament_seat", LocationTrig, op=op)
     def go_parliament_type(self, *, op: Op = "=") -> ContextManager[ParliamentTypeTrig]:
         return self.link("parliament_type", ParliamentTypeTrig, op=op)
-    def gold(self, _v: Any = None, /, *, op: Op = "=", value: Any = None, min: Any = None, multiply: Any = None, max: Any = None) -> None:
+    def gold(self, _v: Any = None, /, *, op: Op = "=", save_temporary_value_as: Any = None, value: Any = None, min: Any = None, multiply: Any = None, max: Any = None) -> None:
         if _v is None:
-            self._call("gold", **_kw(value=value, min=min, multiply=multiply, max=max))
+            self._call("gold", **_kw(save_temporary_value_as=save_temporary_value_as, value=value, min=min, multiply=multiply, max=max))
         else:
             self._cmp("gold", op, _v)
     def gold_percentage(self, _v: Any, /, op: Op = "=") -> None: self._cmp("gold_percentage", op, _v)
@@ -10388,7 +10576,7 @@ class InternationalOrganizationTrig(AnyTrig):
     def harmony(self, _v: Any, /, op: Op = "=") -> None: self._cmp("harmony", op, _v)
     def harmony_percentage(self, _v: Any, /, op: Op = "=") -> None: self._cmp("harmony_percentage", op, _v)
     def has_active_resolution(self, _v: Any, /, op: Op = "=") -> None: self._cmp("has_active_resolution", op, _v)
-    def has_cached_or_cast_vote_for(self, *, voter: Any = None, resolution: Any = None, vote: Any = None) -> None: self._call("has_cached_or_cast_vote_for", **_kw(voter=voter, resolution=resolution, vote=vote))
+    def has_cached_or_cast_vote_for(self, *args: Any, **kw: Any) -> None: self._call("has_cached_or_cast_vote_for", *args, **kw)
     def has_character_modifier(self, _v: Any, /) -> None: self._call("has_character_modifier", _v)
     def has_cooldown(self, _v: Any, /) -> None: self._call("has_cooldown", _v)
     def has_country_modifier(self, _v: Any, /) -> None: self._call("has_country_modifier", _v)
@@ -10531,7 +10719,11 @@ class InternationalOrganizationTrig(AnyTrig):
     def religious_influence(self, _v: Any, /, op: Op = "=") -> None: self._cmp("religious_influence", op, _v)
     def religious_influence_percentage(self, _v: Any, /, op: Op = "=") -> None: self._cmp("religious_influence_percentage", op, _v)
     def remaining_parliament_days(self, _v: Any, /, op: Op = "=") -> None: self._cmp("remaining_parliament_days", op, _v)
-    def republican_tradition(self, _v: Any, /, op: Op = "=") -> None: self._cmp("republican_tradition", op, _v)
+    def republican_tradition(self, _v: Any = None, /, *, op: Op = "=", value: Any = None, add: Any = None, max: Any = None) -> None:
+        if _v is None:
+            self._call("republican_tradition", **_kw(value=value, add=add, max=max))
+        else:
+            self._cmp("republican_tradition", op, _v)
     def republican_tradition_percentage(self, _v: Any, /, op: Op = "=") -> None: self._cmp("republican_tradition_percentage", op, _v)
     def resolution_is_active(self, _v: Any, /, op: Op = "=") -> None: self._cmp("resolution_is_active", op, _v)
     def righteousness(self, _v: Any, /, op: Op = "=") -> None: self._cmp("righteousness", op, _v)
@@ -10848,7 +11040,11 @@ class LocationTrig(AnyTrig):
         return self.link("sub_continent", SubContinentTrig, op=op)
     def go_top_owner(self, *, op: Op = "=") -> ContextManager[CountryTrig]:
         return self.link("top_owner", CountryTrig, op=op)
-    def goods_output(self, _v: Any, /, op: Op = "=") -> None: self._cmp("goods_output", op, _v)
+    def goods_output(self, _v: Any = None, /, *, op: Op = "=", goods: Any = None, value: Cmp | None = None) -> None:
+        if _v is None:
+            self._call("goods_output", **_kw(goods=goods, value=value))
+        else:
+            self._cmp("goods_output", op, _v)
     def has_any_convertable_pops(self, _v: Any, /, op: Op = "=") -> None: self._cmp("has_any_convertable_pops", op, _v)
     def has_any_disease_present(self, _v: Any, /, op: Op = "=") -> None: self._cmp("has_any_disease_present", op, _v)
     def has_any_town_rights(self, _v: Any, /, op: Op = "=") -> None: self._cmp("has_any_town_rights", op, _v)
@@ -12139,7 +12335,7 @@ class SituationTrig(AnyTrig):
     def go_active_resolution(self, data: Any, /, *, op: Op = "=") -> ContextManager[ActiveResolutionTrig]:
         return self.link(f"active_resolution:{data}", ActiveResolutionTrig, op=op)
     def has_active_resolution(self, _v: Any, /, op: Op = "=") -> None: self._cmp("has_active_resolution", op, _v)
-    def has_cached_or_cast_vote_for(self, *, voter: Any = None, resolution: Any = None, vote: Any = None) -> None: self._call("has_cached_or_cast_vote_for", **_kw(voter=voter, resolution=resolution, vote=vote))
+    def has_cached_or_cast_vote_for(self, *args: Any, **kw: Any) -> None: self._call("has_cached_or_cast_vote_for", *args, **kw)
     def has_voted(self, *, voter: Any = None, resolution: Any = None) -> None: self._call("has_voted", **_kw(voter=voter, resolution=resolution))
     def has_voted_for(self, *, voter: Any, resolution: Any, vote: Any = None) -> None: self._call("has_voted_for", **_kw(voter=voter, resolution=resolution, vote=vote))
     def resolution_is_active(self, _v: Any, /, op: Op = "=") -> None: self._cmp("resolution_is_active", op, _v)
@@ -12521,9 +12717,9 @@ class WarTrig(AnyTrig):
     def war_goal_type(self, *args: Any, **kw: Any) -> None: self._call("war_goal_type", *args, **kw)
     def war_length(self, _v: Any, /, op: Op = "=") -> None: self._cmp("war_length", op, _v)
     def war_length_in_years(self, _v: Any, /, op: Op = "=") -> None: self._cmp("war_length_in_years", op, _v)
-    def war_score_of_country(self, _v: Any = None, /, *, op: Op = "=", country: Any = None) -> None:
+    def war_score_of_country(self, _v: Any = None, /, *, op: Op = "=", country: Any = None, value: Cmp | None = None) -> None:
         if _v is None:
-            self._call("war_score_of_country", **_kw(country=country))
+            self._call("war_score_of_country", **_kw(country=country, value=value))
         else:
             self._cmp("war_score_of_country", op, _v)
     def war_score_of_country_side(self, _v: Any = None, /, *, op: Op = "=", country: Any = None) -> None:
@@ -12657,6 +12853,7 @@ class ValueModifier(_Value, AnyTrig):
 
 UNVERIFIED = frozenset({
     "Fx.add_breach",
+    "Fx.add_complacency",
     "Fx.add_food",
     "Fx.add_food_percentage",
     "Fx.add_honor",
@@ -12670,11 +12867,9 @@ UNVERIFIED = frozenset({
     "Fx.add_recovered_navy_levy_percentage",
     "Fx.add_religious_focus",
     "Fx.add_religious_focus_progress",
-    "Fx.add_republican_tradition",
     "Fx.add_rite_power",
     "Fx.add_subunit",
     "Fx.add_subunit_experience",
-    "Fx.add_tribal_cohesion",
     "Fx.add_trust",
     "Fx.add_yearly_gold",
     "Fx.add_yearly_manpower",
@@ -12689,10 +12884,8 @@ UNVERIFIED = frozenset({
     "Fx.change_assigned_merchant_capacity",
     "Fx.change_building_level",
     "Fx.change_country_dynastic_name",
-    "Fx.change_creditworthiness",
     "Fx.change_language",
     "Fx.change_loan_borrower",
-    "Fx.change_pop_type",
     "Fx.change_privateer_owner",
     "Fx.change_privateer_power",
     "Fx.change_score",
@@ -12710,12 +12903,12 @@ UNVERIFIED = frozenset({
     "Fx.copy_country_flag",
     "Fx.copy_country_name_and_adjective",
     "Fx.create_army_country_from_province",
+    "Fx.create_colonial_charter",
     "Fx.create_estate_loan",
     "Fx.create_navy_country_from_province",
     "Fx.create_navy_country_in_location",
     "Fx.create_num_sub_unit",
     "Fx.create_num_sub_unit_of_category",
-    "Fx.create_route",
     "Fx.damage_unit_morale_percent",
     "Fx.damage_unit_percent",
     "Fx.debug_log_date",
@@ -12729,6 +12922,7 @@ UNVERIFIED = frozenset({
     "Fx.estate_add_gold",
     "Fx.execute_prisoners",
     "Fx.finalize_resolution",
+    "Fx.find_route",
     "Fx.force_city_gfx_rebuild",
     "Fx.force_refresh_culture_and_religion",
     "Fx.form_new_culture",
@@ -12745,6 +12939,7 @@ UNVERIFIED = frozenset({
     "Fx.merge_culture_group",
     "Fx.move_prisoners_to_safety",
     "Fx.move_to_assist_on_adjacent_combat",
+    "Fx.pay_price",
     "Fx.ransom_prisoners",
     "Fx.recall_lent_unit",
     "Fx.redeem_bonds",
@@ -12754,14 +12949,12 @@ UNVERIFIED = frozenset({
     "Fx.remove_accepted_culture",
     "Fx.remove_all_area_preferences",
     "Fx.remove_all_casus_belli",
-    "Fx.remove_all_casus_belli_of_type",
     "Fx.remove_breach",
     "Fx.remove_country_from_circle",
     "Fx.remove_extended_winter",
     "Fx.remove_from_international_organization",
     "Fx.remove_from_local_variable_map",
     "Fx.remove_god",
-    "Fx.remove_law",
     "Fx.remove_list_local_variable",
     "Fx.remove_merchant_power",
     "Fx.remove_migration",
@@ -12845,13 +13038,12 @@ UNVERIFIED = frozenset({
     "Trig.does_estate_want_other_policy",
     "Trig.education",
     "Trig.estate_type_allowed_in_command",
-    "Trig.estate_type_allowed_in_parliament",
     "Trig.global_variable_map_size",
     "Trig.had_country_rank_level",
     "Trig.has_antagonism",
     "Trig.has_building_with_graphical_tag",
     "Trig.has_building_with_graphical_tag_and_at_least_one_level",
-    "Trig.has_fired_unique_event",
+    "Trig.has_cached_or_cast_vote_for",
     "Trig.has_graphical_culture",
     "Trig.has_graphical_religion",
     "Trig.has_local_dlc",
@@ -12861,6 +13053,7 @@ UNVERIFIED = frozenset({
     "Trig.is_alert_triggered",
     "Trig.is_tutorial_lesson_chain_completed",
     "Trig.is_tutorial_lesson_completed",
+    "Trig.is_value_in_global_variable_map",
     "Trig.is_value_in_local_variable_map",
     "Trig.is_value_in_variable_map",
     "Trig.leader_change_trigger_type",
@@ -12871,7 +13064,6 @@ UNVERIFIED = frozenset({
     "Trig.player_proficiency_greater_eq",
     "Trig.player_proficiency_less",
     "Trig.player_proficiency_less_eq",
-    "Trig.religious_figure_type",
     "Trig.reverse_school_opinion",
     "Trig.vote_type",
     "Trig.war_goal_type",

@@ -100,7 +100,7 @@ def test_rome_can_research_its_units_and_has_them_from_the_start():
 
 
 def test_the_easts_armies_are_comitatenses_and_limitanei():
-    armies = code(b.MOD / "main_menu/setup/start/27_armies.txt")
+    armies = code(b.MOD / "main_menu/setup/395/27_armies.txt")
     roman = re.findall(r"country = (?:EAR|WRE)\s+location = \w+\s+sub_units = \{(.*?)\n\t\t\}", armies, re.S)
     assert len(roman) == 3
     units = re.findall(r"(\w+) = \{ strength", "".join(roman))

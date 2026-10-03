@@ -46,7 +46,7 @@ tfe_is_historical_land_of = {
 		}
 		AND = {
 			$WHO$ = {
-				tag = ALM
+				tag = AMI
 			}
 			OR = {
 				this = area:alsace_area

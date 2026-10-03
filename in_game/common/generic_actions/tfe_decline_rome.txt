@@ -133,11 +133,11 @@ tfe_hospitalitas = {
 		}
 		# give what Rome barely holds (the frontier, the deserted fields), never an area it truly rules
 		if = {
-			limit = { scope:target_area = { area_average_control < 0.3 } }
+			limit = { scope:target_area = { "area_average_control(scope:actor)" < 0.3 } }
 			add = 20
 		}
 		else_if = {
-			limit = { scope:target_area = { area_average_control > 0.6 } }
+			limit = { scope:target_area = { "area_average_control(scope:actor)" > 0.6 } }
 			add = -100
 		}
 		# the land the host's people truly took (scripted_triggers/tfe_historical_lands.txt): it is likelier to accept

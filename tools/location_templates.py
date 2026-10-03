@@ -347,12 +347,12 @@ RAETIA_NORICUM = {
     "zabern": "wheat",            # Tabernae: Alsace local viticulture is late or uncertain
     "belfort": "livestock",       # No Roman-period local wine production evidence
     "augsburg": "wheat",          # Augusta Vindelicorum: fustian/cotton trade is medieval
-    "ulm": "wheat",               # ALM frontier: no local Roman fiber-crop evidence
+    "ulm": "wheat",               # AMI frontier: no local Roman fiber-crop evidence
     "stockach": "livestock",      # Alamannic frontier: pastoral output suits the period
     "riedlingen": "livestock",    # Alamannic frontier: pastoral output suits the period
     "villingen": "livestock",     # Alamannic frontier: pastoral output suits the period
     "waldshut": "livestock",      # Alamannic frontier: pastoral output suits the period
-    "welzheim": "lumber",         # ALM frontier: glass sand is a specialized industry
+    "welzheim": "lumber",         # AMI frontier: glass sand is a specialized industry
     "austria_baden": "medicaments",# Aquae: Roman sulfur-water baths
     "friesach": "iron",           # Hüttenberg nearby: Roman ferrum Noricum
     "korneuburg": "wheat",        # Quadi shore: beyond the limes, no Roman wine source

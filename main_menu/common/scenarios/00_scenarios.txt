@@ -6,12 +6,14 @@ TUR_scenario = {
 	country = HNS
 	player_playstyle = MILITARY
 	player_proficiency = NOVICE
+	bookmark = bookmark_395
 }
 
 CAS_scenario = {
 	country = SAS
 	player_playstyle = MILITARY
 	player_proficiency = EXPERIENCED
+	bookmark = bookmark_395
 }
 
 # Economy
@@ -19,12 +21,14 @@ HUN_scenario = {
 	country = AXU
 	player_playstyle = ADMINISTRATIVE
 	player_proficiency = NOVICE
+	bookmark = bookmark_395
 }
 
 HOL_scenario = {
 	country = GUP
 	player_playstyle = ADMINISTRATIVE
 	player_proficiency = EXPERIENCED
+	bookmark = bookmark_395
 }
 
 # Politics
@@ -32,10 +36,12 @@ NOR_scenario = {
 	country = EAR
 	player_playstyle = DIPLOMATIC
 	player_proficiency = NOVICE
+	bookmark = bookmark_395
 }
 
 NAP_scenario = {
 	country = WRE
 	player_playstyle = DIPLOMATIC
 	player_proficiency = EXPERIENCED
+	bookmark = bookmark_395
 }

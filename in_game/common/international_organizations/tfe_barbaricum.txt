@@ -1,6 +1,6 @@
 ﻿# TFE: Barbaricum, the lands beyond the limes, where borders were fuzzy and nobody enforced them. Its members are the
 # peoples of Germania and Dacia (scripted_triggers/tfe_decline_of_the_west.txt's tfe_is_migrator), seeded at start
-# (setup/start/15_international_organizations.txt). Not a league: no leader, no laws, nobody joins or leaves.
+# (setup/395/15_international_organizations.txt). Not a league: no leader, no laws, nobody joins or leaves.
 # It exists for passage, as vanilla's jurchen_federation: members walk through each other's land. A host on the road
 # (tfe_migrating, not yet tfe_settled; generic_actions/tfe_migratory.txt) walks anywhere, so it is never exiled: the
 # homeland it leaves passes to a neighbour under its feet, and a peace that wins it no land leaves it on Roman soil.

@@ -38,7 +38,7 @@ def loc_keys(files):
 
 @pytest.fixture(scope="module")
 def chars():
-    text = (b.MOD / "main_menu/setup/start/05_characters.txt").read_text(encoding="utf-8")
+    text = (b.MOD / "main_menu/setup/395/05_characters.txt").read_text(encoding="utf-8")
     (_, db), = parse(b.tokens(text))[0]
     return db   # ordered list of (id, fields)
 
@@ -46,13 +46,13 @@ def chars():
 @pytest.fixture(scope="module")
 def game():
     ours = b.MOD / "main_menu/localization/english/tfe_characters_l_english.yml"
-    dyn = b.tokens((b.GAME / "main_menu/setup/start/04_dynasties.txt").read_text(encoding="utf-8-sig")
+    dyn = b.tokens((b.GAME / "main_menu/setup/1337/04_dynasties.txt").read_text(encoding="utf-8-sig")
                    + (b.TOOLS / "tfe_dynasties.txt").read_text(encoding="utf-8"))
     traits = {}
     for p in (b.GAME / "in_game/common/traits").glob("*.txt"):
         for name, body in re.findall(r"^(\w+) = \{(.*?)^\}", p.read_text(encoding="utf-8-sig"), re.M | re.S):
             traits[name] = re.search(r"category = (\w+)", body).group(1)
-    countries = (b.MOD / "main_menu/setup/start/10_countries.txt").read_text(encoding="utf-8")
+    countries = (b.MOD / "main_menu/setup/395/10_countries.txt").read_text(encoding="utf-8")
     return dict(vanilla_loc=loc_keys((b.GAME / "main_menu/localization/english").rglob("*.yml")),
                 our_loc=loc_keys([ours]), our_loc_text=ours.read_text(encoding="utf-8"),
                 dynasties={t for i, t in enumerate(dyn[:-1]) if dyn[i + 1] == "{" and t.endswith("_dynasty")},

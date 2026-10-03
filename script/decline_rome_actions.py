@@ -151,11 +151,11 @@ def hospitalitas(doc: Doc):
             v.note("give what Rome barely holds (the frontier, the deserted fields), never an area it truly rules")
             with v.if_() as i:
                 with i.limit() as t, t.link("scope:target_area", AreaTrig) as ar:
-                    ar.area_average_control(0.3, op="<")
+                    ar.compare("\"area_average_control(scope:actor)\"", "<", 0.3)  # 1.4: control is per country
                 i.add(20)
             with v.else_if() as i:
                 with i.limit() as t, t.link("scope:target_area", AreaTrig) as ar:
-                    ar.area_average_control(0.6, op=">")
+                    ar.compare("\"area_average_control(scope:actor)\"", ">", 0.6)
                 i.add(-100)
             v.note("the land the host's people truly took (scripted_triggers/tfe_historical_lands.txt): it is likelier to accept")
             with v.if_() as i:

@@ -12,7 +12,7 @@ country_history = {
 	text = { localization_key = tfe_history_AIN trigger = { tag = AIN } } # Ainu
 	text = { localization_key = tfe_history_AKA trigger = { tag = AKA } } # Akatziri
 	text = { localization_key = tfe_history_ALK trigger = { tag = ALK } } # Alkhon
-	text = { localization_key = tfe_history_ALM trigger = { tag = ALM } } # Alamanni
+	text = { localization_key = tfe_history_AMI trigger = { tag = AMI } } # Alamanni
 	text = { localization_key = tfe_history_ANE trigger = { tag = ANE } } # Antes
 	text = { localization_key = tfe_history_ASK trigger = { tag = ASK } } # Armenia
 	text = { localization_key = tfe_history_AUK trigger = { tag = AUK } } # Aukstaitians

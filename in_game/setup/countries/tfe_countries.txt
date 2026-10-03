@@ -54,7 +54,7 @@ CAL = { # Alans
 	difficulty = 3
 }
 
-ALM = { # Alamanni
+AMI = { # Alamanni
 	color = rgb { 70 120 170 }
 	color2 = rgb { 35 60 85 }
 	culture_definition = alamannic # PLACEHOLDER

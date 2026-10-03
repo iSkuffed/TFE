@@ -9,7 +9,7 @@ import borders as b
 IO = b.MOD / "in_game/common/international_organizations/tfe_roman_empire.txt"
 CB = b.MOD / "in_game/common/casus_belli/tfe_war_of_the_augusti.txt"
 LOC = b.MOD / "main_menu/localization/english/tfe_roman_empire_l_english.yml"
-START = b.MOD / "main_menu/setup/start"
+START = b.MOD / "main_menu/setup/395"
 
 
 def code(p):

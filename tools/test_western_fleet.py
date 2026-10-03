@@ -38,7 +38,7 @@ def test_the_ships_are_the_first_ages_and_the_ports_are_the_wests():
     for t in ("n_cog", "n_traditional_galley"):
         body = re.search(rf"^{t} = \{{(.*?)^\}}", vanilla, re.M | re.S).group(1)
         assert 'age = "age_1_traditions"' in body, t
-    wre = re.search(r"\n\t\tWRE = \{(.*?)\n\t\t\}", (b.MOD / "main_menu/setup/start/10_countries.txt")
+    wre = re.search(r"\n\t\tWRE = \{(.*?)\n\t\t\}", (b.MOD / "main_menu/setup/395/10_countries.txt")
                     .read_text(encoding="utf-8"), re.S).group(1)
     for port in ("ravenna", "naples"):
         assert re.search(rf"\b{port}\b", wre), port

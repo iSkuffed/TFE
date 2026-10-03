@@ -25,7 +25,7 @@ accuracy) decide close calls, and its items are the work queue.
 - **Say which RoadMap item you're taking** before starting, so the two of you stay in different files.
 - **Generated files are never merged by hand.** On a conflict in one, take either side, rerun its generator, commit the
   result:
-  - `tools/borders.py` writes `main_menu/setup/start/10_countries.txt`, `07_cities_and_buildings.txt` and more (see its
+  - `tools/borders.py` writes `main_menu/setup/395/10_countries.txt`, `07_cities_and_buildings.txt` and more (see its
     output line). Its inputs are the tables in `borders.py` and the `tools/*.txt` files.
   - `tools/location_templates.py` writes `in_game/map_data/location_templates.txt`. Rerun it after every EU5 patch.
   - `script/*.py` write the script files they name (see "Script written in Python" below). Edit the Python, never the

@@ -13,8 +13,8 @@ countries = {
 		QAD = {
 			area_preferences = { tfe_qad_historical_lands }
 		}
-		ALM = {
-			area_preferences = { tfe_alm_historical_lands }
+		AMI = {
+			area_preferences = { tfe_ami_historical_lands }
 		}
 		BGD = {
 			area_preferences = { tfe_bgd_historical_lands }

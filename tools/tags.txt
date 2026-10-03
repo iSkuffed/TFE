@@ -6,7 +6,7 @@ VIS | Visigoths | Visigothic | tarnovo | eurasian_tribe | gothic_culture | arian
 HNS | Huns | Hunnic | adalaga | eurasian_horde_no_muslim | hunnic | tengri | 150 110 60
 AKA | Akatziri | Akatziri | - | eurasian_tribe | hunnic | tengri | 175 150 95
 CAL | Alans | Alanic | - | eurasian_tribe | alan_culture | alan_paganism | 110 140 110
-ALM | Alamanni | Alamannic | - | eurasian_tribe | alamannic | norse | 70 120 170
+AMI | Alamanni | Alamannic | - | eurasian_tribe | alamannic | norse | 70 120 170
 BGD | Burgundians | Burgundian | - | eurasian_tribe | tfe_burgundian | norse | 170 60 90
 FRK | Franks | Frankish | - | eurasian_tribe | frankish | norse | 50 80 160
 GEP | Gepids | Gepid | - | eurasian_tribe | gothic_culture | arianism | 185 155 60   # Arian

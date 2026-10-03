@@ -8,13 +8,12 @@ import borders as b
 
 # our copy: (its vanilla original, the original's sha256 prefix when we last synced)
 COPIES = {
-    "in_game/common/generic_actions/colonial_charters.txt": ("in_game/common/generic_actions/colonial_charters.txt", "2e3e40af9a6829e2"),
-    "in_game/common/customizable_localization/estates.txt": ("in_game/common/customizable_localization/estates.txt", "5c91728a9faf2d3f"),
+    "in_game/common/customizable_localization/estates.txt": ("in_game/common/customizable_localization/estates.txt", "ab74eafd544cea77"),
     "in_game/common/languages/tfe_languages.txt": ("in_game/common/languages/00_italy.txt", "41fea717f67c83bc"),
-    "in_game/gfx/map/map_modes/00_tfe_map_modes.txt": ("in_game/gfx/map/map_modes/map_modes.txt", "820fb7b409585b79"),
+    "in_game/gfx/map/map_modes/00_tfe_map_modes.txt": ("in_game/gfx/map/map_modes/map_modes.txt", "0370fa4dc024b1c0"),
     "loading_screen/gfx/scenes/00_loading_screens.txt": ("loading_screen/gfx/scenes/00_loading_screens.txt", "8db58b8ccdc86abc"),
-    "main_menu/gui/frontend_mainview.gui": ("main_menu/gui/frontend_mainview.gui", "9045d2f4ea495ce6"),
-    "main_menu/gfx/map/city_data/templates.txt": ("main_menu/gfx/map/city_data/templates.txt", "5c4ae5b915b3431b"),
+    "main_menu/gui/frontend_mainview.gui": ("main_menu/gui/frontend_mainview.gui", "a8b82ba8b4ec89c2"),
+    "main_menu/gfx/map/city_data/templates.txt": ("main_menu/gfx/map/city_data/templates.txt", "954c864978df997b"),
 }
 
 

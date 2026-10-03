@@ -15,7 +15,7 @@ EFFECT = COMMON / "scripted_effects/tfe_migratory.txt"
 PANEL = b.MOD / "in_game/gui/panels/situation/tfe_decline_of_the_west.gui"
 LOC = b.MOD / "main_menu/localization/english/tfe_decline_of_the_west_l_english.yml"
 SCRIPTS = (SITUATION, ON_ACTION, TRIGGERS)
-MIGRATORS = {"ALM", "BGD", "FRK", "HAS", "SLX", "SAX", "MKM", "QAD", "LGB", "SLF", "FRS", "AGL", "TGI", "RUG", "SCR",
+MIGRATORS = {"AMI", "BGD", "FRK", "HAS", "SLX", "SAX", "MKM", "QAD", "LGB", "SLF", "FRS", "AGL", "TGI", "RUG", "SCR",
              "VIS", "GEP", "CRP", "IAZ"}
 LISTS = ("tfe_migrators_at_home", "tfe_migrators_on_the_road", "tfe_migrators_settled")
 
@@ -47,7 +47,7 @@ def test_it_starts_on_day_one_in_phase_one_and_ends_with_the_west():
 def test_the_migrators_are_the_peoples_of_germania_and_dacia():
     trigger = re.search(r"tfe_is_migrator = \{(.*?)\n\}", code(TRIGGERS), re.S).group(1)
     assert set(re.findall(r"tag = (\w+)", trigger)) == MIGRATORS
-    countries = (b.MOD / "main_menu/setup/start/10_countries.txt").read_text(encoding="utf-8-sig")
+    countries = (b.MOD / "main_menu/setup/395/10_countries.txt").read_text(encoding="utf-8-sig")
     assert all(f"\n\t\t{t} = {{" in countries for t in MIGRATORS)
     # the Huns push the migrators, not only the army-based Vandals
     storm = code(COMMON / "situations/tfe_hunnic_storm.txt")
