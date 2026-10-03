@@ -116,7 +116,8 @@ def build():
 
         with e.immediate() as i:
             i.note("a revolt, not a war: the war screen can then annex the revolter outright, with no antagonism.\n"
-                   "The revolter appears at once, named after its biggest town; tfe_opening.7 makes it Gildo's kingdom a day later.")
+                   "The revolter appears at once, named after its biggest town, and tfe_opening.7 makes it Gildo's kingdom in the\n"
+                   "same moment: a day's wait showed the revolt's patchwork of rebel countries for that day (user)")
             i.create_rebel(category="nationalist", name="tfe_gildo_rebels", culture="culture:afro_roman",
                            religion="religion:donatism", save_scope_as="tfe_gildo_rebels")
             with i.every_owned_location() as loc:
@@ -124,13 +125,13 @@ def build():
                 with loc.every_pop() as p:
                     p.change_pop_allegiance("scope:tfe_gildo_rebels")
             i.link("scope:tfe_gildo_rebels", RebelsFx, lambda r: r.start_revolt(True), op="?=")
-            i.trigger_event_silently(id="tfe_opening.7", days=1)
+            i.trigger_event_silently("tfe_opening.7")
 
         e.note("his brother Mascezel knows Africa and hates him: send him")
         with e.option("a", text="Mascezel will take Africa back", historical=True) as o:
             o.ai_chance(1)
 
-    doc.note("The day after the rising: the revolter becomes Gildo's kingdom and takes the rest of his land (fired by 3)")
+    doc.note("The moment of the rising: the revolter becomes Gildo's kingdom and takes the rest of his land (fired by 3)")
     def revolter(t):
         t.is_at_war_with("root")
         with t.any_owned_location() as loc:

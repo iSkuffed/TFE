@@ -105,7 +105,8 @@ tfe_opening.3 = {
 	}
 	immediate = {
 		# a revolt, not a war: the war screen can then annex the revolter outright, with no antagonism.
-		# The revolter appears at once, named after its biggest town; tfe_opening.7 makes it Gildo's kingdom a day later.
+		# The revolter appears at once, named after its biggest town, and tfe_opening.7 makes it Gildo's kingdom in the
+		# same moment: a day's wait showed the revolt's patchwork of rebel countries for that day (user)
 		create_rebel = {
 			category = nationalist
 			name = tfe_gildo_rebels
@@ -118,7 +119,7 @@ tfe_opening.3 = {
 			every_pop = { change_pop_allegiance = scope:tfe_gildo_rebels }
 		}
 		scope:tfe_gildo_rebels ?= { start_revolt = yes }
-		trigger_event_silently = { id = tfe_opening.7 days = 1 }
+		trigger_event_silently = tfe_opening.7
 	}
 	# his brother Mascezel knows Africa and hates him: send him
 	option = {
@@ -128,7 +129,7 @@ tfe_opening.3 = {
 	}
 }
 
-# The day after the rising: the revolter becomes Gildo's kingdom and takes the rest of his land (fired by 3)
+# The moment of the rising: the revolter becomes Gildo's kingdom and takes the rest of his land (fired by 3)
 tfe_opening.7 = {
 	type = country_event
 	hidden = yes
