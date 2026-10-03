@@ -1,0 +1,70 @@
+﻿# TFE: a barbarian state in 395 is a host with every estate already armed and privileged, not a village waiting on reforms.
+# Each privilege is tested first, so one a state already holds is not granted twice. The Hunnic Horde opens decentralised.
+on_game_start = {
+	on_actions = { tfe_on_start_barbarians }
+}
+
+tfe_on_start_barbarians = {
+	effect = {
+		every_country = {
+			limit = { tfe_is_migrator = yes }
+			if = {
+				limit = { NOT = { has_estate_privilege = estate_privilege:peasants_allowed_weapons_privilege } }
+				grant_estate_privilege = estate_privilege:peasants_allowed_weapons_privilege
+			}
+			if = {
+				limit = { NOT = { has_estate_privilege = estate_privilege:peasants_in_administration } }
+				grant_estate_privilege = estate_privilege:peasants_in_administration
+			}
+			if = {
+				limit = { NOT = { has_estate_privilege = estate_privilege:peasants_free_peasantry } }
+				grant_estate_privilege = estate_privilege:peasants_free_peasantry
+			}
+			if = {
+				limit = { NOT = { has_estate_privilege = estate_privilege:tribes_tribal_registry } }
+				grant_estate_privilege = estate_privilege:tribes_tribal_registry
+			}
+			if = {
+				limit = { NOT = { has_estate_privilege = estate_privilege:tribes_tribal_levies } }
+				grant_estate_privilege = estate_privilege:tribes_tribal_levies
+			}
+			if = {
+				limit = { NOT = { has_estate_privilege = estate_privilege:tribes_allow_gatherings } }
+				grant_estate_privilege = estate_privilege:tribes_allow_gatherings
+			}
+			if = {
+				limit = { NOT = { has_estate_privilege = estate_privilege:auxilium_et_consilium } }
+				grant_estate_privilege = estate_privilege:auxilium_et_consilium
+			}
+			if = {
+				limit = { NOT = { has_estate_privilege = estate_privilege:nobles_offensive_military_doctrine } }
+				grant_estate_privilege = estate_privilege:nobles_offensive_military_doctrine
+			}
+			if = {
+				limit = { NOT = { has_estate_privilege = estate_privilege:nobles_land_rights } }
+				grant_estate_privilege = estate_privilege:nobles_land_rights
+			}
+			if = {
+				limit = { NOT = { has_estate_privilege = estate_privilege:formal_guilds } }
+				grant_estate_privilege = estate_privilege:formal_guilds
+			}
+			if = {
+				limit = { NOT = { has_estate_privilege = estate_privilege:market_fairs } }
+				grant_estate_privilege = estate_privilege:market_fairs
+			}
+			if = {
+				limit = { NOT = { has_estate_privilege = estate_privilege:clergy_in_administration } }
+				grant_estate_privilege = estate_privilege:clergy_in_administration
+			}
+			if = {
+				limit = { NOT = { has_estate_privilege = estate_privilege:expansionist_zealotry } }
+				grant_estate_privilege = estate_privilege:expansionist_zealotry
+			}
+			if = {
+				limit = { NOT = { has_estate_privilege = estate_privilege:clergy_land_rights } }
+				grant_estate_privilege = estate_privilege:clergy_land_rights
+			}
+		}
+		c:HNS ?= { set_societal_value = { value = 80 type = centralization_vs_decentralization } }
+	}
+}
