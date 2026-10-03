@@ -231,7 +231,7 @@ def build():
                 "Britain and Africa break away. Take Honorius's capital to win the West.")
     doc.loc.add("tfe_stilicho.2.b.tt", "Stilicho and his son Eucherius are put to death. Olympius becomes regent. "
                 "Stability #R -50#!, the estates grow restless, and Stilicho's Glory is gone.")
-    doc.loc.add("tfe_unity_up_20_tt", "Roman Unity: #G +20#!")
+    doc.loc.add("tfe_unity_up_20_tt", "[tfe_roman_unity|E]: #G +20#!")
     doc.loc.add("tfe_stilicho.4.a.tt", "Honorius is put to death. No rival Augustus is left in the West, but the East is appalled.")
     doc.loc.add("tfe_stilicho.4.b.tt", "Honorius goes to Constantinople, to live at the Eastern court.")
     for name, (title, desc) in MODIFIER_TEXT.items():
