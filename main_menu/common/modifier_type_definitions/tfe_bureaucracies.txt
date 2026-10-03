@@ -1,0 +1,21 @@
+﻿# TFE: each bureaucracy has an impact modifier (vanilla's 01_byz.txt and 02_generic_bureaucracies.txt do the same)
+tfe_sacrae_largitiones_bureaucracy_impact_modifier = {
+	percent=yes
+	game_data={
+		category=country
+	}
+}
+
+tfe_magister_officiorum_bureaucracy_impact_modifier = {
+	percent=yes
+	game_data={
+		category=country
+	}
+}
+
+tfe_magister_peditum_bureaucracy_impact_modifier = {
+	percent=yes
+	game_data={
+		category=country
+	}
+}

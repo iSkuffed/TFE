@@ -1,0 +1,25 @@
+﻿# TFE: the Roman state was staffed long before 395, so both empires start with their three offices, entrenched
+# and half funded, as vanilla's situation_effects.txt starts a Chinese dynasty's six boards. add_bureaucracy ignores the slot limit.
+on_game_start = {
+	on_actions = { tfe_on_start_roman_bureaucracy }
+}
+
+tfe_on_start_roman_bureaucracy = {
+	effect = {
+		every_country = {
+			limit = {
+				OR = {
+					tfe_is_western_rome = yes
+					has_or_had_tag = EAR
+				}
+			}
+			add_bureaucracy = bureaucracy_type:tfe_sacrae_largitiones_bureaucracy
+			add_bureaucracy = bureaucracy_type:tfe_magister_officiorum_bureaucracy
+			add_bureaucracy = bureaucracy_type:tfe_magister_peditum_bureaucracy
+			every_current_bureaucracy = {
+				set_entrenchment = 60
+				set_maintenance = 0.5
+			}
+		}
+	}
+}

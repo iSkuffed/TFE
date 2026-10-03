@@ -149,6 +149,15 @@ been seen working in game, or you say plainly that it hasn't.
   such a modifier exactly one effect. Vanilla maps most effects to a plus icon only, so a malus shows a plus unless
   `modifier_icons/tfe_modifier_icons.txt` gives it a `negative` icon.
 - A location has no base manpower: `local_manpower_modifier` alone does nothing. Use flat `local_manpower`.
+- In-game names are not the modifier keys: grep `modifiers.log`, don't guess. Maximum Tax is `global_estate_max_tax`;
+  Estates Satisfaction Equilibrium is `global_estate_target_satisfaction` (per estate `<estate>_target_satisfaction`);
+  Proximity Efficiency is `global_distance_from_capital_speed_propagation` (the `*_cost_on_distance_from_capital` keys are
+  flat costs); Political Influence gain is `monthly_political_influence_gain_modifier`; a regiment's upkeep is
+  `army_maintenance_efficiency` (negative is dearer; levies have `levy_maintenance_modifier`). `discipline` and
+  `army_maintenance_efficiency` are Unit-category keys that vanilla still puts in country-scope blocks.
+- Bureaucracies (`in_game/common/bureaucracies/`): a country has no base slot (`global_max_bureaucracy_slots` from
+  advances, laws, reforms, capital rank or an auto modifier). Each entry needs its `<key>_impact_modifier` type, loc
+  and `icons/bureaucracy/<key>.dds`; `potential` is where a mod entry is tag-gated, and `has_dlc` is not ours to use.
 - A child ruler under a regency goes in `heir =` with no `ruler =` (vanilla DAN, RSO). A regency ends by crowning its
   heir, so a `ruler =` under a regent never takes power. `unsuited_for_country_ruling` is vanilla's blind/mad trait and
   blocks a character for life, not until majority.
