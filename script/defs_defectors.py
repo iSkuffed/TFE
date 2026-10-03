@@ -9,18 +9,22 @@ from pdx.objects_defs import Defs
 
 def on_actions():
     d = Defs()
-    d.note("TFE: Salvian's Romans who \"flee to the barbarians\". When a migrating host (decisions/tfe_fall_of_the_west.txt) takes a\n"
-           "Roman town, some of its men join it: every regiment of the host regains strength, and the empire loses them. The\n"
-           "West's burdens (government_reforms/tfe_late_roman_west.txt) drive more to go. A town gives men once a decade.")
+    d.note("TFE: Salvian's Romans who \"flee to the barbarians\". When a migrating host (decisions/tfe_fall_of_the_west.txt)\n"
+           "or the Franks raiding over the Rhine take a Roman town, some of its men join them: every regiment of the host\n"
+           "regains strength, and the empire loses them. The West's burdens (government_reforms/tfe_late_roman_west.txt)\n"
+           "drive more to go. A town gives men once a decade.")
     d.hook("on_siege_won", "tfe_on_host_takes_roman_town")
     d.hook("on_location_occupied", "tfe_on_host_takes_roman_town")
     d.note("root = the occupier, scope:target = the location")
     with d.on_action("tfe_on_host_takes_roman_town") as a:
         with a.trigger(CountryTrig) as t:
-            t.has_variable("tfe_migrating")
-            with t.not_() as n:
-                n.has_variable("tfe_settled")
-            t.tail("on_action/tfe_migratory.txt")
+            with t.or_() as o:
+                with o.and_() as m:
+                    m.has_variable("tfe_migrating")
+                    m.not_(lambda n: n.has_variable("tfe_settled"))
+                    m.tail("on_action/tfe_migratory.txt")
+                o.has_variable("tfe_rhine_war")
+                o.tail("the Franks' raid over the Rhine (decisions/tfe_barbarian_kingdoms.txt)")
             with t.link("scope:target", LocationTrig) as loc:
                 with loc.not_() as n:
                     n.has_location_modifier("tfe_fled_to_the_host")

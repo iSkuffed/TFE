@@ -14,3 +14,15 @@ tfe_migrating_host = {
 	siege_ability = 0.5			# vanilla's best advance gives 0.2
 	land_morale_modifier = 0.2
 }
+
+# The Salian Franks' raid over the Rhine (decisions/tfe_barbarian_kingdoms.txt) raises the same great host, free only
+# while that war lasts: on_action/tfe_barbarian_kingdoms.txt clears tfe_rhine_war when it ends.
+tfe_rhine_host = {
+	potential_trigger = {
+		has_variable = tfe_rhine_war
+		at_war = yes
+	}
+	alert = yes
+
+	army_maintenance_efficiency = 999	# pay 1 / (1 + 999) = 0.1% of upkeep
+}

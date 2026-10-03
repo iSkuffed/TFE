@@ -1,0 +1,52 @@
+﻿namespace = tfe_barbarian_kingdoms
+
+# A host has settled (on_action/tfe_migratory.txt fires this a day later, once the whole peace or Hospitalitas
+# has handed it its land). Its people (tfe_host_people) spread evenly over every location it owns, and their
+# number grows with the land: all of them on 5 locations, a share on fewer, and up to 2x on
+# 10 or more. So each location gets people / 5, or people x 2 / locations past that.
+tfe_barbarian_kingdoms.1 = {
+	type = country_event
+	hidden = yes
+	trigger = { has_variable = tfe_host_people }
+	immediate = {
+		set_variable = { name = tfe_host_share value = var:tfe_host_people }
+		if = {
+			limit = { num_locations >= 10 }
+			change_variable = { name = tfe_host_share multiply = 2 }
+			change_variable = { name = tfe_host_share divide = num_locations }
+		}
+		else = {
+			change_variable = { name = tfe_host_share divide = 5 }
+		}
+		every_owned_location = {
+			add_pop = { culture = root.culture religion = root.religion type = pop_type:peasants size = root.var:tfe_host_share }
+			# land the host's own people settled is quick to integrate: no clock to race, conquests after the
+			# migration ends integrate at vanilla's pace
+			add_location_modifier = { modifier = tfe_settled_by_the_host }
+		}
+		remove_variable = tfe_host_people
+		remove_variable = tfe_host_share
+	}
+}
+
+# A host has reformed into a monarchy (tfe_reform_into_a_monarchy, a day before): its nobles get the Auxilium et
+# Consilium the start grant could not give a people that was no monarchy. Vanilla's privilege also needs the
+# Knights advance, rechecked whenever the faith changes, so the crown brings feudalism and knights with it.
+tfe_barbarian_kingdoms.2 = {
+	type = country_event
+	hidden = yes
+	immediate = {
+		if = {
+			limit = { NOT = { has_advance = feudalism_advance } }
+			research_advance = advance_type:feudalism_advance
+		}
+		if = {
+			limit = { NOT = { has_advance = noble_knights } }
+			research_advance = advance_type:noble_knights
+		}
+		if = {
+			limit = { NOT = { has_estate_privilege = estate_privilege:auxilium_et_consilium } }
+			grant_estate_privilege = estate_privilege:auxilium_et_consilium
+		}
+	}
+}

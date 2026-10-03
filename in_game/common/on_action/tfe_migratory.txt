@@ -1,6 +1,7 @@
 ﻿# TFE: the first land a migrating host (decisions/tfe_fall_of_the_west.txt) wins ends the migration. It becomes a
 # landed country again, that land is its capital, and the great host disbands back to the warband it started with
-# there; its free upkeep (auto_modifiers/tfe_migratory.txt) ends for good. Its people settle the capital.
+# there; its free upkeep (auto_modifiers/tfe_migratory.txt) ends until it takes the road again. Its people settle
+# the land it won.
 on_location_changed_owner = {
 	on_actions = { tfe_on_host_settles }
 }
@@ -35,17 +36,8 @@ tfe_on_host_settles = {
 			count = 2
 			create_sub_unit_with_owner = { type = a_tribal_cavalry owner = scope:winner origin = scope:tfe_homeland }
 		}
-		# the people who followed the host (tfe_host_people, counted by tfe_start_migration_effect) settle the capital
-		# as peasants of its culture and faith: a majority in a thinly peopled countryside, a minority in a great city
-		if = {
-			limit = { scope:winner = { has_variable = tfe_host_people } }
-			add_pop = {
-				culture = scope:winner.culture
-				religion = scope:winner.religion
-				type = pop_type:peasants
-				size = scope:winner.var:tfe_host_people
-			}
-			scope:winner = { remove_variable = tfe_host_people }
-		}
+		# the people who followed the host (tfe_host_people, counted by tfe_start_migration_effect) settle a day later,
+		# once the whole peace or Hospitalitas has handed over its land, spread over all of it (events/tfe_barbarian_kingdoms.txt)
+		scope:winner = { trigger_event_silently = { id = tfe_barbarian_kingdoms.1 days = 1 } }
 	}
 }

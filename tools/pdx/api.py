@@ -1789,6 +1789,7 @@ class AnyFx(Scope):
     def tfe_africa_breaks_away(self, _v: bool | str | float = True, /) -> None: self._call("tfe_africa_breaks_away", _v)
     def tfe_constantine_rises(self, _v: bool | str | float = True, /) -> None: self._call("tfe_constantine_rises", _v)
     def tfe_list_the_migrators(self, _v: bool | str | float = True, /) -> None: self._call("tfe_list_the_migrators", _v)
+    def tfe_muster_the_host_effect(self, _v: bool | str | float = True, /) -> None: self._call("tfe_muster_the_host_effect", _v)
     def tfe_start_migration_effect(self, _v: bool | str | float = True, /) -> None: self._call("tfe_start_migration_effect", _v)
     def tfe_stilicho_rises(self, _v: bool | str | float = True, /) -> None: self._call("tfe_stilicho_rises", _v)
     def tfe_the_west_loses_stilicho(self, _v: bool | str | float = True, /) -> None: self._call("tfe_the_west_loses_stilicho", _v)

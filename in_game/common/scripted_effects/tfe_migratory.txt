@@ -6,28 +6,14 @@
 tfe_start_migration_effect = {
 	save_scope_as = tfe_host
 	set_variable = tfe_migrating
-	# pace the chaos: the AI's next host waits 4 years (the action's ai_will_do)
-	set_global_variable = { name = tfe_host_took_the_road value = yes years = 4 }
+	# pace the chaos: the AI's next host waits a year (the decisions' ai_will_do)
+	set_global_variable = { name = tfe_host_took_the_road value = yes years = 1 }
 	# only the Vandals start army-based; a landed people would be gone with its last location (vanilla CHB, OIR)
 	if = {
 		limit = { NOT = { country_type = army } }
 		change_country_type = army
 	}
-	random_army = { unit_location = { save_scope_as = tfe_muster } }
-	if = {
-		limit = { NOT = { exists = scope:tfe_muster } }	# no warband afield: the host gathers at the capital
-		capital ?= { save_scope_as = tfe_muster }
-	}
-	scope:tfe_muster ?= {
-		while = {
-			count = 24
-			create_sub_unit_with_owner = { type = a_footmen owner = scope:tfe_host origin = scope:tfe_muster }
-		}
-		while = {
-			count = 8
-			create_sub_unit_with_owner = { type = a_tribal_cavalry owner = scope:tfe_host origin = scope:tfe_muster }
-		}
-	}
+	tfe_muster_the_host_effect = yes	# scripted_effects/tfe_barbarian_kingdoms.txt: 24 footmen and 8 tribal cavalry
 	# a fifth of our people take the road; the rest stay under the new lords. Counted by pop_size, whatever its unit.
 	set_variable = { name = tfe_host_people value = 0 }	# change_variable fails on an unset variable
 	every_owned_location = {
@@ -40,11 +26,26 @@ tfe_start_migration_effect = {
 			add_pop_size = { value = pop_size multiply = -0.2 }
 		}
 	}
-	# a neighbouring people moves into the homeland, so it is not left empty; its pops stay, under new lords. Only with
-	# no such neighbour is it abandoned.
+	# the homeland is given up for good: the host keeps no core on it, nor on any land it won before
+	every_core_location = { remove_core = scope:tfe_host }
+	# a neighbouring people moves into the homeland, so it is not left empty; its pops stay, under new lords. A
+	# settled host taking the road again leaves Roman land to the Rome next door, its old master. Only with no
+	# such neighbour is it abandoned.
 	random_neighbor_country = {
 		limit = { NOT = { tfe_is_western_rome = yes } NOT = { tag = EAR } NOT = { has_variable = tfe_migrating } }
 		save_scope_as = tfe_heir_to_the_land
+	}
+	if = {
+		limit = { NOT = { exists = scope:tfe_heir_to_the_land } has_variable = tfe_settled }
+		random_neighbor_country = {
+			limit = {
+				OR = {
+					tfe_is_western_rome = yes
+					tag = EAR
+				}
+			}
+			save_scope_as = tfe_heir_to_the_land
+		}
 	}
 	if = {
 		limit = { exists = scope:tfe_heir_to_the_land }
@@ -63,6 +64,11 @@ tfe_start_migration_effect = {
 		scope:tfe_host = {
 			add_casus_belli = { target = prev type = casus_belli:cb_tfe_migration }
 		}
+	}
+	# a settled host taking the road again is on the road once more: free, fed by Roman towns, settling anew
+	if = {
+		limit = { has_variable = tfe_settled }
+		remove_variable = tfe_settled
 	}
 	tfe_list_the_migrators = yes
 }
