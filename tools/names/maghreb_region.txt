@@ -1,4 +1,4 @@
-maghreb_region = Diocese of Africa  # a: Dioecesis Africae (vicar at Carthage); Tingitana belonged to the Spains
+maghreb_region = Africa  # a: Dioecesis Africae (vicar at Carthage); Tingitana belonged to the Spains
 
 algiers_area = Mauretania Caesariensis  # a: Mauretania Caesariensis, capital Caesarea (Cherchell)
 dahra_province = Iol Caesarea  # a: Iol Caesarea (Cherchell), capital of Caesariensis; Cartennae (Tenes), Gunugu
