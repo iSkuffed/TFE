@@ -29,6 +29,7 @@ TRIGGER = "in_game/common/scripted_triggers/tfe_western_rome.txt"
 STAY = {
     "in_game/common/international_organizations/tfe_roman_empire.txt",   # the Imperium Romanum's seat and Unity
     "in_game/common/generic_actions/tfe_roman_empire.txt",
+    "in_game/common/decisions/tfe_fall_of_the_west.txt",   # Stilicho's Claims is Honorius's
     "in_game/common/on_action/tfe_opening.txt", "in_game/events/tfe_opening.txt",   # the 395 opening
     "in_game/common/on_action/tfe_gildo.txt", "in_game/events/tfe_gildo.txt",
     "in_game/common/on_action/tfe_decline_of_the_west.txt",   # day one: only WRE exists
@@ -61,7 +62,7 @@ def test_only_honorius_files_name_wre_by_tag():
 
 
 def test_migrate_west_marches_on_either_west():
-    ga = flat("in_game/common/generic_actions/tfe_migratory.txt")
+    ga = flat("in_game/common/decisions/tfe_fall_of_the_west.txt")
     west = block(ga, "tfe_migrate_west =")
     assert "declare_war_with_cb = { target = scope:tfe_victim type = casus_belli:cb_tfe_migration }" in west
     assert "any_neighbor_country = { tfe_is_western_rome = yes }" in west

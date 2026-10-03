@@ -122,12 +122,12 @@ def test_limit_opens_the_matching_trigger_class():
     assert typing.get_overloads(api.AnyFx.limit)[0].__annotations__["return"] == "ContextManager[AnyTrig]"
 
 
-def test_migratory_equals_the_committed_file():
+def test_decisions_equal_the_committed_file():
     sys.path.insert(0, str(TOOLS.parent / "script"))
-    import migratory
+    import decisions
 
-    committed = (TOOLS.parent / "in_game/common/generic_actions/tfe_migratory.txt").read_text(encoding="utf-8-sig")
-    assert dump(parse(migratory.build().text())) == dump(parse(committed))
+    committed = (TOOLS.parent / "in_game/common/decisions/tfe_fall_of_the_west.txt").read_text(encoding="utf-8-sig")
+    assert dump(parse(decisions.build()[1].text())) == dump(parse(committed))
 
 
 def test_unverified_names_are_loose():
@@ -195,8 +195,8 @@ def bad(e: AnyFx):
 '''
 
 
-def test_pyright_passes_migratory_and_flags_wrong_scope_in_a_link(tmp_path):
-    assert pyright(tmp_path, None, "script/migratory.py") == []
+def test_pyright_passes_decisions_and_flags_wrong_scope_in_a_link(tmp_path):
+    assert pyright(tmp_path, None, "script/decisions.py") == []
     lines = {d["range"]["start"]["line"] + 1 for d in pyright(tmp_path, WRONG_IN_LINK, "wrong.py")}
     assert lines == {i for i, l in enumerate(WRONG_IN_LINK.splitlines(), 1) if "# BAD" in l}, lines
 

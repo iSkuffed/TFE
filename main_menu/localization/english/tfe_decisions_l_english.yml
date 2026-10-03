@@ -1,0 +1,13 @@
+﻿l_english:
+ tfe_fall_of_the_west: "Fall of the West"
+ tfe_migrate_east.title: "Migrate into the East"
+ tfe_migrate_east.desc: "We leave the lands of our fathers behind. Every warrior of our people joins the host on the road, south over the Danube, to take by the sword a richer home within the Empire of the East."
+ tfe_migrate_east.a: "Take the road."
+ tfe_migrate_west.title: "Migrate into the West"
+ tfe_migrate_west.desc: "We leave the lands of our fathers behind. Every warrior of our people joins the host on the road, west over the Rhine, to take by the sword a richer home within the Empire of the West."
+ tfe_migrate_west.a: "Take the road."
+ tfe_illyricum_claims.title: "Support Stilicho's Claims"
+ tfe_illyricum_claims.desc: "Stilicho holds that Theodosius meant all Illyricum for the West. Press the claim on Docleatae, the Dardanian Mines, the Margus Valley, Singidunum, Viminacium, Naissus, Dardania and Praevalitana: a casus belli against the East for ten years, bought with the Empire's unity."
+ tfe_illyricum_claims.a: "Illyricum is the West's."
+ tfe_stilicho_serves_us_tt: "Stilicho lives and serves us"
+ tfe_illyricum_claim_pressed_tt: "We have not pressed Stilicho's claim in the last ten years"

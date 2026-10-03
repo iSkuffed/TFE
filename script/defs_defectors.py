@@ -9,7 +9,7 @@ from pdx.objects_defs import Defs
 
 def on_actions():
     d = Defs()
-    d.note("TFE: Salvian's Romans who \"flee to the barbarians\". When a migrating host (generic_actions/tfe_migratory.txt) takes a\n"
+    d.note("TFE: Salvian's Romans who \"flee to the barbarians\". When a migrating host (decisions/tfe_fall_of_the_west.txt) takes a\n"
            "Roman town, some of its men join it: every regiment of the host regains strength, and the empire loses them. The\n"
            "West's burdens (government_reforms/tfe_late_roman_west.txt) drive more to go. A town gives men once a decade.")
     d.hook("on_siege_won", "tfe_on_host_takes_roman_town")

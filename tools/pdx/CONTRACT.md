@@ -69,6 +69,13 @@ events plus GUI or panel keys either keeps the GUI keys in a second, hand-writte
 
 ## objects.py (main session writes it later): Event, GenericAction, ScriptedEffect/Trigger, StaticModifier, loc.
 
+- `doc.decision(name, category=, title=, desc=, image=None, only_once=False)` yields a `Decision` (root: the country):
+  `potential()`/`allow()` open CountryTrig, `ai_will_do()` a CountryValue (ValueFx whose `limit` opens CountryTrig),
+  `option(letter, text=, ai_chance=100)` a DecisionOption whose `effect()` opens CountryFx. Loc keys written:
+  `<name>.title`, `<name>.desc`, `<name>.<letter>` (vanilla's). `doc.decision_category(name, title=, sort_order=)`
+  writes `name_key = <name>` and the loc key `<name>`; categories go in decision_categories/, so give that Doc the
+  decisions Doc's `loc` to keep one yml.
+
 ## Rules for lanes
 
 - Write ONLY the files you own. Never run jj/git commands that change anything (other people share this repo).

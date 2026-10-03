@@ -1,7 +1,7 @@
 ﻿# TFE: the Decline of the West (RoadMap #6). The West's slow fall, in phases kept in var:tfe_decline_phase.
 # Phase 1, the Frontiers Give Way: Gildo's Africa (events/tfe_gildo.txt, read from the West's tfe_gildo_progress)
 # and the peoples beyond the Rhine and Danube (scripted_triggers/tfe_decline_of_the_west.txt's tfe_is_migrator), who
-# take the road into the Empire from this panel (generic_actions/tfe_migratory.txt). Started on day one by
+# take the road into the Empire through the Migrate decisions (decisions/tfe_fall_of_the_west.txt). Started on day one by
 # on_action/tfe_decline_of_the_west.txt; its panel is gui/panels/situation/tfe_decline_of_the_west.gui.
 tfe_decline_of_the_west = {
 	monthly_spawn_chance = monthly_spawn_chance_unique

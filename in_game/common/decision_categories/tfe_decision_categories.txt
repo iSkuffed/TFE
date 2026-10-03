@@ -1,0 +1,5 @@
+﻿# TFE: the Fall of the West's decisions (decisions/tfe_fall_of_the_west.txt), near the top of the list.
+tfe_fall_of_the_west = {
+	name_key = tfe_fall_of_the_west
+	sort_order = 0
+}

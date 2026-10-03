@@ -2,7 +2,8 @@
 until the moment they fire, and often not even then).
 
     events     trigger_event_*, `id =` and on_action `events = { }` name an event that is defined
-    loc        an event's title, desc and option names are localisation keys that exist
+    loc        an event's title, desc and option names, a decision's <name>.title/.desc and option names and a
+               decision category's name_key are localisation keys that exist
     scopes     `scope:x` is saved (or read by vanilla, for scopes the game itself provides) somewhere
     assets     a building type or government reform has its icon file
     values     `has_advance = x`, `research_advance = advance_type:x`, `subject_type = subject_type:x`: a value that vanilla
@@ -225,6 +226,17 @@ def refs(base, roots, vanilla=False):
                     for e, key in loc_refs(ev.val):
                         if key not in loc:
                             say(e, f"{ev.key}: localisation key {key} is missing")
+        if "decisions" in rel.parts:
+            for d in tree:
+                if d.key and isinstance(d.val, list):
+                    keys = [(d, f"{d.key}.title"), (d, f"{d.key}.desc"), *loc_refs([o for o in d.val if o.key == "option"])]
+                    for e, key in keys:
+                        if key not in loc:
+                            say(e, f"{d.key}: localisation key {key} is missing")
+        if "decision_categories" in rel.parts:
+            for e in each(tree):
+                if e.key == "name_key" and isinstance(e.val, str) and e.val not in loc:
+                    say(e, f"localisation key {e.val} is missing")
         if not vanilla:
             _, reads = saved_scopes(tree)
             unsaved = {n for n in reads if n not in known}

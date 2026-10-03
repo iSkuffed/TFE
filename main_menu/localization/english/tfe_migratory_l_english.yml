@@ -1,8 +1,4 @@
 ﻿l_english:
- tfe_migrate_east: "Migrate into the East"
- tfe_migrate_east_desc: "We leave the lands of our fathers behind. Every warrior of our people joins the host on the road, south over the Danube, to take by the sword a richer home within the Empire of the East."
- tfe_migrate_west: "Migrate into the West"
- tfe_migrate_west_desc: "We leave the lands of our fathers behind. Every warrior of our people joins the host on the road, west over the Rhine, to take by the sword a richer home within the Empire of the West."
  tfe_migrate_EAR_tt: "#R We declare war on [GetCountry('EAR').GetName] at once.#! Its Augustus may offer us land for our fealty."
  tfe_migrate_WRE_tt: "#R We declare war on [GetCountry('WRE').GetName] at once.#! Its Augustus may offer us land for our fealty."
  tfe_migration_not_yet_tt: "A month has passed since the death of Theodosius"
