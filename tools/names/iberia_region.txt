@@ -1,4 +1,4 @@
-iberia_region = Diocese of the Spains  # a: Dioecesis Hispaniarum, vicarius at Emerita
+iberia_region = Hispania  # a: Dioecesis Hispaniarum, vicarius at Emerita
 
 andalusia_area = Baetica  # a: Baetica, consularis at Hispalis/Corduba; the Guadalquivir valley
 cadiz_province = Gades  # a: Gades and conventus Gaditanus, with Asido, Asta Regia, Traducta, Calpe

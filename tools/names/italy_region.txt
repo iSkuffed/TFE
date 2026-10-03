@@ -1,5 +1,5 @@
 # Italy in 395: the Diocese of Italy, Italia Annonaria (north) and Italia Suburbicaria (south and the islands)
-italy_region = Diocese of Italy  # a: Dioecesis Italiciana, vicariates of Italia Annonaria and Suburbicaria
+italy_region = Italia  # a: Dioecesis Italiciana, vicariates of Italia Annonaria and Suburbicaria
 
 abruzzo_area = Samnium  # a: late province of Samnium, from Teate and the Paeligni to Bovianum; west edge in Valeria and Picenum Suburbicarium
 abruzzo_citra_province = Frentani  # a: Frentani of Anxanum and Histonium (Pliny); Teate of the Marrucini at the north edge

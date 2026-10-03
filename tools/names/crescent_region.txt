@@ -1,4 +1,4 @@
-crescent_region = Diocese of the East  # a: Dioecesis Orientis, with Persian Mesopotamia beyond
+crescent_region = Oriens  # a: Dioecesis Orientis, with Persian Mesopotamia beyond
 
 iraq_arabi_area = Asoristan  # a: Sasanian province Asoristan, capital Ctesiphon
 baghdad_province = Ctesiphon  # a: Ctesiphon and Seleucia, the Sasanian capital

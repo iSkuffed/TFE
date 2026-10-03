@@ -1,4 +1,4 @@
-france_region = Diocese of Gaul  # a: Dioecesis Galliarum with the Seven Provinces (Viennensis) of the south
+france_region = Gallia  # a: Dioecesis Galliarum with the Seven Provinces (Viennensis) of the south
 
 anjou_area = Lugdunensis Tertia  # a: Lugdunensis III, the Andecavi, Cenomani and Diablintes; metropolis Turones next door
 anjou_province = Andecavi  # a: civitas Andecavorum, Juliomagus (Angers)
