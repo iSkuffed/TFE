@@ -165,3 +165,29 @@ def test_a_comparison_inside_a_block_keeps_its_operator():
     assert [(c.key, c.op, c.val) for c in e.val] == [("religion", "=", "religion:donatism"), ("value", ">=", "0.25")]
     with pytest.raises(ValueError):
         Cmp("=>", 1)
+
+
+def test_a_decision_writes_vanillas_shape_and_its_loc_keys(tmp_path):
+    from pdx.objects import Doc
+    d = Doc()
+    d.decision_category("cat", title="Cat", sort_order=0)
+    with d.decision("x", category="cat", title="T", desc="D", only_once=True) as x:
+        with x.potential() as t:
+            t.at_war(False)
+        with x.ai_will_do() as v, v.if_() as i:
+            with i.limit() as t:
+                t.gold(10, op=">=")   # a country trigger: the root of a decision's ai_will_do is the country
+            i.add(1)
+        with x.option("a", text="A") as o, o.effect() as e:
+            e.add_gold(1)
+    assert d.loc.keys == {"cat": "Cat", "x.title": "T", "x.desc": "D", "x.a": "A"}
+    cat, dec = ls.parse(d.text())
+    assert [(c.key, c.val) for c in cat.val] == [("name_key", "cat"), ("sort_order", "0")]
+    assert [c.key for c in dec.val] == ["decision_category", "only_once", "potential", "ai_will_do", "option"]
+    opt = dec.val[-1].val
+    assert [c.key for c in opt] == ["name", "ai_chance", "effect"] and opt[0].val == "x.a"
+    f = tmp_path / "bad.py"
+    f.write_text("from pdx.objects import Doc\nd = Doc()\nwith d.decision('x', category='c', title='t', desc='d') as x:\n"
+                 "    with x.option('a', text='a') as o, o.effect() as e:\n        e.is_capital(True)\n")
+    errs = pyright(tmp_path, f)
+    assert len(errs) == 1 and "is_capital" in errs[0]["message"], errs   # a trigger in an option's effect

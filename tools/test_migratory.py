@@ -8,17 +8,14 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import borders as b
 
 COMMON = b.MOD / "in_game/common"
-ACTIONS = COMMON / "generic_actions/tfe_migratory.txt"
-EFFECT = COMMON / "scripted_effects/tfe_migratory.txt"   # Start Migration's effect, shared with the Hunnic Storm's events
+EFFECT = COMMON / "scripted_effects/tfe_migratory.txt"   # the Migrate decisions' effect, shared with the Hunnic Storm's events
 AUTO = COMMON / "auto_modifiers/tfe_migratory.txt"
-AI_LIST = COMMON / "generic_action_ai_lists/tfe_migratory_list.txt"
 CB = COMMON / "casus_belli/tfe_migration.txt"
 WARGOAL = COMMON / "wargoals/tfe_migration.txt"
 SETTLE = COMMON / "on_action/tfe_migratory.txt"
 LOC = b.MOD / "main_menu/localization/english/tfe_migratory_l_english.yml"
 ARMIES = b.MOD / "main_menu/setup/395/27_armies.txt"
-SCRIPTS = (ACTIONS, EFFECT, AUTO, AI_LIST, CB, WARGOAL, SETTLE)
-NEW_ACTIONS = ("tfe_migrate_east", "tfe_migrate_west")
+SCRIPTS = (EFFECT, AUTO, CB, WARGOAL, SETTLE)   # the Migrate decisions themselves: test_decisions.py
 
 
 def code(p):
@@ -37,17 +34,6 @@ def test_scripts_are_bom_prefixed_and_balanced():
 
 
 def test_start_migration_is_a_one_way_trip_for_the_peoples_beyond_the_rivers():
-    acts = code(ACTIONS)
-    assert top_keys(ACTIONS) == list(NEW_ACTIONS)
-    listed = re.search(r"actions = \{([^}]*)\}", code(AI_LIST)).group(1).split()
-    assert listed == list(NEW_ACTIONS) and "tfe_is_migrator = yes" in code(AI_LIST)
-    potential = re.search(r"potential = \{(.*?)\n\t\}", acts, re.S).group(1)
-    assert "tfe_is_migrator = yes" in potential and "country_type" not in potential   # not only the Vandals now
-    assert "NOT = { has_variable = tfe_migrating }" in potential   # once only: the host never comes back
-    allow = re.search(r"allow = \{(.*?)\n\t\}", acts, re.S).group(1)
-    assert all(s in allow for s in ("is_subject = no", "tfe_frontier_unmanned = yes"))
-    assert "any_army" not in allow   # most peoples start with no warband afield; the host gathers at the capital
-    assert "tfe_start_migration_effect = yes" in acts
     effect = code(EFFECT)
     assert "set_variable = tfe_migrating" in effect and "every_owned_location" in effect and "abandon_location" in effect
     # a landed people must become army-based before it abandons its last location, or it is gone
@@ -58,32 +44,10 @@ def test_start_migration_is_a_one_way_trip_for_the_peoples_beyond_the_rivers():
     assert effect.index("change_location_owner = scope:tfe_heir_to_the_land") < effect.index("abandon_location")
 
 
-def test_one_button_per_empire_declares_war_on_it_after_the_first_month():
-    # user: two buttons, not clickable until a month after the game start, each starts a migration war at once
-    start = re.search(r'START_DATE = "395\.1\.(\d+)"', (b.MOD / "loading_screen/common/defines/tfe_defines.txt").read_text(encoding="utf-8-sig"))
-    acts = code(ACTIONS).split("tfe_migrate_west = {")
-    for act, tag in zip(acts, ("EAR", "WRE")):
-        if tag == "EAR":
-            assert "country_exists = c:EAR" in act
-        else:
-            assert "any_country = { tfe_is_western_rome = yes }" in act
-            assert re.search(r"random_neighbor_country = \{\s*limit = \{ tfe_is_western_rome = yes \}\s*save_scope_as = tfe_victim", act)
-            assert re.search(r"ordered_country = \{\s*order_by = country_economical_base\s*limit = \{ tfe_is_western_rome = yes \}\s*save_scope_as = tfe_victim", act)
-            assert "c:WRE" not in act
-        assert f"current_date >= 395.2.{start.group(1)}" in act and "text = tfe_migration_not_yet_tt" in act
-        target = "c:EAR" if tag == "EAR" else "scope:tfe_victim"
-        assert f"declare_war_with_cb = {{ target = {target} type = casus_belli:cb_tfe_migration }}" in act
-        assert act.index("tfe_start_migration_effect = yes") < act.index("declare_war_with_cb")
-        if tag == "WRE":
-            assert act.index("save_scope_as = tfe_victim") < act.index("tfe_start_migration_effect = yes")
-
-
 def test_the_ai_takes_the_road_one_people_at_a_time():
     # pace the chaos: ~19 peoples may migrate; the AI waits 4 years after any host sets out, then needs a push
     assert "set_global_variable = { name = tfe_host_took_the_road value = yes years = 4 }" in code(EFFECT)
-    ai = re.search(r"ai_will_do = \{(.*?)\n\t\}", code(ACTIONS), re.S).group(1)
-    assert re.search(r"value = 0\s*if = \{\s*limit = \{\s*NOT = \{ has_global_variable = tfe_host_took_the_road \}", ai)
-    assert "tfe_is_under_the_yoke = yes" in ai and "var:tfe_unity < 50" in ai
+    # the decisions' ai_will_do waits on it: test_decisions.py
 
 
 def test_the_host_disbands_back_to_its_old_warband_once_it_takes_land():
@@ -159,9 +123,7 @@ def test_warband_units_exist_in_vanilla():
 
 def test_everything_is_localized():
     keys = set(re.findall(r"^\s*([\w.]+):\d*\s", LOC.read_text(encoding="utf-8-sig"), re.M))
-    wanted = {k for a in NEW_ACTIONS for k in (a, f"{a}_desc")}
-    wanted |= set(re.findall(r"custom_tooltip = (\w+)", code(ACTIONS)))
-    wanted |= {f"AUTO_MODIFIER_NAME_{k}" for k in top_keys(AUTO)}
+    wanted = {f"AUTO_MODIFIER_NAME_{k}" for k in top_keys(AUTO)}
     wanted |= {k for c in top_keys(CB) for k in (c, f"{c}_desc")}
     wanted |= {k for g in top_keys(WARGOAL) for k in (f"war_goal_{g}", f"war_goal_{g}_desc")}
     assert not wanted - keys, sorted(wanted - keys)
@@ -180,14 +142,12 @@ def test_pop_based_leftovers_are_gone():
     assert not (COMMON / "advances/tfe_migratory_advances.txt").exists()
 
 
-def test_start_migration_is_a_button_on_the_decline_of_the_west():
-    # user: the Migrate interaction moves from the Form New Country panel into the Decline of the West situation
-    acts = code(ACTIONS)
-    assert "type = situation" in acts and "type = owncountry" not in acts
-    assert "situation:tfe_decline_of_the_west = { situation_is_active = yes }" in acts
-    assert re.search(r"looking_for_a = situation\s*interaction_source_list = \{\s*situation:tfe_decline_of_the_west", acts)
-    # the override held only our button, so it is gone and vanilla's panel is used as is
+def test_the_form_new_country_override_is_gone():
+    # Migrate moved from the Form New Country panel to the Decline of the West's panel, then to the decisions; the
+    # override held only our button, so vanilla's panel is used as is
     assert not (b.MOD / "in_game/gui/form_new_country.gui").exists()
+    assert not (COMMON / "generic_actions/tfe_migratory.txt").exists()
+    assert not (COMMON / "generic_action_ai_lists/tfe_migratory_list.txt").exists()
 
 
 def test_roman_towns_taken_by_a_host_send_it_men():

@@ -42,7 +42,7 @@ def build():
             t.is_subject(False)
             t.tfe_frontier_unmanned(True)
             t.tail("scripted_triggers/tfe_decline_rome.txt")
-        e.note("the road west (the Decline of the West's Migrate, generic_actions/tfe_migratory.txt)")
+        e.note("the road west (the Migrate decisions, decisions/tfe_fall_of_the_west.txt)")
         with e.option("a", text='We take to the road.', historical=True) as o:
             o.custom_tooltip("tfe_start_migration_tt")
             with o.hidden_effect() as h:

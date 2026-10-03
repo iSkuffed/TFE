@@ -44,7 +44,7 @@ tfe_hunnic_storm.2 = {
 		is_subject = no
 		tfe_frontier_unmanned = yes	# scripted_triggers/tfe_decline_rome.txt
 	}
-	# the road west (the Decline of the West's Migrate, generic_actions/tfe_migratory.txt)
+	# the road west (the Migrate decisions, decisions/tfe_fall_of_the_west.txt)
 	option = {
 		name = tfe_hunnic_storm.2.a
 		historical_option = yes

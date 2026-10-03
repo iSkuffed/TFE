@@ -60,6 +60,7 @@ def test_unity_never_moves_without_a_cause():
 def test_every_unity_change_shows_its_amount():
     # change_variable has no tooltip: an event option with nothing else showed its raw loc key to the player
     for p in ("in_game/events/tfe_opening.txt", "in_game/common/generic_actions/tfe_roman_empire.txt",
+              "in_game/common/decisions/tfe_fall_of_the_west.txt",
               "in_game/common/laws/tfe_edicts.txt"):
         text = code(b.MOD / p)
         amounts = re.findall(r"name = tfe_unity add = (-?\d+)", text)

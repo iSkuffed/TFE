@@ -1,6 +1,6 @@
 # Country types other than the default land-based one: TAG = army | pop
 #   army: a horde (vanilla GLH, TIM); owns land but collapses if its armies are destroyed. Playable.
-#         Army-based hosts get Start Migration (in_game/common/generic_actions/tfe_migratory.txt).
+#         Army-based hosts get the Migrate decisions (in_game/common/decisions/tfe_fall_of_the_west.txt).
 #   pop:  a Society of Pops (vanilla SMI); owns nothing, its tribesmen live in its locations. AI only:
 #         the engine refuses to let players take them ("Cannot play pop based countries").
 # Both have their locations' pops rewritten to the tag's own tribesmen (tools/borders.py pop_society_pops).

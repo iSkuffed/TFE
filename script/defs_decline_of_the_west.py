@@ -14,7 +14,7 @@ def triggers():
     d = Defs()
     d.note("TFE: the Decline of the West (situations/tfe_decline_of_the_west.txt).")
     d.note("Scope: a country. The peoples of Germania and Dacia who may take the road into the Empire\n"
-           "(generic_actions/tfe_migratory.txt's Start Migration, on the Decline's panel).")
+           "(the Migrate decisions, decisions/tfe_fall_of_the_west.txt).")
     with d.trigger("tfe_is_migrator", CountryTrig) as t:
         with t.or_() as o:
             for tag in MIGRATORS:

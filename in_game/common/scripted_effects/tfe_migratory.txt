@@ -1,4 +1,4 @@
-﻿# TFE: a host takes to the road (generic_actions/tfe_migratory.txt, on the Decline of the West's panel; the Huns push
+﻿# TFE: a host takes to the road (the Migrate decisions, decisions/tfe_fall_of_the_west.txt; the Huns push
 # the Germanic peoples west in events/tfe_hunnic_storm.txt). Scope: the migrating country. It becomes an army-based
 # country, musters a great host, abandons its homeland and gets a casus belli on the Roman empires: a landless host
 # has no neighbours for the game to offer one against. A fifth of its people go with it, to settle the land it wins

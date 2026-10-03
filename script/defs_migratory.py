@@ -111,7 +111,7 @@ def list_migrators(d: Defs):
 
 def effects():
     d = Defs()
-    d.note("TFE: a host takes to the road (generic_actions/tfe_migratory.txt, on the Decline of the West's panel; the Huns push\n"
+    d.note("TFE: a host takes to the road (the Migrate decisions, decisions/tfe_fall_of_the_west.txt; the Huns push\n"
            "the Germanic peoples west in events/tfe_hunnic_storm.txt). Scope: the migrating country. It becomes an army-based\n"
            "country, musters a great host, abandons its homeland and gets a casus belli on the Roman empires: a landless host\n"
            "has no neighbours for the game to offer one against. A fifth of its people go with it, to settle the land it wins\n"
@@ -123,7 +123,7 @@ def effects():
 
 def on_actions():
     d = Defs()
-    d.note("TFE: the first land a migrating host (generic_actions/tfe_migratory.txt) wins ends the migration. It becomes a\n"
+    d.note("TFE: the first land a migrating host (decisions/tfe_fall_of_the_west.txt) wins ends the migration. It becomes a\n"
            "landed country again, that land is its capital, and the great host disbands back to the warband it started with\n"
            "there; its free upkeep (auto_modifiers/tfe_migratory.txt) ends for good. Its people settle the capital.")
     d.hook("on_location_changed_owner", "tfe_on_host_settles")

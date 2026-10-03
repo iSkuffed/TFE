@@ -1,4 +1,4 @@
-﻿# TFE: the first land a migrating host (generic_actions/tfe_migratory.txt) wins ends the migration. It becomes a
+﻿# TFE: the first land a migrating host (decisions/tfe_fall_of_the_west.txt) wins ends the migration. It becomes a
 # landed country again, that land is its capital, and the great host disbands back to the warband it started with
 # there; its free upkeep (auto_modifiers/tfe_migratory.txt) ends for good. Its people settle the capital.
 on_location_changed_owner = {

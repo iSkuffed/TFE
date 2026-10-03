@@ -4,7 +4,7 @@ import re
 from contextlib import contextmanager
 from typing import Any, Callable, ContextManager, Generic, Iterator, Literal, TypedDict, TypeVar, Unpack, get_args, overload
 
-from .api import AnyFx, AnyTrig, CountryFx, CountryTrig, Outcome
+from .api import AnyFx, AnyTrig, CountryFx, CountryTrig, Outcome, ValueFx
 from .core import Q, Scope, find, render
 
 @functools.cache
@@ -76,6 +76,54 @@ class GenericAction(Body):
             s.data("column", data=column)
             with s.triggers("visible", visible) as t:
                 yield t
+
+
+class CountryValue(ValueFx):
+    """a value block whose root is a country (a decision's ai_will_do): limit opens CountryTrig, not AnyTrig."""
+
+    def limit(self) -> ContextManager[CountryTrig]:
+        return self._open("limit", CountryTrig)
+
+    def if_(self) -> ContextManager["CountryValue"]:
+        return self._open("if", CountryValue)
+
+    def else_if(self) -> ContextManager["CountryValue"]:
+        return self._open("else_if", CountryValue)
+
+    def else_(self) -> ContextManager["CountryValue"]:
+        return self._open("else", CountryValue)
+
+
+class DecisionOption(Scope):
+    """the inside of a decision's option, after its name and ai_chance: one effect block, root the country."""
+
+    def effect(self) -> ContextManager[CountryFx]:
+        return self._open("effect", CountryFx)
+
+
+class Decision(Body):
+    """one decision (decisions/; root is the country taking it): potential, allow, ai_will_do and options, in the order
+    called. potential hides it, allow greys it out and lists its triggers with ticks."""
+    _id: str
+    _loc: "Loc"
+
+    def potential(self) -> ContextManager[CountryTrig]:
+        return self._open("potential", CountryTrig)
+
+    def allow(self) -> ContextManager[CountryTrig]:
+        return self._open("allow", CountryTrig)
+
+    def ai_will_do(self) -> ContextManager[CountryValue]:
+        return self._open("ai_will_do", CountryValue)
+
+    @contextmanager
+    def option(self, letter, *, text, ai_chance=100) -> Iterator[DecisionOption]:
+        """`option = { name = <decision>.<letter> ai_chance = { value = .. } effect = { <yielded> } }`"""
+        self._loc.add(f"{self._id}.{letter}", text)
+        with self._open("option", DecisionOption) as o:
+            o._call("name", f"{self._id}.{letter}")
+            o._call("ai_chance", value=ai_chance)
+            yield o
 
 
 class Loc:
@@ -252,6 +300,29 @@ class Doc:
 
     def generic_action(self, name) -> ContextManager[GenericAction]:
         return self._top._open(name, GenericAction)
+
+    @contextmanager
+    def decision(self, name, *, category, title, desc, image=None, only_once=False) -> Iterator[Decision]:
+        """a decision; writes `<name>.title` and `<name>.desc` to the loc (each option adds `<name>.<letter>`)."""
+        self.loc.add(f"{name}.title", title)
+        self.loc.add(f"{name}.desc", desc)
+        with self._top._open(name, Decision) as d:
+            d._id, d._loc = name, self.loc
+            d._call("decision_category", category)
+            if only_once:
+                d._call("only_once", True)
+            if image:
+                d._call("image", Q(image))
+            yield d
+
+    def decision_category(self, name, *, title, sort_order, default_collapsed=False):
+        """decision_categories/: `name = { name_key = name sort_order = n }`, its loc key the name itself."""
+        self.loc.add(name, title)
+        with self.entry(name) as c:
+            c.field("name_key", name)
+            c.field("sort_order", sort_order)
+            if default_collapsed:
+                c.field("default_collapsed", True)
 
     def text(self):
         return render(self.nodes)
