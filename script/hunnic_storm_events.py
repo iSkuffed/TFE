@@ -37,6 +37,8 @@ def build():
         with e.trigger() as t:
             t.tfe_is_migrator(True)
             t.tail("scripted_triggers/tfe_decline_of_the_west.txt")
+            t.not_(lambda n: n.tag("SLF"))
+            t.tail("the Salians never migrate: they Cross the Rhine (decisions/tfe_barbarian_kingdoms.txt)")
             with t.not_() as n:
                 n.has_variable("tfe_migrating")
             t.is_subject(False)
@@ -51,7 +53,7 @@ def build():
             with o.ai_chance_block(3) as a:
                 with a.modifier(0) as t:
                     t.has_global_variable("tfe_host_took_the_road")
-                a.tail("pace the chaos: one host on the road every 4 years")  # ponytail: lands after the modifier, not inside it (comments are not compared)
+                a.tail("pace the chaos: one host on the road a year")  # ponytail: lands after the modifier, not inside it (comments are not compared)
         with e.option("b", text='This land is ours. We stay.') as o:
             o.add_prestige(5)
             o.ai_chance(1)

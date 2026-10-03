@@ -180,6 +180,10 @@ been seen working in game, or you say plainly that it hasn't.
 - Map modes (`in_game/gfx/map/map_modes/`) are first-in-wins: a mod's `political = {...}` only replaces vanilla's from
   a file that sorts before `map_modes.txt` (`00_tfe_map_modes.txt`). The pre-game lobby opens in a paper-map mode,
   not Political: press the Political button before judging a change to it.
+- `grant_estate_privilege` silently refuses a privilege whose `potential` or `allow` fails, and `allow` is rechecked
+  later (a change of religion revoked Auxilium et Consilium, which needs the Knights advance).
+  `change_government_type` only counts after the effect block ends: grant a monarchy-only privilege a day later
+  (`tfe_barbarian_kingdoms.2`).
 - A heir set in `on_regency_end` is overwritten: the game picks the new ruler's heir after it fires. From
   `on_new_ruler`, fire an event with `delay = { days = 1 }` (`tfe_opening.6`).
 - Localization files load in reverse alphabetical order (Z to A), the opposite of `common/`, so a later file does not

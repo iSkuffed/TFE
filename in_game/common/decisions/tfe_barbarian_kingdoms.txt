@@ -1,0 +1,125 @@
+﻿# TFE: the hosts become kingdoms (written by script/barbarian_kingdoms.py). A settled host may Reform into a
+# Monarchy, after which it never migrates again, and then accept its subjects' tongue and take their faith. The Salian Franks
+# never migrate: they raid over the Rhine instead.
+tfe_reform_into_a_monarchy = {
+	decision_category = tfe_fall_of_the_west
+	image = "gfx/interface/illustrations/event/backgrounds/exterior/soldiers/north_german_soldiers_exterior.dds"
+	potential = {
+		has_variable = tfe_settled	# on_action/tfe_migratory.txt: a host that has taken land
+		NOT = { has_variable = tfe_host_kingdom }
+	}
+	ai_will_do = {
+		value = 100
+	}
+	option = {
+		name = tfe_reform_into_a_monarchy.a
+		ai_chance = { value = 100 }
+		effect = {
+			custom_tooltip = tfe_host_kingdom_tt
+			change_government_type = government_type:monarchy
+			set_variable = tfe_host_kingdom	# never migrates again (decisions/tfe_fall_of_the_west.txt)
+			trigger_event_silently = { id = tfe_barbarian_kingdoms.2 days = 1 }	# the new monarchy only counts from the next day
+		}
+	}
+}
+
+tfe_accept_majority_culture = {
+	decision_category = tfe_fall_of_the_west
+	only_once = yes
+	image = "gfx/interface/illustrations/event/backgrounds/exterior/byz_soldiers_exterior.dds"
+	potential = {
+		has_variable = tfe_host_kingdom
+		exists = dominant_culture
+		NOT = { dominant_culture = root.culture }
+		NOT = { has_accepted_culture = dominant_culture }
+	}
+	ai_will_do = {
+		value = 10
+	}
+	option = {
+		name = tfe_accept_majority_culture.a
+		ai_chance = { value = 100 }
+		effect = {
+			dominant_culture = {
+				save_scope_as = tfe_new_culture
+			}
+			add_accepted_culture = scope:tfe_new_culture
+			# a few thousand warriors accepting millions of subjects would overrun culture capacity at once; the grant
+			# covers it then, and every further conquest of that people eats into it again
+			add_country_modifier = { modifier = tfe_lords_of_the_land }
+		}
+	}
+}
+
+tfe_convert_to_majority_religion = {
+	decision_category = tfe_fall_of_the_west
+	only_once = yes
+	image = "gfx/interface/illustrations/event/backgrounds/exterior/byz_soldiers_exterior.dds"
+	potential = {
+		has_variable = tfe_host_kingdom
+		exists = dominant_religion
+		NOT = { dominant_religion = root.religion }
+	}
+	ai_will_do = {
+		value = 25
+	}
+	option = {
+		name = tfe_convert_to_majority_religion.a
+		ai_chance = { value = 100 }
+		effect = {
+			dominant_religion = {
+				save_scope_as = tfe_new_religion
+			}
+			change_religion = scope:tfe_new_religion
+			change_religion_for_ruler_and_family = { country = root religion = scope:tfe_new_religion }
+		}
+	}
+}
+
+tfe_cross_the_rhine = {
+	decision_category = tfe_fall_of_the_west
+	image = "gfx/interface/illustrations/event/backgrounds/exterior/soldiers/north_german_soldiers_exterior.dds"
+	potential = {
+		tag = SLF	# the Salians never migrate (decisions/tfe_fall_of_the_west.txt)
+		situation:tfe_decline_of_the_west = { situation_is_active = yes }
+	}
+	allow = {
+		at_war = no
+		is_subject = no
+		custom_tooltip = {
+			text = tfe_rhine_crossed_tt
+			NOT = { has_variable = tfe_crossed_the_rhine }
+		}
+		any_neighbor_country = { tfe_is_western_rome = yes }
+	}
+	# a raid now and then, the more when Rome is weak or already busy elsewhere
+	ai_will_do = {
+		value = 5
+		if = {
+			limit = { international_organization:tfe_roman_empire ?= { var:tfe_unity < 50 } }
+			add = 20
+		}
+		if = {
+			limit = { any_neighbor_country = { tfe_is_western_rome = yes at_war = yes } }
+			add = 20
+		}
+	}
+	option = {
+		name = tfe_cross_the_rhine.a
+		ai_chance = { value = 100 }
+		effect = {
+			custom_tooltip = tfe_cross_the_rhine_tt
+			hidden_effect = {
+				set_variable = { name = tfe_crossed_the_rhine years = 10 }
+				set_variable = tfe_rhine_war	# auto_modifiers/tfe_migratory.txt, on_action/tfe_defectors.txt; gone when the war ends
+				random_neighbor_country = {
+					limit = { tfe_is_western_rome = yes }
+					save_scope_as = tfe_victim
+				}
+				tfe_muster_the_host_effect = yes
+				add_casus_belli = { target = scope:tfe_victim type = casus_belli:cb_tfe_cross_the_rhine }
+				declare_war_with_cb = { target = scope:tfe_victim type = casus_belli:cb_tfe_cross_the_rhine }
+			}
+		}
+	}
+}

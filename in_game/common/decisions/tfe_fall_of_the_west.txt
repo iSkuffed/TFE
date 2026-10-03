@@ -1,10 +1,11 @@
 ﻿# honorius-only: Stilicho's Claims is Honorius's (tools/test_western_rome.py)
 # TFE: the Fall of the West's decisions (written by script/decisions.py).
-# Migrate: a people of Germania or Dacia (tfe_is_migrator) may once give up its homeland, while the Decline of the West
+# Migrate: a people of Germania or Dacia (tfe_is_migrator) may give up its homeland, while the Decline of the West
 # runs, for a great host that costs nothing while it owns no land (auto_modifiers/tfe_migratory.txt). It cannot
 # replenish: landless, it has no manpower, so every warrior lost is gone until it wins land of its own. One decision per
 # empire: the host marches on the East or the West at once, and that Augustus may buy it off with land (Hospitalitas,
-# generic_actions/tfe_decline_rome.txt). The two differ only in the empire.
+# generic_actions/tfe_decline_rome.txt). The two differ only in the empire. A settled host may take the road again until
+# it reforms into a monarchy (decisions/tfe_barbarian_kingdoms.txt). The Salian Franks never migrate: they Cross the Rhine.
 # Stilicho's Claims: Honorius's West takes a casus belli on Eastern Illyricum, at a cost in Unity.
 tfe_migrate_east = {
 	decision_category = tfe_fall_of_the_west
@@ -12,7 +13,12 @@ tfe_migrate_east = {
 	potential = {
 		situation:tfe_decline_of_the_west = { situation_is_active = yes }
 		tfe_is_migrator = yes
-		NOT = { has_variable = tfe_migrating }
+		NOT = { tag = SLF }	# the Salians raid over the Rhine instead (decisions/tfe_barbarian_kingdoms.txt)
+		OR = {
+			NOT = { has_variable = tfe_migrating }
+			has_variable = tfe_settled	# a settled host may take the road again
+		}
+		NOT = { has_variable = tfe_host_kingdom }	# until it reforms into a monarchy (decisions/tfe_barbarian_kingdoms.txt)
 		country_exists = c:EAR
 	}
 	allow = {
@@ -23,12 +29,13 @@ tfe_migrate_east = {
 		is_subject = no	# no warband afield is fine: the host gathers at the capital
 		tfe_frontier_unmanned = yes	# scripted_triggers/tfe_decline_rome.txt: a manned frontier holds them
 	}
-	# Pace the chaos: one AI people on the road at a time. None moves within 4 years of the last host setting out
-	# (tfe_host_took_the_road), and then only when pushed: the Huns at the door or Rome divided.
+	# Pace the chaos: one AI people on the road at a time. None moves within a year of the last host setting out
+	# (tfe_host_took_the_road), and then only when pushed: the Huns at the door or Rome divided. A settled AI host
+	# stays settled.
 	ai_will_do = {
 		value = 0
 		if = {
-			limit = { NOT = { has_global_variable = tfe_host_took_the_road } at_war = no }
+			limit = { NOT = { has_global_variable = tfe_host_took_the_road } at_war = no NOT = { has_variable = tfe_settled } }
 			add = 5
 			if = {
 				limit = { any_neighbor_country = { tfe_is_under_the_yoke = yes } }
@@ -65,7 +72,12 @@ tfe_migrate_west = {
 	potential = {
 		situation:tfe_decline_of_the_west = { situation_is_active = yes }
 		tfe_is_migrator = yes
-		NOT = { has_variable = tfe_migrating }
+		NOT = { tag = SLF }	# the Salians raid over the Rhine instead (decisions/tfe_barbarian_kingdoms.txt)
+		OR = {
+			NOT = { has_variable = tfe_migrating }
+			has_variable = tfe_settled	# a settled host may take the road again
+		}
+		NOT = { has_variable = tfe_host_kingdom }	# until it reforms into a monarchy (decisions/tfe_barbarian_kingdoms.txt)
 		any_country = { tfe_is_western_rome = yes }
 	}
 	allow = {
@@ -76,12 +88,13 @@ tfe_migrate_west = {
 		is_subject = no	# no warband afield is fine: the host gathers at the capital
 		tfe_frontier_unmanned = yes	# scripted_triggers/tfe_decline_rome.txt: a manned frontier holds them
 	}
-	# Pace the chaos: one AI people on the road at a time. None moves within 4 years of the last host setting out
-	# (tfe_host_took_the_road), and then only when pushed: the Huns at the door or Rome divided.
+	# Pace the chaos: one AI people on the road at a time. None moves within a year of the last host setting out
+	# (tfe_host_took_the_road), and then only when pushed: the Huns at the door or Rome divided. A settled AI host
+	# stays settled.
 	ai_will_do = {
 		value = 0
 		if = {
-			limit = { NOT = { has_global_variable = tfe_host_took_the_road } at_war = no }
+			limit = { NOT = { has_global_variable = tfe_host_took_the_road } at_war = no NOT = { has_variable = tfe_settled } }
 			add = 5
 			if = {
 				limit = { any_neighbor_country = { tfe_is_under_the_yoke = yes } }

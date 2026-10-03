@@ -1,6 +1,7 @@
-﻿# TFE: Salvian's Romans who "flee to the barbarians". When a migrating host (decisions/tfe_fall_of_the_west.txt) takes a
-# Roman town, some of its men join it: every regiment of the host regains strength, and the empire loses them. The
-# West's burdens (government_reforms/tfe_late_roman_west.txt) drive more to go. A town gives men once a decade.
+﻿# TFE: Salvian's Romans who "flee to the barbarians". When a migrating host (decisions/tfe_fall_of_the_west.txt)
+# or the Franks raiding over the Rhine take a Roman town, some of its men join them: every regiment of the host
+# regains strength, and the empire loses them. The West's burdens (government_reforms/tfe_late_roman_west.txt)
+# drive more to go. A town gives men once a decade.
 on_siege_won = {
 	on_actions = { tfe_on_host_takes_roman_town }
 }
@@ -12,8 +13,13 @@ on_location_occupied = {
 # root = the occupier, scope:target = the location
 tfe_on_host_takes_roman_town = {
 	trigger = {
-		has_variable = tfe_migrating
-		NOT = { has_variable = tfe_settled }	# on_action/tfe_migratory.txt
+		OR = {
+			AND = {
+				has_variable = tfe_migrating
+				NOT = { has_variable = tfe_settled }	# on_action/tfe_migratory.txt
+			}
+			has_variable = tfe_rhine_war	# the Franks' raid over the Rhine (decisions/tfe_barbarian_kingdoms.txt)
+		}
 		scope:target = {
 			NOT = { has_location_modifier = tfe_fled_to_the_host }
 			owner ?= {

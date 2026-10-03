@@ -1,0 +1,10 @@
+﻿# TFE: the hosts become kingdoms (written by script/barbarian_kingdoms.py)
+tfe_lords_of_the_land = {
+	game_data = { category = country }
+	cultures_capacity = 4
+}
+
+tfe_settled_by_the_host = {
+	game_data = { category = location }
+	local_integration_speed_modifier = 1
+}

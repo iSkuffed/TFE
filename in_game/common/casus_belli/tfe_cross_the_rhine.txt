@@ -1,0 +1,12 @@
+﻿# TFE: the Salian Franks' raid over the Rhine (decisions/tfe_barbarian_kingdoms.txt). A landed people cannot use the
+# landless host's Migration, so this is its twin: the same war goal, only while the raid is on.
+cb_tfe_cross_the_rhine = {
+	create_visible = {
+		has_variable = tfe_rhine_war
+	}
+	create_enabled = {
+		scope:target = { tfe_is_western_rome = yes }
+	}
+	speed = 100
+	war_goal_type = superiority_tfe_migration
+}

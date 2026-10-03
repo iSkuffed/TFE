@@ -52,8 +52,10 @@ def build():
                 with h.every_in_list(LocationFx, variable="tfe_hospitalitas_land") as loc:
                     with loc.limit() as t:
                         t.compare("owner", "?=", "scope:tfe_rome")
-                    loc.add_core("scope:tfe_host")
                     loc.change_location_owner("scope:tfe_host")
+                    loc.note("Rome hands over a working province, tax rolls and all: integrated, not cored. It becomes a core\n"
+                             "once its people are the host's own culture or one it accepts (vanilla)")
+                    loc.change_integration_level("integrated")
                 with h.link("scope:tfe_host", CountryFx) as host:
                     forget_offer(host)
                 h.note("Rome gives its land away: Stilicho's Glory -5 (script/defs_stilicho.py)")

@@ -14,6 +14,8 @@ CB = COMMON / "casus_belli/tfe_migration.txt"
 WARGOAL = COMMON / "wargoals/tfe_migration.txt"
 SETTLE = COMMON / "on_action/tfe_migratory.txt"
 LOC = b.MOD / "main_menu/localization/english/tfe_migratory_l_english.yml"
+KINGDOMS_LOC = b.MOD / "main_menu/localization/english/tfe_barbarian_kingdoms_l_english.yml"   # the Rhine host's keys
+MUSTER = COMMON / "scripted_effects/tfe_barbarian_kingdoms.txt"   # the great host, shared with the Franks' raid
 ARMIES = b.MOD / "main_menu/setup/395/27_armies.txt"
 SCRIPTS = (EFFECT, AUTO, CB, WARGOAL, SETTLE)   # the Migrate decisions themselves: test_decisions.py
 
@@ -45,8 +47,8 @@ def test_start_migration_is_a_one_way_trip_for_the_peoples_beyond_the_rivers():
 
 
 def test_the_ai_takes_the_road_one_people_at_a_time():
-    # pace the chaos: ~19 peoples may migrate; the AI waits 4 years after any host sets out, then needs a push
-    assert "set_global_variable = { name = tfe_host_took_the_road value = yes years = 4 }" in code(EFFECT)
+    # pace the chaos: ~19 peoples may migrate; the AI waits a year after any host sets out, then needs a push
+    assert "set_global_variable = { name = tfe_host_took_the_road value = yes years = 1 }" in code(EFFECT)
     # the decisions' ai_will_do waits on it: test_decisions.py
 
 
@@ -117,12 +119,12 @@ def test_warband_units_exist_in_vanilla():
     vanilla = set()
     for p in (b.GAME / "in_game/common/unit_types").glob("*.txt"):
         vanilla |= set(re.findall(r"^(\w+) = \{", p.read_text(encoding="utf-8-sig"), re.M))
-    used = set(re.findall(r"type = (a_\w+)", code(EFFECT))) | set(re.findall(r"\b(a_\w+) = \{", code(ARMIES)))
+    used = set(re.findall(r"type = (a_\w+)", code(MUSTER))) | set(re.findall(r"\b(a_\w+) = \{", code(ARMIES)))
     assert used and used <= vanilla, used - vanilla
 
 
 def test_everything_is_localized():
-    keys = set(re.findall(r"^\s*([\w.]+):\d*\s", LOC.read_text(encoding="utf-8-sig"), re.M))
+    keys = {k for p in (LOC, KINGDOMS_LOC) for k in re.findall(r"^\s*([\w.]+):\d*\s", p.read_text(encoding="utf-8-sig"), re.M)}
     wanted = {f"AUTO_MODIFIER_NAME_{k}" for k in top_keys(AUTO)}
     wanted |= {k for c in top_keys(CB) for k in (c, f"{c}_desc")}
     wanted |= {k for g in top_keys(WARGOAL) for k in (f"war_goal_{g}", f"war_goal_{g}_desc")}
@@ -193,7 +195,7 @@ def test_barbaricum_lets_the_peoples_beyond_the_rivers_pass():
     assert {"tfe_barbaricum", "tfe_barbaricum_desc"} <= keys
 
 
-def test_a_fifth_of_the_people_follow_the_host_and_settle_its_capital():
+def test_a_fifth_of_the_people_follow_the_host_and_settle_the_land_it_won():
     # user: taking land shifts its people towards the host's culture and faith, by how many already live there
     effect = code(EFFECT)
     assert "limit = { culture = scope:tfe_host.culture }" in effect
@@ -202,9 +204,9 @@ def test_a_fifth_of_the_people_follow_the_host_and_settle_its_capital():
     assert taken == left   # the people are moved, not copied
     assert effect.index("tfe_host_people") < effect.index("change_location_owner")   # counted before the land goes
     on = code(SETTLE)
-    # user: in a peace deal the people settled anywhere but by the capital: the first land is made the capital, and
-    # every settler is planted there
+    # the first land is made the capital; the settlers spread over all the land a day later, once it has all been
+    # handed over (events/tfe_barbarian_kingdoms.txt: test_barbarian_kingdoms.py)
     settle = on[on.index("tfe_on_host_settles = {"):]
     assert "set_capital = scope:tfe_homeland" in settle and "tfe_on_host_plants_its_people" not in on
-    assert "culture = scope:winner.culture" in settle and "religion = scope:winner.religion" in settle
-    assert "size = scope:winner.var:tfe_host_people\n" in settle   # all of them, once
+    assert "add_pop" not in settle
+    assert "scope:winner = { trigger_event_silently = { id = tfe_barbarian_kingdoms.1 days = 1 } }" in settle

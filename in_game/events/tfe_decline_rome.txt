@@ -43,8 +43,10 @@ tfe_decline_rome.1 = {
 			every_in_list = {
 				variable = tfe_hospitalitas_land
 				limit = { owner ?= scope:tfe_rome }
-				add_core = scope:tfe_host
 				change_location_owner = scope:tfe_host
+				# Rome hands over a working province, tax rolls and all: integrated, not cored. It becomes a core
+				# once its people are the host's own culture or one it accepts (vanilla)
+				change_integration_level = integrated
 			}
 			scope:tfe_host = {
 				remove_variable = tfe_hospitalitas_from

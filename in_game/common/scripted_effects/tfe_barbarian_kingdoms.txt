@@ -1,0 +1,20 @@
+﻿# TFE: a people's great host gathers (scope: the country). Shared by a migration (tfe_start_migration_effect,
+# scripted_effects/tfe_migratory.txt) and the Franks' Cross the Rhine (decisions/tfe_barbarian_kingdoms.txt).
+tfe_muster_the_host_effect = {
+	save_scope_as = tfe_muster_owner
+	random_army = { unit_location = { save_scope_as = tfe_muster } }
+	if = {
+		limit = { NOT = { exists = scope:tfe_muster } }	# no warband afield: the host gathers at the capital
+		capital ?= { save_scope_as = tfe_muster }
+	}
+	scope:tfe_muster ?= {
+		while = {
+			count = 24
+			create_sub_unit_with_owner = { type = a_footmen owner = scope:tfe_muster_owner origin = scope:tfe_muster }
+		}
+		while = {
+			count = 8
+			create_sub_unit_with_owner = { type = a_tribal_cavalry owner = scope:tfe_muster_owner origin = scope:tfe_muster }
+		}
+	}
+}
