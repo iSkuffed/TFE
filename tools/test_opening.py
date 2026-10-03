@@ -130,3 +130,48 @@ def test_gildo_rises_with_all_roman_africa_but_tingitana():
     assert seven.index("location:tunis") < seven.index("location:cherchell")
     guide = (b.MOD / "main_menu/localization/english/tfe_decline_of_the_west_l_english.yml").read_text(encoding="utf-8-sig")
     assert "town by town" not in guide and "Tingitana" in guide
+
+
+def kv(node):
+    """a block's (key, value) pairs, scalars only."""
+    return [(n.key, n.val) for n in node.val if not isinstance(n.val, list)]
+
+
+def test_keeping_the_legions_and_taking_africa_are_betrayals():
+    # user: Stilicho keeping the Eastern legions sours the East; the East taking Gildo's Africa betrays the West.
+    # add_opinion in a country's scope is THAT country's opinion of the target (as tfe_stilicho.txt: the East's of the West)
+    import gildo_events
+    doc, gildo, biases = opening_events.build(), gildo_events.build(), opening_events.biases()
+    for name, value, decay in (("tfe_legions_kept", -25, 2.5), ("tfe_betrayed_over_africa", -50, 2.5),
+                               ("tfe_africa_given_east", -40, 2)):
+        assert biases.find("value", value, inside=name) and biases.find("min", value, inside=name)
+        assert biases.find("yearly_decay", decay, inside=name)
+    # the legions: from option b only, the East (EAR) holds the opinion, of the West
+    kept = doc.find("add_opinion", inside=("tfe_opening.1", "option", "c:EAR"))
+    assert [kv(n) for n in kept] == [[("target", "c:WRE"), ("modifier", "tfe_legions_kept")]]
+    assert len(doc.find("add_opinion", inside="tfe_opening.1")) == 1
+    # Accept: base 10, with the AI's love, trust, unity, rivalry and Stilicho as factors; Refuse is a flat 10
+    accept, refuse = doc.find("ai_chance", inside=("tfe_opening.4", "option"))
+    assert ("base", "10") in kv(accept) and kv(refuse) == [("base", "10")]
+    mods = [m for m in accept.val if m.key == "modifier"]
+    assert [dict(kv(m))["factor"] for m in mods] == ["0.2", "0.5", "0.3", "3", "2", "3"]
+    opinion, trust, high, rival, low, stilicho = (m.val for m in mods)
+    assert find(opinion, "value", inside="opinion")[0].op == ">=" and find(opinion, "target", "c:WRE", inside="opinion")
+    assert find(trust, "value", inside="trust")[0].op == ">=" and find(trust, "target", "c:WRE", inside="trust")
+    assert find(rival, "is_rival_of", "c:WRE")
+    for cmp_, op, n in ((high, ">=", "60"), (low, "<", "30")):
+        unity = find(cmp_, "var:tfe_unity", inside="international_organization:tfe_roman_empire")
+        assert [(u.op, u.val) for u in unity] == [(op, n)]
+    assert find(stilicho, "has_variable", "tfe_stilicho_claims_the_east")
+    # Accept tells the West the same day; the notice is the West's opinion of the East
+    assert doc.find("trigger_event_non_silently", "tfe_opening.8", inside=("tfe_opening.4", "option", "c:WRE"))
+    notice = doc.find("add_opinion", inside=("tfe_opening.8", "option"))
+    assert [kv(n) for n in notice] == [[("target", "c:EAR"), ("modifier", "tfe_betrayed_over_africa")]]
+    # Africa becomes the East's vassal: Roman Unity -10 and a second notice with a different bias, so the two stack
+    sealed = [f for f in gildo.find("if", inside="tfe_gildo.6") if find(f.val, "make_subject_of")]
+    assert len(sealed) == 1
+    assert [kv(n) for n in find(sealed[0].val, "change_variable")] == [[("name", "tfe_unity"), ("add", "-10")]]
+    assert find(sealed[0].val, "trigger_event_non_silently", "tfe_gildo.7")
+    second = gildo.find("add_opinion", inside=("tfe_gildo.7", "option"))
+    assert [kv(n) for n in second] == [[("target", "c:EAR"), ("modifier", "tfe_africa_given_east")]]
+    assert gildo.find("custom_tooltip", "tfe_unity_down_10_tt", inside="tfe_gildo.7")

@@ -16,7 +16,7 @@
  tfe_stilicho_holds_gaul_tt: "We hold land in Gaul, or in Hispania with Glory at #Y 90#! or more"
  tfe_stilicho.2.a.tt: "Stilicho's army rises in Gaul, and in Hispania too if his Glory is #Y 90#! or more. #Y We follow him#!: he becomes our ruler, at war with Honorius, who keeps Italy and the Imperium Romanum. Britain and Africa break away. Take Honorius's capital to win the West."
  tfe_stilicho.2.b.tt: "Stilicho and his son Eucherius are put to death. Olympius becomes regent. Stability #R -50#!, the estates grow restless, and Stilicho's Glory is gone."
- tfe_unity_up_20_tt: "Roman Unity: #G +20#!"
+ tfe_unity_up_20_tt: "[tfe_roman_unity|E]: #G +20#!"
  tfe_stilicho.4.a.tt: "Honorius is put to death. No rival Augustus is left in the West, but the East is appalled."
  tfe_stilicho.4.b.tt: "Honorius goes to Constantinople, to live at the Eastern court."
  AUTO_MODIFIER_NAME_tfe_stilicho_regency: "Stilicho's Command"

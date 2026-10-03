@@ -134,6 +134,10 @@ def build():
                 with f.link("c:GILDO", CountryFx) as g:
                     g.make_subject_of(target="c:EAR", type="subject_type:vassal")
                 f.remove_variable("tfe_gildo_goes_east")
+                f.note("the West is told the oath is sealed (7); Roman Unity falls as it is told")
+                with f.hidden_effect() as h, h.go_international_organization_data("tfe_roman_empire", op="?=") as io:
+                    io.change_variable(name="tfe_unity", add=-10)
+                f.trigger_event_non_silently("tfe_gildo.7")
             i.note("Carthage decides where he sits")
             with i.if_() as f:
                 with f.limit() as t, t.link("location:tunis", LocationTrig) as tunis:
@@ -144,6 +148,18 @@ def build():
                 with f.limit() as t:
                     t.var("tfe_gildo_wave", "<", 24)
                 f.trigger_event_silently(id="tfe_gildo.6", months=1)
+
+    doc.note("Gildo kneels to Arcadius (fired by 6 when he becomes the East's vassal)")
+    with doc.event(7, type="country_event", title="Africa Kneels to Constantinople", outcome="negative",
+                   desc="The war is over, and Gildo has knelt to Arcadius. Africa is a vassal of the Eastern throne now, its "
+                        "grain, its ports and its legions pledged to Constantinople.\n\nThe grain fleet will sail for the "
+                        "Bosporus, and Rome will queue for what is left. The Senate asks whether this is what a brother "
+                        "owes a brother.",
+                   image=INT + "byz_nobles_interior.dds") as e:
+        e.note("Roman Unity -10 was taken in 6; the West's opinion of the East falls with Betrayed over Africa's")
+        with e.option("a", text="Africa is lost to the brother court") as o:
+            o.custom_tooltip("tfe_unity_down_10_tt")
+            o.add_opinion(target="c:EAR", modifier="tfe_africa_given_east")
 
     # the yml's other keys: tooltips for the options' hold changes, and the rebel country's names
     for amount, color in ((10, "#G -10"), (15, "#G -15"), (20, "#G -20"), (30, "#G -30")):
