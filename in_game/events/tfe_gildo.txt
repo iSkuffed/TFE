@@ -160,6 +160,13 @@ tfe_gildo.6 = {
 				}
 			}
 			remove_variable = tfe_gildo_goes_east
+			# the West is told the oath is sealed (7); Roman Unity falls as it is told
+			hidden_effect = {
+				international_organization:tfe_roman_empire ?= {
+					change_variable = { name = tfe_unity add = -10 }
+				}
+			}
+			trigger_event_non_silently = tfe_gildo.7
 		}
 		# Carthage decides where he sits
 		if = {
@@ -170,5 +177,20 @@ tfe_gildo.6 = {
 			limit = { var:tfe_gildo_wave < 24 }
 			trigger_event_silently = { id = tfe_gildo.6 months = 1 }
 		}
+	}
+}
+
+# Gildo kneels to Arcadius (fired by 6 when he becomes the East's vassal)
+tfe_gildo.7 = {
+	type = country_event
+	title = tfe_gildo.7.title
+	desc = tfe_gildo.7.desc
+	outcome = negative
+	image = "gfx/interface/illustrations/event/backgrounds/interior/byz_nobles_interior.dds"
+	# Roman Unity -10 was taken in 6; the West's opinion of the East falls with Betrayed over Africa's
+	option = {
+		name = tfe_gildo.7.a
+		custom_tooltip = tfe_unity_down_10_tt
+		add_opinion = { target = c:EAR modifier = tfe_africa_given_east }
 	}
 }

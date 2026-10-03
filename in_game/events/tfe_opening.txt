@@ -37,6 +37,11 @@ tfe_opening.1 = {
 				change_variable = { name = tfe_unity add = -15 }
 			}
 		}
+		# and the East, whose army this was, never forgives it (script/opening_events.py biases())
+		custom_tooltip = tfe_legions_kept_tt
+		hidden_effect = {
+			c:EAR ?= { add_opinion = { target = c:WRE modifier = tfe_legions_kept } }
+		}
 		ai_chance = { base = 1 }
 	}
 }
@@ -266,8 +271,38 @@ tfe_opening.4 = {
 				change_variable = { name = tfe_unity add = -15 }
 			}
 		}
+		# the West is told the same day: tfe_opening.8
+		hidden_effect = { c:WRE ?= { trigger_event_non_silently = tfe_opening.8 } }
 		ai_chance = {
-			base = 1
+			base = 10
+			# Constantinople takes Africa unless it loves or fears the West: friendship and a united Empire hold it
+			# back, a rival, a broken Empire and Stilicho's hand on the Eastern legions push it forward
+			modifier = {
+				factor = 0.2
+				opinion = {
+					target = c:WRE
+					value >= 50
+				}
+			}
+			modifier = {
+				factor = 0.5
+				trust = {
+					target = c:WRE
+					value >= 50
+				}
+			}
+			modifier = {
+				factor = 0.3
+				international_organization:tfe_roman_empire ?= { var:tfe_unity >= 60 }
+			}
+			modifier = {
+				factor = 3
+				is_rival_of = c:WRE
+			}
+			modifier = {
+				factor = 2
+				international_organization:tfe_roman_empire ?= { var:tfe_unity < 30 }
+			}
 			modifier = {
 				factor = 3
 				c:WRE ?= { has_variable = tfe_stilicho_claims_the_east }
@@ -283,6 +318,21 @@ tfe_opening.4 = {
 				change_variable = { name = tfe_unity add = 5 }
 			}
 		}
+		ai_chance = { base = 10 }
+	}
+}
+
+# The West learns the East took Africa (fired by 4's accept)
+tfe_opening.8 = {
+	type = country_event
+	title = tfe_opening.8.title
+	desc = tfe_opening.8.desc
+	outcome = negative
+	image = "gfx/interface/illustrations/event/backgrounds/interior/byz_nobles_interior.dds"
+	# the West's opinion of the East: Betrayed over Africa
+	option = {
+		name = tfe_opening.8.a
+		add_opinion = { target = c:EAR modifier = tfe_betrayed_over_africa }
 		ai_chance = { base = 1 }
 	}
 }

@@ -5,8 +5,9 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
-from pdx.api import (CharacterFx, CharacterTrig, CountryFx, CountryTrig, InternationalOrganizationFx, LocationFx,
-                     LocationTrig, RebelsFx)
+from pdx.api import (CharacterFx, CharacterTrig, CountryFx, CountryTrig, InternationalOrganizationFx,
+                     InternationalOrganizationTrig, LocationFx, LocationTrig, RebelsFx)
+from pdx.core import Cmp
 from pdx.objects import Doc
 
 BG = "gfx/interface/illustrations/event/backgrounds/"
@@ -23,6 +24,12 @@ def shift(o: CountryFx, amount: int):
 def unity(o: CountryFx, amount: int):
     o.custom_tooltip(f"tfe_unity_{'down' if amount < 0 else 'up'}_{abs(amount)}_tt")
     shift(o, amount)
+
+
+def unity_is(t: CountryTrig, op, amount: int):
+    """Roman Unity compared, read from any country's scope."""
+    t.link("international_organization:tfe_roman_empire", InternationalOrganizationTrig,
+           lambda io: io.var("tfe_unity", op, amount), op="?=")
 
 
 def alive(t: CountryTrig, who: str):
@@ -68,6 +75,10 @@ def build():
                 m.create_num_sub_unit_of_category(count=4, category="sub_unit_category:army_heavy_infantry")
                 m.create_num_sub_unit_of_category(count=2, category="sub_unit_category:army_heavy_cavalry")
             unity(o, -15)
+            o.note("and the East, whose army this was, never forgives it (script/opening_events.py biases())")
+            o.custom_tooltip("tfe_legions_kept_tt")
+            with o.hidden_effect() as h:
+                h.link("c:EAR", CountryFx, lambda ear: ear.add_opinion(target="c:WRE", modifier="tfe_legions_kept"), op="?=")
             o.ai_chance(1)
 
     doc.note("27 November 395: Gainas's Goths cut Rufinus down on the Campus Martius at Constantinople")
@@ -228,12 +239,40 @@ def build():
             with o.hidden_effect() as h:
                 h.link("c:WRE", CountryFx, lambda w: w.set_variable("tfe_gildo_goes_east"))
             unity(o, -15)
-            with o.ai_chance_block(1) as a, a.modifier(3) as t:
-                wre_has(t, "tfe_stilicho_claims_the_east")
+            o.note("the West is told the same day: tfe_opening.8")
+            with o.hidden_effect() as h:
+                h.link("c:WRE", CountryFx, lambda w: w.trigger_event_non_silently("tfe_opening.8"), op="?=")
+            with o.ai_chance_block(10) as a:
+                a.note("Constantinople takes Africa unless it loves or fears the West: friendship and a united Empire hold it\n"
+                       "back, a rival, a broken Empire and Stilicho's hand on the Eastern legions push it forward")
+                with a.modifier(0.2) as t:
+                    t.opinion(target="c:WRE", value=Cmp(">=", 50))
+                with a.modifier(0.5) as t:
+                    t.trust(target="c:WRE", value=Cmp(">=", 50))
+                with a.modifier(0.3) as t:
+                    unity_is(t, ">=", 60)
+                with a.modifier(3) as t:
+                    t.is_rival_of("c:WRE")
+                with a.modifier(2) as t:
+                    unity_is(t, "<", 30)
+                with a.modifier(3) as t:
+                    wre_has(t, "tfe_stilicho_claims_the_east")
 
         e.note("one empire: send his envoys back to Carthage in chains")
         with e.option("b", text="Send his envoys back in chains") as o:
             unity(o, 5)
+            o.ai_chance(10)
+
+    doc.note("The West learns the East took Africa (fired by 4's accept)")
+    with doc.event(8, type="country_event", title="The East Receives Gildo's Envoys", outcome="negative",
+                   image=BG + "interior/byz_nobles_interior.dds",
+                   desc="Our agents at Constantinople write that Arcadius's court received Gildo's envoys with honours, and "
+                        "that the Eastern ministers read his letter of homage aloud in the consistory. The diocese that "
+                        "feeds Rome now looks to a second throne.\n\nBrothers in the purple do not do this to one another. "
+                        "The Senate will not forget whose hand held the knife.") as e:
+        e.note("the West's opinion of the East: Betrayed over Africa")
+        with e.option("a", text="The East will answer for this") as o:
+            o.add_opinion(target="c:EAR", modifier="tfe_betrayed_over_africa")
             o.ai_chance(1)
 
     doc.note("Early 407: Britain's army makes and unmakes Marcus and Gratian, then crowns a common soldier for his name")
@@ -277,9 +316,23 @@ def build():
     return doc
 
 
+def biases():
+    doc = Doc()
+    doc.note("TFE: the East's grudge over the Eastern legions, and the West's over Africa (events/tfe_opening.txt, tfe_gildo.txt).\n"
+             "add_opinion run in a country's scope is that country's opinion of the target.")
+    doc.note("Stilicho kept the Eastern army: the East's opinion of the West")
+    doc.bias("tfe_legions_kept", -25, min=-25, yearly_decay=2.5)
+    doc.note("the East took Gildo's homage: the West's opinion of the East")
+    doc.bias("tfe_betrayed_over_africa", -50, min=-50, yearly_decay=2.5)
+    doc.note("Africa is the East's vassal: the West's opinion of the East, on top of the homage")
+    doc.bias("tfe_africa_given_east", -40, min=-40, yearly_decay=2)
+    return doc
+
+
 def outputs():
     """{repo-relative path: text}; write each with encoding="utf-8-sig" (the BOM is the writer's job)."""
-    return {"in_game/events/tfe_opening.txt": build().text()}
+    return {"in_game/events/tfe_opening.txt": build().text(),
+            "in_game/common/biases/tfe_opening.txt": biases().text()}
 
 
 if __name__ == "__main__":

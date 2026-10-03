@@ -1,0 +1,22 @@
+﻿# TFE: the East's grudge over the Eastern legions, and the West's over Africa (events/tfe_opening.txt, tfe_gildo.txt).
+# add_opinion run in a country's scope is that country's opinion of the target.
+# Stilicho kept the Eastern army: the East's opinion of the West
+tfe_legions_kept = {
+	value = -25
+	min = -25
+	yearly_decay = 2.5
+}
+
+# the East took Gildo's homage: the West's opinion of the East
+tfe_betrayed_over_africa = {
+	value = -50
+	min = -50
+	yearly_decay = 2.5
+}
+
+# Africa is the East's vassal: the West's opinion of the East, on top of the homage
+tfe_africa_given_east = {
+	value = -40
+	min = -40
+	yearly_decay = 2
+}
