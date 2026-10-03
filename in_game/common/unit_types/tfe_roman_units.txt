@@ -3,17 +3,16 @@
 # pictures. A unit type cannot be renamed for one country, so they are new types, as vanilla's own legionaries are.
 # Rome cannot recruit Footmen or Archers, so its recruit list shows only these. The Stilicho opening's legions are
 # created by category, so they come out as Comitatenses too.
-# Pictures: a unit's own gfx tags are tried before its soldiers' culture, so a tag named after an illustration
-# (illustrations/units/army_infantry_<tag>.dds) shows it in both empires whatever the regiment's culture. The
-# Comitatenses' armoured spearmen are Fate of the Phoenix's, not copied; without it they fall back to the generic
-# infantry. The Limitanei have their own picture, main_menu/gfx/interface/illustrations/units/army_infantry_tfe_limitanei.dds
-# (and masks/), which the game tries before any tag: MAZZO313's painting of late Roman spearmen, its mask black so
-# its red and white tunics and wheel-painted shields keep their own colours.
+# Pictures: each has its own, main_menu/gfx/interface/illustrations/units/army_infantry_<unit type>.dds (and masks/),
+# which the game tries before any gfx tag or culture: MAZZO313's paintings, mailed spearmen behind eagle and sunburst
+# shields for the Comitatenses, spearmen in striped tunics behind wheel-painted shields for the Limitanei. The mask's
+# red marks the stripes and shields, which the game tints with the country's colour: red in the West, purple in the
+# East, as MAZZO313 painted them for each.
 
 tfe_comitatenses = {
 	copy_from = a_footmen
 	country_potential = { OR = { tfe_is_western_rome = yes has_or_had_tag = EAR } }	# a copy keeps vanilla's, which bars Rome
-	gfx_tags = { medium_tag east_mediterranean_gfx }	# armoured spearmen behind big shields: the field army's line
+	gfx_tags = { medium_tag }	# vanilla Footmen's 3D look; the picture is its own file
 }
 
 tfe_limitanei = {
