@@ -1,0 +1,136 @@
+﻿# TFE: the offices of the late Roman state, one for the treasury, one for the court and one for the army.
+# Held by the two Roman empires (and Stilicho's West); vanilla's Byzantine set is behind Fate of the Phoenix and BYZ/TRE.
+# Funded, an office pays its positive side; neglected, its negative side bites (scale = 1 - maintenance).
+# The Sacrae Largitiones are the imperial treasury (the Comes Sacrarum Largitionum), the Magister Officiorum heads the
+# palace offices and the post, and the Magister Peditum commands the infantry of the field army (Notitia Dignitatum).
+
+tfe_sacrae_largitiones_bureaucracy = {
+	implementation_price = price:implement_bureaucracy_price
+	maintenance_price = price:maintain_bureaucracy_price
+	removal_price = price:remove_bureaucracy_price
+	maintenance_price_modifier = {
+		value = country_economical_base
+		multiply = 0.004
+	}
+
+	potential = {
+		OR = {
+			tfe_is_western_rome = yes
+			has_or_had_tag = EAR
+		}
+	}
+
+	estates_that_like = {
+		crown_estate
+	}
+	estates_that_dislike = {
+		nobles_estate
+		peasants_estate
+	}
+
+	neutral_modifier = {
+		creditworthiness_bonus = 0.05
+	}
+
+	positive_modifier = {
+		scale = { value = scope:maintenance }
+		global_estate_max_tax = 0.05
+		global_estate_target_satisfaction = 0.025
+	}
+
+	negative_modifier = {
+		scale = {
+			value = 1
+			subtract = scope:maintenance
+		}
+		global_estate_max_tax = -0.05
+		global_estate_target_satisfaction = -0.05
+	}
+}
+
+tfe_magister_officiorum_bureaucracy = {
+	implementation_price = price:implement_bureaucracy_price
+	maintenance_price = price:maintain_bureaucracy_price
+	removal_price = price:remove_bureaucracy_price
+	maintenance_price_modifier = {
+		value = country_economical_base
+		multiply = 0.004
+	}
+
+	potential = {
+		OR = {
+			tfe_is_western_rome = yes
+			has_or_had_tag = EAR
+		}
+	}
+
+	estates_that_like = {
+		crown_estate
+		burghers_estate
+	}
+	estates_that_dislike = {
+		nobles_estate
+	}
+
+	neutral_modifier = {
+		monthly_legitimacy = 0.05
+	}
+
+	positive_modifier = {
+		scale = { value = scope:maintenance }
+		monthly_political_influence_gain_modifier = 0.1
+		global_distance_from_capital_speed_propagation = 0.1
+	}
+
+	negative_modifier = {
+		scale = {
+			value = 1
+			subtract = scope:maintenance
+		}
+		monthly_political_influence_gain_modifier = -0.15
+		global_distance_from_capital_speed_propagation = -0.1
+	}
+}
+
+tfe_magister_peditum_bureaucracy = {
+	implementation_price = price:implement_bureaucracy_price
+	maintenance_price = price:maintain_bureaucracy_price
+	removal_price = price:remove_bureaucracy_price
+	maintenance_price_modifier = {
+		value = country_economical_base
+		multiply = 0.004
+	}
+
+	potential = {
+		OR = {
+			tfe_is_western_rome = yes
+			has_or_had_tag = EAR
+		}
+	}
+
+	estates_that_like = {
+		nobles_estate
+	}
+	estates_that_dislike = {
+		burghers_estate
+	}
+
+	neutral_modifier = {
+		monthly_army_tradition = 0.05
+	}
+
+	# discipline is a Unit-category key but vanilla puts it in country blocks; the dearer upkeep is the price of drill
+	positive_modifier = {
+		scale = { value = scope:maintenance }
+		discipline = 0.05
+		army_maintenance_efficiency = -0.1
+	}
+
+	negative_modifier = {
+		scale = {
+			value = 1
+			subtract = scope:maintenance
+		}
+		discipline = -0.05
+	}
+}
