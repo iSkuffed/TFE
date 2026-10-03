@@ -906,6 +906,26 @@ UNITY_BAR = """
 				}
 """
 
+# TFE: the description of the mod's own IOs in the window body (vanilla only shows <type>_desc in tooltips)
+TFE_IO_KEYS = ("tfe_barbaricum", "tfe_roman_empire", "tfe_hunnic_yoke")
+IO_DESC = """
+				# TFE: what this organisation is, under its header (its <type>_desc)
+				vbox = {
+					visible = "[OURS]"
+					layoutpolicy_horizontal = expanding
+					margin = { 14 8 }
+					using = bg_paper_card
+					using = bg_cabinet_card_frame
+					text_multi = {
+						layoutpolicy_horizontal = expanding
+						max_width = 390
+						autoresize = yes
+						text = "[Localize(Concatenate(InternationalOrganizationsView.GetInternationalOrganization.GetType.GetNameKey, '_desc'))]"
+					}
+				}
+"""
+
+
 def augusti_in_io_header(vanilla):
     # the Imperium Romanum shows both Augusti with the union's two-portrait header, and its Unity beneath them
     key = "InternationalOrganizationsView.GetInternationalOrganization.GetType.GetNameKey"
@@ -914,7 +934,8 @@ def augusti_in_io_header(vanilla):
               f"[And5(Not(InternationalOrganizationsView.GetInternationalOrganization.GetType.ShowStrengthComparisonWithTarget),Not({ours}),"),
              (f"[Or(EqualTo_string({key},'union'),EqualTo_string({key},'marriage_union'))]\"\n\t\t\t\t\tlayoutpolicy_horizontal = expanding\n\t\t\t\t\tsize = {{ -1 220 }}\n\t\t\t\t}}\n",
               f"[Or3(EqualTo_string({key},'union'),EqualTo_string({key},'marriage_union'),{ours})]\"\n\t\t\t\t\tlayoutpolicy_horizontal = expanding\n\t\t\t\t\tsize = {{ -1 220 }}\n\t\t\t\t}}\n"
-              + UNITY_BAR.replace("OURS", ours)))
+              + UNITY_BAR.replace("OURS", ours)
+              + IO_DESC.replace("OURS", f"Or3({','.join(f'EqualTo_string({key},{chr(39)}{k}{chr(39)})' for k in TFE_IO_KEYS)})")))
     for old, new in swaps:
         assert vanilla.count(old) == 1, f"vanilla {IO_PANEL} changed: redo augusti_in_io_header"
         vanilla = vanilla.replace(old, new)

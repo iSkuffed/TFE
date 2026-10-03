@@ -129,6 +129,16 @@ def test_the_phases_open_on_named_causes():
     assert "is_member_of_international_organization = international_organization:tfe_hunnic_yoke" in rome and 'desc = "TFE_UNITY_HUNNIC_SUBSIDY"' in rome
 
 
+def test_the_goal_text_states_the_trigger_and_the_count_is_the_triggers():
+    loc = LOC.read_text(encoding="utf-8-sig")
+    goal = re.search(r'^ TFE_STORM_PHASE_1_GOAL: "(.*)"$', loc, re.M).group(1)
+    # the trigger counts the Huns too: size 8 = 7 peoples with a Roman empire among them, from 434 size 6 = 5 peoples
+    assert "at least #Y 7#! peoples pay the Huns tribute, and a Roman empire is one of them" in goal
+    assert "it is #Y 434#! or later and at least #Y 5#! peoples pay them tribute" in goal
+    count = re.search(r'^ TFE_STORM_TRIBUTARY_COUNT: "(.*)"$', loc, re.M).group(1)
+    assert "ScriptValue('tfe_yoke_size')" in count and "GetSubjects" not in count   # the number the trigger reads, less the Huns
+
+
 def test_the_scourge_is_a_title_not_a_roll():
     trait = code(TRAIT)
     assert top_keys(TRAIT) == ["tfe_scourge_of_god"] and "always = no" in trait and "category = ruler" in trait

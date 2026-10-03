@@ -114,3 +114,11 @@ def test_io_panel_override_is_regenerated_from_the_current_game():
     assert "add_to_list = leaders" in code(IO)
     vanilla = (b.GAME / b.IO_PANEL).read_text(encoding="utf-8-sig")
     assert (b.MOD / b.IO_PANEL).read_text(encoding="utf-8-sig") == b.augusti_in_io_header(vanilla)
+
+
+def test_the_io_window_shows_the_description_of_the_three_tfe_orgs():
+    gui = (b.MOD / "in_game/gui/panels/organization/common.gui").read_text(encoding="utf-8-sig")
+    block = gui[gui.index("what this organisation is"):gui.index("# specific header for coalitions")]
+    for k in ("tfe_barbaricum", "tfe_roman_empire", "tfe_hunnic_yoke"):
+        assert f"GetNameKey,'{k}')" in block, k
+    assert "Concatenate(InternationalOrganizationsView.GetInternationalOrganization.GetType.GetNameKey, '_desc')" in block

@@ -165,7 +165,7 @@ def hospitalitas(doc: Doc):
 
 
 def man_the_limes(doc: Doc):
-    doc.note("Man the Limes: gold and men to garrison one stretch of the frontier for 10 years")
+    doc.note("Man the Limes: gold and men to garrison one stretch of the frontier for a year")
     with doc.generic_action("tfe_man_the_limes") as a:
         head(a)
         with a.triggers("allow") as t, t.link(ACTOR, CountryTrig) as c, c.any_owned_location() as loc:
@@ -188,7 +188,7 @@ def man_the_limes(doc: Doc):
                 with loc.limit() as t:
                     t.compare("owner", "?=", ACTOR)
                     t.tfe_has_frontier_works()
-                loc.add_location_modifier(modifier="tfe_limes_manned", years=10, mode="replace")
+                loc.add_location_modifier(modifier="tfe_limes_manned", years=1, mode="replace")
         with a.effects("ai_will_do", ValueFx) as v:
             v.add(0)
             v.note("a people still at home across that stretch of the frontier, and gold to spare")
