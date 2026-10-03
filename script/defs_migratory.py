@@ -45,32 +45,24 @@ def raise_host(d: Defs):
         e.note("the homeland is given up for good: the host keeps no core on it, nor on any land it won before")
         with e.every_core_location() as loc:
             loc.remove_core("scope:tfe_host")
-        e.note("a neighbouring people moves into the homeland, so it is not left empty; its pops stay, under new lords. A\n"
-               "settled host taking the road again leaves Roman land to the Rome next door, its old master. Only with no\n"
-               "such neighbour is it abandoned.")
-        with e.random_neighbor_country() as n:
-            with n.limit() as t:
-                with t.not_() as x:
-                    x.tfe_is_western_rome()
-                with t.not_() as x:
-                    x.tag("EAR")
-                with t.not_() as x:
-                    x.has_variable("tfe_migrating")
-            n.save_scope_as("tfe_heir_to_the_land")
+        e.note("those who stayed make a country of the homeland, a tribe of the majority culture at the old capital, in the\n"
+               "host's faith, holding every location the host leaves; no neighbour gets it. A host that owns no capital leaves\n"
+               "nothing to hold: the land is abandoned. The remnant takes its name from the game's default for a new country.")
         with e.if_() as i:
-            with i.limit() as t:
-                t.not_(lambda n: n.exists("scope:tfe_heir_to_the_land"))
-                t.has_variable("tfe_settled")
-            with i.random_neighbor_country() as n:
-                with n.limit() as t, t.or_() as o:
-                    o.tfe_is_western_rome()
-                    o.tag("EAR")
-                n.save_scope_as("tfe_heir_to_the_land")
-        with e.if_() as i:
-            with i.limit() as t:
-                t.exists("scope:tfe_heir_to_the_land")
+            with i.limit() as t, t.go_capital(op="?=") as cap:
+                cap.compare("owner", "=", "scope:tfe_host")
+            with i.go_capital() as cap:
+                cap.save_scope_as("tfe_old_capital")
+                with cap.create_country_from_location() as c:
+                    c.change_government_type("government_type:tribe")
+                    c.tail("only counts after the effect block ends")
+                    c.change_culture("scope:tfe_old_capital.dominant_culture")
+                    c.change_religion("scope:tfe_host.religion")
+                    c.set_variable(name="tfe_remnant_of", value="scope:tfe_host")
+                    c.save_scope_as("tfe_remnant")
             with i.every_owned_location() as loc:
-                loc.change_location_owner("scope:tfe_heir_to_the_land")
+                loc.change_location_owner("scope:tfe_remnant")
+                loc.add_core("scope:tfe_remnant")
         with e.else_() as i:
             with i.every_owned_location() as loc:
                 with loc.link("scope:tfe_host", CountryFx) as host:
