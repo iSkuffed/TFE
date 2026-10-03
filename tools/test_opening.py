@@ -49,7 +49,7 @@ def test_everything_shown_is_localized_and_defined():
 
 
 def test_every_opening_event_is_scheduled():
-    fired = set(re.findall(r"(tfe_opening\.\d+)", code(ON_ACTION) + code(EVENT).split("tfe_opening.1 = {")[1]))
+    fired = set(re.findall(r"(tfe_opening\.\d+)", code(ON_ACTION) + code(US) + code(EVENT).split("tfe_opening.1 = {")[1]))
     defined = set(re.findall(r"^(tfe_opening\.\d+) = \{", code(EVENT), re.M))
     assert defined and fired >= defined, defined - fired
 

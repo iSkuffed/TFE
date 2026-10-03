@@ -214,3 +214,22 @@ tfe_on_stilicho_takes_the_capital = {
 	}
 	events = { tfe_stilicho.4 }
 }
+
+# The same for Constantine's empire out of Britain (CONST): if it is the usurper that holds Honorius's capital,
+# the West is his (tfe_stilicho.5).
+on_location_occupied = {
+	on_actions = { tfe_on_constantine_takes_the_capital }
+}
+
+on_siege_won = {
+	on_actions = { tfe_on_constantine_takes_the_capital }
+}
+
+tfe_on_constantine_takes_the_capital = {
+	trigger = {
+		tag = CONST
+		is_at_war_with = c:WRE
+		c:WRE ?= { capital = scope:target }
+	}
+	events = { tfe_stilicho.5 }
+}
