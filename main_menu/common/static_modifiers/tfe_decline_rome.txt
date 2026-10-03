@@ -1,4 +1,4 @@
-﻿# TFE: a stretch of the frontier that an Augustus has manned (generic_actions/tfe_decline_rome.txt), for ten years
+﻿# TFE: a stretch of the frontier that an Augustus has manned (generic_actions/tfe_decline_rome.txt), for a year
 tfe_limes_manned = {
 	game_data = { category = location }
 	local_defensive = 0.25

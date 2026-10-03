@@ -148,7 +148,7 @@ tfe_hospitalitas = {
 	}
 }
 
-# Man the Limes: gold and men to garrison one stretch of the frontier for 10 years
+# Man the Limes: gold and men to garrison one stretch of the frontier for a year
 tfe_man_the_limes = {
 	type = situation
 	potential = {
@@ -226,7 +226,7 @@ tfe_man_the_limes = {
 			scope:limes_region = {
 				every_location_in_region = {
 					limit = { owner ?= scope:actor tfe_has_frontier_works = yes }
-					add_location_modifier = { modifier = tfe_limes_manned years = 10 mode = replace }
+					add_location_modifier = { modifier = tfe_limes_manned years = 1 mode = replace }
 				}
 			}
 		}

@@ -9,7 +9,7 @@
  war_goal_superiority_tfe_migration: "Seize a Homeland"
  war_goal_superiority_tfe_migration_desc: "We will take land from them for our people to settle. $generic_war_goal_superiority_desc$"
  tfe_barbaricum: "Barbaricum"
- tfe_barbaricum_desc: "The lands beyond the limes, as Rome calls them. Their peoples raid, trade and marry across borders nobody polices, and a warband may cross a neighbour's land without asking leave. A host on the road goes where it will."
+ tfe_barbaricum_desc: "Barbaricum is what Rome calls the free peoples beyond the limes of Germania and Dacia: Franks and Saxons, Goths and Vandals, Lombards, Gepids and the rest. They raid, trade and marry across borders nobody polices.\n\nMembers may march through each other's land and eat from its fields, so a warband never starves on a neighbour's ground. A host on the road may go anywhere without being driven out. Membership is fixed: no one joins and no one leaves. The peoples may still make war on one another."
  diplomatic_status_tfe_barbaricum_name: "Barbaricum"
  diplomatic_status_tfe_barbaricum_tooltip: "#T Barbaricum#!\nThis [country|e] is one of the free peoples beyond the limes."
  tfe_barbaricum_list_who_tt: "$WHO$ shares the Barbaricum with $LIST$"

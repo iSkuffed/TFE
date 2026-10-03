@@ -331,3 +331,15 @@ def test_the_limes_shows_a_stockade_on_the_map():
         body = re.search(rf"^template {name} \{{(.*?)^\}}", tpl, re.M | re.S).group(1)
         want = -1.0 if name == "capital_flag" else 1.0
         assert f"has_building_with_at_least_one_level:tfe_limes = {want}" in body, name
+
+
+def test_granary_is_half_and_the_delta_three_quarters():
+    # the Granaries are +50% wheat; the Fertile Nile Delta (vanilla +25%) is +75% on every crop the 395 map still grows there
+    assert "local_wheat_output_modifier = 0.5\n" in (b.MOD / "main_menu/common/static_modifiers/tfe_granary_of_rome.txt").read_text(encoding="utf-8-sig")
+    delta = (b.MOD / "main_menu/common/static_modifiers/tfe_nile_delta.txt").read_text(encoding="utf-8-sig")
+    ours = (b.MOD / "in_game/map_data/location_templates.txt").read_text(encoding="utf-8-sig")
+    used = set(re.findall(r"modifier = (nile_delta_\w+_base)\b", ours))
+    assert used and used == set(re.findall(r"^REPLACE:(nile_delta_\w+_base) = ", delta, re.M))
+    for key in used:
+        crop = key.removeprefix("nile_delta_").removesuffix("_base")
+        assert f"local_{crop}_output_modifier = 0.75\n" in delta, key
