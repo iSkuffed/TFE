@@ -10,5 +10,9 @@ cb_tfe_illyrian_claim = {
 		scope:target = { tag = EAR }
 	}
 	speed = 100
+	# 1.4 wants a province filter on a take_province CB; the war goal's allowed_locations does the choosing
+	province = {
+		always = yes
+	}
 	war_goal_type = tfe_take_illyricum
 }

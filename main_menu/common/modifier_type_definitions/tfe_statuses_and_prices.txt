@@ -1,0 +1,60 @@
+﻿# TFE: modifier types 1.4 asks for. Each special status needs its parliament pair, and each price its cost modifier.
+tfe_senior_augustus_can_participate_in_parliament={
+	boolean=yes
+	game_data={
+		category=internationalorganization
+	}
+}
+
+tfe_senior_augustus_agenda_impact={
+	percent=yes
+	game_data={
+		category=internationalorganization
+	}
+}
+
+tfe_hunnic_overlord_can_participate_in_parliament={
+	boolean=yes
+	game_data={
+		category=internationalorganization
+	}
+}
+
+tfe_hunnic_overlord_agenda_impact={
+	percent=yes
+	game_data={
+		category=internationalorganization
+	}
+}
+
+tfe_hunnic_raid_prestige_cost_modifier={
+	color=bad
+	percent=yes
+	game_data={
+		category=country
+	}
+}
+
+tfe_hunnic_storm_gold_cost_modifier={
+	color=bad
+	percent=yes
+	game_data={
+		category=country
+	}
+}
+
+tfe_hunnic_tribute_price_cost_modifier={
+	color=bad
+	percent=yes
+	game_data={
+		category=country
+	}
+}
+
+tfe_man_the_limes_price_cost_modifier={
+	color=bad
+	percent=yes
+	game_data={
+		category=country
+	}
+}

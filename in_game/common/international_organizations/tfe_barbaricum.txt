@@ -13,7 +13,6 @@ tfe_barbaricum = {
 	show_leave_message = no
 	use_laws_as_join_reason = no
 	subject_limited = no
-	can_invite_countries = no
 	expel_members_who_are_targets_of_other_members = no
 	expel_members_who_are_attackers_at_war_with_other_members = no
 	expel_members_who_are_defenders_at_war_with_other_members = no

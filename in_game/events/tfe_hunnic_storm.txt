@@ -91,13 +91,13 @@ tfe_hunnic_storm.3 = {
 			NOT = { is_at_war_with = c:HNS }
 		}
 		# a tributary of the Huns just stops paying; a free member goes to war
-		custom_tooltip = {
-			text = tfe_break_the_yoke_tt
-			trigger = { is_subject = no }
+		if = {
+			limit = { is_subject = no }
+			custom_tooltip = tfe_break_the_yoke_tt
 		}
-		custom_tooltip = {
-			text = tfe_cast_off_the_tribute_tt
-			trigger = { is_subject_type = tributary }
+		if = {
+			limit = { is_subject_type = tributary }
+			custom_tooltip = tfe_cast_off_the_tribute_tt
 		}
 		hidden_effect = {
 			if = {

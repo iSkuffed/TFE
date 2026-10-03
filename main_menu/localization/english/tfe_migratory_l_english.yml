@@ -17,3 +17,4 @@
  diplomatic_status_tfe_barbaricum_name: "Barbaricum"
  diplomatic_status_tfe_barbaricum_tooltip: "#T Barbaricum#!\nThis [country|e] is one of the free peoples beyond the limes."
  tfe_barbaricum_list_who_tt: "$WHO$ shares the Barbaricum with $LIST$"
+ io_opinion_tfe_barbaricum: "Fellow Peoples of the Barbaricum"
