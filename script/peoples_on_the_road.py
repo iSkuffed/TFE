@@ -146,7 +146,7 @@ def invite_settlers(doc: Doc):
     doc.loc.add(f"{ACTION}_desc", "Our kin still live beyond the Rhine and the Danube, on poor land. Send for them: they will "
                 "walk to the land we took from the Romans and settle it as our own people.")
     doc.loc.add(f"{ACTION}_tt", "A band of settlers sets out from Germania and walks to the chosen [location|e]. There they "
-                "settle as [peasants|e] of our [culture|e]. If the land is no longer ours when they arrive, they settle by "
+                "settle as peasants of our [culture|e]. If the land is no longer ours when they arrive, they settle by "
                 "our [capital|e].")
     doc.loc.add(f"{ACTION}_choose_location", "Choose the land to settle")
     doc.loc.add(f"{ACTION}_no_location", "All our land is already settled by our own people.")
