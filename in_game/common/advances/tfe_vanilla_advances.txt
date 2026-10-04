@@ -80,10 +80,7 @@ REPLACE:andalusi_arquebusiers = {
 REPLACE:aqueduct_system = {
 	age = age_1_traditions
 	potential = {
-		OR = {
-			tag = EAR
-			tfe_is_western_rome = yes
-		}
+		tfe_is_roman_empire = yes
 	}
 	unlock_building = aqueduct_system
 	requires = agriculture_advance
@@ -206,10 +203,7 @@ REPLACE:byz_autokratoria_rhomaion = {
 	age = age_5_absolutism
 	icon = imperial_ambitions
 	potential = {
-		OR = {
-			tag = EAR
-			tfe_is_western_rome = yes
-		}
+		tfe_is_roman_empire = yes
 	}
 	global_integration_speed_modifier = 0.2
 	requires = regiment_reinforcement_speed_absolutism
@@ -220,10 +214,7 @@ REPLACE:byz_modernized_strategikon = {
 	age = age_5_absolutism
 	icon = professional_armies_advance
 	potential = {
-		OR = {
-			tag = EAR
-			tfe_is_western_rome = yes
-		}
+		tfe_is_roman_empire = yes
 	}
 	army_tradition_decay = -0.001
 	num_of_varangian_units = 2
@@ -338,10 +329,7 @@ REPLACE:deliberative_council = {
 REPLACE:expanded_aqueduct_system = {
 	age = age_2_renaissance
 	potential = {
-		OR = {
-			tag = EAR
-			tfe_is_western_rome = yes
-		}
+		tfe_is_roman_empire = yes
 	}
 	aqueduct_system_max_level = 1
 	requires = pound_lock_canals_advance
@@ -1337,10 +1325,7 @@ REPLACE:road_advance_2 = {
 REPLACE:rom_provincial_governors = {
 	age = age_5_absolutism
 	potential = {
-		OR = {
-			tag = EAR
-			tfe_is_western_rome = yes
-		}
+		tfe_is_roman_empire = yes
 	}
 	requires = absolutist_court
 	icon = modern_road_advance
@@ -1350,10 +1335,7 @@ REPLACE:rom_provincial_governors = {
 REPLACE:rom_restore_the_legions = {
 	age = age_2_renaissance
 	potential = {
-		OR = {
-			tag = EAR
-			tfe_is_western_rome = yes
-		}
+		tfe_is_roman_empire = yes
 	}
 	requires = professional_armies_advance
 	icon = teu_crusader_discipline
@@ -1364,10 +1346,7 @@ REPLACE:rom_restore_the_legions = {
 REPLACE:rom_revival_of_arts_and_culture = {
 	age = age_2_renaissance
 	potential = {
-		OR = {
-			tag = EAR
-			tfe_is_western_rome = yes
-		}
+		tfe_is_roman_empire = yes
 	}
 	requires = patron_of_art
 	icon = patron_of_art
@@ -1725,10 +1704,7 @@ REPLACE:unlock_late_gallowglass_advance = {
 REPLACE:unlock_legionaries_1_advance = {
 	age = age_1_traditions
 	potential = {
-		OR = {
-			tag = EAR
-			tfe_is_western_rome = yes
-		}
+		tfe_is_roman_empire = yes
 	}
 	unlock_unit = a_legionaries_1
 	requires = iron_working
@@ -1738,10 +1714,7 @@ REPLACE:unlock_legionaries_1_advance = {
 REPLACE:unlock_legionaries_2_advance = {
 	age = age_2_renaissance
 	potential = {
-		OR = {
-			tag = EAR
-			tfe_is_western_rome = yes
-		}
+		tfe_is_roman_empire = yes
 	}
 	unlock_unit = a_legionaries_2
 	requires = armory_advance

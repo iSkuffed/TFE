@@ -96,7 +96,7 @@ REQUIRES: dict[str, list[str]] = {
 }
 
 # Rule E: vanilla's Roman and Byzantine advances are gated on ROM/BYZ, which TFE's Rome never is.
-ROMAN = "OR = { tag = EAR tfe_is_western_rome = yes }"
+ROMAN = "tfe_is_roman_empire = yes"
 POTENTIAL: dict[str, str] = {
     "aqueduct_system": ROMAN,
     "expanded_aqueduct_system": ROMAN,
@@ -172,9 +172,6 @@ RENAME: dict[str, tuple[str, str]] = {
         "Companies of publicani bid for state contracts and supply the army, and the merchants among them come "
         "to hold office."),
     # --- Age 2, Migrations
-    "renaissance_advance": ("Classical Revival",
-        "Educated men copy Virgil and Cicero and write in the old forms, and the glory of the classical past "
-        "gives our culture a longer reach."),
     "renaissance_sculptures": ("Spolia and Sculpture",
         "Old statues and columns are reused and new ones carved, and the quarries are worked harder."),
     "renaissance_thought": ("Senatorial Counsel",
@@ -186,9 +183,6 @@ RENAME: dict[str, tuple[str, str]] = {
         "Poets, rhetors and philosophers crowd the palace, and our culture is known the further for them."),
     "rgo_build_time_advance": ("Brick and Concrete",
         "Masons who know vaults, concrete and brick-faced walls raise great buildings in far less time."),
-    "banking_advance": ("Argentarii",
-        "Moneylenders and bankers, the argentarii, take deposits, lend on security and settle debts between "
-        "cities, under rules that keep loans fair."),
     "late_feudal_relations": ("Client Kingdoms",
         "Rome rules through client kings who owe it troops and loyalty by treaty, and those bound to us by "
         "treaty are slower to turn."),
@@ -552,9 +546,6 @@ RENAME: dict[str, tuple[str, str]] = {
     "noble_resilience": ("Noble Connections",
         "The war-bands of this land are headed by lesser nobles, and a ruler who befriends them finds troops for hire."),
     # --- Age 6, Charlemagne
-    "enlightenment_advance": ("House of Wisdom",
-        "Scholars gather books from all lands and translate Greek, Persian and Sanskrit works, and tolerance for "
-        "the learned and their views grows."),
     "artists_advance_revolutions": ("Carolingian Illumination",
         "Scribes and painters fill gospels and psalters with illumination, and new artists come with better skills."),
     "war_score_revolutions_advance": ("Just War",
@@ -673,6 +664,71 @@ RENAME: dict[str, tuple[str, str]] = {
         "Scholars who debate Scripture against the rabbis make our learning famous."),
     "judaism_positive_historical_movement": ("Responsa",
         "Rabbis answer questions of law from every community, and their answers are copied and cited."),
+    # --- The institutions' root advances take their institution's name (script/institutions.py THEMES)
+    "feudalism_advance": ("Patrocinium",
+        "Where the state cannot protect the poor, a great landlord can. Peasants and small owners commend "
+        "themselves and their land to a patron, pay him rent and service, and are defended in return. The "
+        "patron's estate grows into a power of its own."),
+    "legalism_advance": ("Roman Law",
+        "Rome's jurists have written down how a citizen may sue, marry, bequeath and contract, and the codes "
+        "of the emperors bind the whole Empire. Where the law is known and its courts sit, a stranger can "
+        "trust a bargain and a governor can be held to a rule."),
+    "meritocracy_advance": ("The Nine Ranks",
+        "Officials are graded in nine ranks by the quality of their character and learning, and the court "
+        "rises by recommendation rather than by blood. The system began under the kings of Wei and shapes the "
+        "governments of the east."),
+    "renaissance_advance": ("Monasticism",
+        "Men and women leave the world for a life of prayer and labour under a rule. Their houses clear land, "
+        "copy books, shelter travellers and keep the learning of an older age alive."),
+    "banking_advance": ("The Solidus",
+        "Constantine's gold coin has kept its weight for generations, and the world prices its goods by it. "
+        "Where the solidus circulates, bankers lend against it and merchants trust a bargain made in it."),
+    "professional_armies_advance": ("Foederati",
+        "Whole peoples are settled within the frontier and bound by treaty to fight for the emperor under "
+        "their own chiefs. Their warbands are better soldiers than the levies of the provinces, and they know "
+        "it."),
+    "new_world_advance": ("The Monsoon Trade",
+        "Sailors from Egypt and Arabia have learned the rhythm of the monsoon winds and cross the Indian "
+        "Ocean to the pepper coasts of India. Each year the ships carry out gold and wine and bring back "
+        "spices, cloth and gems."),
+    "printing_press_advance": ("The Scriptorium",
+        "The codex has replaced the scroll, and monks and clerks copy it by hand in workshops attached to "
+        "cathedrals and monasteries. Books grow cheaper and more people learn to read them."),
+    "pike_and_shot_advance": ("Mounted Archery",
+        "The riders of the steppe and the Persian plateau shoot from the saddle, wheeling and loosing. Their "
+        "way of war spreads to every army that has faced them and survived."),
+    "confessionalism_advance": ("Religious Law",
+        "A faith that writes down its rules makes a community of its believers, with courts of its own. "
+        "Councils, synods and schools of jurists set out what the faithful must do, and judges apply it to "
+        "the common life."),
+    "global_trade_advance": ("The Silk Road",
+        "Caravans carry silk, paper and spice across the oases of Central Asia, and the cities along the road "
+        "grow rich on tolls and markets. Goods, faiths and ideas pass from hand to hand between China and the "
+        "Mediterranean."),
+    "artillery_institution_advance": ("Greek Fire",
+        "Engineers of Constantinople learn to throw a burning liquid that water cannot put out. The secret of "
+        "its making is closely kept, and the fleets and walls it defends are hard to take."),
+    "manufactories_advance": ("Paper",
+        "Paper, a Chinese art, reaches the workshops of Samarkand and Baghdad. It is cheaper than parchment "
+        "and papyrus, and the clerks, merchants and scholars who use it write more."),
+    "scientific_revolution_advance": ("The House of Wisdom",
+        "Scholars at the caliph's court gather books from every land and translate them into Arabic. In "
+        "Baghdad mathematicians, astronomers and physicians set out to test what the ancients wrote."),
+    "military_revolution_advance": ("The Heavy Horse",
+        "The stirrup and a stronger breed of horse give the armoured rider a seat from which he can couch a "
+        "lance. A charge of such men can break an infantry line, and the ruler who can field them has the "
+        "upper hand."),
+    "enlightenment_advance": ("The Carolingian Renaissance",
+        "Charlemagne gathers scholars from every part of Christendom to his court. Schools open at cathedrals "
+        "and monasteries, handwriting is made clear, and the Latin classics are copied again."),
+    "industrialization_advance": ("The Manor",
+        "A lord's estate is farmed in strips by dependent peasants, who owe him labour on his own fields. The "
+        "mill, the heavy plough and the three-field rotation make such estates the cell of the northern "
+        "economy."),
+    "levee_en_masse_advance": ("Feudalism",
+        "Land is held in return for military service, and every lord owes his king a body of mounted men. "
+        "Counts and their vassals can call up an army for the season and send it home when the campaign is "
+        "over."),
 }
 
 TAG_GATED = re.compile(r"(?:has_or_had_tag|tag)\s*=\s*(SAX|RMN|ASK)\b")

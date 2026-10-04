@@ -27,5 +27,6 @@ def all_outputs():
 
 if __name__ == "__main__":
     for rel, text in all_outputs().items():
+        (ROOT / rel).parent.mkdir(parents=True, exist_ok=True)
         (ROOT / rel).write_text(text, encoding=encoding(rel), newline="\n")
         print("wrote", rel)
