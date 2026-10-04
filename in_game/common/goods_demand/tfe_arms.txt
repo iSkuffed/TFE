@@ -135,3 +135,21 @@ REPLACE:pop_demand = {
 	rice = 1
 	category = pop_needs
 }
+
+REPLACE:build_railroad_demand = {
+	lumber = 0.5
+	masonry = 1
+	sand = 0.25
+	stone = 2
+	iron = 1
+	category = building_construction
+}
+
+# TFE: no road asks for steel (no steel before the steel mill): its share is paid in stone and iron at vanilla prices
+REPLACE:maintain_railroad_demand = {
+	sand = 0.002
+	masonry = 0.01
+	stone = 0.02
+	iron = 0.01
+	category = building_maintenance
+}

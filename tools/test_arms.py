@@ -98,7 +98,7 @@ def firearms_inputs(text):
 
 def test_every_vanilla_block_that_buys_firearms_is_replaced():
     for folder, skip in FOLDERS.items():
-        replaced = set(arms.vanilla_firearms_blocks()[folder])
+        replaced = set(arms.vanilla_firearms_blocks()[folder]) | (set(arms.vanilla_road_demands()) if folder.endswith("goods_demand") else set())
         written = {line.split(" = ", 1)[0].removeprefix("REPLACE:") for line in OUT[f"{folder}/tfe_arms.txt"].splitlines()
                    if line.startswith("REPLACE:")}
         assert replaced == written, folder
@@ -128,3 +128,34 @@ def test_a_replaced_building_keeps_everything_but_firearms():
     text = OUT["in_game/common/building_types/tfe_arms.txt"]
     block = text.split("REPLACE:armory = {", 1)[1].split("\nREPLACE:", 1)[0]
     assert "weaponry = 1" in block and "leather = 0.5" in block and "can_recruit_regiment_in_this_location = yes" in block
+
+
+def _demands(text):
+    from lint_script import parse
+    from pdx.core import from_entries
+    return {n.key.removeprefix("REPLACE:"): {k.key: float(k.val) for k in n.val if k.key not in ("category", "hidden", "copy_from")}
+            for n in from_entries(parse(text)) if n.key and isinstance(n.val, list)}
+
+
+def test_no_road_demands_a_good_that_cannot_exist():
+    late = {"steel", "firearms"} | set(arms.LATE_GOODS)
+    ours = _demands(TEXT)
+    names = arms.road_demand_names()
+    assert len(names) == 8  # build and maintain, for each of the four roads
+    for name in names:
+        if name in ours:
+            assert not set(ours[name]) & late, name
+        else:  # vanilla's own demand, kept: it must never have asked for one
+            vanilla = next(d for p in sorted((GAME / "in_game/common/goods_demand").glob("*.txt"))
+                           for d in [_demands(p.read_text(encoding="utf-8-sig"))] if name in d)[name]
+            assert not set(vanilla) & late, name
+
+
+def test_the_via_publica_costs_the_same_with_period_goods():
+    ours = _demands(TEXT)
+    for name, vanilla in arms.vanilla_road_demands().items():
+        before = {k.key: float(k.val) for k in vanilla.val if k.key != "category"}
+        value = lambda d: sum(a * arms.goods_price(g) for g, a in d.items())  # noqa: E731
+        assert abs(value(before) - value(ours[name])) < 1e-6, name
+        assert "steel" not in ours[name] and ours[name]["stone"] > 0 and ours[name]["iron"] > 0
+    assert set(arms.vanilla_road_demands()) == {"build_railroad_demand", "maintain_railroad_demand"}

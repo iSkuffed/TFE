@@ -19,6 +19,11 @@ DEMANDS = "in_game/common/goods_demand"
 METHODS = "in_game/common/production_methods"  # standalone inputs (barracks, garrisons...)
 BUILDINGS = "in_game/common/building_types"    # inline inputs (armory, forts...): the whole building is replaced
 FOLDERS = (DEMANDS, METHODS, BUILDINGS)
+ROAD_TYPES = "in_game/common/road_types"
+GOODS = "in_game/common/goods"
+# Goods no road can use in 395-895 (steel needs a steel mill, which is a ruler of the 800s at the earliest), and what pays for
+# them instead: each good takes its share of the value at vanilla prices, so a road costs the same in gold-equivalent.
+LATE_GOODS: dict[str, dict[str, float]] = {"steel": {"stone": 0.4, "iron": 0.6}}
 SKIP_DEMANDS = {"from_events.txt"}  # 1337 events that never fire
 OUT_ROADS = "in_game/common/road_types/tfe_roads.txt"
 LOC = "main_menu/localization/english/replace/tfe_arms_l_english.yml"
@@ -274,6 +279,56 @@ def _fold(node: Node) -> Node:
     return Node(node.key, node.op, out)
 
 
+def goods_price(good: str) -> float:
+    """vanilla's default_market_price of a good (1 when it names none)."""
+    for p in sorted((b.GAME / GOODS).glob("*.txt")):
+        for node in from_entries(parse(p.read_text(encoding="utf-8-sig"))):
+            if node.key == good and isinstance(node.val, list):
+                return next((_num(k) for k in node.val if k.key == "default_market_price"), 1.0)
+    raise KeyError(good)
+
+
+def _vanilla_roads() -> list[Node]:
+    out = []
+    for p in sorted((b.GAME / ROAD_TYPES).glob("*.txt")):
+        out += [n for n in from_entries(parse(p.read_text(encoding="utf-8-sig"))) if n.key and isinstance(n.val, list)]
+    return out
+
+
+def road_demand_names() -> list[str]:
+    """every construction and maintenance demand of every road type, from vanilla's road types."""
+    return [str(k.val) for road in _vanilla_roads() for k in _kids(road) if k.key in ("construction_demand", "maintenance_demand")]
+
+
+def _swap_late(node: Node) -> Node:
+    """a goods demand with each late good paid in period goods of the same total value."""
+    out: list[Node] = []
+    for k in _kids(node):
+        if k.key not in LATE_GOODS:
+            out.append(k)
+            continue
+        value = _num(k) * goods_price(k.key)
+        for good, share in LATE_GOODS[k.key].items():
+            amount = round(value * share / goods_price(good), 6)
+            mine = next((o for o in out if o.key == good), None)
+            if mine:
+                mine.val = str(round(_num(mine) + amount, 6))
+            else:
+                out.append(Node(good, "=", str(amount).removesuffix(".0")))
+    return Node(node.key, node.op, out)
+
+
+@functools.lru_cache(maxsize=None)
+def vanilla_road_demands() -> dict[str, Node]:
+    """{demand: node} of the road demands that ask for a late good, in vanilla's file order."""
+    names, out = set(road_demand_names()), {}
+    for p in sorted((b.GAME / DEMANDS).glob("*.txt")):
+        for node in from_entries(parse(p.read_text(encoding="utf-8-sig"))):
+            if node.key in names and any(k.key in LATE_GOODS for k in _kids(node)):
+                out[node.key] = node
+    return out
+
+
 def _merged(node: Node) -> Node:
     out = _fold(node)
     out.key = "REPLACE:" + node.key
@@ -294,7 +349,11 @@ def outputs():
     out = {}
     for folder, nodes in vanilla_firearms_blocks().items():
         blocks = [_merged(n) for n in nodes.values()]
+        if folder == DEMANDS:
+            blocks += [Node("REPLACE:" + k, "=", _swap_late(n).val) for k, n in vanilla_road_demands().items()]
         blocks[0].lead = ["TFE: no gunpowder in 395-895, so every arm is bought as weaponry, summed one for one (both cost 3); written by script/arms.py"]
+        if folder == DEMANDS:
+            blocks[-1].lead = ["TFE: no road asks for steel (no steel before the steel mill): its share is paid in stone and iron at vanilla prices"]
         out[f"{folder}/tfe_arms.txt"] = render(blocks)
     roads = [Node("REPLACE:railroad", "=", road_block())]
     roads[0].lead = ["TFE: the top road keeps vanilla's numbers but looks like the stone road; named the Via Publica (written by script/arms.py)"]
