@@ -176,3 +176,25 @@ tfe_illyricum_claims = {
 		}
 	}
 }
+
+# debug mode only (vanilla's test_decisions.txt): Glory to 100, which brings on the showdown at once
+tfe_debug_stilicho_glory = {
+	decision_category = tfe_fall_of_the_west
+	image = "gfx/interface/illustrations/event/backgrounds/exterior/byz_soldiers_exterior.dds"
+	potential = {
+		debug_only = yes
+		tfe_stilicho_serves_us = yes
+	}
+	ai_will_do = {
+		value = 0
+	}
+	option = {
+		name = tfe_debug_stilicho_glory.a
+		ai_chance = { value = 100 }
+		effect = {
+			tfe_add_stilicho_glory = {
+				amount = 100
+			}
+		}
+	}
+}

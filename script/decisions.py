@@ -137,6 +137,20 @@ def illyricum(doc: Doc):
                     io.change_variable(name="tfe_unity", add=-10)
 
 
+def debug_glory(doc: Doc):
+    doc.note("debug mode only (vanilla's test_decisions.txt): Glory to 100, which brings on the showdown at once")
+    with doc.decision("tfe_debug_stilicho_glory", category=CATEGORY, title="(Debug) Stilicho's Glory to 100",
+                      desc="Testing only: raises Stilicho's Glory to 100, and Honorius forces the showdown.",
+                      image=EXT + "byz_soldiers_exterior.dds") as d:
+        with d.potential() as t:
+            t.debug_only(True)
+            t.tfe_stilicho_serves_us()
+        with d.ai_will_do() as v:
+            v.value(0)
+        with d.option("a", text="Glory to 100") as o, o.effect() as e:
+            e.tfe_add_stilicho_glory(amount=100)
+
+
 def build():
     """(the category file, the decisions file); both share one localisation."""
     cats, doc = Doc(), Doc()
@@ -148,6 +162,7 @@ def build():
     migrate(doc, "tfe_migrate_east", "EAR")
     migrate(doc, "tfe_migrate_west", "WRE")
     illyricum(doc)
+    debug_glory(doc)
     doc.loc.add("tfe_stilicho_serves_us_tt", "Stilicho lives and serves us")
     doc.loc.add("tfe_illyricum_claim_pressed_tt", "We have not pressed Stilicho's claim in the last ten years")
     return cats, doc

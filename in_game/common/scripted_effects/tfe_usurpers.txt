@@ -13,24 +13,22 @@ tfe_constantine_rises = {
 		limit = { region = region:great_britain_region }
 		every_pop = { change_pop_allegiance = scope:tfe_constantine_rebels }
 	}
-	# the wars we are in already (a host, Gildo, Stilicho's revolt) are not his: mark them, then find the new one
-	every_country = {
-		limit = { is_at_war_with = root }
-		set_variable = tfe_old_enemy
-	}
+	# the revolter is the country the revolt makes, not an enemy we already had (a host, Gildo, Stilicho's revolt)
+	# nor a subject that joins it: mark every country there is, then find the new one
+	every_country = { set_variable = tfe_before_the_revolt }
 	scope:tfe_constantine_rebels ?= { start_revolt = yes }
 	random_country = {
 		limit = {
 			is_at_war_with = root
-			NOT = { has_variable = tfe_old_enemy }
+			NOT = { has_variable = tfe_before_the_revolt }
 			# no backer: the revolter holds nothing beyond Britain, or nothing at all
 			NOT = { any_owned_location = { NOT = { region = region:great_britain_region } } }
 		}
 		set_variable = tfe_constantine_revolter
 	}
 	every_country = {
-		limit = { has_variable = tfe_old_enemy }
-		remove_variable = tfe_old_enemy
+		limit = { has_variable = tfe_before_the_revolt }
+		remove_variable = tfe_before_the_revolt
 	}
 	trigger_event_silently = tfe_opening.9
 }

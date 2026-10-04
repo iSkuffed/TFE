@@ -94,18 +94,17 @@ tfe_stilicho_rises = {
 		limit = { tfe_stilicho_base_land = yes }
 		every_pop = { change_pop_allegiance = scope:tfe_stilicho_rebels }
 	}
-	every_country = {
-		limit = { is_at_war_with = root }
-		set_variable = tfe_old_enemy
-	}
+	# the revolter is the country the revolt makes: a subject or neighbour that joins it (a foederati host) is
+	# only a backer, so mark every country there is, then find the new one
+	every_country = { set_variable = tfe_before_the_revolt }
 	scope:tfe_stilicho_rebels ?= { start_revolt = yes }
 	random_country = {
-		limit = { is_at_war_with = root NOT = { has_variable = tfe_old_enemy } }
+		limit = { is_at_war_with = root NOT = { has_variable = tfe_before_the_revolt } }
 		set_variable = tfe_stilicho_revolter
 	}
 	every_country = {
-		limit = { has_variable = tfe_old_enemy }
-		remove_variable = tfe_old_enemy
+		limit = { has_variable = tfe_before_the_revolt }
+		remove_variable = tfe_before_the_revolt
 	}
 	trigger_event_silently = { id = tfe_stilicho.3 days = 1 }
 }
