@@ -32,6 +32,14 @@ def test_portugal_is_a_kingdom():
     assert "culture" not in f.sub(p, "potential") and "christian" not in f.sub(p, "potential")
 
 
+
+def test_no_portugal_before_charlemagne():
+    """a Hispano-Roman rebel formed a Kingdom of Portugal in 443 and took all Iberia: the name waits for the Age of
+    Charlemagne (800; the County of Portugal dates from 868), and the button shows why"""
+    allow = f.sub(E["POR_f"], "allow")
+    assert "current_age = age_6_revolutions" in allow and "has_tribal_government = no" in allow
+
+
 def test_germania_is_a_kingdom():
     g = E["GER_f"]
     assert "level = 3" in g and "rank_kingdom" in g and "rank_empire" not in g
