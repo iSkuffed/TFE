@@ -73,6 +73,12 @@ def test_no_settlers_from_an_empty_germania():
     assert allow and "pop_size" in str(allow[0].val) and "north_german_region" in str(allow[0].val)
 
 
+def test_the_carpi_send_only_for_their_own_kin():
+    """Germanic pops are a source only when the king is Germanic"""
+    allow = str(pr.DOC.find("allow", None, inside=(ACTION,))[0].val)
+    assert "scope:actor.culture" in allow and allow.count("tfe_is_germanic_culture") >= 2 * len(pr.SOURCE_REGIONS)
+
+
 def test_no_settlers_from_an_empty_carpathia_either():
     allow = str(pr.DOC.find("allow", None, inside=(ACTION,))[0].val)
     assert "carpathia_region" in allow and "scope:actor.culture" in allow
@@ -83,6 +89,8 @@ def test_settlers_are_thousands_gathered_from_many_peoples():
     assert pr.SETTLER_SIZE >= 10 and pr.SETTLER_SHARE <= 0.5
     loops = pr.DOC.find("every_in_list", None, inside=(ACTION, "effect"))
     assert len(loops) == 2
+    own, rest = (str(loop.val) for loop in loops)
+    assert "NOT" not in own and "NOT" in rest, "no pop gives a second share in the second pass"
     assert pr.DOC.find("multiply", str(pr.SETTLER_SHARE), inside=(ACTION, "effect"))
     assert pr.DOC.find("value", "var:tfe_settlers_gathered", inside=(ACTION, "effect"))
 

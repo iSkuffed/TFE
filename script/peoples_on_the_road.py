@@ -142,12 +142,16 @@ def send(fx: CountryFx, *, frm: str, to: str, culture: str, religion: str, size:
 
 
 def germanic_settlers(t: PopTrig):
-    """a pop with people to spare: Germanic, or the king's own"""
+    """a pop with people to spare: the king's own, or any Germanic one for a Germanic king (the Carpi and Iazyges send
+    only for their own kin)"""
     t.pop_size(SOURCE_MIN, op=">=")
     with t.or_() as o:
-        with o.go_culture() as c:
-            c.tfe_is_germanic_culture(True)
         o.compare("culture", "=", "scope:actor.culture")
+        with o.and_() as a:
+            with a.go_culture() as c:
+                c.tfe_is_germanic_culture(True)
+            with a.link("scope:actor.culture", CultureTrig) as k:
+                k.tfe_is_germanic_culture(True)
 
 
 def gather(fx: PopFx):
@@ -255,6 +259,9 @@ def invite_settlers(doc: Doc):
                                 t.compare("scope:actor.var:tfe_settlers_wanted", ">", 0)
                                 if own:
                                     t.compare("culture", "=", "scope:actor.culture")
+                                else:
+                                    t.note("the king's own gave their share in the first pass")
+                                    t.not_(lambda n: n.compare("culture", "=", "scope:actor.culture"))
                             gather(p)
                     with i.link("scope:tfe_settler_pop", PopFx) as p, p.go_location() as loc:
                         loc.save_scope_as("tfe_settler_home")

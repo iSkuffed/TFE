@@ -36,10 +36,13 @@ tfe_invite_germanic_settlers = {
 							any_pop = {
 								pop_size >= 1
 								OR = {
-									culture = {
-										tfe_is_germanic_culture = yes
-									}
 									culture = scope:actor.culture
+									AND = {
+										culture = {
+											tfe_is_germanic_culture = yes
+										}
+										scope:actor.culture = { tfe_is_germanic_culture = yes }
+									}
 								}
 							}
 						}
@@ -49,10 +52,13 @@ tfe_invite_germanic_settlers = {
 							any_pop = {
 								pop_size >= 1
 								OR = {
-									culture = {
-										tfe_is_germanic_culture = yes
-									}
 									culture = scope:actor.culture
+									AND = {
+										culture = {
+											tfe_is_germanic_culture = yes
+										}
+										scope:actor.culture = { tfe_is_germanic_culture = yes }
+									}
 								}
 							}
 						}
@@ -62,10 +68,13 @@ tfe_invite_germanic_settlers = {
 							any_pop = {
 								pop_size >= 1
 								OR = {
-									culture = {
-										tfe_is_germanic_culture = yes
-									}
 									culture = scope:actor.culture
+									AND = {
+										culture = {
+											tfe_is_germanic_culture = yes
+										}
+										scope:actor.culture = { tfe_is_germanic_culture = yes }
+									}
 								}
 							}
 						}
@@ -75,10 +84,13 @@ tfe_invite_germanic_settlers = {
 							any_pop = {
 								pop_size >= 1
 								OR = {
-									culture = {
-										tfe_is_germanic_culture = yes
-									}
 									culture = scope:actor.culture
+									AND = {
+										culture = {
+											tfe_is_germanic_culture = yes
+										}
+										scope:actor.culture = { tfe_is_germanic_culture = yes }
+									}
 								}
 							}
 						}
@@ -136,10 +148,13 @@ tfe_invite_germanic_settlers = {
 						limit = {
 							pop_size >= 1
 							OR = {
-								culture = {
-									tfe_is_germanic_culture = yes
-								}
 								culture = scope:actor.culture
+								AND = {
+									culture = {
+										tfe_is_germanic_culture = yes
+									}
+									scope:actor.culture = { tfe_is_germanic_culture = yes }
+								}
 							}
 						}
 						add_to_temporary_list = tfe_settler_pops
@@ -152,10 +167,13 @@ tfe_invite_germanic_settlers = {
 						limit = {
 							pop_size >= 1
 							OR = {
-								culture = {
-									tfe_is_germanic_culture = yes
-								}
 								culture = scope:actor.culture
+								AND = {
+									culture = {
+										tfe_is_germanic_culture = yes
+									}
+									scope:actor.culture = { tfe_is_germanic_culture = yes }
+								}
 							}
 						}
 						add_to_temporary_list = tfe_settler_pops
@@ -168,10 +186,13 @@ tfe_invite_germanic_settlers = {
 						limit = {
 							pop_size >= 1
 							OR = {
-								culture = {
-									tfe_is_germanic_culture = yes
-								}
 								culture = scope:actor.culture
+								AND = {
+									culture = {
+										tfe_is_germanic_culture = yes
+									}
+									scope:actor.culture = { tfe_is_germanic_culture = yes }
+								}
 							}
 						}
 						add_to_temporary_list = tfe_settler_pops
@@ -184,10 +205,13 @@ tfe_invite_germanic_settlers = {
 						limit = {
 							pop_size >= 1
 							OR = {
-								culture = {
-									tfe_is_germanic_culture = yes
-								}
 								culture = scope:actor.culture
+								AND = {
+									culture = {
+										tfe_is_germanic_culture = yes
+									}
+									scope:actor.culture = { tfe_is_germanic_culture = yes }
+								}
 							}
 						}
 						add_to_temporary_list = tfe_settler_pops
@@ -227,7 +251,11 @@ tfe_invite_germanic_settlers = {
 				}
 				every_in_list = {
 					list = tfe_settler_pops
-					limit = { scope:actor.var:tfe_settlers_wanted > 0 }
+					limit = {
+						scope:actor.var:tfe_settlers_wanted > 0
+						# the king's own gave their share in the first pass
+						NOT = { culture = scope:actor.culture }
+					}
 					save_scope_as = tfe_settler_giver
 					scope:actor = {
 						set_variable = { name = tfe_settlers_take value = scope:tfe_settler_giver.pop_size }
