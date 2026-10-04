@@ -10,6 +10,7 @@ import borders as b
 COPIES = {
     "in_game/common/age/00_default.txt": ("in_game/common/age/00_default.txt", "6f7b9b209c1bd8d7"),
     "in_game/common/customizable_localization/estates.txt": ("in_game/common/customizable_localization/estates.txt", "ab74eafd544cea77"),
+    "in_game/common/on_action/country_yearly.txt": ("in_game/common/on_action/country_yearly.txt", "6cdb20fc1c36ea08"),
     "in_game/common/languages/tfe_languages.txt": ("in_game/common/languages/00_italy.txt", "41fea717f67c83bc"),
     "in_game/map_data/default.map": ("in_game/map_data/default.map", "fdc0812dfb90c907"),
     "in_game/gfx/map/map_modes/00_tfe_map_modes.txt": ("in_game/gfx/map/map_modes/map_modes.txt", "0370fa4dc024b1c0"),
@@ -50,3 +51,9 @@ def test_theodosian_walls_replace_matches_vanilla():
 
 def test_copies_exist():
     assert all((b.MOD / copy).exists() for copy in COPIES)
+
+
+def test_venice_never_floods_for_rome():
+    """vanilla's yearly pulse fired flavor_ven.24 for whoever owns Venice: the West, a year into 395"""
+    text = (b.MOD / "in_game/common/on_action/country_yearly.txt").read_text(encoding="utf-8-sig")
+    assert "always = no" in _block(text, "yearly_flavor_ven_pulse")
