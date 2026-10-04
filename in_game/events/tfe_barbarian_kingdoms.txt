@@ -6,6 +6,7 @@
 # 10 or more. So each location gets people / 5, or people x 2 / locations past that.
 tfe_barbarian_kingdoms.1 = {
 	type = country_event
+	title = tfe_barbarian_kingdoms.1.title
 	hidden = yes
 	trigger = { has_variable = tfe_host_people }
 	immediate = {
@@ -34,6 +35,7 @@ tfe_barbarian_kingdoms.1 = {
 # Knights advance, rechecked whenever the faith changes, so the crown brings feudalism and knights with it.
 tfe_barbarian_kingdoms.2 = {
 	type = country_event
+	title = tfe_barbarian_kingdoms.2.title
 	hidden = yes
 	immediate = {
 		if = {

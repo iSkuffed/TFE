@@ -1,14 +1,20 @@
 ﻿# TFE: peoples on the road. Written from script/peoples_on_the_road.py.
-# Invite Germanic Settlers: a Germanic king sends for his people in Germania to settle the Roman land he took.
-# They walk there (expedition_types/tfe_peoples.txt). Ends with the Migrations, in 500.
+# Invite Settlers: a Germanic (or Carpian, or Iazygian) king sends for his people in Germania to settle the land
+# he took. They walk there (expedition_types/tfe_peoples.txt). Ends with the Migrations, in 500.
 tfe_invite_germanic_settlers = {
-	# a player invites from the location panel: a button there (in_game/gui/location_window.gui) passes the
-	# location as scope:target, so the select_trigger below is only the AI's list
-	type = owncountry
+	# a button in the Barbaricum's window: choose the Barbaricum, then the land to settle
+	type = internationalorganization
+	icon = migrate_pop_based_country
 	potential = {
+		# a member of the Barbaricum: the button is in its window, and nobody else should send for kin
+		scope:actor = { is_member_of_international_organization = international_organization:tfe_barbaricum }
 		scope:actor = {
 			culture = {
-				tfe_is_germanic_culture = yes
+				OR = {
+					tfe_is_germanic_culture = yes
+					this = culture:dacian
+					this = culture:iazyges
+				}
 			}
 		}
 		OR = {
@@ -22,38 +28,88 @@ tfe_invite_germanic_settlers = {
 				text = tfe_people_already_on_the_road_tt
 				NOT = { has_variable = tfe_people_to }
 			}
-			gold >= 50
-		}
-		# decades of drain may empty Germania: then there is no one left to send
-		custom_tooltip = {
-			text = tfe_invite_germanic_settlers_source_tt
-			OR = {
-				region:north_german_region = {
-					any_location_in_region = {
-						any_pop = {
-							pop_size >= 2
-							culture = {
-								tfe_is_germanic_culture = yes
+			# decades of drain may empty Germania: then there is no one left to send. Inside scope:actor, or the
+			# action's Conditions leave it out
+			custom_tooltip = {
+				text = tfe_invite_germanic_settlers_source_tt
+				OR = {
+					region:north_german_region = {
+						any_location_in_region = {
+							any_pop = {
+								pop_size >= 1
+								OR = {
+									pop_type = pop_type:peasants
+									pop_type = pop_type:tribesmen
+								}
+								OR = {
+									culture = scope:actor.culture
+									AND = {
+										culture = {
+											tfe_is_germanic_culture = yes
+										}
+										scope:actor.culture = { tfe_is_germanic_culture = yes }
+									}
+								}
 							}
 						}
 					}
-				}
-				region:south_german_region = {
-					any_location_in_region = {
-						any_pop = {
-							pop_size >= 2
-							culture = {
-								tfe_is_germanic_culture = yes
+					region:south_german_region = {
+						any_location_in_region = {
+							any_pop = {
+								pop_size >= 1
+								OR = {
+									pop_type = pop_type:peasants
+									pop_type = pop_type:tribesmen
+								}
+								OR = {
+									culture = scope:actor.culture
+									AND = {
+										culture = {
+											tfe_is_germanic_culture = yes
+										}
+										scope:actor.culture = { tfe_is_germanic_culture = yes }
+									}
+								}
 							}
 						}
 					}
-				}
-				region:baltic_region = {
-					any_location_in_region = {
-						any_pop = {
-							pop_size >= 2
-							culture = {
-								tfe_is_germanic_culture = yes
+					region:baltic_region = {
+						any_location_in_region = {
+							any_pop = {
+								pop_size >= 1
+								OR = {
+									pop_type = pop_type:peasants
+									pop_type = pop_type:tribesmen
+								}
+								OR = {
+									culture = scope:actor.culture
+									AND = {
+										culture = {
+											tfe_is_germanic_culture = yes
+										}
+										scope:actor.culture = { tfe_is_germanic_culture = yes }
+									}
+								}
+							}
+						}
+					}
+					region:carpathia_region = {
+						any_location_in_region = {
+							any_pop = {
+								pop_size >= 1
+								OR = {
+									pop_type = pop_type:peasants
+									pop_type = pop_type:tribesmen
+								}
+								OR = {
+									culture = scope:actor.culture
+									AND = {
+										culture = {
+											tfe_is_germanic_culture = yes
+										}
+										scope:actor.culture = { tfe_is_germanic_culture = yes }
+									}
+								}
 							}
 						}
 					}
@@ -68,6 +124,26 @@ tfe_invite_germanic_settlers = {
 	cooldown = {
 		type = tfe_invite_settlers
 		years = 3
+	}
+	price = price:tfe_invite_settlers_price
+	price_modifier = {
+		add = {
+			desc = "tfe_one_years_income"
+			value = scope:actor.monthly_income_trade_and_tax
+			multiply = 12
+			min = 50
+		}
+	}
+	select_trigger = {
+		looking_for_a = international_organization
+		target_flag = recipient
+		name = "choose_international_organization"
+		column = {
+			data = name
+		}
+		visible = {
+			international_organization_type = international_organization_type:tfe_barbaricum
+		}
 	}
 	# any land of ours whose people are not yet ours
 	select_trigger = {
@@ -88,14 +164,29 @@ tfe_invite_germanic_settlers = {
 		}
 	}
 	effect = {
-		scope:actor = { add_gold = -50 }
 		custom_tooltip = tfe_invite_germanic_settlers_tt
+		custom_tooltip = tfe_invite_germanic_settlers_cooldown_tt
 		hidden_effect = {
 			# the source: the largest pop of the king's own people in Germania, else the largest Germanic one
 			region:north_german_region = {
 				every_location_in_region = {
 					every_pop = {
-						limit = { pop_size >= 2 culture = { tfe_is_germanic_culture = yes } }
+						limit = {
+							pop_size >= 1
+							OR = {
+								pop_type = pop_type:peasants
+								pop_type = pop_type:tribesmen
+							}
+							OR = {
+								culture = scope:actor.culture
+								AND = {
+									culture = {
+										tfe_is_germanic_culture = yes
+									}
+									scope:actor.culture = { tfe_is_germanic_culture = yes }
+								}
+							}
+						}
 						add_to_temporary_list = tfe_settler_pops
 					}
 				}
@@ -103,7 +194,22 @@ tfe_invite_germanic_settlers = {
 			region:south_german_region = {
 				every_location_in_region = {
 					every_pop = {
-						limit = { pop_size >= 2 culture = { tfe_is_germanic_culture = yes } }
+						limit = {
+							pop_size >= 1
+							OR = {
+								pop_type = pop_type:peasants
+								pop_type = pop_type:tribesmen
+							}
+							OR = {
+								culture = scope:actor.culture
+								AND = {
+									culture = {
+										tfe_is_germanic_culture = yes
+									}
+									scope:actor.culture = { tfe_is_germanic_culture = yes }
+								}
+							}
+						}
 						add_to_temporary_list = tfe_settler_pops
 					}
 				}
@@ -111,7 +217,45 @@ tfe_invite_germanic_settlers = {
 			region:baltic_region = {
 				every_location_in_region = {
 					every_pop = {
-						limit = { pop_size >= 2 culture = { tfe_is_germanic_culture = yes } }
+						limit = {
+							pop_size >= 1
+							OR = {
+								pop_type = pop_type:peasants
+								pop_type = pop_type:tribesmen
+							}
+							OR = {
+								culture = scope:actor.culture
+								AND = {
+									culture = {
+										tfe_is_germanic_culture = yes
+									}
+									scope:actor.culture = { tfe_is_germanic_culture = yes }
+								}
+							}
+						}
+						add_to_temporary_list = tfe_settler_pops
+					}
+				}
+			}
+			region:carpathia_region = {
+				every_location_in_region = {
+					every_pop = {
+						limit = {
+							pop_size >= 1
+							OR = {
+								pop_type = pop_type:peasants
+								pop_type = pop_type:tribesmen
+							}
+							OR = {
+								culture = scope:actor.culture
+								AND = {
+									culture = {
+										tfe_is_germanic_culture = yes
+									}
+									scope:actor.culture = { tfe_is_germanic_culture = yes }
+								}
+							}
+						}
 						add_to_temporary_list = tfe_settler_pops
 					}
 				}
@@ -130,39 +274,91 @@ tfe_invite_germanic_settlers = {
 					save_scope_as = tfe_settler_pop
 				}
 			}
-			scope:tfe_settler_pop ?= {
-				location = {
-					save_scope_as = tfe_settler_home
+			if = {
+				limit = { exists = scope:tfe_settler_pop }
+				# they leave from the largest; up to 10 pop_size gathers from every people of the
+				# king's own culture first, then from the other Germanic peoples
+				scope:actor = { set_variable = { name = tfe_settlers_wanted value = 10 } }
+				if = {
+					# a tooltip's dry run sets no variable: read it only once it is there
+					limit = { scope:actor = { has_variable = tfe_settlers_wanted } }
+					every_in_list = {
+						list = tfe_settler_pops
+						limit = { scope:actor.var:tfe_settlers_wanted > 0 culture = scope:actor.culture }
+						save_scope_as = tfe_settler_giver
+						scope:actor = {
+							set_variable = { name = tfe_settlers_take value = scope:tfe_settler_giver.pop_size }
+							change_variable = { name = tfe_settlers_take multiply = 0.5 }
+							# change_variable's max is max(), a floor: it let the first pop give 29
+							clamp_variable = {
+								name = tfe_settlers_take
+								max = var:tfe_settlers_wanted
+							}
+							change_variable = { name = tfe_settlers_wanted subtract = var:tfe_settlers_take }
+						}
+						add_pop_size = { value = scope:actor.var:tfe_settlers_take multiply = -1 }
+					}
+					every_in_list = {
+						list = tfe_settler_pops
+						limit = {
+							scope:actor.var:tfe_settlers_wanted > 0
+							# the king's own gave their share in the first pass
+							NOT = { culture = scope:actor.culture }
+						}
+						save_scope_as = tfe_settler_giver
+						scope:actor = {
+							set_variable = { name = tfe_settlers_take value = scope:tfe_settler_giver.pop_size }
+							change_variable = { name = tfe_settlers_take multiply = 0.5 }
+							# change_variable's max is max(), a floor: it let the first pop give 29
+							clamp_variable = {
+								name = tfe_settlers_take
+								max = var:tfe_settlers_wanted
+							}
+							change_variable = { name = tfe_settlers_wanted subtract = var:tfe_settlers_take }
+						}
+						add_pop_size = { value = scope:actor.var:tfe_settlers_take multiply = -1 }
+					}
+				}
+				scope:tfe_settler_pop = {
+					location = {
+						save_scope_as = tfe_settler_home
+					}
 				}
 				# the settlers join the king's people (his culture), and keep their own gods
 				scope:actor = {
+					set_variable = { name = tfe_settlers_gathered value = 10 }
+					change_variable = { name = tfe_settlers_gathered subtract = var:tfe_settlers_wanted }
 					set_variable = { name = tfe_people_from value = scope:tfe_settler_home }
 					set_variable = { name = tfe_people_to value = scope:target }
 					set_variable = { name = tfe_people_culture value = scope:actor.culture }
 					set_variable = { name = tfe_people_religion value = scope:tfe_settler_pop.religion }
-					set_variable = { name = tfe_people_size value = 2 }
+					set_variable = { name = tfe_people_size value = var:tfe_settlers_gathered }
 					create_character = {
 						age = 35
 						religion = scope:tfe_settler_pop.religion
 						culture = scope:actor.culture
 						save_scope_as = tfe_people_leader
 					}
-					start_expedition = {
-						type = expedition_type:tfe_wandering_people
-						leader = scope:tfe_people_leader
+					if = {
+						limit = { exists = scope:tfe_people_leader }
+						start_expedition = {
+							type = expedition_type:tfe_wandering_people
+							leader = scope:tfe_people_leader
+						}
 					}
 					set_variable = tfe_people_invited
+					remove_variable = tfe_settlers_wanted
+					remove_variable = tfe_settlers_take
+					remove_variable = tfe_settlers_gathered
 				}
-				add_pop_size = { value = -2 }
 			}
 		}
 	}
 	ai_will_do = {
 		add = 0
-		# gold to spare, and Roman land to fill with our own people
+		# land to fill with our own people (the price is the engine's to check)
 		if = {
 			limit = {
-				scope:actor = { gold >= 100 }
 				scope:target = { NOT = { dominant_culture ?= { tfe_is_germanic_culture = yes } } }
 			}
 			add = 10

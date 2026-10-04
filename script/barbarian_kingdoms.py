@@ -47,7 +47,7 @@ def settle_event(doc: Doc):
              f"has handed it its land). Its people (tfe_host_people) spread evenly over every location it owns, and their\n"
              f"number grows with the land: all of them on {FULL_AT} locations, a share on fewer, and up to {MAX_SHARE}x on\n"
              f"{FULL_AT * MAX_SHARE} or more. So each location gets people / {FULL_AT}, or people x {MAX_SHARE} / locations past that.")
-    with doc.event(1, type="country_event", hidden=True) as e:
+    with doc.event(1, type="country_event", title="The Host Settles", hidden=True) as e:
         with e.trigger() as t:
             t.has_variable("tfe_host_people")
         with e.immediate() as i:
@@ -72,7 +72,7 @@ def crowned_event(doc: Doc):
     doc.note("A host has reformed into a monarchy (tfe_reform_into_a_monarchy, a day before): its nobles get the Auxilium et\n"
              "Consilium the start grant could not give a people that was no monarchy. Vanilla's privilege also needs the\n"
              "Knights advance, rechecked whenever the faith changes, so the crown brings feudalism and knights with it.")
-    with doc.event(2, type="country_event", hidden=True) as e:
+    with doc.event(2, type="country_event", title="The Crown's Privileges", hidden=True) as e:
         with e.immediate() as i:
             for adv in ("feudalism_advance", "noble_knights"):
                 with i.if_() as f:

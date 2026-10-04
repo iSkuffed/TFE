@@ -15,3 +15,5 @@
  MODIFIER_TYPE_DESC_tfe_hunnic_tribute_price_cost_modifier: "The tribute paid to the Huns."
  MODIFIER_TYPE_NAME_tfe_man_the_limes_price_cost_modifier: "Man the Limes Cost"
  MODIFIER_TYPE_DESC_tfe_man_the_limes_price_cost_modifier: "The cost of manning the frontier."
+ MODIFIER_TYPE_NAME_tfe_invite_settlers_price_cost_modifier: "Invite Settlers Cost"
+ MODIFIER_TYPE_DESC_tfe_invite_settlers_price_cost_modifier: "The gold it costs to send for our kin."

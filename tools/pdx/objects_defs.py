@@ -64,7 +64,12 @@ class Defs:
         return self._top._open(name, OnAction)
 
     def hook(self, name: str, *actions: str) -> None:
-        """a vanilla hook that only runs ours: `on_game_start = { on_actions = { a b } }`"""
+        """a vanilla hook that only runs ours: `on_game_start = { on_actions = { a b } }`. Hooking the same name again in
+        one file adds to the first hook rather than writing the key twice."""
+        for n in self.nodes:
+            if n.key == name and isinstance(n.val, list):
+                n.val[0].val += [Node(a) for a in actions]
+                return
         self._top._add(Node(name, "=", [Node("on_actions", "=", [Node(a) for a in actions])]))
 
     def text(self) -> str:

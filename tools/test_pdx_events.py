@@ -71,18 +71,23 @@ def test_bad_outcome_is_a_pyright_error_and_raises_at_build(tmp_path):
     assert len(errs) == 1 and "outcome" in errs[0]["message"], errs
 
 
-def test_hidden_event_needs_no_text_and_can_fire_once_with_an_after_block():
+def test_hidden_event_needs_only_a_title_and_can_fire_once_with_an_after_block():
+    """EU5 logs "missing a title" for a hidden event without one; vanilla's hidden events all carry one"""
     from pdx.objects import Doc
     d = Doc()
     d.namespace("x")
-    with d.event(1, type="country_event", hidden=True, fire_only_once=True) as e:
+    with d.event(1, type="country_event", title="t", hidden=True, fire_only_once=True) as e:
         with e.immediate() as i:
             i.add_gold(1)
         with e.after() as a:
             a.add_gold(2)
-    assert d.loc.keys == {}
+    assert d.loc.keys == {"x.1.title": "t"}
     tree = [(c.key, c.val if isinstance(c.val, str) else "{}") for c in ls.parse(d.text())[1].val]
-    assert tree == [("type", "country_event"), ("hidden", "yes"), ("fire_only_once", "yes"), ("immediate", "{}"), ("after", "{}")]
+    assert tree == [("type", "country_event"), ("title", "x.1.title"), ("hidden", "yes"), ("fire_only_once", "yes"),
+                    ("immediate", "{}"), ("after", "{}")]
+    with pytest.raises(ValueError):
+        with d.event(2, type="country_event", hidden=True):
+            pass
 
 
 def test_a_visible_event_still_needs_text_and_an_outcome():

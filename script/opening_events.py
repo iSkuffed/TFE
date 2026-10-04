@@ -155,7 +155,7 @@ def build():
         with t.not_() as n, n.any_owned_location() as loc:
             loc.not_(lambda x: x.tfe_gildo_base_land())
 
-    with doc.event(7, type="country_event", hidden=True) as e, e.immediate() as i:
+    with doc.event(7, type="country_event", title="Gildo Crowned", hidden=True) as e, e.immediate() as i:
         i.note("risen with all Africa the revolt splits into more than one rebel country: crown the war's leader")
         with i.every_current_war() as war:
             with war.limit() as t, t.link("attacker_leader", CountryTrig) as lead:
@@ -315,12 +315,12 @@ def build():
             o.ai_chance(1)
 
     doc.note("The moment of the revolt: the revolter becomes Constantine's empire and takes Britain (fired by tfe_constantine_rises)")
-    with doc.event(9, type="country_event", hidden=True) as e, e.immediate() as i:
+    with doc.event(9, type="country_event", title="Constantine Crowned", hidden=True) as e, e.immediate() as i:
         crown_constantine(i)
 
     doc.note("400: Honorius comes of age. His heir by blood is Arcadius, and a foreign ruler as heir makes the halves a union:\n"
              "Stilicho's son Eucherius instead, suspected of being groomed for the purple, betrothed to Galla Placidia")
-    with doc.event(6, type="country_event", hidden=True, fire_only_once=True) as e:
+    with doc.event(6, type="country_event", title="Eucherius Named Heir", hidden=True, fire_only_once=True) as e:
         with e.trigger() as t:
             t.compare("ruler", "?=", "character:tfe_honorius")
             with t.link("character:tfe_eucherius", CharacterTrig, op="?=") as eu:

@@ -198,11 +198,11 @@ tfe_on_stilicho_dies = {
 # Stilicho's West takes Honorius's capital, whatever it is (Ravenna in 402): the West is his (tfe_stilicho.4).
 # Root is the country, scope:target the location, fortified (on_siege_won) or not (on_location_occupied).
 on_location_occupied = {
-	on_actions = { tfe_on_stilicho_takes_the_capital }
+	on_actions = { tfe_on_stilicho_takes_the_capital tfe_on_constantine_takes_the_capital }
 }
 
 on_siege_won = {
-	on_actions = { tfe_on_stilicho_takes_the_capital }
+	on_actions = { tfe_on_stilicho_takes_the_capital tfe_on_constantine_takes_the_capital }
 }
 
 tfe_on_stilicho_takes_the_capital = {
@@ -217,14 +217,6 @@ tfe_on_stilicho_takes_the_capital = {
 
 # The same for Constantine's empire out of Britain (CONST): if it is the usurper that holds Honorius's capital,
 # the West is his (tfe_stilicho.5).
-on_location_occupied = {
-	on_actions = { tfe_on_constantine_takes_the_capital }
-}
-
-on_siege_won = {
-	on_actions = { tfe_on_constantine_takes_the_capital }
-}
-
 tfe_on_constantine_takes_the_capital = {
 	trigger = {
 		tag = CONST

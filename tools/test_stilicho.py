@@ -232,7 +232,7 @@ def test_constantine_rises_as_an_annexable_revolter():
 def test_a_usurper_that_takes_the_capital_wins_the_west():
     ona = flat(ONA)
     for hook in ("on_location_occupied", "on_siege_won"):
-        assert f"{hook} = {{ on_actions = {{ tfe_on_constantine_takes_the_capital }} }}" in ona, hook
+        assert re.search(rf"{hook} = {{ on_actions = {{ [^}}]*\btfe_on_constantine_takes_the_capital\b", ona), hook
     take = block(ona, "tfe_on_constantine_takes_the_capital =")
     assert "tag = CONST" in take and "capital = scope:target" in take and "tfe_stilicho.5" in take
     ev = block(flat(EVENTS), "tfe_stilicho.5 =")
@@ -253,7 +253,7 @@ def test_stilicho_has_a_dynasty_and_so_do_his_children():
 def test_taking_honorius_capital_wins_the_west():
     ona = flat(ONA)
     for hook in ("on_location_occupied", "on_siege_won"):
-        assert f"{hook} = {{ on_actions = {{ tfe_on_stilicho_takes_the_capital }} }}" in ona, hook
+        assert re.search(rf"{hook} = {{ on_actions = {{ [^}}]*\btfe_on_stilicho_takes_the_capital\b", ona), hook
     take = block(ona, "tfe_on_stilicho_takes_the_capital =")
     assert "has_variable = tfe_western_rome" in take and "capital = scope:target" in take
     assert "is_at_war_with = c:WRE" in take and "tfe_stilicho.4" in take
@@ -272,3 +272,17 @@ def test_the_victor_takes_everything_and_decides_honorius_fate():
     assert "kill_character" in a and "tfe_honorius_executed" in a and "is_alive = yes" in a
     assert "move_country = c:EAR" in b and "is_alive = yes" in b
     assert "is_alive = no" in c or "NOT = { character:tfe_honorius ?= { is_alive = yes } }" in c
+
+
+def test_each_hook_is_written_once_per_file():
+    for f in (ROOT / "in_game/common/on_action").glob("tfe_*.txt"):
+        keys = re.findall(r"^(on_\w+) = \{\n\ton_actions", f.read_text(encoding="utf-8-sig"), re.M)
+        assert len(keys) == len(set(keys)), f"{f.name} hooks a vanilla on_action twice"
+
+
+def test_constantine_sends_home_only_backers_and_is_no_backer():
+    ev = (ROOT / "in_game/events/tfe_opening.txt").read_text(encoding="utf-8-sig")
+    fx = (ROOT / "in_game/common/scripted_effects/tfe_usurpers.txt").read_text(encoding="utf-8-sig")
+    beyond = "any_owned_location = { NOT = { region = region:great_britain_region } }"
+    assert beyond in ev[ev.index("tfe_constantine_war"):]
+    assert f"NOT = {{ {beyond} }}" in fx

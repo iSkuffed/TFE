@@ -58,3 +58,11 @@ tfe_man_the_limes_price_cost_modifier={
 		category=country
 	}
 }
+
+tfe_invite_settlers_price_cost_modifier={
+	color=bad
+	percent=yes
+	game_data={
+		category=country
+	}
+}

@@ -226,8 +226,10 @@ class Doc:
             raise ValueError("a visible event needs an outcome")
         if outcome is not None and outcome not in get_args(Outcome):
             raise ValueError(f"event outcome {outcome!r}: must be one of {get_args(Outcome)}")
-        if not hidden and (title is None or desc is None):
-            raise ValueError("a visible event needs a title and a desc")
+        if title is None:
+            raise ValueError("every event needs a title: EU5 logs a hidden one without")
+        if not hidden and desc is None:
+            raise ValueError("a visible event needs a desc")
         if self.ns is None:
             raise ValueError("doc.namespace(...) first")
         eid = f"{self.ns}.{n}"
@@ -273,7 +275,7 @@ class Doc:
               category: Literal["situation_event"] | None = None,
               fire_only_once: bool = False) -> ContextManager[Event[CountryFx, CountryTrig, CountryOption]]:
         """desc is the text, or a list of (condition or None for always, loc-key suffix, text) for a first_valid of triggered_descs.
-        A hidden event needs no title, desc or outcome (and writes no loc keys for the ones left out)."""
+        A hidden event needs no desc or outcome (and writes no loc keys for the ones left out), but still a title."""
         return self._event(n, type, category, title, desc, outcome, hidden, image, fire_only_once,
                            (CountryFx, CountryTrig, CountryOption))
 

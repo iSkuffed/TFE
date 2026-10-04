@@ -20,7 +20,12 @@ tfe_constantine_rises = {
 	}
 	scope:tfe_constantine_rebels ?= { start_revolt = yes }
 	random_country = {
-		limit = { is_at_war_with = root NOT = { has_variable = tfe_old_enemy } }
+		limit = {
+			is_at_war_with = root
+			NOT = { has_variable = tfe_old_enemy }
+			# no backer: the revolter holds nothing beyond Britain, or nothing at all
+			NOT = { any_owned_location = { NOT = { region = region:great_britain_region } } }
+		}
 		set_variable = tfe_constantine_revolter
 	}
 	every_country = {

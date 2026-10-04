@@ -59,6 +59,10 @@ def crown_constantine(i: CountryFx):
                 with p.limit() as t:
                     t.is_at_war_with("root")
                     t.not_(lambda n: n.compare("this", "=", "scope:tfe_usurper"))
+                    t.note("only backers, which hold land beyond Britain: sending home another rebel country the revolt\n"
+                           "split off ends the whole war (Gildo's, user in game)")
+                    with t.any_owned_location() as o, o.not_() as n:
+                        n.compare("region", "=", "region:great_britain_region")
                 p.leave_war(war="scope:tfe_constantine_war", actor="root")
         u.note("the revolt system makes the revolter a Secessionist subject of any backer: he is his own master")
         with u.if_() as f:
@@ -95,6 +99,9 @@ def effects():
             with c.limit() as t:
                 t.is_at_war_with("root")
                 t.not_(lambda n: n.has_variable("tfe_old_enemy"))
+                t.note("no backer: the revolter holds nothing beyond Britain, or nothing at all")
+                with t.not_() as n, n.any_owned_location() as o, o.not_() as m:
+                    m.compare("region", "=", "region:great_britain_region")
             c.set_variable("tfe_constantine_revolter")
         with e.every_country() as c:
             with c.limit() as t:

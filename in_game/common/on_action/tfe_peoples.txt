@@ -139,9 +139,12 @@ tfe_on_slavic_band = {
 					culture = scope:tfe_band_pop.culture
 					save_scope_as = tfe_people_leader
 				}
-				start_expedition = {
-					type = expedition_type:tfe_wandering_people
-					leader = scope:tfe_people_leader
+				if = {
+					limit = { exists = scope:tfe_people_leader }
+					start_expedition = {
+						type = expedition_type:tfe_wandering_people
+						leader = scope:tfe_people_leader
+					}
 				}
 				scope:tfe_band_pop = { add_pop_size = { value = -1 } }
 			}
