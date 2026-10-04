@@ -27,7 +27,10 @@ def test_no_american_countries():
 def test_the_americas_are_not_ownable():
     text = (ROOT / "in_game/map_data/default.map").read_text(encoding="utf-8")
     block = text.split("non_ownable = {", 1)[1].split("}", 1)[0].split()
-    assert AMERICA <= set(block)
+    water = {l for key in ("sea_zones", "lakes") for l in re.search(
+        key + r"\s*=\s*\{([^}]*)\}", re.sub(r"#[^\n]*", "", (b.MAP / "default.map").read_text(encoding="utf-8-sig")))[1].split()}
+    assert AMERICA - water <= set(block)
+    assert not water & set(block)
 
 
 def test_no_advance_grants_flat_colonial_range():

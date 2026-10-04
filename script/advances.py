@@ -121,6 +121,9 @@ STRIP: dict[str, set[str]] = {
 }
 
 RENAME: dict[str, tuple[str, str]] = {
+    "colonies": ("Frontier Settlement",
+        "Settlers are sent out to farm land beyond the frontier, and the crown claims the clearings, wells and "
+        "villages they found there."),
     # --- Age 1, Theodosius
     "slave_trade_act_advance": ("Roman Slave Law",
         "Rome's law knows the slave as a thing that can be bought, sold and set free, and every people that "
