@@ -6,6 +6,7 @@
  tfe_stilicho.2.desc: "The court has split. Olympius and his friends say Stilicho means to put Eucherius in the purple, and the Emperor half believes them. The officers say Stilicho alone has held the Rhine and the Alps, and that the West will not outlive him.\n\nHonorius has asked where we stand."
  tfe_stilicho.2.a: "Stand with Stilicho"
  tfe_stilicho.2.b: "Stand with the Emperor"
+ tfe_stilicho.3.title: "Stilicho Crowned"
  tfe_stilicho.4.title: "Stilicho Enters [tfe_honorius_seat.GetName]"
  tfe_stilicho.4.desc: "The gates are open. Honorius's guards laid down their arms when they saw who led the column, and the palace officials are already drafting the proclamations in Stilicho's name. The West has one master again.\n\nHonorius waits in the palace to learn what he is now."
  tfe_stilicho.4.a: "Honorius dies"

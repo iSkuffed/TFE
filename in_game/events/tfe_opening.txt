@@ -138,6 +138,7 @@ tfe_opening.3 = {
 # The moment of the rising: the revolter becomes Gildo's kingdom and takes the rest of his land (fired by 3)
 tfe_opening.7 = {
 	type = country_event
+	title = tfe_opening.7.title
 	hidden = yes
 	immediate = {
 		# risen with all Africa the revolt splits into more than one rebel country: crown the war's leader
@@ -373,6 +374,7 @@ tfe_opening.5 = {
 # Stilicho's son Eucherius instead, suspected of being groomed for the purple, betrothed to Galla Placidia
 tfe_opening.6 = {
 	type = country_event
+	title = tfe_opening.6.title
 	hidden = yes
 	fire_only_once = yes
 	trigger = {

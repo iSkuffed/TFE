@@ -11,6 +11,8 @@
  tfe_cross_the_rhine.title: "Cross the Rhine"
  tfe_cross_the_rhine.desc: "We will not leave the land of our fathers, but the land across the river is rich and its garrisons are thin. Every warrior of the Salians joins the host for one great raid into Roman Gaul, and the towns we take will send us men."
  tfe_cross_the_rhine.a: "Over the river!"
+ tfe_barbarian_kingdoms.1.title: "The Host Settles"
+ tfe_barbarian_kingdoms.2.title: "The Crown's Privileges"
  cb_tfe_cross_the_rhine: "Raid over the Rhine"
  cb_tfe_cross_the_rhine_desc: "The whole people has crossed the river, and it will not go home empty-handed."
  STATIC_MODIFIER_NAME_tfe_lords_of_the_land: "Lords of the Land"

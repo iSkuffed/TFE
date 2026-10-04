@@ -14,6 +14,7 @@ TRIG = OUT["in_game/common/scripted_triggers/tfe_peoples.txt"]
 LOC = OUT["main_menu/localization/english/tfe_peoples_l_english.yml"]
 # the Carpi are Dacians and the Iazyges Sarmatians: migrators, but no Germanic king's people
 NOT_GERMANIC = {"CRP", "IAZ"}
+PRICES = OUT["in_game/common/prices/tfe_peoples.txt"]
 
 
 def test_the_people_walk_slowly_overland():
@@ -29,6 +30,16 @@ def test_the_walk_starts_where_the_people_live():
 def test_settlers_whose_land_was_lost_go_to_the_capital():
     on_end = EXP.split("on_end = {", 1)[1]
     assert "root.capital" in on_end and "tfe_people_invited" in on_end
+
+
+def test_every_migrator_people_may_invite_settlers():
+    """the Germanic ones by their group, the Carpi and Iazyges by name"""
+    countries = "\n".join(p.read_text(encoding="utf-8-sig") for p in (ROOT / "in_game/setup/countries").glob("*.txt"))
+    for tag in dw.MIGRATORS:
+        culture = re.search(rf"^{tag} = \{{.*?culture_definition = (\w+)", countries, re.S | re.M).group(1)
+        assert pr.is_germanic(culture) or culture in pr.KIN_CULTURES, (tag, culture)
+    for culture in pr.KIN_CULTURES:
+        assert pr.DOC.find(None, f"culture:{culture}", inside=(ACTION, "potential")), culture
 
 
 def test_every_migrator_people_is_germanic():
@@ -62,9 +73,36 @@ def test_no_settlers_from_an_empty_germania():
     assert allow and "pop_size" in str(allow[0].val) and "north_german_region" in str(allow[0].val)
 
 
-def test_settlers_drain_germania_and_cost_gold():
+def test_no_settlers_from_an_empty_carpathia_either():
+    allow = str(pr.DOC.find("allow", None, inside=(ACTION,))[0].val)
+    assert "carpathia_region" in allow and "scope:actor.culture" in allow
+
+
+def test_settlers_are_thousands_gathered_from_many_peoples():
+    """10 pop_size (ten thousand people), at most half of any one pop, the king's own people first"""
+    assert pr.SETTLER_SIZE >= 10 and pr.SETTLER_SHARE <= 0.5
+    loops = pr.DOC.find("every_in_list", None, inside=(ACTION, "effect"))
+    assert len(loops) == 2
+    assert pr.DOC.find("multiply", str(pr.SETTLER_SHARE), inside=(ACTION, "effect"))
+    assert pr.DOC.find("value", "var:tfe_settlers_gathered", inside=(ACTION, "effect"))
+
+
+def test_settlers_cost_months_of_income():
+    """vanilla's prices scale scaled_gold by the payer's income, so a rich king pays more"""
+    assert pr.DOC.find("price", f"price:{pr.SETTLERS_PRICE}", inside=(ACTION,))
+    assert re.search(rf"^{pr.SETTLERS_PRICE} = {{\s*scaled_gold = {pr.SETTLERS_SCALED_GOLD}\s*}}", PRICES, re.M)
+    assert not pr.DOC.find("add_gold", None, inside=(ACTION,))
+
+
+def test_the_tooltip_names_the_source_and_the_cooldown():
+    for key in (f"{ACTION}_source_tt", f"{ACTION}_cooldown_tt"):
+        assert re.search(rf"^ {key}: ", LOC, re.M), key
+    assert pr.DOC.find("custom_tooltip", f"{ACTION}_cooldown_tt", inside=(ACTION, "effect"))
+    assert f"{pr.SETTLERS_COOLDOWN} years" in LOC
+
+
+def test_settlers_drain_germania():
     assert pr.DOC.find("add_pop_size", None, inside=(ACTION,))
-    assert pr.DOC.find("add_gold", str(-pr.SETTLERS_COST), inside=(ACTION,))
     assert pr.DOC.find("cooldown", None, inside=(ACTION,))
     assert pr.DOC.find("start_expedition", None, inside=(ACTION,))
 
@@ -106,13 +144,10 @@ def test_bands_drain_their_homeland_and_walk():
     assert pr.BANDS.find("chance", str(round(pr.BAND_CHANCE * 100)), inside=("tfe_on_slavic_band",))
 
 
-def test_a_player_invites_from_the_location_panel():
-    """the action is owncountry: only a hand-made button shows it, and the button hands over the location as target"""
-    gui = (ROOT / "in_game/gui/location_window.gui").read_text(encoding="utf-8-sig")
-    button = gui.split(f'action_name = "{ACTION}"', 1)[1].split("}", 3)
-    assert 'parameter_name = "target"' in button[0] and "[LocationView.GetLocation]" in button[0]
-    assert pr.DOC.find("target_flag", "target", inside=(ACTION, "select_trigger"))
-
-
-def test_the_ai_invites_with_gold_to_spare():
-    assert pr.DOC.find("gold", str(2 * pr.SETTLERS_COST), inside=(ACTION, "ai_will_do"))
+def test_a_player_invites_from_the_barbaricums_window():
+    """an IO action: choose the Barbaricum, then the land; no GUI file of ours"""
+    assert pr.DOC.find("type", "internationalorganization", inside=(ACTION,))
+    assert pr.DOC.find(None, "international_organization_type:tfe_barbaricum", inside=(ACTION, "select_trigger"))
+    flags = [n.val for n in pr.DOC.find("target_flag", None, inside=(ACTION, "select_trigger"))]
+    assert flags == ["recipient", "target"]
+    assert not (ROOT / "in_game/gui/location_window.gui").exists()

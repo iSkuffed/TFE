@@ -1,0 +1,4 @@
+﻿# TFE: peoples on the road. Written from script/peoples_on_the_road.py.
+tfe_invite_settlers_price = {
+	scaled_gold = 10
+}

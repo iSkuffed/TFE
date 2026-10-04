@@ -86,6 +86,7 @@ tfe_stilicho.2 = {
 # throne of what is left, and Britain and Africa go their own way (fired by tfe_stilicho_rises)
 tfe_stilicho.3 = {
 	type = country_event
+	title = tfe_stilicho.3.title
 	hidden = yes
 	immediate = {
 		random_country = {
