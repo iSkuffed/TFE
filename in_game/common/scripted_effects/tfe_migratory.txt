@@ -28,28 +28,25 @@ tfe_start_migration_effect = {
 	}
 	# the homeland is given up for good: the host keeps no core on it, nor on any land it won before
 	every_core_location = { remove_core = scope:tfe_host }
-	# a neighbouring people moves into the homeland, so it is not left empty; its pops stay, under new lords. A
-	# settled host taking the road again leaves Roman land to the Rome next door, its old master. Only with no
-	# such neighbour is it abandoned.
-	random_neighbor_country = {
-		limit = { NOT = { tfe_is_western_rome = yes } NOT = { tag = EAR } NOT = { has_variable = tfe_migrating } }
-		save_scope_as = tfe_heir_to_the_land
-	}
+	# those who stayed make a country of the homeland, a tribe of the majority culture at the old capital, in the
+	# host's faith, holding every location the host leaves; no neighbour gets it. A host that owns no capital leaves
+	# nothing to hold: the land is abandoned. The remnant takes its name from the game's default for a new country.
 	if = {
-		limit = { NOT = { exists = scope:tfe_heir_to_the_land } has_variable = tfe_settled }
-		random_neighbor_country = {
-			limit = {
-				OR = {
-					tfe_is_western_rome = yes
-					tag = EAR
-				}
+		limit = { capital ?= { owner = scope:tfe_host } }
+		capital = {
+			save_scope_as = tfe_old_capital
+			create_country_from_location = {
+				change_government_type = government_type:tribe	# only counts after the effect block ends
+				change_culture = scope:tfe_old_capital.dominant_culture
+				change_religion = scope:tfe_host.religion
+				set_variable = { name = tfe_remnant_of value = scope:tfe_host }
+				save_scope_as = tfe_remnant
 			}
-			save_scope_as = tfe_heir_to_the_land
 		}
-	}
-	if = {
-		limit = { exists = scope:tfe_heir_to_the_land }
-		every_owned_location = { change_location_owner = scope:tfe_heir_to_the_land }
+		every_owned_location = {
+			change_location_owner = scope:tfe_remnant
+			add_core = scope:tfe_remnant
+		}
 	}
 	else = {
 		every_owned_location = { scope:tfe_host = { abandon_location = prev } }
