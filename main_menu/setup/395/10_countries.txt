@@ -2118,23 +2118,6 @@ countries = {
 				ruler = tfe_fritigil
 			}
 		}
-		MOC = { # Moche
-			own_control_core = {
-				apurlec cantamarca chan_chan chancay chao chilca chimu chiprac choquerecuay collique
-				farfan guamanmayo huacatambo huarmey huarochiri illapa ishma kasha_tampu manchan nunura
-				ocro pakatnamu paramonga pumaruri quillahuaca rimaq sana tantaricuy tumshukaiko waricoto
-				willcahuain xllang
-			}
-			capital = apurlec
-			discovered_regions = {
-				andes_region brazil_region central_america_region colombia_region south_pacific_ocean_region
-			}
-			include = "andean_monarchy"
-			country_rank = rank_duchy
-			government = {
-				ruler = random
-			}
-		}
 		MRD = { # Mordvins
 			own_control_core = {
 				alatyr arzamas bazarny_syzgan bolshoye_boldino bolshoye_murashkino bondari chamzinka chembar gorodishche insar
@@ -2267,20 +2250,6 @@ countries = {
 				xinjiang_region
 			}
 			include = "asia_tribe"
-			country_rank = rank_county
-			government = {
-				ruler = random
-			}
-		}
-		NAZ = { # Nazca
-			own_control_core = {
-				acari cahuachi chinchay chullac chuqlluqucha ica incawasi puka_tampu pukiupukio
-			}
-			capital = acari
-			discovered_regions = {
-				andes_region brazil_region
-			}
-			include = "andean_monarchy"
 			country_rank = rank_county
 			government = {
 				ruler = random
@@ -2981,29 +2950,6 @@ countries = {
 				ruler = random
 			}
 		}
-		TKL = { # Tikal
-			own_control_core = {
-				acasaguastlan altun_ha atitlan_guatemala baak bakhalal calkini campin ceibal chacchoben chactemal
-				chakan_putum chakan_yucatan chakanbakan chama chichen_itza chinabajul chinda chiquimula coba colha
-				cuauhtemallan cupilco dzibanche dzibilnocac dzilam edzna ekab guazacapan hocabail hochob
-				huehuetan hunucma itzamkanac itzcuintlan ixtutz jaltenango jolom_konob jootsuuk kaan_peech kajyub
-				kakol_kiej kalotmul labcah lakam_tun lamanai mani maxcanu mayapan motul naco
-				nadzcaan namaan nito noh_peten nohmul ocosingo ocotepec otzoya pachan paliac
-				pismachi pochutla pusilha seacal sotuta tases tatahuitalpan telantunich tenamitl tencoa
-				tho tila titsimin tixchel tixmul tonala_chiapas toquegua tzoite tzunun_kaab tzunuun
-				uxwitza wak_kabnal xelahuh xicallanco xpaicheil xpuhil xunantunich yax_mutal zaci zahuatan
-				zama zapaluta zinacantan
-			}
-			capital = acasaguastlan
-			discovered_regions = {
-				aridoamerica_region caribbean_region central_america_region east_coast_region great_plains_region mesoamerica_region south_pacific_ocean_region
-			}
-			include = "amerindian_advanced_monarchy_not_nahuatl"
-			country_rank = rank_kingdom
-			government = {
-				ruler = tfe_yax_nuun_ahiin
-			}
-		}
 		TMM = { # Tamim
 			own_control_core = {
 				ad_dilam al_ghat al_hajr al_majazah al_majmaah al_qaiyah al_yamamah az_zilfi diriyah malham
@@ -3063,22 +3009,6 @@ countries = {
 			country_rank = rank_county
 			government = {
 				ruler = random
-			}
-		}
-		TTH = { # Teotihuacan
-			own_control_core = {
-				acambaro axocopan azcapotzalco cadereyta cuauhtitlan culhuacan ixtachichimecapan ixtlahuaca kerhiretarhu maravatio
-				mixquiahuala nat_tha_hi ninil taximaroa tecozautla tehotihuacan tenochtitlan teotenanco tetzcoco tlacopan
-				tlalpujahua tollan tollohcan tzitacuaro xaltocan xilotepec xochimilco zacazonapan zinapecuaro
-			}
-			capital = acambaro
-			discovered_regions = {
-				aridoamerica_region caribbean_region central_america_region great_plains_region mesoamerica_region north_pacific_ocean_region
-			}
-			include = "amerindian_advanced_monarchy_not_nahuatl"
-			country_rank = rank_kingdom
-			government = {
-				ruler = tfe_spearthrower_owl
 			}
 		}
 		TYH = { # Tuyuhun
@@ -3623,23 +3553,6 @@ countries = {
 			}
 			include = "asia_tribe"
 			country_rank = rank_county
-			government = {
-				ruler = random
-			}
-		}
-		ZPT = { # Monte Alban
-			own_control_core = {
-				amoltepec atepec chilapa chinantlan choapan coatlan coixtlahuacan cuauhteopan cuicatlan huajuapan
-				ixtlan jaltepec juxtlahuaca miahuatlan mictlan nochixtlan oapan ometepec ozumacin poctlan
-				silacayoapam sosola teozacualco tillantonco tlachquiauhco tlacolula tlapan totolapan yautepec yodzocahi
-				yucucui yucundaa yucundeq zaachila zacatepec
-			}
-			capital = amoltepec
-			discovered_regions = {
-				aridoamerica_region caribbean_region central_america_region mesoamerica_region
-			}
-			include = "amerindian_advanced_monarchy_not_nahuatl"
-			country_rank = rank_duchy
 			government = {
 				ruler = random
 			}
