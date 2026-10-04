@@ -212,3 +212,11 @@ def test_the_arrival_sizes_are_set_on_the_country():
     """on_fail runs in another scope: the sizes set there were never read, and the pops arrived at the wrong size"""
     for hook in ("on_end", "on_fail"):
         assert pr.EXPEDITION.find("set_variable", None, inside=(hook, "root"))
+
+
+def test_a_failed_walk_settles_only_once():
+    """the Expedition Lost popup reads on_fail again after the road is cleared: unset sizes, wrong-type cultures"""
+    for hook in ("on_end", "on_fail"):
+        guard = [n for n in pr.EXPEDITION.find("if", None, inside=(hook,))
+                 if find(n.val, "has_variable", "tfe_people_size", inside=("limit",))]
+        assert guard and find(guard[0].val, "add_pop"), hook

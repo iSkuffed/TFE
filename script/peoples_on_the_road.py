@@ -126,26 +126,29 @@ def wandering_people(doc: Doc):
 
 def settle(fx: CountryFx):
     """the band arrives: peasants and tribesmen at its target, or by the king's seat if the target is no longer his"""
-    with fx.link("root.var:tfe_people_to", LocationFx) as to:
-        to.save_scope_as("tfe_people_arrive")
-    fx.note("invited settlers whose land was lost on the way settle by the king's seat; a band settles wherever it is")
-    with fx.if_() as i:
-        with i.limit() as t:
-            t.has_variable("tfe_people_invited")
-            with t.not_() as n, n.link("scope:tfe_people_arrive", LocationTrig) as arrive:
-                arrive.compare("owner", "?=", "root")
-            t.exists("root.capital")
-        with i.link("root.capital", LocationFx) as cap:
-            cap.save_scope_as("tfe_people_arrive")
-    fx.note("whatever they were at home, they arrive as peasants and tribesmen; set on root, which on_fail's scope is not")
-    with fx.link("root", CountryFx) as r:
-        for pop_type, share in ARRIVE_AS:
-            r.set_variable(name=f"tfe_people_as_{pop_type}", value="var:tfe_people_size")
-            r.change_variable(name=f"tfe_people_as_{pop_type}", multiply=share)
-    with fx.link("scope:tfe_people_arrive", LocationFx) as arrive:
-        for pop_type, _ in ARRIVE_AS:
-            arrive.add_pop(culture="root.var:tfe_people_culture", religion="root.var:tfe_people_religion",
-                           type=f"pop_type:{pop_type}", size=f"root.var:tfe_people_as_{pop_type}")
+    fx.note("the Expedition Lost popup reads on_fail again once the road is cleared: settle only while the band is there")
+    with fx.if_() as g:
+        g.limit(lambda t: t.link("root", CountryTrig, lambda r: r.has_variable("tfe_people_size")))
+        with g.link("root.var:tfe_people_to", LocationFx) as to:
+            to.save_scope_as("tfe_people_arrive")
+        g.note("invited settlers whose land was lost on the way settle by the king's seat; a band settles wherever it is")
+        with g.if_() as i:
+            with i.limit() as t:
+                t.has_variable("tfe_people_invited")
+                with t.not_() as n, n.link("scope:tfe_people_arrive", LocationTrig) as arrive:
+                    arrive.compare("owner", "?=", "root")
+                t.exists("root.capital")
+            with i.link("root.capital", LocationFx) as cap:
+                cap.save_scope_as("tfe_people_arrive")
+        g.note("whatever they were at home, they arrive as peasants and tribesmen; set on root, which on_fail's scope is not")
+        with g.link("root", CountryFx) as r:
+            for pop_type, share in ARRIVE_AS:
+                r.set_variable(name=f"tfe_people_as_{pop_type}", value="var:tfe_people_size")
+                r.change_variable(name=f"tfe_people_as_{pop_type}", multiply=share)
+        with g.link("scope:tfe_people_arrive", LocationFx) as arrive:
+            for pop_type, _ in ARRIVE_AS:
+                arrive.add_pop(culture="root.var:tfe_people_culture", religion="root.var:tfe_people_religion",
+                               type=f"pop_type:{pop_type}", size=f"root.var:tfe_people_as_{pop_type}")
     clear_the_road(fx)
 
 
