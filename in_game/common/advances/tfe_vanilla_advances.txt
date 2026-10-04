@@ -222,6 +222,15 @@ REPLACE:byz_modernized_strategikon = {
 	allow_children = no
 }
 
+REPLACE:cannon_maker_advance = {
+	age = age_2_renaissance
+	unlock_building = cannon_maker
+	requires = gunpowder_advance
+	ai_weight = {
+		add = 1.5
+	}
+}
+
 REPLACE:central_bank_advance = {
 	age = age_5_absolutism
 	unlock_building = central_bank
@@ -353,6 +362,26 @@ REPLACE:filioque_issue = {
 		religion = religion:orthodox
 	}
 	tolerance_own = 1
+}
+
+REPLACE:firearms_factory_advance = {
+	age = age_6_revolutions
+	research_cost = -0.75
+	unlock_building = firearms_factory
+	requires = weapon_factory_advance
+	potential = {
+		always = no
+	}
+}
+
+REPLACE:firearms_manufactory_advance = {
+	age = age_5_absolutism
+	research_cost = -0.5
+	unlock_building = firearms_manufactory
+	requires = lead_ore_dressing
+	potential = {
+		always = no
+	}
 }
 
 REPLACE:flemish_cloth_making = {
@@ -489,12 +518,43 @@ REPLACE:greek_group_the_spirit_of_resistance_advance = {
 	requires = feudalism_advance
 }
 
+REPLACE:gun_smith_advance = {
+	age = age_2_renaissance
+	unlock_building = gun_smith
+	requires = gunpowder_advance
+	ai_weight = {
+		add = 1000
+	}
+	potential = {
+		always = no
+	}
+}
+
+REPLACE:guns_workshop_advance = {
+	age = age_4_reformation
+	unlock_building = guns_workshop
+	requires = assault_ability_reformation
+	requires = artillery_institution_advance
+	potential = {
+		always = no
+	}
+}
+
 REPLACE:hachiman_worship = {
 	age = age_5_absolutism
 	potential = {
 		religion = religion:shinto
 	}
 	army_tradition_from_battle = 0.5
+}
+
+REPLACE:hand_cannon_guild_advance = {
+	age = age_1_traditions
+	potential = {
+		always = no
+	}
+	requires = metallurgy
+	unlock_building = hand_cannon_guild
 }
 
 REPLACE:heian_kyo = {
@@ -747,6 +807,35 @@ REPLACE:kokugaku = {
 	}
 	requires = rights_of_man
 	cultural_influence_modifier = 0.1
+}
+
+REPLACE:kor_early_turtle_ship_advance = {
+	age = age_2_renaissance
+	potential = {
+		has_or_had_tag = KOR
+	}
+	unlock_unit = n_early_turtle_ship
+	requires = gunpowder_advance
+}
+
+REPLACE:kor_gunpowder_engines = {
+	age = age_2_renaissance
+	icon = kor_gunpowder_engines
+	depth = 1
+	potential = {
+		has_or_had_tag = KOR
+	}
+	requires = gunpowder_advance
+	global_firearms_output_modifier = 0.2
+}
+
+REPLACE:kor_hwachas_advance = {
+	age = age_2_renaissance
+	potential = {
+		has_or_had_tag = KOR
+	}
+	unlock_unit = a_hwacha
+	requires = gunpowder_advance
 }
 
 REPLACE:landsknechte = {
@@ -1691,6 +1780,12 @@ REPLACE:unlock_crusader_knights_advance = {
 	}
 }
 
+REPLACE:unlock_handgonners_advance = {
+	age = age_2_renaissance
+	unlock_unit = a_handgonners
+	requires = gunpowder_advance
+}
+
 REPLACE:unlock_late_gallowglass_advance = {
 	age = age_3_discovery
 	icon = expand_varangian_guard_advance
@@ -1730,6 +1825,17 @@ REPLACE:unlock_reformed_crusader_knights_advance = {
 	potential = {
 		always = no
 	}
+}
+
+REPLACE:vij_first_indian_artillery = {
+	icon = raj_expanded_artillery_arm
+	age = age_2_renaissance
+	potential = {
+		has_or_had_tag = VIJ
+	}
+	army_artillery_build_cost_modifier = -0.1
+	army_artillery_power = 0.1
+	requires = gunpowder_advance
 }
 
 REPLACE:wake_of_the_mongol_horde = {

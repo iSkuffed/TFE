@@ -1,0 +1,14 @@
+﻿# TFE: the top road keeps vanilla's numbers but looks like the stone road; named the Via Publica (written by script/arms.py)
+REPLACE:railroad = {
+	level = 4
+	movement_cost = -0.8
+	market_access = -0.4
+	pop_movement = 0.6
+	proximity = 15
+	build_time_per_unit_distance = 50
+	price_per_unit_distance = build_railroad
+	construction_demand = build_railroad_demand
+	maintenance_demand = maintain_railroad_demand
+	color = map_modern_road
+	spline_style_id = 2
+}
