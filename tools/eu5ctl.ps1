@@ -3,7 +3,7 @@
 # stop), screenshots are taken from the window itself, and clicks and keys are posted to it, never sent through the real
 # mouse and keyboard. Set EU5CTL_FOREGROUND=1 for the old way: the game in front, the real cursor moving.
 # Menu path (1280-wide shot coords): New Game -> click the country on the map -> move the mouse away (its tooltip hides
-# the button) -> "Play as". The console opens with Alt+C (-debug_mode): grave is the other default, but settings can unbind it.
+# the button) -> "Play as". The console opens with the grave key (-debug_mode); Alt+C does nothing in 1.4.
 # Observe + `tag X` leaves you an observer: console effects work, but your UI commands (diplomacy, IO laws) are dropped.
 #   eu5ctl start | wait | stop | status   (wait: until loading or new-game generation is done)
 #   eu5ctl shot [name]            -> prints a 1280-wide jpg path (click coordinates use this space)
@@ -173,7 +173,7 @@ function TypeText($text) {
     }
 }
 function ConsoleCmd($line) {
-    Keys @("alt+c"); Start-Sleep -Milliseconds 400; TypeText $line; Keys @("Return"); Start-Sleep -Milliseconds 400; Keys @("alt+c")
+    Keys @("grave"); Start-Sleep -Milliseconds 400; TypeText $line; Keys @("Return"); Start-Sleep -Milliseconds 400; Keys @("grave")
 }
 # the human's display settings go back once the game is closed (it rewrites the file on exit)
 function RestoreSettings {

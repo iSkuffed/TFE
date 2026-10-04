@@ -207,6 +207,8 @@ tfe_stilicho.4 = {
 		change_country_adjective = WRE_ADJ
 		change_country_flag = WRE
 		set_capital = scope:tfe_honorius_seat
+		# the annexer comes out under a new tag, so the Roman offices and the fisc know the West by this variable
+		set_variable = tfe_western_rome
 	}
 	# no rival Augustus is left, but the East never forgives it
 	option = {
@@ -256,6 +258,8 @@ tfe_stilicho.5 = {
 		change_country_adjective = WRE_ADJ
 		change_country_flag = WRE
 		set_capital = scope:tfe_honorius_seat
+		# the annexer comes out under a new tag, so the Roman offices and the fisc know the West by this variable
+		set_variable = tfe_western_rome
 	}
 	# no rival Augustus is left, but the East never forgives it
 	option = {

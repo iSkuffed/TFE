@@ -36,6 +36,8 @@ def take_the_west(i: CountryFx):
     i.change_country_adjective("WRE_ADJ")
     i.change_country_flag("WRE")
     i.set_capital("scope:tfe_honorius_seat")
+    i.note("the annexer comes out under a new tag, so the Roman offices and the fisc know the West by this variable")
+    i.set_variable("tfe_western_rome")
 
 
 def honorius_fate(e):

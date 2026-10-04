@@ -18995,6 +18995,28 @@ class ModifierKeys(TypedDict, total=False):
     """Country"""
     shurat_bureaucracy_impact_modifier: float | str
     """Country"""
+    tfe_sacrae_largitiones_bureaucracy_impact_modifier: float | str
+    """Country"""
+    tfe_magister_officiorum_bureaucracy_impact_modifier: float | str
+    """Country"""
+    tfe_magister_peditum_bureaucracy_impact_modifier: float | str
+    """Country"""
+    tfe_senior_augustus_can_participate_in_parliament: float | str
+    """InternationalOrganization"""
+    tfe_senior_augustus_agenda_impact: float | str
+    """InternationalOrganization"""
+    tfe_hunnic_overlord_can_participate_in_parliament: float | str
+    """InternationalOrganization"""
+    tfe_hunnic_overlord_agenda_impact: float | str
+    """InternationalOrganization"""
+    tfe_hunnic_raid_prestige_cost_modifier: float | str
+    """Country"""
+    tfe_hunnic_storm_gold_cost_modifier: float | str
+    """Country"""
+    tfe_hunnic_tribute_price_cost_modifier: float | str
+    """Country"""
+    tfe_man_the_limes_price_cost_modifier: float | str
+    """Country"""
 
 
 UNVERIFIED = frozenset({

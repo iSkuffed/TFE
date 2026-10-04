@@ -237,6 +237,7 @@ def test_a_usurper_that_takes_the_capital_wins_the_west():
     assert "tag = CONST" in take and "capital = scope:target" in take and "tfe_stilicho.5" in take
     ev = block(flat(EVENTS), "tfe_stilicho.5 =")
     assert "annex_country = { country = c:WRE reason = CivilWar }" in block(ev, "immediate =")
+    assert "set_variable = tfe_western_rome" in block(ev, "immediate ="), "the annexer is a new tag: only the variable says it is the West"
     for opt in "abc":
         assert f"name = tfe_stilicho.5.{opt}" in ev
 
