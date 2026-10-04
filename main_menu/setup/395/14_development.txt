@@ -392,7 +392,4 @@ development = {
 	shangyuan = 6 # Jiankang, Eastern Jin's capital
 	jingzhao = 3 # Chang'an
 	patna = 6 # Pataliputra, Gupta capital
-	tehotihuacan = 6
-	zaachila = 3 # Monte Alban
-	yax_mutal = 3 # Tikal
 }

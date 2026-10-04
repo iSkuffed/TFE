@@ -1026,11 +1026,9 @@ WORLD_POPULATION_M = {  # 395 population (millions) of each region's land outsid
     "manchuria_region":1.0, "korea_region":2.0, "mongolia_region":0.8, "tibet_region":0.8, "xinjiang_region":0.6,
     "japan_region":2.0, "hindustan_region":15.0, "bengal_region":10.0, "deccan_region":12.0,
     "western_india_region":7.0, "central_india_region":6.0, "indochina_region":4.0, "indonesia_region":4.0,
-    "guinea_region":3.0, "sahel_region":2.0, "kongo_region":2.0, "central_africa_region":1.5, "east_coast_region":1.0,
+    "guinea_region":3.0, "sahel_region":2.0, "kongo_region":2.0, "central_africa_region":1.5,
     "swahili_coast_region":0.8, "zimbabwe_region":0.5, "somalia_region":0.5, "southern_africa_region":0.4,
-    "mesoamerica_region":6.0, "central_america_region":1.5, "andes_region":4.0, "colombia_region":1.5,
-    "brazil_region":1.5, "great_lakes_region":1.5, "aridoamerica_region":0.3, "chaco_region":0.4,
-    "la_plata_region":0.3, "melanesia_region":1.0 }
+    "great_lakes_region":1.5, "melanesia_region":1.0 }   # the Americas have no people: see americas()
 ROMAN_FORTS = {
     "WRE": ("milano", "rome", "ravenna", "tunis", "trier", "cologne", "mainz", "strasbourg", "regensburg", "vienna",
             "buda", "york", "carlisle"),
@@ -1166,6 +1164,24 @@ def emit_filtered_start(anc, owner, pop_based, settlements):
             text if name == "09_roads" else filter_unowned(text, set(anc), owned), encoding="utf-8")
 
 
+def americas(anc):
+    """the Americas leave the world: no pops, no owners, and default.map makes every location there unownable."""
+    return {l for l, a in anc.items() if a[0] == "america"}
+
+
+def drop_pops(text, gone):
+    return re.sub(r"^(\w+) = \{.*?^\}\n?", lambda m: "" if m.group(1) in gone else m.group(0), text, flags=re.M | re.S)
+
+
+def closed_default_map(vanilla, gone):
+    """vanilla's default.map (bytes, kept as is) with `gone` appended to its non_ownable list."""
+    head, rest = vanilla.split("non_ownable = {", 1)
+    body, tail = rest.split("}", 1)
+    rows = sorted(gone)
+    lines = "".join("\t" + " ".join(rows[i:i + 12]) + "\n" for i in range(0, len(rows), 12))
+    return f"{head}non_ownable = {{{body.rstrip(chr(10))}\n\t# TFE: the Americas are closed\n{lines}}}{tail}"
+
+
 def build():
     s = compute()
     st = s["stats"]
@@ -1200,7 +1216,9 @@ def build():
         sys.exit(f"no faith of 395 near {lost[:20]}: add a rule to tools/religions.txt")
     pops = region_pops(pops, s["owner"], s["anc"], {l: p for l, (_, p, _) in s["settlements"].items() if p})
     pops = tribal_pops(pops, s["owner"], s["anc"])
-    (MOD / "main_menu/setup/395/06_pops.txt").write_text(pops, encoding="utf-8")
+    (MOD / "main_menu/setup/395/06_pops.txt").write_text(drop_pops(pops, americas(s["anc"])), encoding="utf-8")
+    dm = (MOD / "in_game/map_data/default.map")
+    dm.write_bytes(closed_default_map((MAP / "default.map").read_bytes().decode("utf-8"), americas(s["anc"])).encode("utf-8"))
     INSTITUTIONS_OUT.write_text(emit_institutions((GAME / "main_menu/setup/1337/08_institutions.txt").read_text(
         encoding="utf-8-sig"), s), encoding="utf-8")
     formables = "in_game/common/formable_countries/00_formable_countries.txt"

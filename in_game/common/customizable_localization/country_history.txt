@@ -105,7 +105,6 @@ country_history = {
 	text = { localization_key = tfe_history_LZC trigger = { tag = LZC } } # Lazica
 	text = { localization_key = tfe_history_MDV trigger = { tag = MDV } } # Maldives
 	text = { localization_key = tfe_history_MKM trigger = { tag = MKM } } # Marcomanni
-	text = { localization_key = tfe_history_MOC trigger = { tag = MOC } } # Moche
 	text = { localization_key = tfe_history_MRD trigger = { tag = MRD } } # Mordvins
 	text = { localization_key = tfe_history_MRO trigger = { tag = MRO } } # Muroma
 	text = { localization_key = tfe_history_MRR trigger = { tag = MRR } } # Mari
@@ -114,7 +113,6 @@ country_history = {
 	text = { localization_key = tfe_history_MSQ trigger = { tag = MSQ } } # Maskut
 	text = { localization_key = tfe_history_MUM trigger = { tag = MUM } } # Mumu
 	text = { localization_key = tfe_history_MYL trigger = { tag = MYL } } # Monyul
-	text = { localization_key = tfe_history_NAZ trigger = { tag = NAZ } } # Nazca
 	text = { localization_key = tfe_history_NOB trigger = { tag = NOB } } # Nobatia
 	text = { localization_key = tfe_history_NRW trigger = { tag = NRW } } # Norse Petty Kingdoms
 	text = { localization_key = tfe_history_NVN trigger = { tag = NVN } } # Novantae
@@ -149,12 +147,10 @@ country_history = {
 	text = { localization_key = tfe_history_TAY trigger = { tag = TAY } } # Tayy
 	text = { localization_key = tfe_history_TGI trigger = { tag = TGI } } # Thuringians
 	text = { localization_key = tfe_history_TJR trigger = { tag = TJR } } # Tamna
-	text = { localization_key = tfe_history_TKL trigger = { tag = TKL } } # Tikal
 	text = { localization_key = tfe_history_TMM trigger = { tag = TMM } } # Tamim
 	text = { localization_key = tfe_history_TNS trigger = { tag = TNS } } # Tun Sun
 	text = { localization_key = tfe_history_TRM trigger = { tag = TRM } } # Tarumanagara
 	text = { localization_key = tfe_history_TSU trigger = { tag = TSU } } # Tsukushi
-	text = { localization_key = tfe_history_TTH trigger = { tag = TTH } } # Teotihuacan
 	text = { localization_key = tfe_history_TYH trigger = { tag = TYH } } # Tuyuhun
 	text = { localization_key = tfe_history_UDM trigger = { tag = UDM } } # Udmurts
 	text = { localization_key = tfe_history_ULD trigger = { tag = ULD } } # Ulaid
@@ -174,7 +170,6 @@ country_history = {
 	text = { localization_key = tfe_history_YUB trigger = { tag = YUB } } # Yueban
 	text = { localization_key = tfe_history_ZHZ trigger = { tag = ZHZ } } # Zhangzhung
 	text = { localization_key = tfe_history_ZOT trigger = { tag = ZOT } } # Zo
-	text = { localization_key = tfe_history_ZPT trigger = { tag = ZPT } } # Monte Alban
 
 	text = { localization_key = tfe_history_fallback fallback = yes }
 }

@@ -32,11 +32,6 @@ GOG | Goguryeo | Goguryeo | ganggye | east_asia_monarchy | korean_culture | maha
 BAE | Baekje | Baekje | namgyeong | east_asia_monarchy | korean_culture | mahayana | 60 140 120
 SIL | Silla | Silla | gyeongju | east_asia_monarchy | korean_culture | shamanism | 200 170 50
 GYK | Gaya | Gaya | dongnae | east_asia_monarchy | korean_culture | shamanism | 160 200 140
-TTH | Teotihuacan | Teotihuacano | - | amerindian_advanced_monarchy_not_nahuatl | nahua_culture | mesoamerican | 170 90 60
-TKL | Tikal | Tikal | - | amerindian_advanced_monarchy_not_nahuatl | yucatec_culture | mayan | 60 150 80
-ZPT | Monte Alban | Zapotec | - | amerindian_advanced_monarchy_not_nahuatl | zapotec_culture | mesoamerican | 150 100 150
-MOC | Moche | Mochica | - | andean_monarchy | chimu_culture | inti | 190 110 50
-NAZ | Nazca | Nazcan | - | andean_monarchy | chincha_culture | inti | 140 70 40
 
 # --- West batch ---
 SLF | Salian Franks | Salian | - | eurasian_tribe | frankish | norse | 80 110 200

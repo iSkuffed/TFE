@@ -247,6 +247,14 @@ REPLACE:central_bank_advance = {
 	}
 }
 
+REPLACE:chartered_companies = {
+	age = age_4_reformation
+	icon = merchant_power_from_maritime_reformation_advance
+	requires = safe_exploration_techniques_advance
+	trade_range = 200
+	unlock_casus_belli = cb_exploration
+}
+
 REPLACE:christianization_of_the_slavs = {
 	age = age_6_revolutions
 	potential = {
@@ -342,6 +350,13 @@ REPLACE:expanded_aqueduct_system = {
 	}
 	aqueduct_system_max_level = 1
 	requires = pound_lock_canals_advance
+}
+
+REPLACE:exploration = {
+	age = age_3_discovery
+	for = dip
+	unlock_casus_belli = cb_exploration
+	ai_preference_tags = { exploration }
 }
 
 REPLACE:federal_constitution = {
@@ -947,6 +962,17 @@ REPLACE:merchant_power_from_maritime_absolutism_advance = {
 	requires = scientific_mapping_advance
 }
 
+REPLACE:merchants_and_trade = {
+	age = age_2_renaissance
+	icon = global_trade_routes_advance
+	requires = banking_advance
+	naval_range = 250
+	trade_range = 250
+	max_tariff = 0.05
+	max_trade_subventions = 0.05
+	ai_preference_tags = { exploration }
+}
+
 REPLACE:mhr_ashta_pradhan_advance = {
 	age = age_4_reformation
 	icon = mhr_ashta_pradhan_advance
@@ -1084,6 +1110,17 @@ REPLACE:netherlandish_ship_building = {
 	requires = letters_of_marque
 }
 
+REPLACE:new_world_advance = {
+	age = age_3_discovery
+	depth = 0
+	allow = {
+		has_embraced_institution = institution:new_world
+	}
+	exploration_preparation_time_modifier = -0.05
+	diplomatic_range_modifier = 0.10
+	ai_preference_tags = { exploration }
+}
+
 REPLACE:northern_march = {
 	age = age_1_traditions
 	icon = northern_march
@@ -1119,6 +1156,20 @@ REPLACE:onmyodo = {
 		religion = religion:shinto
 	}
 	monthly_purity = 0.05
+}
+
+REPLACE:open_sea_exploration = {
+	age = age_3_discovery
+	icon = maritime_advance_age_4
+	requires = explorer_commisions_advance
+	allow_open_sea_exploration = yes
+	ai_preference_tags = { exploration }
+	ai_weight = {
+		if = {
+			limit = { has_preference_tag = "exploration" }
+			add = 100
+		}
+	}
 }
 
 REPLACE:opera_house_advance = {
@@ -1691,6 +1742,13 @@ REPLACE:subsaharan_musketeer_corps = {
 	}
 	unlock_unit = a_subsaharan_musketeer_corps
 	requires = leader_recruit_cost_advance
+}
+
+REPLACE:superior_ship_design = {
+	age = age_6_revolutions
+	icon = safe_exploration_techniques_advance
+	naval_range = 500
+	requires = maritime_advance_age_6
 }
 
 REPLACE:swiss_ambition = {
