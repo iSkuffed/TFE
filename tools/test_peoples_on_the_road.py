@@ -73,6 +73,20 @@ def test_no_settlers_from_an_empty_germania():
     assert allow and "pop_size" in str(allow[0].val) and "north_german_region" in str(allow[0].val)
 
 
+def test_only_the_barbaricum_sends_for_kin():
+    assert pr.DOC.find("is_member_of_international_organization", "international_organization:tfe_barbaricum",
+                       inside=(ACTION, "potential"))
+
+
+def test_the_common_folk_take_the_road_and_arrive_as_peasants_and_tribesmen():
+    allow = str(pr.DOC.find("allow", None, inside=(ACTION,))[0].val)
+    assert "peasants" in allow and "tribesmen" in allow and "nobles" not in allow
+    types = [n.val for n in pr.EXPEDITION.find("type", None, inside=("tfe_wandering_people", "on_end"))]
+    assert types == ["pop_type:peasants", "pop_type:tribesmen"]
+    assert sum(share for _, share in pr.ARRIVE_AS) == 1
+    assert pr.EXPEDITION.find("multiply", "0.4", inside=("tfe_wandering_people", "on_end"))
+
+
 def test_the_carpi_send_only_for_their_own_kin():
     """Germanic pops are a source only when the king is Germanic"""
     allow = str(pr.DOC.find("allow", None, inside=(ACTION,))[0].val)

@@ -18,6 +18,10 @@ SETTLER_SHARE = 0.5  # each pop in Germania gives up to this share of itself to 
 SOURCE_MIN = 1  # a pop smaller than this has no one to spare
 BAND_SIZE = 1
 TRAVEL_SPEED = 0.25
+# a people arrives as peasants and tribesmen: settling the tribesmen is work left for the king
+ARRIVE_AS = (("peasants", 0.6), ("tribesmen", 0.4))
+# who takes the road: the common folk, not the nobles, clergy or burghers
+MOVERS = ("peasants", "tribesmen")
 SETTLERS_PRICE = "tfe_invite_settlers_price"
 SETTLERS_SCALED_GOLD = 10  # months of the king's income (vanilla's scaled_gold, as the colonial charter's 2)
 SETTLERS_COOLDOWN = 3
@@ -78,7 +82,7 @@ def triggers():
 
 def clear_the_road(fx: CountryFx):
     """the band is home or gone: its variables go, and the elder made only to lead it leaves the court"""
-    for var in (*PEOPLE_VARS, "tfe_people_invited"):
+    for var in (*PEOPLE_VARS, "tfe_people_invited", *(f"tfe_people_as_{t}" for t, _ in ARRIVE_AS)):
         fx.remove_variable(var)
     with fx.link("scope:expedition", ExpeditionFx) as x, x.go_expedition_leader(op="?=") as leader:
         leader.save_scope_as("tfe_people_leader_done")
@@ -124,9 +128,14 @@ def wandering_people(doc: Doc):
                     t.exists("root.capital")
                 with i.link("root.capital", LocationFx) as cap:
                     cap.save_scope_as("tfe_people_arrive")
+            fx.note("whatever they were at home, they arrive as peasants and tribesmen")
+            for pop_type, share in ARRIVE_AS:
+                fx.set_variable(name=f"tfe_people_as_{pop_type}", value="var:tfe_people_size")
+                fx.change_variable(name=f"tfe_people_as_{pop_type}", multiply=share)
             with fx.link("scope:tfe_people_arrive", LocationFx) as arrive:
-                arrive.add_pop(culture="root.var:tfe_people_culture", religion="root.var:tfe_people_religion",
-                               type="pop_type:peasants", size="root.var:tfe_people_size")
+                for pop_type, _ in ARRIVE_AS:
+                    arrive.add_pop(culture="root.var:tfe_people_culture", religion="root.var:tfe_people_religion",
+                                   type=f"pop_type:{pop_type}", size=f"root.var:tfe_people_as_{pop_type}")
             clear_the_road(fx)
         with e.effects("on_fail", CountryFx) as fx:
             fx.note("lost on the road: the people who left are gone")
@@ -145,6 +154,9 @@ def germanic_settlers(t: PopTrig):
     """a pop with people to spare: the king's own, or any Germanic one for a Germanic king (the Carpi and Iazyges send
     only for their own kin)"""
     t.pop_size(SOURCE_MIN, op=">=")
+    with t.or_() as o:
+        for pop_type in MOVERS:
+            o.compare("pop_type", "=", f"pop_type:{pop_type}")
     with t.or_() as o:
         o.compare("culture", "=", "scope:actor.culture")
         with o.and_() as a:
@@ -169,9 +181,10 @@ def invite_settlers(doc: Doc):
     doc.loc.add(ACTION, "Invite Settlers")
     doc.loc.add(f"{ACTION}_desc", "Our kin still live beyond the Rhine and the Danube, on poor land. Send for them: they will "
                 "walk to the land we took and settle it as our own people.")
-    doc.loc.add(f"{ACTION}_tt", f"Up to {SETTLER_SIZE * 1000:,} of our kin leave Germania or the Carpathians, at most "
-                f"{SETTLER_SHARE:.0%} of any one people, and walk to the chosen [location|e]. There they settle as peasants "
-                "of our [culture|e]. If the land is no longer ours when they arrive, they settle by our [capital|e].")
+    doc.loc.add(f"{ACTION}_tt", f"Up to {SETTLER_SIZE * 1000:,} of our kin, peasants and tribesmen, leave Germania or "
+                f"the Carpathians, at most {SETTLER_SHARE:.0%} of any one people, and walk to the chosen [location|e]. There "
+                f"they settle as people of our [culture|e], {ARRIVE_AS[0][1]:.0%} peasants and {ARRIVE_AS[1][1]:.0%} "
+                "tribesmen. If the land is no longer ours when they arrive, they settle by our [capital|e].")
     doc.loc.add(f"{ACTION}_cooldown_tt", f"We can invite settlers once every {SETTLERS_COOLDOWN} years.")
     doc.loc.add(f"{ACTION}_choose_location", "Choose the land to settle")
     doc.loc.add(f"{ACTION}_no_location", "@trigger_no! All our land is already settled by our own people.")
@@ -186,6 +199,9 @@ def invite_settlers(doc: Doc):
         a.field("type", "internationalorganization")
         a.field("icon", "migrate_pop_based_country")
         with a.triggers("potential") as t:
+            t.note("a member of the Barbaricum: the button is in its window, and nobody else should send for kin")
+            t.link(ACTOR, CountryTrig, lambda c: c.is_member_of_international_organization(
+                "international_organization:tfe_barbaricum"))
             with t.link(ACTOR, CountryTrig) as c, c.go_culture() as cu, cu.or_() as o:
                 o.tfe_is_germanic_culture(True)
                 for culture in KIN_CULTURES:

@@ -3,7 +3,7 @@
  tfe_wandering_people_desc: "Families, herds and wagons on the move, looking for land to settle."
  tfe_invite_germanic_settlers: "Invite Settlers"
  tfe_invite_germanic_settlers_desc: "Our kin still live beyond the Rhine and the Danube, on poor land. Send for them: they will walk to the land we took and settle it as our own people."
- tfe_invite_germanic_settlers_tt: "Up to 10,000 of our kin leave Germania or the Carpathians, at most 50% of any one people, and walk to the chosen [location|e]. There they settle as peasants of our [culture|e]. If the land is no longer ours when they arrive, they settle by our [capital|e]."
+ tfe_invite_germanic_settlers_tt: "Up to 10,000 of our kin, peasants and tribesmen, leave Germania or the Carpathians, at most 50% of any one people, and walk to the chosen [location|e]. There they settle as people of our [culture|e], 60% peasants and 40% tribesmen. If the land is no longer ours when they arrive, they settle by our [capital|e]."
  tfe_invite_germanic_settlers_cooldown_tt: "We can invite settlers once every 3 years."
  tfe_invite_germanic_settlers_choose_location: "Choose the land to settle"
  tfe_invite_germanic_settlers_no_location: "@trigger_no! All our land is already settled by our own people."

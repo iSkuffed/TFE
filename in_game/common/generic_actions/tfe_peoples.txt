@@ -6,6 +6,8 @@ tfe_invite_germanic_settlers = {
 	type = internationalorganization
 	icon = migrate_pop_based_country
 	potential = {
+		# a member of the Barbaricum: the button is in its window, and nobody else should send for kin
+		scope:actor = { is_member_of_international_organization = international_organization:tfe_barbaricum }
 		scope:actor = {
 			culture = {
 				OR = {
@@ -36,6 +38,10 @@ tfe_invite_germanic_settlers = {
 							any_pop = {
 								pop_size >= 1
 								OR = {
+									pop_type = pop_type:peasants
+									pop_type = pop_type:tribesmen
+								}
+								OR = {
 									culture = scope:actor.culture
 									AND = {
 										culture = {
@@ -51,6 +57,10 @@ tfe_invite_germanic_settlers = {
 						any_location_in_region = {
 							any_pop = {
 								pop_size >= 1
+								OR = {
+									pop_type = pop_type:peasants
+									pop_type = pop_type:tribesmen
+								}
 								OR = {
 									culture = scope:actor.culture
 									AND = {
@@ -68,6 +78,10 @@ tfe_invite_germanic_settlers = {
 							any_pop = {
 								pop_size >= 1
 								OR = {
+									pop_type = pop_type:peasants
+									pop_type = pop_type:tribesmen
+								}
+								OR = {
 									culture = scope:actor.culture
 									AND = {
 										culture = {
@@ -83,6 +97,10 @@ tfe_invite_germanic_settlers = {
 						any_location_in_region = {
 							any_pop = {
 								pop_size >= 1
+								OR = {
+									pop_type = pop_type:peasants
+									pop_type = pop_type:tribesmen
+								}
 								OR = {
 									culture = scope:actor.culture
 									AND = {
@@ -148,6 +166,10 @@ tfe_invite_germanic_settlers = {
 						limit = {
 							pop_size >= 1
 							OR = {
+								pop_type = pop_type:peasants
+								pop_type = pop_type:tribesmen
+							}
+							OR = {
 								culture = scope:actor.culture
 								AND = {
 									culture = {
@@ -166,6 +188,10 @@ tfe_invite_germanic_settlers = {
 					every_pop = {
 						limit = {
 							pop_size >= 1
+							OR = {
+								pop_type = pop_type:peasants
+								pop_type = pop_type:tribesmen
+							}
 							OR = {
 								culture = scope:actor.culture
 								AND = {
@@ -186,6 +212,10 @@ tfe_invite_germanic_settlers = {
 						limit = {
 							pop_size >= 1
 							OR = {
+								pop_type = pop_type:peasants
+								pop_type = pop_type:tribesmen
+							}
+							OR = {
 								culture = scope:actor.culture
 								AND = {
 									culture = {
@@ -204,6 +234,10 @@ tfe_invite_germanic_settlers = {
 					every_pop = {
 						limit = {
 							pop_size >= 1
+							OR = {
+								pop_type = pop_type:peasants
+								pop_type = pop_type:tribesmen
+							}
 							OR = {
 								culture = scope:actor.culture
 								AND = {

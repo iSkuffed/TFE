@@ -38,12 +38,23 @@ tfe_wandering_people = {
 				save_scope_as = tfe_people_arrive
 			}
 		}
+		# whatever they were at home, they arrive as peasants and tribesmen
+		set_variable = { name = tfe_people_as_peasants value = var:tfe_people_size }
+		change_variable = { name = tfe_people_as_peasants multiply = 0.6 }
+		set_variable = { name = tfe_people_as_tribesmen value = var:tfe_people_size }
+		change_variable = { name = tfe_people_as_tribesmen multiply = 0.4 }
 		scope:tfe_people_arrive = {
 			add_pop = {
 				culture = root.var:tfe_people_culture
 				religion = root.var:tfe_people_religion
 				type = pop_type:peasants
-				size = root.var:tfe_people_size
+				size = root.var:tfe_people_as_peasants
+			}
+			add_pop = {
+				culture = root.var:tfe_people_culture
+				religion = root.var:tfe_people_religion
+				type = pop_type:tribesmen
+				size = root.var:tfe_people_as_tribesmen
 			}
 		}
 		remove_variable = tfe_people_from
@@ -52,6 +63,8 @@ tfe_wandering_people = {
 		remove_variable = tfe_people_religion
 		remove_variable = tfe_people_size
 		remove_variable = tfe_people_invited
+		remove_variable = tfe_people_as_peasants
+		remove_variable = tfe_people_as_tribesmen
 		scope:expedition = { expedition_leader ?= { save_scope_as = tfe_people_leader_done } }
 		if = {
 			limit = { exists = scope:tfe_people_leader_done }
@@ -66,6 +79,8 @@ tfe_wandering_people = {
 		remove_variable = tfe_people_religion
 		remove_variable = tfe_people_size
 		remove_variable = tfe_people_invited
+		remove_variable = tfe_people_as_peasants
+		remove_variable = tfe_people_as_tribesmen
 		scope:expedition = { expedition_leader ?= { save_scope_as = tfe_people_leader_done } }
 		if = {
 			limit = { exists = scope:tfe_people_leader_done }
