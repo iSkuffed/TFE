@@ -131,8 +131,9 @@ been seen working in game, or you say plainly that it hasn't.
   killed without `stop` is mended by the next `start`. Hover only lasts until the next frame (SDL snaps its cursor back
   to the real one), so a tooltip can't be held open; `EU5CTL_FOREGROUND=1` is the old way, in front with the real cursor.
 - **Run time at speed 5, never 3.** Each time you start or unpause time, press Numpad + until the speed is 5
-  (`tools/eu5ctl.sh key KP_Add KP_Add KP_Add KP_Add`; on Windows the same with `eu5ctl.ps1`). The game opens at a slower speed, and
-  speed 3 makes a ten-year observation take most of a session.
+  (`tools/eu5ctl.sh key KP_Add KP_Add KP_Add KP_Add`; on Windows the same with `eu5ctl.ps1`), or click the fastest
+  speed button at the top right of the screen if the key doesn't take. Take a screenshot to confirm speed 5 before
+  waiting. At speed 5, fifteen years pass in minutes; at speed 3 they take most of a session.
 - **Probes beat screenshots.** Write an effect file with `debug_log = "..."` inside `if`/`else` checks, `run` it and
   read the log. Example: `location:tunis = { if = { limit = { is_full_expanded_rgo = yes } debug_log = "full" } }`.
 - **Load the mod:** the active playset is in `Documents/.../Europa Universalis V/playsets.json` (`isActive`). If the
