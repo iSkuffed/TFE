@@ -7,6 +7,7 @@ sys.path.insert(0, str(ROOT / "script"))
 sys.path.insert(0, str(ROOT / "tools"))
 import peoples_on_the_road as pr  # noqa: E402
 import defs_decline_of_the_west as dw  # noqa: E402
+from pdx.core import find  # noqa: E402
 
 OUT = pr.outputs()
 EXP = OUT["in_game/common/expedition_types/tfe_peoples.txt"]
@@ -109,11 +110,37 @@ def test_settlers_are_thousands_gathered_from_many_peoples():
     assert pr.DOC.find("value", "var:tfe_settlers_gathered", inside=(ACTION, "effect"))
 
 
-def test_settlers_cost_months_of_income():
-    """vanilla's prices scale scaled_gold by the payer's income, so a rich king pays more"""
+def test_settlers_cost_a_year_of_income():
+    """vanilla's scaled_gold follows population (25 gold for 400,000 Alamanni): a year of trade and tax is the wealth"""
     assert pr.DOC.find("price", f"price:{pr.SETTLERS_PRICE}", inside=(ACTION,))
-    assert re.search(rf"^{pr.SETTLERS_PRICE} = {{\s*scaled_gold = {pr.SETTLERS_SCALED_GOLD}\s*}}", PRICES, re.M)
+    assert pr.DOC.find("value", "scope:actor.monthly_income_trade_and_tax", inside=(ACTION, "price_modifier"))
+    assert pr.DOC.find("min", pr.SETTLERS_MIN_GOLD, inside=(ACTION, "price_modifier"))
+    assert re.search(rf"^{pr.SETTLERS_PRICE} = {{\s*gold = 1\s*}}", PRICES, re.M)
     assert not pr.DOC.find("add_gold", None, inside=(ACTION,))
+
+
+def test_every_price_has_its_cost_modifier_and_name():
+    """1.4 logs a price with no <price>_cost_modifier type or no loc"""
+    types = (ROOT / "main_menu/common/modifier_type_definitions/tfe_statuses_and_prices.txt").read_text(encoding="utf-8-sig")
+    loc = "".join(f.read_text(encoding="utf-8-sig") for f in (ROOT / "main_menu/localization/english").glob("tfe_*.yml"))
+    for f in (ROOT / "in_game/common/prices").glob("tfe_*.txt"):
+        for price in re.findall(r"^(\w+) = \{", f.read_text(encoding="utf-8-sig"), re.M):
+            assert f"{price}_cost_modifier=" in types, price
+            assert f" {price}:" in loc, price
+
+
+def test_a_tooltip_reads_no_unset_variable():
+    """the tooltip's dry run sets no variable and makes no leader: 900,000 errors in ten minutes of hovering"""
+    guard = [n for n in pr.DOC.find("if", None, inside=(ACTION, "effect"))
+             if find(n.val, "has_variable", "tfe_settlers_wanted", inside=("limit",))]
+    assert guard and len(find(guard[0].val, "every_in_list")) == 2
+    assert pr.DOC.find("exists", "scope:tfe_people_leader", inside=(ACTION, "effect"))
+
+
+def test_a_band_with_no_road_settles_all_the_same():
+    """the Rugii's bands for Crete found no road and vanished, 10,000 people at a time"""
+    on_fail = EXP[EXP.index("on_fail"):]
+    assert "add_pop" in on_fail
 
 
 def test_the_tooltip_names_the_source_and_the_cooldown():

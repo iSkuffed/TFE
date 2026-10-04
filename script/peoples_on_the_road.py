@@ -23,7 +23,8 @@ ARRIVE_AS = (("peasants", 0.6), ("tribesmen", 0.4))
 # who takes the road: the common folk, not the nobles, clergy or burghers
 MOVERS = ("peasants", "tribesmen")
 SETTLERS_PRICE = "tfe_invite_settlers_price"
-SETTLERS_SCALED_GOLD = 10  # months of the king's income (vanilla's scaled_gold, as the colonial charter's 2)
+SETTLERS_INCOME_MONTHS = 12  # a year of the king's trade and tax income (vanilla's scaled_gold follows population)
+SETTLERS_MIN_GOLD = 50
 SETTLERS_COOLDOWN = 3
 BAND_CHANCE = 0.25
 GERMANIC_GROUPS = {"german_group", "netherlandish_group", "scandinavian_group"}
@@ -117,29 +118,34 @@ def wandering_people(doc: Doc):
             x.add_new_waypoint("root.var:tfe_people_from")
             x.add_new_waypoint("root.var:tfe_people_to")
         with e.effects("on_end", CountryFx) as fx:
-            with fx.link("root.var:tfe_people_to", LocationFx) as to:
-                to.save_scope_as("tfe_people_arrive")
-            fx.note("invited settlers whose land was lost on the way settle by the king's seat; a band settles wherever it is")
-            with fx.if_() as i:
-                with i.limit() as t:
-                    t.has_variable("tfe_people_invited")
-                    with t.not_() as n, n.link("scope:tfe_people_arrive", LocationTrig) as arrive:
-                        arrive.compare("owner", "?=", "root")
-                    t.exists("root.capital")
-                with i.link("root.capital", LocationFx) as cap:
-                    cap.save_scope_as("tfe_people_arrive")
-            fx.note("whatever they were at home, they arrive as peasants and tribesmen")
-            for pop_type, share in ARRIVE_AS:
-                fx.set_variable(name=f"tfe_people_as_{pop_type}", value="var:tfe_people_size")
-                fx.change_variable(name=f"tfe_people_as_{pop_type}", multiply=share)
-            with fx.link("scope:tfe_people_arrive", LocationFx) as arrive:
-                for pop_type, _ in ARRIVE_AS:
-                    arrive.add_pop(culture="root.var:tfe_people_culture", religion="root.var:tfe_people_religion",
-                                   type=f"pop_type:{pop_type}", size=f"root.var:tfe_people_as_{pop_type}")
-            clear_the_road(fx)
+            settle(fx)
         with e.effects("on_fail", CountryFx) as fx:
-            fx.note("lost on the road: the people who left are gone")
-            clear_the_road(fx)
+            fx.note("no road there (an island, a strait): they cross by boat and settle all the same")
+            settle(fx)
+
+
+def settle(fx: CountryFx):
+    """the band arrives: peasants and tribesmen at its target, or by the king's seat if the target is no longer his"""
+    with fx.link("root.var:tfe_people_to", LocationFx) as to:
+        to.save_scope_as("tfe_people_arrive")
+    fx.note("invited settlers whose land was lost on the way settle by the king's seat; a band settles wherever it is")
+    with fx.if_() as i:
+        with i.limit() as t:
+            t.has_variable("tfe_people_invited")
+            with t.not_() as n, n.link("scope:tfe_people_arrive", LocationTrig) as arrive:
+                arrive.compare("owner", "?=", "root")
+            t.exists("root.capital")
+        with i.link("root.capital", LocationFx) as cap:
+            cap.save_scope_as("tfe_people_arrive")
+    fx.note("whatever they were at home, they arrive as peasants and tribesmen")
+    for pop_type, share in ARRIVE_AS:
+        fx.set_variable(name=f"tfe_people_as_{pop_type}", value="var:tfe_people_size")
+        fx.change_variable(name=f"tfe_people_as_{pop_type}", multiply=share)
+    with fx.link("scope:tfe_people_arrive", LocationFx) as arrive:
+        for pop_type, _ in ARRIVE_AS:
+            arrive.add_pop(culture="root.var:tfe_people_culture", religion="root.var:tfe_people_religion",
+                           type=f"pop_type:{pop_type}", size=f"root.var:tfe_people_as_{pop_type}")
+    clear_the_road(fx)
 
 
 def send(fx: CountryFx, *, frm: str, to: str, culture: str, religion: str, size: float | str):
@@ -147,7 +153,9 @@ def send(fx: CountryFx, *, frm: str, to: str, culture: str, religion: str, size:
     for var, value in zip(PEOPLE_VARS, (frm, to, culture, religion, size)):
         fx.set_variable(name=var, value=value)
     fx.create_character(age=35, culture=culture, religion=religion, save_scope_as="tfe_people_leader")
-    fx.start_expedition(type=f"expedition_type:{EXPEDITION_TYPE}", leader="scope:tfe_people_leader")
+    with fx.if_() as i:
+        i.limit(lambda t: t.exists("scope:tfe_people_leader"))
+        i.start_expedition(type=f"expedition_type:{EXPEDITION_TYPE}", leader="scope:tfe_people_leader")
 
 
 def germanic_settlers(t: PopTrig):
@@ -179,6 +187,7 @@ def gather(fx: PopFx):
 
 def invite_settlers(doc: Doc):
     doc.loc.add(ACTION, "Invite Settlers")
+    doc.loc.add(SETTLERS_PRICE, "Inviting Settlers")
     doc.loc.add(f"{ACTION}_desc", "Our kin still live beyond the Rhine and the Danube, on poor land. Send for them: they will "
                 "walk to the land we took and settle it as our own people.")
     doc.loc.add(f"{ACTION}_tt", f"Up to {SETTLER_SIZE * 1000:,} of our kin, peasants and tribesmen, leave Germania or "
@@ -225,6 +234,9 @@ def invite_settlers(doc: Doc):
         a.field("automation_tick_frequency", 12)
         a.data("cooldown", type="tfe_invite_settlers", years=SETTLERS_COOLDOWN)
         a.field("price", f"price:{SETTLERS_PRICE}")
+        a.data("price_modifier", add={"desc": Q("tfe_one_years_income"),
+                                      "value": "scope:actor.monthly_income_trade_and_tax",
+                                      "multiply": SETTLERS_INCOME_MONTHS, "min": SETTLERS_MIN_GOLD})
         with a.block("select_trigger") as s:
             s.field("looking_for_a", "international_organization")
             s.field("target_flag", "recipient")
@@ -269,16 +281,19 @@ def invite_settlers(doc: Doc):
                            "king's own culture first, then from the other Germanic peoples")
                     with i.link(ACTOR, CountryFx) as c:
                         c.set_variable(name="tfe_settlers_wanted", value=SETTLER_SIZE)
-                    for own in (True, False):
-                        with i.every_in_list(PopFx, list="tfe_settler_pops") as p:
-                            with p.limit() as t:
-                                t.compare("scope:actor.var:tfe_settlers_wanted", ">", 0)
-                                if own:
-                                    t.compare("culture", "=", "scope:actor.culture")
-                                else:
-                                    t.note("the king's own gave their share in the first pass")
-                                    t.not_(lambda n: n.compare("culture", "=", "scope:actor.culture"))
-                            gather(p)
+                    with i.if_() as g:
+                        g.note("a tooltip's dry run sets no variable: read it only once it is there")
+                        g.limit(lambda t: t.link(ACTOR, CountryTrig, lambda c: c.has_variable("tfe_settlers_wanted")))
+                        for own in (True, False):
+                            with g.every_in_list(PopFx, list="tfe_settler_pops") as p:
+                                with p.limit() as t:
+                                    t.compare("scope:actor.var:tfe_settlers_wanted", ">", 0)
+                                    if own:
+                                        t.compare("culture", "=", "scope:actor.culture")
+                                    else:
+                                        t.note("the king's own gave their share in the first pass")
+                                        t.not_(lambda n: n.compare("culture", "=", "scope:actor.culture"))
+                                gather(p)
                     with i.link("scope:tfe_settler_pop", PopFx) as p, p.go_location() as loc:
                         loc.save_scope_as("tfe_settler_home")
                     i.note("the settlers join the king's people (his culture), and keep their own gods")
@@ -381,11 +396,12 @@ def slavic_bands():
 
 
 def prices():
-    """the settlers' price, in months of the king's income: dear for a rich king, within reach of a chieftain"""
+    """the settlers' price: one gold, which the action scales to a year of the king's income (dear for a rich king,
+    within reach of a chieftain)"""
     d = Doc()
     d.note("TFE: peoples on the road. Written from script/peoples_on_the_road.py.")
     with d.entry(SETTLERS_PRICE) as e:
-        e.field("scaled_gold", SETTLERS_SCALED_GOLD)
+        e.field("gold", 1)
     return d
 
 

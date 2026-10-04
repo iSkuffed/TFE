@@ -126,6 +126,14 @@ tfe_invite_germanic_settlers = {
 		years = 3
 	}
 	price = price:tfe_invite_settlers_price
+	price_modifier = {
+		add = {
+			desc = "tfe_one_years_income"
+			value = scope:actor.monthly_income_trade_and_tax
+			multiply = 12
+			min = 50
+		}
+	}
 	select_trigger = {
 		looking_for_a = international_organization
 		target_flag = recipient
@@ -271,33 +279,37 @@ tfe_invite_germanic_settlers = {
 				# they leave from the largest; up to 10 pop_size gathers from every people of the
 				# king's own culture first, then from the other Germanic peoples
 				scope:actor = { set_variable = { name = tfe_settlers_wanted value = 10 } }
-				every_in_list = {
-					list = tfe_settler_pops
-					limit = { scope:actor.var:tfe_settlers_wanted > 0 culture = scope:actor.culture }
-					save_scope_as = tfe_settler_giver
-					scope:actor = {
-						set_variable = { name = tfe_settlers_take value = scope:tfe_settler_giver.pop_size }
-						change_variable = { name = tfe_settlers_take multiply = 0.5 }
-						change_variable = { name = tfe_settlers_take max = var:tfe_settlers_wanted }
-						change_variable = { name = tfe_settlers_wanted subtract = var:tfe_settlers_take }
+				if = {
+					# a tooltip's dry run sets no variable: read it only once it is there
+					limit = { scope:actor = { has_variable = tfe_settlers_wanted } }
+					every_in_list = {
+						list = tfe_settler_pops
+						limit = { scope:actor.var:tfe_settlers_wanted > 0 culture = scope:actor.culture }
+						save_scope_as = tfe_settler_giver
+						scope:actor = {
+							set_variable = { name = tfe_settlers_take value = scope:tfe_settler_giver.pop_size }
+							change_variable = { name = tfe_settlers_take multiply = 0.5 }
+							change_variable = { name = tfe_settlers_take max = var:tfe_settlers_wanted }
+							change_variable = { name = tfe_settlers_wanted subtract = var:tfe_settlers_take }
+						}
+						add_pop_size = { value = scope:actor.var:tfe_settlers_take multiply = -1 }
 					}
-					add_pop_size = { value = scope:actor.var:tfe_settlers_take multiply = -1 }
-				}
-				every_in_list = {
-					list = tfe_settler_pops
-					limit = {
-						scope:actor.var:tfe_settlers_wanted > 0
-						# the king's own gave their share in the first pass
-						NOT = { culture = scope:actor.culture }
+					every_in_list = {
+						list = tfe_settler_pops
+						limit = {
+							scope:actor.var:tfe_settlers_wanted > 0
+							# the king's own gave their share in the first pass
+							NOT = { culture = scope:actor.culture }
+						}
+						save_scope_as = tfe_settler_giver
+						scope:actor = {
+							set_variable = { name = tfe_settlers_take value = scope:tfe_settler_giver.pop_size }
+							change_variable = { name = tfe_settlers_take multiply = 0.5 }
+							change_variable = { name = tfe_settlers_take max = var:tfe_settlers_wanted }
+							change_variable = { name = tfe_settlers_wanted subtract = var:tfe_settlers_take }
+						}
+						add_pop_size = { value = scope:actor.var:tfe_settlers_take multiply = -1 }
 					}
-					save_scope_as = tfe_settler_giver
-					scope:actor = {
-						set_variable = { name = tfe_settlers_take value = scope:tfe_settler_giver.pop_size }
-						change_variable = { name = tfe_settlers_take multiply = 0.5 }
-						change_variable = { name = tfe_settlers_take max = var:tfe_settlers_wanted }
-						change_variable = { name = tfe_settlers_wanted subtract = var:tfe_settlers_take }
-					}
-					add_pop_size = { value = scope:actor.var:tfe_settlers_take multiply = -1 }
 				}
 				scope:tfe_settler_pop = {
 					location = {
@@ -319,9 +331,12 @@ tfe_invite_germanic_settlers = {
 						culture = scope:actor.culture
 						save_scope_as = tfe_people_leader
 					}
-					start_expedition = {
-						type = expedition_type:tfe_wandering_people
-						leader = scope:tfe_people_leader
+					if = {
+						limit = { exists = scope:tfe_people_leader }
+						start_expedition = {
+							type = expedition_type:tfe_wandering_people
+							leader = scope:tfe_people_leader
+						}
 					}
 					set_variable = tfe_people_invited
 					remove_variable = tfe_settlers_wanted

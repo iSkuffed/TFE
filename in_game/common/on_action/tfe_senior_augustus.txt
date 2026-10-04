@@ -21,6 +21,8 @@ tfe_on_ruler_death_seniority_passes = {
 	effect = {
 		if = {
 			limit = {
+				# the Empire may have fallen apart: every ruler's death would log an error
+				exists = international_organization:tfe_roman_empire
 				has_special_status_in_international_organization = {
 					type = special_status:tfe_senior_augustus
 					international_organization = international_organization:tfe_roman_empire

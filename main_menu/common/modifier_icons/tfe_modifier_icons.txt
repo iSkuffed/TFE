@@ -40,3 +40,6 @@ tfe_hunnic_tribute_price_cost_modifier = {
 tfe_man_the_limes_price_cost_modifier = {
 	positive = "gfx/interface/icons/modifier_types/can_assume_fort_command.dds"
 }
+tfe_invite_settlers_price_cost_modifier = {
+	positive = "gfx/interface/icons/modifier_types/bribe_units_cost_modifier.dds"
+}
