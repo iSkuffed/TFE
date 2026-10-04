@@ -923,6 +923,7 @@ POR_f = { # Portugal
 	}
 
 	allow = {
+		current_age = age_6_revolutions	# TFE: the Age of Charlemagne; the County of Portugal dates from 868
 		has_tribal_government = no	# TFE
 	}
 

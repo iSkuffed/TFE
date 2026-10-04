@@ -96,6 +96,9 @@ EDITS = [
 		culture = culture:portuguese
 		religion.group = religion_group:christian
 	}
+
+	allow = {
+	}
 """, """POR_f = { # Portugal
 	level = 3	# TFE: a Kingdom
 	required_locations_fraction = 0.6	# TFE
@@ -104,6 +107,10 @@ EDITS = [
 	potential = {
 		NOR = { tag = WRE tag = EAR tag = JIN }	# TFE
 		NOT = { tag = POR }
+	}
+
+	allow = {
+		current_age = age_6_revolutions	# TFE: the Age of Charlemagne; the County of Portugal dates from 868
 	}
 """),
     ("""	areas = {
