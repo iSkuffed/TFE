@@ -78,3 +78,29 @@ def test_settlers_are_invited_and_join_the_kings_people():
 def test_the_actions_loc_exists():
     for key in (ACTION, f"{ACTION}_desc"):
         assert re.search(rf"^ {key}: ", LOC, re.M), key
+
+
+ON_ACTION = "in_game/common/on_action/tfe_peoples.txt"
+
+
+def test_slavic_bands_only_in_their_window():
+    text = OUT[ON_ACTION]
+    assert "450.1.1" in text and "700.1.1" in text
+    assert "slavic_group" in text and "tfe_people_invited" not in text
+
+
+def test_bands_never_take_land():
+    text = OUT[ON_ACTION]
+    assert "change_location_owner" not in text and "create_country" not in text
+
+
+def test_bands_go_south_of_the_danube_only_after_550():
+    balkans = pr.BANDS.find(None, None, inside=("tfe_on_slavic_band", "effect", "if"))
+    assert any(n.key == "current_date" and n.val == "550.1.1" for n in balkans)
+    assert any(n.key == "region:balkan_region" for n in balkans)
+
+
+def test_bands_drain_their_homeland_and_walk():
+    assert pr.BANDS.find("add_pop_size", None, inside=("tfe_on_slavic_band",))
+    assert pr.BANDS.find("start_expedition", None, inside=("tfe_on_slavic_band",))
+    assert pr.BANDS.find("chance", str(round(pr.BAND_CHANCE * 100)), inside=("tfe_on_slavic_band",))

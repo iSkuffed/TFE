@@ -1,0 +1,150 @@
+﻿# TFE: peoples on the road. From 450 to 700 the Slavs drift west and south into the lands the Germanic hosts left:
+# each year a Slavic country with its people in the homeland may send a band (expedition_types/tfe_peoples.txt).
+# A band only adds people where it settles: nobody loses land. Written from script/peoples_on_the_road.py.
+yearly_country_pulse = {
+	on_actions = { tfe_on_slavic_band }
+}
+
+tfe_on_slavic_band = {
+	trigger = {
+		current_date >= 450.1.1
+		current_date < 700.1.1
+		culture = {
+			has_culture_group = culture_group:slavic_group
+		}
+		NOT = { has_variable = tfe_people_to }
+		any_owned_location = {
+			OR = {
+				area = area:polesia_area
+				area = area:volhynia_area
+				area = area:white_ruthenia_area
+				area = area:red_ruthenia_area
+				area = area:right_bank_ukraine_area
+				area = area:lesser_poland_area
+				area = area:mazovia_area
+			}
+			any_pop = {
+				pop_size >= 1
+				culture = {
+					has_culture_group = culture_group:slavic_group
+				}
+			}
+		}
+	}
+	effect = {
+		random = {
+			chance = 25
+			# from the largest Slavic pop in our homeland
+			ordered_pop = {
+				order_by = pop_size
+				limit = {
+					pop_size >= 1
+					culture = {
+						has_culture_group = culture_group:slavic_group
+					}
+					location = {
+						OR = {
+							area = area:polesia_area
+							area = area:volhynia_area
+							area = area:white_ruthenia_area
+							area = area:red_ruthenia_area
+							area = area:right_bank_ukraine_area
+							area = area:lesser_poland_area
+							area = area:mazovia_area
+						}
+					}
+				}
+				save_scope_as = tfe_band_pop
+				location = {
+					save_scope_as = tfe_band_home
+				}
+			}
+			# to the land the hosts emptied, the emptier the likelier
+			area:brandenburg_area = {
+				every_location_in_area = {
+					limit = { is_land = yes is_passable = yes }
+					add_to_temporary_list = tfe_band_targets
+				}
+			}
+			area:mecklenburg_area = {
+				every_location_in_area = {
+					limit = { is_land = yes is_passable = yes }
+					add_to_temporary_list = tfe_band_targets
+				}
+			}
+			area:pomerania_area = {
+				every_location_in_area = {
+					limit = { is_land = yes is_passable = yes }
+					add_to_temporary_list = tfe_band_targets
+				}
+			}
+			area:upper_saxony_area = {
+				every_location_in_area = {
+					limit = { is_land = yes is_passable = yes }
+					add_to_temporary_list = tfe_band_targets
+				}
+			}
+			area:bohemia_area = {
+				every_location_in_area = {
+					limit = { is_land = yes is_passable = yes }
+					add_to_temporary_list = tfe_band_targets
+				}
+			}
+			area:moravia_area = {
+				every_location_in_area = {
+					limit = { is_land = yes is_passable = yes }
+					add_to_temporary_list = tfe_band_targets
+				}
+			}
+			area:silesia_area = {
+				every_location_in_area = {
+					limit = { is_land = yes is_passable = yes }
+					add_to_temporary_list = tfe_band_targets
+				}
+			}
+			if = {
+				limit = { current_date >= 550.1.1 }
+				# over the Danube, once Justinian's forts stand empty
+				region:balkan_region = {
+					every_location_in_region = {
+						limit = { is_land = yes is_passable = yes }
+						add_to_temporary_list = tfe_band_targets
+					}
+				}
+			}
+			random_in_list = {
+				weight = {
+					base = 1
+					modifier = {
+						add = {
+							value = 20
+							subtract = population
+							min = 0
+						}
+					}
+				}
+				list = tfe_band_targets
+				save_scope_as = tfe_band_to
+			}
+			if = {
+				limit = { exists = scope:tfe_band_pop exists = scope:tfe_band_to }
+				set_variable = { name = tfe_people_from value = scope:tfe_band_home }
+				set_variable = { name = tfe_people_to value = scope:tfe_band_to }
+				set_variable = { name = tfe_people_culture value = scope:tfe_band_pop.culture }
+				set_variable = { name = tfe_people_religion value = scope:tfe_band_pop.religion }
+				set_variable = { name = tfe_people_size value = 1 }
+				create_character = {
+					age = 35
+					religion = scope:tfe_band_pop.religion
+					culture = scope:tfe_band_pop.culture
+					save_scope_as = tfe_people_leader
+				}
+				start_expedition = {
+					type = expedition_type:tfe_wandering_people
+					leader = scope:tfe_people_leader
+				}
+				scope:tfe_band_pop = { add_pop_size = { value = -1 } }
+			}
+		}
+	}
+}
