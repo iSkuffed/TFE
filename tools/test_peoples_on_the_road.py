@@ -208,10 +208,11 @@ def test_no_people_gives_more_than_is_wanted():
     assert not pr.DOC.find("max", "var:tfe_settlers_wanted", inside=(ACTION, "change_variable"))
 
 
-def test_the_arrival_sizes_are_set_on_the_country():
-    """on_fail runs in another scope: the sizes set there were never read, and the pops arrived at the wrong size"""
+def test_the_arrival_sizes_need_no_variable():
+    """the Expedition Lost popup dry-runs on_fail, where a size set in it is not there yet: the shares are inline"""
     for hook in ("on_end", "on_fail"):
-        assert pr.EXPEDITION.find("set_variable", None, inside=(hook, "root"))
+        assert pr.EXPEDITION.find("value", "root.var:tfe_people_size", inside=(hook, "add_pop", "size"))
+    assert not pr.EXPEDITION.find("set_variable", None, inside=("on_fail",))
 
 
 def test_a_failed_walk_settles_only_once():

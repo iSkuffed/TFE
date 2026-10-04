@@ -83,7 +83,7 @@ def triggers():
 
 def clear_the_road(fx: CountryFx):
     """the band is home or gone: its variables go, and the elder made only to lead it leaves the court"""
-    for var in (*PEOPLE_VARS, "tfe_people_invited", *(f"tfe_people_as_{t}" for t, _ in ARRIVE_AS)):
+    for var in (*PEOPLE_VARS, "tfe_people_invited"):
         fx.remove_variable(var)
     with fx.link("scope:expedition", ExpeditionFx) as x, x.go_expedition_leader(op="?=") as leader:
         leader.save_scope_as("tfe_people_leader_done")
@@ -140,15 +140,12 @@ def settle(fx: CountryFx):
                 t.exists("root.capital")
             with i.link("root.capital", LocationFx) as cap:
                 cap.save_scope_as("tfe_people_arrive")
-        g.note("whatever they were at home, they arrive as peasants and tribesmen; set on root, which on_fail's scope is not")
-        with g.link("root", CountryFx) as r:
-            for pop_type, share in ARRIVE_AS:
-                r.set_variable(name=f"tfe_people_as_{pop_type}", value="var:tfe_people_size")
-                r.change_variable(name=f"tfe_people_as_{pop_type}", multiply=share)
+        g.note("whatever they were at home, they arrive as peasants and tribesmen; the shares are inline, since the\n"
+               "Expedition Lost popup dry-runs on_fail first, where a variable set here would not be there yet")
         with g.link("scope:tfe_people_arrive", LocationFx) as arrive:
-            for pop_type, _ in ARRIVE_AS:
+            for pop_type, share in ARRIVE_AS:
                 arrive.add_pop(culture="root.var:tfe_people_culture", religion="root.var:tfe_people_religion",
-                               type=f"pop_type:{pop_type}", size=f"root.var:tfe_people_as_{pop_type}")
+                               type=f"pop_type:{pop_type}", size={"value": "root.var:tfe_people_size", "multiply": share})
     clear_the_road(fx)
 
 
