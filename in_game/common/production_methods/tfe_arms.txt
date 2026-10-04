@@ -1,0 +1,112 @@
+﻿# TFE: no gunpowder in 395-895, so every arm is bought as weaponry, summed one for one (both cost 3); written by script/arms.py
+REPLACE:soldier_building_maintenance = {
+	icon_type = building_type
+	icon = cantonments
+	weaponry = 0.54
+	leather = 0.27
+	cloth = 0.05
+	paper = 0.11
+	category = building_maintenance
+}
+
+REPLACE:korean_gunnery_maintenance = {
+	icon_type = building_type
+	icon = korean_gunnery_land_defense
+	stone = 0.05
+	weaponry = 0.1
+	cannons = 0.1
+	tools = 0.05
+	category = building_maintenance
+}
+
+REPLACE:janissary_barracks_maintenance = {
+	icon_type = building_type
+	icon = janissary_barracks
+	weaponry = 1.4
+	leather = 0.7
+	cloth = 0.14
+	paper = 0.28
+	slaves_goods = 0.7
+	category = building_maintenance
+}
+
+REPLACE:ghilman_barracks_maintenance = {
+	icon_type = building_type
+	icon = ghilman_barracks
+	weaponry = 0.7
+	leather = 0.35
+	cloth = 0.07
+	paper = 0.14
+	slaves_goods = 0.35
+	category = building_maintenance
+}
+
+REPLACE:pirate_stronghold_maintenance = {
+	icon_type = building_type
+	icon = pirate_stronghold
+	naval_supplies = 0.1
+	weaponry = 0.15
+	liquor = 0.1
+	lumber = 0.1
+	category = building_maintenance
+}
+
+REPLACE:kurmina_headquarter_maintenance = {
+	icon_type = building_type
+	icon = kurmina_headquarter
+	weaponry = 0.72
+	leather = 0.36
+	cloth = 0.072
+	paper = 0.14
+	category = building_maintenance
+}
+
+REPLACE:hre_imperial_armory_own_maintenance = {
+	icon_type = building_type
+	icon = hre_imperial_armory_own
+	weaponry = 0.18
+	leather = 0.09
+	cloth = 0.018
+	paper = 0.036
+	category = building_maintenance
+}
+
+REPLACE:hre_imperial_armory_foreign_maintenance = {
+	icon_type = building_type
+	icon = hre_imperial_armory_foreign
+	weaponry = 0.36
+	leather = 0.18
+	cloth = 0.036
+	paper = 0.072
+	category = building_maintenance
+}
+
+REPLACE:korean_barracks_maintenance = {
+	icon_type = building_type
+	icon = korean_barracks
+	weaponry = 0.18
+	leather = 0.09
+	cloth = 0.018
+	paper = 0.036
+	category = building_maintenance
+}
+
+REPLACE:provincial_garrison_maintenance = {
+	icon_type = building_type
+	icon = provincial_garrison
+	weaponry = 0.112
+	leather = 0.056
+	cloth = 0.011
+	paper = 0.023
+	category = building_maintenance
+}
+
+REPLACE:segovia_artillery_academy_maintenance = {
+	icon_type = building_type
+	icon = segovia_artillery_academy
+	weaponry = 0.52
+	leather = 0.26
+	cloth = 0.052
+	paper = 0.1
+	category = building_maintenance
+}

@@ -1,0 +1,508 @@
+﻿# TFE: no gunpowder in 395-895, so every arm is bought as weaponry, summed one for one (both cost 3); written by script/arms.py
+REPLACE:war_college = {
+	audio_tier = 3
+	is_foreign = no
+	pop_type = burghers
+	max_levels = 1
+	category = government_category
+	employment_size = large_burgher_employment
+	town = yes
+	city = yes
+	megalopolis = yes
+	expensive = yes
+	build_time = large_capital_build_time
+	location_potential = {
+		counts_as_capital = yes
+	}
+	allow = {
+		is_capital = yes
+		country_has_no_other_copy_of_building = {
+			type = war_college
+		}
+	}
+	remove_if = { is_no_longer_capital = yes }
+	capital_modifier = {
+		local_manpower = 0.2
+	}
+	capital_country_modifier = {
+		land_morale_modifier = 0.05
+	}
+	unique_production_methods = {
+		war_college_requirements = {
+			icon_type = building_type
+			icon = war_college
+			tools = 0.59
+			weaponry = 2.96
+			fine_cloth = 2.95
+			books = 2.95
+			paper = 5.91
+			cannons = 0.74
+			category = building_maintenance
+		}
+	}
+	construction_demand = important_building_construction
+}
+
+REPLACE:coastal_fort = {
+	audio_tier = 1
+	is_foreign = no
+	max_levels = 1
+	pop_type = soldiers
+	category = defense_category
+	employment_size = coastal_fort_employment
+	town = yes
+	city = yes
+	megalopolis = yes
+	build_time = small_fort_building
+	location_potential = {
+		is_port = yes
+	}
+	unique_production_methods = {
+		coastal_fort_maintenance = {
+			icon_type = building_type
+			icon = coastal_fort
+			stone = 0.2
+			weaponry = 0.2
+			cannons = 0.5
+			tools = 0.2
+			tar = 0.2
+			category = building_maintenance
+		}
+	}
+	construction_demand = fort_construction
+	modifier = {
+		hostile_disembark_time_modifier = 1.0
+		hostile_fleet_attrition = 1
+		blocks_privateer_raids = yes
+		local_maritime_presence = 0.15
+	}
+}
+
+REPLACE:naval_battery = {
+	audio_tier = 2
+	is_foreign = no
+	max_levels = 1
+	pop_type = soldiers
+	obsolete = coastal_fort
+	category = defense_category
+	employment_size = naval_battery_employment
+	town = yes
+	city = yes
+	megalopolis = yes
+	build_time = medium_fort_building
+	location_potential = {
+		is_port = yes
+	}
+	unique_production_methods = {
+		naval_battery_maintenance = {
+			icon_type = building_type
+			icon = naval_battery
+			stone = 0.2
+			weaponry = 0.2
+			cannons = 1.0
+			tools = 0.5
+			tar = 0.2
+			category = building_maintenance
+		}
+	}
+	construction_demand = fort_construction
+	modifier = {
+		hostile_disembark_time_modifier = 2.0
+		hostile_fleet_attrition = 2
+		blocks_privateer_raids = yes
+		local_maritime_presence = 0.3
+	}
+}
+
+REPLACE:enderun_academy = {
+	audio_tier = 4
+	is_special = yes
+	is_foreign = no
+	pop_type = soldiers
+	max_levels = 1
+	category = military_category
+	employment_size = manpower_100_employment
+	rural_settlement = yes
+	build_time = soldier_building
+	country_potential = {
+		always = no
+	}
+	allow = {
+		always = no
+	}
+	modifier = {
+		local_manpower = 0.02
+		can_recruit_regiment_in_this_location = yes
+	}
+	capital_country_modifier = {
+		country_cabinet_efficiency = 0.05
+	}
+	unique_production_methods = {
+		endrun_academy_maintenance = {
+			icon_type = building_type
+			icon = enderun_academy
+			weaponry = 0.48
+			leather = 0.24
+			cloth = 0.12
+			paper = 0.24
+			fine_cloth = 0.24
+			category = building_maintenance
+		}
+	}
+	construction_demand = soldier_building_construction
+}
+
+REPLACE:slave_center = {
+	audio_tier = 2
+	in_empty = any
+	is_foreign = yes
+	stronger_power_projection = yes
+	max_levels = 1
+	startup_ramp_target = rural_startup_ramp_target
+	pop_type = burghers
+	category = colonial_category
+	employment_size = foreign_trade_employment
+	pop_size_created = foreign_trade_employment
+	rural_settlement = yes
+	town = yes
+	city = yes
+	megalopolis = yes
+	location_potential = {
+		NOT = { dominant_religion.group = scope:actor.religion.group }
+		owner ?= { religion != scope:actor.religion }
+	}
+	allow = {
+		OR = {
+			sub_continent = sub_continent:west_africa
+			sub_continent = sub_continent:central_africa
+		}
+		OR = {
+			is_coastal_within_range = yes
+			is_adjacent_to_owned_or_subject_owns = yes
+		}
+		scope:actor = { has_slavery = yes }
+	}
+	build_time = colonise_build_time
+	unique_production_methods = {
+		slave_center_maintenance = {
+			icon_type = building_type
+			icon = slave_center
+			stone = 0.1
+			tools = 0.1
+			weaponry = 0.05
+			paper = 0.05
+			produced = slaves_goods
+			output = 1
+			debug_max_profit = -1
+			category = building_maintenance
+		}
+	}
+	construction_demand = simple_colony_construction
+	modifier = {
+		building_enslavement_power = 0.20
+		local_slave_pop_satisfaction = -0.05
+	}
+}
+
+REPLACE:bastion = {
+	audio_tier = 3
+	is_foreign = no
+	max_levels = 1
+	pop_type = soldiers
+	forbidden_for_estates = yes
+	category = defense_category
+	obsolete = castle
+	employment_size = bastion_employment
+	rural_settlement = yes
+	town = yes
+	city = yes
+	megalopolis = yes
+	build_time = medium_fort_building
+	expensive = yes
+	unique_production_methods = {
+		bastion_maintenance = {
+			icon_type = building_type
+			icon = bastion
+			stone = 0.5
+			weaponry = 1
+			cannons = 0.5
+			tools = 0.2
+			category = building_maintenance
+		}
+	}
+	construction_demand = fort_construction
+	modifier = {
+		local_garrison_size = 1.0
+		local_unrest = -0.05
+	}
+	raw_modifier = {
+		fort_level = 4
+		propagating_zone_of_control = yes
+	}
+}
+
+REPLACE:star_fort = {
+	audio_tier = 4
+	is_foreign = no
+	max_levels = 1
+	pop_type = soldiers
+	forbidden_for_estates = yes
+	category = defense_category
+	obsolete = bastion
+	employment_size = star_fort_employment
+	rural_settlement = yes
+	town = yes
+	city = yes
+	megalopolis = yes
+	build_time = large_fort_building
+	expensive = yes
+	unique_production_methods = {
+		star_fort_maintenance = {
+			icon_type = building_type
+			icon = star_fort
+			stone = 1
+			weaponry = 2
+			cannons = 1.0
+			tools = 0.5
+			category = building_maintenance
+		}
+	}
+	construction_demand = fort_construction
+	modifier = {
+		local_garrison_size = 2.0
+		local_unrest = -0.05
+	}
+	raw_modifier = {
+		fort_level = 6
+		propagating_zone_of_control = yes
+	}
+}
+
+REPLACE:fortress = {
+	audio_tier = 6
+	is_foreign = no
+	max_levels = 1
+	pop_type = soldiers
+	forbidden_for_estates = yes
+	category = defense_category
+	obsolete = star_fort
+	employment_size = fortress_employment
+	rural_settlement = yes
+	town = yes
+	city = yes
+	megalopolis = yes
+	build_time = large_fort_building
+	expensive = yes
+	unique_production_methods = {
+		fortress_maintenance = {
+			icon_type = building_type
+			icon = fortress
+			stone = 2
+			weaponry = 6
+			cannons = 4
+			tools = 2
+			category = building_maintenance
+		}
+	}
+	construction_demand = fort_construction
+	modifier = {
+		local_garrison_size = 4.0
+		local_unrest = -0.05
+	}
+	raw_modifier = {
+		fort_level = 8
+		propagating_zone_of_control = yes
+	}
+}
+
+REPLACE:armory = {
+	audio_tier = 1
+	is_foreign = no
+	pop_type = soldiers
+	max_levels = manpower_max_level
+	category = military_category
+	forbidden_for_estates = yes
+	employment_size = manpower_employment
+	town = yes
+	city = yes
+	megalopolis = yes
+	important_for_AI = yes
+	build_time = soldier_building
+	obsolete = provincial_garrison
+	obsolete = korean_barracks
+	allow = {
+		owner = { has_primary_or_accepted_culture = prev.dominant_culture }
+	}
+	remove_if = {
+		NOT = { owner = { has_primary_or_accepted_culture = prev.location.dominant_culture } }
+	}
+	modifier = {
+		local_manpower = 0.01
+		can_recruit_regiment_in_this_location = yes
+	}
+	unique_production_methods = {
+		armory_maintenance = {
+			icon_type = building_type
+			icon = armory
+			weaponry = 1
+			leather = 0.5
+			cloth = 0.10
+			paper = 0.20
+			category = building_maintenance
+		}
+	}
+	construction_demand = early_soldier_building_construction
+}
+
+REPLACE:training_fields = {
+	audio_tier = 1
+	is_foreign = no
+	pop_type = soldiers
+	max_levels = manpower_max_level
+	category = military_category
+	forbidden_for_estates = yes
+	employment_size = manpower_employment
+	rural_settlement = yes
+	build_time = soldier_building
+	important_for_AI = yes
+	AI_ignore_available_worker_flag = yes
+	allow = {
+		owner = { has_primary_or_accepted_culture = prev.dominant_culture }
+	}
+	remove_if = {
+		NOT = { owner = { has_primary_or_accepted_culture = prev.location.dominant_culture } }
+	}
+	modifier = {
+		local_manpower = 0.01
+		can_recruit_regiment_in_this_location = yes
+	}
+	unique_production_methods = {
+		training_fields_maintenance = {
+			icon_type = building_type
+			icon = training_fields
+			weaponry = 1.2
+			leather = 0.6
+			cloth = 0.12
+			paper = 0.24
+			category = building_maintenance
+		}
+	}
+	construction_demand = soldier_building_construction
+}
+
+REPLACE:barracks = {
+	audio_tier = 2
+	is_foreign = no
+	pop_type = soldiers
+	max_levels = manpower_max_level
+	category = military_category
+	forbidden_for_estates = yes
+	employment_size = manpower_employment
+	important_for_AI = yes
+	town = yes
+	city = yes
+	megalopolis = yes
+	obsolete = armory
+	build_time = soldier_building
+	allow = {
+		owner = { has_primary_or_accepted_culture = prev.dominant_culture }
+	}
+	remove_if = {
+		NOT = { owner = { has_primary_or_accepted_culture = prev.location.dominant_culture } }
+	}
+	modifier = {
+		local_manpower = 0.015
+		can_recruit_regiment_in_this_location = yes
+		max_regiments_trained_at_same_time = 1
+	}
+	unique_production_methods = {
+		barracks_maintenance = {
+			icon_type = building_type
+			icon = barracks
+			weaponry = 1.5
+			leather = 0.75
+			cloth = 0.15
+			paper = 0.30
+			category = building_maintenance
+		}
+	}
+	construction_demand = soldier_building_construction
+}
+
+REPLACE:regimental_camp = {
+	audio_tier = 2
+	is_foreign = no
+	pop_type = soldiers
+	max_levels = manpower_max_level
+	category = military_category
+	forbidden_for_estates = yes
+	important_for_AI = yes
+	AI_ignore_available_worker_flag = yes
+	employment_size = manpower_employment
+	obsolete = training_fields
+	rural_settlement = yes
+	build_time = soldier_building
+	allow = {
+		owner = { has_primary_or_accepted_culture = prev.dominant_culture }
+	}
+	remove_if = {
+		NOT = { owner = { has_primary_or_accepted_culture = prev.location.dominant_culture } }
+	}
+	modifier = {
+		local_manpower = 0.02
+		can_recruit_regiment_in_this_location = yes
+	}
+	unique_production_methods = {
+		regimental_camp_maintenance = {
+			icon_type = building_type
+			icon = regimental_camp
+			weaponry = 2.4
+			leather = 1.2
+			cloth = 0.24
+			paper = 0.48
+			category = building_maintenance
+		}
+	}
+	construction_demand = soldier_building_construction
+}
+
+REPLACE:conscription_center = {
+	audio_tier = 3
+	is_foreign = no
+	pop_type = soldiers
+	max_levels = manpower_max_level
+	important_for_AI = yes
+	employment_size = manpower_employment
+	category = military_category
+	forbidden_for_estates = yes
+	obsolete = regimental_camp
+	obsolete = barracks
+	rural_settlement = yes
+	town = yes
+	city = yes
+	megalopolis = yes
+	build_time = soldier_building
+	allow = {
+		owner = { has_primary_or_accepted_culture = prev.dominant_culture }
+	}
+	remove_if = {
+		NOT = { owner = { has_primary_or_accepted_culture = prev.location.dominant_culture } }
+	}
+	modifier = {
+		local_manpower = 0.025
+		can_recruit_regiment_in_this_location = yes
+		max_regiments_trained_at_same_time = 5
+	}
+	unique_production_methods = {
+		conscription_center_maintenance = {
+			icon_type = building_type
+			icon = conscription_center
+			weaponry = 2.94
+			leather = 1.47
+			cloth = 0.29
+			paper = 0.74
+			category = building_maintenance
+		}
+	}
+	construction_demand = soldier_building_construction
+}

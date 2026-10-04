@@ -85,6 +85,10 @@ CUT: set[str] = {
     "rmn_the_pandur_militias", "romanian_the_scoala_ardeleana", "nav_royal_basque_society",
     "albanian_the_albanian_alphabet_commission", "npl_the_divya_upadesh", "npl_gurkhas", "pun_reforming_the_punjabi_army",
     "a_new_dawn", "manchu_reborn", "swiss_ambition", "swiss_banking", "kokugaku", "fukko_shinto", "cro_pandurs_recruitment",
+    # Part 2: arms of antiquity. No unit buys firearms (script/arms.py), so the buildings that make them go. The saltpeter
+    # chain stays: the kept cannon buildings (Siege Workshop, Engineers, Foundry, Arsenal) still take saltpeter.
+    "gun_smith_advance", "guns_workshop_advance", "firearms_manufactory_advance", "firearms_factory_advance",
+    "hand_cannon_guild_advance",
 }
 
 # A hand-picked parent (same age, not cut) instead of the one requires() would walk up to.
@@ -502,8 +506,8 @@ RENAME: dict[str, tuple[str, str]] = {
         "Officers learn the art of war from the manuals of old and from veterans, and our commanders are better trained."),
     "regimental_camp_advance": ("Standing Camps",
         "Fortified camps train and house the regiments through the winter."),
-    "modern_road_advance": ("Paved Roads",
-        "Roads laid on a foundation of stone and gravel with a cambered, paved surface carry carts in any weather."),
+    "modern_road_advance": ("Military Roads",
+        "Roads of laid stone, cambered and drained, carry carts in any weather and armies at the march."),
     "formalized_officer_corps": ("Ranks of Command",
         "Officers are given rank and pay by the crown, not by birth, and our armies show more initiative."),
     "economic_ideas": ("Directed Economy",
@@ -729,6 +733,36 @@ RENAME: dict[str, tuple[str, str]] = {
         "Land is held in return for military service, and every lord owes his king a body of mounted men. "
         "Counts and their vassals can call up an army for the season and send it home when the campaign is "
         "over."),
+    # Part 2: arms of antiquity. Unit-unlock advances follow their unit's name (`$a_unit$`); these are the ones whose
+    # literal name was the unit's old, out-of-period name.
+    "eng_red_coats": ("Island Spearmen",
+        "The spearmen of the far island are drilled to stand in ranks that nothing breaks."),
+    "hakkapelitta": ("Northern Horse",
+        "Horsemen of the north learn to charge fast and hit hard with the sword."),
+    "winged_hussars_advance": ("Winged Cataphracts",
+        "Heavy lancers with wings of feathers on their backs thunder through the enemy line."),
+    "late_winged_hussars_advance": ("Late Winged Cataphracts",
+        "The winged lancers are better armed and drilled, and no line holds against their charge."),
+    "home_of_hussars": ("Home of the Light Horse",
+        "The hills and plains of our land breed the finest light horse, and the best of them ride for us."),
+    "wagenburg": ("Carrago",
+        "A ring of wagons gives archers and spearmen a fort wherever the army halts, as the peoples of the steppe have long known."),
+    "kor_geobukseon": ("Armoured Galleys",
+        "Galleys roofed with iron plates and spikes are hard to board and hard to sink."),
+    "por_cacadores": ("Lusitanian Skirmishers",
+        "Light infantry of the Atlantic coast fight in open order and shoot from cover."),
+    "swiss_reislaufer": ("The Alpine Spearmen",
+        "The spearmen of the high valleys are hired out to any prince who pays, and fight as one."),
+    "the_red_cannon": ("The Great Onager",
+        "A famous founder builds an engine so huge that a single stone brings down a tower."),
+    "platoon_fire": ("Archer Volleys",
+        "Maurice teaches the troops to loose their missiles in volleys by rank, and the army's fire is steady."),
+    "hun_found_the_black_army": ("Found the Standing Army",
+        "A king who pays his soldiers all year keeps a standing army of veterans that no neighbour can match."),
+    "LIV_a_order_knights": ("Sacred Horse of the Order",
+        "Horsemen sworn to defend the faith and its shrines fight with a zeal that others lack."),
+    "LIV_a_order_knights_2": ("Holy Horse of the Order",
+        "A sworn brotherhood of heavy horse answers to its master and to the Church."),
 }
 
 TAG_GATED = re.compile(r"(?:has_or_had_tag|tag)\s*=\s*(SAX|RMN|ASK)\b")
