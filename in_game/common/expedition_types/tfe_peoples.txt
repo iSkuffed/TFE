@@ -38,11 +38,13 @@ tfe_wandering_people = {
 				save_scope_as = tfe_people_arrive
 			}
 		}
-		# whatever they were at home, they arrive as peasants and tribesmen
-		set_variable = { name = tfe_people_as_peasants value = var:tfe_people_size }
-		change_variable = { name = tfe_people_as_peasants multiply = 0.6 }
-		set_variable = { name = tfe_people_as_tribesmen value = var:tfe_people_size }
-		change_variable = { name = tfe_people_as_tribesmen multiply = 0.4 }
+		# whatever they were at home, they arrive as peasants and tribesmen; set on root, which on_fail's scope is not
+		root = {
+			set_variable = { name = tfe_people_as_peasants value = var:tfe_people_size }
+			change_variable = { name = tfe_people_as_peasants multiply = 0.6 }
+			set_variable = { name = tfe_people_as_tribesmen value = var:tfe_people_size }
+			change_variable = { name = tfe_people_as_tribesmen multiply = 0.4 }
+		}
 		scope:tfe_people_arrive = {
 			add_pop = {
 				culture = root.var:tfe_people_culture
@@ -85,11 +87,13 @@ tfe_wandering_people = {
 				save_scope_as = tfe_people_arrive
 			}
 		}
-		# whatever they were at home, they arrive as peasants and tribesmen
-		set_variable = { name = tfe_people_as_peasants value = var:tfe_people_size }
-		change_variable = { name = tfe_people_as_peasants multiply = 0.6 }
-		set_variable = { name = tfe_people_as_tribesmen value = var:tfe_people_size }
-		change_variable = { name = tfe_people_as_tribesmen multiply = 0.4 }
+		# whatever they were at home, they arrive as peasants and tribesmen; set on root, which on_fail's scope is not
+		root = {
+			set_variable = { name = tfe_people_as_peasants value = var:tfe_people_size }
+			change_variable = { name = tfe_people_as_peasants multiply = 0.6 }
+			set_variable = { name = tfe_people_as_tribesmen value = var:tfe_people_size }
+			change_variable = { name = tfe_people_as_tribesmen multiply = 0.4 }
+		}
 		scope:tfe_people_arrive = {
 			add_pop = {
 				culture = root.var:tfe_people_culture

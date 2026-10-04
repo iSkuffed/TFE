@@ -289,7 +289,11 @@ tfe_invite_germanic_settlers = {
 						scope:actor = {
 							set_variable = { name = tfe_settlers_take value = scope:tfe_settler_giver.pop_size }
 							change_variable = { name = tfe_settlers_take multiply = 0.5 }
-							change_variable = { name = tfe_settlers_take max = var:tfe_settlers_wanted }
+							# change_variable's max is max(), a floor: it let the first pop give 29
+							clamp_variable = {
+								name = tfe_settlers_take
+								max = var:tfe_settlers_wanted
+							}
 							change_variable = { name = tfe_settlers_wanted subtract = var:tfe_settlers_take }
 						}
 						add_pop_size = { value = scope:actor.var:tfe_settlers_take multiply = -1 }
@@ -305,7 +309,11 @@ tfe_invite_germanic_settlers = {
 						scope:actor = {
 							set_variable = { name = tfe_settlers_take value = scope:tfe_settler_giver.pop_size }
 							change_variable = { name = tfe_settlers_take multiply = 0.5 }
-							change_variable = { name = tfe_settlers_take max = var:tfe_settlers_wanted }
+							# change_variable's max is max(), a floor: it let the first pop give 29
+							clamp_variable = {
+								name = tfe_settlers_take
+								max = var:tfe_settlers_wanted
+							}
 							change_variable = { name = tfe_settlers_wanted subtract = var:tfe_settlers_take }
 						}
 						add_pop_size = { value = scope:actor.var:tfe_settlers_take multiply = -1 }

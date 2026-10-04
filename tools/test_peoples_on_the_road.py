@@ -200,3 +200,15 @@ def test_a_player_invites_from_the_barbaricums_window():
     flags = [n.val for n in pr.DOC.find("target_flag", None, inside=(ACTION, "select_trigger"))]
     assert flags == ["recipient", "target"]
     assert not (ROOT / "in_game/gui/location_window.gui").exists()
+
+
+def test_no_people_gives_more_than_is_wanted():
+    """change_variable's max is an operation (max(), a floor), so a band came to 29: the cap is clamp_variable"""
+    assert pr.DOC.find("clamp_variable", None, inside=(ACTION,))
+    assert not pr.DOC.find("max", "var:tfe_settlers_wanted", inside=(ACTION, "change_variable"))
+
+
+def test_the_arrival_sizes_are_set_on_the_country():
+    """on_fail runs in another scope: the sizes set there were never read, and the pops arrived at the wrong size"""
+    for hook in ("on_end", "on_fail"):
+        assert pr.EXPEDITION.find("set_variable", None, inside=(hook, "root"))

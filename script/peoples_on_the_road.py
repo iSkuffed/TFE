@@ -137,10 +137,11 @@ def settle(fx: CountryFx):
             t.exists("root.capital")
         with i.link("root.capital", LocationFx) as cap:
             cap.save_scope_as("tfe_people_arrive")
-    fx.note("whatever they were at home, they arrive as peasants and tribesmen")
-    for pop_type, share in ARRIVE_AS:
-        fx.set_variable(name=f"tfe_people_as_{pop_type}", value="var:tfe_people_size")
-        fx.change_variable(name=f"tfe_people_as_{pop_type}", multiply=share)
+    fx.note("whatever they were at home, they arrive as peasants and tribesmen; set on root, which on_fail's scope is not")
+    with fx.link("root", CountryFx) as r:
+        for pop_type, share in ARRIVE_AS:
+            r.set_variable(name=f"tfe_people_as_{pop_type}", value="var:tfe_people_size")
+            r.change_variable(name=f"tfe_people_as_{pop_type}", multiply=share)
     with fx.link("scope:tfe_people_arrive", LocationFx) as arrive:
         for pop_type, _ in ARRIVE_AS:
             arrive.add_pop(culture="root.var:tfe_people_culture", religion="root.var:tfe_people_religion",
@@ -180,7 +181,8 @@ def gather(fx: PopFx):
     with fx.link(ACTOR, CountryFx) as c:
         c.set_variable(name="tfe_settlers_take", value="scope:tfe_settler_giver.pop_size")
         c.change_variable(name="tfe_settlers_take", multiply=SETTLER_SHARE)
-        c.change_variable(name="tfe_settlers_take", max="var:tfe_settlers_wanted")
+        c.note("change_variable's max is max(), a floor: it let the first pop give 29")
+        c.clamp_variable(name="tfe_settlers_take", max="var:tfe_settlers_wanted")
         c.change_variable(name="tfe_settlers_wanted", subtract="var:tfe_settlers_take")
     fx.add_pop_size(value="scope:actor.var:tfe_settlers_take", multiply=-1)
 

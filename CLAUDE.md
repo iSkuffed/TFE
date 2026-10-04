@@ -150,6 +150,9 @@ been seen working in game, or you say plainly that it hasn't.
 
 - `add_country_modifier = { modifier = x years = y }`. The docs say `name =`, which silently does nothing.
 - Event `outcome` is `positive`, `neutral` or `negative`; anything else is a load error.
+- In `change_variable`, `min`/`max` are operations: `max = X` sets the variable to max(var, X), a floor, not a cap.
+  Cap with `clamp_variable = { name = x max = X }`. A generic action's tooltip dry-runs its effect without setting
+  variables or making characters: guard reads of a variable the effect sets, and `start_expedition`'s leader.
 - A saved scope doesn't reliably reach an event fired from another event's `immediate`: the AI hit a null scope and
   crashed the game. Re-derive the scope in the child event.
 - International organisation laws default to `requires_vote = yes`. Set `requires_vote = no` for the leader to decree.
