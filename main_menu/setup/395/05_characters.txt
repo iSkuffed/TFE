@@ -687,23 +687,6 @@ character_db = {
 		dynasty = silla_kim_dynasty
 		tag = SIL
 	}
-	tfe_spearthrower_owl = { # ruler at Teotihuacan; approx
-		first_name = { name = name_spearthrower_owl }
-		culture = nahua_culture
-		religion = mesoamerican
-		birth_date = 350.1.1
-		birth = tenochtitlan
-		tag = TTH
-	}
-	tfe_yax_nuun_ahiin = { # Yax Nuun Ahiin I of Tikal, r. 379-404; approx
-		first_name = { name = name_yax_nuun_ahiin }
-		culture = yucatec_culture
-		religion = mayan
-		birth_date = 370.1.1
-		birth = tenochtitlan
-		father = tfe_spearthrower_owl
-		tag = TKL
-	}
 	tfe_trdat = { # Trdat of Iberia, r. 394-406, Chosroid, Persian client; approx
 		first_name = { name = name_trdat }
 		culture = georgian_culture

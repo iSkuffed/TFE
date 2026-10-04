@@ -115,10 +115,6 @@ market_manager = {
 	add_market = kataka
 	
 	# Mesoamerica
-	add_market = zaachila
-	add_market = azcapotzalco
-	add_market = mayapan
-	add_market = noh_peten
 
 	# Aridoamerica
 	#add_market = batuco
@@ -129,7 +125,6 @@ market_manager = {
 	#Colombia
 
 	#Andes
-	add_market = chinchay
 		
 	#Oceania
 
