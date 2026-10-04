@@ -88,7 +88,7 @@ bad `outcome` before EU5 does. Plan: `docs/specs/2026-09-30-python-script-layer-
 is `tools/pdx/CONTRACT.md`.
 
 - Sources are `script/*.py`, each with an `outputs()` returning `{repo path: text}`. Write them all with
-  `python script/run.py` (same `uv run ...` prefix as the tests). Ported so far: `decline_rome_actions.py` (generic actions), `decisions.py` (the Fall of the West decisions and their loc),
+  `python script/run.py` (same `uv run ...` prefix as the tests). Ported so far: `advances.py` and `institutions.py` (REPLACE: copies of the vanilla advances and institutions we change, read from vanilla each run), `decline_rome_actions.py` (generic actions), `decisions.py` (the Fall of the West decisions and their loc),
   `gildo_events.py`, `opening_events.py`, `decline_rome_events.py`, `foederati_events.py`, `hunnic_storm_events.py` (events; their loc
   stays hand-written except Gildo's), `bureaucracies.py` (the Roman offices, their impact modifiers and loc), and `defs_*.py` (scripted effects and triggers, on_actions). A test fails when a generated file is stale.
 - Start a new file by copying the nearest port. `Doc.event(...)` builds events; `with c.every_neighbor_country() as n:`
@@ -130,6 +130,10 @@ been seen working in game, or you say plainly that it hasn't.
   messages, so the real mouse and keyboard are never touched. `stop` puts the human's display settings back; a run
   killed without `stop` is mended by the next `start`. Hover only lasts until the next frame (SDL snaps its cursor back
   to the real one), so a tooltip can't be held open; `EU5CTL_FOREGROUND=1` is the old way, in front with the real cursor.
+- **Run time at speed 5, never 3.** Each time you start or unpause time, press Numpad + until the speed is 5
+  (`tools/eu5ctl.sh key KP_Add KP_Add KP_Add KP_Add`; on Windows the same with `eu5ctl.ps1`), or click the fastest
+  speed button at the top right of the screen if the key doesn't take. Take a screenshot to confirm speed 5 before
+  waiting. At speed 5, fifteen years pass in minutes; at speed 3 they take most of a session.
 - **Probes beat screenshots.** Write an effect file with `debug_log = "..."` inside `if`/`else` checks, `run` it and
   read the log. Example: `location:tunis = { if = { limit = { is_full_expanded_rgo = yes } debug_log = "full" } }`.
 - **Load the mod:** the active playset is in `Documents/.../Europa Universalis V/playsets.json` (`isActive`). If the

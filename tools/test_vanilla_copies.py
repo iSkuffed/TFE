@@ -8,6 +8,7 @@ import borders as b
 
 # our copy: (its vanilla original, the original's sha256 prefix when we last synced)
 COPIES = {
+    "in_game/common/age/00_default.txt": ("in_game/common/age/00_default.txt", "6f7b9b209c1bd8d7"),
     "in_game/common/customizable_localization/estates.txt": ("in_game/common/customizable_localization/estates.txt", "ab74eafd544cea77"),
     "in_game/common/languages/tfe_languages.txt": ("in_game/common/languages/00_italy.txt", "41fea717f67c83bc"),
     "in_game/gfx/map/map_modes/00_tfe_map_modes.txt": ("in_game/gfx/map/map_modes/map_modes.txt", "0370fa4dc024b1c0"),

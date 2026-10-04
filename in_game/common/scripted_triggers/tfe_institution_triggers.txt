@@ -1,0 +1,130 @@
+﻿# Scope: location. One plausible spawn site per institution for 395-895 (written by script/institutions.py).
+# The game rule is ignored: institutions are born where their people live, not in a fixed city.
+
+tfe_feudalism_plausible_location = {
+	has_owner = yes
+	num_pop_type:nobles > 0
+	OR = { sub_continent = sub_continent:western_europe region = region:italy_region }
+	custom_tooltip = { text = dominant_culture_is_owners_culture dominant_culture = owner.culture }
+}
+
+tfe_legalism_plausible_location = {
+	has_owner = yes
+	OR = { location_rank = location_rank:city location_rank = location_rank:megalopolis }
+	owner = { OR = { tag = EAR tfe_is_western_rome = yes } }
+	custom_tooltip = { text = dominant_culture_is_owners_culture dominant_culture = owner.culture }
+}
+
+tfe_meritocracy_plausible_location = {
+	has_owner = yes
+	OR = { location_rank = location_rank:city location_rank = location_rank:megalopolis }
+	sub_continent = sub_continent:east_asia
+	custom_tooltip = { text = dominant_culture_is_owners_culture dominant_culture = owner.culture }
+}
+
+tfe_renaissance_plausible_location = {
+	has_owner = yes
+	num_pop_type:clergy > 0
+	OR = { region = region:egypt_region region = region:crescent_region region = region:anatolia_region region = region:france_region }
+	custom_tooltip = { text = dominant_culture_is_owners_culture dominant_culture = owner.culture }
+}
+
+tfe_banking_plausible_location = {
+	has_owner = yes
+	OR = { location_rank = location_rank:city location_rank = location_rank:megalopolis }
+	num_pop_type:burghers > 0
+	OR = { region = region:balkan_region region = region:anatolia_region region = region:crescent_region region = region:egypt_region }
+	custom_tooltip = { text = dominant_culture_is_owners_culture dominant_culture = owner.culture }
+}
+
+tfe_professional_armies_plausible_location = {
+	has_owner = yes
+	owner = { culture = { has_culture_group = culture_group:german_group } }
+	any_neighbor_location = { owner ?= { tfe_is_roman_empire = yes } }
+}
+
+tfe_new_world_plausible_location = {
+	has_owner = yes
+	is_port = yes
+	OR = { region = region:arabia_region region = region:ethiopia_region region = region:somalia_region region = region:egypt_region region = region:western_india_region }
+	custom_tooltip = { text = dominant_culture_is_owners_culture dominant_culture = owner.culture }
+}
+
+tfe_printing_press_plausible_location = {
+	has_owner = yes
+	num_pop_type:clergy > 0
+	OR = { location_rank = location_rank:city location_rank = location_rank:megalopolis }
+	OR = { sub_continent = sub_continent:western_europe sub_continent = sub_continent:middle_east }
+	custom_tooltip = { text = dominant_culture_is_owners_culture dominant_culture = owner.culture }
+}
+
+tfe_pike_and_shot_plausible_location = {
+	has_owner = yes
+	OR = { region = region:persia_region region = region:khorasan_region region = region:steppes_region region = region:anatolia_region }
+	custom_tooltip = { text = dominant_culture_is_owners_culture dominant_culture = owner.culture }
+}
+
+tfe_confessionalism_plausible_location = {
+	has_owner = yes
+	OR = { location_rank = location_rank:city location_rank = location_rank:megalopolis }
+	num_pop_type:clergy > 0
+	OR = { region = region:arabia_region region = region:crescent_region region = region:persia_region }
+	custom_tooltip = { text = dominant_culture_is_owners_culture dominant_culture = owner.culture }
+}
+
+tfe_global_trade_plausible_location = {
+	has_owner = yes
+	OR = { location_rank = location_rank:city location_rank = location_rank:megalopolis }
+	OR = { region = region:xinjiang_region region = region:khorasan_region region = region:west_china_region region = region:north_china_region }
+	custom_tooltip = { text = dominant_culture_is_owners_culture dominant_culture = owner.culture }
+}
+
+tfe_artillery_institution_plausible_location = {
+	has_owner = yes
+	is_port = yes
+	OR = { location_rank = location_rank:city location_rank = location_rank:megalopolis }
+	OR = { region = region:balkan_region region = region:anatolia_region region = region:crescent_region }
+	custom_tooltip = { text = dominant_culture_is_owners_culture dominant_culture = owner.culture }
+}
+
+tfe_manufactories_plausible_location = {
+	has_owner = yes
+	OR = { location_rank = location_rank:city location_rank = location_rank:megalopolis }
+	OR = { region = region:khorasan_region region = region:persia_region region = region:crescent_region }
+	custom_tooltip = { text = dominant_culture_is_owners_culture dominant_culture = owner.culture }
+}
+
+tfe_scientific_revolution_plausible_location = {
+	has_owner = yes
+	OR = { location_rank = location_rank:city location_rank = location_rank:megalopolis }
+	OR = { region = region:crescent_region region = region:persia_region }
+	custom_tooltip = { text = dominant_culture_is_owners_culture dominant_culture = owner.culture }
+}
+
+tfe_military_revolution_plausible_location = {
+	has_owner = yes
+	num_pop_type:nobles > 0
+	OR = { region = region:france_region region = region:north_german_region region = region:persia_region }
+	custom_tooltip = { text = dominant_culture_is_owners_culture dominant_culture = owner.culture }
+}
+
+tfe_enlightenment_plausible_location = {
+	has_owner = yes
+	num_pop_type:clergy > 0
+	OR = { region = region:france_region region = region:north_german_region region = region:south_german_region region = region:italy_region }
+	custom_tooltip = { text = dominant_culture_is_owners_culture dominant_culture = owner.culture }
+}
+
+tfe_industrialization_plausible_location = {
+	has_owner = yes
+	num_pop_type:peasants > 0
+	OR = { region = region:france_region region = region:north_german_region region = region:south_german_region region = region:great_britain_region }
+	custom_tooltip = { text = dominant_culture_is_owners_culture dominant_culture = owner.culture }
+}
+
+tfe_levee_en_masse_plausible_location = {
+	has_owner = yes
+	num_pop_type:nobles > 0
+	OR = { region = region:france_region region = region:north_german_region region = region:south_german_region region = region:italy_region }
+	custom_tooltip = { text = dominant_culture_is_owners_culture dominant_culture = owner.culture }
+}
