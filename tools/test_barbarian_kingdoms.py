@@ -78,10 +78,7 @@ def test_a_settled_host_may_move_on_until_it_is_a_kingdom():
         assert not FALL.find("has_variable", "tfe_host_kingdom", inside=(n, "potential", "OR"))
         # the AI's settled hosts stay put
         assert FALL.find("has_variable", "tfe_settled", inside=(n, "ai_will_do", "limit", "NOT"))
-    # the land is handed on while still "settled" (a Roman neighbour, its old master, takes it before it is abandoned),
     # then the host is on the road again: the settle hook, free upkeep, CB and defectors all key on NOT tfe_settled
-    assert START.find("has_variable", "tfe_settled", inside=("tfe_start_migration_effect", "if", "limit"))
-    assert START.find("tag", "EAR", inside=("tfe_start_migration_effect", "if", "random_neighbor_country", "OR"))
     body = START.find("tfe_start_migration_effect")[0].val
     assert isinstance(body, list)
     removes = [i for i, n in enumerate(body) if n.key == "if" and isinstance(n.val, list)
@@ -150,3 +147,27 @@ def test_everything_new_is_localised():
     for n in ("tfe_reform_into_a_monarchy", "tfe_accept_majority_culture", "tfe_convert_to_majority_religion", "tfe_cross_the_rhine"):
         assert {f"{n}.title", f"{n}.desc", f"{n}.a"} <= loc.keys()
     assert not loc.keys() & FALL.loc.keys   # new keys live in their own file
+
+
+def test_the_homeland_becomes_a_remnant_not_a_neighbours_prize():
+    eff = ("tfe_start_migration_effect",)
+    assert START.find("create_country_from_location", None, inside=eff)
+    assert not START.find("save_scope_as", "tfe_heir_to_the_land", inside=eff)
+    assert not START.find("random_neighbor_country", None, inside=eff)
+    assert START.find("change_location_owner", "scope:tfe_remnant", inside=eff)
+    assert START.find("add_core", "scope:tfe_remnant", inside=eff)
+
+
+def test_the_remnant_is_of_the_people_who_stayed():
+    new = ("tfe_start_migration_effect", "create_country_from_location")
+    assert START.find("change_culture", "scope:tfe_old_capital.dominant_culture", inside=new)
+    assert START.find("change_religion", "scope:tfe_host.religion", inside=new)
+    assert START.find("change_government_type", "government_type:tribe", inside=new)
+    assert START.find("set_variable", None, inside=new)[0].val is not None
+    assert START.find("save_scope_as", "tfe_remnant", inside=new)
+
+
+def test_a_landless_host_leaves_no_remnant_and_abandons_nothing_it_does_not_hold():
+    ifs = START.find("if", None, inside=("tfe_start_migration_effect",))
+    assert any("capital" in str(i.val) and "create_country_from_location" in str(i.val) for i in ifs)
+    assert START.find("abandon_location", None, inside=("tfe_start_migration_effect", "else"))
