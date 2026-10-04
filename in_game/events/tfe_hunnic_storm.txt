@@ -40,6 +40,7 @@ tfe_hunnic_storm.2 = {
 	image = "gfx/interface/illustrations/situation/tfe_hunnic_storm.dds"
 	trigger = {
 		tfe_is_migrator = yes	# scripted_triggers/tfe_decline_of_the_west.txt
+		NOT = { tag = SLF }	# the Salians never migrate: they Cross the Rhine (decisions/tfe_barbarian_kingdoms.txt)
 		NOT = { has_variable = tfe_migrating }
 		is_subject = no
 		tfe_frontier_unmanned = yes	# scripted_triggers/tfe_decline_rome.txt
@@ -57,7 +58,7 @@ tfe_hunnic_storm.2 = {
 			modifier = {
 				factor = 0
 				has_global_variable = tfe_host_took_the_road
-			}	# pace the chaos: one host on the road every 4 years
+			}	# pace the chaos: one host on the road a year
 		}
 	}
 	option = {

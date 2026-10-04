@@ -10,11 +10,12 @@ from pdx.objects import Doc
 CATEGORY = "tfe_fall_of_the_west"
 EXT = "gfx/interface/illustrations/event/backgrounds/exterior/"
 HEADER = """TFE: the Fall of the West's decisions (written by script/decisions.py).
-Migrate: a people of Germania or Dacia (tfe_is_migrator) may once give up its homeland, while the Decline of the West
+Migrate: a people of Germania or Dacia (tfe_is_migrator) may give up its homeland, while the Decline of the West
 runs, for a great host that costs nothing while it owns no land (auto_modifiers/tfe_migratory.txt). It cannot
 replenish: landless, it has no manpower, so every warrior lost is gone until it wins land of its own. One decision per
 empire: the host marches on the East or the West at once, and that Augustus may buy it off with land (Hospitalitas,
-generic_actions/tfe_decline_rome.txt). The two differ only in the empire.
+generic_actions/tfe_decline_rome.txt). The two differ only in the empire. A settled host may take the road again until
+it reforms into a monarchy (decisions/tfe_barbarian_kingdoms.txt). The Salian Franks never migrate: they Cross the Rhine.
 Stilicho's Claims: Honorius's West takes a casus belli on Eastern Illyricum, at a cost in Unity."""
 WHERE = {"EAR": ("East", "south over the Danube"), "WRE": ("West", "west over the Rhine")}
 
@@ -37,8 +38,14 @@ def migrate(doc: Doc, name: str, tag: str):
             with t.go_situation("tfe_decline_of_the_west") as s:
                 s.situation_is_active(True)
             t.tfe_is_migrator()
-            with t.not_() as n:
-                n.has_variable("tfe_migrating")
+            t.not_(lambda n: n.tag("SLF"))
+            t.tail("the Salians raid over the Rhine instead (decisions/tfe_barbarian_kingdoms.txt)")
+            with t.or_() as o:
+                o.not_(lambda n: n.has_variable("tfe_migrating"))
+                o.has_variable("tfe_settled")
+                o.tail("a settled host may take the road again")
+            t.not_(lambda n: n.has_variable("tfe_host_kingdom"))
+            t.tail("until it reforms into a monarchy (decisions/tfe_barbarian_kingdoms.txt)")
             if tag == "WRE":
                 with t.any_country() as w:
                     w.tfe_is_western_rome()
@@ -52,8 +59,9 @@ def migrate(doc: Doc, name: str, tag: str):
             t.tail("no warband afield is fine: the host gathers at the capital")
             t.tfe_frontier_unmanned()
             t.tail("scripted_triggers/tfe_decline_rome.txt: a manned frontier holds them")
-        d.note("Pace the chaos: one AI people on the road at a time. None moves within 4 years of the last host setting out\n"
-               "(tfe_host_took_the_road), and then only when pushed: the Huns at the door or Rome divided.")
+        d.note("Pace the chaos: one AI people on the road at a time. None moves within a year of the last host setting out\n"
+               "(tfe_host_took_the_road), and then only when pushed: the Huns at the door or Rome divided. A settled AI host\n"
+               "stays settled.")
         with d.ai_will_do() as v:
             v.value(0)
             with v.if_() as i:
@@ -61,6 +69,7 @@ def migrate(doc: Doc, name: str, tag: str):
                     with t.not_() as n:
                         n.has_global_variable("tfe_host_took_the_road")
                     t.at_war(False)
+                    t.not_(lambda n: n.has_variable("tfe_settled"))
                 i.add(5)
                 with i.if_() as j:
                     with j.limit() as t, t.any_neighbor_country() as n:

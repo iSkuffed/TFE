@@ -1,0 +1,11 @@
+﻿# TFE: the raid over the Rhine is over when its war ends: the host costs upkeep again.
+on_ending_war = {
+	on_actions = { tfe_on_rhine_war_ended }
+}
+
+tfe_on_rhine_war_ended = {
+	trigger = { has_variable = tfe_rhine_war }
+	effect = {
+		remove_variable = tfe_rhine_war
+	}
+}

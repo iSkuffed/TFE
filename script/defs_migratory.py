@@ -1,4 +1,4 @@
-"""tfe_migratory scripted effects and on_actions: a host takes to the road, is counted, and settles on its first land."""
+"""tfe_migratory scripted effects and on_actions: a host takes to the road, is counted, and settles the land it wins."""
 import sys
 from pathlib import Path
 
@@ -7,6 +7,7 @@ from pdx.api import AnyFx, CountryFx, CountryTrig, LocationFx, LocationTrig
 from pdx.objects_defs import Defs
 
 MIGRATION_CB = "casus_belli:cb_tfe_migration"
+ROAD_LOCK_YEARS = 1   # pace the chaos: no AI host takes the road within this long of the last one
 
 
 def create_units(loc, owner, origin, units):
@@ -20,26 +21,16 @@ def raise_host(d: Defs):
     with d.effect("tfe_start_migration_effect", CountryFx) as e:
         e.save_scope_as("tfe_host")
         e.set_variable("tfe_migrating")
-        e.note("pace the chaos: the AI's next host waits 4 years (the action's ai_will_do)")
-        e.set_global_variable(name="tfe_host_took_the_road", value=True, years=4)
+        e.note("pace the chaos: the AI's next host waits a year (the decisions' ai_will_do)")
+        e.set_global_variable(name="tfe_host_took_the_road", value=True, years=ROAD_LOCK_YEARS)
         e.note("only the Vandals start army-based; a landed people would be gone with its last location (vanilla CHB, OIR)")
         with e.if_() as i:
             with i.limit() as t:
                 with t.not_() as n:
                     n.country_type("army")
             i.change_country_type("army")
-        with e.random_army() as a:
-            with a.go_unit_location() as loc:
-                loc.save_scope_as("tfe_muster")
-        with e.if_() as i:
-            with i.limit() as t:
-                with t.not_() as n:
-                    n.exists("scope:tfe_muster")
-            i.tail("no warband afield: the host gathers at the capital")
-            with i.go_capital(op="?=") as cap:
-                cap.save_scope_as("tfe_muster")
-        with e.link("scope:tfe_muster", LocationFx, op="?=") as muster:
-            create_units(muster, "scope:tfe_host", "scope:tfe_muster", ((24, "a_footmen"), (8, "a_tribal_cavalry")))
+        e.tfe_muster_the_host_effect(True)
+        e.tail("scripted_effects/tfe_barbarian_kingdoms.txt: 24 footmen and 8 tribal cavalry")
         e.note("a fifth of our people take the road; the rest stay under the new lords. Counted by pop_size, whatever its unit.")
         e.set_variable(name="tfe_host_people", value=0)
         e.tail("change_variable fails on an unset variable")
@@ -51,8 +42,12 @@ def raise_host(d: Defs):
                 with p.link("scope:tfe_host", CountryFx) as host:
                     host.change_variable(name="tfe_host_people", add=dict(value="scope:tfe_leaver.pop_size", multiply=0.2))
                 p.add_pop_size(value="pop_size", multiply=-0.2)
-        e.note("a neighbouring people moves into the homeland, so it is not left empty; its pops stay, under new lords. Only with\n"
-               "no such neighbour is it abandoned.")
+        e.note("the homeland is given up for good: the host keeps no core on it, nor on any land it won before")
+        with e.every_core_location() as loc:
+            loc.remove_core("scope:tfe_host")
+        e.note("a neighbouring people moves into the homeland, so it is not left empty; its pops stay, under new lords. A\n"
+               "settled host taking the road again leaves Roman land to the Rome next door, its old master. Only with no\n"
+               "such neighbour is it abandoned.")
         with e.random_neighbor_country() as n:
             with n.limit() as t:
                 with t.not_() as x:
@@ -62,6 +57,15 @@ def raise_host(d: Defs):
                 with t.not_() as x:
                     x.has_variable("tfe_migrating")
             n.save_scope_as("tfe_heir_to_the_land")
+        with e.if_() as i:
+            with i.limit() as t:
+                t.not_(lambda n: n.exists("scope:tfe_heir_to_the_land"))
+                t.has_variable("tfe_settled")
+            with i.random_neighbor_country() as n:
+                with n.limit() as t, t.or_() as o:
+                    o.tfe_is_western_rome()
+                    o.tag("EAR")
+                n.save_scope_as("tfe_heir_to_the_land")
         with e.if_() as i:
             with i.limit() as t:
                 t.exists("scope:tfe_heir_to_the_land")
@@ -81,6 +85,10 @@ def raise_host(d: Defs):
                 t.tfe_is_western_rome()
             with w.link("scope:tfe_host", CountryFx) as host:
                 host.add_casus_belli(target="prev", type=MIGRATION_CB)
+        e.note("a settled host taking the road again is on the road once more: free, fed by Roman towns, settling anew")
+        with e.if_() as i:
+            i.limit(lambda t: t.has_variable("tfe_settled"))
+            i.remove_variable("tfe_settled")
         e.tfe_list_the_migrators(True)
 
 
@@ -125,7 +133,8 @@ def on_actions():
     d = Defs()
     d.note("TFE: the first land a migrating host (decisions/tfe_fall_of_the_west.txt) wins ends the migration. It becomes a\n"
            "landed country again, that land is its capital, and the great host disbands back to the warband it started with\n"
-           "there; its free upkeep (auto_modifiers/tfe_migratory.txt) ends for good. Its people settle the capital.")
+           "there; its free upkeep (auto_modifiers/tfe_migratory.txt) ends until it takes the road again. Its people settle\n"
+           "the land it won.")
     d.hook("on_location_changed_owner", "tfe_on_host_settles")
     with d.on_action("tfe_on_host_settles") as a:
         with a.trigger(LocationTrig) as t:
@@ -150,15 +159,10 @@ def on_actions():
                 with w.every_army() as army:
                     army.destroy_unit(True)
             create_units(e, "scope:winner", "scope:tfe_homeland", ((4, "a_footmen"), (2, "a_tribal_cavalry")))
-            e.note("the people who followed the host (tfe_host_people, counted by tfe_start_migration_effect) settle the capital\n"
-                   "as peasants of its culture and faith: a majority in a thinly peopled countryside, a minority in a great city")
-            with e.if_() as i:
-                with i.limit() as t, t.link("scope:winner", CountryTrig) as w:
-                    w.has_variable("tfe_host_people")
-                i.add_pop(culture="scope:winner.culture", religion="scope:winner.religion", type="pop_type:peasants",
-                          size="scope:winner.var:tfe_host_people")
-                with i.link("scope:winner", CountryFx) as w:
-                    w.remove_variable("tfe_host_people")
+            e.note("the people who followed the host (tfe_host_people, counted by tfe_start_migration_effect) settle a day later,\n"
+                   "once the whole peace or Hospitalitas has handed over its land, spread over all of it (events/tfe_barbarian_kingdoms.txt)")
+            with e.link("scope:winner", CountryFx) as w:
+                w.trigger_event_silently(id="tfe_barbarian_kingdoms.1", days=1)
     return d
 
 
