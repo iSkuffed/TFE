@@ -47,3 +47,34 @@ def test_the_trigger_is_written_from_the_groups():
 
 def test_the_road_has_a_name():
     assert re.search(r"^ tfe_wandering_people: ", LOC, re.M) and re.search(r"^ tfe_wandering_people_desc: ", LOC, re.M)
+
+
+ACTION = "tfe_invite_germanic_settlers"
+
+
+def test_invite_ends_with_the_migrations():
+    assert pr.DOC.find("current_age", "age_2_renaissance", inside=(ACTION,))
+    assert not pr.DOC.find("current_age", "age_3_discovery", inside=(ACTION,))
+
+
+def test_no_settlers_from_an_empty_germania():
+    allow = pr.DOC.find("allow", None, inside=(ACTION,))
+    assert allow and "pop_size" in str(allow[0].val) and "north_german_region" in str(allow[0].val)
+
+
+def test_settlers_drain_germania_and_cost_gold():
+    assert pr.DOC.find("add_pop_size", None, inside=(ACTION,))
+    assert pr.DOC.find("add_gold", str(-pr.SETTLERS_COST), inside=(ACTION,))
+    assert pr.DOC.find("cooldown", None, inside=(ACTION,))
+    assert pr.DOC.find("start_expedition", None, inside=(ACTION,))
+
+
+def test_settlers_are_invited_and_join_the_kings_people():
+    assert pr.DOC.find("set_variable", "tfe_people_invited", inside=(ACTION, "effect"))
+    culture = pr.DOC.find("value", "scope:actor.culture", inside=(ACTION, "effect"))
+    assert culture
+
+
+def test_the_actions_loc_exists():
+    for key in (ACTION, f"{ACTION}_desc"):
+        assert re.search(rf"^ {key}: ", LOC, re.M), key

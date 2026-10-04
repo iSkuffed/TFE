@@ -6,7 +6,9 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "tools"))
-from pdx.api import CharacterTrig, CountryFx, CountryTrig, CultureTrig, ExpeditionFx, LocationFx, LocationTrig
+from pdx.api import (CharacterTrig, CountryFx, CountryTrig, CultureTrig, ExpeditionFx, LocationFx, LocationTrig, PopFx,
+                     PopTrig, RegionFx, RegionTrig, ValueFx)
+from pdx.core import Cmp, Q
 from pdx.objects import Doc
 from pdx.objects_defs import Defs
 
@@ -21,6 +23,13 @@ GERMANIC_GROUPS = {"german_group", "netherlandish_group", "scandinavian_group"}
 # Germanic cultures filed outside those groups. None today: TFE moves gothic_culture into german_group
 # (cultures/tfe_cultures.txt), and every other migrator people already sits in one. Add one here and the trigger follows.
 GERMANIC_CULTURES: set[str] = set()
+ACTOR = "scope:actor"
+ACTION = "tfe_invite_germanic_settlers"
+# Germania, where the settlers come from
+SOURCE_REGIONS = ("north_german_region", "south_german_region", "baltic_region")
+# the Latin peoples of the West whose land a Germanic king rules: when one of them outnumbers half his own, he invites more
+ROMAN_CULTURES = ("roman_culture", "gallo_roman", "hispano_roman", "afro_roman", "romano_british", "illyro_roman",
+                  "thraco_roman")
 # the variables a people on the road carries, on the country that sent it
 PEOPLE_VARS = ("tfe_people_from", "tfe_people_to", "tfe_people_culture", "tfe_people_religion", "tfe_people_size")
 
@@ -112,12 +121,127 @@ def wandering_people(doc: Doc):
             clear_the_road(fx)
 
 
+def send(fx: CountryFx, *, frm: str, to: str, culture: str, religion: str, size: float):
+    """the country sends a people from `frm` to `to`: its variables, an elder to lead it, and the walk"""
+    for var, value in zip(PEOPLE_VARS, (frm, to, culture, religion, size)):
+        fx.set_variable(name=var, value=value)
+    fx.create_character(age=35, culture=culture, religion=religion, save_scope_as="tfe_people_leader")
+    fx.start_expedition(type=f"expedition_type:{EXPEDITION_TYPE}", leader="scope:tfe_people_leader")
+
+
+def germanic_settlers(t: PopTrig):
+    t.pop_size(SETTLER_SIZE, op=">=")
+    with t.go_culture() as c:
+        c.tfe_is_germanic_culture(True)
+
+
+def invite_settlers(doc: Doc):
+    doc.loc.add(ACTION, "Invite Germanic Settlers")
+    doc.loc.add(f"{ACTION}_desc", "Our kin still live beyond the Rhine and the Danube, on poor land. Send for them: they will "
+                "walk to the land we took from the Romans and settle it as our own people.")
+    doc.loc.add(f"{ACTION}_tt", "A band of settlers sets out from Germania and walks to the chosen [location|e]. There they "
+                "settle as [peasants|e] of our [culture|e]. If the land is no longer ours when they arrive, they settle by "
+                "our [capital|e].")
+    doc.loc.add(f"{ACTION}_choose_location", "Choose the land to settle")
+    doc.loc.add(f"{ACTION}_no_location", "All our land is already settled by our own people.")
+    doc.loc.add(f"{ACTION}_source_tt", f"Germania still has a people of our kin of at least {SETTLER_SIZE} [pop_size|e] to send")
+    doc.loc.add("tfe_people_already_on_the_road_tt", "We have no people on the road already")
+    doc.loc.add("tfe_invite_settlers", "Settlers Invited")
+    doc.note("Invite Germanic Settlers: a Germanic king sends for his people in Germania to settle the Roman land he took.\n"
+             "They walk there (expedition_types/tfe_peoples.txt). Ends with the Migrations, in 500.")
+    with doc.generic_action(ACTION) as a:
+        a.field("type", "owncountry")
+        with a.triggers("potential") as t:
+            with t.link(ACTOR, CountryTrig) as c, c.go_culture() as cu:
+                cu.tfe_is_germanic_culture(True)
+            with t.or_() as o:
+                o.current_age("age_1_traditions")
+                o.current_age("age_2_renaissance")
+        with a.triggers("allow") as t:
+            with t.link(ACTOR, CountryTrig) as c:
+                with c.custom_tooltip_block("tfe_people_already_on_the_road_tt") as ct:
+                    ct.not_(lambda n: n.has_variable("tfe_people_to"))
+                c.gold(SETTLERS_COST, op=">=")
+            t.note("decades of drain may empty Germania: then there is no one left to send")
+            with t.custom_tooltip_block(f"{ACTION}_source_tt") as ct, ct.or_() as o:
+                for region in SOURCE_REGIONS:
+                    with o.link(f"region:{region}", RegionTrig) as r, r.any_location_in_region() as loc, loc.any_pop() as p:
+                        germanic_settlers(p)
+        a.field("ai_tick", "monthly")
+        a.field("ai_tick_frequency", 12)
+        a.field("automation_tick", "never")
+        a.field("automation_tick_frequency", 12)
+        a.data("cooldown", type="tfe_invite_settlers", years=SETTLERS_COOLDOWN)
+        a.note("any land of ours whose people are not yet ours")
+        with a.block("select_trigger") as s:
+            s.field("looking_for_a", "location")
+            s.field("source", "actor")
+            s.field("target_flag", "target")
+            s.field("name", Q(f"{ACTION}_choose_location"))
+            s.field("none_available_msg_key", Q(f"{ACTION}_no_location"))
+            s.data("column", data="name")
+            s.data("column", data="population")
+            with s.triggers("visible", LocationTrig) as t:
+                t.compare("owner", "?=", ACTOR)
+                t.not_(lambda n: n.compare("dominant_culture", "?=", "scope:actor.culture"))
+        with a.effects("effect") as e:
+            with e.link(ACTOR, CountryFx) as c:
+                c.add_gold(-SETTLERS_COST)
+            e.custom_tooltip(f"{ACTION}_tt")
+            with e.hidden_effect() as h:
+                h.note("the source: the largest pop of the king's own people in Germania, else the largest Germanic one")
+                for region in SOURCE_REGIONS:
+                    with h.link(f"region:{region}", RegionFx) as r, r.every_location_in_region() as loc, loc.every_pop() as p:
+                        with p.limit() as t:
+                            germanic_settlers(t)
+                        p.add_to_temporary_list("tfe_settler_pops")
+                with h.ordered_in_list(PopFx, list="tfe_settler_pops", order_by="pop_size") as p:
+                    with p.limit() as t:
+                        t.compare("culture", "=", "scope:actor.culture")
+                    p.save_scope_as("tfe_settler_pop")
+                with h.if_() as i:
+                    with i.limit() as t:
+                        t.not_(lambda n: n.exists("scope:tfe_settler_pop"))
+                    with i.ordered_in_list(PopFx, list="tfe_settler_pops", order_by="pop_size") as p:
+                        p.save_scope_as("tfe_settler_pop")
+                with h.link("scope:tfe_settler_pop", PopFx, op="?=") as p:
+                    with p.go_location() as loc:
+                        loc.save_scope_as("tfe_settler_home")
+                    p.note("the settlers join the king's people (his culture), and keep their own gods")
+                    with p.link(ACTOR, CountryFx) as c:
+                        send(c, frm="scope:tfe_settler_home", to="scope:target", culture="scope:actor.culture",
+                             religion="scope:tfe_settler_pop.religion", size=SETTLER_SIZE)
+                        c.set_variable("tfe_people_invited")
+                    p.add_pop_size(value=-SETTLER_SIZE)
+        with a.effects("ai_will_do", ValueFx) as v:
+            v.add(0)
+            v.note("gold to spare, and Roman land to fill with our own people")
+            with v.if_() as i:
+                with i.limit() as t:
+                    with t.link(ACTOR, CountryTrig) as c:
+                        c.gold(3 * SETTLERS_COST, op=">=")
+                    with t.link("scope:target", LocationTrig) as loc, loc.not_() as n, n.go_dominant_culture(op="?=") as cu:
+                        cu.tfe_is_germanic_culture(True)
+                i.add(10)
+                i.note("the Romans we rule outnumber half our own people: settle more before they swallow us")
+                with i.if_() as j:
+                    with j.limit() as t, t.link(ACTOR, CountryTrig) as c, c.or_() as o:
+                        for rc in ROMAN_CULTURES:
+                            with o.and_() as r:
+                                r.has_accepted_culture(f"culture:{rc}")
+                                r.culture_percentage_in_country(culture="scope:actor.culture", value=Cmp("<", {
+                                    "value": Q(f"culture_percentage_in_country(culture:{rc})"), "multiply": 2}))
+                    j.add(10)
+
+
 def build():
     """the expedition type and the generic action; one loc for both"""
     exp, doc = Doc(), Doc()
     exp.note("TFE: peoples on the road. Written from script/peoples_on_the_road.py.")
     wandering_people(exp)
     doc.loc = exp.loc
+    doc.note("TFE: peoples on the road. Written from script/peoples_on_the_road.py.")
+    invite_settlers(doc)
     return exp, doc
 
 
@@ -128,4 +252,5 @@ def outputs():
     """{repo-relative path: text}; write each with encoding="utf-8-sig" (the BOM is the writer's job)."""
     return {"in_game/common/expedition_types/tfe_peoples.txt": EXPEDITION.text(),
             "in_game/common/scripted_triggers/tfe_peoples.txt": triggers().text(),
+            "in_game/common/generic_actions/tfe_peoples.txt": DOC.text(),
             "main_menu/localization/english/tfe_peoples_l_english.yml": DOC.loc.text()}

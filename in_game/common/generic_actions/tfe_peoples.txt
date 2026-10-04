@@ -1,0 +1,249 @@
+﻿# TFE: peoples on the road. Written from script/peoples_on_the_road.py.
+# Invite Germanic Settlers: a Germanic king sends for his people in Germania to settle the Roman land he took.
+# They walk there (expedition_types/tfe_peoples.txt). Ends with the Migrations, in 500.
+tfe_invite_germanic_settlers = {
+	type = owncountry
+	potential = {
+		scope:actor = {
+			culture = {
+				tfe_is_germanic_culture = yes
+			}
+		}
+		OR = {
+			current_age = age_1_traditions
+			current_age = age_2_renaissance
+		}
+	}
+	allow = {
+		scope:actor = {
+			custom_tooltip = {
+				text = tfe_people_already_on_the_road_tt
+				NOT = { has_variable = tfe_people_to }
+			}
+			gold >= 150
+		}
+		# decades of drain may empty Germania: then there is no one left to send
+		custom_tooltip = {
+			text = tfe_invite_germanic_settlers_source_tt
+			OR = {
+				region:north_german_region = {
+					any_location_in_region = {
+						any_pop = {
+							pop_size >= 2
+							culture = {
+								tfe_is_germanic_culture = yes
+							}
+						}
+					}
+				}
+				region:south_german_region = {
+					any_location_in_region = {
+						any_pop = {
+							pop_size >= 2
+							culture = {
+								tfe_is_germanic_culture = yes
+							}
+						}
+					}
+				}
+				region:baltic_region = {
+					any_location_in_region = {
+						any_pop = {
+							pop_size >= 2
+							culture = {
+								tfe_is_germanic_culture = yes
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	ai_tick = monthly
+	ai_tick_frequency = 12
+	automation_tick = never
+	automation_tick_frequency = 12
+	cooldown = {
+		type = tfe_invite_settlers
+		years = 3
+	}
+	# any land of ours whose people are not yet ours
+	select_trigger = {
+		looking_for_a = location
+		source = actor
+		target_flag = target
+		name = "tfe_invite_germanic_settlers_choose_location"
+		none_available_msg_key = "tfe_invite_germanic_settlers_no_location"
+		column = {
+			data = name
+		}
+		column = {
+			data = population
+		}
+		visible = {
+			owner ?= scope:actor
+			NOT = { dominant_culture ?= scope:actor.culture }
+		}
+	}
+	effect = {
+		scope:actor = { add_gold = -150 }
+		custom_tooltip = tfe_invite_germanic_settlers_tt
+		hidden_effect = {
+			# the source: the largest pop of the king's own people in Germania, else the largest Germanic one
+			region:north_german_region = {
+				every_location_in_region = {
+					every_pop = {
+						limit = { pop_size >= 2 culture = { tfe_is_germanic_culture = yes } }
+						add_to_temporary_list = tfe_settler_pops
+					}
+				}
+			}
+			region:south_german_region = {
+				every_location_in_region = {
+					every_pop = {
+						limit = { pop_size >= 2 culture = { tfe_is_germanic_culture = yes } }
+						add_to_temporary_list = tfe_settler_pops
+					}
+				}
+			}
+			region:baltic_region = {
+				every_location_in_region = {
+					every_pop = {
+						limit = { pop_size >= 2 culture = { tfe_is_germanic_culture = yes } }
+						add_to_temporary_list = tfe_settler_pops
+					}
+				}
+			}
+			ordered_in_list = {
+				order_by = pop_size
+				list = tfe_settler_pops
+				limit = { culture = scope:actor.culture }
+				save_scope_as = tfe_settler_pop
+			}
+			if = {
+				limit = { NOT = { exists = scope:tfe_settler_pop } }
+				ordered_in_list = {
+					order_by = pop_size
+					list = tfe_settler_pops
+					save_scope_as = tfe_settler_pop
+				}
+			}
+			scope:tfe_settler_pop ?= {
+				location = {
+					save_scope_as = tfe_settler_home
+				}
+				# the settlers join the king's people (his culture), and keep their own gods
+				scope:actor = {
+					set_variable = { name = tfe_people_from value = scope:tfe_settler_home }
+					set_variable = { name = tfe_people_to value = scope:target }
+					set_variable = { name = tfe_people_culture value = scope:actor.culture }
+					set_variable = { name = tfe_people_religion value = scope:tfe_settler_pop.religion }
+					set_variable = { name = tfe_people_size value = 2 }
+					create_character = {
+						age = 35
+						religion = scope:tfe_settler_pop.religion
+						culture = scope:actor.culture
+						save_scope_as = tfe_people_leader
+					}
+					start_expedition = {
+						type = expedition_type:tfe_wandering_people
+						leader = scope:tfe_people_leader
+					}
+					set_variable = tfe_people_invited
+				}
+				add_pop_size = { value = -2 }
+			}
+		}
+	}
+	ai_will_do = {
+		add = 0
+		# gold to spare, and Roman land to fill with our own people
+		if = {
+			limit = {
+				scope:actor = { gold >= 450 }
+				scope:target = { NOT = { dominant_culture ?= { tfe_is_germanic_culture = yes } } }
+			}
+			add = 10
+			# the Romans we rule outnumber half our own people: settle more before they swallow us
+			if = {
+				limit = {
+					scope:actor = {
+						OR = {
+							AND = {
+								has_accepted_culture = culture:roman_culture
+								culture_percentage_in_country = {
+									culture = scope:actor.culture
+									value < {
+										value = "culture_percentage_in_country(culture:roman_culture)"
+										multiply = 2
+									}
+								}
+							}
+							AND = {
+								has_accepted_culture = culture:gallo_roman
+								culture_percentage_in_country = {
+									culture = scope:actor.culture
+									value < {
+										value = "culture_percentage_in_country(culture:gallo_roman)"
+										multiply = 2
+									}
+								}
+							}
+							AND = {
+								has_accepted_culture = culture:hispano_roman
+								culture_percentage_in_country = {
+									culture = scope:actor.culture
+									value < {
+										value = "culture_percentage_in_country(culture:hispano_roman)"
+										multiply = 2
+									}
+								}
+							}
+							AND = {
+								has_accepted_culture = culture:afro_roman
+								culture_percentage_in_country = {
+									culture = scope:actor.culture
+									value < {
+										value = "culture_percentage_in_country(culture:afro_roman)"
+										multiply = 2
+									}
+								}
+							}
+							AND = {
+								has_accepted_culture = culture:romano_british
+								culture_percentage_in_country = {
+									culture = scope:actor.culture
+									value < {
+										value = "culture_percentage_in_country(culture:romano_british)"
+										multiply = 2
+									}
+								}
+							}
+							AND = {
+								has_accepted_culture = culture:illyro_roman
+								culture_percentage_in_country = {
+									culture = scope:actor.culture
+									value < {
+										value = "culture_percentage_in_country(culture:illyro_roman)"
+										multiply = 2
+									}
+								}
+							}
+							AND = {
+								has_accepted_culture = culture:thraco_roman
+								culture_percentage_in_country = {
+									culture = scope:actor.culture
+									value < {
+										value = "culture_percentage_in_country(culture:thraco_roman)"
+										multiply = 2
+									}
+								}
+							}
+						}
+					}
+				}
+				add = 10
+			}
+		}
+	}
+}
