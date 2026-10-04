@@ -104,3 +104,15 @@ def test_bands_drain_their_homeland_and_walk():
     assert pr.BANDS.find("add_pop_size", None, inside=("tfe_on_slavic_band",))
     assert pr.BANDS.find("start_expedition", None, inside=("tfe_on_slavic_band",))
     assert pr.BANDS.find("chance", str(round(pr.BAND_CHANCE * 100)), inside=("tfe_on_slavic_band",))
+
+
+def test_a_player_invites_from_the_location_panel():
+    """the action is owncountry: only a hand-made button shows it, and the button hands over the location as target"""
+    gui = (ROOT / "in_game/gui/location_window.gui").read_text(encoding="utf-8-sig")
+    button = gui.split(f'action_name = "{ACTION}"', 1)[1].split("}", 3)
+    assert 'parameter_name = "target"' in button[0] and "[LocationView.GetLocation]" in button[0]
+    assert pr.DOC.find("target_flag", "target", inside=(ACTION, "select_trigger"))
+
+
+def test_the_ai_invites_with_gold_to_spare():
+    assert pr.DOC.find("gold", str(2 * pr.SETTLERS_COST), inside=(ACTION, "ai_will_do"))

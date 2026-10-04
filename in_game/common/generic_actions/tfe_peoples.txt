@@ -2,6 +2,8 @@
 # Invite Germanic Settlers: a Germanic king sends for his people in Germania to settle the Roman land he took.
 # They walk there (expedition_types/tfe_peoples.txt). Ends with the Migrations, in 500.
 tfe_invite_germanic_settlers = {
+	# a player invites from the location panel: a button there (in_game/gui/location_window.gui) passes the
+	# location as scope:target, so the select_trigger below is only the AI's list
 	type = owncountry
 	potential = {
 		scope:actor = {
@@ -20,7 +22,7 @@ tfe_invite_germanic_settlers = {
 				text = tfe_people_already_on_the_road_tt
 				NOT = { has_variable = tfe_people_to }
 			}
-			gold >= 150
+			gold >= 50
 		}
 		# decades of drain may empty Germania: then there is no one left to send
 		custom_tooltip = {
@@ -86,7 +88,7 @@ tfe_invite_germanic_settlers = {
 		}
 	}
 	effect = {
-		scope:actor = { add_gold = -150 }
+		scope:actor = { add_gold = -50 }
 		custom_tooltip = tfe_invite_germanic_settlers_tt
 		hidden_effect = {
 			# the source: the largest pop of the king's own people in Germania, else the largest Germanic one
@@ -160,7 +162,7 @@ tfe_invite_germanic_settlers = {
 		# gold to spare, and Roman land to fill with our own people
 		if = {
 			limit = {
-				scope:actor = { gold >= 450 }
+				scope:actor = { gold >= 100 }
 				scope:target = { NOT = { dominant_culture ?= { tfe_is_germanic_culture = yes } } }
 			}
 			add = 10

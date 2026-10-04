@@ -12,6 +12,7 @@ COPIES = {
     "in_game/common/customizable_localization/estates.txt": ("in_game/common/customizable_localization/estates.txt", "ab74eafd544cea77"),
     "in_game/common/languages/tfe_languages.txt": ("in_game/common/languages/00_italy.txt", "41fea717f67c83bc"),
     "in_game/map_data/default.map": ("in_game/map_data/default.map", "fdc0812dfb90c907"),
+    "in_game/gui/location_window.gui": ("in_game/gui/location_window.gui", "69bdd93fe3dfadac"),
     "in_game/gfx/map/map_modes/00_tfe_map_modes.txt": ("in_game/gfx/map/map_modes/map_modes.txt", "0370fa4dc024b1c0"),
     "loading_screen/gfx/scenes/00_loading_screens.txt": ("loading_screen/gfx/scenes/00_loading_screens.txt", "8db58b8ccdc86abc"),
     "main_menu/gui/frontend_mainview.gui": ("main_menu/gui/frontend_mainview.gui", "a8b82ba8b4ec89c2"),
