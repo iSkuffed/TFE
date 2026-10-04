@@ -113,10 +113,13 @@ POTENTIAL: dict[str, str] = {
 STRIP: dict[str, set[str]] = {
     "banking_advance": {"can_sell_bonds"},
     "merchant_power_from_maritime_absolutism_advance": {"trade_company_headquarters_level"},
-    # Part 3 adds the colonial_range grants here.
+    # every flat colonial_range grant is added below (colonial range stays 1000 km from the base)
 }
 
 RENAME: dict[str, tuple[str, str]] = {
+    "colonies": ("Frontier Settlement",
+        "Settlers are sent out to farm land beyond the frontier, and the crown claims the clearings, wells and "
+        "villages they found there."),
     # --- Age 1, Theodosius
     "slave_trade_act_advance": ("Roman Slave Law",
         "Rome's law knows the slave as a thing that can be bought, sold and set free, and every people that "
@@ -747,6 +750,11 @@ def vanilla() -> dict[str, Node]:
                     and any(n.key == "age" for n in _kids(node)):
                 out[node.key] = node
     return out
+
+
+for _k, _n in vanilla().items():   # a patch that adds a flat colonial_range grant is picked up
+    if any(c.key == "colonial_range" for c in _kids(_n)):
+        STRIP.setdefault(_k, set()).add("colonial_range")
 
 
 def _field(node: Node, key: str) -> list[str]:

@@ -288,51 +288,6 @@ GYK = { # Gaya
 	difficulty = 3
 }
 
-TTH = { # Teotihuacan
-	color = rgb { 170 90 60 }
-	color2 = rgb { 85 45 30 }
-	culture_definition = nahua_culture # PLACEHOLDER
-	religion_definition = mesoamerican # PLACEHOLDER
-	description_category = administrative
-	difficulty = 3
-}
-
-TKL = { # Tikal
-	color = rgb { 60 150 80 }
-	color2 = rgb { 30 75 40 }
-	culture_definition = yucatec_culture # PLACEHOLDER
-	religion_definition = mayan # PLACEHOLDER
-	description_category = administrative
-	difficulty = 3
-}
-
-ZPT = { # Monte Alban
-	color = rgb { 150 100 150 }
-	color2 = rgb { 75 50 75 }
-	culture_definition = zapotec_culture # PLACEHOLDER
-	religion_definition = mesoamerican # PLACEHOLDER
-	description_category = administrative
-	difficulty = 3
-}
-
-MOC = { # Moche
-	color = rgb { 190 110 50 }
-	color2 = rgb { 95 55 25 }
-	culture_definition = chimu_culture # PLACEHOLDER
-	religion_definition = inti # PLACEHOLDER
-	description_category = administrative
-	difficulty = 3
-}
-
-NAZ = { # Nazca
-	color = rgb { 140 70 40 }
-	color2 = rgb { 70 35 20 }
-	culture_definition = chincha_culture # PLACEHOLDER
-	religion_definition = inti # PLACEHOLDER
-	description_category = administrative
-	difficulty = 3
-}
-
 SLF = { # Salian Franks
 	color = rgb { 80 110 200 }
 	color2 = rgb { 40 55 100 }

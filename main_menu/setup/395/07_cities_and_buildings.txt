@@ -53,9 +53,6 @@ locations={
 	tamluk = { rank = city town_setup = indian_coastal_city }
 	simhapura = { rank = city town_setup = south_east_asia_city }
 	angkor_borei = { rank = city town_setup = south_east_asia_city }
-	tehotihuacan = { rank = megalopolis town_setup = mexican_city }
-	yax_mutal = { rank = city town_setup = yucatan_town }
-	cahuachi = { rank = town town_setup = andes_town }
 	beirut = { rank = city town_setup = tfe_unfortified_levant_city }
 	latakia = { rank = city town_setup = tfe_unfortified_levant_city }
 	sidon = { rank = town town_setup = tfe_unfortified_levant_town }
@@ -565,10 +562,7 @@ locations={
 	adan = { rank = town 	town_setup = levant_city }
 	
 	# Mesoamerica
-	yucucui = { rank = town			town_setup = mexican_town }
-	mictlan = { rank = town			town_setup = mexican_town }
 
-	zaachila = { rank = city	town_setup = mexican_town }
 	
 	#Colombia
 	
@@ -580,7 +574,6 @@ locations={
 	#ishma = { rank = town 			town_setup = andes_town  }
 	#allpas = { rank = town 			town_setup = andes_town  }
 	#huaman_karpa = { rank = town	town_setup = andes_town  }
-	chinchay = { rank = town 		town_setup = andes_town  }
 	#qusqu = { rank = town 			town_setup = andes_town  }
 	#charka = { rank = town		 	town_setup = andes_town  }
 	#malacatos = { rank = town	 	town_setup = andes_town  }
@@ -590,8 +583,6 @@ locations={
 	#cangochamba = { rank = town  	town_setup = andes_town }
 	#huarco = { rank = town  		town_setup = andes_town }
 	#calvas = { rank = town  		town_setup = andes_town }
-	sana = { rank = town 	town_setup = andes_town }
-	chan_chan = { rank = city 		town_setup = andes_town }
 	
 	#Yucatan
 
