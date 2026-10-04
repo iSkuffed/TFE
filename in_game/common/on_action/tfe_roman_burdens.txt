@@ -1,0 +1,41 @@
+﻿# TFE: a West that gives up the law holding a burden in place (roman_burdens.py) loses the burden with it
+on_policy_changed = {
+	on_actions = { tfe_on_policy_changed_burdens_lift }
+}
+
+tfe_on_policy_changed_burdens_lift = {
+	effect = {
+		if = {
+			limit = {
+				scope_type = country
+				has_reform = government_reform:tfe_disarmed_plebs
+				NOT = { has_policy = tfe_plebs_disarmed }
+			}
+			remove_reform = government_reform:tfe_disarmed_plebs
+		}
+		if = {
+			limit = {
+				scope_type = country
+				has_reform = government_reform:tfe_patrocinium
+				NOT = { has_policy = dop_favor_the_nobles }
+			}
+			remove_reform = government_reform:tfe_patrocinium
+		}
+		if = {
+			limit = {
+				scope_type = country
+				has_reform = government_reform:tfe_senatorial_immunities
+				NOT = { has_policy = autonomous_councils }
+			}
+			remove_reform = government_reform:tfe_senatorial_immunities
+		}
+		if = {
+			limit = {
+				scope_type = country
+				has_reform = government_reform:tfe_debased_currency
+				NOT = { has_policy = tfe_debased_coinage }
+			}
+			remove_reform = government_reform:tfe_debased_currency
+		}
+	}
+}

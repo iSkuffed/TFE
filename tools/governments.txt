@@ -14,6 +14,9 @@ WRE = regnal_numbers = { name_valentinian = 2 }
 WRE = privilege = { banal_lordship }
 # the West's burdens are locked reforms; each carries its own slot
 WRE = reforms = { tfe_senatorial_immunities tfe_patrocinium tfe_disarmed_plebs tfe_debased_currency }
+# each burden is held by a law (script/roman_burdens.py); the levy law and the distribution of power wait for Stilicho.
+# The slave trade is legal and thriving (Harper, Slavery in the Late Roman World, 2011).
+WRE = laws = { medieval_levy_law = tfe_plebs_disarmed distribution_of_power_law = dop_favor_the_nobles administrative_system = autonomous_councils coin_laws = tfe_debased_coinage slavery_laws = slavery_allowed }
 
 EAR = ruler = tfe_arcadius
 EAR = reforms = { tfe_disarmed_demos }

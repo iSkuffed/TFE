@@ -11,6 +11,49 @@ tfe_on_start_western_state = {
 			set_stability = -25
 			set_inflation = 0.35
 			set_legitimacy = 55
+			every_owned_location = {
+				if = {
+					limit = { region = region:italy_region }
+					every_pop = {
+						limit = { pop_type = pop_type:peasants }
+						split_pop = { fraction = 0.2 type = pop_type:slaves culture = culture:gothic_culture }
+					}
+				}
+				else_if = {
+					limit = { region = region:france_region }
+					every_pop = {
+						limit = { pop_type = pop_type:peasants }
+						split_pop = { fraction = 0.14 type = pop_type:slaves culture = culture:alamannic }
+					}
+				}
+				else_if = {
+					limit = { region = region:great_britain_region }
+					every_pop = {
+						limit = { pop_type = pop_type:peasants }
+						split_pop = { fraction = 0.14 type = pop_type:slaves culture = culture:irish }
+					}
+				}
+				else_if = {
+					limit = { region = region:maghreb_region }
+					every_pop = {
+						limit = { pop_type = pop_type:peasants }
+						split_pop = { fraction = 0.14 type = pop_type:slaves culture = culture:kabyle }
+					}
+				}
+				else_if = {
+					limit = { region = region:balkan_region }
+					every_pop = {
+						limit = { pop_type = pop_type:peasants }
+						split_pop = { fraction = 0.14 type = pop_type:slaves culture = culture:iazyges }
+					}
+				}
+				else = {
+					every_pop = {
+						limit = { pop_type = pop_type:peasants }
+						split_pop = { fraction = 0.14 type = pop_type:slaves culture = culture:gothic_culture }
+					}
+				}
+			}
 		}
 	}
 }

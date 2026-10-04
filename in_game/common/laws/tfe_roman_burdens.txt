@@ -1,0 +1,58 @@
+﻿# TFE: medieval_levy_law holds tfe_disarmed_plebs in place until Stilicho rules
+INJECT:medieval_levy_law = {
+	locked = {
+		has_policy = tfe_plebs_disarmed
+		has_reform = government_reform:tfe_disarmed_plebs
+		custom_tooltip = {
+			text = tfe_awaits_stilicho_tt
+			NOT = {
+				ruler ?= character:tfe_stilicho
+				has_regent = no
+			}
+		}
+	}
+	tfe_plebs_disarmed = {
+		unique = yes
+		# held only: once given up it is gone
+		potential = {
+			has_policy = tfe_plebs_disarmed
+		}
+		years = 0
+	}
+}
+
+# TFE: distribution_of_power_law holds tfe_patrocinium in place until Stilicho rules
+INJECT:distribution_of_power_law = {
+	locked = {
+		has_policy = dop_favor_the_nobles
+		has_reform = government_reform:tfe_patrocinium
+		custom_tooltip = {
+			text = tfe_awaits_stilicho_tt
+			NOT = {
+				ruler ?= character:tfe_stilicho
+				has_regent = no
+			}
+		}
+	}
+}
+
+# TFE: coin_laws holds tfe_debased_currency in place
+INJECT:coin_laws = {
+	tfe_debased_coinage = {
+		unique = yes
+		# held only: once given up it is gone
+		potential = {
+			has_policy = tfe_debased_coinage
+		}
+		# Bullion Coins' minting: copper and some silver
+		country_modifier = {
+			silver_used_for_minting = yes
+			copper_used_for_minting = yes
+			goods_gold_impacts_inflation = -1
+			minting_inflation_threshold = 0.02
+			minting_income_factor = 0.1
+		}
+		estate_preferences = { crown_estate }
+		years = 0
+	}
+}

@@ -1,0 +1,8 @@
+﻿l_english:
+ tfe_awaits_stilicho_tt: "Only Stilicho, ruling as Emperor and not as regent, can lift this burden"
+ tfe_plebs_disarmed: "Disarmed Plebs"
+ tfe_plebs_disarmed_desc: "No law calls the plebs to arms; another forbids them to bear any. Change this law and the [ShowGovernmentReformName('tfe_disarmed_plebs')] reform goes with it."
+ tfe_debased_coinage: "Debased Coinage"
+ tfe_debased_coinage_desc: "The mints strike copper and a little silver, and the gold the army is owed must be bought with it. Change this law and the [ShowGovernmentReformName('tfe_debased_currency')] reform goes with it."
+ country_flavor_parliament_tfe_senatus: "Senātus Rōmānus"
+ country_flavor_parliament_tfe_synkletos: "Synklētos"
