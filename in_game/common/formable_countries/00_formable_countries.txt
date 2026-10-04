@@ -12,6 +12,7 @@ SCA_f = {
 	}
 	
 	allow = {
+		has_tribal_government = no	# TFE
 	}
 
 	name = SCA
@@ -42,6 +43,7 @@ sweden_f = {
 	}
 	
 	allow = {
+		has_tribal_government = no	# TFE
 	}
 	
 	name = SWE
@@ -74,6 +76,7 @@ denmark_f = {
 	}
 	
 	allow = {
+		has_tribal_government = no	# TFE
 	}
 	
 	name = DAN
@@ -116,6 +119,7 @@ DRD_f = {
 				has_culture_group = culture_group:hibernian_group
 			}
 		}
+		has_tribal_government = no	# TFE
 	}
 	
 	name = DRD
@@ -209,6 +213,7 @@ GBR_f = {
 				}			
 			}
 		}
+		has_tribal_government = no	# TFE
 	}
 	
 	name = GBR
@@ -238,6 +243,7 @@ ENG_f = {
 	}
 
 	allow = {
+		has_tribal_government = no	# TFE
 	}
 	
 	name = ENG
@@ -274,6 +280,7 @@ WLS_f = {
 
 	allow = {
 
+		has_tribal_government = no	# TFE
 	}
 	
 	name = WLS
@@ -301,6 +308,7 @@ SCO_f = {
 
 	allow = {
 
+		has_tribal_government = no	# TFE
 	}
 	
 	name = SCO
@@ -330,6 +338,7 @@ NOL_f = {
 
 	allow = {
 
+		has_tribal_government = no	# TFE
 	}
 	
 	name = NOL
@@ -376,6 +385,7 @@ IRE_f = {
 				}
 			}
 		}
+		has_tribal_government = no	# TFE
 	}
 
 	name = IRE
@@ -423,6 +433,7 @@ IRE_high_kingship_f = {
 				leader_country ?= root
 			}
 		}
+		has_tribal_government = no	# TFE
 	}
 
 	name = IRE
@@ -474,6 +485,7 @@ IRE_lordship_of_ireland_f = {
 				leader_country ?= root
 			}
 		}
+		has_tribal_government = no	# TFE
 	}
 
 	name = IRE
@@ -509,6 +521,7 @@ MTH_f = {
 	}
 
 	allow = {
+		has_tribal_government = no	# TFE
 	}
 
 	name = MTH
@@ -540,6 +553,7 @@ MCM_f = {
 	}
 
 	allow = {
+		has_tribal_government = no	# TFE
 	}
 
 	name = MCM
@@ -566,10 +580,12 @@ NED_f = {
 
 	potential = {
 		NOR = { tag = WRE tag = EAR tag = JIN }	# TFE
+		always = no	# TFE: the Netherlands is never formable
 		culture = { has_culture_group = culture_group:netherlandish_group }
 	}
 
 	allow = {
+		has_tribal_government = no	# TFE
 	}
 	
 	name = NED
@@ -604,6 +620,7 @@ SWI_f = {
 			text = SWI_f_tt
 			NOT = { exists = international_organization:swiss_confederation }
 		}
+		has_tribal_government = no	# TFE
 	}
 	
 	name = SWI
@@ -661,6 +678,7 @@ ADU_f = {
 				}
 			}		
 		}
+		has_tribal_government = no	# TFE
 	}
 	
 	name = ADU
@@ -692,6 +710,7 @@ ARA_f = { # Aragon
 	}
 
 	allow = {
+		has_tribal_government = no	# TFE
 	}
 
 	name = ARA
@@ -721,6 +740,7 @@ CAS_f = { # Castile
 	}
 
 	allow = {
+		has_tribal_government = no	# TFE
 	}
 
 	name = CAS
@@ -750,6 +770,7 @@ CAT_f = { # Catalonia
 	}
 
 	allow = {
+		has_tribal_government = no	# TFE
 	}
 
 	name = CAT
@@ -779,6 +800,7 @@ GLC_f = { # Galicia
 	}
 
 	allow = {
+		has_tribal_government = no	# TFE
 	}
 
 	name = GLC
@@ -808,6 +830,7 @@ LON_f = { # Leon
 	}
 
 	allow = {
+		has_tribal_government = no	# TFE
 	}
 
 	name = LON
@@ -837,6 +860,7 @@ MLL_f = { # Mallorca
 	}
 
 	allow = {
+		has_tribal_government = no	# TFE
 	}
 
 	name = MLL
@@ -867,6 +891,7 @@ NAV_f = {
 
 	allow = {
 
+		has_tribal_government = no	# TFE
 	}
 	
 	name = NAV
@@ -888,18 +913,17 @@ NAV_f = {
 }
 
 POR_f = { # Portugal
-	level = 2
-	required_locations_fraction = 0.75
+	level = 3	# TFE: a Kingdom
+	required_locations_fraction = 0.6	# TFE
 	rule = historical
 
 	potential = {
 		NOR = { tag = WRE tag = EAR tag = JIN }	# TFE
 		NOT = { tag = POR }
-		culture = culture:portuguese
-		religion.group = religion_group:christian
 	}
 
 	allow = {
+		has_tribal_government = no	# TFE
 	}
 
 	name = POR
@@ -910,9 +934,15 @@ POR_f = { # Portugal
 
 	areas = {
 		north_portugal_area
+		south_portugal_area	# TFE
 	}
 
 	form_effect = {
+		# TFE
+		if = {
+			limit = { country_rank_level < 3 }
+			set_country_rank_effect = { rank = country_rank:rank_kingdom }
+		}
 	}
 }
 
@@ -944,6 +974,7 @@ SPA_f = {
 				}
 			}		
 		}
+		has_tribal_government = no	# TFE
 	}
 	
 	name = SPA
@@ -972,6 +1003,7 @@ VAL_f = { # Valencia
 	}
 
 	allow = {
+		has_tribal_government = no	# TFE
 	}
 
 	name = VAL
@@ -1104,6 +1136,7 @@ LAT_f = {
 			current_age = age_3_discovery
 			current_age = age_4_reformation
 		}	
+		has_tribal_government = no	# TFE
 	}
 	
 	name = LAT
@@ -1220,6 +1253,7 @@ LAT_REDUCED_REQUIREMENTS_f = {
 			current_age = age_2_renaissance
 			current_age = age_3_discovery
 		}		
+		has_tribal_government = no	# TFE
 	}
 	
 	name = LAT
@@ -1334,6 +1368,7 @@ THE_f = {
 			current_age = age_1_traditions
 			current_age = age_2_renaissance
 		}
+		has_tribal_government = no	# TFE
 	}
 	
 	name = THE
@@ -1387,6 +1422,7 @@ THE_REDUCED_REQUIREMENTS_f = {
 			current_age = age_1_traditions
 			current_age = age_2_renaissance
 		}	
+		has_tribal_government = no	# TFE
 	}
 	
 	name = THE
@@ -1425,6 +1461,7 @@ SAR_f = {
 	}
 
 	allow = {
+		has_tribal_government = no	# TFE
 	}
 	
 	name = SAR
@@ -1460,6 +1497,7 @@ SAR_piedmont_f = {
 	}
 
 	allow = {
+		has_tribal_government = no	# TFE
 	}
 	
 	name = SAR_piedmont
@@ -1595,6 +1633,7 @@ BAV_f = {
 			has_estate_privilege = estate_privilege:bavarian_share_of_land
 		}
 		owns = location:munich
+		has_tribal_government = no	# TFE
 	}
 	
 	name = BAV
@@ -1630,6 +1669,7 @@ HAB_f = {
 	}
 	allow = {
 		owns = location:vienna
+		has_tribal_government = no	# TFE
 	}
 	
 	name = HAB
@@ -1669,6 +1709,7 @@ BOH_f = {
 	}
 	allow = {
 		owns = location:prague
+		has_tribal_government = no	# TFE
 	}
 	
 	name = BOH
@@ -1706,6 +1747,7 @@ SAX_f = { # Saxony
 				country = root
 			}
 		}
+		has_tribal_government = no	# TFE
 	}
 
 	name = SAX
@@ -1738,6 +1780,10 @@ NSA_f = { # Nassau
 		}
 	}
 
+	allow = {
+		has_tribal_government = no	# TFE
+	}
+
 	name = NSA
 	flag = NSA
 	adjective = NSA_ADJ
@@ -1759,6 +1805,10 @@ MKL_f = {
 	potential = {
 		NOR = { tag = WRE tag = EAR tag = JIN }	# TFE
 		culture = culture:western_pomeranian
+	}
+
+	allow = {
+		has_tribal_government = no	# TFE
 	}
 	
 	name = MKL
@@ -1785,6 +1835,10 @@ POM_f = {
 			culture = culture:eastern_pomeranian
 			culture = culture:western_pomeranian
 		}
+	}
+
+	allow = {
+		has_tribal_government = no	# TFE
 	}
 
 	name = POM
@@ -1822,6 +1876,7 @@ PRU_f = { #Prussia
 		"estate_power(estate_type:clergy_estate)" < 0.20
 		"estate_power(estate_type:nobles_estate)" > 0.20
 		at_war = no
+		has_tribal_government = no	# TFE
 	}
 	name = PRU
 	flag = PRU
@@ -1862,6 +1917,7 @@ LIV_f = {
 
 	allow = {
 		culture = { has_culture_group = culture_group:german_group }
+		has_tribal_government = no	# TFE
 	}
 	
 	name = LIV
@@ -1889,6 +1945,7 @@ LVA_f = { # Baltic
 
 	allow = {
 		culture = { has_culture_group = culture_group:baltic_group }
+		has_tribal_government = no	# TFE
 	}
 	
 	name = LVA
@@ -1911,12 +1968,16 @@ LVA_f = { # Baltic
 
 GER_f = {
 
-	level = 4
+	level = 3	# TFE: Germania is a Kingdom
 	required_locations_fraction = 0.6
 	rule = plausible
 	potential = {
 		NOR = { tag = WRE tag = EAR tag = JIN }	# TFE
 		culture = { has_culture_group = culture_group:german_group }
+	}
+
+	allow = {
+		has_tribal_government = no	# TFE
 	}
 	
 	name = GER
@@ -1931,8 +1992,8 @@ GER_f = {
 	}
 	form_effect = {
 		if = {
-			limit = { country_rank_level < 4 }
-			set_country_rank_effect = { rank = country_rank:rank_empire }
+			limit = { country_rank_level < 3 }	# TFE
+			set_country_rank_effect = { rank = country_rank:rank_kingdom }	# TFE
 		}
 	}
 }
@@ -1940,19 +2001,15 @@ GER_f = {
 HRE_f = {
 
 	level = 4
-	required_locations_fraction = 0.75
+	required_locations_fraction = 0.6	# TFE
 	rule = plausible
 	potential = {
 		NOR = { tag = WRE tag = EAR tag = JIN }	# TFE
-		exists = international_organization:hre
-		is_member_of_international_organization = international_organization:hre
+		religion.group = religion_group:christian	# TFE: the *Holy* Roman Empire
 	}
 
 	allow = {
-		custom_tooltip = {
-			text = HRE_f_tt
-			always = no
-		}
+		has_tribal_government = no	# TFE
 	}
 	
 	name = HRE
@@ -1964,8 +2021,14 @@ HRE_f = {
 	regions = {
 		north_german_region
 		south_german_region
+		france_region	# TFE
 	}
 	form_effect = {
+		# TFE
+		if = {
+			limit = { country_rank_level < 4 }
+			set_country_rank_effect = { rank = country_rank:rank_empire }
+		}
 	}
 }
 
@@ -1976,6 +2039,10 @@ MOL_f = {
 	potential = {
 		NOR = { tag = WRE tag = EAR tag = JIN }	# TFE
 		culture = culture:moldovan
+	}
+
+	allow = {
+		has_tribal_government = no	# TFE
 	}
 	
 	name = MOL
@@ -2001,6 +2068,7 @@ MAZ_f = { # Mazovia
 	}
 	allow = {
 		owns = location:warsaw
+		has_tribal_government = no	# TFE
 	}
 	
 	name = MAZ
@@ -2029,6 +2097,7 @@ SIL_f = {
 		}
 	}
 	allow = {
+		has_tribal_government = no	# TFE
 	}
 	
 	name = SIL
@@ -2056,6 +2125,7 @@ POL_f = {
 	allow = {
 		owns = location:krakow
 		owns = location:warsaw
+		has_tribal_government = no	# TFE
 	}
 	
 	name = POL
@@ -2130,6 +2200,7 @@ PLC_f = {
 			owns = location:vilnius
 			owns = location:warsaw
 		}
+		has_tribal_government = no	# TFE
 	}
 	
 	name = PLC
@@ -2176,6 +2247,7 @@ UKR_f = { #Ruthenia
 	}
 	allow = {
 		owns = location:kyiv
+		has_tribal_government = no	# TFE
 	}
 	
 	name = UKR
@@ -2221,6 +2293,7 @@ ROM_f = {
 			religion.group = religion_group:christian
 			religion = religion:hellenism_religion
 		}
+		has_tribal_government = no	# TFE
 	}
 
 	name = ROM
@@ -2289,6 +2362,7 @@ ROM_BYZ_f = {
 			has_or_had_tag = BYZ
 			NOT = { country_exists = c:BYZ }
 		}
+		has_tribal_government = no	# TFE
 	}
 
 	name = ROM
@@ -2391,6 +2465,7 @@ NSE_f = {
 				region = region:ireland_region 
 			}
 		}
+		has_tribal_government = no	# TFE
 	}
 	
 	name = NSE
@@ -2426,6 +2501,7 @@ CEL_f = {
 			court_language = language:brythonic_language
 			court_language = language:gaelic_language
 		}
+		has_tribal_government = no	# TFE
 	}
 	
 	name = CEL
@@ -2491,6 +2567,7 @@ EUR_f = {
 
 	allow = {
 		is_hegemon = yes
+		has_tribal_government = no	# TFE
 	}
 	
 	name = EUR
@@ -2520,6 +2597,7 @@ ULS_f = {
 	}
 
 	allow = {
+		has_tribal_government = no	# TFE
 	}
 	
 	name = ULS
@@ -2549,6 +2627,7 @@ CNN_f = {
 	}
 
 	allow = {
+		has_tribal_government = no	# TFE
 	}
 	
 	name = CNN
@@ -2586,6 +2665,7 @@ ITA_f = {
 				has_variable = gag_guelphs_winner_may_form_italy_without_location_requirements
 			}
 		}
+		has_tribal_government = no	# TFE
 	}
 	
 	name = ITA
@@ -2613,6 +2693,7 @@ FRA_f = {
 
 	allow = {
 		owns = location:paris
+		has_tribal_government = no	# TFE
 	}
 	
 	name = FRA
@@ -2649,6 +2730,7 @@ LOT_f = {
 	}
 
 	allow = {
+		has_tribal_government = no	# TFE
 	}
 	
 	name = LOT
@@ -2692,6 +2774,7 @@ BGP_f = {
 	}
 
 	allow = {
+		has_tribal_government = no	# TFE
 	}
 	
 	name = BGP
@@ -2753,6 +2836,7 @@ TWS_f = {
 				c:SIC = { NOT = { has_presence_in = region:italy_region } }
 			}
 		}
+		has_tribal_government = no	# TFE
 	}
 	
 	name = TWS
@@ -2790,6 +2874,7 @@ RUS_f = {
 		owns = location:novgorod
 		owns = location:tver
 		owns = location:vladimir
+		has_tribal_government = no	# TFE
 	}
 
 	name = RUS
@@ -2829,6 +2914,7 @@ GRE_f = {
 	allow = {
 		culture = { has_culture_group = culture_group:greek_group }
 		owns = location:athens
+		has_tribal_government = no	# TFE
 	}
 	
 	name = GRE
@@ -2860,6 +2946,7 @@ BYZ_f = {
 	allow = {
 		religion = religion:orthodox
 		owns = location:constantinople
+		has_tribal_government = no	# TFE
 	}
 	
 	name = BYZ
@@ -2906,6 +2993,7 @@ BYZ_trebizond_f = {
 		religion = religion:orthodox
 		owns = location:constantinople
 		NOT = { country_exists = c:BYZ }
+		has_tribal_government = no	# TFE
 	}
 
 	name = BYZ
@@ -2960,6 +3048,7 @@ HEN_f = {
 	}
 
 	allow = {
+		has_tribal_government = no	# TFE
 	}
 	
 	name = HEN
@@ -3803,6 +3892,10 @@ SER_f = {
 		culture = culture:serbian
 	}
 
+	allow = {
+		has_tribal_government = no	# TFE
+	}
+
 
 	name = SER
 	flag = SER
@@ -3869,6 +3962,10 @@ SHL_f = {
 	potential = {
 		NOR = { tag = WRE tag = EAR tag = JIN }	# TFE
 		culture = culture:holsatian
+	}
+
+	allow = {
+		has_tribal_government = no	# TFE
 	}
 
 	name = SHL
@@ -4078,6 +4175,7 @@ GEO_f = {
 	
 	allow = {
 		owns = location:tbilisi
+		has_tribal_government = no	# TFE
 	}
 	
 	name = GEO
@@ -4105,6 +4203,7 @@ ARM_f = {
 	}
 	
 	allow = {
+		has_tribal_government = no	# TFE
 	}
 	
 	name = ARM
@@ -4162,6 +4261,7 @@ ALB_f = {
 	}
 	
 	allow = {
+		has_tribal_government = no	# TFE
 	}
 	
 	name = ALB
@@ -4475,6 +4575,7 @@ RMN_f = {
 	}
 	allow = {
 		owns = location:bucharest
+		has_tribal_government = no	# TFE
 	}
 
 	name = RMN
@@ -4505,6 +4606,7 @@ SWA_f = {
 	}
 	allow = {
 		
+		has_tribal_government = no	# TFE
 	}
 
 	name = SWA
@@ -4541,6 +4643,7 @@ WES_f = {
 			}
 			current_age_or_later = { age = age_6_revolutions }
 		}
+		has_tribal_government = no	# TFE
 	}
 
 	name = WES
@@ -4573,6 +4676,7 @@ BEL_f = {
 	}
 	allow = {
 		
+		has_tribal_government = no	# TFE
 	}
 
 	name = BEL
@@ -4603,6 +4707,7 @@ FKN_f = {
 	}
 	allow = {
 		
+		has_tribal_government = no	# TFE
 	}
 
 	name = FKN
@@ -4631,6 +4736,7 @@ HAN_f = {
 	}
 	allow = {
 		owns = location:hanover
+		has_tribal_government = no	# TFE
 	}
 
 	name = HAN
@@ -4659,6 +4765,7 @@ TUS_f = {
 	}
 	allow = {
 		owns = location:florence
+		has_tribal_government = no	# TFE
 	}
 
 	name = TUS
@@ -4686,6 +4793,7 @@ BUL_f = {
 		culture = culture:bulgarian
 	}
 	allow = {
+		has_tribal_government = no	# TFE
 	}
 
 	name = BUL
@@ -4717,6 +4825,7 @@ DAL_f = {
 	}
 	allow = {
 		owns = location:dubrovnik
+		has_tribal_government = no	# TFE
 	}
 
 	name = DAL
@@ -4745,6 +4854,7 @@ HUN_f = {
 	allow = {
 		owns = location:pest
 		owns = location:buda
+		has_tribal_government = no	# TFE
 	}
 
 	name = HUN
@@ -4845,6 +4955,7 @@ CRO_f = {
 	}
 	allow = {
 		owns = location:zagreb
+		has_tribal_government = no	# TFE
 	}
 
 	name = CRO
@@ -4878,6 +4989,7 @@ TRA_f = {
 	}
 	allow = {
 		
+		has_tribal_government = no	# TFE
 	}
 
 	name = TRA
@@ -4962,6 +5074,7 @@ FIN_f = {
 	}
 	allow = {
 		
+		has_tribal_government = no	# TFE
 	}
 
 	name = FIN
@@ -4989,6 +5102,7 @@ ICE_f = {
 	}
 	allow = {
 		
+		has_tribal_government = no	# TFE
 	}
 
 	name = ICE
@@ -5203,6 +5317,7 @@ SLO_f = {
 	}
 	allow = {
 		
+		has_tribal_government = no	# TFE
 	}
 
 	name = SLO
@@ -5257,6 +5372,7 @@ CIR_f = { # Circassia
 	}
 	allow = {
 		
+		has_tribal_government = no	# TFE
 	}
 
 	name = CIR
@@ -5528,6 +5644,7 @@ OCC_f = { #Occitania
 	}
 
 	allow = {
+		has_tribal_government = no	# TFE
 	}
 
 	tag = OCC

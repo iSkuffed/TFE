@@ -1,4 +1,4 @@
-great_britain_region = Diocese of the Britains  # a: Dioecesis Britanniarum, vicarius at Londinium
+great_britain_region = Britannia  # a: Dioecesis Britanniarum, vicarius at Londinium
 
 east_anglia_area = Saxon Shore  # a: Litus Saxonicum (Notitia); Branodunum, Gariannonum, Othona; province between Maxima and Flavia uncertain
 cambridgeshire_province = Durolipons  # a: Roman town at Cambridge (Antonine Itinerary), fen-edge district

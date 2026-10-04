@@ -1,4 +1,4 @@
-ethiopia_region = Kingdom of Aksum  # a: the Axomites (Periplus 4-5), Ezana king of the Aksumites c. 350
+ethiopia_region = Aksum  # a: the Axomites (Periplus 4-5), Ezana king of the Aksumites c. 350
 
 central_ethiopia_area = Athagaus  # a: Athagaus (Monumentum Adulitanum), Atagau of Ezana: the Agaw highlands
 amhara_province = Sayint Plateau  # d: the Amhara Sayint plateau, nothing ancient fits

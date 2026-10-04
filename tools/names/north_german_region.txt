@@ -1,4 +1,4 @@
-north_german_region = Free Germania  # p: Ptolemy's Megale Germania (Germania Magna), with Second Germania on its Rhine edge
+north_german_region = Germania  # p: Ptolemy's Megale Germania (Germania Magna), with Second Germania on its Rhine edge
 
 brabant_area = Toxandria  # a: Ammianus 17.8, the land Julian left to the Salian Franks in 358; north of the civitas Tungrorum
 antwerp_province = Toxandri  # p: Pliny 4.106, the Toxandri beyond the Scaldis

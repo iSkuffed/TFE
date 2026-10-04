@@ -1,4 +1,4 @@
-egypt_region = Diocese of Egypt  # a: Dioecesis Aegypti under the Augustal Prefect at Alexandria
+egypt_region = Aegyptus  # a: Dioecesis Aegypti under the Augustal Prefect at Alexandria
 
 cyrenaica_area = Libya Superior  # a: Libya Superior (Pentapolis), metropolis Ptolemais
 al_bayda_province = Cyrene  # a: Cyrene, with Balagrae (Bayda), Darnis, Antipyrgos

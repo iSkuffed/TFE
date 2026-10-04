@@ -875,8 +875,10 @@ def bar_empires_from_formables(vanilla):
             return block[:pot.end()] + bar + block[pot.end():]
         head = block.index("\n") + 1
         return block[:head] + "\tpotential = {\n" + bar + "\t}\n" + block[head:]
-    return ("# TFE honorius-only: the empires may not form vanilla countries (tools/test_western_rome.py)\n"
-            + re.sub(r"^\w+ = \{.*?^\}", one, vanilla, flags=re.M | re.S))
+    import formables   # TFE's own formables (tools/formables.py) on top of the bar
+    return formables.tfe_formables("# TFE honorius-only: the empires may not form vanilla countries (tools/test_western_rome.py)\n"
+                                   + re.sub(r"^\w+ = \{.*?^\}", one, vanilla, flags=re.M | re.S),
+                                   formables.definitions(MAP / "definitions.txt"))
 
 
 IO_PANEL = "in_game/gui/panels/organization/common.gui"
