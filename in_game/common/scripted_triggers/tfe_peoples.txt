@@ -1,0 +1,9 @@
+﻿# TFE: peoples on the road (expedition_types/tfe_peoples.txt). Scope: a culture. The Germanic peoples, whose kings may
+# invite settlers from Germania (generic_actions/tfe_peoples.txt). Written from script/peoples_on_the_road.py.
+tfe_is_germanic_culture = {
+	OR = {
+		has_culture_group = culture_group:german_group
+		has_culture_group = culture_group:netherlandish_group
+		has_culture_group = culture_group:scandinavian_group
+	}
+}

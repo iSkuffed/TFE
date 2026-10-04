@@ -1,0 +1,75 @@
+﻿# TFE: peoples on the road. Written from script/peoples_on_the_road.py.
+# A people on the road: the country sets the variables (tfe_people_*), then starts it with a new character as its
+# leader. It walks overland from tfe_people_from to tfe_people_to and settles there as peasants.
+# GAP: no expedition-type builder (doc.entry)
+tfe_wandering_people = {
+	# one band at a time per country; it also keeps the player from starting a second one in the Expeditions panel
+	unique = yes
+	travel_speed = 0.25
+	travel_mode = land
+	# the first waypoint is the departure: the people's homeland, not the capital
+	dynamic_first_waypoint = yes
+	origin = none
+	ai = no
+	show_start_message = no
+	show_end_message = no
+	potential = {
+		has_variable = tfe_people_to
+	}
+	leader = {
+		is_expedition_leader = no
+	}
+	on_start = {
+		scope:expedition = {
+			add_new_waypoint = root.var:tfe_people_from
+			add_new_waypoint = root.var:tfe_people_to
+		}
+	}
+	on_end = {
+		root.var:tfe_people_to = { save_scope_as = tfe_people_arrive }
+		# invited settlers whose land was lost on the way settle by the king's seat; a band settles wherever it is
+		if = {
+			limit = {
+				has_variable = tfe_people_invited
+				NOT = { scope:tfe_people_arrive = { owner ?= root } }
+				exists = root.capital
+			}
+			root.capital = {
+				save_scope_as = tfe_people_arrive
+			}
+		}
+		scope:tfe_people_arrive = {
+			add_pop = {
+				culture = root.var:tfe_people_culture
+				religion = root.var:tfe_people_religion
+				type = pop_type:peasants
+				size = root.var:tfe_people_size
+			}
+		}
+		remove_variable = tfe_people_from
+		remove_variable = tfe_people_to
+		remove_variable = tfe_people_culture
+		remove_variable = tfe_people_religion
+		remove_variable = tfe_people_size
+		remove_variable = tfe_people_invited
+		scope:expedition = { expedition_leader ?= { save_scope_as = tfe_people_leader_done } }
+		if = {
+			limit = { exists = scope:tfe_people_leader_done }
+			kill_character_silently = scope:tfe_people_leader_done
+		}
+	}
+	on_fail = {
+		# lost on the road: the people who left are gone
+		remove_variable = tfe_people_from
+		remove_variable = tfe_people_to
+		remove_variable = tfe_people_culture
+		remove_variable = tfe_people_religion
+		remove_variable = tfe_people_size
+		remove_variable = tfe_people_invited
+		scope:expedition = { expedition_leader ?= { save_scope_as = tfe_people_leader_done } }
+		if = {
+			limit = { exists = scope:tfe_people_leader_done }
+			kill_character_silently = scope:tfe_people_leader_done
+		}
+	}
+}

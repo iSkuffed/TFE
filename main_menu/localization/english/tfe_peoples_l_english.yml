@@ -1,0 +1,11 @@
+﻿l_english:
+ tfe_wandering_people: "A People on the Road"
+ tfe_wandering_people_desc: "Families, herds and wagons on the move, looking for land to settle."
+ tfe_invite_germanic_settlers: "Invite Germanic Settlers"
+ tfe_invite_germanic_settlers_desc: "Our kin still live beyond the Rhine and the Danube, on poor land. Send for them: they will walk to the land we took from the Romans and settle it as our own people."
+ tfe_invite_germanic_settlers_tt: "A band of settlers sets out from Germania and walks to the chosen [location|e]. There they settle as peasants of our [culture|e]. If the land is no longer ours when they arrive, they settle by our [capital|e]."
+ tfe_invite_germanic_settlers_choose_location: "Choose the land to settle"
+ tfe_invite_germanic_settlers_no_location: "All our land is already settled by our own people."
+ tfe_invite_germanic_settlers_source_tt: "Germania still has a people of our kin of at least 2 [pop_size|e] to send"
+ tfe_people_already_on_the_road_tt: "We have no people on the road already"
+ tfe_invite_settlers: "Settlers Invited"
