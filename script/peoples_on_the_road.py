@@ -16,7 +16,7 @@ EXPEDITION_TYPE = "tfe_wandering_people"
 SETTLER_SIZE = 2  # pop_size, the unit vanilla's setup counts pops in
 BAND_SIZE = 1
 TRAVEL_SPEED = 0.25
-SETTLERS_COST = 150
+SETTLERS_COST = 50
 SETTLERS_COOLDOWN = 3
 BAND_CHANCE = 0.25
 GERMANIC_GROUPS = {"german_group", "netherlandish_group", "scandinavian_group"}
@@ -156,6 +156,8 @@ def invite_settlers(doc: Doc):
     doc.note("Invite Germanic Settlers: a Germanic king sends for his people in Germania to settle the Roman land he took.\n"
              "They walk there (expedition_types/tfe_peoples.txt). Ends with the Migrations, in 500.")
     with doc.generic_action(ACTION) as a:
+        a.note("a player invites from the location panel: a button there (in_game/gui/location_window.gui) passes the\n"
+               "location as scope:target, so the select_trigger below is only the AI's list")
         a.field("type", "owncountry")
         with a.triggers("potential") as t:
             with t.link(ACTOR, CountryTrig) as c, c.go_culture() as cu:
@@ -225,7 +227,7 @@ def invite_settlers(doc: Doc):
             with v.if_() as i:
                 with i.limit() as t:
                     with t.link(ACTOR, CountryTrig) as c:
-                        c.gold(3 * SETTLERS_COST, op=">=")
+                        c.gold(2 * SETTLERS_COST, op=">=")
                     with t.link("scope:target", LocationTrig) as loc, loc.not_() as n, n.go_dominant_culture(op="?=") as cu:
                         cu.tfe_is_germanic_culture(True)
                 i.add(10)
