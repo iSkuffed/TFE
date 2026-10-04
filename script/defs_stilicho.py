@@ -228,6 +228,18 @@ def on_actions():
             with t.link("c:WRE", CountryTrig, op="?=") as w:
                 w.compare("capital", "=", "scope:target")
         a.events("tfe_stilicho.4")
+
+    d.note("The same for Constantine's empire out of Britain (CONST): if it is the usurper that holds Honorius's capital,\n"
+           "the West is his (tfe_stilicho.5).")
+    d.hook("on_location_occupied", "tfe_on_constantine_takes_the_capital")
+    d.hook("on_siege_won", "tfe_on_constantine_takes_the_capital")
+    with d.on_action("tfe_on_constantine_takes_the_capital") as a:
+        with a.trigger(CountryTrig) as t:
+            t.tag("CONST")
+            t.is_at_war_with("c:WRE")
+            with t.link("c:WRE", CountryTrig, op="?=") as w:
+                w.compare("capital", "=", "scope:target")
+        a.events("tfe_stilicho.5")
     return d
 
 

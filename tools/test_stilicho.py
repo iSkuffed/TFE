@@ -206,7 +206,46 @@ def test_constantine_rises_once():
     five = block(op, "tfe_opening.5 =")
     assert "tfe_constantine_rises = yes" in five and "NOT = { country_exists = c:CONST }" in block(five, "trigger =")
     us = flat("in_game/common/scripted_effects/tfe_usurpers.txt")
-    assert "define_unique_country_tag = CONST" in us and "define_unique_country_tag = AFRIC" in us
+    assert "define_unique_country_tag = AFRIC" in us
+    assert "define_unique_country_tag = CONST" in block(op, "tfe_opening.9 =")
+
+
+def test_constantine_rises_as_an_annexable_revolter():
+    # user: Britain just left, with no revolt and no war. It is a revolt, as Gildo's: only a revolt war offers Annex Revolter
+    rise = block(flat("in_game/common/scripted_effects/tfe_usurpers.txt"), "tfe_constantine_rises =")
+    assert "create_rebel = {" in rise and "start_revolt = yes" in rise and "declare_war" not in rise
+    assert "region = region:great_britain_region" in rise and "trigger_event_silently = tfe_opening.9" in rise
+    # the revolter is marked the moment it forms (it may come out landless), and the wars we were in are not his
+    assert rise.index("set_variable = tfe_old_enemy") < rise.index("start_revolt") < rise.index(
+        "set_variable = tfe_constantine_revolter")
+    assert "remove_variable = tfe_old_enemy" in rise
+    crown = block(flat("in_game/events/tfe_opening.txt"), "tfe_opening.9 =")
+    for want in ("limit = { has_variable = tfe_constantine_revolter }", "change_location_owner = scope:tfe_usurper",
+                 "leave_war = { war = scope:tfe_constantine_war actor = root }", "cancel_subject = prev",
+                 "name = tfe_usurper_against value = root", "set_capital = location:london"):
+        assert want in crown, want
+    # recognising him ends the revolt war
+    five = block(flat("in_game/events/tfe_opening.txt"), "tfe_opening.5 =")
+    assert "white_peace = scope:tfe_constantine_war" in five
+
+
+def test_a_usurper_that_takes_the_capital_wins_the_west():
+    ona = flat(ONA)
+    for hook in ("on_location_occupied", "on_siege_won"):
+        assert re.search(rf"{hook} = {{ on_actions = {{ [^}}]*\btfe_on_constantine_takes_the_capital\b", ona), hook
+    take = block(ona, "tfe_on_constantine_takes_the_capital =")
+    assert "tag = CONST" in take and "capital = scope:target" in take and "tfe_stilicho.5" in take
+    ev = block(flat(EVENTS), "tfe_stilicho.5 =")
+    assert "annex_country = { country = c:WRE reason = CivilWar }" in block(ev, "immediate =")
+    assert "set_variable = tfe_western_rome" in block(ev, "immediate ="), "the annexer is a new tag: only the variable says it is the West"
+    for opt in "abc":
+        assert f"name = tfe_stilicho.5.{opt}" in ev
+
+
+def test_stilicho_has_a_dynasty_and_so_do_his_children():
+    chars = (ROOT / "main_menu/setup/395/05_characters.txt").read_text(encoding="utf-8-sig")
+    for who in ("stilicho", "maria", "thermantia", "eucherius"):
+        assert "dynasty = stilichonian_dynasty" in re.search(rf"\ttfe_{who} = \{{(.*?)\n\t\}}", chars, re.S).group(1), who
 
 
 # --- the win ---------------------------------------------------------------------------------------------------------
@@ -214,7 +253,7 @@ def test_constantine_rises_once():
 def test_taking_honorius_capital_wins_the_west():
     ona = flat(ONA)
     for hook in ("on_location_occupied", "on_siege_won"):
-        assert f"{hook} = {{ on_actions = {{ tfe_on_stilicho_takes_the_capital }} }}" in ona, hook
+        assert re.search(rf"{hook} = {{ on_actions = {{ [^}}]*\btfe_on_stilicho_takes_the_capital\b", ona), hook
     take = block(ona, "tfe_on_stilicho_takes_the_capital =")
     assert "has_variable = tfe_western_rome" in take and "capital = scope:target" in take
     assert "is_at_war_with = c:WRE" in take and "tfe_stilicho.4" in take
@@ -233,3 +272,17 @@ def test_the_victor_takes_everything_and_decides_honorius_fate():
     assert "kill_character" in a and "tfe_honorius_executed" in a and "is_alive = yes" in a
     assert "move_country = c:EAR" in b and "is_alive = yes" in b
     assert "is_alive = no" in c or "NOT = { character:tfe_honorius ?= { is_alive = yes } }" in c
+
+
+def test_each_hook_is_written_once_per_file():
+    for f in (ROOT / "in_game/common/on_action").glob("tfe_*.txt"):
+        keys = re.findall(r"^(on_\w+) = \{\n\ton_actions", f.read_text(encoding="utf-8-sig"), re.M)
+        assert len(keys) == len(set(keys)), f"{f.name} hooks a vanilla on_action twice"
+
+
+def test_constantine_sends_home_only_backers_and_is_no_backer():
+    ev = (ROOT / "in_game/events/tfe_opening.txt").read_text(encoding="utf-8-sig")
+    fx = (ROOT / "in_game/common/scripted_effects/tfe_usurpers.txt").read_text(encoding="utf-8-sig")
+    beyond = "any_owned_location = { NOT = { region = region:great_britain_region } }"
+    assert beyond in ev[ev.index("tfe_constantine_war"):]
+    assert f"NOT = {{ {beyond} }}" in fx

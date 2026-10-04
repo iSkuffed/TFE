@@ -208,6 +208,8 @@ tfe_stilicho.4 = {
 		change_country_adjective = WRE_ADJ
 		change_country_flag = WRE
 		set_capital = scope:tfe_honorius_seat
+		# the annexer comes out under a new tag, so the Roman offices and the fisc know the West by this variable
+		set_variable = tfe_western_rome
 	}
 	# no rival Augustus is left, but the East never forgives it
 	option = {
@@ -234,6 +236,57 @@ tfe_stilicho.4 = {
 	# Honorius did not live to see it
 	option = {
 		name = tfe_stilicho.4.c
+		trigger = { NOT = { character:tfe_honorius ?= { is_alive = yes } } }
+	}
+}
+
+# Constantine's empire holds Honorius's capital (on_action tfe_on_constantine_takes_the_capital, fired when it
+# was a revolt out of Britain that won): the same, with a usurper from Britain at the gates.
+tfe_stilicho.5 = {
+	type = country_event
+	title = tfe_stilicho.5.title
+	desc = tfe_stilicho.5.desc
+	outcome = positive
+	image = "gfx/interface/illustrations/event/backgrounds/exterior/byz_soldiers_exterior.dds"
+	trigger = { country_exists = c:WRE }
+	immediate = {
+		c:WRE = { capital = { save_scope_as = tfe_honorius_seat } }
+		annex_country = {
+			country = c:WRE
+			reason = CivilWar
+		}
+		change_country_name = WRE
+		change_country_adjective = WRE_ADJ
+		change_country_flag = WRE
+		set_capital = scope:tfe_honorius_seat
+		# the annexer comes out under a new tag, so the Roman offices and the fisc know the West by this variable
+		set_variable = tfe_western_rome
+	}
+	# no rival Augustus is left, but the East never forgives it
+	option = {
+		name = tfe_stilicho.5.a
+		trigger = { character:tfe_honorius ?= { is_alive = yes } }
+		custom_tooltip = tfe_stilicho.4.a.tt
+		kill_character = {
+			target = character:tfe_honorius
+			reason = execution
+		}
+		c:EAR ?= { add_opinion = { target = root modifier = tfe_honorius_executed } }
+	}
+	# he lives out his days at his brother's court in Constantinople
+	option = {
+		name = tfe_stilicho.5.b
+		historical_option = yes
+		trigger = {
+			character:tfe_honorius ?= { is_alive = yes }
+			country_exists = c:EAR
+		}
+		custom_tooltip = tfe_stilicho.4.b.tt
+		character:tfe_honorius = { move_country = c:EAR }
+	}
+	# Honorius did not live to see it
+	option = {
+		name = tfe_stilicho.5.c
 		trigger = { NOT = { character:tfe_honorius ?= { is_alive = yes } } }
 	}
 }

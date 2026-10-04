@@ -9682,6 +9682,10 @@ dynasty_manager = {
 		name = { name = hasding_dynasty }
 		home = abrahamtelke
 	}
+	stilichonian_dynasty = {
+		name = { name = stilichonian_dynasty }
+		home = milano
+	}
 	sasanian_dynasty = {
 		name = { name = sasanian_dynasty }
 		home = istakhr

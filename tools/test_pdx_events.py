@@ -46,7 +46,7 @@ def test_generated_events_lint_clean():
 
 def pyright(tmp_path, path):
     """the error diagnostics pyright reports for path (skips the test when pyright cannot run)."""
-    (tmp_path / "pyrightconfig.json").write_text(json.dumps({"extraPaths": [str(ROOT / "tools")]}))
+    (tmp_path / "pyrightconfig.json").write_text(json.dumps({"extraPaths": [str(ROOT / "tools"), str(ROOT / "script")]}))
     try:
         r = subprocess.run([sys.executable, "-m", "pyright", "--outputjson", str(path)], cwd=tmp_path, capture_output=True, text=True, timeout=300)
         return [d for d in json.loads(r.stdout)["generalDiagnostics"] if d["severity"] == "error"]

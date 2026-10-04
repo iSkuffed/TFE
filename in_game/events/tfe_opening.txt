@@ -359,14 +359,94 @@ tfe_opening.5 = {
 		add_prestige = 5
 		ai_chance = { base = 1 }
 	}
-	# with Alaric in Italy, better a colleague in Gaul than an enemy (409)
+	# with Alaric in Italy, better a colleague in Gaul than an enemy (409): the revolt war ends in a white peace
 	option = {
 		name = tfe_opening.5.b
 		historical_option = yes
 		add_prestige = -10
 		remove_variable = tfe_usurper
-		scope:tfe_usurper = { remove_variable = tfe_usurper_against }
+		c:CONST ?= {
+			remove_variable = tfe_usurper_against
+			every_current_war = {
+				limit = { is_in_war = root }
+				save_scope_as = tfe_constantine_war
+			}
+		}
+		if = {
+			limit = { exists = scope:tfe_constantine_war }
+			white_peace = scope:tfe_constantine_war
+		}
 		ai_chance = { base = 1 }
+	}
+}
+
+# The moment of the revolt: the revolter becomes Constantine's empire and takes Britain (fired by tfe_constantine_rises)
+tfe_opening.9 = {
+	type = country_event
+	title = tfe_opening.9.title
+	hidden = yes
+	immediate = {
+		# marked by tfe_constantine_rises the moment the revolt started: it may come out landless
+		random_country = {
+			limit = { has_variable = tfe_constantine_revolter }
+			save_scope_as = tfe_usurper
+		}
+		scope:tfe_usurper ?= {
+			define_unique_country_tag = CONST
+			change_country_name = TFE_CONSTANTINE
+			change_country_adjective = TFE_CONSTANTINE_ADJ
+			change_country_color = map_lombard
+			change_country_flag = TFE_CONSTANTINE
+			set_country_rank = country_rank:rank_empire	# an Augustus, whatever Ravenna says
+			change_government_type = government_type:monarchy
+			add_gold = 200
+			create_character = {
+				first_name = name_constantine
+				age = 40
+				religion = religion:orthodox
+				estate = estate_type:nobles_estate
+				culture = culture:roman_culture
+				mil = 55
+				save_scope_as = tfe_usurper_ruler
+			}
+			set_new_ruler = scope:tfe_usurper_ruler
+			set_variable = { name = tfe_usurper_against value = root years = 10 }
+			save_scope_as = tfe_usurper
+			remove_variable = tfe_constantine_revolter
+			# a neighbour backing the revolt would lead the rebel side, and Annex Revolter then only offers a white peace:
+			# send the backers home
+			every_current_war = {
+				limit = { is_in_war = root }
+				save_scope_as = tfe_constantine_war
+				every_war_participant = {
+					limit = {
+						is_at_war_with = root
+						NOT = { this = scope:tfe_usurper }
+						# only backers, which hold land beyond Britain: sending home another rebel country the revolt
+						# split off ends the whole war (Gildo's, user in game)
+						any_owned_location = { NOT = { region = region:great_britain_region } }
+					}
+					leave_war = {
+						war = scope:tfe_constantine_war
+						actor = root
+					}
+				}
+			}
+			# the revolt system makes the revolter a Secessionist subject of any backer: he is his own master
+			if = {
+				limit = { is_subject = yes }
+				overlord = { cancel_subject = prev }
+			}
+		}
+		if = {
+			limit = { exists = scope:tfe_usurper }
+			every_owned_location = {
+				limit = { region = region:great_britain_region }
+				change_location_owner = scope:tfe_usurper
+			}
+			scope:tfe_usurper = { set_capital = location:london }
+			set_variable = { name = tfe_usurper value = scope:tfe_usurper years = 10 }
+		}
 	}
 }
 

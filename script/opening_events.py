@@ -5,10 +5,13 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
+sys.path.insert(0, str(ROOT / "script"))
 from pdx.api import (CharacterFx, CharacterTrig, CountryFx, CountryTrig, InternationalOrganizationFx,
                      InternationalOrganizationTrig, LocationFx, LocationTrig, RebelsFx)
 from pdx.core import Cmp
 from pdx.objects import Doc
+
+from defs_usurpers import crown_constantine
 
 BG = "gfx/interface/illustrations/event/backgrounds/"
 SOLDIERS = BG + "exterior/byz_soldiers_exterior.dds"
@@ -297,12 +300,23 @@ def build():
             o.add_prestige(5)
             o.ai_chance(1)
 
-        e.note("with Alaric in Italy, better a colleague in Gaul than an enemy (409)")
+        e.note("with Alaric in Italy, better a colleague in Gaul than an enemy (409): the revolt war ends in a white peace")
         with e.option("b", text="Recognise him as a colleague", historical=True) as o:
             o.add_prestige(-10)
             o.remove_variable("tfe_usurper")
-            o.link("scope:tfe_usurper", CountryFx, lambda u: u.remove_variable("tfe_usurper_against"))
+            with o.link("c:CONST", CountryFx, op="?=") as u:
+                u.remove_variable("tfe_usurper_against")
+                with u.every_current_war() as war:
+                    war.limit(lambda t: t.is_in_war("root"))
+                    war.save_scope_as("tfe_constantine_war")
+            with o.if_() as f:
+                f.limit(lambda t: t.exists("scope:tfe_constantine_war"))
+                f.white_peace("scope:tfe_constantine_war")
             o.ai_chance(1)
+
+    doc.note("The moment of the revolt: the revolter becomes Constantine's empire and takes Britain (fired by tfe_constantine_rises)")
+    with doc.event(9, type="country_event", title="Constantine Crowned", hidden=True) as e, e.immediate() as i:
+        crown_constantine(i)
 
     doc.note("400: Honorius comes of age. His heir by blood is Arcadius, and a foreign ruler as heir makes the halves a union:\n"
              "Stilicho's son Eucherius instead, suspected of being groomed for the purple, betrothed to Galla Placidia")

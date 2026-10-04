@@ -27,6 +27,43 @@ def honorius_lives(t):
     return t.link("character:tfe_honorius", CharacterTrig, op="?=")
 
 
+def take_the_west(i: CountryFx):
+    """the victor (root) annexes Honorius's West and takes its name, flag and capital."""
+    with i.link("c:WRE", CountryFx) as w, w.go_capital() as cap:
+        cap.save_scope_as("tfe_honorius_seat")
+    i.annex_country(country="c:WRE", reason="CivilWar")
+    i.change_country_name("WRE")
+    i.change_country_adjective("WRE_ADJ")
+    i.change_country_flag("WRE")
+    i.set_capital("scope:tfe_honorius_seat")
+    i.note("the annexer comes out under a new tag, so the Roman offices and the fisc know the West by this variable")
+    i.set_variable("tfe_western_rome")
+
+
+def honorius_fate(e):
+    """the three options of a victor's event: what becomes of Honorius."""
+    e.note("no rival Augustus is left, but the East never forgives it")
+    with e.option("a", text="Honorius dies") as o:
+        with o.trigger() as t, honorius_lives(t) as h:
+            h.is_alive(True)
+        o.custom_tooltip("tfe_stilicho.4.a.tt")
+        o.kill_character(target="character:tfe_honorius", reason="execution")
+        with o.link("c:EAR", CountryFx, op="?=") as east:
+            east.add_opinion(target="root", modifier="tfe_honorius_executed")
+    e.note("he lives out his days at his brother's court in Constantinople")
+    with e.option("b", text="Send him to his brother", historical=True) as o:
+        with o.trigger() as t, honorius_lives(t) as h:
+            h.is_alive(True)
+            t.country_exists("c:EAR")
+        o.custom_tooltip("tfe_stilicho.4.b.tt")
+        with o.link("character:tfe_honorius", CharacterFx) as h:
+            h.move_country("c:EAR")
+    e.note("Honorius did not live to see it")
+    with e.option("c", text="The West is ours") as o:
+        with o.trigger() as t, t.not_() as n, honorius_lives(n) as h:
+            h.is_alive(True)
+
+
 def crowning(i: CountryFx):
     """tfe_stilicho.3's immediate (root: WRE): the revolter becomes Stilicho's West, and the West splits."""
     with i.random_country() as c:
@@ -188,7 +225,7 @@ def build():
     doc.note("Stilicho's West holds Honorius's capital (on_action tfe_on_stilicho_takes_the_capital): it annexes the West,\n"
              "takes its name and flag, and decides what becomes of Honorius. The Imperium Romanum, left with one member,\n"
              "dissolves by its own auto_disband_trigger.")
-    with doc.event(4, type="country_event", title="Stilicho Enters [tfe_honorius_seat.GetName]", outcome="positive",
+    with doc.event(4, type="country_event", title="Stilicho Enters [SCOPE.sLocation('tfe_honorius_seat').GetName]", outcome="positive",
                    desc="The gates are open. Honorius's guards laid down their arms when they saw who led the column, and "
                         "the palace officials are already drafting the proclamations in Stilicho's name. The West has one "
                         "master again.\n\nHonorius waits in the palace to learn what he is now.",
@@ -196,33 +233,22 @@ def build():
         with e.trigger() as t:
             t.country_exists("c:WRE")
         with e.immediate() as i:
-            with i.link("c:WRE", CountryFx) as w, w.go_capital() as cap:
-                cap.save_scope_as("tfe_honorius_seat")
-            i.annex_country(country="c:WRE", reason="CivilWar")
-            i.change_country_name("WRE")
-            i.change_country_adjective("WRE_ADJ")
-            i.change_country_flag("WRE")
-            i.set_capital("scope:tfe_honorius_seat")
-        e.note("no rival Augustus is left, but the East never forgives it")
-        with e.option("a", text="Honorius dies") as o:
-            with o.trigger() as t, honorius_lives(t) as h:
-                h.is_alive(True)
-            o.custom_tooltip("tfe_stilicho.4.a.tt")
-            o.kill_character(target="character:tfe_honorius", reason="execution")
-            with o.link("c:EAR", CountryFx, op="?=") as east:
-                east.add_opinion(target="root", modifier="tfe_honorius_executed")
-        e.note("he lives out his days at his brother's court in Constantinople")
-        with e.option("b", text="Send him to his brother", historical=True) as o:
-            with o.trigger() as t, honorius_lives(t) as h:
-                h.is_alive(True)
-                t.country_exists("c:EAR")
-            o.custom_tooltip("tfe_stilicho.4.b.tt")
-            with o.link("character:tfe_honorius", CharacterFx) as h:
-                h.move_country("c:EAR")
-        e.note("Honorius did not live to see it")
-        with e.option("c", text="The West is ours") as o:
-            with o.trigger() as t, t.not_() as n, honorius_lives(n) as h:
-                h.is_alive(True)
+            take_the_west(i)
+        honorius_fate(e)
+
+    doc.note("Constantine's empire holds Honorius's capital (on_action tfe_on_constantine_takes_the_capital, fired when it\n"
+             "was a revolt out of Britain that won): the same, with a usurper from Britain at the gates.")
+    with doc.event(5, type="country_event", title="Constantine Enters [SCOPE.sLocation('tfe_honorius_seat').GetName]", outcome="positive",
+                   desc="The gates are open. A soldier the army made emperor in Britain has crossed Gaul and Italy "
+                        "with the legions behind him, and Honorius's guards would not stand against the purple. The palace "
+                        "officials are already drafting the proclamations in Constantine's name. The West has one master "
+                        "again.\n\nHonorius waits in the palace to learn what he is now.",
+                   image=EXT + "byz_soldiers_exterior.dds") as e:
+        with e.trigger() as t:
+            t.country_exists("c:WRE")
+        with e.immediate() as i:
+            take_the_west(i)
+        honorius_fate(e)
 
     doc.loc.add("tfe_stilicho.1.a.tt", "At #Y 100#! Glory, or if it is still high enough in a year's time, Honorius will force a choice.")
     doc.loc.add("tfe_stilicho_glory_70_tt", "Stilicho's Glory is at least #Y 70#!")
