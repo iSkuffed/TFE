@@ -106,8 +106,8 @@ def test_a_landless_host_has_a_cheap_casus_belli_for_new_land():
     assert "has_variable = tfe_migrating" in visible and "any_owned_location" in visible   # gone once settled
     # the game never offers it on its own (a landless host has no neighbours to scan), so migrating grants it
     grants = re.findall(r"add_casus_belli = \{[^}]*target = c:(\w+)[^}]*type = casus_belli:cb_tfe_migration", code(EFFECT))
-    assert grants == ["EAR"]
-    assert re.search(r"every_country = \{\s*limit = \{ tfe_is_western_rome = yes \}\s*scope:tfe_host = \{\s*add_casus_belli = \{ target = prev type = casus_belli:cb_tfe_migration", code(EFFECT))
+    assert grants == []   # no Rome by tag: every Roman state, below
+    assert re.search(r"every_country = \{\s*limit = \{ tfe_is_roman_state = yes \}\s*scope:tfe_host = \{\s*add_casus_belli = \{ target = prev type = casus_belli:cb_tfe_migration", code(EFFECT))
     goal = re.search(r"war_goal_type = (\w+)", cb).group(1)
     assert top_keys(WARGOAL) == [goal] and "type = superiority" in code(WARGOAL)
     attacker = re.search(r"attacker = \{(.*?)\n\t\}", code(WARGOAL), re.S).group(1)

@@ -18,8 +18,8 @@ from pdx.core import fmt  # noqa: E402
 DOC, EVENTS, CB, MODS = bk.build()
 MUSTER, ENDING = bk.muster(), bk.on_actions()
 START, SETTLE = defs_migratory.effects(), defs_migratory.on_actions()
-_, FALL = decisions.build()
-MIGRATE = ("tfe_migrate_east", "tfe_migrate_west")
+_, _, FALL = decisions.build()
+MIGRATE = ("tfe_migrate",)
 
 
 def keys(nodes):
@@ -156,6 +156,11 @@ def test_the_homeland_becomes_a_remnant_not_a_neighbours_prize():
     assert not START.find("random_neighbor_country", None, inside=eff)
     assert START.find("change_location_owner", "scope:tfe_remnant", inside=eff)
     assert START.find("add_core", "scope:tfe_remnant", inside=eff)
+    # only once the remnant is real: a tooltip's dry run makes none, and add_core on the capital spammed error.log
+    assert START.find("set_variable", "tfe_left_a_remnant", inside=(*eff, "create_country_from_location", "scope:tfe_host"))
+    assert START.find("add_core", "scope:tfe_remnant", inside=(*eff, "if", "every_owned_location"))
+    assert START.find("has_variable", "tfe_left_a_remnant", inside=(*eff, "if", "limit"))
+    assert START.find("add_core", "scope:tfe_remnant", inside=(*eff, "if", "scope:tfe_old_capital"))   # its capital too
 
 
 def test_the_remnant_is_of_the_people_who_stayed():

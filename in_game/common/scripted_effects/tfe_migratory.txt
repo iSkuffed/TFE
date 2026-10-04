@@ -41,23 +41,27 @@ tfe_start_migration_effect = {
 				change_religion = scope:tfe_host.religion
 				set_variable = { name = tfe_remnant_of value = scope:tfe_host }
 				save_scope_as = tfe_remnant
+				scope:tfe_host = { set_variable = tfe_left_a_remnant }
 			}
 		}
-		every_owned_location = {
-			change_location_owner = scope:tfe_remnant
-			add_core = scope:tfe_remnant
+		# a tooltip's dry run makes no country and sets no variable: without the remnant, hand nothing over
+		# (else scope:tfe_remnant is the capital, and Migrate into Rome's picker spams error.log)
+		if = {
+			limit = { has_variable = tfe_left_a_remnant }
+			every_owned_location = {
+				change_location_owner = scope:tfe_remnant
+				add_core = scope:tfe_remnant
+			}
+			scope:tfe_old_capital = { add_core = scope:tfe_remnant }	# the capital went with the new country, before the loop: core it too
+			remove_variable = tfe_left_a_remnant
 		}
 	}
 	else = {
 		every_owned_location = { scope:tfe_host = { abandon_location = prev } }
 	}
-	if = {
-		limit = { country_exists = c:EAR }
-		add_casus_belli = { target = c:EAR type = casus_belli:cb_tfe_migration }
-	}
-	# and on every western Rome: Stilicho's West too, once he rises
+	# on every Roman state: either Empire, Stilicho's West, and the successors born of revolts against them
 	every_country = {
-		limit = { tfe_is_western_rome = yes }
+		limit = { tfe_is_roman_state = yes }
 		scope:tfe_host = {
 			add_casus_belli = { target = prev type = casus_belli:cb_tfe_migration }
 		}

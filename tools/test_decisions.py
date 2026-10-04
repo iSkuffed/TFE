@@ -1,4 +1,4 @@
-"""The Fall of the West decisions (script/decisions.py): Migrate into the East / West and Support Stilicho's Claims."""
+"""The Fall of the West's Native Decisions (script/decisions.py): Migrate into Rome and Support Stilicho's Claims."""
 import re
 import sys
 from pathlib import Path
@@ -7,8 +7,10 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 sys.path.insert(0, str(ROOT / "script"))
 import decisions  # noqa: E402
+import defs_usurpers  # noqa: E402
+import defs_western_rome  # noqa: E402
 
-CATS, DOC = decisions.build()
+CATS, DOC, ACTS = decisions.build()
 LOC = DOC.loc.keys
 
 
@@ -23,10 +25,10 @@ def mod_loc():
     return out
 
 
-def test_one_category_near_the_top_holds_all_three():
+def test_one_category_near_the_top_holds_them_all():
     assert CATS.find("sort_order", 0, inside="tfe_fall_of_the_west") and "tfe_fall_of_the_west" in LOC
     names = [n.key for n in DOC.nodes if n.key]
-    assert names == ["tfe_migrate_east", "tfe_migrate_west", "tfe_illyricum_claims", "tfe_debug_stilicho_glory"]
+    assert names == ["tfe_illyricum_claims", "tfe_debug_stilicho_glory"]
     for n in names:
         assert find(n, "decision_category", "tfe_fall_of_the_west")
         assert {f"{n}.title", f"{n}.desc", f"{n}.a"} <= LOC.keys()
@@ -35,54 +37,83 @@ def test_one_category_near_the_top_holds_all_three():
 
 def test_every_tooltip_is_localised():
     keys = mod_loc()
-    shown = {n.val for n in DOC.find("custom_tooltip") if isinstance(n.val, str)}
-    shown |= {n.val for n in DOC.find("text", inside="custom_tooltip")}
+    shown = {n.val for d in (DOC, ACTS) for n in d.find("custom_tooltip") if isinstance(n.val, str)}
+    shown |= {n.val for d in (DOC, ACTS) for n in d.find("text", inside="custom_tooltip")}
     assert shown and not shown - keys, sorted(shown - keys)
 
 
-def test_each_migration_is_hidden_once_its_rome_is_gone():
-    assert find("tfe_migrate_east", "country_exists", "c:EAR", "potential")
-    assert find("tfe_migrate_west", "tfe_is_western_rome", True, "potential", "any_country")
-    assert not DOC.find(None, "c:WRE") and not DOC.find("c:WRE")   # Stilicho's West counts as the West too
-    for n in ("tfe_migrate_east", "tfe_migrate_west"):
-        assert find(n, "situation_is_active", True, "potential", "situation:tfe_decline_of_the_west")
-        assert find(n, "tfe_is_migrator", True, "potential")
-        assert find(n, "has_variable", "tfe_migrating", "potential", "NOT")   # once only: the host never comes back
+def act(key=None, val=None, *inside):
+    return ACTS.find(key, val, inside=("tfe_migrate", *inside))
+
+
+def test_one_migration_shown_in_the_decisions_tab():
+    """Migrate into Rome is a Native Decision: a generic action in the decisions tab, replacing the East / West pair."""
+    assert [n.key for n in ACTS.nodes if n.key] == ["tfe_migrate"]
+    assert act("type", "owncountry") and act("show_in_decision_panel", True)
+    assert act("decision_category", "tfe_fall_of_the_west")
+    assert {"tfe_migrate", "tfe_migrate_desc", "tfe_migrate_choose_rome", "tfe_migrate_no_rome"} <= LOC.keys()
+
+
+def test_migration_is_offered_while_any_roman_state_stands():
+    assert act("tfe_is_roman_state", True, "potential", "any_country")
+    assert not ACTS.find(None, "c:WRE") and not ACTS.find(None, "c:EAR")   # no Rome is named: every Roman state counts
+    assert act("situation_is_active", True, "potential", "situation:tfe_decline_of_the_west")
+    assert act("tfe_is_migrator", True, "potential", "scope:actor")
+    assert act("has_variable", "tfe_migrating", "potential", "scope:actor", "NOT")   # once only, unless settled
+
+
+def test_the_picker_lists_every_roman_state_that_holds_land():
+    sel = "select_trigger"
+    assert act("looking_for_a", "country", sel) and act("target_flag", "target_rome", sel)
+    assert act("tfe_is_roman_state", True, sel, "interaction_source_list", "every_country", "limit")
+    assert act("tfe_is_roman_state", True, sel, "visible") and act("any_owned_location", None, sel, "visible")
+    assert act("name", '"tfe_migrate_choose_rome"', sel) and act("none_available_msg_key", '"tfe_migrate_no_rome"', sel)
 
 
 def test_migration_waits_a_month_and_for_an_open_frontier():
     start = re.search(r'START_DATE = "395\.1\.(\d+)"',
                       (ROOT / "loading_screen/common/defines/tfe_defines.txt").read_text(encoding="utf-8-sig")).group(1)
-    for n in ("tfe_migrate_east", "tfe_migrate_west"):
-        date = find(n, "current_date", None, "allow", "custom_tooltip")
-        assert date[0].op == ">=" and date[0].val == f"395.2.{start}"
-        assert find(n, "text", "tfe_migration_not_yet_tt", "allow", "custom_tooltip")
-        assert find(n, "is_subject", False, "allow") and find(n, "tfe_frontier_unmanned", True, "allow")
-        assert not find(n, "any_army")   # most peoples start with no warband afield; the host gathers at the capital
+    date = act("current_date", None, "allow", "custom_tooltip")
+    assert date[0].op == ">=" and date[0].val == f"395.2.{start}"
+    assert act("text", "tfe_migration_not_yet_tt", "allow", "custom_tooltip")
+    assert act("is_subject", False, "allow") and act("tfe_frontier_unmanned", True, "allow")
+    assert not act("any_army")   # most peoples start with no warband afield; the host gathers at the capital
 
 
-def test_migration_starts_the_host_then_declares_war_on_the_right_rome():
-    for n, victim in (("tfe_migrate_east", "c:EAR"), ("tfe_migrate_west", "scope:tfe_victim")):
-        fx = find(n, None, None, "option", "effect", "hidden_effect")
-        keys = [x.key for x in fx]
-        assert keys.index("tfe_start_migration_effect") < keys.index("declare_war_with_cb")
-        assert find(n, "target", victim, "option", "effect", "declare_war_with_cb")
-        assert find(n, "type", "casus_belli:cb_tfe_migration", "option", "effect", "declare_war_with_cb")
-    # the West: the western Rome next door, else the richest one
-    assert find("tfe_migrate_west", "tfe_is_western_rome", True, "random_neighbor_country", "limit")
-    assert find("tfe_migrate_west", "order_by", "country_economical_base", "ordered_country")
-    fx = [x.key for x in find("tfe_migrate_west", None, None, "hidden_effect")]
-    assert fx.index("save_scope_as") < fx.index("tfe_start_migration_effect")
+def test_migration_starts_the_host_then_declares_war_on_the_chosen_rome():
+    fx = [x.key for x in act(None, None, "effect", "hidden_effect", "scope:actor")]
+    assert fx.index("tfe_start_migration_effect") < fx.index("declare_war_with_cb")
+    assert act("target", "scope:target_rome", "effect", "declare_war_with_cb")
+    assert act("type", "casus_belli:cb_tfe_migration", "effect", "declare_war_with_cb")
 
 
-def test_the_ai_takes_the_road_one_people_at_a_time():
-    for n in ("tfe_migrate_east", "tfe_migrate_west"):
-        assert find(n, "value", 0, "ai_will_do")
-        assert find(n, "has_global_variable", "tfe_host_took_the_road", "ai_will_do", "limit", "NOT")
-        adds = sorted(int(x.val) for x in find(n, "add", None, "ai_will_do"))
-        assert adds == [5, 10, 25, 45]
-        assert find(n, "tfe_is_under_the_yoke", True, "ai_will_do")
-        assert find(n, "var:tfe_unity", None, "ai_will_do")[0].op == "<"
+def test_the_ai_takes_the_road_one_people_at_a_time_and_prefers_its_neighbour():
+    assert act("value", 0, "ai_will_do") and act("ai_tick", "monthly")
+    assert act("has_global_variable", "tfe_host_took_the_road", "ai_will_do", "limit", "NOT")
+    assert sorted(int(x.val) for x in act("add", None, "ai_will_do")) == [5, 10, 25, 45]
+    assert act("tfe_is_under_the_yoke", True, "ai_will_do")
+    assert act("var:tfe_unity", None, "ai_will_do")[0].op == "<"
+    assert act("this", "scope:target_rome", "ai_will_do", "any_neighbor_country")   # the one across the river
+
+
+def test_every_roman_state_gives_the_host_its_casus_belli():
+    fx = (ROOT / "in_game/common/scripted_effects/tfe_migratory.txt").read_text(encoding="utf-8-sig")
+    assert "limit = { tfe_is_roman_state = yes }" in fx and "c:EAR" not in fx
+
+
+def test_successors_of_rome_are_roman_states():
+    tr = defs_western_rome.triggers()
+    assert tr.find("tfe_is_roman_empire", True, inside=("tfe_is_roman_state", "OR"))
+    assert tr.find("has_variable", "tfe_roman_successor", inside=("tfe_is_roman_state", "OR"))
+    oa = defs_usurpers.on_actions()
+    assert oa.find("tfe_on_revolt_against_rome", inside=("on_revolt_start", "on_actions"))
+    assert oa.find("tfe_is_roman_state", True, inside=("tfe_on_revolt_against_rome", "trigger"))
+    assert oa.find("has_culture_group", "culture_group:greek_group",
+                   inside=("tfe_on_revolt_against_rome", "trigger", "scope:target", "culture"))
+    assert oa.find("set_variable", "tfe_roman_successor", inside=("tfe_on_revolt_against_rome", "effect", "scope:target"))
+    # Gildo's Africa breaks away by no revolt: it is marked where it is made
+    assert defs_usurpers.effects().find("set_variable", "tfe_roman_successor",
+                                        inside=("tfe_africa_breaks_away", "create_country_from_location"))
 
 
 def test_stilichos_claims_need_him_alive_and_ten_quiet_years_but_no_unity():
@@ -110,7 +141,7 @@ def test_the_buttons_are_gone_but_align_the_visigoths_stays():
     ga = (ROOT / "in_game/common/generic_actions/tfe_roman_empire.txt").read_text(encoding="utf-8-sig")
     assert re.findall(r"^(\w+) = \{", ga, re.M) == ["tfe_align_visigoths"]
     assert not (ROOT / "in_game/common/generic_actions/tfe_migratory.txt").exists()
-    old = {"tfe_migrate_east", "tfe_migrate_west", "tfe_illyricum_claims"}
+    old = {"tfe_migrate_east", "tfe_migrate_west", "tfe_illyricum_claims", "tfe_migrate_EAR_tt", "tfe_migrate_WRE_tt"}
     assert not old & mod_loc()   # the decisions' keys are <name>.title, not the buttons' <name>
 
 

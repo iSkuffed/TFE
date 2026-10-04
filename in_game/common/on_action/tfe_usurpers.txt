@@ -1,0 +1,21 @@
+﻿# TFE: a country born of a revolt against a Roman state is a Roman successor, which the peoples on the road may
+# march on (Migrate into Rome, script/decisions.py): Gildo, Constantine, Stilicho, and any revolt of Roman culture.
+# Root is the country revolted against, scope:target the rebel country that declares the war.
+on_revolt_start = {
+	on_actions = { tfe_on_revolt_against_rome }
+}
+
+tfe_on_revolt_against_rome = {
+	trigger = {
+		tfe_is_roman_state = yes
+		# the Roman group (vanilla greek_group): a Moorish or Gothic rising against Rome is no Rome
+		scope:target ?= {
+			culture = {
+				has_culture_group = culture_group:greek_group
+			}
+		}
+	}
+	effect = {
+		scope:target ?= { set_variable = tfe_roman_successor }
+	}
+}

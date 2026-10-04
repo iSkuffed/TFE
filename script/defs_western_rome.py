@@ -22,6 +22,12 @@ def triggers():
         o.has_or_had_tag("WRE")
         o.has_variable("tfe_western_rome")
         o.has_or_had_tag("EAR")
+    d.note("A Roman state, as the peoples on the road see it (Migrate into Rome, script/decisions.py): either Empire, Stilicho's\n"
+           "West, or a successor born of a revolt against one (tfe_roman_successor: on_action/tfe_usurpers.txt, and the\n"
+           "Diocese of Africa). Only migration reads it: a successor is no Roman empire to the offices or the fisc.")
+    with d.trigger("tfe_is_roman_state", CountryTrig) as t, t.or_() as o:
+        o.tfe_is_roman_empire()
+        o.has_variable("tfe_roman_successor")
     return d
 
 

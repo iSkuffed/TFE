@@ -8147,6 +8147,7 @@ class AnyTrig(Scope):
         _scripted(self, "tfe_is_historical_land_of", _v, dict(WHO=WHO))
     def tfe_is_migrator(self, _v: bool | str | float = True, /) -> None: self._call("tfe_is_migrator", _v)
     def tfe_is_roman_empire(self, _v: bool | str | float = True, /) -> None: self._call("tfe_is_roman_empire", _v)
+    def tfe_is_roman_state(self, _v: bool | str | float = True, /) -> None: self._call("tfe_is_roman_state", _v)
     def tfe_is_under_the_yoke(self, _v: bool | str | float = True, /) -> None: self._call("tfe_is_under_the_yoke", _v)
     def tfe_is_western_rome(self, _v: bool | str | float = True, /) -> None: self._call("tfe_is_western_rome", _v)
     def tfe_legalism_plausible_location(self, _v: bool | str | float = True, /) -> None: self._call("tfe_legalism_plausible_location", _v)

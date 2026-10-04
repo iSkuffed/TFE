@@ -52,14 +52,12 @@ def test_only_honorius_files_name_wre_by_tag():
     assert marked <= named, f"marked {MARK} but names no WRE by tag: {sorted(marked - named)}"
 
 
-def test_migrate_west_marches_on_either_west():
-    ga = flat("in_game/common/decisions/tfe_fall_of_the_west.txt")
-    west = block(ga, "tfe_migrate_west =")
-    assert "declare_war_with_cb = { target = scope:tfe_victim type = casus_belli:cb_tfe_migration }" in west
-    assert "any_neighbor_country = { tfe_is_western_rome = yes }" in west
-    assert "c:WRE" not in west
-    fx = flat("in_game/common/scripted_effects/tfe_migratory.txt")
-    assert "every_country = { limit = { tfe_is_western_rome = yes } scope:tfe_host = { add_casus_belli = { target = prev" in fx
+def test_migration_marches_on_any_roman_state():
+    ga = flat("in_game/common/generic_actions/tfe_fall_of_the_west.txt")
+    assert "declare_war_with_cb = { target = scope:target_rome type = casus_belli:cb_tfe_migration }" in ga
+    assert "c:WRE" not in ga and "tfe_is_western_rome" not in ga
+    tr = flat("in_game/common/scripted_triggers/tfe_western_rome.txt")
+    assert "tfe_is_roman_state = { OR = { tfe_is_roman_empire = yes has_variable = tfe_roman_successor } }" in tr
 
 
 def test_the_decline_lasts_while_any_west_stands():

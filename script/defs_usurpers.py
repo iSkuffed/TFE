@@ -4,7 +4,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "tools"))
-from pdx.api import CountryFx, LocationFx, RebelsFx
+from pdx.api import CountryFx, CountryTrig, LocationFx, RebelsFx
 from pdx.objects_defs import Defs
 
 
@@ -30,6 +30,8 @@ def new_country(loc: LocationFx, tag, name, color, rank, rank_note, **ruler):
     """a usurper's country out of this location, at war with nobody yet; its flag is named like its name key."""
     with loc.create_country_from_location() as c:
         crown(c, tag, name, color, rank, rank_note, **ruler)
+        c.set_variable("tfe_roman_successor")
+        c.tail("born of no revolt, but Roman all the same: the peoples on the road may march on it")
 
 
 def region_goes_to_the_usurper(e: CountryFx, region):
@@ -118,6 +120,24 @@ def effects():
     return d
 
 
+def on_actions():
+    d = Defs()
+    d.note("TFE: a country born of a revolt against a Roman state is a Roman successor, which the peoples on the road may\n"
+           "march on (Migrate into Rome, script/decisions.py): Gildo, Constantine, Stilicho, and any revolt of Roman culture.\n"
+           "Root is the country revolted against, scope:target the rebel country that declares the war.")
+    d.hook("on_revolt_start", "tfe_on_revolt_against_rome")
+    with d.on_action("tfe_on_revolt_against_rome") as a:
+        with a.trigger(CountryTrig) as t:
+            t.tfe_is_roman_state()
+            t.note("the Roman group (vanilla greek_group): a Moorish or Gothic rising against Rome is no Rome")
+            with t.link("scope:target", CountryTrig, op="?=") as r, r.go_culture() as c:
+                c.has_culture_group("culture_group:greek_group")
+        with a.effect(CountryFx) as e, e.link("scope:target", CountryFx, op="?=") as r:
+            r.set_variable("tfe_roman_successor")
+    return d
+
+
 def outputs():
     """{repo-relative path: text}; write each with encoding="utf-8-sig" (the BOM is the writer's job)."""
-    return {"in_game/common/scripted_effects/tfe_usurpers.txt": effects().text()}
+    return {"in_game/common/scripted_effects/tfe_usurpers.txt": effects().text(),
+            "in_game/common/on_action/tfe_usurpers.txt": on_actions().text()}
