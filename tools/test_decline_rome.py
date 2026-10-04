@@ -101,7 +101,7 @@ def test_man_the_limes_costs_and_marks_the_frontier():
     acts, price, mod = code(ACTIONS), code(PRICE), code(MODIFIER)
     assert "gold" in price and "manpower" in price
     # `name =` (as effects.log says) is silently dropped: the modifier key is `modifier =`
-    assert "add_location_modifier = { modifier = tfe_limes_manned years = 10" in acts
+    assert "add_location_modifier = { modifier = tfe_limes_manned years = 1 " in acts
     # a whole diocese at a time, every fort we hold in it
     limes = acts[acts.index("tfe_man_the_limes = {"):]
     assert "looking_for_a = region" in limes and "looking_for_a = location" not in limes

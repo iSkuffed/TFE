@@ -191,6 +191,8 @@ def test_barbaricum_lets_the_peoples_beyond_the_rivers_pass():
     assert sorted(members) == sorted(re.findall(r"tag = (\w+)", trigger))
     keys = set(re.findall(r"^\s*([\w.]+):\d*\s", LOC.read_text(encoding="utf-8-sig"), re.M))
     assert {"tfe_barbaricum", "tfe_barbaricum_desc"} <= keys
+    desc = re.search(r'^ tfe_barbaricum_desc: "(.*)"$', LOC.read_text(encoding="utf-8-sig"), re.M).group(1)
+    assert all(w in desc for w in ("limes", "Germania", "Dacia", "Membership is fixed", "make war"))   # what it is, what it does
 
 
 def test_a_fifth_of_the_people_follow_the_host_and_settle_its_capital():

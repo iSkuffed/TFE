@@ -240,6 +240,21 @@ types OrganizationPanel
 					}
 				}
 
+				# TFE: what this organisation is, under its header (its <type>_desc)
+				vbox = {
+					visible = "[Or3(EqualTo_string(InternationalOrganizationsView.GetInternationalOrganization.GetType.GetNameKey,'tfe_barbaricum'),EqualTo_string(InternationalOrganizationsView.GetInternationalOrganization.GetType.GetNameKey,'tfe_roman_empire'),EqualTo_string(InternationalOrganizationsView.GetInternationalOrganization.GetType.GetNameKey,'tfe_hunnic_yoke'))]"
+					layoutpolicy_horizontal = expanding
+					margin = { 14 8 }
+					using = bg_paper_card
+					using = bg_cabinet_card_frame
+					text_multi = {
+						layoutpolicy_horizontal = expanding
+						max_width = 390
+						autoresize = yes
+						text = "[Localize(Concatenate(InternationalOrganizationsView.GetInternationalOrganization.GetType.GetNameKey, '_desc'))]"
+					}
+				}
+
 				# specific header for coalitions
 				organization_panel_coalition_header = {
 					visible = "[InternationalOrganizationsView.GetInternationalOrganization.GetType.ShowStrengthComparisonWithTarget]"

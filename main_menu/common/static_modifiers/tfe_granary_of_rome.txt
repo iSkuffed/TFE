@@ -3,5 +3,5 @@
 # Africa's grain filled the annona of Rome
 tfe_granary_of_rome = {
 	game_data = { category = location }
-	local_wheat_output_modifier = 0.75
+	local_wheat_output_modifier = 0.5
 }

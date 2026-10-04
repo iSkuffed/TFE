@@ -1,0 +1,30 @@
+﻿# TFE: Fertile Nile Delta, +75% to its crop (vanilla: +25%). Only the delta crops the 395 map still grows (tools/location_templates.py
+# drops the rice, sugar and cotton ones as anachronistic); the name and description stay vanilla's.
+
+REPLACE:nile_delta_wheat_base = {
+	game_data = {
+		category = location
+	}
+	local_wheat_output_modifier = 0.75
+}
+
+REPLACE:nile_delta_legumes_base = {
+	game_data = {
+		category = location
+	}
+	local_legumes_output_modifier = 0.75
+}
+
+REPLACE:nile_delta_fiber_crops_base = {
+	game_data = {
+		category = location
+	}
+	local_fiber_crops_output_modifier = 0.75
+}
+
+REPLACE:nile_delta_fruit_base = {
+	game_data = {
+		category = location
+	}
+	local_fruit_output_modifier = 0.75
+}
