@@ -1125,8 +1125,15 @@ def emit_filtered_start(anc, owner, pop_based, settlements):
 
 
 def americas(anc):
-    """the Americas leave the world: no pops, no owners, and default.map makes every location there unownable."""
+    """the Americas leave the world: no pops, no owners, and default.map makes every land location there unownable."""
     return {l for l, a in anc.items() if a[0] == "america"}
+
+
+def american_land(anc):
+    # sea zones are never owned, and listing one as non_ownable risks blocking ships
+    text = re.sub(r"#[^\n]*", "", (MAP / "default.map").read_text(encoding="utf-8-sig"))
+    water = {l for key in ("sea_zones", "lakes") for l in re.search(key + r"\s*=\s*\{([^}]*)\}", text)[1].split()}
+    return americas(anc) - water
 
 
 def drop_pops(text, gone):
@@ -1177,7 +1184,7 @@ def build():
     pops = region_pops(pops, s["owner"], s["anc"], {l: p for l, (_, p, _) in s["settlements"].items() if p})
     (MOD / "main_menu/setup/395/06_pops.txt").write_text(drop_pops(pops, americas(s["anc"])), encoding="utf-8")
     dm = (MOD / "in_game/map_data/default.map")
-    dm.write_bytes(closed_default_map((MAP / "default.map").read_bytes().decode("utf-8"), americas(s["anc"])).encode("utf-8"))
+    dm.write_bytes(closed_default_map((MAP / "default.map").read_bytes().decode("utf-8"), american_land(s["anc"])).encode("utf-8"))
     INSTITUTIONS_OUT.write_text(emit_institutions((GAME / "main_menu/setup/1337/08_institutions.txt").read_text(
         encoding="utf-8-sig"), s), encoding="utf-8")
     formables = "in_game/common/formable_countries/00_formable_countries.txt"

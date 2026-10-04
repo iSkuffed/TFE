@@ -57,6 +57,8 @@
  cir_multireligious_society_desc: "Our lands are crossed by Christian, Jewish and pagan traders and settlers, and we have learned to let each keep their own rites."
  city_of_scholars: "Schools of Africa"
  city_of_scholars_desc: "Carthage, Hippo and Cirta keep schools of rhetoric and grammar that train the best advocates and bishops of the Empire."
+ colonies: "Frontier Settlement"
+ colonies_desc: "Settlers are sent out to farm land beyond the frontier, and the crown claims the clearings, wells and villages they found there."
  combined_arms_advance_reformation: "Mixed Formations"
  combined_arms_advance_reformation_desc: "Armies now fight with horse, foot and archers together, and commanders who use each to cover the other's weakness gain a bonus."
  combined_arms_advance_revolutions: "Combined Arms Doctrine"
