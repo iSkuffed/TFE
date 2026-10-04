@@ -182,7 +182,7 @@ def build():
 
     doc.note("The day after the rising: the revolter becomes Stilicho's West, the player follows him, Honorius takes the\n"
              "throne of what is left, and Britain and Africa go their own way (fired by tfe_stilicho_rises)")
-    with doc.event(3, type="country_event", hidden=True) as e, e.immediate() as i:
+    with doc.event(3, type="country_event", title="Stilicho Crowned", hidden=True) as e, e.immediate() as i:
         crowning(i)
 
     doc.note("Stilicho's West holds Honorius's capital (on_action tfe_on_stilicho_takes_the_capital): it annexes the West,\n"

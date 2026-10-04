@@ -26,24 +26,42 @@ tfe_wandering_people = {
 		}
 	}
 	on_end = {
-		root.var:tfe_people_to = { save_scope_as = tfe_people_arrive }
-		# invited settlers whose land was lost on the way settle by the king's seat; a band settles wherever it is
+		# the Expedition Lost popup reads on_fail again once the road is cleared: settle only while the band is there
 		if = {
-			limit = {
-				has_variable = tfe_people_invited
-				NOT = { scope:tfe_people_arrive = { owner ?= root } }
-				exists = root.capital
+			limit = { root = { has_variable = tfe_people_size } }
+			root.var:tfe_people_to = { save_scope_as = tfe_people_arrive }
+			# invited settlers whose land was lost on the way settle by the king's seat; a band settles wherever it is
+			if = {
+				limit = {
+					has_variable = tfe_people_invited
+					NOT = { scope:tfe_people_arrive = { owner ?= root } }
+					exists = root.capital
+				}
+				root.capital = {
+					save_scope_as = tfe_people_arrive
+				}
 			}
-			root.capital = {
-				save_scope_as = tfe_people_arrive
-			}
-		}
-		scope:tfe_people_arrive = {
-			add_pop = {
-				culture = root.var:tfe_people_culture
-				religion = root.var:tfe_people_religion
-				type = pop_type:peasants
-				size = root.var:tfe_people_size
+			# whatever they were at home, they arrive as peasants and tribesmen; the shares are inline, since the
+			# Expedition Lost popup dry-runs on_fail first, where a variable set here would not be there yet
+			scope:tfe_people_arrive = {
+				add_pop = {
+					culture = root.var:tfe_people_culture
+					religion = root.var:tfe_people_religion
+					type = pop_type:peasants
+					size = {
+						value = root.var:tfe_people_size
+						multiply = 0.6
+					}
+				}
+				add_pop = {
+					culture = root.var:tfe_people_culture
+					religion = root.var:tfe_people_religion
+					type = pop_type:tribesmen
+					size = {
+						value = root.var:tfe_people_size
+						multiply = 0.4
+					}
+				}
 			}
 		}
 		remove_variable = tfe_people_from
@@ -59,7 +77,45 @@ tfe_wandering_people = {
 		}
 	}
 	on_fail = {
-		# lost on the road: the people who left are gone
+		# no road there (an island, a strait): they cross by boat and settle all the same
+		# the Expedition Lost popup reads on_fail again once the road is cleared: settle only while the band is there
+		if = {
+			limit = { root = { has_variable = tfe_people_size } }
+			root.var:tfe_people_to = { save_scope_as = tfe_people_arrive }
+			# invited settlers whose land was lost on the way settle by the king's seat; a band settles wherever it is
+			if = {
+				limit = {
+					has_variable = tfe_people_invited
+					NOT = { scope:tfe_people_arrive = { owner ?= root } }
+					exists = root.capital
+				}
+				root.capital = {
+					save_scope_as = tfe_people_arrive
+				}
+			}
+			# whatever they were at home, they arrive as peasants and tribesmen; the shares are inline, since the
+			# Expedition Lost popup dry-runs on_fail first, where a variable set here would not be there yet
+			scope:tfe_people_arrive = {
+				add_pop = {
+					culture = root.var:tfe_people_culture
+					religion = root.var:tfe_people_religion
+					type = pop_type:peasants
+					size = {
+						value = root.var:tfe_people_size
+						multiply = 0.6
+					}
+				}
+				add_pop = {
+					culture = root.var:tfe_people_culture
+					religion = root.var:tfe_people_religion
+					type = pop_type:tribesmen
+					size = {
+						value = root.var:tfe_people_size
+						multiply = 0.4
+					}
+				}
+			}
+		}
 		remove_variable = tfe_people_from
 		remove_variable = tfe_people_to
 		remove_variable = tfe_people_culture

@@ -31,6 +31,8 @@ def on_actions():
         with a.effect(CountryFx) as e:
             with e.if_() as i:
                 with i.limit() as t:
+                    t.note("the Empire may have fallen apart: every ruler's death would log an error")
+                    t.exists(EMPIRE)
                     t.has_special_status_in_international_organization(type=SENIOR, international_organization=EMPIRE)
                 with i.link(EMPIRE, InternationalOrganizationFx) as io:
                     with io.random_international_organization_member() as m:
