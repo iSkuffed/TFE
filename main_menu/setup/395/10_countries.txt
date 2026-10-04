@@ -3454,6 +3454,7 @@ countries = {
 				regnal_numbers = { name_valentinian = 2 }
 				privilege = { banal_lordship }
 				reforms = { tfe_senatorial_immunities tfe_patrocinium tfe_disarmed_plebs tfe_debased_currency }
+				laws = { medieval_levy_law = tfe_plebs_disarmed distribution_of_power_law = dop_favor_the_nobles administrative_system = autonomous_councils coin_laws = tfe_debased_coinage slavery_laws = slavery_allowed }
 			}
 		}
 		WSN = { # Wusun

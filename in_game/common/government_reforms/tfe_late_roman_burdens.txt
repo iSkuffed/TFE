@@ -1,5 +1,6 @@
 ﻿# TFE: burdens the Roman state laid on its own people, locked like the West's others (tfe_late_roman_west.txt):
-# each brings its own slot. A way to lift them is still to be designed.
+# each brings its own slot. The West's go when it gives up the law holding each (script/roman_burdens.py); the East's
+# Disarmed Demos stays.
 
 # The plebs are forbidden arms (Theodosian Code, on private weapons), so the state fields no levy and pays only professionals
 tfe_disarmed_plebs = {

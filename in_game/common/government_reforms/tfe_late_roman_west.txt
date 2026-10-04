@@ -1,5 +1,5 @@
 ﻿# TFE: the West's burdens in 395. Two reforms WRE starts with (10_countries) and cannot drop: each brings its own slot,
-# so the crown keeps its usual free ones.
+# so the crown keeps its usual free ones. Each goes when the West gives up the law holding it (script/roman_burdens.py).
 
 # The clarissimi: senators excused the sordid munera, their land-tax arrears remitted, their estates beyond the census
 tfe_senatorial_immunities = {
@@ -7,7 +7,7 @@ tfe_senatorial_immunities = {
 		OR = { has_or_had_tag = WRE has_variable = tfe_western_rome }
 	}
 	locked = {
-		always = yes	# a way to lift the burdens is still to be designed
+		always = yes	# lifted only by leaving Autonomous Councils
 	}
 	country_modifier = {
 		global_nobles_estate_power = 0.5
@@ -23,7 +23,7 @@ tfe_patrocinium = {
 		OR = { has_or_had_tag = WRE has_variable = tfe_western_rome }
 	}
 	locked = {
-		always = yes	# a way to lift the burdens is still to be designed
+		always = yes	# lifted only by leaving Favor the Elites, once Stilicho rules
 	}
 	country_modifier = {
 		global_peasants_estate_power = 0.25

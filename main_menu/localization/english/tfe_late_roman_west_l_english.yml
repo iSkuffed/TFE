@@ -1,8 +1,8 @@
 ﻿l_english:
  tfe_senatorial_immunities: "Senatorial Immunities"
- tfe_senatorial_immunities_desc: "The clarissimi are spared the sordid burdens, their arrears are remitted by every new emperor, and their estates are never entered on the census at their true worth. The land tax falls on everyone else."
+ tfe_senatorial_immunities_desc: "The clarissimi are spared the sordid burdens, their arrears are remitted by every new emperor, and their estates are never entered on the census at their true worth. The land tax falls on everyone else. Leaving [ShowPolicyName('autonomous_councils')] lifts it."
  tfe_patrocinium: "Patrocinium"
- tfe_patrocinium_desc: "The coloni shelter under a great landlord. He hides them from the recruiting officer and pays gold in their place, so the legions must be filled with barbarians."
+ tfe_patrocinium_desc: "The coloni shelter under a great landlord. He hides them from the recruiting officer and pays gold in their place, so the legions must be filled with barbarians. Leaving [ShowPolicyName('dop_favor_the_nobles')] lifts it, and only Stilicho, crowned Emperor, can do that."
 
 
  AUTO_MODIFIER_NAME_tfe_comitatenses: "Comitatenses"
