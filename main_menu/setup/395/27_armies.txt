@@ -103,4 +103,138 @@ unit_manager = {
 			a_horsemen = { strength = 1 }
 		}
 	}
+	# The camp followers of every barbarian state: a host at war on day one has an army in the field
+	army = {
+		country = AMI
+		location = baden
+		sub_units = {
+			a_camp_followers = { strength = 1 }
+		}
+	}
+	army = {
+		country = BGD
+		location = amberg
+		sub_units = {
+			a_camp_followers = { strength = 1 }
+		}
+	}
+	army = {
+		country = FRK
+		location = ahaus
+		sub_units = {
+			a_camp_followers = { strength = 1 }
+		}
+	}
+	army = {
+		country = HAS
+		location = abrahamtelke
+		sub_units = {
+			a_camp_followers = { strength = 1 }
+		}
+	}
+	army = {
+		country = SLX
+		location = bielsko
+		sub_units = {
+			a_camp_followers = { strength = 1 }
+		}
+	}
+	army = {
+		country = SAX
+		location = achim
+		sub_units = {
+			a_camp_followers = { strength = 1 }
+		}
+	}
+	army = {
+		country = MKM
+		location = prague
+		sub_units = {
+			a_camp_followers = { strength = 1 }
+		}
+	}
+	army = {
+		country = QAD
+		location = nitra
+		sub_units = {
+			a_camp_followers = { strength = 1 }
+		}
+	}
+	army = {
+		country = LGB
+		location = angermunde
+		sub_units = {
+			a_camp_followers = { strength = 1 }
+		}
+	}
+	army = {
+		country = SLF
+		location = antwerp
+		sub_units = {
+			a_camp_followers = { strength = 1 }
+		}
+	}
+	army = {
+		country = FRS
+		location = alkmaar
+		sub_units = {
+			a_camp_followers = { strength = 1 }
+		}
+	}
+	army = {
+		country = AGL
+		location = aabenraa
+		sub_units = {
+			a_camp_followers = { strength = 1 }
+		}
+	}
+	army = {
+		country = TGI
+		location = altenburg
+		sub_units = {
+			a_camp_followers = { strength = 1 }
+		}
+	}
+	army = {
+		country = RUG
+		location = anklam
+		sub_units = {
+			a_camp_followers = { strength = 1 }
+		}
+	}
+	army = {
+		country = SCR
+		location = balta
+		sub_units = {
+			a_camp_followers = { strength = 1 }
+		}
+	}
+	army = {
+		country = VIS
+		location = tarnovo
+		sub_units = {
+			a_camp_followers = { strength = 1 }
+		}
+	}
+	army = {
+		country = GEP
+		location = aiud
+		sub_units = {
+			a_camp_followers = { strength = 1 }
+		}
+	}
+	army = {
+		country = CRP
+		location = mukachevo
+		sub_units = {
+			a_camp_followers = { strength = 1 }
+		}
+	}
+	army = {
+		country = IAZ
+		location = arad
+		sub_units = {
+			a_camp_followers = { strength = 1 }
+		}
+	}
 }

@@ -3,11 +3,13 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "tools"))
-from pdx.api import AnyFx
+from pdx.api import AnyFx, CountryFx
 from pdx.objects_defs import Defs
 
 # vanilla in_game/common/advances/0_age_of_traditions.txt, in the order each requires the one before
 ADVANCES = ["written_alphabet", "codified_laws", "taxation_advance"]
+# the Hunnic Horde rides as a steppe_horde: horse_lords (government_steppe_horde.txt) and the chain it requires
+HORSE_LORDS = ["agriculture_advance", "windmills_advance", "ranching", "horse_riding_advance", "horse_lords"]
 
 
 def on_actions():
@@ -21,6 +23,12 @@ def on_actions():
                 with c.if_() as i:
                     with i.limit() as t, t.not_() as n:
                         n.has_advance(adv)  # bare key, as vanilla situation_effects.txt
+                    i.research_advance(f"advance_type:{adv}")
+        with e.link("c:HNS", CountryFx, op="?=") as h:
+            for adv in HORSE_LORDS:
+                with h.if_() as i:
+                    with i.limit() as t, t.not_() as n:
+                        n.has_advance(adv)
                     i.research_advance(f"advance_type:{adv}")
     return d
 

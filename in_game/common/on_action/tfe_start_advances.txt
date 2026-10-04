@@ -20,5 +20,27 @@ tfe_on_start_taxation = {
 				research_advance = advance_type:taxation_advance
 			}
 		}
+		c:HNS ?= {
+			if = {
+				limit = { NOT = { has_advance = agriculture_advance } }
+				research_advance = advance_type:agriculture_advance
+			}
+			if = {
+				limit = { NOT = { has_advance = windmills_advance } }
+				research_advance = advance_type:windmills_advance
+			}
+			if = {
+				limit = { NOT = { has_advance = ranching } }
+				research_advance = advance_type:ranching
+			}
+			if = {
+				limit = { NOT = { has_advance = horse_riding_advance } }
+				research_advance = advance_type:horse_riding_advance
+			}
+			if = {
+				limit = { NOT = { has_advance = horse_lords } }
+				research_advance = advance_type:horse_lords
+			}
+		}
 	}
 }

@@ -746,6 +746,23 @@ def pop_society_pops(vanilla, people):
     return out[:end] + "".join(tribe(l, 1.0) + "\n" for l in missing) + out[end:]
 
 
+TRIBAL_SHARE = 0.5   # half the peasants of a European location under a non-Roman owner are tribesmen: the peoples beyond the limes
+
+
+def tribal_pops(text, owner, anc, share=TRIBAL_SHARE):
+    # unowned land keeps its pops; each peasants pop splits into peasants and tribesmen of the same culture and religion
+    def repl(m):
+        l = m.group(1)
+        if anc[l][0] != "europe" or owner.get(l) in (None, *ROMAN_EMPIRES):
+            return m.group(0)
+        def split(p):
+            size = float(p.group(2))
+            return (f"{p.group(1)}peasants\tsize = {size * (1 - share):.3f}{p.group(3)}\n\t"
+                    f"{p.group(1)}tribesmen\tsize = {size * share:.3f}{p.group(3)}")
+        return re.sub(r"(define_pop = \{\ttype = )peasants\tsize = ([\d.]+)([^}]*\})", split, m.group(0))
+    return re.sub(r"^(\w+) = \{(.*?)^\}", repl, text, flags=re.M | re.S)
+
+
 CULTURE_REGIONS = {   # the TFE core: every pop here gets a 395 culture from tools/cultures.txt
     "iberia_region", "france_region", "italy_region", "great_britain_region", "ireland_region", "north_german_region",
     "south_german_region", "scandinavian_region", "baltic_region", "carpathia_region", "balkan_region",
@@ -1116,6 +1133,7 @@ def build():
     if lost:
         sys.exit(f"no faith of 395 near {lost[:20]}: add a rule to tools/religions.txt")
     pops = region_pops(pops, s["owner"], s["anc"], {l: p for l, (_, p, _) in s["settlements"].items() if p})
+    pops = tribal_pops(pops, s["owner"], s["anc"])
     (MOD / "main_menu/setup/395/06_pops.txt").write_text(pops, encoding="utf-8")
     formables = "in_game/common/formable_countries/00_formable_countries.txt"
     (MOD / formables).parent.mkdir(parents=True, exist_ok=True)
