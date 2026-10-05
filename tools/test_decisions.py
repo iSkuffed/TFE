@@ -26,7 +26,7 @@ def mod_loc():
 def test_one_category_near_the_top_holds_all_three():
     assert CATS.find("sort_order", 0, inside="tfe_fall_of_the_west") and "tfe_fall_of_the_west" in LOC
     names = [n.key for n in DOC.nodes if n.key]
-    assert names == ["tfe_migrate_east", "tfe_migrate_west", "tfe_illyricum_claims"]
+    assert names == ["tfe_migrate_east", "tfe_migrate_west", "tfe_illyricum_claims", "tfe_debug_stilicho_glory"]
     for n in names:
         assert find(n, "decision_category", "tfe_fall_of_the_west")
         assert {f"{n}.title", f"{n}.desc", f"{n}.a"} <= LOC.keys()
@@ -112,3 +112,7 @@ def test_the_buttons_are_gone_but_align_the_visigoths_stays():
     assert not (ROOT / "in_game/common/generic_actions/tfe_migratory.txt").exists()
     old = {"tfe_migrate_east", "tfe_migrate_west", "tfe_illyricum_claims"}
     assert not old & mod_loc()   # the decisions' keys are <name>.title, not the buttons' <name>
+
+
+def test_the_glory_shortcut_is_for_debug_mode_only():
+    assert find("tfe_debug_stilicho_glory", "debug_only", "yes")

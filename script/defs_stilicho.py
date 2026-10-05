@@ -136,22 +136,22 @@ def rises(d):
                 t.tfe_stilicho_base_land()
             with loc.every_pop() as p:
                 p.change_pop_allegiance("scope:tfe_stilicho_rebels")
+        e.note("the revolter is the country the revolt makes: a subject or neighbour that joins it (a foederati host) is\n"
+               "only a backer, so mark every country there is, then find the new one")
         with e.every_country() as c:
-            with c.limit() as t:
-                t.is_at_war_with("root")
-            c.set_variable("tfe_old_enemy")
+            c.set_variable("tfe_before_the_revolt")
         with e.link("scope:tfe_stilicho_rebels", RebelsFx, op="?=") as r:
             r.start_revolt(True)
         with e.random_country() as c:
             with c.limit() as t:
                 t.is_at_war_with("root")
                 with t.not_() as n:
-                    n.has_variable("tfe_old_enemy")
+                    n.has_variable("tfe_before_the_revolt")
             c.set_variable("tfe_stilicho_revolter")
         with e.every_country() as c:
             with c.limit() as t:
-                t.has_variable("tfe_old_enemy")
-            c.remove_variable("tfe_old_enemy")
+                t.has_variable("tfe_before_the_revolt")
+            c.remove_variable("tfe_before_the_revolt")
         e.trigger_event_silently(id="tfe_stilicho.3", days=1)
 
 

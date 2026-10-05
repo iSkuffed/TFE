@@ -181,10 +181,13 @@ def test_stilicho_rises_as_a_revolter_in_gaul():
     rise = block(flat(DEFS), "tfe_stilicho_rises =")
     assert "create_rebel = {" in rise and "start_revolt = yes" in rise and "declare_war" not in rise
     assert "trigger_event_silently = { id = tfe_stilicho.3 days = 1 }" in rise
-    # the revolter is marked the moment it forms: it may come out landless, and a host in Gaul is at war with us too
-    assert rise.index("set_variable = tfe_old_enemy") < rise.index("start_revolt") < rise.index(
+    # the revolter is marked the moment it forms, as the one country that did not exist before: it may come out
+    # landless, and a subject joining the revolt (a foederati host) is at war with us too
+    assert rise.index("set_variable = tfe_before_the_revolt") < rise.index("start_revolt") < rise.index(
         "set_variable = tfe_stilicho_revolter")
-    assert "remove_variable = tfe_old_enemy" in rise
+    assert "remove_variable = tfe_before_the_revolt" in rise
+    mark = block(rise, "every_country =")
+    assert "set_variable = tfe_before_the_revolt" in mark and "is_at_war_with" not in mark
     land = block(flat(TRIG), "tfe_stilicho_base_land =")
     assert "region = region:france_region" in land and "region = region:iberia_region" in land
 
@@ -216,9 +219,11 @@ def test_constantine_rises_as_an_annexable_revolter():
     assert "create_rebel = {" in rise and "start_revolt = yes" in rise and "declare_war" not in rise
     assert "region = region:great_britain_region" in rise and "trigger_event_silently = tfe_opening.9" in rise
     # the revolter is marked the moment it forms (it may come out landless), and the wars we were in are not his
-    assert rise.index("set_variable = tfe_old_enemy") < rise.index("start_revolt") < rise.index(
+    assert rise.index("set_variable = tfe_before_the_revolt") < rise.index("start_revolt") < rise.index(
         "set_variable = tfe_constantine_revolter")
-    assert "remove_variable = tfe_old_enemy" in rise
+    assert "remove_variable = tfe_before_the_revolt" in rise
+    mark = block(rise, "every_country =")
+    assert "set_variable = tfe_before_the_revolt" in mark and "is_at_war_with" not in mark
     crown = block(flat("in_game/events/tfe_opening.txt"), "tfe_opening.9 =")
     for want in ("limit = { has_variable = tfe_constantine_revolter }", "change_location_owner = scope:tfe_usurper",
                  "leave_war = { war = scope:tfe_constantine_war actor = root }", "cancel_subject = prev",

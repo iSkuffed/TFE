@@ -89,24 +89,23 @@ def effects():
                 t.compare("region", "=", "region:great_britain_region")
             with loc.every_pop() as p:
                 p.change_pop_allegiance("scope:tfe_constantine_rebels")
-        e.note("the wars we are in already (a host, Gildo, Stilicho's revolt) are not his: mark them, then find the new one")
+        e.note("the revolter is the country the revolt makes, not an enemy we already had (a host, Gildo, Stilicho's revolt)\n"
+               "nor a subject that joins it: mark every country there is, then find the new one")
         with e.every_country() as c:
-            with c.limit() as t:
-                t.is_at_war_with("root")
-            c.set_variable("tfe_old_enemy")
+            c.set_variable("tfe_before_the_revolt")
         e.link("scope:tfe_constantine_rebels", RebelsFx, lambda r: r.start_revolt(True), op="?=")
         with e.random_country() as c:
             with c.limit() as t:
                 t.is_at_war_with("root")
-                t.not_(lambda n: n.has_variable("tfe_old_enemy"))
+                t.not_(lambda n: n.has_variable("tfe_before_the_revolt"))
                 t.note("no backer: the revolter holds nothing beyond Britain, or nothing at all")
                 with t.not_() as n, n.any_owned_location() as o, o.not_() as m:
                     m.compare("region", "=", "region:great_britain_region")
             c.set_variable("tfe_constantine_revolter")
         with e.every_country() as c:
             with c.limit() as t:
-                t.has_variable("tfe_old_enemy")
-            c.remove_variable("tfe_old_enemy")
+                t.has_variable("tfe_before_the_revolt")
+            c.remove_variable("tfe_before_the_revolt")
         e.trigger_event_silently("tfe_opening.9")
     d.note("the diocese of Africa goes its own way under a Roman count, when Stilicho rises and Gildo's kingdom is gone")
     with d.effect("tfe_africa_breaks_away", CountryFx) as e:

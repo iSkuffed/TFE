@@ -9,5 +9,8 @@
  tfe_illyricum_claims.title: "Support Stilicho's Claims"
  tfe_illyricum_claims.desc: "Stilicho holds that Theodosius meant all Illyricum for the West. Press the claim on Docleatae, the Dardanian Mines, the Margus Valley, Singidunum, Viminacium, Naissus, Dardania and Praevalitana: a casus belli against the East for ten years, bought with the Empire's unity."
  tfe_illyricum_claims.a: "Illyricum is the West's."
+ tfe_debug_stilicho_glory.title: "(Debug) Stilicho's Glory to 100"
+ tfe_debug_stilicho_glory.desc: "Testing only: raises Stilicho's Glory to 100, and Honorius forces the showdown."
+ tfe_debug_stilicho_glory.a: "Glory to 100"
  tfe_stilicho_serves_us_tt: "Stilicho lives and serves us"
  tfe_illyricum_claim_pressed_tt: "We have not pressed Stilicho's claim in the last ten years"
