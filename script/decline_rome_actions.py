@@ -5,7 +5,7 @@ from contextlib import contextmanager
 from typing import Callable, Iterator
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "tools"))
-from pdx.api import AnyFx, AreaFx, AreaTrig, CountryFx, CountryTrig, RegionFx, RegionTrig, SituationTrig, ValueFx
+from pdx.api import AnyFx, AreaFx, AreaTrig, CountryFx, CountryTrig, LocationTrig, RegionFx, RegionTrig, SituationTrig, ValueFx
 from pdx.core import Q, Scope
 from pdx.objects import Doc, GenericAction
 
@@ -83,6 +83,28 @@ def frontier_regions(i: AnyFx):
             r.add_to_list("source")
 
 
+ISLAND_AREAS = ("aegean_archipelago_area", "balearics_area", "sardinia_area")   # Crete, Rhodes and the Aegean; the Balearics
+ISLAND_PROVINCES = ("pumonte_province", "cismonte_province", "cyprus_province")   # Corsica and Cyprus share mainland areas
+ISLAND_LOCATIONS = ("malta",)   # in Sicily's Noto province; Sicily itself and Britain stay fair
+
+
+def island(t: LocationTrig):
+    """user: exiling a host to a small island is cheese, it can never again march without ships and dies landing"""
+    with t.or_() as o:
+        for a in ISLAND_AREAS:
+            o.compare("area", "=", f"area:{a}")
+        for p in ISLAND_PROVINCES:
+            o.compare("province_definition", "=", f"province_definition:{p}")
+        for loc in ISLAND_LOCATIONS:
+            o.compare("this", "=", f"location:{loc}")
+
+
+def offered(t: LocationTrig):
+    """a location of the area Hospitalitas would hand over: the actor's, and no small island"""
+    t.compare("owner", "?=", ACTOR)
+    t.not_(island)
+
+
 def hospitalitas(doc: Doc):
     doc.note("Hospitalitas: an area of the Empire for a host on the road, as Rome settled the Visigoths in Aquitaine in 418")
     with doc.generic_action("tfe_hospitalitas") as a:
@@ -107,11 +129,12 @@ def hospitalitas(doc: Doc):
                 r.is_at_war_with("prev")
         a.note("the land: a whole area where the actor holds provinces (a single province is too little to buy off a people),\n"
                "never the one that holds the capital. The East gives only Illyricum, Thrace and Greece (the Balkans), never Anatolia,\n"
-               "Syria or Egypt: the peoples come over the Danube, and the East's heartlands are not for them")
+               "Syria or Egypt: the peoples come over the Danube, and the East's heartlands are not for them. No small island:\n"
+               "an island area is never offered, and a mixed one hands over only its mainland (Sicily and Britain are fair)")
         with select(a, "area", AreaTrig, source=actor_areas, flag="target_area",
                     name="tfe_hospitalitas_choose_area", none="tfe_hospitalitas_no_area") as t:
             with t.any_location_in_area() as loc:
-                loc.compare("owner", "?=", ACTOR)
+                offered(loc)
             with t.not_() as n, n.any_location_in_area() as loc:
                 loc.compare("owner", "?=", ACTOR)
                 loc.is_capital(True)
@@ -129,7 +152,7 @@ def hospitalitas(doc: Doc):
                     host.tail("named in the event")
                 with h.link("scope:target_area", AreaFx) as ar, ar.every_location_in_area() as loc:
                     with loc.limit() as t:
-                        t.compare("owner", "?=", ACTOR)
+                        offered(t)
                     with loc.link("scope:host", CountryFx) as host:
                         host.add_to_variable_list(name="tfe_hospitalitas_land", target="prev", months=3)
                 with h.link("scope:host", CountryFx) as host:
