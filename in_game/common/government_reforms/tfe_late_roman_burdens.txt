@@ -11,7 +11,7 @@ tfe_disarmed_plebs = {
 		always = yes
 	}
 	country_modifier = {
-		global_levy_size_modifier = -1
+		global_levy_size_modifier = -5	# not -1: advances, estates and laws stacked levies back on top of it
 		army_maintenance_efficiency = 0.5
 		peasants_estate_target_satisfaction = -0.1
 		government_reform_slots = 1
@@ -27,7 +27,7 @@ tfe_disarmed_demos = {
 		always = yes
 	}
 	country_modifier = {
-		global_levy_size_modifier = -1
+		global_levy_size_modifier = -5	# not -1: advances, estates and laws stacked levies back on top of it
 		army_maintenance_efficiency = 0.5
 		peasants_estate_target_satisfaction = -0.1
 		government_reform_slots = 1

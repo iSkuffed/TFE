@@ -3,11 +3,13 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "tools"))
-from pdx.api import AnyFx, CountryFx, CountryTrig, LocationFx, LocationTrig
+from pdx.api import AnyFx, CountryFx, CountryTrig, LocationFx, LocationTrig, WarFx
 from pdx.objects_defs import Defs
 
 MIGRATION_CB = "casus_belli:cb_tfe_migration"
 ROAD_LOCK_YEARS = 1   # pace the chaos: no AI host takes the road within this long of the last one
+BATTLE_WARSCORE = 25  # each real battle a host wins against Rome: four such win the war
+BATTLE_MIN_KILLED = 1000   # soldiers the loser lost (scope:killed_land_units): a skirmish with a scout counts for nothing
 
 
 def create_units(loc, owner, origin, units):
@@ -159,7 +161,29 @@ def on_actions():
                    "once the whole peace or Hospitalitas has handed over its land, spread over all of it (events/tfe_barbarian_kingdoms.txt)")
             with e.link("scope:winner", CountryFx) as w:
                 w.trigger_event_silently(id="tfe_barbarian_kingdoms.1", days=1)
+    battles(d)
     return d
+
+
+def battles(d: Defs):
+    d.note(f"Rome lost its field armies in a few great defeats: each battle a host on the road wins against a Roman state,\n"
+           f"with {BATTLE_MIN_KILLED} or more of the enemy dead, adds {BATTLE_WARSCORE} war score in its Migrate into Rome war (vanilla\n"
+           f"scores a battle by the share of the loser's army, so the Empire shrugged off defeats its tiny allies did not).\n"
+           f"root = the winner, scope:target = the losing unit.")
+    d.hook("on_battle_won", "tfe_on_host_wins_battle")
+    d.hook("on_great_battle_won", "tfe_on_host_wins_battle")
+    d.note("a great battle fires on_great_battle_won instead of on_battle_won, never both")
+    with d.on_action("tfe_on_host_wins_battle") as a:
+        with a.trigger(CountryTrig) as t:
+            t.has_variable("tfe_migrating")
+            t.not_(lambda n: n.has_variable("tfe_settled"))
+            t.compare("scope:killed_land_units", ">=", BATTLE_MIN_KILLED)
+            t.link("scope:target.owner", CountryTrig, lambda o: o.tfe_is_roman_state(), op="?=")
+        with a.effect(CountryFx) as e, e.link('"war_with_country(scope:target.owner)"', WarFx) as w:
+            w.note("a link with arguments is a quoted key, as vanilla writes it; unquoted the game drops the block")
+            with w.if_() as i:
+                i.limit(lambda t: t.compare("casus_belli", "?=", MIGRATION_CB))
+                i.add_bonus_warscore(country="root", amount=BATTLE_WARSCORE)
 
 
 def outputs():

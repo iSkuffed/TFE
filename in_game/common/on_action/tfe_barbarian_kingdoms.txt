@@ -1,11 +1,38 @@
 ﻿# TFE: the raid over the Rhine is over when its war ends: the host costs upkeep again.
 on_ending_war = {
-	on_actions = { tfe_on_rhine_war_ended }
+	on_actions = { tfe_on_rhine_war_ended tfe_on_host_war_ended }
 }
 
 tfe_on_rhine_war_ended = {
 	trigger = { has_variable = tfe_rhine_war }
 	effect = {
 		remove_variable = tfe_rhine_war
+	}
+}
+
+# TFE: a host on the road (tfe_migrating, not yet tfe_settled) whose war ends: it lost it, or it was its Migrate
+# into Rome war (decisions/tfe_fall_of_the_west.txt), won or not. tfe_barbarian_kingdoms.3 decides a day later.
+tfe_on_host_war_ended = {
+	trigger = {
+		has_variable = tfe_migrating
+		NOT = { has_variable = tfe_settled }
+		OR = {
+			scope:loser ?= root
+			scope:war ?= { casus_belli ?= casus_belli:cb_tfe_migration }
+		}
+	}
+	effect = {
+		if = {
+			limit = { scope:winner ?= root scope:war ?= { casus_belli ?= casus_belli:cb_tfe_migration } }
+			scope:war = {
+				war_goal_province ?= {
+					save_scope_as = tfe_promised
+					root = {
+						set_variable = { name = tfe_promised_province value = scope:tfe_promised days = 2 }	# read by tfe_barbarian_kingdoms.3 tomorrow
+					}
+				}
+			}
+		}
+		trigger_event_silently = { id = tfe_barbarian_kingdoms.3 days = 1 }
 	}
 }

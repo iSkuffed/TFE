@@ -6,8 +6,8 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "tools"))
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from decisions import CATEGORY, EXT
-from defs_migratory import create_units
-from pdx.api import CountryFx, CountryTrig, LocationFx
+from defs_migratory import MIGRATION_CB, create_units
+from pdx.api import CountryFx, CountryTrig, LocationFx, ProvinceFx, WarFx, WarTrig
 from pdx.objects import Doc
 from pdx.objects_defs import Defs
 
@@ -81,6 +81,45 @@ def crowned_event(doc: Doc):
             with i.if_() as f:
                 f.limit(lambda t: t.not_(lambda n: n.has_estate_privilege("estate_privilege:auxilium_et_consilium")))
                 f.grant_estate_privilege("estate_privilege:auxilium_et_consilium")
+
+
+def war_end_events(doc: Doc):
+    doc.note("A host on the road's war has ended (on_action/tfe_barbarian_kingdoms.txt fires this a day later, once the peace\n"
+             "has handed over its land). A host that won land settled with it (on_action/tfe_migratory.txt). One that won its\n"
+             "Migrate into Rome war but took gold instead gets the province it marched on (tfe_promised_province) all the same.\n"
+             "One that lost, or made peace with nothing, breaks up.")
+    with doc.event(3, type="country_event", title="The War of the Road Ends", hidden=True) as e:
+        with e.trigger() as t:
+            t.has_variable("tfe_migrating")
+            t.not_(lambda n: n.has_variable("tfe_settled"))
+            with t.not_() as n, n.any_owned_location() as loc:
+                loc.always(True)
+        with e.immediate() as i:
+            with i.if_() as f:
+                f.limit(lambda t: t.has_variable("tfe_promised_province"))
+                with f.link("var:tfe_promised_province", ProvinceFx) as p, p.every_location_in_province() as loc:
+                    loc.change_location_owner("root")
+            with i.else_() as f:
+                f.trigger_event_non_silently("tfe_barbarian_kingdoms.4")
+    doc.note("The host breaks up: its warriors scatter, and the people who followed it go home to the remnant of the land it\n"
+             "left (tfe_remnant_of, scripted_effects/tfe_migratory.txt). A host that left no remnant is simply gone.")
+    with doc.event(4, type="country_event", title="The Host Scatters", outcome="negative",
+                   desc="The Romans hold the field, and there is no more road. The warriors melt away by night in twos and "
+                        "threes, the wagons turn back toward the rivers, and the chiefs who swore to follow the host to a "
+                        "new land now swear to no one.\n\nWhat was a people on the march is only a story the old will tell.",
+                   image=EXT + "soldiers/north_german_soldiers_exterior.dds") as e:
+        with e.option("a", text="The road ends here") as o:
+            o.custom_tooltip("tfe_host_scatters_tt")
+            with o.hidden_effect() as h:
+                with h.random_country() as r:
+                    r.limit(lambda t: t.compare("var:tfe_remnant_of", "?=", "root"))
+                    with r.go_capital(op="?=") as cap:
+                        cap.add_pop(culture="root.culture", religion="root.religion", type="pop_type:peasants",
+                                    size="root.var:tfe_host_people")
+                with h.every_army() as army:
+                    army.destroy_unit(True)
+                h.change_country_type("location")
+                h.tail("landless and armyless: the country is gone")
 
 
 def reform(doc: Doc):
@@ -214,7 +253,32 @@ def on_actions():
             t.has_variable(RHINE_WAR)
         with a.effect(CountryFx) as e:
             e.remove_variable(RHINE_WAR)
+    war_ended(d)
     return d
+
+
+def war_ended(d: Defs):
+    d.note("TFE: a host on the road (tfe_migrating, not yet tfe_settled) whose war ends: it lost it, or it was its Migrate\n"
+           "into Rome war (decisions/tfe_fall_of_the_west.txt), won or not. tfe_barbarian_kingdoms.3 decides a day later.")
+    d.hook("on_ending_war", "tfe_on_host_war_ended")
+    with d.on_action("tfe_on_host_war_ended") as a:
+        with a.trigger(CountryTrig) as t:
+            t.has_variable("tfe_migrating")
+            t.not_(lambda n: n.has_variable("tfe_settled"))
+            with t.or_() as o:
+                o.compare("scope:loser", "?=", "root")
+                o.link("scope:war", WarTrig, lambda w: w.compare("casus_belli", "?=", MIGRATION_CB), op="?=")
+        with a.effect(CountryFx) as e:
+            with e.if_() as i:
+                with i.limit() as t:
+                    t.compare("scope:winner", "?=", "root")
+                    t.link("scope:war", WarTrig, lambda w: w.compare("casus_belli", "?=", MIGRATION_CB), op="?=")
+                with i.link("scope:war", WarFx) as w, w.go_war_goal_province(op="?=") as p:
+                    p.save_scope_as("tfe_promised")
+                    with p.link("root", CountryFx) as host:
+                        host.set_variable(name="tfe_promised_province", value="scope:tfe_promised", days=2)
+                        host.tail("read by tfe_barbarian_kingdoms.3 tomorrow")
+            e.trigger_event_silently(id="tfe_barbarian_kingdoms.3", days=1)
 
 
 def build():
@@ -230,6 +294,7 @@ def build():
     cross_the_rhine(doc)
     settle_event(events)
     crowned_event(events)
+    war_end_events(events)
     casus_belli(cb)
     mods = Doc()
     mods.loc = doc.loc
@@ -244,6 +309,8 @@ def build():
                 "headmen know the land, and the land is quick to answer to us.")
     doc.loc.add("tfe_host_kingdom_tt", "#R We can never take the road again.#!\nOur nobles are granted "
                 "#Y Auxilium et Consilium#!, and we learn #Y Feudalism#! and #Y Knights#!.")
+    doc.loc.add("tfe_host_scatters_tt", "#R Our country is no more.#! Our armies disband, and the people who followed "
+                "the host return to those who stayed behind in our old homeland.")
     doc.loc.add("tfe_rhine_crossed_tt", "We have not crossed the Rhine in the last ten years")
     doc.loc.add("tfe_cross_the_rhine_tt",
                 "#R We declare war on the Western Roman Empire across the river.#!\nTwenty-four regiments of footmen and eight of "

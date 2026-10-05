@@ -46,6 +46,8 @@ SPEC_FX = {
     "add_cooldown": spec("block", ["type"], "days months years".split()),
     "trigger_event_silently": EVENT,
     "trigger_event_non_silently": EVENT,
+    # the docs list the optional keys; the scan saw only vanilla's commonest call
+    "declare_war_with_cb": spec("block", ["target", "type"], "target_province target_country character".split()),
     "kill_character": KILL,
     "kill_character_silently": KILL,
 }

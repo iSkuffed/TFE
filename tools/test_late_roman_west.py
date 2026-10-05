@@ -122,7 +122,8 @@ def test_peraequatio_dilectus_and_the_coinage_reform_are_gone():
 
 def test_the_disarmed_plebs_and_debased_currency_are_locked_reforms_with_a_slot_each():
     reforms = blocks(BURDENS)
-    disarmed = {"global_levy_size_modifier": "-1", "army_maintenance_efficiency": "0.5",
+    # -500%: no stack of advances, estates and laws brings a levy back
+    disarmed = {"global_levy_size_modifier": "-5", "army_maintenance_efficiency": "0.5",
                 "peasants_estate_target_satisfaction": "-0.1", "government_reform_slots": "1"}
     expected = {
         "tfe_disarmed_plebs": ("WRE", disarmed),

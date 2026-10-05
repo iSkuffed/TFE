@@ -176,3 +176,48 @@ def test_a_landless_host_leaves_no_remnant_and_abandons_nothing_it_does_not_hold
     ifs = START.find("if", None, inside=("tfe_start_migration_effect",))
     assert any("capital" in str(i.val) and "create_country_from_location" in str(i.val) for i in ifs)
     assert START.find("abandon_location", None, inside=("tfe_start_migration_effect", "else"))
+
+
+def test_a_host_that_loses_its_war_breaks_up():
+    # a lost war, or its Migrate into Rome war won or not: decided a day later, once the peace has handed over its land
+    hook = "tfe_on_host_war_ended"
+    assert ENDING.find("scope:loser", "root", inside=(hook, "trigger", "OR"))
+    assert ENDING.find("casus_belli", f"casus_belli:{defs_migratory.MIGRATION_CB.split(':')[1]}", inside=(hook, "trigger", "OR"))
+    assert ENDING.find("set_variable", None, inside=(hook, "effect", "if", "scope:war", "war_goal_province", "root"))
+    assert ENDING.find("trigger_event_silently", None, inside=(hook, "effect"))
+    # a winner with no land gets the province it marched on; anyone else scatters
+    ev = "tfe_barbarian_kingdoms.3"
+    assert EVENTS.find("any_owned_location", None, inside=(ev, "trigger", "NOT"))
+    assert EVENTS.find("change_location_owner", "root", inside=(ev, "immediate", "if", "var:tfe_promised_province"))
+    assert EVENTS.find("trigger_event_non_silently", "tfe_barbarian_kingdoms.4", inside=(ev, "immediate", "else"))
+    # its people go home to the remnant, and the country is gone
+    scatter = ("tfe_barbarian_kingdoms.4", "option", "hidden_effect")
+    assert EVENTS.find("size", "root.var:tfe_host_people", inside=scatter + ("random_country", "capital", "add_pop"))
+    assert EVENTS.find("destroy_unit", True, inside=scatter + ("every_army",))
+    assert EVENTS.find("change_country_type", "location", inside=scatter)
+
+
+def test_battles_won_against_rome_win_the_migration():
+    hook = "tfe_on_host_wins_battle"
+    for on in ("on_battle_won", "on_great_battle_won"):   # a great battle fires only the second
+        assert SETTLE.find("on_actions", None, inside=(on,))
+    killed = SETTLE.find("scope:killed_land_units", None, inside=(hook, "trigger"))
+    assert killed[0].op == ">=" and killed[0].val == fmt(defs_migratory.BATTLE_MIN_KILLED)
+    bonus = SETTLE.find("add_bonus_warscore", None, inside=(hook, "effect", '"war_with_country(scope:target.owner)"', "if"))
+    assert bonus and {(n.key, n.val) for n in bonus[0].val} == {("country", "root"), ("amount", fmt(defs_migratory.BATTLE_WARSCORE))}
+
+
+def test_towns_behind_a_provincial_capital_send_men_too():
+    d = defs_defectors.on_actions()
+    assert d.find("on_actions", None, inside=("monthly_country_pulse",))
+    sweep = ("tfe_on_host_holds_roman_towns", "effect", "every_controlled_location")
+    assert d.find("has_location_modifier", "tfe_fled_to_the_host", inside=sweep + ("limit", "NOT"))
+    assert d.find("add_subunit_strength_percentage", "scope:tfe_defectors", inside=sweep)
+
+
+def test_the_host_marches_on_a_province():
+    pick = MIGRATE + ("select_trigger",)
+    assert FALL.find("target_flag", "target_province", inside=pick)
+    assert FALL.find("is_ai", False, inside=pick + ("visible", "OR", "scope:actor"))
+    assert FALL.find("is_capital", True, inside=pick + ("visible", "OR", "AND", "NOT"))   # the AI never marches on a capital
+    assert FALL.find("target_province", "scope:target_province", inside=MIGRATE + ("effect", "hidden_effect", "scope:actor", "declare_war_with_cb"))

@@ -6,6 +6,8 @@
  cb_tfe_migration_desc: "Our people are on the road, and the road ends where we take land of our own."
  war_goal_superiority_tfe_migration: "Seize a Homeland"
  war_goal_superiority_tfe_migration_desc: "We will take land from them for our people to settle. $generic_war_goal_superiority_desc$"
+ war_goal_take_province_tfe_migration: "Seize [PROVINCE.GetNameWithNoTooltip] for a Homeland"
+ war_goal_take_province_tfe_migration_desc: "We will take this [province|e] for our people to settle, and whatever more our [war_score|e] can buy. Every great battle we win against Rome brings the end closer. Neither side gains [war_score|e] by sitting on the province."
  tfe_barbaricum: "Barbaricum"
  tfe_barbaricum_desc: "Barbaricum is what Rome calls the free peoples beyond the limes of Germania and Dacia: Franks and Saxons, Goths and Vandals, Lombards, Gepids and the rest. They raid, trade and marry across borders nobody polices.\n\nMembers may march through each other's land and eat from its fields, so a warband never starves on a neighbour's ground. A host on the road may go anywhere without being driven out. Membership is fixed: no one joins and no one leaves. The peoples may still make war on one another."
  diplomatic_status_tfe_barbaricum_name: "Barbaricum"
