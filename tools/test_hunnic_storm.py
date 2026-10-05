@@ -147,7 +147,7 @@ def test_the_scourge_is_a_title_not_a_roll():
 
 def test_migration_is_one_effect_shared_by_action_and_event():
     assert top_keys(MIGRATION) == ["tfe_start_migration_effect", "tfe_list_the_migrators"]
-    assert "tfe_start_migration_effect = yes" in code(COMMON / "decisions/tfe_fall_of_the_west.txt")
+    assert "tfe_start_migration_effect = yes" in code(COMMON / "generic_actions/tfe_fall_of_the_west.txt")
     assert "tfe_start_migration_effect = yes" in code(EVENT)
     assert "abandon_location" in code(MIGRATION)
 

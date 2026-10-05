@@ -1,112 +1,117 @@
-"""The Fall of the West decisions: a people beyond the rivers migrates into the East or the West, and Honorius's West
-presses Stilicho's claim on Illyricum. Writes the category, the decisions and their localisation."""
+"""The Fall of the West's Native Decisions: a people beyond the rivers migrates into a Roman state of its choosing, and
+Honorius's West presses Stilicho's claim on Illyricum. Writes the category, the decisions, the migration's generic action
+(shown in the decisions tab) and their localisation."""
 import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "tools"))
-from pdx.api import CountryTrig, InternationalOrganizationFx
+from pdx.api import AnyFx, CountryFx, CountryTrig, InternationalOrganizationFx, ValueFx
 from pdx.objects import Doc
+
+from decline_rome_actions import ACTOR, select
 
 CATEGORY = "tfe_fall_of_the_west"
 EXT = "gfx/interface/illustrations/event/backgrounds/exterior/"
-HEADER = """TFE: the Fall of the West's decisions (written by script/decisions.py).
-Migrate: a people of Germania or Dacia (tfe_is_migrator) may give up its homeland, while the Decline of the West
-runs, for a great host that costs nothing while it owns no land (auto_modifiers/tfe_migratory.txt). It cannot
-replenish: landless, it has no manpower, so every warrior lost is gone until it wins land of its own. One decision per
-empire: the host marches on the East or the West at once, and that Augustus may buy it off with land (Hospitalitas,
-generic_actions/tfe_decline_rome.txt). The two differ only in the empire. A settled host may take the road again until
-it reforms into a monarchy (decisions/tfe_barbarian_kingdoms.txt). The Salian Franks never migrate: they Cross the Rhine.
+HEADER = """TFE: the Fall of the West's Native Decisions (written by script/decisions.py). Migrate into Rome
+(generic_actions/tfe_fall_of_the_west.txt, shown in the decisions tab): a people of Germania or Dacia (tfe_is_migrator) may
+give up its homeland, while the Decline of the West runs, for a great host that costs nothing while it owns no land
+(auto_modifiers/tfe_migratory.txt). It cannot replenish: landless, it has no manpower, so every warrior lost is gone until
+it wins land of its own. The host marches at once on the Roman state it chooses, and that ruler may buy it off with land
+(Hospitalitas, generic_actions/tfe_decline_rome.txt). A settled host may take the road again until it reforms into a
+monarchy (decisions/tfe_barbarian_kingdoms.txt). The Salian Franks never migrate: they Cross the Rhine.
 Stilicho's Claims: Honorius's West takes a casus belli on Eastern Illyricum, at a cost in Unity."""
-WHERE = {"EAR": ("East", "south over the Danube"), "WRE": ("West", "west over the Rhine")}
+ROME = "scope:target_rome"
 
 
-def is_target(t: CountryTrig, tag):
-    """the empire this decision marches on: the East, or any western Rome (Stilicho's West too)."""
-    if tag == "WRE":
-        t.tfe_is_western_rome()
-    else:
-        t.tag(tag)
+def roman_states(i: AnyFx):
+    with i.every_country() as c:
+        with c.limit() as t:
+            t.tfe_is_roman_state()
+        c.add_to_list("source")
 
 
-def migrate(doc: Doc, name: str, tag: str):
-    side, road = WHERE[tag]
-    with doc.decision(name, category=CATEGORY, title=f"Migrate into the {side}",
-                      desc=("We leave the lands of our fathers behind. Every warrior of our people joins the host on the "
-                            f"road, {road}, to take by the sword a richer home within the Empire of the {side}."),
-                      image=EXT + "soldiers/north_german_soldiers_exterior.dds") as d:
-        with d.potential() as t:
+def migrate(acts: Doc, loc):
+    """Migrate into Rome: a Native Decision (a generic action shown in the decisions tab) whose picker lists every Roman
+    state there is, so the choices grow and shrink as successors rise and fall."""
+    with acts.generic_action("tfe_migrate") as a:
+        a.field("type", "owncountry")
+        a.field("show_in_decision_panel", True)
+        a.field("decision_category", CATEGORY)
+        with a.triggers("potential") as t:
             with t.go_situation("tfe_decline_of_the_west") as s:
                 s.situation_is_active(True)
-            t.tfe_is_migrator()
-            t.not_(lambda n: n.tag("SLF"))
-            t.tail("the Salians raid over the Rhine instead (decisions/tfe_barbarian_kingdoms.txt)")
-            with t.or_() as o:
-                o.not_(lambda n: n.has_variable("tfe_migrating"))
-                o.has_variable("tfe_settled")
-                o.tail("a settled host may take the road again")
-            t.not_(lambda n: n.has_variable("tfe_host_kingdom"))
-            t.tail("until it reforms into a monarchy (decisions/tfe_barbarian_kingdoms.txt)")
-            if tag == "WRE":
-                with t.any_country() as w:
-                    w.tfe_is_western_rome()
-            else:
-                t.country_exists(f"c:{tag}")
-        with d.allow() as t:
-            with t.custom_tooltip_block("tfe_migration_not_yet_tt") as ct:
+            with t.link(ACTOR, CountryTrig) as c:
+                c.tfe_is_migrator()
+                c.not_(lambda n: n.tag("SLF"))
+                c.tail("the Salians raid over the Rhine instead (decisions/tfe_barbarian_kingdoms.txt)")
+                with c.or_() as o:
+                    o.not_(lambda n: n.has_variable("tfe_migrating"))
+                    o.has_variable("tfe_settled")
+                    o.tail("a settled host may take the road again")
+                c.not_(lambda n: n.has_variable("tfe_host_kingdom"))
+                c.tail("until it reforms into a monarchy (decisions/tfe_barbarian_kingdoms.txt)")
+            with t.any_country() as r:
+                r.tfe_is_roman_state()
+        with a.triggers("allow") as t, t.link(ACTOR, CountryTrig) as c:
+            with c.custom_tooltip_block("tfe_migration_not_yet_tt") as ct:
                 ct.current_date("395.2.18", op=">=")
                 ct.tail("a month after the game starts (defines' START_DATE)")
-            t.is_subject(False)
-            t.tail("no warband afield is fine: the host gathers at the capital")
-            t.tfe_frontier_unmanned()
-            t.tail("scripted_triggers/tfe_decline_rome.txt: a manned frontier holds them")
-        d.note("Pace the chaos: one AI people on the road at a time. None moves within a year of the last host setting out\n"
+            c.is_subject(False)
+            c.tail("no warband afield is fine: the host gathers at the capital")
+            c.tfe_frontier_unmanned()
+            c.tail("scripted_triggers/tfe_decline_rome.txt: a manned frontier holds them")
+        a.field("ai_tick", "monthly")
+        a.field("ai_tick_frequency", 1)
+        a.field("automation_tick", "never")
+        a.field("automation_tick_frequency", 12)
+        a.note("the Roman state to march on: either Empire, Stilicho's West, or a successor born of a revolt against one\n"
+               "(scripted_triggers/tfe_western_rome.txt); one that holds land, for the war to have a goal")
+        with select(a, "country", CountryTrig, source=roman_states, flag="target_rome",
+                    name="tfe_migrate_choose_rome", none="tfe_migrate_no_rome") as t:
+            t.tfe_is_roman_state()
+            with t.any_owned_location() as o:
+                o.always(True)
+        with a.effects("effect") as e:
+            e.custom_tooltip("tfe_start_migration_tt")
+            e.custom_tooltip("tfe_migrate_tt")
+            with e.hidden_effect() as h, h.link(ACTOR, CountryFx) as host:
+                host.tfe_start_migration_effect()
+                host.tail("scripted_effects/tfe_migratory.txt")
+                host.declare_war_with_cb(target=ROME, type="casus_belli:cb_tfe_migration")
+        a.note("Pace the chaos: one AI people on the road at a time. None moves within a year of the last host setting out\n"
                "(tfe_host_took_the_road), and then only when pushed: the Huns at the door or Rome divided. A settled AI host\n"
-               "stays settled.")
-        with d.ai_will_do() as v:
+               "stays settled. Of the Roman states, the one across the river first; a long trek only by chance.")
+        with a.effects("ai_will_do", ValueFx) as v:
             v.value(0)
             with v.if_() as i:
                 with i.limit() as t:
                     with t.not_() as n:
                         n.has_global_variable("tfe_host_took_the_road")
-                    t.at_war(False)
-                    t.not_(lambda n: n.has_variable("tfe_settled"))
+                    with t.link(ACTOR, CountryTrig) as c:
+                        c.at_war(False)
+                        c.not_(lambda n: n.has_variable("tfe_settled"))
                 i.add(5)
                 with i.if_() as j:
-                    with j.limit() as t, t.any_neighbor_country() as n:
+                    with j.limit() as t, t.link(ACTOR, CountryTrig) as c, c.any_neighbor_country() as n:
                         n.tfe_is_under_the_yoke()
                     j.add(45)
-                i.note("the empire across the river first")
                 with i.if_() as j:
-                    with j.limit() as t, t.any_neighbor_country() as n:
-                        is_target(n, tag)
+                    with j.limit() as t, t.link(ACTOR, CountryTrig) as c, c.any_neighbor_country() as n:
+                        n.compare("this", "=", ROME)
                     j.add(10)
                 with i.if_() as j:
                     with j.limit() as t:
                         with t.go_international_organization_data("tfe_roman_empire", op="?=") as io:
                             io.var("tfe_unity", "<", 50)
                     j.add(25)
-        with d.option("a", text="Take the road.") as o, o.effect() as e:
-            e.custom_tooltip("tfe_start_migration_tt")
-            e.custom_tooltip(f"tfe_migrate_{tag}_tt")
-            with e.hidden_effect() as h:
-                victim = f"c:{tag}"
-                if tag == "WRE":
-                    h.note("the western Rome the host borders, else the larger: Stilicho's West may stand beside Honorius's")
-                    with h.random_neighbor_country() as n:
-                        with n.limit() as t:
-                            t.tfe_is_western_rome()
-                        n.save_scope_as("tfe_victim")
-                    with h.if_() as i:
-                        with i.limit() as t, t.not_() as x:
-                            x.exists("scope:tfe_victim")
-                        with i.ordered_country(order_by="country_economical_base") as w:
-                            with w.limit() as t:
-                                t.tfe_is_western_rome()
-                            w.save_scope_as("tfe_victim")
-                    victim = "scope:tfe_victim"
-                h.tfe_start_migration_effect()
-                h.tail("scripted_effects/tfe_migratory.txt")
-                h.declare_war_with_cb(target=victim, type="casus_belli:cb_tfe_migration")
+    loc.add("tfe_migrate", "Migrate into Rome")
+    loc.add("tfe_migrate_desc", "We leave the lands of our fathers behind. Every warrior of our people joins the host on the "
+            "road, to take by the sword a richer home within the lands of Rome: the Empire across the river, or one far "
+            "away, or a province that has thrown off its emperor.")
+    loc.add("tfe_migrate_choose_rome", "Choose the Rome to march on")
+    loc.add("tfe_migrate_no_rome", "@trigger_no! No Roman state holds any land")
+    loc.add("tfe_migrate_tt", "#R We declare war at once on the Roman state we choose.#! Its ruler may offer us land for "
+            "our fealty.")
 
 
 def illyricum(doc: Doc):
@@ -152,27 +157,28 @@ def debug_glory(doc: Doc):
 
 
 def build():
-    """(the category file, the decisions file); both share one localisation."""
-    cats, doc = Doc(), Doc()
+    """(the category file, the decisions file, the migration's generic action); all share one localisation."""
+    cats, doc, acts = Doc(), Doc(), Doc()
     doc.note("honorius-only: Stilicho's Claims is Honorius's (tools/test_western_rome.py)")
-    cats.loc = doc.loc
+    cats.loc = acts.loc = doc.loc
+    acts.note("TFE: Migrate into Rome, a Native Decision shown in the decisions tab (written by script/decisions.py)")
+    migrate(acts, doc.loc)
     cats.note("TFE: the Fall of the West's decisions (decisions/tfe_fall_of_the_west.txt), near the top of the list.")
     cats.decision_category(CATEGORY, title="Fall of the West", sort_order=0)
     doc.note(HEADER)
-    migrate(doc, "tfe_migrate_east", "EAR")
-    migrate(doc, "tfe_migrate_west", "WRE")
     illyricum(doc)
     debug_glory(doc)
     doc.loc.add("tfe_stilicho_serves_us_tt", "Stilicho lives and serves us")
     doc.loc.add("tfe_illyricum_claim_pressed_tt", "We have not pressed Stilicho's claim in the last ten years")
-    return cats, doc
+    return cats, doc, acts
 
 
 def outputs():
     """{repo-relative path: text}; write each with encoding="utf-8-sig" (the BOM is the writer's job)."""
-    cats, doc = build()
+    cats, doc, acts = build()
     return {"in_game/common/decision_categories/tfe_decision_categories.txt": cats.text(),
             "in_game/common/decisions/tfe_fall_of_the_west.txt": doc.text(),
+            "in_game/common/generic_actions/tfe_fall_of_the_west.txt": acts.text(),
             "main_menu/localization/english/tfe_decisions_l_english.yml": doc.loc.text()}
 
 

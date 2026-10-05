@@ -58,6 +58,7 @@ tfe_africa_breaks_away = {
 			set_new_ruler = scope:tfe_usurper_ruler
 			set_variable = { name = tfe_usurper_against value = root years = 10 }
 			save_scope_as = tfe_usurper
+			set_variable = tfe_roman_successor	# born of no revolt, but Roman all the same: the peoples on the road may march on it
 		}
 	}
 	every_owned_location = {

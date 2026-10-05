@@ -60,21 +60,25 @@ def raise_host(d: Defs):
                     c.change_religion("scope:tfe_host.religion")
                     c.set_variable(name="tfe_remnant_of", value="scope:tfe_host")
                     c.save_scope_as("tfe_remnant")
-            with i.every_owned_location() as loc:
-                loc.change_location_owner("scope:tfe_remnant")
-                loc.add_core("scope:tfe_remnant")
+                    c.link("scope:tfe_host", CountryFx, lambda h: h.set_variable("tfe_left_a_remnant"))
+            i.note("a tooltip's dry run makes no country and sets no variable: without the remnant, hand nothing over\n"
+                   "(else scope:tfe_remnant is the capital, and Migrate into Rome's picker spams error.log)")
+            with i.if_() as f:
+                f.limit(lambda t: t.has_variable("tfe_left_a_remnant"))
+                with f.every_owned_location() as loc:
+                    loc.change_location_owner("scope:tfe_remnant")
+                    loc.add_core("scope:tfe_remnant")
+                f.link("scope:tfe_old_capital", LocationFx, lambda cap: cap.add_core("scope:tfe_remnant"))
+                f.tail("the capital went with the new country, before the loop: core it too")
+                f.remove_variable("tfe_left_a_remnant")
         with e.else_() as i:
             with i.every_owned_location() as loc:
                 with loc.link("scope:tfe_host", CountryFx) as host:
                     host.abandon_location("prev")
-        with e.if_() as i:
-            with i.limit() as t:
-                t.country_exists("c:EAR")
-            i.add_casus_belli(target="c:EAR", type=MIGRATION_CB)
-        e.note("and on every western Rome: Stilicho's West too, once he rises")
+        e.note("on every Roman state: either Empire, Stilicho's West, and the successors born of revolts against them")
         with e.every_country() as w:
             with w.limit() as t:
-                t.tfe_is_western_rome()
+                t.tfe_is_roman_state()
             with w.link("scope:tfe_host", CountryFx) as host:
                 host.add_casus_belli(target="prev", type=MIGRATION_CB)
         e.note("a settled host taking the road again is on the road once more: free, fed by Roman towns, settling anew")
