@@ -4,3 +4,8 @@ tfe_mission_preaching = {
 	local_tfe_nicene_movement_growth_modifier = 0.5
 	local_tfe_arian_movement_growth_modifier = 0.5
 }
+
+tfe_temples_closed = {
+	game_data = { category = country }
+	national_tfe_nicene_movement_growth_modifier = 0.5
+}

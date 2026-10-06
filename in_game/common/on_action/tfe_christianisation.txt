@@ -166,7 +166,672 @@ tfe_on_start_christianisation = {
 }
 
 yearly_country_pulse = {
-	on_actions = { tfe_on_missions_end }
+	on_actions = { tfe_on_saints tfe_on_random_missionary tfe_on_missions_end }
+}
+
+tfe_on_saints = {
+	trigger = { NOT = { has_variable = tfe_mission_to } }
+	effect = {
+		if = {
+			limit = {
+				current_date >= 395.1.1
+				current_date < 405.1.1
+				NOT = { has_global_variable = tfe_saint_martin }
+				NOT = { has_variable = tfe_mission_to }
+				religion = religion:orthodox
+				OR = {
+					location:tours = { owner ?= root }
+					AND = {
+						NOT = { location:tours.owner.religion ?= religion:orthodox }
+						any_owned_location = { region = region:france_region }
+					}
+				}
+			}
+			area:brittany_area = {
+				every_location_in_area = {
+					if = {
+						limit = { tfe_nicene_mission_field = yes }
+						add_to_temporary_list = tfe_saint_fields
+					}
+				}
+			}
+			area:orleanais_area = {
+				every_location_in_area = {
+					if = {
+						limit = { tfe_nicene_mission_field = yes }
+						add_to_temporary_list = tfe_saint_fields
+					}
+				}
+			}
+			ordered_in_list = {
+				order_by = population
+				list = tfe_saint_fields
+				save_scope_as = tfe_mission_to
+			}
+			# Martin: no pagans left there yet, so he waits (until 405, then never goes)
+			if = {
+				limit = { exists = scope:tfe_mission_to }
+				set_global_variable = tfe_saint_martin
+				location:tours = { save_scope_as = tfe_mission_from }
+				create_character = {
+					first_name = name_martin
+					age = 79
+					religion = religion:orthodox
+					estate = estate_type:clergy_estate
+					culture = root.culture
+					save_scope_as = tfe_missionary
+				}
+				if = {
+					limit = { exists = scope:tfe_missionary }
+					tfe_send_missionary_effect = yes
+				}
+			}
+		}
+		if = {
+			limit = {
+				current_date >= 396.1.1
+				current_date < 406.1.1
+				NOT = { has_global_variable = tfe_saint_nicetas }
+				NOT = { has_variable = tfe_mission_to }
+				religion = religion:orthodox
+				OR = {
+					location:nis = { owner ?= root }
+					AND = {
+						NOT = { location:nis.owner.religion ?= religion:orthodox }
+						any_owned_location = { region = region:balkan_region }
+					}
+				}
+			}
+			area:thrace_area = {
+				every_location_in_area = {
+					if = {
+						limit = { tfe_nicene_mission_field = yes }
+						add_to_temporary_list = tfe_saint_fields
+					}
+				}
+			}
+			ordered_in_list = {
+				order_by = population
+				list = tfe_saint_fields
+				save_scope_as = tfe_mission_to
+			}
+			# Nicetas: no pagans left there yet, so he waits (until 406, then never goes)
+			if = {
+				limit = { exists = scope:tfe_mission_to }
+				set_global_variable = tfe_saint_nicetas
+				location:nis = { save_scope_as = tfe_mission_from }
+				create_character = {
+					first_name = name_nicetas
+					age = 60
+					religion = religion:orthodox
+					estate = estate_type:clergy_estate
+					culture = root.culture
+					save_scope_as = tfe_missionary
+				}
+				if = {
+					limit = { exists = scope:tfe_missionary }
+					tfe_send_missionary_effect = yes
+				}
+			}
+		}
+		if = {
+			limit = {
+				current_date >= 396.1.1
+				current_date < 406.1.1
+				NOT = { has_global_variable = tfe_saint_victricius }
+				NOT = { has_variable = tfe_mission_to }
+				religion = religion:orthodox
+				OR = {
+					location:rouen = { owner ?= root }
+					AND = {
+						NOT = { location:rouen.owner.religion ?= religion:orthodox }
+						any_owned_location = { region = region:france_region }
+					}
+				}
+			}
+			area:picardy_area = {
+				every_location_in_area = {
+					if = {
+						limit = { tfe_nicene_mission_field = yes }
+						add_to_temporary_list = tfe_saint_fields
+					}
+				}
+			}
+			area:flanders_area = {
+				every_location_in_area = {
+					if = {
+						limit = { tfe_nicene_mission_field = yes }
+						add_to_temporary_list = tfe_saint_fields
+					}
+				}
+			}
+			ordered_in_list = {
+				order_by = population
+				list = tfe_saint_fields
+				save_scope_as = tfe_mission_to
+			}
+			# Victricius: no pagans left there yet, so he waits (until 406, then never goes)
+			if = {
+				limit = { exists = scope:tfe_mission_to }
+				set_global_variable = tfe_saint_victricius
+				location:rouen = { save_scope_as = tfe_mission_from }
+				create_character = {
+					first_name = name_victricius
+					age = 66
+					religion = religion:orthodox
+					estate = estate_type:clergy_estate
+					culture = root.culture
+					save_scope_as = tfe_missionary
+				}
+				if = {
+					limit = { exists = scope:tfe_missionary }
+					tfe_send_missionary_effect = yes
+				}
+			}
+		}
+		if = {
+			limit = {
+				current_date >= 402.1.1
+				current_date < 412.1.1
+				NOT = { has_global_variable = tfe_saint_porphyry }
+				NOT = { has_variable = tfe_mission_to }
+				religion = religion:orthodox
+				OR = {
+					location:jerusalem = { owner ?= root }
+					AND = {
+						NOT = { location:jerusalem.owner.religion ?= religion:orthodox }
+						any_owned_location = { region = region:crescent_region }
+					}
+				}
+			}
+			location:gaza = {
+				if = {
+					limit = { tfe_nicene_mission_field = yes }
+					add_to_temporary_list = tfe_saint_fields
+				}
+			}
+			ordered_in_list = {
+				order_by = population
+				list = tfe_saint_fields
+				save_scope_as = tfe_mission_to
+			}
+			# Porphyry: no pagans left there yet, so he waits (until 412, then never goes)
+			if = {
+				limit = { exists = scope:tfe_mission_to }
+				set_global_variable = tfe_saint_porphyry
+				location:jerusalem = { save_scope_as = tfe_mission_from }
+				create_character = {
+					first_name = name_porphyry
+					age = 55
+					religion = religion:orthodox
+					estate = estate_type:clergy_estate
+					culture = root.culture
+					save_scope_as = tfe_missionary
+				}
+				if = {
+					limit = { exists = scope:tfe_missionary }
+					tfe_send_missionary_effect = yes
+				}
+			}
+		}
+		if = {
+			limit = {
+				current_date >= 429.1.1
+				current_date < 439.1.1
+				NOT = { has_global_variable = tfe_saint_germanus }
+				NOT = { has_variable = tfe_mission_to }
+				religion = religion:orthodox
+				OR = {
+					location:auxerre = { owner ?= root }
+					AND = {
+						NOT = { location:auxerre.owner.religion ?= religion:orthodox }
+						any_owned_location = { region = region:france_region }
+					}
+				}
+			}
+			region:great_britain_region = {
+				every_location_in_region = {
+					if = {
+						limit = { tfe_nicene_mission_field = yes }
+						add_to_temporary_list = tfe_saint_fields
+					}
+				}
+			}
+			ordered_in_list = {
+				order_by = population
+				list = tfe_saint_fields
+				save_scope_as = tfe_mission_to
+			}
+			# Germanus: no pagans left there yet, so he waits (until 439, then never goes)
+			if = {
+				limit = { exists = scope:tfe_mission_to }
+				set_global_variable = tfe_saint_germanus
+				location:auxerre = { save_scope_as = tfe_mission_from }
+				create_character = {
+					first_name = name_germanus
+					age = 50
+					religion = religion:orthodox
+					estate = estate_type:clergy_estate
+					culture = root.culture
+					save_scope_as = tfe_missionary
+				}
+				if = {
+					limit = { exists = scope:tfe_missionary }
+					tfe_send_missionary_effect = yes
+				}
+			}
+		}
+		if = {
+			limit = {
+				current_date >= 432.1.1
+				current_date < 442.1.1
+				NOT = { has_global_variable = tfe_saint_patrick }
+				NOT = { has_variable = tfe_mission_to }
+				religion = religion:orthodox
+				OR = {
+					location:london = { owner ?= root }
+					AND = {
+						NOT = { location:london.owner.religion ?= religion:orthodox }
+						any_owned_location = { region = region:great_britain_region }
+					}
+				}
+			}
+			region:ireland_region = {
+				every_location_in_region = {
+					if = {
+						limit = { tfe_nicene_mission_field = yes }
+						add_to_temporary_list = tfe_saint_fields
+					}
+				}
+			}
+			ordered_in_list = {
+				order_by = population
+				list = tfe_saint_fields
+				save_scope_as = tfe_mission_to
+			}
+			# Patrick: no pagans left there yet, so he waits (until 442, then never goes)
+			if = {
+				limit = { exists = scope:tfe_mission_to }
+				set_global_variable = tfe_saint_patrick
+				location:london = { save_scope_as = tfe_mission_from }
+				create_character = {
+					first_name = name_patrick
+					age = 45
+					religion = religion:orthodox
+					estate = estate_type:clergy_estate
+					culture = root.culture
+					save_scope_as = tfe_missionary
+				}
+				if = {
+					limit = { exists = scope:tfe_missionary }
+					tfe_send_missionary_effect = yes
+				}
+			}
+		}
+		if = {
+			limit = {
+				current_date >= 454.1.1
+				current_date < 464.1.1
+				NOT = { has_global_variable = tfe_saint_severinus }
+				NOT = { has_variable = tfe_mission_to }
+				religion = religion:orthodox
+				OR = {
+					location:aquileia = { owner ?= root }
+					AND = {
+						NOT = { location:aquileia.owner.religion ?= religion:orthodox }
+						any_owned_location = { region = region:italy_region }
+					}
+				}
+			}
+			area:austria_area = {
+				every_location_in_area = {
+					if = {
+						limit = { tfe_nicene_mission_field = yes }
+						add_to_temporary_list = tfe_saint_fields
+					}
+				}
+			}
+			area:upper_austria_area = {
+				every_location_in_area = {
+					if = {
+						limit = { tfe_nicene_mission_field = yes }
+						add_to_temporary_list = tfe_saint_fields
+					}
+				}
+			}
+			area:salzburg_area = {
+				every_location_in_area = {
+					if = {
+						limit = { tfe_nicene_mission_field = yes }
+						add_to_temporary_list = tfe_saint_fields
+					}
+				}
+			}
+			ordered_in_list = {
+				order_by = population
+				list = tfe_saint_fields
+				save_scope_as = tfe_mission_to
+			}
+			# Severinus: no pagans left there yet, so he waits (until 464, then never goes)
+			if = {
+				limit = { exists = scope:tfe_mission_to }
+				set_global_variable = tfe_saint_severinus
+				location:aquileia = { save_scope_as = tfe_mission_from }
+				create_character = {
+					first_name = name_severinus
+					age = 44
+					religion = religion:orthodox
+					estate = estate_type:clergy_estate
+					culture = root.culture
+					save_scope_as = tfe_missionary
+				}
+				if = {
+					limit = { exists = scope:tfe_missionary }
+					tfe_send_missionary_effect = yes
+				}
+			}
+		}
+		if = {
+			limit = {
+				current_date >= 400.1.1
+				current_date < 420.1.1
+				NOT = { has_global_variable = tfe_saint_sigesar }
+				NOT = { has_variable = tfe_mission_to }
+				religion = religion:arianism
+				OR = {
+					location:tarnovo = { owner ?= root }
+					AND = {
+						NOT = { location:tarnovo.owner.religion ?= religion:arianism }
+						any_owned_location = { region = region:balkan_region }
+					}
+				}
+			}
+			area:silesia_area = {
+				every_location_in_area = {
+					if = {
+						limit = { tfe_arian_mission_field = yes }
+						add_to_temporary_list = tfe_saint_fields
+					}
+				}
+			}
+			area:bavaria_area = {
+				every_location_in_area = {
+					if = {
+						limit = { tfe_arian_mission_field = yes }
+						add_to_temporary_list = tfe_saint_fields
+					}
+				}
+			}
+			ordered_in_list = {
+				order_by = population
+				list = tfe_saint_fields
+				save_scope_as = tfe_mission_to
+			}
+			# Sigesar: no pagans left there yet, so he waits (until 420, then never goes)
+			if = {
+				limit = { exists = scope:tfe_mission_to }
+				set_global_variable = tfe_saint_sigesar
+				location:tarnovo = { save_scope_as = tfe_mission_from }
+				create_character = {
+					first_name = name_sigesar
+					age = 50
+					religion = religion:arianism
+					estate = estate_type:clergy_estate
+					culture = root.culture
+					save_scope_as = tfe_missionary
+				}
+				if = {
+					limit = { exists = scope:tfe_missionary }
+					tfe_send_missionary_effect = yes
+				}
+			}
+		}
+		if = {
+			limit = {
+				current_date >= 466.1.1
+				current_date < 476.1.1
+				NOT = { has_global_variable = tfe_saint_ajax }
+				NOT = { has_variable = tfe_mission_to }
+				religion = religion:arianism
+				OR = {
+					location:toulouse = { owner ?= root }
+					AND = {
+						NOT = { location:toulouse.owner.religion ?= religion:arianism }
+						any_owned_location = { region = region:france_region }
+					}
+				}
+			}
+			area:galicia_area = {
+				every_location_in_area = {
+					if = {
+						limit = { tfe_arian_mission_field = yes }
+						add_to_temporary_list = tfe_saint_fields
+					}
+				}
+			}
+			area:north_portugal_area = {
+				every_location_in_area = {
+					if = {
+						limit = { tfe_arian_mission_field = yes }
+						add_to_temporary_list = tfe_saint_fields
+					}
+				}
+			}
+			ordered_in_list = {
+				order_by = population
+				list = tfe_saint_fields
+				save_scope_as = tfe_mission_to
+			}
+			# Ajax: no pagans left there yet, so he waits (until 476, then never goes)
+			if = {
+				limit = { exists = scope:tfe_mission_to }
+				set_global_variable = tfe_saint_ajax
+				location:toulouse = { save_scope_as = tfe_mission_from }
+				create_character = {
+					first_name = name_ajax
+					age = 50
+					religion = religion:arianism
+					estate = estate_type:clergy_estate
+					culture = root.culture
+					save_scope_as = tfe_missionary
+				}
+				if = {
+					limit = { exists = scope:tfe_missionary }
+					tfe_send_missionary_effect = yes
+				}
+			}
+		}
+	}
+}
+
+tfe_on_random_missionary = {
+	trigger = {
+		NOT = { has_variable = tfe_mission_to }
+		num_locations >= 3
+		OR = {
+			AND = {
+				religion = religion:orthodox
+				tfe_nicene_mission_in_reach = yes
+			}
+			AND = {
+				religion = religion:arianism
+				tfe_arian_mission_in_reach = yes
+			}
+		}
+	}
+	effect = {
+		if = {
+			limit = { has_country_modifier = tfe_temples_closed }
+			random = {
+				chance = 10
+				if = {
+					limit = { religion = religion:orthodox }
+					every_owned_location = {
+						if = {
+							limit = { tfe_nicene_mission_field = yes }
+							add_to_temporary_list = tfe_reach_fields
+						}
+						every_neighbor_location = {
+							if = {
+								limit = { tfe_nicene_mission_field = yes }
+								add_to_temporary_list = tfe_reach_fields
+							}
+						}
+					}
+					random_in_list = {
+						weight = {
+							base = 1
+							modifier = {
+								add = population
+							}
+						}
+						list = tfe_reach_fields
+						save_scope_as = tfe_mission_to
+					}
+					if = {
+						limit = { exists = scope:tfe_mission_to }
+						capital = { save_scope_as = tfe_mission_from }
+						create_character = {
+							age = 35
+							religion = root.religion
+							estate = estate_type:clergy_estate
+							culture = root.culture
+							save_scope_as = tfe_missionary
+						}
+						if = {
+							limit = { exists = scope:tfe_missionary }
+							tfe_send_missionary_effect = yes
+						}
+					}
+				}
+				if = {
+					limit = { religion = religion:arianism }
+					every_owned_location = {
+						if = {
+							limit = { tfe_arian_mission_field = yes }
+							add_to_temporary_list = tfe_reach_fields
+						}
+						every_neighbor_location = {
+							if = {
+								limit = { tfe_arian_mission_field = yes }
+								add_to_temporary_list = tfe_reach_fields
+							}
+						}
+					}
+					random_in_list = {
+						weight = {
+							base = 1
+							modifier = {
+								add = population
+							}
+						}
+						list = tfe_reach_fields
+						save_scope_as = tfe_mission_to
+					}
+					if = {
+						limit = { exists = scope:tfe_mission_to }
+						capital = { save_scope_as = tfe_mission_from }
+						create_character = {
+							age = 35
+							religion = root.religion
+							estate = estate_type:clergy_estate
+							culture = root.culture
+							save_scope_as = tfe_missionary
+						}
+						if = {
+							limit = { exists = scope:tfe_missionary }
+							tfe_send_missionary_effect = yes
+						}
+					}
+				}
+			}
+		}
+		else = {
+			random = {
+				chance = 5
+				if = {
+					limit = { religion = religion:orthodox }
+					every_owned_location = {
+						if = {
+							limit = { tfe_nicene_mission_field = yes }
+							add_to_temporary_list = tfe_reach_fields
+						}
+						every_neighbor_location = {
+							if = {
+								limit = { tfe_nicene_mission_field = yes }
+								add_to_temporary_list = tfe_reach_fields
+							}
+						}
+					}
+					random_in_list = {
+						weight = {
+							base = 1
+							modifier = {
+								add = population
+							}
+						}
+						list = tfe_reach_fields
+						save_scope_as = tfe_mission_to
+					}
+					if = {
+						limit = { exists = scope:tfe_mission_to }
+						capital = { save_scope_as = tfe_mission_from }
+						create_character = {
+							age = 35
+							religion = root.religion
+							estate = estate_type:clergy_estate
+							culture = root.culture
+							save_scope_as = tfe_missionary
+						}
+						if = {
+							limit = { exists = scope:tfe_missionary }
+							tfe_send_missionary_effect = yes
+						}
+					}
+				}
+				if = {
+					limit = { religion = religion:arianism }
+					every_owned_location = {
+						if = {
+							limit = { tfe_arian_mission_field = yes }
+							add_to_temporary_list = tfe_reach_fields
+						}
+						every_neighbor_location = {
+							if = {
+								limit = { tfe_arian_mission_field = yes }
+								add_to_temporary_list = tfe_reach_fields
+							}
+						}
+					}
+					random_in_list = {
+						weight = {
+							base = 1
+							modifier = {
+								add = population
+							}
+						}
+						list = tfe_reach_fields
+						save_scope_as = tfe_mission_to
+					}
+					if = {
+						limit = { exists = scope:tfe_mission_to }
+						capital = { save_scope_as = tfe_mission_from }
+						create_character = {
+							age = 35
+							religion = root.religion
+							estate = estate_type:clergy_estate
+							culture = root.culture
+							save_scope_as = tfe_missionary
+						}
+						if = {
+							limit = { exists = scope:tfe_missionary }
+							tfe_send_missionary_effect = yes
+						}
+					}
+				}
+			}
+		}
+	}
 }
 
 tfe_on_missions_end = {

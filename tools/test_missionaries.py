@@ -149,3 +149,51 @@ def test_a_retired_missionary_is_killed_from_the_country():
 
 def test_the_mani_is_named_as_a_province_definition():
     assert "province_definition = province_definition:laconia_province" in MOV
+
+
+PULSE = pulse()
+
+
+def areas_and_regions():
+    t = (b.GAME / "in_game/map_data/definitions.txt").read_text(encoding="utf-8-sig")
+    return set(re.findall(r"(\w+_(?:area|region))\s*=\s*\{", t))
+
+
+def test_every_saint_starts_and_ends_somewhere_real():
+    locs, ar = locations(), areas_and_regions()
+    for s in m.SAINTS:
+        assert s.start in locs, s.key
+        for target in s.targets:
+            assert target in (ar if target.endswith(("_area", "_region")) else locs), (s.key, target)
+        assert s.faith in m.MOVEMENT
+
+
+def test_every_saint_has_a_name():
+    for s in m.SAINTS:
+        assert f"name_{s.key}" in LOC or s.key in m.VANILLA_NAMES, s.key
+
+
+def test_each_saint_goes_once_within_his_window():
+    for s in m.SAINTS:
+        assert f"tfe_saint_{s.key}" in PULSE
+        assert f"{s.year + s.wait}.1.1" in PULSE
+
+
+def test_martin_goes_in_the_first_year():
+    assert m.SAINTS[0].key == "martin" and m.SAINTS[0].year == 395
+
+
+def test_random_missionaries_are_rarer_without_the_edict():
+    rnd = PULSE.split("tfe_on_random_missionary", 1)[1]
+    assert f"chance = {m.RANDOM_CHANCE}" in rnd and f"chance = {m.RANDOM_CHANCE + m.TEMPLES_BONUS}" in rnd
+
+
+def test_one_saint_per_court_per_year():
+    """a saved scope:tfe_mission_to outlives its saint's block: the next saint must see the road is taken"""
+    guards = m.PULSES.find("has_variable", "tfe_mission_to", inside=("tfe_on_saints", "effect", "if", "limit", "NOT"))
+    assert len(guards) == len(m.SAINTS)
+
+
+def test_the_temples_closed_speed_the_nicenes():
+    assert m.MODIFIERS.find("national_tfe_nicene_movement_growth_modifier", None, inside=m.TEMPLES)
+    assert f"STATIC_MODIFIER_NAME_{m.TEMPLES}:" in LOC

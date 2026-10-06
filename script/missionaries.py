@@ -1,12 +1,15 @@
 """The Christianisation of Europe (RoadMap #30): Nicene and Arian movements (vanilla's movement engine, the Reformation's)
 carried by saints and missionaries who walk to a pagan location and preach there.
 Spec: docs/specs/2026-10-05-christianisation-design.md."""
+import functools
+import re
 import sys
 from pathlib import Path
+from typing import NamedTuple
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "tools"))
-from pdx.api import (CharacterFx, CharacterTrig, CountryFx, CountryTrig, ExpeditionFx, ExpeditionTrig, LocationFx, LocationTrig,
-                     ReligionFx, ReligionTrig)
+from pdx.api import (AreaFx, CharacterFx, CharacterTrig, CountryFx, CountryTrig, ExpeditionFx, ExpeditionTrig, LocationFx,
+                     LocationTrig, RegionFx, ReligionFx, ReligionTrig)
 from pdx.core import Q
 from pdx.objects import Doc, LocationValue, Loc
 from pdx.objects_defs import Defs
@@ -54,6 +57,35 @@ PREACHING_GROWTH = 0.5
 MAX_MISSIONS = 3
 MOVE_ON_CHANCE = 50
 NEAR_RINGS = 3  # he walks on to a field within this many steps of where he preached
+
+
+class Saint(NamedTuple):
+    key: str
+    name: str
+    faith: str
+    year: int
+    start: str
+    targets: tuple[str, ...]  # a location, an *_area or an *_region
+    age: int
+    wait: int = 10  # years he waits for a country of his faith to send him, then never goes
+
+
+SAINTS = (
+    Saint("martin", "Martin", NICENE, 395, "tours", ("brittany_area", "orleanais_area"), 79),
+    Saint("nicetas", "Nicetas", NICENE, 396, "nis", ("thrace_area",), 60),
+    Saint("victricius", "Victricius", NICENE, 396, "rouen", ("picardy_area", "flanders_area"), 66),
+    Saint("porphyry", "Porphyry", NICENE, 402, "jerusalem", ("gaza",), 55),
+    Saint("germanus", "Germanus", NICENE, 429, "auxerre", ("great_britain_region",), 50),
+    Saint("patrick", "Patrick", NICENE, 432, "london", ("ireland_region",), 45),
+    Saint("severinus", "Severinus", NICENE, 454, "aquileia", ("austria_area", "upper_austria_area", "salzburg_area"), 44),
+    Saint("sigesar", "Sigesar", ARIAN, 400, "tarnovo", ("silesia_area", "bavaria_area"), 50, wait=20),
+    Saint("ajax", "Ajax", ARIAN, 466, "toulouse", ("galicia_area", "north_portugal_area"), 50),
+)
+VANILLA_NAMES = {"martin", "nicetas", "germanus", "patrick", "severinus"}  # name_<key> is already in vanilla's loc
+RANDOM_CHANCE = 5
+TEMPLES_BONUS = 5
+TEMPLES = "tfe_temples_closed"  # Close the Temples' country modifier
+TEMPLES_GROWTH = 0.5
 
 
 def triggers():
@@ -221,8 +253,136 @@ def pulses():
         for tag in ARIAN_SEEDS:
             with e.link(f"c:{tag}", CountryFx, op="?=") as c, c.go_capital(op="?=") as cap:
                 seed(cap, ARIAN)
+    d.hook("yearly_country_pulse", "tfe_on_saints", "tfe_on_random_missionary")
+    saints(d)
+    random_missionary(d)
     end_missions(d)
     return d
+
+
+@functools.cache
+def region_of(location: str) -> str:
+    import borders as b  # numpy, so only when asked
+    path: list[str] = []
+    for tok in re.finditer(r"(\w+)\s*=\s*\{|\}|(\w+)", (b.GAME / "in_game/map_data/definitions.txt").read_text(encoding="utf-8-sig")):
+        if tok.group(1):
+            path.append(tok.group(1))
+        elif tok.group(0) == "}":
+            path.pop()
+        elif tok.group(2) == location:
+            return next(p for p in reversed(path) if p.endswith("_region"))
+    raise KeyError(location)
+
+
+def each_target(fx: CountryFx, s: Saint, body):
+    """run body(location scope) on every location among the saint's targets"""
+    for target in s.targets:
+        if target.endswith("_area"):
+            with fx.link(f"area:{target}", AreaFx) as ar, ar.every_location_in_area() as loc:
+                body(loc)
+        elif target.endswith("_region"):
+            with fx.link(f"region:{target}", RegionFx) as rg, rg.every_location_in_region() as loc:
+                body(loc)
+        else:
+            with fx.link(f"location:{target}", LocationFx) as loc:
+                body(loc)
+
+
+def send_saint(fx: CountryFx, s: Saint):
+    """the saint sets out from his own town, sent by the country of his faith that holds it or that rules its region"""
+    flag = f"tfe_saint_{s.key}"
+    with fx.if_() as i:
+        with i.limit() as t:
+            t.current_date(f"{s.year}.1.1", op=">=")
+            t.current_date(f"{s.year + s.wait}.1.1", op="<")
+            t.not_(lambda n: n.has_global_variable(flag))
+            t.not_(lambda n: n.has_variable("tfe_mission_to"))  # an earlier saint set out this pulse
+            t.compare("religion", "=", f"religion:{s.faith}")
+            with t.or_() as o:
+                o.link(f"location:{s.start}", LocationTrig, lambda l: l.compare("owner", "?=", "root"))
+                with o.and_() as a:
+                    a.not_(lambda n: n.compare(f"location:{s.start}.owner.religion", "?=", f"religion:{s.faith}"))
+                    with a.any_owned_location() as loc:
+                        loc.compare("region", "=", f"region:{region_of(s.start)}")
+
+        def add(loc: LocationFx):
+            with loc.if_() as f:
+                f.limit(lambda t: t._call(FIELD[s.faith], True))
+                f.add_to_temporary_list("tfe_saint_fields")
+        each_target(i, s, add)
+        with i.ordered_in_list(LocationFx, list="tfe_saint_fields", order_by="population") as to:
+            to.save_scope_as("tfe_mission_to")
+        i.note(f"{s.name}: no pagans left there yet, so he waits (until {s.year + s.wait}, then never goes)")
+        with i.if_() as g:
+            g.limit(lambda t: t.exists("scope:tfe_mission_to"))
+            g.set_global_variable(flag)
+            with g.link(f"location:{s.start}", LocationFx) as frm:
+                frm.save_scope_as("tfe_mission_from")
+            g.create_character(first_name=f"name_{s.key}", religion=f"religion:{s.faith}", culture="root.culture",
+                               estate="estate_type:clergy_estate", age=s.age, save_scope_as="tfe_missionary")
+            with g.if_() as h:
+                h.limit(lambda t: t.exists("scope:tfe_missionary"))
+                h.tfe_send_missionary_effect(True)
+
+
+def saints(d: Defs):
+    with d.on_action("tfe_on_saints") as a:
+        with a.trigger(CountryTrig) as t:
+            t.not_(lambda n: n.has_variable("tfe_mission_to"))
+        with a.effect(CountryFx) as e:
+            for s in SAINTS:
+                send_saint(e, s)
+
+
+def fields_in_reach(fx: CountryFx, faith: str, name: str):
+    """every field the country owns or borders, into the temporary list `name`"""
+    with fx.every_owned_location() as loc:
+        with loc.if_() as i:
+            i.limit(lambda t: t._call(FIELD[faith], True))
+            i.add_to_temporary_list(name)
+        with loc.every_neighbor_location() as n, n.if_() as i:
+            i.limit(lambda t: t._call(FIELD[faith], True))
+            i.add_to_temporary_list(name)
+
+
+def new_missionary(fx: CountryFx):
+    """a generated priest of the country's faith and people sets out from its capital for scope:tfe_mission_to"""
+    with fx.if_() as i:
+        i.limit(lambda t: t.exists("scope:tfe_mission_to"))
+        with i.go_capital() as cap:
+            cap.save_scope_as("tfe_mission_from")
+        i.create_character(religion="root.religion", culture="root.culture", estate="estate_type:clergy_estate", age=35,
+                           save_scope_as="tfe_missionary")
+        with i.if_() as g:
+            g.limit(lambda t: t.exists("scope:tfe_missionary"))
+            g.tfe_send_missionary_effect(True)
+
+
+def random_missionary(d: Defs):
+    """now and then a Christian court with pagans in reach sends a priest of its own; more often with the temples closed"""
+    with d.on_action("tfe_on_random_missionary") as a:
+        with a.trigger(CountryTrig) as t:
+            t.not_(lambda n: n.has_variable("tfe_mission_to"))
+            t.num_locations(3, op=">=")
+            with t.or_() as o:
+                for faith in MOVEMENT:
+                    with o.and_() as x:
+                        x.compare("religion", "=", f"religion:{faith}")
+                        x._call(IN_REACH[faith], True)
+        with a.effect(CountryFx) as e:
+            for closed, chance in ((True, RANDOM_CHANCE + TEMPLES_BONUS), (False, RANDOM_CHANCE)):
+                with (e.if_() if closed else e.else_()) as i:
+                    if closed:
+                        i.limit(lambda t: t.has_country_modifier(TEMPLES))
+                    with i.random(chance) as r:
+                        for faith in MOVEMENT:
+                            with r.if_() as f:
+                                f.limit(lambda t, faith=faith: t.compare("religion", "=", f"religion:{faith}"))
+                                fields_in_reach(f, faith, "tfe_reach_fields")
+                                with f.random_in_list(LocationFx, list="tfe_reach_fields",
+                                                      weight={"base": 1, "modifier": {"add": "population"}}) as to:
+                                    to.save_scope_as("tfe_mission_to")
+                                new_missionary(f)
 
 
 def spreader(fx: CountryFx, add: bool):
@@ -291,7 +451,7 @@ def arrive(fx: CountryFx):
             leader.save_scope_as("tfe_missionary")
         with i.link("var:tfe_mission_to", LocationFx) as to:
             to.save_scope_as("tfe_mission_at")
-        i._call("tfe_preach_effect", True)
+        i.tfe_preach_effect(True)
     fx.remove_variable("tfe_mission_from")
     fx.remove_variable("tfe_mission_to")
 
@@ -352,7 +512,7 @@ def end_missions(d: Defs):
         with c.link("var:tfe_mission_at", LocationFx) as at:
             at.save_scope_as("tfe_mission_from")
         with c.link("root", CountryFx) as r:
-            r._call("tfe_end_mission_effect", True)
+            r.tfe_end_mission_effect(True)
             for faith in MOVEMENT:
                 with r.if_() as i:
                     with i.limit() as t:
@@ -367,7 +527,7 @@ def end_missions(d: Defs):
                         with go.if_() as s:
                             with s.limit() as t:
                                 t.exists("scope:tfe_mission_to")
-                            s._call("tfe_send_missionary_effect", True)
+                            s.tfe_send_missionary_effect(True)
             r.note("a kill in the character's own scope fails PostValidate (probe): kill from the country")
             with r.if_() as i:
                 with i.limit() as t, t.link("scope:tfe_missionary", CharacterTrig) as who:
@@ -380,7 +540,7 @@ def end_missions(d: Defs):
         with a.effect(CountryFx) as e:
             with e.link("scope:target", CharacterFx) as dead:
                 dead.save_scope_as("tfe_missionary")
-            e._call("tfe_end_mission_effect", True)
+            e.tfe_end_mission_effect(True)
 
 
 def build():
@@ -392,6 +552,9 @@ def build():
     types.note("TFE: the movements' growth modifiers (written by script/missionaries.py)")
     icons.note("TFE: the movements' growth modifiers (written by script/missionaries.py)")
     growth_types(types, icons, movements.loc)
+    for s in SAINTS:
+        if s.key not in VANILLA_NAMES:
+            movements.loc.add(f"name_{s.key}", s.name)
     return movements, types, icons
 
 
@@ -403,6 +566,9 @@ def static_modifiers(loc: Loc):
                   local_tfe_arian_movement_growth_modifier=PREACHING_GROWTH)
     loc.add(f"STATIC_MODIFIER_NAME_{PREACHING}", "A Missionary Preaches")
     loc.add(f"STATIC_MODIFIER_DESC_{PREACHING}", "A man of God has come to live among these people, and they come to hear him.")
+    mods.modifier(TEMPLES, category="country", national_tfe_nicene_movement_growth_modifier=TEMPLES_GROWTH)
+    loc.add(f"STATIC_MODIFIER_NAME_{TEMPLES}", "The Temples Closed")
+    loc.add(f"STATIC_MODIFIER_DESC_{TEMPLES}", "The edicts against the sacrifices are enforced in our lands.")
     return mods
 
 
