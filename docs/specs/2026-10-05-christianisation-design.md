@@ -15,7 +15,8 @@ has to be enabled mid-game.
 ## Decisions taken
 
 - Two rival movements, Nicene and Arian. No pagan revival.
-- No situation. The movements bring their own map mode, spread breakdown and "reached your country" event.
+- No situation. The movements bring their own map mode and spread breakdown. Vanilla's "reached your country" event
+  (`movements.20`) is written for Hellenism, so there is none.
 - Missionaries are expeditions that walk to a target and preach **only once they arrive**: one spreader, pinned to
   the destination. The walk is for show and timing. Nothing spreads along the road.
 - Historical saints on their dates, plus randomly generated missionaries.
@@ -36,11 +37,13 @@ once on day one (section 4).
 - The Christian heresies (Donatists, Priscillianists, Montanists, Manichaeans, Messalians) are left out. Folding them
   in is the job of the church councils (RoadMap #8).
 - `specific_pop_type_effect`: burghers ×1.5, clergy ×0.5 (the pagan priesthood holds out), nobles ×0.7 (Symmachus'
-  senate), peasants ×1, tribesmen ×0.8, slaves ×0.5, Arians ×0.3 (a Goth does not give up Ulfilas' Bible easily).
+  senate), peasants ×1, laborers ×1, soldiers ×0.8, tribesmen ×0.8, slaves ×0.5, Arians ×0.3 (a Goth does not give
+  up Ulfilas' Bible easily). Every pop type is listed: a movement skips any pop type it does not name.
 - `development = positive`, `literacy = positive`, `pop_satisfaction = negative`.
 - `r0`: a small base rate, multiplied up for a town or city rank, an owner whose state faith is Nicene, a bishop's
   see (the patriarchal and metropolitan cities listed in section 4) and a Nicene-majority neighbour. Divided by 2
-  where the owner is pagan.
+  where the owner is pagan, and ×0.3 at a cult centre while its dominant faith is pagan (section 3). The base is
+  0.002 (Arian 0.0016): the probe's 0.012 doubled the Nicene-majority locations in two years.
 - `location_spread_threshold = 0.05`.
 
 ### `tfe_arian_movement`, religion `arianism`
@@ -49,7 +52,8 @@ once on day one (section 4).
   left to the Nicenes.
 - Nicene pops convert only under an Arian king (Huneric's Vandal persecution). `r0` is multiplied by 0 in a location
   whose owner is not Arian and whose dominant faith is Nicene, and Nicene pops take ×0.2 even under an Arian owner.
-- Its strongest vector is the court: nobles ×1.5, tribesmen ×1.2, peasants ×1, burghers ×0.5.
+- Its strongest vector is the court: nobles ×1.5, tribesmen ×1.2, soldiers ×1.2 (the Gothic army was Arian),
+  peasants ×1, laborers ×0.8, burghers ×0.5.
 - `r0` is multiplied up where the owner's state faith is Arian and next to an Arian-majority location.
 
 ### Pacing targets (tuned in game)
@@ -85,22 +89,22 @@ A copy of `tfe_wandering_people` (`in_game/common/expedition_types/tfe_peoples.t
 ### Historical saints
 
 Each is spawned once, on or after its year, by a hidden yearly pulse. Each needs its target to be still mostly pagan
-(otherwise skipped) and its sender (the owner of the start location, or the nearest Christian country of the right
-faith) to exist.
+(otherwise skipped) and a sender: the owner of the start location if it has the saint's faith, or else any country of
+his faith holding land in the start location's region. If there is none, he waits, then is skipped.
 
 | Saint | Faith | Year | From → to |
 |-------|-------|------|-----------|
 | Martin of Tours | Nicene | 395 | Tours → the Gaulish countryside (an Armorican or Belgic pagan location) |
 | Nicetas of Remesiana | Nicene | 396 | Remesiana → the Bessi of Thrace |
 | Victricius of Rouen | Nicene | 396 | Rouen → the Morini and Nervii (Belgica) |
-| Porphyry of Gaza | Nicene | 402 | Caesarea → Gaza |
+| Porphyry of Gaza | Nicene | 402 | Jerusalem → Gaza (Caesarea has no location in EU5) |
 | Germanus of Auxerre | Nicene | 429 | Auxerre → Britain |
 | Patrick | Nicene | 432 | Britain → Ireland |
 | Severinus | Nicene | 454 | → Noricum |
 | a Gothic bishop | Arian | 400–420 | a Gothic land → the Vandals or Burgundians (whichever is still pagan) |
 | Ajax the Galatian | Arian | 466 | → the Suebi of Gallaecia |
 
-Each saint is a `create_character` in the clergy estate with the faith, culture, birth date and a portrait trait.
+Each saint is a `create_character` in the clergy estate with his faith and age, and his sender's culture.
 Dates are paced for fun: a saint whose target has already turned waits up to 10 years for a new one, then is skipped.
 
 ### Random missionaries
@@ -109,12 +113,12 @@ A yearly hidden pulse for each country whose state faith is Nicene or Arian, wit
 pagan-majority location in reach. **In reach** means owned by the country or bordering a location it owns; pagan
 means a faith in that movement's `required_religions` other than the rival Christian one. With a 5%
 chance, plus 5% under Close the Temples, it creates a clergy character with a generated name, of the country's
-faith and culture, and sends them to the nearest such location. AI and players alike. At most one missionary per
+faith and culture, and sends them to a random such location, weighted by population (EU5 has no cheap distance). AI and players alike. At most one missionary per
 country walking at a time.
 
 ## 3. Levers
 
-### Sponsor a Mission (Native decision, Christian Faiths category)
+### Sponsor a Mission (Native decision, The Faith category)
 
 - Shown to a country whose state faith is Nicene or Arian and that has a pagan-majority location in reach (section 2).
 - Costs gold scaled by income (the same rule as Invite Germanic Settlers: a few months' income, with a floor) and
@@ -130,26 +134,27 @@ country walking at a time.
 - Shown to a country whose state faith is Nicene and that is a Roman state (`tfe_is_roman_empire`, the shared
   trigger), and that has no Close the Temples running.
 - Gives 10 years of `national_tfe_nicene_movement_growth_modifier` +50% and +5% to the random-missionary chance.
-  Pagan pops lose satisfaction for the same 10 years.
-- On taking it, each of the country's pagan-majority areas has a 25% chance of a pagan rising: its pagan pops lose a
-  further 20% satisfaction for 2 years, which feeds vanilla's own unrest and revolts. This is the Theodosian edicts of
+  Every pagan pop in the country loses 10% satisfaction once, when it is taken (EU5 has no modifier for one
+  religion's satisfaction); it drifts back as vanilla satisfaction does.
+- On taking it, each of the country's pagan-majority locations has a 25% chance of a pagan rising: its pagan pops
+  lose a further 25% satisfaction once, which feeds vanilla's own unrest and revolts. This is the Theodosian edicts of
   391–392, which closed the temples.
 - The AI takes it at stability 50 or more and when not at war.
 
 ### Pagan resistance
 
-- A location modifier, set on day one, on the cult centres of `tools/religions.txt` (Harran, Baalbek, Gaza, Aswan
-  for Philae, and the locations of Laconia and Attica): `local_tfe_nicene_movement_resistance_modifier`. It lapses
-  once the location is Nicene-majority.
-- A smaller version applies to every pagan-majority location whose owner's state faith is pagan.
+- The cult centres of `tools/religions.txt` (Harran, Baalbek, Gaza, Aswan for Philae, Athens, and the locations of
+  Laconia) resist through the Nicene `r0`, ×0.3 while their dominant faith is pagan. It lapses by itself, so no
+  modifier and no day-one seeding are needed.
+- A pagan owner already halves `r0` (section 1), so there is no second, smaller version.
 
 ## 4. Seeding on day one (`on_game_start`, in `script/missionaries.py`)
 
 - `spawn_movement` for `tfe_nicene_movement` at each see: Rome, Constantinople, Alexandria, Antioch, Carthage,
-  Milan, Trier, Arles, Thessalonica, Ephesus and Caesarea. `supporters` is the location's Nicene population, so
+  Milan, Trier, Arles, Thessalonica, Ephesus and Jerusalem. `supporters` is the location's Nicene population, so
   nothing converts on day one.
 - `spawn_movement` for `tfe_arian_movement` in the capitals of the Arian peoples (VIS, GEP, RUG, SCR, HAS).
-- Martin of Tours (alive and 79 in 395) starts as a spreader at Tours.
+- Martin of Tours (alive and 79 in 395) is not seeded: he sets out in 395 like any saint, within the first year.
 
 ## 5. A pagan king converts (`tfe_conversion.1`)
 
@@ -165,7 +170,7 @@ country walking at a time.
 
 | File | What |
 |------|------|
-| `script/missionaries.py` (new) | movements, expedition type, saints, random missionaries, decisions, resistance modifiers, conversion event, loc |
+| `script/missionaries.py` (new) | movements, expedition type, saints, random missionaries, decisions, conversion event, loc |
 | `in_game/common/movements/tfe_christianisation.txt` | generated |
 | `in_game/common/expedition_types/tfe_missionaries.txt` | generated |
 | `in_game/common/decisions/tfe_christianisation.txt` | generated |
@@ -184,7 +189,7 @@ follow `peoples_on_the_road.py`.
   saint's start and target locations exist; `lint_refs` is clean (events, loc, scopes).
 - `pyright`, then `tools/lint_script.py`.
 - In game (Linux, `tools/eu5ctl.sh`, speed 5):
-  1. On day one, the movements map mode shows both movements at their seeds, and Martin is a spreader at Tours.
+  1. On day one, the movements map mode shows both movements at their seeds, and Martin sets out from Tours within the first year.
   2. A console-started missionary walks to a pagan location and becomes its spreader on arrival (a variable probe),
      then is removed when his stay ends.
   3. An observer run to about 500, with movement-map screenshots at 400, 450 and 500 and a save trace of Nicene,
