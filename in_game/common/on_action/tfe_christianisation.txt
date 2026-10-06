@@ -166,7 +166,7 @@ tfe_on_start_christianisation = {
 }
 
 yearly_country_pulse = {
-	on_actions = { tfe_on_saints tfe_on_random_missionary tfe_on_missions_end }
+	on_actions = { tfe_on_saints tfe_on_random_missionary tfe_on_pagan_king tfe_on_missions_end }
 }
 
 tfe_on_saints = {
@@ -831,6 +831,20 @@ tfe_on_random_missionary = {
 				}
 			}
 		}
+	}
+}
+
+tfe_on_pagan_king = {
+	trigger = {
+		religion = {
+			tfe_is_pagan_religion = yes
+		}
+		tfe_christian_share > 0.5
+		NOT = { has_variable = tfe_conversion_asked }
+	}
+	effect = {
+		set_variable = { name = tfe_conversion_asked years = 10 }
+		trigger_event_non_silently = tfe_conversion.1
 	}
 }
 

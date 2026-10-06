@@ -9,3 +9,15 @@ tfe_temples_closed = {
 	game_data = { category = country }
 	national_tfe_nicene_movement_growth_modifier = 0.5
 }
+
+tfe_new_faith_resented = {
+	game_data = { category = country }
+	nobles_estate_target_satisfaction = -0.1
+}
+
+tfe_old_gods_kept = {
+	game_data = { category = country }
+	clergy_estate_target_satisfaction = 0.1
+	national_tfe_nicene_movement_growth_modifier = 0.25
+	national_tfe_arian_movement_growth_modifier = 0.25
+}

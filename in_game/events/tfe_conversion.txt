@@ -1,0 +1,39 @@
+﻿namespace = tfe_conversion
+
+# A pagan king whose people have mostly turned Christian (on_action/tfe_christianisation.txt asks once a decade)
+tfe_conversion.1 = {
+	type = country_event
+	title = tfe_conversion.1.title
+	desc = tfe_conversion.1.desc
+	outcome = neutral
+	image = "gfx/interface/illustrations/event/backgrounds/interior/byz_clergy_interior.dds"
+	immediate = {
+		# the larger of the two churches; the scope is made here, not passed in (a saved scope can go missing)
+		if = {
+			limit = { "religion_percentage_in_country(religion:orthodox)" >= "religion_percentage_in_country(religion:arianism)" }
+			religion:orthodox = { save_scope_as = tfe_new_faith }
+		}
+		else = {
+			religion:arianism = { save_scope_as = tfe_new_faith }
+		}
+	}
+	option = {
+		name = tfe_conversion.1.a
+		change_religion = scope:tfe_new_faith
+		change_religion_for_ruler_and_family = { country = root religion = scope:tfe_new_faith }
+		add_stability = 10
+		add_country_modifier = { modifier = tfe_new_faith_resented years = 10 }
+		ai_chance = {
+			base = 1
+			modifier = {
+				factor = 3
+				tfe_christian_share > 0.7
+			}
+		}
+	}
+	option = {
+		name = tfe_conversion.1.b
+		add_country_modifier = { modifier = tfe_old_gods_kept years = 10 }
+		ai_chance = { base = 1 }
+	}
+}

@@ -9,3 +9,9 @@ tfe_mission_price_twice = {
 	value = tfe_mission_price
 	multiply = 2
 }
+
+# the share of a country's people who are Christian, of either church
+tfe_christian_share = {
+	value = "religion_percentage_in_country(religion:orthodox)"
+	add = "religion_percentage_in_country(religion:arianism)"
+}

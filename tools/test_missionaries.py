@@ -222,3 +222,24 @@ def test_close_the_temples_is_for_a_nicene_rome():
 def test_close_the_temples_angers_the_pagans_and_can_raise_them():
     eff = decisions().split("tfe_close_the_temples", 1)[1]
     assert "add_pop_satisfaction" in eff and f"chance = {m.RISING_CHANCE}" in eff
+
+
+def conversion():
+    return OUT["in_game/events/tfe_conversion.txt"]
+
+
+def test_a_pagan_king_is_asked_once_a_decade_when_his_people_have_turned():
+    king = pulse().split("tfe_on_pagan_king = {", 1)[1]
+    assert "tfe_christian_share > 0.5" in king and "tfe_conversion_asked" in king
+    assert f"years = {m.CONVERSION_EVERY}" in king
+
+
+def test_taking_the_faith_changes_the_king_too():
+    a = conversion().split("option", 1)[1].split("option", 1)[0]
+    assert "change_religion = scope:tfe_new_faith" in a and "change_religion_for_ruler_and_family" in a
+
+
+def test_holding_out_speeds_the_drift():
+    assert "tfe_old_gods_kept" in conversion()
+    for key in m.MOVEMENT.values():
+        assert m.MODIFIERS.find(f"national_{key}_growth_modifier", None, inside="tfe_old_gods_kept"), key

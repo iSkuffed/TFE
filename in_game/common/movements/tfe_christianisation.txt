@@ -125,7 +125,7 @@ tfe_nicene_movement = {
 	}
 	map_color = {
 		if = {
-			limit = { religion_percentage(religion:orthodox) = 0 }
+			limit = { "religion_percentage(religion:orthodox)" = 0 }
 			value = define:NMapColors|MAP_COLOR_NULL
 		}
 		else_if = {
@@ -133,7 +133,7 @@ tfe_nicene_movement = {
 			value = define:NMapColors|MAP_COLOR_HIGH
 		}
 		else_if = {
-			limit = { religion_percentage(religion:orthodox) > 0.05 }
+			limit = { "religion_percentage(religion:orthodox)" > 0.05 }
 			value = define:NMapColors|MAP_COLOR_MID
 		}
 		else = {
@@ -253,7 +253,7 @@ tfe_arian_movement = {
 	}
 	map_color = {
 		if = {
-			limit = { religion_percentage(religion:arianism) = 0 }
+			limit = { "religion_percentage(religion:arianism)" = 0 }
 			value = define:NMapColors|MAP_COLOR_NULL
 		}
 		else_if = {
@@ -261,7 +261,7 @@ tfe_arian_movement = {
 			value = define:NMapColors|MAP_COLOR_HIGH
 		}
 		else_if = {
-			limit = { religion_percentage(religion:arianism) > 0.05 }
+			limit = { "religion_percentage(religion:arianism)" > 0.05 }
 			value = define:NMapColors|MAP_COLOR_MID
 		}
 		else = {

@@ -86,13 +86,17 @@ RANDOM_CHANCE = 5
 TEMPLES_BONUS = 5
 TEMPLES = "tfe_temples_closed"  # Close the Temples' country modifier
 TEMPLES_GROWTH = 0.5
+RESENTED = "tfe_new_faith_resented"  # the king took the cross
+KEPT = "tfe_old_gods_kept"  # the king kept the gods
 CATEGORY = "tfe_the_faith"
 EXT = "gfx/interface/illustrations/event/backgrounds/exterior/"
+INT = "gfx/interface/illustrations/event/backgrounds/interior/"
 MISSION_INCOME_MONTHS = 6
 MISSION_MIN_GOLD = 50
 MISSION_COOLDOWN = 5
 TEMPLES_YEARS = 10
 RISING_CHANCE = 25
+CONVERSION_EVERY = 10
 
 
 def triggers():
@@ -263,6 +267,7 @@ def pulses():
     d.hook("yearly_country_pulse", "tfe_on_saints", "tfe_on_random_missionary")
     saints(d)
     random_missionary(d)
+    pagan_king(d)
     end_missions(d)
     return d
 
@@ -550,6 +555,51 @@ def end_missions(d: Defs):
             e.tfe_end_mission_effect(True)
 
 
+def conversion_event(loc: Loc):
+    doc = Doc()
+    doc.loc = loc
+    doc.namespace("tfe_conversion")
+    doc.note("A pagan king whose people have mostly turned Christian (on_action/tfe_christianisation.txt asks once a decade)")
+    with doc.event(1, type="country_event", title="The King and the Cross", outcome="neutral",
+                   desc="Most of our people now pray to the Christ, in our villages as in our towns, and their priests "
+                        "ask why the king still sacrifices to gods his people have left. Clovis's bishops would say a "
+                        "king who kneels at the font wins a kingdom. Our own priests say a king who betrays the gods "
+                        "loses his luck.",
+                   image=INT + "byz_clergy_interior.dds") as e:
+        with e.immediate() as i:
+            i.note("the larger of the two churches; the scope is made here, not passed in (a saved scope can go missing)")
+            with i.if_() as f:
+                f.limit(lambda t: t.compare(Q(f"religion_percentage_in_country(religion:{NICENE})"), ">=",
+                                            Q(f"religion_percentage_in_country(religion:{ARIAN})")))
+                f.link(f"religion:{NICENE}", ReligionFx, lambda r: r.save_scope_as("tfe_new_faith"))
+            with i.else_() as f:
+                f.link(f"religion:{ARIAN}", ReligionFx, lambda r: r.save_scope_as("tfe_new_faith"))
+        with e.option("a", text="Kneel at the font.") as o:
+            o.change_religion("scope:tfe_new_faith")
+            o.change_religion_for_ruler_and_family(country="root", religion="scope:tfe_new_faith")
+            o.add_stability(10)
+            o.add_country_modifier(modifier=RESENTED, years=CONVERSION_EVERY)
+            with o.ai_chance_block(1) as ai, ai.modifier(3) as t:
+                t.compare("tfe_christian_share", ">", 0.7)
+        with e.option("b", text="We keep faith with the gods of our fathers.") as o:
+            o.add_country_modifier(modifier=KEPT, years=CONVERSION_EVERY)
+            o.ai_chance(1)
+    return doc
+
+
+def pagan_king(d: Defs):
+    """a pagan king whose people have mostly turned is asked once a decade whether to follow them"""
+    d.hook("yearly_country_pulse", "tfe_on_pagan_king")
+    with d.on_action("tfe_on_pagan_king") as a:
+        with a.trigger(CountryTrig) as t:
+            t.link("religion", ReligionTrig, lambda r: r.tfe_is_pagan_religion(True))
+            t.compare("tfe_christian_share", ">", 0.5)
+            t.not_(lambda n: n.has_variable("tfe_conversion_asked"))
+        with a.effect(CountryFx) as e:
+            e.set_variable(name="tfe_conversion_asked", years=CONVERSION_EVERY)
+            e.trigger_event_non_silently("tfe_conversion.1")
+
+
 def values():
     d = Doc()
     d.note("TFE: the price of a mission, half a year of trade and tax (written by script/missionaries.py)")
@@ -560,6 +610,10 @@ def values():
     with d.entry("tfe_mission_price_twice") as e:
         e.field("value", "tfe_mission_price")
         e.field("multiply", 2)
+    d.note("the share of a country's people who are Christian, of either church")
+    with d.entry("tfe_christian_share") as e:
+        e.field("value", Q(f"religion_percentage_in_country(religion:{NICENE})"))
+        e.field("add", Q(f"religion_percentage_in_country(religion:{ARIAN})"))
     return d
 
 
@@ -686,6 +740,14 @@ def static_modifiers(loc: Loc):
     mods.modifier(TEMPLES, category="country", national_tfe_nicene_movement_growth_modifier=TEMPLES_GROWTH)
     loc.add(f"STATIC_MODIFIER_NAME_{TEMPLES}", "The Temples Closed")
     loc.add(f"STATIC_MODIFIER_DESC_{TEMPLES}", "The edicts against the sacrifices are enforced in our lands.")
+    mods.modifier(RESENTED, category="country", nobles_estate_target_satisfaction=-0.1)
+    loc.add(f"STATIC_MODIFIER_NAME_{RESENTED}", "The Old Gods Abandoned")
+    loc.add(f"STATIC_MODIFIER_DESC_{RESENTED}", "The nobles who kept the sacrifices with their king resent the font.")
+    mods.modifier(KEPT, category="country", clergy_estate_target_satisfaction=0.1,
+                  national_tfe_nicene_movement_growth_modifier=0.25, national_tfe_arian_movement_growth_modifier=0.25)
+    loc.add(f"STATIC_MODIFIER_NAME_{KEPT}", "The Old Gods Kept")
+    loc.add(f"STATIC_MODIFIER_DESC_{KEPT}", "The priests of the old gods rejoice, but the people drift to the Christ all "
+            "the same.")
     return mods
 
 
@@ -693,6 +755,7 @@ MOVEMENTS, TYPES, ICONS = build()
 MODIFIERS = static_modifiers(MOVEMENTS.loc)
 CATEGORIES, DECISIONS = faith_decisions(MOVEMENTS.loc)
 VALUES = values()
+CONVERSION = conversion_event(MOVEMENTS.loc)
 EXPEDITION = Doc()
 EXPEDITION.loc = MOVEMENTS.loc
 expedition(EXPEDITION)
@@ -714,4 +777,5 @@ def outputs():
             "in_game/common/decision_categories/tfe_christianisation.txt": CATEGORIES.text(),
             "in_game/common/decisions/tfe_christianisation.txt": DECISIONS.text(),
             "in_game/common/script_values/tfe_christianisation.txt": VALUES.text(),
+            "in_game/events/tfe_conversion.txt": CONVERSION.text(),
             "main_menu/localization/english/tfe_christianisation_l_english.yml": MOVEMENTS.loc.text()}

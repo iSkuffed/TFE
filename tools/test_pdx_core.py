@@ -149,3 +149,9 @@ def test_doc_and_defs_are_queryable():
     with f.effect("tfe_x", CountryFx) as x:
         x.add_gold(5)
     assert [n.val for n in f.find("add_gold", inside="tfe_x")] == ["5"]
+
+
+def test_a_quoted_left_side_stays_quoted():
+    """vanilla always writes `"religion_percentage_in_country(religion:x)" > 0.5` quoted"""
+    out = built(lambda s: s._cmp(Q("religion_percentage(religion:orthodox)"), ">", 0.5))
+    assert out == '"religion_percentage(religion:orthodox)" > 0.5\n'
