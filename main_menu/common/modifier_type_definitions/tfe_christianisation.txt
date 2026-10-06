@@ -1,0 +1,20 @@
+﻿# TFE: the movements' growth modifiers (written by script/missionaries.py)
+local_tfe_nicene_movement_growth_modifier = {
+	percent = yes
+	game_data = { category = location }
+}
+
+national_tfe_nicene_movement_growth_modifier = {
+	percent = yes
+	game_data = { category = country }
+}
+
+local_tfe_arian_movement_growth_modifier = {
+	percent = yes
+	game_data = { category = location }
+}
+
+national_tfe_arian_movement_growth_modifier = {
+	percent = yes
+	game_data = { category = country }
+}

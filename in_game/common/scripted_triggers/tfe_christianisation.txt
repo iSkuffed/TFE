@@ -1,0 +1,60 @@
+﻿# TFE: the Christianisation of Europe. Written from script/missionaries.py.
+# religion scope: gods the tfe_nicene_movement converts from
+tfe_is_pagan_religion = {
+	OR = {
+		this = religion:religio_romana
+		this = religion:hellenism_religion
+		this = religion:celtic_paganism
+		this = religion:illyrian_paganism
+		this = religion:zalmoxism
+		this = religion:basque_paganism
+		this = religion:nuragic_religion
+		this = religion:armazi_religion
+		this = religion:kushite_religion
+		this = religion:arabian_paganism
+		this = religion:godala_religion
+		this = religion:norse
+		this = religion:slavic_paganism
+		this = religion:alan_paganism
+	}
+}
+
+# religion scope: gods the tfe_arian_movement converts from
+tfe_is_arian_pagan_religion = {
+	OR = {
+		this = religion:norse
+		this = religion:slavic_paganism
+		this = religion:zalmoxism
+		this = religion:alan_paganism
+	}
+}
+
+# location: a place the Nicene Christianity missionaries would preach in, its people mostly keeping those gods
+tfe_nicene_mission_field = {
+	dominant_religion ?= { tfe_is_pagan_religion = yes }
+}
+
+# country: a field it owns or borders
+tfe_nicene_mission_in_reach = {
+	any_owned_location = {
+		OR = {
+			tfe_nicene_mission_field = yes
+			any_neighbor_location = { tfe_nicene_mission_field = yes }
+		}
+	}
+}
+
+# location: a place the Arian Christianity missionaries would preach in, its people mostly keeping those gods
+tfe_arian_mission_field = {
+	dominant_religion ?= { tfe_is_arian_pagan_religion = yes }
+}
+
+# country: a field it owns or borders
+tfe_arian_mission_in_reach = {
+	any_owned_location = {
+		OR = {
+			tfe_arian_mission_field = yes
+			any_neighbor_location = { tfe_arian_mission_field = yes }
+		}
+	}
+}

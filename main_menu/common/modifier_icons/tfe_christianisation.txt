@@ -1,0 +1,16 @@
+﻿# TFE: the movements' growth modifiers (written by script/missionaries.py)
+local_tfe_nicene_movement_growth_modifier = {
+	positive = "gfx/interface/icons/modifier_types/local_lutheranism_movement_growth_modifier.dds"
+}
+
+national_tfe_nicene_movement_growth_modifier = {
+	positive = "gfx/interface/icons/modifier_types/national_lutheranism_movement_growth_modifier.dds"
+}
+
+local_tfe_arian_movement_growth_modifier = {
+	positive = "gfx/interface/icons/modifier_types/local_lutheranism_movement_growth_modifier.dds"
+}
+
+national_tfe_arian_movement_growth_modifier = {
+	positive = "gfx/interface/icons/modifier_types/national_lutheranism_movement_growth_modifier.dds"
+}

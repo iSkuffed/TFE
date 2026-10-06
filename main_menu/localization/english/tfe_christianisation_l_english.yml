@@ -1,0 +1,11 @@
+﻿l_english:
+ tfe_nicene_movement: "Nicene Christianity"
+ MODIFIER_TYPE_NAME_local_tfe_nicene_movement_growth_modifier: "[ShowMovementDefinitionNameWithNoTooltip('tfe_nicene_movement')] Growth Modifier"
+ MODIFIER_TYPE_DESC_local_tfe_nicene_movement_growth_modifier: "How much the [ShowMovementDefinitionName('tfe_nicene_movement')] [movement|e] grows in a [location|e]."
+ MODIFIER_TYPE_NAME_national_tfe_nicene_movement_growth_modifier: "[ShowMovementDefinitionNameWithNoTooltip('tfe_nicene_movement')] Growth Modifier"
+ MODIFIER_TYPE_DESC_national_tfe_nicene_movement_growth_modifier: "How much the [ShowMovementDefinitionName('tfe_nicene_movement')] [movement|e] grows in [locations|e] owned by the [country|e]."
+ tfe_arian_movement: "Arian Christianity"
+ MODIFIER_TYPE_NAME_local_tfe_arian_movement_growth_modifier: "[ShowMovementDefinitionNameWithNoTooltip('tfe_arian_movement')] Growth Modifier"
+ MODIFIER_TYPE_DESC_local_tfe_arian_movement_growth_modifier: "How much the [ShowMovementDefinitionName('tfe_arian_movement')] [movement|e] grows in a [location|e]."
+ MODIFIER_TYPE_NAME_national_tfe_arian_movement_growth_modifier: "[ShowMovementDefinitionNameWithNoTooltip('tfe_arian_movement')] Growth Modifier"
+ MODIFIER_TYPE_DESC_national_tfe_arian_movement_growth_modifier: "How much the [ShowMovementDefinitionName('tfe_arian_movement')] [movement|e] grows in [locations|e] owned by the [country|e]."
