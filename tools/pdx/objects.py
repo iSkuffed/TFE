@@ -5,7 +5,7 @@ from contextlib import contextmanager
 from typing import (Any, Callable, ContextManager, Generic, Iterator, Literal, Sequence, TypedDict, TypeVar, Unpack, get_args,
                     overload)
 
-from .api import AnyFx, AnyTrig, CountryFx, CountryTrig, ModifierKeys, Outcome, ValueFx
+from .api import AnyFx, AnyTrig, CountryFx, CountryTrig, LocationTrig, ModifierKeys, Outcome, ValueFx
 from .core import Q, Scope, find, render
 
 @functools.cache
@@ -93,6 +93,22 @@ class CountryValue(ValueFx):
 
     def else_(self) -> ContextManager["CountryValue"]:
         return self._open("else", CountryValue)
+
+
+class LocationValue(ValueFx):
+    """a value block whose root is a location (a movement's r0 and map_color): limit opens LocationTrig."""
+
+    def limit(self) -> ContextManager[LocationTrig]:
+        return self._open("limit", LocationTrig)
+
+    def if_(self) -> ContextManager["LocationValue"]:
+        return self._open("if", LocationValue)
+
+    def else_if(self) -> ContextManager["LocationValue"]:
+        return self._open("else_if", LocationValue)
+
+    def else_(self) -> ContextManager["LocationValue"]:
+        return self._open("else", LocationValue)
 
 
 class DecisionOption(Scope):

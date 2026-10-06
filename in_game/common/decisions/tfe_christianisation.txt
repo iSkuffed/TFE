@@ -1,0 +1,167 @@
+﻿# TFE: missions and the edicts against the sacrifices (written by script/missionaries.py)
+tfe_sponsor_mission = {
+	decision_category = tfe_the_faith
+	image = "gfx/interface/illustrations/event/backgrounds/exterior/byz_clergy_exterior.dds"
+	potential = {
+		OR = {
+			AND = {
+				religion = religion:orthodox
+				tfe_nicene_mission_in_reach = yes
+			}
+			AND = {
+				religion = religion:arianism
+				tfe_arian_mission_in_reach = yes
+			}
+		}
+	}
+	allow = {
+		custom_tooltip = {
+			text = tfe_mission_price_tt
+			gold >= tfe_mission_price
+		}
+		custom_tooltip = {
+			text = tfe_mission_on_the_road_tt
+			NOT = { has_variable = tfe_mission_to }
+		}
+		custom_tooltip = {
+			text = tfe_mission_sponsored_tt
+			NOT = { has_variable = tfe_mission_sponsored }
+		}
+	}
+	ai_will_do = {
+		value = 0
+		if = {
+			limit = { gold >= tfe_mission_price_twice }
+			add = 10
+		}
+	}
+	option = {
+		name = tfe_sponsor_mission.a
+		ai_chance = { value = 100 }
+		effect = {
+			add_gold = { value = tfe_mission_price multiply = -1 }
+			set_variable = { name = tfe_mission_sponsored years = 5 }
+			custom_tooltip = tfe_sponsor_mission_tt
+			hidden_effect = {
+				if = {
+					limit = { religion = religion:orthodox }
+					every_owned_location = {
+						if = {
+							limit = { tfe_nicene_mission_field = yes }
+							add_to_temporary_list = tfe_reach_fields
+						}
+						every_neighbor_location = {
+							if = {
+								limit = { tfe_nicene_mission_field = yes }
+								add_to_temporary_list = tfe_reach_fields
+							}
+						}
+					}
+					ordered_in_list = {
+						order_by = population
+						list = tfe_reach_fields
+						save_scope_as = tfe_mission_to
+					}
+					if = {
+						limit = { exists = scope:tfe_mission_to }
+						capital = { save_scope_as = tfe_mission_from }
+						create_character = {
+							age = 35
+							religion = root.religion
+							estate = estate_type:clergy_estate
+							culture = root.culture
+							save_scope_as = tfe_missionary
+						}
+						if = {
+							limit = { exists = scope:tfe_missionary }
+							tfe_send_missionary_effect = yes
+						}
+					}
+				}
+				if = {
+					limit = { religion = religion:arianism }
+					every_owned_location = {
+						if = {
+							limit = { tfe_arian_mission_field = yes }
+							add_to_temporary_list = tfe_reach_fields
+						}
+						every_neighbor_location = {
+							if = {
+								limit = { tfe_arian_mission_field = yes }
+								add_to_temporary_list = tfe_reach_fields
+							}
+						}
+					}
+					ordered_in_list = {
+						order_by = population
+						list = tfe_reach_fields
+						save_scope_as = tfe_mission_to
+					}
+					if = {
+						limit = { exists = scope:tfe_mission_to }
+						capital = { save_scope_as = tfe_mission_from }
+						create_character = {
+							age = 35
+							religion = root.religion
+							estate = estate_type:clergy_estate
+							culture = root.culture
+							save_scope_as = tfe_missionary
+						}
+						if = {
+							limit = { exists = scope:tfe_missionary }
+							tfe_send_missionary_effect = yes
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+tfe_close_the_temples = {
+	decision_category = tfe_the_faith
+	image = "gfx/interface/illustrations/event/backgrounds/exterior/byz_clergy_hellenist_exterior.dds"
+	potential = {
+		religion = religion:orthodox
+		tfe_is_roman_empire = yes
+	}
+	allow = {
+		custom_tooltip = {
+			text = tfe_temples_already_closed_tt
+			NOT = { has_country_modifier = tfe_temples_closed }
+		}
+	}
+	ai_will_do = {
+		value = 0
+		if = {
+			limit = { stability >= 50 at_war = no }
+			add = 10
+		}
+	}
+	option = {
+		name = tfe_close_the_temples.a
+		ai_chance = { value = 100 }
+		effect = {
+			add_country_modifier = { modifier = tfe_temples_closed years = 10 }
+			custom_tooltip = tfe_close_the_temples_tt
+			hidden_effect = {
+				every_owned_location = {
+					every_pop = {
+						limit = { religion = { tfe_is_pagan_religion = yes } }
+						add_pop_satisfaction = pop_satisfaction_mild_penalty
+					}
+					if = {
+						limit = { dominant_religion ?= { tfe_is_pagan_religion = yes } }
+						random = {
+							chance = 25
+							every_pop = {
+								limit = { religion = { tfe_is_pagan_religion = yes } }
+								add_pop_satisfaction = pop_satisfaction_extreme_penalty
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,17 @@
+﻿# TFE: the price of a mission, half a year of trade and tax (written by script/missionaries.py)
+tfe_mission_price = {
+	value = monthly_income_trade_and_tax
+	multiply = 6
+	min = 50
+}
+
+tfe_mission_price_twice = {
+	value = tfe_mission_price
+	multiply = 2
+}
+
+# the share of a country's people who are Christian, of either church
+tfe_christian_share = {
+	value = "religion_percentage_in_country(religion:orthodox)"
+	add = "religion_percentage_in_country(religion:arianism)"
+}

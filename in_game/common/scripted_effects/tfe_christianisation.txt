@@ -1,0 +1,86 @@
+﻿# TFE: missionaries (written by script/missionaries.py). Country scope; the caller saves scope:tfe_missionary
+# and the locations each effect names.
+# sends scope:tfe_missionary from scope:tfe_mission_from to scope:tfe_mission_to (one on the road per country)
+tfe_send_missionary_effect = {
+	set_variable = { name = tfe_mission_from value = scope:tfe_mission_from }
+	set_variable = { name = tfe_mission_to value = scope:tfe_mission_to }
+	scope:tfe_missionary = { set_variable = tfe_on_road }
+	start_expedition = {
+		type = expedition_type:tfe_missionary
+		leader = scope:tfe_missionary
+	}
+}
+
+# he arrives at scope:tfe_mission_at: pinned there as the movement's spreader for 5 to 10 years, or until he dies
+tfe_preach_effect = {
+	scope:tfe_missionary = {
+		remove_variable = tfe_on_road
+		set_variable = { name = tfe_mission_at value = scope:tfe_mission_at }
+		if = {
+			limit = { has_variable = tfe_missions }
+			change_variable = { name = tfe_missions add = 1 }
+		}
+		else = {
+			set_variable = { name = tfe_missions value = 1 }
+		}
+		random_list = {
+			1 = {
+				set_variable = { name = tfe_preaching value = 5 }
+			}
+			1 = {
+				set_variable = { name = tfe_preaching value = 7 }
+			}
+			1 = {
+				set_variable = { name = tfe_preaching value = 10 }
+			}
+		}
+	}
+	scope:tfe_mission_at = {
+		add_location_modifier = { modifier = tfe_mission_preaching years = 10 }
+	}
+	if = {
+		limit = { scope:tfe_missionary = { religion = religion:orthodox } }
+		religion:orthodox = {
+			ordered_movement_in_religion = {
+				order_by = {
+					value = 1
+				}
+				max = 1
+				add_spreader = { character = scope:tfe_missionary location = scope:tfe_mission_at }
+			}
+		}
+	}
+	if = {
+		limit = { scope:tfe_missionary = { religion = religion:arianism } }
+		religion:arianism = {
+			ordered_movement_in_religion = {
+				order_by = {
+					value = 1
+				}
+				max = 1
+				add_spreader = { character = scope:tfe_missionary location = scope:tfe_mission_at }
+			}
+		}
+	}
+}
+
+# his stay is over, or he died: the spreader and the modifier go
+tfe_end_mission_effect = {
+	scope:tfe_missionary.var:tfe_mission_at ?= { remove_location_modifier = tfe_mission_preaching }
+	if = {
+		limit = { scope:tfe_missionary = { religion = religion:orthodox } }
+		religion:orthodox = {
+			every_movement_in_religion = { remove_spreader = scope:tfe_missionary }
+		}
+	}
+	if = {
+		limit = { scope:tfe_missionary = { religion = religion:arianism } }
+		religion:arianism = {
+			every_movement_in_religion = { remove_spreader = scope:tfe_missionary }
+		}
+	}
+	scope:tfe_missionary = {
+		remove_variable = tfe_mission_at
+		remove_variable = tfe_preaching
+	}
+}

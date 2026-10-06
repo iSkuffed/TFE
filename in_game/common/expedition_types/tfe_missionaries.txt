@@ -1,0 +1,56 @@
+﻿# A mission (written by script/missionaries.py), a copy of tfe_wandering_people (tfe_peoples.txt): the country
+# sets tfe_mission_from and tfe_mission_to, then tfe_send_missionary_effect starts it.
+tfe_missionary = {
+	# one missionary on the road per country: pace the chaos
+	unique = yes
+	# a dead leader ends the mission: else the engine sends a nameless explorer in his place
+	fail_if_no_leader = yes
+	travel_speed = 0.5
+	travel_mode = land
+	dynamic_first_waypoint = yes
+	origin = none
+	ai = no
+	show_start_message = no
+	show_end_message = no
+	potential = {
+		has_variable = tfe_mission_to
+	}
+	leader = {
+		is_expedition_leader = no
+	}
+	on_start = {
+		scope:expedition = {
+			add_new_waypoint = root.var:tfe_mission_from
+			add_new_waypoint = root.var:tfe_mission_to
+		}
+	}
+	on_end = {
+		if = {
+			limit = { has_variable = tfe_mission_to scope:expedition = { exists = expedition_leader } }
+			scope:expedition = {
+				expedition_leader = {
+					save_scope_as = tfe_missionary
+				}
+			}
+			var:tfe_mission_to = { save_scope_as = tfe_mission_at }
+			tfe_preach_effect = yes
+		}
+		remove_variable = tfe_mission_from
+		remove_variable = tfe_mission_to
+	}
+	on_fail = {
+		# no road there (Ireland, an island): he crosses by boat and preaches all the same
+		if = {
+			limit = { has_variable = tfe_mission_to scope:expedition = { exists = expedition_leader } }
+			scope:expedition = {
+				expedition_leader = {
+					save_scope_as = tfe_missionary
+				}
+			}
+			var:tfe_mission_to = { save_scope_as = tfe_mission_at }
+			tfe_preach_effect = yes
+		}
+		remove_variable = tfe_mission_from
+		remove_variable = tfe_mission_to
+	}
+}

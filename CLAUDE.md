@@ -106,7 +106,8 @@ is `tools/pdx/CONTRACT.md`.
 - Sources are `script/*.py`, each with an `outputs()` returning `{repo path: text}`. Write them all with
   `python script/run.py` (same `uv run ...` prefix as the tests). Ported so far: `advances.py` and `institutions.py` (REPLACE: copies of the vanilla advances and institutions we change, read from vanilla each run), `decline_rome_actions.py` (generic actions), `decisions.py` (the Fall of the West decisions and their loc),
   `gildo_events.py`, `opening_events.py`, `decline_rome_events.py`, `foederati_events.py`, `hunnic_storm_events.py` (events; their loc
-  stays hand-written except Gildo's), `bureaucracies.py` (the Roman offices, their impact modifiers and loc), and `defs_*.py` (scripted effects and triggers, on_actions). A test fails when a generated file is stale.
+  stays hand-written except Gildo's), `bureaucracies.py` (the Roman offices, their impact modifiers and loc), `missionaries.py` (the
+  Christianisation: movements, missionaries, decisions and the conversion event), and `defs_*.py` (scripted effects and triggers, on_actions). A test fails when a generated file is stale.
 - Start a new file by copying the nearest port. `Doc.event(...)` builds events; `with c.every_neighbor_country() as n:`
   changes scope; `with t.link("scope:actor", CountryTrig) as c:` is `scope:actor = { }`; comparison triggers read
   `t.gold(100, op=">=")`; `t.var("x", "<", 50)`; a value block (ai_will_do) is `body.effects("ai_will_do", ValueFx)`.
@@ -171,6 +172,9 @@ been seen working in game, or you say plainly that it hasn't.
   "Expedition Lost" popup), dry-run their effect without setting variables or making characters: compute inline
   (`size = { value = var:x multiply = 0.6 }`) rather than read a variable the same effect sets, and guard
   `start_expedition`'s leader.
+- A timed variable on a character (`set_variable = { name = x years = 5 }` in character scope) counts down a
+  month for every year: five years last about 150. Country timers are fine. On a character, store a number and
+  count it down in a yearly pulse (`tfe_on_missions_end`).
 - A saved scope doesn't reliably reach an event fired from another event's `immediate`: the AI hit a null scope and
   crashed the game. Re-derive the scope in the child event.
 - International organisation laws default to `requires_vote = yes`. Set `requires_vote = no` for the leader to decree.

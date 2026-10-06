@@ -200,7 +200,7 @@ class Scope:
     def _cmp(self, name, op, value, /):
         if op not in CMP_OPS:
             raise ValueError(f"{name}: unknown operator {op!r}")
-        self._add(Node(name.rstrip("_"), op, fmt(value)))
+        self._add(Node(fmt(name) if isinstance(name, Q) else name.rstrip("_"), op, fmt(value)))
 
     @contextmanager
     def _open(self, name, cls, /, *, op="=", **kw):

@@ -1788,8 +1788,11 @@ class AnyFx(Scope):
         _scripted(self, "tfe_add_stilicho_glory", _v, dict(amount=amount))
     def tfe_africa_breaks_away(self, _v: bool | str | float = True, /) -> None: self._call("tfe_africa_breaks_away", _v)
     def tfe_constantine_rises(self, _v: bool | str | float = True, /) -> None: self._call("tfe_constantine_rises", _v)
+    def tfe_end_mission_effect(self, _v: bool | str | float = True, /) -> None: self._call("tfe_end_mission_effect", _v)
     def tfe_list_the_migrators(self, _v: bool | str | float = True, /) -> None: self._call("tfe_list_the_migrators", _v)
     def tfe_muster_the_host_effect(self, _v: bool | str | float = True, /) -> None: self._call("tfe_muster_the_host_effect", _v)
+    def tfe_preach_effect(self, _v: bool | str | float = True, /) -> None: self._call("tfe_preach_effect", _v)
+    def tfe_send_missionary_effect(self, _v: bool | str | float = True, /) -> None: self._call("tfe_send_missionary_effect", _v)
     def tfe_start_migration_effect(self, _v: bool | str | float = True, /) -> None: self._call("tfe_start_migration_effect", _v)
     def tfe_stilicho_rises(self, _v: bool | str | float = True, /) -> None: self._call("tfe_stilicho_rises", _v)
     def tfe_the_west_loses_stilicho(self, _v: bool | str | float = True, /) -> None: self._call("tfe_the_west_loses_stilicho", _v)
@@ -4936,7 +4939,7 @@ class LocationFx(AnyFx):
     def set_disease_presence(self, *, disease_outbreak: Any = None, value: Any = None) -> None: self._call("set_disease_presence", **_kw(disease_outbreak=disease_outbreak, value=value))
     def set_garrison_size(self, *args: Any, **kw: Any) -> None: self._call("set_garrison_size", *args, **kw)
     def spawn_disease(self, *, disease: Any = None, value: Any = None) -> None: self._call("spawn_disease", **_kw(disease=disease, value=value))
-    def spawn_movement(self, *, movement_definition: Any = None, supporters: Any = None) -> None: self._call("spawn_movement", **_kw(movement_definition=movement_definition, supporters=supporters))
+    def spawn_movement(self, *, movement_definition: Any, supporters: Any) -> None: self._call("spawn_movement", **_kw(movement_definition=movement_definition, supporters=supporters))
     def start_canal_construction(self, *args: Any, **kw: Any) -> None: self._call("start_canal_construction", *args, **kw)
     def transfer_location_occupation(self, _v: Any, /) -> None: self._call("transfer_location_occupation", _v)
 
@@ -5064,7 +5067,7 @@ class MovementFx(AnyFx):
     def limit(self, body: Callable[[MovementTrig], Any] | None = None) -> Any:
         return self._run("limit", MovementTrig, body)
     def add_movement_modifier(self, *, modifier: Any = None, days: Any = None, months: Any = None, years: Any = None, mode: Any = None, size: Any = None, desc: Any = None, show_modifiers: Any = None) -> None: self._call("add_movement_modifier", **_kw(modifier=modifier, days=days, months=months, years=years, mode=mode, size=size, desc=desc, show_modifiers=show_modifiers))
-    def add_spreader(self, *, character: Any = None, location: Any = None) -> None: self._call("add_spreader", **_kw(character=character, location=location))
+    def add_spreader(self, *, character: Any, location: Any) -> None: self._call("add_spreader", **_kw(character=character, location=location))
     def destroy_movement(self, *args: Any, **kw: Any) -> None: self._call("destroy_movement", *args, **kw)
     def every_location_with_movement(self) -> ContextManager[LocationFx]:
         return self._open("every_location_with_movement", LocationFx)
@@ -8130,6 +8133,8 @@ class AnyTrig(Scope):
     def sumpah_palapa_trigger(self, _v: bool | str | float = True, /) -> None: self._call("sumpah_palapa_trigger", _v)
     def tag_exists(self, _v: Any, /) -> None: self._call("tag_exists", _v)
     def teu_event_6_trigger(self, _v: bool | str | float = True, /) -> None: self._call("teu_event_6_trigger", _v)
+    def tfe_arian_mission_field(self, _v: bool | str | float = True, /) -> None: self._call("tfe_arian_mission_field", _v)
+    def tfe_arian_mission_in_reach(self, _v: bool | str | float = True, /) -> None: self._call("tfe_arian_mission_in_reach", _v)
     def tfe_artillery_institution_plausible_location(self, _v: bool | str | float = True, /) -> None: self._call("tfe_artillery_institution_plausible_location", _v)
     def tfe_banking_plausible_location(self, _v: bool | str | float = True, /) -> None: self._call("tfe_banking_plausible_location", _v)
     def tfe_confessionalism_plausible_location(self, _v: bool | str | float = True, /) -> None: self._call("tfe_confessionalism_plausible_location", _v)
@@ -8142,10 +8147,12 @@ class AnyTrig(Scope):
     def tfe_has_frontier_works(self, _v: bool | str | float = True, /) -> None: self._call("tfe_has_frontier_works", _v)
     def tfe_hunnic_storm_is_over(self, _v: bool | str | float = True, /) -> None: self._call("tfe_hunnic_storm_is_over", _v)
     def tfe_industrialization_plausible_location(self, _v: bool | str | float = True, /) -> None: self._call("tfe_industrialization_plausible_location", _v)
+    def tfe_is_arian_pagan_religion(self, _v: bool | str | float = True, /) -> None: self._call("tfe_is_arian_pagan_religion", _v)
     def tfe_is_germanic_culture(self, _v: bool | str | float = True, /) -> None: self._call("tfe_is_germanic_culture", _v)
     def tfe_is_historical_land_of(self, _v: bool | str | float | None = None, /, *, WHO: Any = None) -> None:
         _scripted(self, "tfe_is_historical_land_of", _v, dict(WHO=WHO))
     def tfe_is_migrator(self, _v: bool | str | float = True, /) -> None: self._call("tfe_is_migrator", _v)
+    def tfe_is_pagan_religion(self, _v: bool | str | float = True, /) -> None: self._call("tfe_is_pagan_religion", _v)
     def tfe_is_roman_empire(self, _v: bool | str | float = True, /) -> None: self._call("tfe_is_roman_empire", _v)
     def tfe_is_roman_state(self, _v: bool | str | float = True, /) -> None: self._call("tfe_is_roman_state", _v)
     def tfe_is_under_the_yoke(self, _v: bool | str | float = True, /) -> None: self._call("tfe_is_under_the_yoke", _v)
@@ -8156,6 +8163,8 @@ class AnyTrig(Scope):
     def tfe_meritocracy_plausible_location(self, _v: bool | str | float = True, /) -> None: self._call("tfe_meritocracy_plausible_location", _v)
     def tfe_military_revolution_plausible_location(self, _v: bool | str | float = True, /) -> None: self._call("tfe_military_revolution_plausible_location", _v)
     def tfe_new_world_plausible_location(self, _v: bool | str | float = True, /) -> None: self._call("tfe_new_world_plausible_location", _v)
+    def tfe_nicene_mission_field(self, _v: bool | str | float = True, /) -> None: self._call("tfe_nicene_mission_field", _v)
+    def tfe_nicene_mission_in_reach(self, _v: bool | str | float = True, /) -> None: self._call("tfe_nicene_mission_in_reach", _v)
     def tfe_pike_and_shot_plausible_location(self, _v: bool | str | float = True, /) -> None: self._call("tfe_pike_and_shot_plausible_location", _v)
     def tfe_printing_press_plausible_location(self, _v: bool | str | float = True, /) -> None: self._call("tfe_printing_press_plausible_location", _v)
     def tfe_professional_armies_plausible_location(self, _v: bool | str | float = True, /) -> None: self._call("tfe_professional_armies_plausible_location", _v)
@@ -18995,6 +19004,38 @@ class ModifierKeys(TypedDict, total=False):
     shurta_bureaucracy_impact_modifier: float | str
     """Country"""
     shurat_bureaucracy_impact_modifier: float | str
+    """Country"""
+    tfe_sacrae_largitiones_bureaucracy_impact_modifier: float | str
+    """Country"""
+    tfe_magister_officiorum_bureaucracy_impact_modifier: float | str
+    """Country"""
+    tfe_magister_peditum_bureaucracy_impact_modifier: float | str
+    """Country"""
+    local_tfe_nicene_movement_growth_modifier: float | str
+    """Location"""
+    national_tfe_nicene_movement_growth_modifier: float | str
+    """Country"""
+    local_tfe_arian_movement_growth_modifier: float | str
+    """Location"""
+    national_tfe_arian_movement_growth_modifier: float | str
+    """Country"""
+    tfe_senior_augustus_can_participate_in_parliament: float | str
+    """InternationalOrganization"""
+    tfe_senior_augustus_agenda_impact: float | str
+    """InternationalOrganization"""
+    tfe_hunnic_overlord_can_participate_in_parliament: float | str
+    """InternationalOrganization"""
+    tfe_hunnic_overlord_agenda_impact: float | str
+    """InternationalOrganization"""
+    tfe_hunnic_raid_prestige_cost_modifier: float | str
+    """Country"""
+    tfe_hunnic_storm_gold_cost_modifier: float | str
+    """Country"""
+    tfe_hunnic_tribute_price_cost_modifier: float | str
+    """Country"""
+    tfe_man_the_limes_price_cost_modifier: float | str
+    """Country"""
+    tfe_invite_settlers_price_cost_modifier: float | str
     """Country"""
 
 

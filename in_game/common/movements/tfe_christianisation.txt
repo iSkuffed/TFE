@@ -1,0 +1,271 @@
+﻿# TFE: the Christianisation of Europe (written by script/missionaries.py). Two rival movements convert
+# the pagans; a missionary who arrives where he was sent is pinned there as a spreader.
+tfe_nicene_movement = {
+	religion = orthodox
+	# seeded on day one (on_action/tfe_christianisation.txt), never by the monthly scheduler
+	potential = {
+		always = yes
+	}
+	monthly_spawn_chance = {
+		value = 0
+	}
+	spawn = { }
+	environmental_infection = {
+		value = 0.05
+	}
+	r0 = {
+		value = { 0 0.002 }
+		if = {
+			limit = { exists = root }
+			# a town hears the preacher first
+			if = {
+				limit = { location_rank ?= location_rank:town }
+				multiply = 1.5
+			}
+			# and a city more
+			if = {
+				limit = { location_rank ?= location_rank:city }
+				multiply = 2
+			}
+			# a king of the faith
+			if = {
+				limit = { owner ?= { religion = religion:orthodox } }
+				multiply = 1.5
+			}
+			# a believing neighbour
+			if = {
+				limit = { any_neighbor_location = { dominant_religion ?= religion:orthodox } }
+				multiply = 1.25
+			}
+			# a bishop's see
+			if = {
+				limit = {
+					OR = {
+						this = location:rome
+						this = location:constantinople
+						this = location:alexandria
+						this = location:antioch
+						this = location:tunis
+						this = location:milano
+						this = location:trier
+						this = location:arles
+						this = location:thessaloniki
+						this = location:ayasuluk
+						this = location:jerusalem
+					}
+				}
+				multiply = 1.5
+			}
+			# a pagan king protects the old gods
+			if = {
+				limit = { owner ?= { religion = { tfe_is_pagan_religion = yes } } }
+				multiply = 0.5
+			}
+			# a great temple holds out while its people keep the gods
+			if = {
+				limit = {
+					dominant_religion ?= { tfe_is_pagan_religion = yes }
+					OR = {
+						this = location:harran
+						this = location:baalbek
+						this = location:gaza
+						this = location:aswan
+						this = location:athens
+						province_definition = province_definition:laconia_province
+					}
+				}
+				multiply = 0.3
+			}
+		}
+	}
+	calc_interval_days = { 20 40 }
+	required_religions = { religio_romana hellenism_religion celtic_paganism illyrian_paganism zalmoxism basque_paganism nuragic_religion armazi_religion kushite_religion arabian_paganism godala_religion norse slavic_paganism alan_paganism arianism }
+	development = positive
+	literacy = positive
+	local_control = neutral
+	pop_satisfaction = negative
+	specific_pop_type_effect = {
+		pop_type = burghers
+		multiplier = 1.5
+	}
+	specific_pop_type_effect = {
+		pop_type = clergy
+		multiplier = 0.5
+	}
+	specific_pop_type_effect = {
+		pop_type = nobles
+		multiplier = 0.7
+	}
+	specific_pop_type_effect = {
+		pop_type = laborers
+		multiplier = 1
+	}
+	specific_pop_type_effect = {
+		pop_type = soldiers
+		multiplier = 0.8
+	}
+	specific_pop_type_effect = {
+		pop_type = peasants
+		multiplier = 1
+	}
+	specific_pop_type_effect = {
+		pop_type = tribesmen
+		multiplier = 0.8
+	}
+	specific_pop_type_effect = {
+		pop_type = slaves
+		multiplier = 0.5
+	}
+	specific_pop_type_effect = {
+		religion = arianism
+		multiplier = 0.3
+	}
+	location_spread_threshold = {
+		value = 0.05
+	}
+	map_color = {
+		if = {
+			limit = { "religion_percentage(religion:orthodox)" = 0 }
+			value = define:NMapColors|MAP_COLOR_NULL
+		}
+		else_if = {
+			limit = { dominant_religion = religion:orthodox }
+			value = define:NMapColors|MAP_COLOR_HIGH
+		}
+		else_if = {
+			limit = { "religion_percentage(religion:orthodox)" > 0.05 }
+			value = define:NMapColors|MAP_COLOR_MID
+		}
+		else = {
+			value = define:NMapColors|MAP_COLOR_LOW
+		}
+	}
+}
+
+tfe_arian_movement = {
+	religion = arianism
+	# seeded on day one (on_action/tfe_christianisation.txt), never by the monthly scheduler
+	potential = {
+		always = yes
+	}
+	monthly_spawn_chance = {
+		value = 0
+	}
+	spawn = { }
+	environmental_infection = {
+		value = 0.05
+	}
+	r0 = {
+		value = { 0 0.0016 }
+		if = {
+			limit = { exists = root }
+			# Nicene Romans turn Arian only under an Arian king (Huneric's Africa)
+			if = {
+				limit = { dominant_religion ?= religion:orthodox NOT = { owner ?= { religion = religion:arianism } } }
+				multiply = 0
+			}
+			# a town hears the preacher first
+			if = {
+				limit = { location_rank ?= location_rank:town }
+				multiply = 1.1
+			}
+			# and a city more
+			if = {
+				limit = { location_rank ?= location_rank:city }
+				multiply = 1.2
+			}
+			# a king of the faith
+			if = {
+				limit = { owner ?= { religion = religion:arianism } }
+				multiply = 1.5
+			}
+			# a believing neighbour
+			if = {
+				limit = { any_neighbor_location = { dominant_religion ?= religion:arianism } }
+				multiply = 1.25
+			}
+			# a pagan king protects the old gods
+			if = {
+				limit = { owner ?= { religion = { tfe_is_pagan_religion = yes } } }
+				multiply = 0.5
+			}
+			# a great temple holds out while its people keep the gods
+			if = {
+				limit = {
+					dominant_religion ?= { tfe_is_pagan_religion = yes }
+					OR = {
+						this = location:harran
+						this = location:baalbek
+						this = location:gaza
+						this = location:aswan
+						this = location:athens
+						province_definition = province_definition:laconia_province
+					}
+				}
+				multiply = 0.3
+			}
+		}
+	}
+	calc_interval_days = { 20 40 }
+	required_religions = { norse slavic_paganism zalmoxism alan_paganism orthodox }
+	development = positive
+	literacy = positive
+	local_control = neutral
+	pop_satisfaction = negative
+	specific_pop_type_effect = {
+		pop_type = nobles
+		multiplier = 1.5
+	}
+	specific_pop_type_effect = {
+		pop_type = tribesmen
+		multiplier = 1.2
+	}
+	specific_pop_type_effect = {
+		pop_type = soldiers
+		multiplier = 1.2
+	}
+	specific_pop_type_effect = {
+		pop_type = peasants
+		multiplier = 1
+	}
+	specific_pop_type_effect = {
+		pop_type = laborers
+		multiplier = 0.8
+	}
+	specific_pop_type_effect = {
+		pop_type = burghers
+		multiplier = 0.5
+	}
+	specific_pop_type_effect = {
+		pop_type = clergy
+		multiplier = 0.5
+	}
+	specific_pop_type_effect = {
+		pop_type = slaves
+		multiplier = 0.5
+	}
+	specific_pop_type_effect = {
+		religion = orthodox
+		multiplier = 0.2
+	}
+	location_spread_threshold = {
+		value = 0.05
+	}
+	map_color = {
+		if = {
+			limit = { "religion_percentage(religion:arianism)" = 0 }
+			value = define:NMapColors|MAP_COLOR_NULL
+		}
+		else_if = {
+			limit = { dominant_religion = religion:arianism }
+			value = define:NMapColors|MAP_COLOR_HIGH
+		}
+		else_if = {
+			limit = { "religion_percentage(religion:arianism)" > 0.05 }
+			value = define:NMapColors|MAP_COLOR_MID
+		}
+		else = {
+			value = define:NMapColors|MAP_COLOR_LOW
+		}
+	}
+}
