@@ -1,0 +1,282 @@
+﻿# TFE: the Christianisation of Europe (written by script/missionaries.py). Day one seeds the movements; a yearly
+# pulse sends saints and missionaries and ends their missions.
+on_game_start = {
+	on_actions = { tfe_on_start_christianisation }
+}
+
+tfe_on_start_christianisation = {
+	effect = {
+		# the Nicene sees
+		location:rome = {
+			spawn_movement = {
+				movement_definition = movement_definition:tfe_nicene_movement
+				supporters = {
+					value = population
+					multiply = "religion_percentage(religion:orthodox)"
+				}
+			}
+		}
+		location:constantinople = {
+			spawn_movement = {
+				movement_definition = movement_definition:tfe_nicene_movement
+				supporters = {
+					value = population
+					multiply = "religion_percentage(religion:orthodox)"
+				}
+			}
+		}
+		location:alexandria = {
+			spawn_movement = {
+				movement_definition = movement_definition:tfe_nicene_movement
+				supporters = {
+					value = population
+					multiply = "religion_percentage(religion:orthodox)"
+				}
+			}
+		}
+		location:antioch = {
+			spawn_movement = {
+				movement_definition = movement_definition:tfe_nicene_movement
+				supporters = {
+					value = population
+					multiply = "religion_percentage(religion:orthodox)"
+				}
+			}
+		}
+		location:tunis = {
+			spawn_movement = {
+				movement_definition = movement_definition:tfe_nicene_movement
+				supporters = {
+					value = population
+					multiply = "religion_percentage(religion:orthodox)"
+				}
+			}
+		}
+		location:milano = {
+			spawn_movement = {
+				movement_definition = movement_definition:tfe_nicene_movement
+				supporters = {
+					value = population
+					multiply = "religion_percentage(religion:orthodox)"
+				}
+			}
+		}
+		location:trier = {
+			spawn_movement = {
+				movement_definition = movement_definition:tfe_nicene_movement
+				supporters = {
+					value = population
+					multiply = "religion_percentage(religion:orthodox)"
+				}
+			}
+		}
+		location:arles = {
+			spawn_movement = {
+				movement_definition = movement_definition:tfe_nicene_movement
+				supporters = {
+					value = population
+					multiply = "religion_percentage(religion:orthodox)"
+				}
+			}
+		}
+		location:thessaloniki = {
+			spawn_movement = {
+				movement_definition = movement_definition:tfe_nicene_movement
+				supporters = {
+					value = population
+					multiply = "religion_percentage(religion:orthodox)"
+				}
+			}
+		}
+		location:ayasuluk = {
+			spawn_movement = {
+				movement_definition = movement_definition:tfe_nicene_movement
+				supporters = {
+					value = population
+					multiply = "religion_percentage(religion:orthodox)"
+				}
+			}
+		}
+		location:jerusalem = {
+			spawn_movement = {
+				movement_definition = movement_definition:tfe_nicene_movement
+				supporters = {
+					value = population
+					multiply = "religion_percentage(religion:orthodox)"
+				}
+			}
+		}
+		# the Arian peoples, at their capitals
+		c:VIS ?= {
+			capital ?= {
+				spawn_movement = {
+					movement_definition = movement_definition:tfe_arian_movement
+					supporters = {
+						value = population
+						multiply = "religion_percentage(religion:arianism)"
+					}
+				}
+			}
+		}
+		c:GEP ?= {
+			capital ?= {
+				spawn_movement = {
+					movement_definition = movement_definition:tfe_arian_movement
+					supporters = {
+						value = population
+						multiply = "religion_percentage(religion:arianism)"
+					}
+				}
+			}
+		}
+		c:RUG ?= {
+			capital ?= {
+				spawn_movement = {
+					movement_definition = movement_definition:tfe_arian_movement
+					supporters = {
+						value = population
+						multiply = "religion_percentage(religion:arianism)"
+					}
+				}
+			}
+		}
+		c:SCR ?= {
+			capital ?= {
+				spawn_movement = {
+					movement_definition = movement_definition:tfe_arian_movement
+					supporters = {
+						value = population
+						multiply = "religion_percentage(religion:arianism)"
+					}
+				}
+			}
+		}
+		c:HAS ?= {
+			capital ?= {
+				spawn_movement = {
+					movement_definition = movement_definition:tfe_arian_movement
+					supporters = {
+						value = population
+						multiply = "religion_percentage(religion:arianism)"
+					}
+				}
+			}
+		}
+	}
+}
+
+yearly_country_pulse = {
+	on_actions = { tfe_on_missions_end }
+}
+
+tfe_on_missions_end = {
+	effect = {
+		every_character = {
+			limit = { has_variable = tfe_mission_at NOT = { has_variable = tfe_preaching } }
+			save_scope_as = tfe_missionary
+			var:tfe_mission_at = { save_scope_as = tfe_mission_from }
+			root = {
+				tfe_end_mission_effect = yes
+				if = {
+					limit = {
+						NOT = { has_variable = tfe_mission_to }
+						scope:tfe_missionary = {
+							religion = religion:orthodox
+							var:tfe_missions < 3
+						}
+					}
+					random = {
+						chance = 50
+						scope:tfe_mission_from = {
+							every_neighbor_location = {
+								if = {
+									limit = { tfe_nicene_mission_field = yes }
+									add_to_temporary_list = tfe_near_fields
+								}
+								every_neighbor_location = {
+									if = {
+										limit = { tfe_nicene_mission_field = yes }
+										add_to_temporary_list = tfe_near_fields
+									}
+									every_neighbor_location = {
+										if = {
+											limit = { tfe_nicene_mission_field = yes }
+											add_to_temporary_list = tfe_near_fields
+										}
+									}
+								}
+							}
+						}
+						ordered_in_list = {
+							order_by = population
+							list = tfe_near_fields
+							save_scope_as = tfe_mission_to
+						}
+						if = {
+							limit = { exists = scope:tfe_mission_to }
+							tfe_send_missionary_effect = yes
+						}
+					}
+				}
+				if = {
+					limit = {
+						NOT = { has_variable = tfe_mission_to }
+						scope:tfe_missionary = {
+							religion = religion:arianism
+							var:tfe_missions < 3
+						}
+					}
+					random = {
+						chance = 50
+						scope:tfe_mission_from = {
+							every_neighbor_location = {
+								if = {
+									limit = { tfe_arian_mission_field = yes }
+									add_to_temporary_list = tfe_near_fields
+								}
+								every_neighbor_location = {
+									if = {
+										limit = { tfe_arian_mission_field = yes }
+										add_to_temporary_list = tfe_near_fields
+									}
+									every_neighbor_location = {
+										if = {
+											limit = { tfe_arian_mission_field = yes }
+											add_to_temporary_list = tfe_near_fields
+										}
+									}
+								}
+							}
+						}
+						ordered_in_list = {
+							order_by = population
+							list = tfe_near_fields
+							save_scope_as = tfe_mission_to
+						}
+						if = {
+							limit = { exists = scope:tfe_mission_to }
+							tfe_send_missionary_effect = yes
+						}
+					}
+				}
+				# a kill in the character's own scope fails PostValidate (probe): kill from the country
+				if = {
+					limit = { scope:tfe_missionary = { NOT = { has_variable = tfe_on_road } } }
+					kill_character_silently = scope:tfe_missionary
+				}
+			}
+		}
+	}
+}
+
+on_character_death = {
+	on_actions = { tfe_on_missionary_dies }
+}
+
+tfe_on_missionary_dies = {
+	trigger = { scope:target = { has_variable = tfe_mission_at } }
+	effect = {
+		scope:target = { save_scope_as = tfe_missionary }
+		tfe_end_mission_effect = yes
+	}
+}

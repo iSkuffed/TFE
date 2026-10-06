@@ -14,7 +14,7 @@ tfe_nicene_movement = {
 		value = 0.05
 	}
 	r0 = {
-		value = { 0 0.012 }
+		value = { 0 0.002 }
 		if = {
 			limit = { exists = root }
 			# a town hears the preacher first
@@ -71,7 +71,7 @@ tfe_nicene_movement = {
 						this = location:gaza
 						this = location:aswan
 						this = location:athens
-						province = province:laconia_province
+						province_definition = province_definition:laconia_province
 					}
 				}
 				multiply = 0.3
@@ -156,7 +156,7 @@ tfe_arian_movement = {
 		value = 0.05
 	}
 	r0 = {
-		value = { 0 0.01 }
+		value = { 0 0.0016 }
 		if = {
 			limit = { exists = root }
 			# Nicene Romans turn Arian only under an Arian king (Huneric's Africa)
@@ -199,7 +199,7 @@ tfe_arian_movement = {
 						this = location:gaza
 						this = location:aswan
 						this = location:athens
-						province = province:laconia_province
+						province_definition = province_definition:laconia_province
 					}
 				}
 				multiply = 0.3

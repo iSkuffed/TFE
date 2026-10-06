@@ -72,3 +72,80 @@ def test_growth_modifiers_have_a_type_and_a_name():
 def test_the_pagan_trigger_lists_every_pagan():
     for faith in m.PAGANS:
         assert f"religion:{faith}" in TRIG, faith
+
+
+def pulse():
+    return OUT["in_game/common/on_action/tfe_christianisation.txt"]
+
+
+def test_every_see_is_seeded_with_its_own_believers():
+    start = m.PULSES.find("spawn_movement", None, inside=("tfe_on_start_christianisation", "effect"))
+    text = pulse().split("tfe_on_start_christianisation = {", 1)[1]
+    for loc in m.SEES:
+        assert f"location:{loc}" in text, loc
+    assert "religion_percentage(religion:orthodox)" in text and len(start) == len(m.SEES) + len(m.ARIAN_SEEDS)
+
+
+def test_the_arian_peoples_are_seeded_in_their_capitals():
+    text = pulse().split("tfe_on_start_christianisation = {", 1)[1]
+    for tag in m.ARIAN_SEEDS:
+        assert f"c:{tag} ?= {{" in text, tag
+
+
+def expedition():
+    return OUT["in_game/common/expedition_types/tfe_missionaries.txt"]
+
+
+def effects():
+    return OUT["in_game/common/scripted_effects/tfe_christianisation.txt"]
+
+
+def test_the_missionary_walks_overland_one_at_a_time():
+    for field in ("travel_mode = land", "dynamic_first_waypoint = yes", "origin = none", "unique = yes", "ai = no"):
+        assert field in expedition(), field
+
+
+def test_he_preaches_on_arrival_and_even_when_the_road_fails():
+    for block in ("on_end", "on_fail"):
+        assert m.EXPEDITION.find("tfe_preach_effect", None, inside=(m.EXPEDITION_TYPE, block)), block
+        guard = m.EXPEDITION.find("has_variable", "tfe_mission_to", inside=(m.EXPEDITION_TYPE, block, "limit"))
+        assert guard, block  # the Expedition Lost popup's dry run of on_fail finds no destination
+
+
+def test_the_spreader_follows_the_missionarys_own_faith():
+    preach = effects().split("tfe_preach_effect = {", 1)[1].split("tfe_end_mission_effect = {", 1)[0]
+    for faith in m.MOVEMENT:
+        assert f"religion:{faith}" in preach
+    assert "add_spreader" in preach and "scope:tfe_missionary" in preach
+
+
+def test_a_dead_missionary_stops_preaching_at_once():
+    assert m.PULSES.find("on_actions", None, inside="on_character_death")
+    dies = pulse().split("tfe_on_missionary_dies = {", 1)[1]
+    assert "tfe_end_mission_effect = yes" in dies
+
+
+def test_a_mission_ends_by_removing_the_spreader_and_the_modifier():
+    end = effects().split("tfe_end_mission_effect = {", 1)[1]
+    assert "remove_spreader = scope:tfe_missionary" in end
+    assert "remove_location_modifier = tfe_mission_preaching" in end
+
+
+def test_a_missionary_walks_on_at_most_three_times():
+    assert m.PULSES.find("var:tfe_missions", None, inside="tfe_on_missions_end")
+    assert f"var:tfe_missions < {m.MAX_MISSIONS}" in pulse()
+
+
+def test_preaching_speeds_both_movements_where_he_stands():
+    for key in m.MOVEMENT.values():
+        assert m.MODIFIERS.find(f"local_{key}_growth_modifier", None, inside=m.PREACHING), key
+
+
+def test_a_retired_missionary_is_killed_from_the_country():
+    """kill_character_silently = yes in character scope fails PostValidate (Task 2 probe)"""
+    assert "kill_character_silently = yes" not in pulse()
+    assert "kill_character_silently = scope:tfe_missionary" in pulse()
+
+
+def test_the_mani_is_named_as_a_province_definition():
+    assert "province_definition = province_definition:laconia_province" in MOV

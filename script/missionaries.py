@@ -5,7 +5,8 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "tools"))
-from pdx.api import CountryTrig, LocationTrig, ReligionTrig
+from pdx.api import (CharacterFx, CharacterTrig, CountryFx, CountryTrig, ExpeditionFx, ExpeditionTrig, LocationFx, LocationTrig,
+                     ReligionFx, ReligionTrig)
 from pdx.core import Q
 from pdx.objects import Doc, LocationValue, Loc
 from pdx.objects_defs import Defs
@@ -40,9 +41,19 @@ SEES = ("rome", "constantinople", "alexandria", "antioch", "tunis", "milano", "t
 # the temples that held out (tools/religions.txt): Carrhae, Heliopolis, the Marneion, Philae, Athens and the Mani
 CULT_CENTRES = ("harran", "baalbek", "gaza", "aswan", "athens")
 CULT_PROVINCES = ("laconia_province",)
-R0 = {NICENE: (0, 0.012), ARIAN: (0, 0.010)}  # vanilla's Lutherans run 0.002 to 0.03; tuned in game
+# vanilla's Lutherans run 0.002 to 0.03, but 0.012 doubled the Nicene world in two years from two spawns (probe, Task 2)
+R0 = {NICENE: (0, 0.002), ARIAN: (0, 0.0016)}
 SPREADER_INFECTION = 0.05  # a preaching missionary, as Luther
 SPREAD_THRESHOLD = 0.05
+ARIAN_SEEDS = ("VIS", "GEP", "RUG", "SCR", "HAS")  # the Arian peoples of 395 (tools/religions.txt)
+EXPEDITION_TYPE = "tfe_missionary"
+TRAVEL_SPEED = 0.5  # a man on foot, faster than a people with wagons (0.25)
+PREACH_YEARS = (5, 7, 10)
+PREACHING = "tfe_mission_preaching"  # the location modifier where he preaches
+PREACHING_GROWTH = 0.5
+MAX_MISSIONS = 3
+MOVE_ON_CHANCE = 50
+NEAR_RINGS = 3  # he walks on to a field within this many steps of where he preached
 
 
 def triggers():
@@ -106,7 +117,7 @@ def cult_centre(t: LocationTrig):
         for loc in CULT_CENTRES:
             o.compare("this", "=", f"location:{loc}")
         for prov in CULT_PROVINCES:
-            o.compare("province", "=", f"province:{prov}")
+            o.compare("province_definition", "=", f"province_definition:{prov}")
 
 
 def r0(v: LocationValue, faith: str):
@@ -190,6 +201,188 @@ def growth_types(types: Doc, icons: Doc, loc: Loc):
                     f"How much the [ShowMovementDefinitionName('{key}')] [movement|e] grows {where}.")
 
 
+def seed(loc: LocationFx, faith: str):
+    """a movement of the believers already there: each spawn is its own movement (probed), so nothing converts on day one"""
+    loc.spawn_movement(movement_definition=f"movement_definition:{MOVEMENT[faith]}",
+                       supporters={"value": "population", "multiply": Q(f"religion_percentage(religion:{faith})")})
+
+
+def pulses():
+    d = Defs()
+    d.note("TFE: the Christianisation of Europe (written by script/missionaries.py). Day one seeds the movements; a yearly\n"
+           "pulse sends saints and missionaries and ends their missions.")
+    d.hook("on_game_start", "tfe_on_start_christianisation")
+    with d.on_action("tfe_on_start_christianisation") as a, a.effect(CountryFx) as e:
+        e.note("the Nicene sees")
+        for loc in SEES:
+            with e.link(f"location:{loc}", LocationFx) as here:
+                seed(here, NICENE)
+        e.note("the Arian peoples, at their capitals")
+        for tag in ARIAN_SEEDS:
+            with e.link(f"c:{tag}", CountryFx, op="?=") as c, c.go_capital(op="?=") as cap:
+                seed(cap, ARIAN)
+    end_missions(d)
+    return d
+
+
+def spreader(fx: CountryFx, add: bool):
+    """the missionary's own faith picks the movement: a country that changed faith while he walked does not change his"""
+    for faith in MOVEMENT:
+        with fx.if_() as i:
+            with i.limit() as t, t.link("scope:tfe_missionary", CharacterTrig) as c:
+                c.compare("religion", "=", f"religion:{faith}")
+            with i.link(f"religion:{faith}", ReligionFx) as r:
+                if add:
+                    with r.ordered_movement_in_religion(max=1, order_by={"value": 1}) as mv:
+                        mv.add_spreader(character="scope:tfe_missionary", location="scope:tfe_mission_at")
+                else:
+                    with r.every_movement_in_religion() as mv:
+                        mv.remove_spreader("scope:tfe_missionary")
+
+
+def effects():
+    d = Defs()
+    d.note("TFE: missionaries (written by script/missionaries.py). Country scope; the caller saves scope:tfe_missionary\n"
+           "and the locations each effect names.")
+    d.note("sends scope:tfe_missionary from scope:tfe_mission_from to scope:tfe_mission_to (one on the road per country)")
+    with d.effect("tfe_send_missionary_effect", CountryFx) as fx:
+        fx.set_variable(name="tfe_mission_from", value="scope:tfe_mission_from")
+        fx.set_variable(name="tfe_mission_to", value="scope:tfe_mission_to")
+        with fx.link("scope:tfe_missionary", CharacterFx) as c:
+            c.set_variable("tfe_on_road")
+        fx.start_expedition(type=f"expedition_type:{EXPEDITION_TYPE}", leader="scope:tfe_missionary")
+    d.note("he arrives at scope:tfe_mission_at: pinned there as the movement's spreader for 5 to 10 years, or until he dies")
+    with d.effect("tfe_preach_effect", CountryFx) as fx:
+        with fx.link("scope:tfe_missionary", CharacterFx) as c:
+            c.remove_variable("tfe_on_road")
+            c.set_variable(name="tfe_mission_at", value="scope:tfe_mission_at")
+            with c.if_() as i:
+                with i.limit() as t:
+                    t.has_variable("tfe_missions")
+                i.change_variable(name="tfe_missions", add=1)
+            with c.else_() as i:
+                i.set_variable(name="tfe_missions", value=1)
+            with c.random_list() as r:
+                for years in PREACH_YEARS:
+                    with r.weight(1) as w:
+                        w.set_variable(name="tfe_preaching", years=years)
+        with fx.link("scope:tfe_mission_at", LocationFx) as loc:
+            loc.add_location_modifier(modifier=PREACHING, years=max(PREACH_YEARS))
+        spreader(fx, add=True)
+    d.note("his stay is over, or he died: the spreader and the modifier go")
+    with d.effect("tfe_end_mission_effect", CountryFx) as fx:
+        with fx.link("scope:tfe_missionary.var:tfe_mission_at", LocationFx, op="?=") as loc:
+            loc.remove_location_modifier(PREACHING)
+        spreader(fx, add=False)
+        with fx.link("scope:tfe_missionary", CharacterFx) as c:
+            c.remove_variable("tfe_mission_at")
+            c.remove_variable("tfe_preaching")
+    return d
+
+
+def arrive(fx: CountryFx):
+    """on_end and on_fail: preach at the destination if there is one; the popup's dry run of on_fail finds none"""
+    with fx.if_() as i:
+        with i.limit() as t:
+            t.has_variable("tfe_mission_to")
+            with t.link("scope:expedition", ExpeditionTrig) as x:
+                x.exists("expedition_leader")
+        with i.link("scope:expedition", ExpeditionFx) as x, x.go_expedition_leader() as leader:
+            leader.save_scope_as("tfe_missionary")
+        with i.link("var:tfe_mission_to", LocationFx) as to:
+            to.save_scope_as("tfe_mission_at")
+        i._call("tfe_preach_effect", True)
+    fx.remove_variable("tfe_mission_from")
+    fx.remove_variable("tfe_mission_to")
+
+
+def expedition(doc: Doc):
+    doc.loc.add(EXPEDITION_TYPE, "A Mission")
+    doc.loc.add(f"{EXPEDITION_TYPE}_desc", "A man of God on the road with a staff and a gospel book, bound for people who "
+                "still sacrifice to the old gods.")
+    doc.note("A mission (written by script/missionaries.py), a copy of tfe_wandering_people (tfe_peoples.txt): the country\n"
+             "sets tfe_mission_from and tfe_mission_to, then tfe_send_missionary_effect starts it.")
+    with doc.entry(EXPEDITION_TYPE) as e:
+        e.note("one missionary on the road per country: pace the chaos")
+        e.field("unique", True)
+        e.field("travel_speed", TRAVEL_SPEED)
+        e.field("travel_mode", "land")
+        e.field("dynamic_first_waypoint", True)
+        e.field("origin", "none")
+        e.field("ai", False)
+        e.field("show_start_message", False)
+        e.field("show_end_message", False)
+        with e.triggers("potential", CountryTrig) as t:
+            t.has_variable("tfe_mission_to")
+        with e.triggers("leader", CharacterTrig) as t:
+            t.is_expedition_leader(False)
+        with e.effects("on_start", CountryFx) as fx, fx.link("scope:expedition", ExpeditionFx) as x:
+            x.add_new_waypoint("root.var:tfe_mission_from")
+            x.add_new_waypoint("root.var:tfe_mission_to")
+        with e.effects("on_end", CountryFx) as fx:
+            arrive(fx)
+        with e.effects("on_fail", CountryFx) as fx:
+            fx.note("no road there (Ireland, an island): he crosses by boat and preaches all the same")
+            arrive(fx)
+
+
+def collect_near(fx: CountryFx, frm: str, faith: str, name: str):
+    """every field within NEAR_RINGS steps of `frm`, into the temporary list `name`"""
+    def ring(loc: LocationFx, depth: int):
+        with loc.every_neighbor_location() as n:
+            with n.if_() as i:
+                with i.limit() as t:
+                    t._call(FIELD[faith], True)
+                i.add_to_temporary_list(name)
+            if depth > 1:
+                ring(n, depth - 1)
+    with fx.link(frm, LocationFx) as loc:
+        ring(loc, NEAR_RINGS)
+
+
+def end_missions(d: Defs):
+    """the yearly pulse: a stay whose time is up ends; the missionary may walk on to a field nearby, else he retires
+    (a character made for the road must not crowd the court)"""
+    d.hook("yearly_country_pulse", "tfe_on_missions_end")
+    with d.on_action("tfe_on_missions_end") as a, a.effect(CountryFx) as e, e.every_character() as c:
+        with c.limit() as t:
+            t.has_variable("tfe_mission_at")
+            t.not_(lambda n: n.has_variable("tfe_preaching"))
+        c.save_scope_as("tfe_missionary")
+        with c.link("var:tfe_mission_at", LocationFx) as at:
+            at.save_scope_as("tfe_mission_from")
+        with c.link("root", CountryFx) as r:
+            r._call("tfe_end_mission_effect", True)
+            for faith in MOVEMENT:
+                with r.if_() as i:
+                    with i.limit() as t:
+                        t.not_(lambda n: n.has_variable("tfe_mission_to"))
+                        with t.link("scope:tfe_missionary", CharacterTrig) as who:
+                            who.compare("religion", "=", f"religion:{faith}")
+                            who.var("tfe_missions", "<", MAX_MISSIONS)
+                    with i.random(MOVE_ON_CHANCE) as go:
+                        collect_near(go, "scope:tfe_mission_from", faith, "tfe_near_fields")
+                        with go.ordered_in_list(LocationFx, list="tfe_near_fields", order_by="population") as to:
+                            to.save_scope_as("tfe_mission_to")
+                        with go.if_() as s:
+                            with s.limit() as t:
+                                t.exists("scope:tfe_mission_to")
+                            s._call("tfe_send_missionary_effect", True)
+            r.note("a kill in the character's own scope fails PostValidate (probe): kill from the country")
+            with r.if_() as i:
+                with i.limit() as t, t.link("scope:tfe_missionary", CharacterTrig) as who:
+                    who.not_(lambda n: n.has_variable("tfe_on_road"))
+                i.kill_character_silently("scope:tfe_missionary")
+    d.hook("on_character_death", "tfe_on_missionary_dies")
+    with d.on_action("tfe_on_missionary_dies") as a:
+        with a.trigger(CountryTrig) as t, t.link("scope:target", CharacterTrig) as dead:
+            dead.has_variable("tfe_mission_at")
+        with a.effect(CountryFx) as e:
+            with e.link("scope:target", CharacterFx) as dead:
+                dead.save_scope_as("tfe_missionary")
+            e._call("tfe_end_mission_effect", True)
+
+
 def build():
     movements, types, icons = Doc(), Doc(), Doc()
     movements.note("TFE: the Christianisation of Europe (written by script/missionaries.py). Two rival movements convert\n"
@@ -202,8 +395,25 @@ def build():
     return movements, types, icons
 
 
+def static_modifiers(loc: Loc):
+    mods = Doc()
+    mods.loc = loc
+    mods.note("TFE: the Christianisation of Europe (written by script/missionaries.py)")
+    mods.modifier(PREACHING, category="location", local_tfe_nicene_movement_growth_modifier=PREACHING_GROWTH,
+                  local_tfe_arian_movement_growth_modifier=PREACHING_GROWTH)
+    loc.add(f"STATIC_MODIFIER_NAME_{PREACHING}", "A Missionary Preaches")
+    loc.add(f"STATIC_MODIFIER_DESC_{PREACHING}", "A man of God has come to live among these people, and they come to hear him.")
+    return mods
+
+
 MOVEMENTS, TYPES, ICONS = build()
+MODIFIERS = static_modifiers(MOVEMENTS.loc)
+EXPEDITION = Doc()
+EXPEDITION.loc = MOVEMENTS.loc
+expedition(EXPEDITION)
+EFFECTS = effects()
 TRIGGERS = triggers()
+PULSES = pulses()
 
 
 def outputs():
@@ -212,4 +422,8 @@ def outputs():
             "main_menu/common/modifier_type_definitions/tfe_christianisation.txt": TYPES.text(),
             "main_menu/common/modifier_icons/tfe_christianisation.txt": ICONS.text(),
             "in_game/common/scripted_triggers/tfe_christianisation.txt": TRIGGERS.text(),
+            "in_game/common/on_action/tfe_christianisation.txt": PULSES.text(),
+            "in_game/common/scripted_effects/tfe_christianisation.txt": EFFECTS.text(),
+            "in_game/common/expedition_types/tfe_missionaries.txt": EXPEDITION.text(),
+            "main_menu/common/static_modifiers/tfe_christianisation.txt": MODIFIERS.text(),
             "main_menu/localization/english/tfe_christianisation_l_english.yml": MOVEMENTS.loc.text()}

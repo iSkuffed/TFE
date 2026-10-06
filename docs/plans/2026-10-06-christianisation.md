@@ -47,6 +47,19 @@ plan makes; they are listed in "Changes from the spec" below.
   positive/neutral/negative.
 - Fun over accuracy, and pace the chaos (RoadMap design rules): at most one missionary walking per country.
 
+## Probe results (Task 2)
+
+- **P1:** one movement per `spawn_movement`. Harmless: the day-one sees each get their own, and `add_spreader` picks
+  one through `ordered_movement_in_religion`.
+- **P2:** a spreader alone starts conversion where the faith was absent. `tfe_preach_effect` spawns nothing.
+- **P3:** far too fast at `R0 = 0.012`: majority-Nicene locations went from 992 to 2038 in two years. `R0` is now
+  0.002 (Nicene) and 0.0016 (Arian); Task 9 tunes it.
+- **P4:** `remove_spreader` on a living or dead character logs nothing. But `kill_character_silently = yes` inside the
+  character's own scope fails PostValidate: the yearly pulse kills from the country, `kill_character_silently =
+  scope:tfe_missionary`.
+- Also: `province = province:laconia_province` is an error; the Mani is `province_definition =
+  province_definition:laconia_province`.
+
 ## Changes from the spec (made here, written back into the spec in Task 8)
 
 1. **The cult centres resist through `r0`, not a location modifier.** `r0` is ×0.3 at Harran, Baalbek, Gaza, Aswan
