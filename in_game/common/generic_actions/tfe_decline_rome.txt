@@ -75,7 +75,8 @@ tfe_hospitalitas = {
 	}
 	# the land: a whole area where the actor holds provinces (a single province is too little to buy off a people),
 	# never the one that holds the capital. The East gives only Illyricum, Thrace and Greece (the Balkans), never Anatolia,
-	# Syria or Egypt: the peoples come over the Danube, and the East's heartlands are not for them
+	# Syria or Egypt: the peoples come over the Danube, and the East's heartlands are not for them. No small island:
+	# an island area is never offered, and a mixed one hands over only its mainland (Sicily and Britain are fair)
 	select_trigger = {
 		looking_for_a = area
 		interaction_source_list = {
@@ -88,7 +89,20 @@ tfe_hospitalitas = {
 			data = name
 		}
 		visible = {
-			any_location_in_area = { owner ?= scope:actor }
+			any_location_in_area = {
+				owner ?= scope:actor
+				NOT = {
+					OR = {
+						area = area:aegean_archipelago_area
+						area = area:balearics_area
+						area = area:sardinia_area
+						province_definition = province_definition:pumonte_province
+						province_definition = province_definition:cismonte_province
+						province_definition = province_definition:cyprus_province
+						this = location:malta
+					}
+				}
+			}
 			NOT = {
 				any_location_in_area = {
 					owner ?= scope:actor
@@ -111,7 +125,20 @@ tfe_hospitalitas = {
 			}
 			scope:target_area = {
 				every_location_in_area = {
-					limit = { owner ?= scope:actor }
+					limit = {
+						owner ?= scope:actor
+						NOT = {
+							OR = {
+								area = area:aegean_archipelago_area
+								area = area:balearics_area
+								area = area:sardinia_area
+								province_definition = province_definition:pumonte_province
+								province_definition = province_definition:cismonte_province
+								province_definition = province_definition:cyprus_province
+								this = location:malta
+							}
+						}
+					}
 					scope:host = {
 						add_to_variable_list = { name = tfe_hospitalitas_land target = prev months = 3 }
 					}

@@ -97,6 +97,21 @@ def test_hospitalitas_keeps_to_its_own_war_and_the_east_to_the_balkans():
     assert re.search(r"tfe_is_historical_land_of = \{\s*WHO = scope:host\s*\}", hosp)
 
 
+def test_hospitalitas_exiles_no_host_to_a_small_island():
+    # user: a host sent to the Balearics can never march again without ships, and dies landing. Sicily and Britain are fair.
+    hosp = code(ACTIONS)
+    hosp = hosp[:hosp.index("tfe_man_the_limes = {")]
+    picker = hosp[hosp.index("target_flag = target_area"):hosp.index("effect = {")]
+    handover = hosp[hosp.index("effect = {"):hosp.index("ai_will_do")]
+    for part in (picker, handover):   # never offered, and never handed over inside a mixed area
+        for key in ("area = area:aegean_archipelago_area", "area = area:balearics_area", "area = area:sardinia_area",
+                    "province_definition = province_definition:pumonte_province",
+                    "province_definition = province_definition:cismonte_province",
+                    "province_definition = province_definition:cyprus_province", "this = location:malta"):
+            assert key in part, key
+    assert "sicily_area" not in hosp and "britannia" not in hosp
+
+
 def test_man_the_limes_costs_and_marks_the_frontier():
     acts, price, mod = code(ACTIONS), code(PRICE), code(MODIFIER)
     assert "gold" in price and "manpower" in price
