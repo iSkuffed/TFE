@@ -97,6 +97,7 @@ MISSION_COOLDOWN = 5
 TEMPLES_YEARS = 10
 RISING_CHANCE = 25
 CONVERSION_EVERY = 10
+SAINT_MAX_AGE = 60  # a man of 79 died at home within the year (probe): Martin must live to preach
 
 
 def triggers():
@@ -331,7 +332,7 @@ def send_saint(fx: CountryFx, s: Saint):
             with g.link(f"location:{s.start}", LocationFx) as frm:
                 frm.save_scope_as("tfe_mission_from")
             g.create_character(first_name=f"name_{s.key}", religion=f"religion:{s.faith}", culture="root.culture",
-                               estate="estate_type:clergy_estate", age=s.age, save_scope_as="tfe_missionary")
+                               estate="estate_type:clergy_estate", age=min(s.age, SAINT_MAX_AGE), save_scope_as="tfe_missionary")
             with g.if_() as h:
                 h.limit(lambda t: t.exists("scope:tfe_missionary"))
                 h.tfe_send_missionary_effect(True)

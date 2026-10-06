@@ -243,3 +243,9 @@ def test_holding_out_speeds_the_drift():
     assert "tfe_old_gods_kept" in conversion()
     for key in m.MOVEMENT.values():
         assert m.MODIFIERS.find(f"national_{key}_growth_modifier", None, inside="tfe_old_gods_kept"), key
+
+
+def test_no_saint_is_too_old_to_reach_his_field():
+    """a man of 79 died at home within the year (probe): a saint who never preaches is a wasted saint"""
+    ages = [int(n.val) for n in m.PULSES.find("age", None, inside=("tfe_on_saints",))]
+    assert len(ages) == len(m.SAINTS) and max(ages) <= m.SAINT_MAX_AGE

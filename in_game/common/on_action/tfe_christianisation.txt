@@ -215,7 +215,7 @@ tfe_on_saints = {
 				location:tours = { save_scope_as = tfe_mission_from }
 				create_character = {
 					first_name = name_martin
-					age = 79
+					age = 60
 					religion = religion:orthodox
 					estate = estate_type:clergy_estate
 					culture = root.culture
@@ -317,7 +317,7 @@ tfe_on_saints = {
 				location:rouen = { save_scope_as = tfe_mission_from }
 				create_character = {
 					first_name = name_victricius
-					age = 66
+					age = 60
 					religion = religion:orthodox
 					estate = estate_type:clergy_estate
 					culture = root.culture
