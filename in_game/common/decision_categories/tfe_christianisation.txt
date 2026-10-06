@@ -1,0 +1,5 @@
+﻿# TFE: The Faith's decisions (decisions/tfe_christianisation.txt), after the Fall of the West's.
+tfe_the_faith = {
+	name_key = tfe_the_faith
+	sort_order = 1
+}

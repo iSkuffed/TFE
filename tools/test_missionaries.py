@@ -197,3 +197,28 @@ def test_one_saint_per_court_per_year():
 def test_the_temples_closed_speed_the_nicenes():
     assert m.MODIFIERS.find("national_tfe_nicene_movement_growth_modifier", None, inside=m.TEMPLES)
     assert f"STATIC_MODIFIER_NAME_{m.TEMPLES}:" in LOC
+
+
+def decisions():
+    return OUT["in_game/common/decisions/tfe_christianisation.txt"]
+
+
+def test_a_mission_costs_months_of_income_with_a_floor():
+    vals = OUT["in_game/common/script_values/tfe_christianisation.txt"]
+    assert f"multiply = {m.MISSION_INCOME_MONTHS}" in vals and f"min = {m.MISSION_MIN_GOLD}" in vals
+
+
+def test_sponsor_a_mission_has_a_cooldown_and_waits_for_the_last_missionary():
+    allow = decisions().split("tfe_sponsor_mission", 1)[1].split("ai_will_do", 1)[0]
+    assert "tfe_mission_sponsored" in allow and "tfe_mission_to" in allow
+    assert f"years = {m.MISSION_COOLDOWN}" in decisions()
+
+
+def test_close_the_temples_is_for_a_nicene_rome():
+    pot = decisions().split("tfe_close_the_temples", 1)[1].split("allow", 1)[0]
+    assert "tfe_is_roman_empire = yes" in pot and "religion:orthodox" in pot
+
+
+def test_close_the_temples_angers_the_pagans_and_can_raise_them():
+    eff = decisions().split("tfe_close_the_temples", 1)[1]
+    assert "add_pop_satisfaction" in eff and f"chance = {m.RISING_CHANCE}" in eff

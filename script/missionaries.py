@@ -9,7 +9,7 @@ from typing import NamedTuple
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "tools"))
 from pdx.api import (AreaFx, CharacterFx, CharacterTrig, CountryFx, CountryTrig, ExpeditionFx, ExpeditionTrig, LocationFx,
-                     LocationTrig, RegionFx, ReligionFx, ReligionTrig)
+                     LocationTrig, PopTrig, RegionFx, ReligionFx, ReligionTrig)
 from pdx.core import Q
 from pdx.objects import Doc, LocationValue, Loc
 from pdx.objects_defs import Defs
@@ -86,6 +86,13 @@ RANDOM_CHANCE = 5
 TEMPLES_BONUS = 5
 TEMPLES = "tfe_temples_closed"  # Close the Temples' country modifier
 TEMPLES_GROWTH = 0.5
+CATEGORY = "tfe_the_faith"
+EXT = "gfx/interface/illustrations/event/backgrounds/exterior/"
+MISSION_INCOME_MONTHS = 6
+MISSION_MIN_GOLD = 50
+MISSION_COOLDOWN = 5
+TEMPLES_YEARS = 10
+RISING_CHANCE = 25
 
 
 def triggers():
@@ -543,6 +550,116 @@ def end_missions(d: Defs):
             e.tfe_end_mission_effect(True)
 
 
+def values():
+    d = Doc()
+    d.note("TFE: the price of a mission, half a year of trade and tax (written by script/missionaries.py)")
+    with d.entry("tfe_mission_price") as e:
+        e.field("value", "monthly_income_trade_and_tax")
+        e.field("multiply", MISSION_INCOME_MONTHS)
+        e.field("min", MISSION_MIN_GOLD)
+    with d.entry("tfe_mission_price_twice") as e:
+        e.field("value", "tfe_mission_price")
+        e.field("multiply", 2)
+    return d
+
+
+def pagan_pop(t: PopTrig):
+    with t.link("religion", ReligionTrig) as r:
+        r.tfe_is_pagan_religion(True)
+
+
+def sponsor(doc: Doc):
+    with doc.decision("tfe_sponsor_mission", category=CATEGORY, title="Sponsor a Mission",
+                      desc="A priest of our faith asks for a mule, a gospel book and a letter of protection, and he "
+                           "will go to the people beyond our towns who still sacrifice to the old gods.",
+                      image=EXT + "byz_clergy_exterior.dds") as d:
+        with d.potential() as t, t.or_() as o:
+            for faith in MOVEMENT:
+                with o.and_() as a:
+                    a.compare("religion", "=", f"religion:{faith}")
+                    a._call(IN_REACH[faith], True)
+        with d.allow() as t:
+            with t.custom_tooltip_block("tfe_mission_price_tt") as ct:
+                ct.gold("tfe_mission_price", op=">=")
+            with t.custom_tooltip_block("tfe_mission_on_the_road_tt") as ct:
+                ct.not_(lambda n: n.has_variable("tfe_mission_to"))
+            with t.custom_tooltip_block("tfe_mission_sponsored_tt") as ct:
+                ct.not_(lambda n: n.has_variable("tfe_mission_sponsored"))
+        with d.ai_will_do() as v:
+            v.value(0)
+            with v.if_() as i:
+                with i.limit() as t:
+                    t.gold("tfe_mission_price_twice", op=">=")
+                i.add(10)
+        with d.option("a", text="Go with God.") as o, o.effect() as e:
+            e.add_gold(value="tfe_mission_price", multiply=-1)
+            e.set_variable(name="tfe_mission_sponsored", years=MISSION_COOLDOWN)
+            e.custom_tooltip("tfe_sponsor_mission_tt")
+            with e.hidden_effect() as h:
+                for faith in MOVEMENT:
+                    with h.if_() as f:
+                        f.limit(lambda t, faith=faith: t.compare("religion", "=", f"religion:{faith}"))
+                        fields_in_reach(f, faith, "tfe_reach_fields")
+                        with f.ordered_in_list(LocationFx, list="tfe_reach_fields", order_by="population") as to:
+                            to.save_scope_as("tfe_mission_to")
+                        new_missionary(f)
+
+
+def close_the_temples(doc: Doc):
+    with doc.decision("tfe_close_the_temples", category=CATEGORY, title="Close the Temples",
+                      desc="Theodosius forbade the sacrifices and shut the temples, but in the villages the altars still "
+                           "smoke. Enforce the edicts: send the soldiers with the bishops, and let the old gods starve.",
+                      image=EXT + "byz_clergy_hellenist_exterior.dds") as d:
+        with d.potential() as t:
+            t.compare("religion", "=", f"religion:{NICENE}")
+            t.tfe_is_roman_empire(True)
+        with d.allow() as t:
+            with t.custom_tooltip_block("tfe_temples_already_closed_tt") as ct:
+                ct.not_(lambda n: n.has_country_modifier(TEMPLES))
+        with d.ai_will_do() as v:
+            v.value(0)
+            with v.if_() as i:
+                with i.limit() as t:
+                    t.stability(50, op=">=")
+                    t.at_war(False)
+                i.add(10)
+        with d.option("a", text="The edicts will be obeyed.") as o, o.effect() as e:
+            e.add_country_modifier(modifier=TEMPLES, years=TEMPLES_YEARS)
+            e.custom_tooltip("tfe_close_the_temples_tt")
+            with e.hidden_effect() as h, h.every_owned_location() as loc:
+                with loc.every_pop() as p:
+                    p.limit(pagan_pop)
+                    p.add_pop_satisfaction("pop_satisfaction_mild_penalty")
+                with loc.if_() as i:
+                    i.limit(lambda t: t._call(FIELD[NICENE], True))
+                    with i.random(RISING_CHANCE) as r, r.every_pop() as p:
+                        p.limit(pagan_pop)
+                        p.add_pop_satisfaction("pop_satisfaction_extreme_penalty")
+
+
+def faith_decisions(loc: Loc):
+    """(the category file, the decisions file), sharing the movements' localisation"""
+    cats, doc = Doc(), Doc()
+    cats.loc = doc.loc = loc
+    cats.note("TFE: The Faith's decisions (decisions/tfe_christianisation.txt), after the Fall of the West's.")
+    cats.decision_category(CATEGORY, title="The Faith", sort_order=1)
+    doc.note("TFE: missions and the edicts against the sacrifices (written by script/missionaries.py)")
+    sponsor(doc)
+    close_the_temples(doc)
+    for key, text in (
+            ("tfe_mission_price_tt", "We have the gold for a mission ([tfe_mission_price])"),
+            ("tfe_mission_on_the_road_tt", "None of our missionaries is still on the road"),
+            ("tfe_mission_sponsored_tt", f"We have not sponsored a mission in the last {MISSION_COOLDOWN} years"),
+            ("tfe_temples_already_closed_tt", "The temples are not already closed"),
+            ("tfe_sponsor_mission_tt", "A missionary of our faith sets out for the most populous pagan place in or "
+                                       "beside our lands, and preaches there for 5 to 10 years."),
+            ("tfe_close_the_temples_tt", f"For {TEMPLES_YEARS} years our faith spreads half again as fast and more of "
+                                         "our priests go out to the pagans. Every pagan in our lands loses 10% "
+                                         "satisfaction, and in a quarter of the pagan places they lose 25% more.")):
+        loc.add(key, text)
+    return cats, doc
+
+
 def build():
     movements, types, icons = Doc(), Doc(), Doc()
     movements.note("TFE: the Christianisation of Europe (written by script/missionaries.py). Two rival movements convert\n"
@@ -574,6 +691,8 @@ def static_modifiers(loc: Loc):
 
 MOVEMENTS, TYPES, ICONS = build()
 MODIFIERS = static_modifiers(MOVEMENTS.loc)
+CATEGORIES, DECISIONS = faith_decisions(MOVEMENTS.loc)
+VALUES = values()
 EXPEDITION = Doc()
 EXPEDITION.loc = MOVEMENTS.loc
 expedition(EXPEDITION)
@@ -592,4 +711,7 @@ def outputs():
             "in_game/common/scripted_effects/tfe_christianisation.txt": EFFECTS.text(),
             "in_game/common/expedition_types/tfe_missionaries.txt": EXPEDITION.text(),
             "main_menu/common/static_modifiers/tfe_christianisation.txt": MODIFIERS.text(),
+            "in_game/common/decision_categories/tfe_christianisation.txt": CATEGORIES.text(),
+            "in_game/common/decisions/tfe_christianisation.txt": DECISIONS.text(),
+            "in_game/common/script_values/tfe_christianisation.txt": VALUES.text(),
             "main_menu/localization/english/tfe_christianisation_l_english.yml": MOVEMENTS.loc.text()}
