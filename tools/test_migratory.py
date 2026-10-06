@@ -109,9 +109,14 @@ def test_a_landless_host_has_a_cheap_casus_belli_for_new_land():
     assert grants == []   # no Rome by tag: every Roman state, below
     assert re.search(r"every_country = \{\s*limit = \{ tfe_is_roman_state = yes \}\s*scope:tfe_host = \{\s*add_casus_belli = \{ target = prev type = casus_belli:cb_tfe_migration", code(EFFECT))
     goal = re.search(r"war_goal_type = (\w+)", cb).group(1)
-    assert top_keys(WARGOAL) == [goal] and "type = superiority" in code(WARGOAL)
-    attacker = re.search(r"attacker = \{(.*?)\n\t\}", code(WARGOAL), re.S).group(1)
+    assert goal == "take_province_tfe_migration" and goal in top_keys(WARGOAL)
+    body = re.search(goal + r" = \{(.*?)\n\}", code(WARGOAL), re.S).group(1)
+    assert "type = take_province" in body
+    assert "ticking_war_score = 0" in body   # neither empire wins by sitting on the province: battles decide it
+    attacker = re.search(r"attacker = \{(.*?)\n\t\}", body, re.S).group(1)
     assert float(re.search(r"conquer_cost = ([\d.]+)", attacker).group(1)) < 1   # land is the whole point
+    # the host marches on a province the Rome it chose holds land in
+    assert re.search(r"province = \{\s*any_location_in_province = \{ owner \?= scope:recipient \}\s*\}", cb)
 
 
 def test_warband_units_exist_in_vanilla():

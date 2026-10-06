@@ -52,3 +52,53 @@ tfe_barbarian_kingdoms.2 = {
 		}
 	}
 }
+
+# A host on the road's war has ended (on_action/tfe_barbarian_kingdoms.txt fires this a day later, once the peace
+# has handed over its land). A host that won land settled with it (on_action/tfe_migratory.txt). One that won its
+# Migrate into Rome war but took gold instead gets the province it marched on (tfe_promised_province) all the same.
+# One that lost, or made peace with nothing, breaks up.
+tfe_barbarian_kingdoms.3 = {
+	type = country_event
+	title = tfe_barbarian_kingdoms.3.title
+	hidden = yes
+	trigger = {
+		has_variable = tfe_migrating
+		NOT = { has_variable = tfe_settled }
+		NOT = { any_owned_location = { always = yes } }
+	}
+	immediate = {
+		if = {
+			limit = { has_variable = tfe_promised_province }
+			var:tfe_promised_province = {
+				every_location_in_province = { change_location_owner = root }
+			}
+		}
+		else = {
+			trigger_event_non_silently = tfe_barbarian_kingdoms.4
+		}
+	}
+}
+
+# The host breaks up: its warriors scatter, and the people who followed it go home to the remnant of the land it
+# left (tfe_remnant_of, scripted_effects/tfe_migratory.txt). A host that left no remnant is simply gone.
+tfe_barbarian_kingdoms.4 = {
+	type = country_event
+	title = tfe_barbarian_kingdoms.4.title
+	desc = tfe_barbarian_kingdoms.4.desc
+	outcome = negative
+	image = "gfx/interface/illustrations/event/backgrounds/exterior/soldiers/north_german_soldiers_exterior.dds"
+	option = {
+		name = tfe_barbarian_kingdoms.4.a
+		custom_tooltip = tfe_host_scatters_tt
+		hidden_effect = {
+			random_country = {
+				limit = { var:tfe_remnant_of ?= root }
+				capital ?= {
+					add_pop = { culture = root.culture religion = root.religion type = pop_type:peasants size = root.var:tfe_host_people }
+				}
+			}
+			every_army = { destroy_unit = yes }
+			change_country_type = location	# landless and armyless: the country is gone
+		}
+	}
+}

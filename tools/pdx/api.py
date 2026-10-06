@@ -2707,7 +2707,7 @@ class CountryFx(AnyFx):
     def create_trade(self, *, from_: Any = None, to: Any = None, merchant: Any = None, goods: Any = None, desired: Any = None, locked: Any = None) -> None: self._call("create_trade", **_kw(from_=from_, to=to, merchant=merchant, goods=goods, desired=desired, locked=locked))
     def create_union(self, _v: Any, /) -> None: self._call("create_union", _v)
     def declare_war(self, *args: Any, **kw: Any) -> None: self._call("declare_war", *args, **kw)
-    def declare_war_with_cb(self, *, target: Any, type: Any) -> None: self._call("declare_war_with_cb", **_kw(target=target, type=type))
+    def declare_war_with_cb(self, *, target: Any, type: Any, target_province: Any = None, target_country: Any = None, character: Any = None) -> None: self._call("declare_war_with_cb", **_kw(target=target, type=type, target_province=target_province, target_country=target_country, character=character))
     def define_unique_country_tag(self, _v: Any, /) -> None: self._call("define_unique_country_tag", _v)
     def demote_accepted_culture(self, _v: Any, /) -> None: self._call("demote_accepted_culture", _v)
     def destroy_international_organization(self, *, target: Any) -> None: self._call("destroy_international_organization", **_kw(target=target))

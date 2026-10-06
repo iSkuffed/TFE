@@ -37,9 +37,52 @@ tfe_on_host_takes_roman_town = {
 				save_scope_value_as = { name = tfe_defectors value = tfe_defectors_share }
 				add_manpower = tfe_defectors_manpower
 			}
+			root = {
+				every_army = {
+					every_sub_unit = { add_subunit_strength_percentage = scope:tfe_defectors }
+				}
+			}
 		}
-		every_army = {
-			every_sub_unit = { add_subunit_strength_percentage = scope:tfe_defectors }
+	}
+}
+
+# The rest of a province falls to whoever holds its provincial capital, a little after, and neither hook above
+# fires for it. Each month the host also gathers the men of every Roman town it holds that has not yet given any.
+monthly_country_pulse = {
+	on_actions = { tfe_on_host_holds_roman_towns }
+}
+
+tfe_on_host_holds_roman_towns = {
+	trigger = {
+		OR = {
+			AND = {
+				has_variable = tfe_migrating
+				NOT = { has_variable = tfe_settled }	# on_action/tfe_migratory.txt
+			}
+			has_variable = tfe_rhine_war	# the Franks' raid over the Rhine (decisions/tfe_barbarian_kingdoms.txt)
+		}
+	}
+	effect = {
+		every_controlled_location = {
+			limit = {
+				NOT = { has_location_modifier = tfe_fled_to_the_host }
+				owner ?= {
+					OR = {
+						tfe_is_western_rome = yes
+						has_or_had_tag = EAR
+					}
+				}
+			}
+			add_location_modifier = { modifier = tfe_fled_to_the_host years = 10 }
+			owner = {
+				save_scope_value_as = { name = tfe_defectors value = tfe_defectors_share }
+				add_manpower = tfe_defectors_manpower
+			}
+			root = {
+				every_army = {
+					every_sub_unit = { add_subunit_strength_percentage = scope:tfe_defectors }
+				}
+			}
 		}
 	}
 }

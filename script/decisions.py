@@ -5,7 +5,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "tools"))
-from pdx.api import AnyFx, CountryFx, CountryTrig, InternationalOrganizationFx, ValueFx
+from pdx.api import AnyFx, CountryFx, CountryTrig, InternationalOrganizationFx, ProvinceTrig, ValueFx
 from pdx.objects import Doc
 
 from decline_rome_actions import ACTOR, select
@@ -15,12 +15,14 @@ EXT = "gfx/interface/illustrations/event/backgrounds/exterior/"
 HEADER = """TFE: the Fall of the West's Native Decisions (written by script/decisions.py). Migrate into Rome
 (generic_actions/tfe_fall_of_the_west.txt, shown in the decisions tab): a people of Germania or Dacia (tfe_is_migrator) may
 give up its homeland, while the Decline of the West runs, for a great host that costs nothing while it owns no land
-(auto_modifiers/tfe_migratory.txt). It cannot replenish: landless, it has no manpower, so every warrior lost is gone until
-it wins land of its own. The host marches at once on the Roman state it chooses, and that ruler may buy it off with land
-(Hospitalitas, generic_actions/tfe_decline_rome.txt). A settled host may take the road again until it reforms into a
+(auto_modifiers/tfe_migratory.txt). Landless, it has no manpower: only the Roman towns it takes send it men
+(on_action/tfe_defectors.txt). The host marches at once on a province of the Roman state it chooses; that ruler may buy
+it off with land (Hospitalitas, generic_actions/tfe_decline_rome.txt). Won battles win the war, the peace hands over the
+province, and a host that loses breaks up (on_action/tfe_migratory.txt, events/tfe_barbarian_kingdoms.txt). A settled host may take the road again until it reforms into a
 monarchy (decisions/tfe_barbarian_kingdoms.txt). The Salian Franks never migrate: they Cross the Rhine.
 Stilicho's Claims: Honorius's West takes a casus belli on Eastern Illyricum, at a cost in Unity."""
 ROME = "scope:target_rome"
+PROVINCE = "scope:target_province"
 
 
 def roman_states(i: AnyFx):
@@ -28,6 +30,16 @@ def roman_states(i: AnyFx):
         with c.limit() as t:
             t.tfe_is_roman_state()
         c.add_to_list("source")
+
+
+def rome_provinces(i: AnyFx):
+    with i.link(ROME, CountryFx) as r, r.every_province() as p:
+        p.add_to_list("source")
+
+
+def borders_actor(p: ProvinceTrig):
+    with p.any_location_in_province() as loc, loc.any_neighbor_location() as n:
+        n.compare("owner", "?=", ACTOR)
 
 
 def migrate(acts: Doc, loc):
@@ -71,13 +83,25 @@ def migrate(acts: Doc, loc):
             t.tfe_is_roman_state()
             with t.any_owned_location() as o:
                 o.always(True)
+        a.note("the province to march on, the war's goal (casus_belli/tfe_migration.txt). The AI takes one on its own border\n"
+               "if the Rome it chose has any there, and never the capital's: a host bound for Constantinople never arrives.")
+        with select(a, "province", ProvinceTrig, source=rome_provinces, flag="target_province",
+                    name="tfe_migrate_choose_province", none="tfe_migrate_no_province") as t, t.or_() as o:
+            o.link(ACTOR, CountryTrig, lambda c: c.is_ai(False))
+            with o.and_() as ai:
+                with ai.not_() as n, n.any_location_in_province() as town:
+                    town.is_capital(True)
+                with ai.or_() as near:
+                    borders_actor(near)
+                    with near.not_() as n, n.link(ROME, CountryTrig) as r, r.any_province() as p:
+                        borders_actor(p)
         with a.effects("effect") as e:
             e.custom_tooltip("tfe_start_migration_tt")
             e.custom_tooltip("tfe_migrate_tt")
             with e.hidden_effect() as h, h.link(ACTOR, CountryFx) as host:
                 host.tfe_start_migration_effect()
                 host.tail("scripted_effects/tfe_migratory.txt")
-                host.declare_war_with_cb(target=ROME, type="casus_belli:cb_tfe_migration")
+                host.declare_war_with_cb(target=ROME, type="casus_belli:cb_tfe_migration", target_province=PROVINCE)
         a.note("Pace the chaos: one AI people on the road at a time. None moves within a year of the last host setting out\n"
                "(tfe_host_took_the_road), and then only when pushed: the Huns at the door or Rome divided. A settled AI host\n"
                "stays settled. Of the Roman states, the one across the river first; a long trek only by chance.")
@@ -110,8 +134,11 @@ def migrate(acts: Doc, loc):
             "away, or a province that has thrown off its emperor.")
     loc.add("tfe_migrate_choose_rome", "Choose the Rome to march on")
     loc.add("tfe_migrate_no_rome", "@trigger_no! No Roman state holds any land")
-    loc.add("tfe_migrate_tt", "#R We declare war at once on the Roman state we choose.#! Its ruler may offer us land for "
-            "our fealty.")
+    loc.add("tfe_migrate_choose_province", "Choose the province to take")
+    loc.add("tfe_migrate_no_province", "@trigger_no! It holds no province we could march on")
+    loc.add("tfe_migrate_tt", "#R We declare war at once on the Roman state we choose, to take the province we choose.#! "
+            "Every great battle we win against Rome brings that war closer to its end, and the peace always gives us the "
+            "province. Its ruler may offer us land for our fealty.\n#R If we lose, our people scatter and we are no more.#!")
 
 
 def illyricum(doc: Doc):

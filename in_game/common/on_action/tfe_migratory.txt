@@ -41,3 +41,34 @@ tfe_on_host_settles = {
 		scope:winner = { trigger_event_silently = { id = tfe_barbarian_kingdoms.1 days = 1 } }
 	}
 }
+
+# Rome lost its field armies in a few great defeats: each battle a host on the road wins against a Roman state,
+# with 1000 or more of the enemy dead, adds 25 war score in its Migrate into Rome war (vanilla
+# scores a battle by the share of the loser's army, so the Empire shrugged off defeats its tiny allies did not).
+# root = the winner, scope:target = the losing unit.
+on_battle_won = {
+	on_actions = { tfe_on_host_wins_battle }
+}
+
+on_great_battle_won = {
+	on_actions = { tfe_on_host_wins_battle }
+}
+
+# a great battle fires on_great_battle_won instead of on_battle_won, never both
+tfe_on_host_wins_battle = {
+	trigger = {
+		has_variable = tfe_migrating
+		NOT = { has_variable = tfe_settled }
+		scope:killed_land_units >= 1000
+		scope:target.owner ?= { tfe_is_roman_state = yes }
+	}
+	effect = {
+		"war_with_country(scope:target.owner)" = {
+			# a link with arguments is a quoted key, as vanilla writes it; unquoted the game drops the block
+			if = {
+				limit = { casus_belli ?= casus_belli:cb_tfe_migration }
+				add_bonus_warscore = { country = root amount = 25 }
+			}
+		}
+	}
+}

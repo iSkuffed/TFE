@@ -54,7 +54,8 @@ def test_only_honorius_files_name_wre_by_tag():
 
 def test_migration_marches_on_any_roman_state():
     ga = flat("in_game/common/generic_actions/tfe_fall_of_the_west.txt")
-    assert "declare_war_with_cb = { target = scope:target_rome type = casus_belli:cb_tfe_migration }" in ga
+    assert ("declare_war_with_cb = { target = scope:target_rome type = casus_belli:cb_tfe_migration "
+            "target_province = scope:target_province }") in ga
     assert "c:WRE" not in ga and "tfe_is_western_rome" not in ga
     tr = flat("in_game/common/scripted_triggers/tfe_western_rome.txt")
     assert "tfe_is_roman_state = { OR = { tfe_is_roman_empire = yes has_variable = tfe_roman_successor } }" in tr

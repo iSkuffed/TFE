@@ -1,6 +1,7 @@
 ﻿# TFE: a migrating host (decisions/tfe_fall_of_the_west.txt) has come for land. Without this it could only
 # declare a no-CB war: a heavy stability hit for the whole point of migrating. Start Migration grants it against
-# the Roman empires (the game never offers it to a landless host on its own).
+# the Roman empires (the game never offers it to a landless host on its own). Its war goal is a province:
+# wargoals/tfe_migration.txt.
 cb_tfe_migration = {
 	create_visible = {
 		has_variable = tfe_migrating
@@ -11,5 +12,9 @@ cb_tfe_migration = {
 	}
 	speed = 100
 
-	war_goal_type = superiority_tfe_migration
+	# the province the host marches on (Migrate into Rome picks it): one the target holds land in
+	province = {
+		any_location_in_province = { owner ?= scope:recipient }
+	}
+	war_goal_type = take_province_tfe_migration
 }

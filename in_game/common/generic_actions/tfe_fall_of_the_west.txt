@@ -51,13 +51,49 @@ tfe_migrate = {
 			any_owned_location = { always = yes }
 		}
 	}
+	# the province to march on, the war's goal (casus_belli/tfe_migration.txt). The AI takes one on its own border
+	# if the Rome it chose has any there, and never the capital's: a host bound for Constantinople never arrives.
+	select_trigger = {
+		looking_for_a = province
+		interaction_source_list = {
+			scope:target_rome = { every_province = { add_to_list = source } }
+		}
+		target_flag = target_province
+		name = "tfe_migrate_choose_province"
+		none_available_msg_key = "tfe_migrate_no_province"
+		column = {
+			data = name
+		}
+		visible = {
+			OR = {
+				scope:actor = { is_ai = no }
+				AND = {
+					NOT = { any_location_in_province = { is_capital = yes } }
+					OR = {
+						any_location_in_province = { any_neighbor_location = { owner ?= scope:actor } }
+						NOT = {
+							scope:target_rome = {
+								any_province = {
+									any_location_in_province = { any_neighbor_location = { owner ?= scope:actor } }
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
 	effect = {
 		custom_tooltip = tfe_start_migration_tt
 		custom_tooltip = tfe_migrate_tt
 		hidden_effect = {
 			scope:actor = {
 				tfe_start_migration_effect = yes	# scripted_effects/tfe_migratory.txt
-				declare_war_with_cb = { target = scope:target_rome type = casus_belli:cb_tfe_migration }
+				declare_war_with_cb = {
+					target = scope:target_rome
+					type = casus_belli:cb_tfe_migration
+					target_province = scope:target_province
+				}
 			}
 		}
 	}
