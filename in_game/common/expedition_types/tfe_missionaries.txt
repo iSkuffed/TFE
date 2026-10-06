@@ -3,6 +3,8 @@
 tfe_missionary = {
 	# one missionary on the road per country: pace the chaos
 	unique = yes
+	# a dead leader ends the mission: else the engine sends a nameless explorer in his place
+	fail_if_no_leader = yes
 	travel_speed = 0.5
 	travel_mode = land
 	dynamic_first_waypoint = yes

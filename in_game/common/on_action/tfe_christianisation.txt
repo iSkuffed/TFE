@@ -851,97 +851,102 @@ tfe_on_pagan_king = {
 tfe_on_missions_end = {
 	effect = {
 		every_character = {
-			limit = { has_variable = tfe_mission_at NOT = { has_variable = tfe_preaching } }
-			save_scope_as = tfe_missionary
-			var:tfe_mission_at = { save_scope_as = tfe_mission_from }
-			root = {
-				tfe_end_mission_effect = yes
-				if = {
-					limit = {
-						NOT = { has_variable = tfe_mission_to }
-						scope:tfe_missionary = {
-							religion = religion:orthodox
-							var:tfe_missions < 3
+			limit = { has_variable = tfe_mission_at }
+			# a character's timed variable ran a month for every year in game (saves at 400 and 411): count by hand
+			change_variable = { name = tfe_preaching add = -1 }
+			if = {
+				limit = { var:tfe_preaching <= 0 }
+				save_scope_as = tfe_missionary
+				var:tfe_mission_at = { save_scope_as = tfe_mission_from }
+				root = {
+					tfe_end_mission_effect = yes
+					if = {
+						limit = {
+							NOT = { has_variable = tfe_mission_to }
+							scope:tfe_missionary = {
+								religion = religion:orthodox
+								var:tfe_missions < 3
+							}
 						}
-					}
-					random = {
-						chance = 50
-						scope:tfe_mission_from = {
-							every_neighbor_location = {
-								if = {
-									limit = { tfe_nicene_mission_field = yes }
-									add_to_temporary_list = tfe_near_fields
-								}
+						random = {
+							chance = 50
+							scope:tfe_mission_from = {
 								every_neighbor_location = {
 									if = {
-										limit = { tfe_nicene_mission_field = yes }
+										limit = { tfe_nicene_mission_field = yes NOT = { this = scope:tfe_mission_from } }
 										add_to_temporary_list = tfe_near_fields
 									}
 									every_neighbor_location = {
 										if = {
-											limit = { tfe_nicene_mission_field = yes }
+											limit = { tfe_nicene_mission_field = yes NOT = { this = scope:tfe_mission_from } }
 											add_to_temporary_list = tfe_near_fields
+										}
+										every_neighbor_location = {
+											if = {
+												limit = { tfe_nicene_mission_field = yes NOT = { this = scope:tfe_mission_from } }
+												add_to_temporary_list = tfe_near_fields
+											}
 										}
 									}
 								}
 							}
-						}
-						ordered_in_list = {
-							order_by = population
-							list = tfe_near_fields
-							save_scope_as = tfe_mission_to
-						}
-						if = {
-							limit = { exists = scope:tfe_mission_to }
-							tfe_send_missionary_effect = yes
-						}
-					}
-				}
-				if = {
-					limit = {
-						NOT = { has_variable = tfe_mission_to }
-						scope:tfe_missionary = {
-							religion = religion:arianism
-							var:tfe_missions < 3
+							ordered_in_list = {
+								order_by = population
+								list = tfe_near_fields
+								save_scope_as = tfe_mission_to
+							}
+							if = {
+								limit = { exists = scope:tfe_mission_to }
+								tfe_send_missionary_effect = yes
+							}
 						}
 					}
-					random = {
-						chance = 50
-						scope:tfe_mission_from = {
-							every_neighbor_location = {
-								if = {
-									limit = { tfe_arian_mission_field = yes }
-									add_to_temporary_list = tfe_near_fields
-								}
+					if = {
+						limit = {
+							NOT = { has_variable = tfe_mission_to }
+							scope:tfe_missionary = {
+								religion = religion:arianism
+								var:tfe_missions < 3
+							}
+						}
+						random = {
+							chance = 50
+							scope:tfe_mission_from = {
 								every_neighbor_location = {
 									if = {
-										limit = { tfe_arian_mission_field = yes }
+										limit = { tfe_arian_mission_field = yes NOT = { this = scope:tfe_mission_from } }
 										add_to_temporary_list = tfe_near_fields
 									}
 									every_neighbor_location = {
 										if = {
-											limit = { tfe_arian_mission_field = yes }
+											limit = { tfe_arian_mission_field = yes NOT = { this = scope:tfe_mission_from } }
 											add_to_temporary_list = tfe_near_fields
+										}
+										every_neighbor_location = {
+											if = {
+												limit = { tfe_arian_mission_field = yes NOT = { this = scope:tfe_mission_from } }
+												add_to_temporary_list = tfe_near_fields
+											}
 										}
 									}
 								}
 							}
-						}
-						ordered_in_list = {
-							order_by = population
-							list = tfe_near_fields
-							save_scope_as = tfe_mission_to
-						}
-						if = {
-							limit = { exists = scope:tfe_mission_to }
-							tfe_send_missionary_effect = yes
+							ordered_in_list = {
+								order_by = population
+								list = tfe_near_fields
+								save_scope_as = tfe_mission_to
+							}
+							if = {
+								limit = { exists = scope:tfe_mission_to }
+								tfe_send_missionary_effect = yes
+							}
 						}
 					}
-				}
-				# a kill in the character's own scope fails PostValidate (probe): kill from the country
-				if = {
-					limit = { scope:tfe_missionary = { NOT = { has_variable = tfe_on_road } } }
-					kill_character_silently = scope:tfe_missionary
+					# a kill in the character's own scope fails PostValidate (probe): kill from the country
+					if = {
+						limit = { scope:tfe_missionary = { NOT = { has_variable = tfe_on_road } } }
+						kill_character_silently = scope:tfe_missionary
+					}
 				}
 			}
 		}

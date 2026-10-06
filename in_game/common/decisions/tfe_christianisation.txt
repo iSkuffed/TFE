@@ -151,7 +151,7 @@ tfe_close_the_temples = {
 						add_pop_satisfaction = pop_satisfaction_mild_penalty
 					}
 					if = {
-						limit = { tfe_nicene_mission_field = yes }
+						limit = { dominant_religion ?= { tfe_is_pagan_religion = yes } }
 						random = {
 							chance = 25
 							every_pop = {

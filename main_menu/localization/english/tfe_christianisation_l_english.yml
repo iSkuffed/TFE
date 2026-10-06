@@ -28,7 +28,7 @@
  tfe_close_the_temples.title: "Close the Temples"
  tfe_close_the_temples.desc: "Theodosius forbade the sacrifices and shut the temples, but in the villages the altars still smoke. Enforce the edicts: send the soldiers with the bishops, and let the old gods starve."
  tfe_close_the_temples.a: "The edicts will be obeyed."
- tfe_mission_price_tt: "We have the gold for a mission ([tfe_mission_price])"
+ tfe_mission_price_tt: "We have the gold for a mission ([ROOT.ScriptValue('tfe_mission_price')|0])"
  tfe_mission_on_the_road_tt: "None of our missionaries is still on the road"
  tfe_mission_sponsored_tt: "We have not sponsored a mission in the last 5 years"
  tfe_temples_already_closed_tt: "The temples are not already closed"

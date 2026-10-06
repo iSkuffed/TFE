@@ -30,7 +30,9 @@ tfe_is_arian_pagan_religion = {
 }
 
 # location: a place the Nicene Christianity missionaries would preach in, its people mostly keeping those gods
+# and no missionary there yet (the first to leave would take the second's modifier with him)
 tfe_nicene_mission_field = {
+	NOT = { has_location_modifier = tfe_mission_preaching }
 	dominant_religion ?= { tfe_is_pagan_religion = yes }
 }
 
@@ -45,7 +47,9 @@ tfe_nicene_mission_in_reach = {
 }
 
 # location: a place the Arian Christianity missionaries would preach in, its people mostly keeping those gods
+# and no missionary there yet (the first to leave would take the second's modifier with him)
 tfe_arian_mission_field = {
+	NOT = { has_location_modifier = tfe_mission_preaching }
 	dominant_religion ?= { tfe_is_arian_pagan_religion = yes }
 }
 

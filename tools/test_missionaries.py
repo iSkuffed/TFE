@@ -249,3 +249,36 @@ def test_no_saint_is_too_old_to_reach_his_field():
     """a man of 79 died at home within the year (probe): a saint who never preaches is a wasted saint"""
     ages = [int(n.val) for n in m.PULSES.find("age", None, inside=("tfe_on_saints",))]
     assert len(ages) == len(m.SAINTS) and max(ages) <= m.SAINT_MAX_AGE
+
+
+def test_a_town_already_preached_in_is_no_field():
+    """a second missionary there would lose the modifier when the first one leaves (final review)"""
+    for faith in m.MOVEMENT:
+        assert m.TRIGGERS.find("has_location_modifier", m.PREACHING, inside=(m.FIELD[faith], "NOT")), faith
+
+
+def test_a_missionary_walking_on_leaves_the_town_he_preached_in():
+    """at two steps the ring comes back to where he started, still pagan and still the most populous"""
+    assert m.PULSES.find("this", "scope:tfe_mission_from", inside=("tfe_on_missions_end", "NOT"))
+
+
+def test_the_temples_rising_still_counts_the_towns_being_preached_to():
+    eff = decisions().split("tfe_close_the_temples", 1)[1]
+    assert f"chance = {m.RISING_CHANCE}" in eff and "dominant_religion" in eff
+
+
+def test_a_missionary_who_dies_on_the_road_is_not_replaced():
+    """without it the engine sends a nameless explorer in his place (vanilla expedition_types/readme.txt)"""
+    assert "fail_if_no_leader = yes" in expedition()
+
+
+def test_the_mission_price_shows_as_a_number():
+    assert "[ROOT.ScriptValue('tfe_mission_price')|0]" in LOC
+
+
+def test_a_stay_is_counted_down_by_the_yearly_pulse():
+    """a character's timed variable ran a month per year in game (saves at 400 and 411): count the years by hand"""
+    assert m.EFFECTS.find("set_variable", None, inside=("tfe_preach_effect", "random_list"))
+    assert not m.EFFECTS.find("years", None, inside=("tfe_preach_effect", "random_list"))
+    end = pulse().split("tfe_on_missions_end = {", 1)[1]
+    assert "name = tfe_preaching" in end and "add = -1" in end and "var:tfe_preaching <= 0" in end

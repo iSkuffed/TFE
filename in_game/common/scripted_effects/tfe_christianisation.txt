@@ -25,13 +25,13 @@ tfe_preach_effect = {
 		}
 		random_list = {
 			1 = {
-				set_variable = { name = tfe_preaching years = 5 }
+				set_variable = { name = tfe_preaching value = 5 }
 			}
 			1 = {
-				set_variable = { name = tfe_preaching years = 7 }
+				set_variable = { name = tfe_preaching value = 7 }
 			}
 			1 = {
-				set_variable = { name = tfe_preaching years = 10 }
+				set_variable = { name = tfe_preaching value = 10 }
 			}
 		}
 	}

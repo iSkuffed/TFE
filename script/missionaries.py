@@ -109,9 +109,11 @@ def triggers():
             for pagan in (PAGANS if faith == NICENE else ARIAN_PAGANS):
                 o.compare("this", "=", f"religion:{pagan}")
     for faith in MOVEMENT:
-        d.note(f"location: a place the {NAME[faith]} missionaries would preach in, its people mostly keeping those gods")
-        with d.trigger(FIELD[faith], LocationTrig) as t, t.link("dominant_religion", ReligionTrig, op="?=") as r:
-            r._call(PAGAN_TRIGGER[faith], True)
+        d.note(f"location: a place the {NAME[faith]} missionaries would preach in, its people mostly keeping those gods\n"
+               "and no missionary there yet (the first to leave would take the second's modifier with him)")
+        with d.trigger(FIELD[faith], LocationTrig) as t:
+            t.not_(lambda n: n.has_location_modifier(PREACHING))
+            t.link("dominant_religion", ReligionTrig, lambda r: r._call(PAGAN_TRIGGER[faith], True), op="?=")
         d.note("country: a field it owns or borders")
         with d.trigger(IN_REACH[faith], CountryTrig) as t, t.link("any_owned_location", LocationTrig) as loc, \
                 loc.or_() as o:
@@ -438,7 +440,7 @@ def effects():
             with c.random_list() as r:
                 for years in PREACH_YEARS:
                     with r.weight(1) as w:
-                        w.set_variable(name="tfe_preaching", years=years)
+                        w.set_variable(name="tfe_preaching", value=years)  # years left, counted down by the yearly pulse
         with fx.link("scope:tfe_mission_at", LocationFx) as loc:
             loc.add_location_modifier(modifier=PREACHING, years=max(PREACH_YEARS))
         spreader(fx, add=True)
@@ -478,6 +480,8 @@ def expedition(doc: Doc):
     with doc.entry(EXPEDITION_TYPE) as e:
         e.note("one missionary on the road per country: pace the chaos")
         e.field("unique", True)
+        e.note("a dead leader ends the mission: else the engine sends a nameless explorer in his place")
+        e.field("fail_if_no_leader", True)
         e.field("travel_speed", TRAVEL_SPEED)
         e.field("travel_mode", "land")
         e.field("dynamic_first_waypoint", True)
@@ -506,6 +510,7 @@ def collect_near(fx: CountryFx, frm: str, faith: str, name: str):
             with n.if_() as i:
                 with i.limit() as t:
                     t._call(FIELD[faith], True)
+                    t.not_(lambda n: n.compare("this", "=", frm))  # two steps out, the ring comes home
                 i.add_to_temporary_list(name)
             if depth > 1:
                 ring(n, depth - 1)
@@ -518,34 +523,36 @@ def end_missions(d: Defs):
     (a character made for the road must not crowd the court)"""
     d.hook("yearly_country_pulse", "tfe_on_missions_end")
     with d.on_action("tfe_on_missions_end") as a, a.effect(CountryFx) as e, e.every_character() as c:
-        with c.limit() as t:
-            t.has_variable("tfe_mission_at")
-            t.not_(lambda n: n.has_variable("tfe_preaching"))
-        c.save_scope_as("tfe_missionary")
-        with c.link("var:tfe_mission_at", LocationFx) as at:
-            at.save_scope_as("tfe_mission_from")
-        with c.link("root", CountryFx) as r:
-            r.tfe_end_mission_effect(True)
-            for faith in MOVEMENT:
+        c.limit(lambda t: t.has_variable("tfe_mission_at"))
+        c.note("a character's timed variable ran a month for every year in game (saves at 400 and 411): count by hand")
+        c.change_variable(name="tfe_preaching", add=-1)
+        with c.if_() as due:
+            due.limit(lambda t: t.var("tfe_preaching", "<=", 0))
+            due.save_scope_as("tfe_missionary")
+            with due.link("var:tfe_mission_at", LocationFx) as at:
+                at.save_scope_as("tfe_mission_from")
+            with due.link("root", CountryFx) as r:
+                r.tfe_end_mission_effect(True)
+                for faith in MOVEMENT:
+                    with r.if_() as i:
+                        with i.limit() as t:
+                            t.not_(lambda n: n.has_variable("tfe_mission_to"))
+                            with t.link("scope:tfe_missionary", CharacterTrig) as who:
+                                who.compare("religion", "=", f"religion:{faith}")
+                                who.var("tfe_missions", "<", MAX_MISSIONS)
+                        with i.random(MOVE_ON_CHANCE) as go:
+                            collect_near(go, "scope:tfe_mission_from", faith, "tfe_near_fields")
+                            with go.ordered_in_list(LocationFx, list="tfe_near_fields", order_by="population") as to:
+                                to.save_scope_as("tfe_mission_to")
+                            with go.if_() as s:
+                                with s.limit() as t:
+                                    t.exists("scope:tfe_mission_to")
+                                s.tfe_send_missionary_effect(True)
+                r.note("a kill in the character's own scope fails PostValidate (probe): kill from the country")
                 with r.if_() as i:
-                    with i.limit() as t:
-                        t.not_(lambda n: n.has_variable("tfe_mission_to"))
-                        with t.link("scope:tfe_missionary", CharacterTrig) as who:
-                            who.compare("religion", "=", f"religion:{faith}")
-                            who.var("tfe_missions", "<", MAX_MISSIONS)
-                    with i.random(MOVE_ON_CHANCE) as go:
-                        collect_near(go, "scope:tfe_mission_from", faith, "tfe_near_fields")
-                        with go.ordered_in_list(LocationFx, list="tfe_near_fields", order_by="population") as to:
-                            to.save_scope_as("tfe_mission_to")
-                        with go.if_() as s:
-                            with s.limit() as t:
-                                t.exists("scope:tfe_mission_to")
-                            s.tfe_send_missionary_effect(True)
-            r.note("a kill in the character's own scope fails PostValidate (probe): kill from the country")
-            with r.if_() as i:
-                with i.limit() as t, t.link("scope:tfe_missionary", CharacterTrig) as who:
-                    who.not_(lambda n: n.has_variable("tfe_on_road"))
-                i.kill_character_silently("scope:tfe_missionary")
+                    with i.limit() as t, t.link("scope:tfe_missionary", CharacterTrig) as who:
+                        who.not_(lambda n: n.has_variable("tfe_on_road"))
+                    i.kill_character_silently("scope:tfe_missionary")
     d.hook("on_character_death", "tfe_on_missionary_dies")
     with d.on_action("tfe_on_missionary_dies") as a:
         with a.trigger(CountryTrig) as t, t.link("scope:target", CharacterTrig) as dead:
@@ -686,7 +693,8 @@ def close_the_temples(doc: Doc):
                     p.limit(pagan_pop)
                     p.add_pop_satisfaction("pop_satisfaction_mild_penalty")
                 with loc.if_() as i:
-                    i.limit(lambda t: t._call(FIELD[NICENE], True))
+                    i.limit(lambda t: t.link("dominant_religion", ReligionTrig,
+                                             lambda r: r._call(PAGAN_TRIGGER[NICENE], True), op="?="))
                     with i.random(RISING_CHANCE) as r, r.every_pop() as p:
                         p.limit(pagan_pop)
                         p.add_pop_satisfaction("pop_satisfaction_extreme_penalty")
@@ -702,7 +710,7 @@ def faith_decisions(loc: Loc):
     sponsor(doc)
     close_the_temples(doc)
     for key, text in (
-            ("tfe_mission_price_tt", "We have the gold for a mission ([tfe_mission_price])"),
+            ("tfe_mission_price_tt", "We have the gold for a mission ([ROOT.ScriptValue('tfe_mission_price')|0])"),
             ("tfe_mission_on_the_road_tt", "None of our missionaries is still on the road"),
             ("tfe_mission_sponsored_tt", f"We have not sponsored a mission in the last {MISSION_COOLDOWN} years"),
             ("tfe_temples_already_closed_tt", "The temples are not already closed"),

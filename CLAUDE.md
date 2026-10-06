@@ -172,6 +172,9 @@ been seen working in game, or you say plainly that it hasn't.
   "Expedition Lost" popup), dry-run their effect without setting variables or making characters: compute inline
   (`size = { value = var:x multiply = 0.6 }`) rather than read a variable the same effect sets, and guard
   `start_expedition`'s leader.
+- A timed variable on a character (`set_variable = { name = x years = 5 }` in character scope) counts down a
+  month for every year: five years last about 150. Country timers are fine. On a character, store a number and
+  count it down in a yearly pulse (`tfe_on_missions_end`).
 - A saved scope doesn't reliably reach an event fired from another event's `immediate`: the AI hit a null scope and
   crashed the game. Re-derive the scope in the child event.
 - International organisation laws default to `requires_vote = yes`. Set `requires_vote = no` for the leader to decree.
